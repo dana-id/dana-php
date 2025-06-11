@@ -1,0 +1,54 @@
+<?php
+/**
+ * API Client fixtures for testing
+ *
+ * PHP version 7.4
+ *
+ * @category Test
+ * @package  Dana\Tests\Fixtures
+ * @author   DANA Indonesia
+ * @link     https://dashboard.dana.id/
+ */
+
+namespace Dana\Tests\Fixtures;
+
+use Dana\Configuration;
+use Dana\Env;
+use Dana\PaymentGateway\v1\Api\PaymentGatewayApi;
+
+/**
+ * ApiClientFixtures Class
+ * 
+ * Provides test fixtures for API clients
+ */
+class ApiClientFixtures
+{
+    /**
+     * Get a PaymentGatewayApi instance for testing
+     * 
+     * Uses environment variables for configuration
+     * 
+     * @return PaymentGatewayApi
+     */
+    public static function getPaymentGatewayApiInstance(): PaymentGatewayApi
+    {
+        // Get configuration from environment or use defaults
+        $origin = getenv('ORIGIN') ?: 'test-origin';
+        $partnerId = getenv('X_PARTNER_ID') ?: 'test-partner-id';
+        $privateKey = getenv('PRIVATE_KEY') ?: 'test-private-key';
+        $privateKeyPath = getenv('PRIVATE_KEY_PATH') ?: null;
+        $env = Env::SANDBOX;
+
+        // Create configuration
+        $config = new Configuration();
+        
+        $config->setApiKey('ORIGIN', $origin);
+        $config->setApiKey('X_PARTNER_ID', $partnerId);
+        $config->setApiKey('PRIVATE_KEY', $privateKey);
+        $config->setApiKey('PRIVATE_KEY_PATH', $privateKeyPath);
+
+        $config->setApiKey('ENV', $env);
+        
+        return new PaymentGatewayApi(null, $config);
+    }
+}

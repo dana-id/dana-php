@@ -1,0 +1,45 @@
+{
+    "name": "dana/dana-php",
+    "description": "API for doing operations in DANA Payment Gateway (Gapura)",
+    "keywords": [
+        "openapitools",
+        "openapi-generator",
+        "openapi",
+        "php",
+        "sdk",
+        "rest",
+        "api"
+    ],
+    "homepage": "https://github.com/dana-id/dana-php",
+    "license": "unlicense",
+    "authors": [
+        {
+            "name": "DANA Package Manager",
+            "homepage": "https://github.com/dana-id/dana-php"
+        }
+    ],
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "guzzlehttp/guzzle": "^7.3",
+        "guzzlehttp/psr7": "^1.7 || ^2.0",
+        "vlucas/phpdotenv": "^5.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.0 || ^9.0",
+        "friendsofphp/php-cs-fixer": "^3.5"
+    },
+    "autoload": {
+        "psr-4": { 
+            "Dana\\": "lib/"
+        },
+        "classmap": [
+            "lib/PaymentGateway/v1/Enum/Enum.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": { "Dana\\Tests\\" : "tests/" }
+    }
+}
