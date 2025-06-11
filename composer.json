@@ -1,5 +1,5 @@
 {
-    "name": "dana-id/dana-php",
+    "name": "danaid/dana-php",
     "description": "API for doing operations in DANA Payment Gateway (Gapura)",
     "keywords": [
         "openapitools",
