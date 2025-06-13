@@ -614,4 +614,152 @@ class ObjectSerializer
 
         return $qs ? (string) substr($qs, 0, -1) : '';
     }
+
+    /**
+     * Creates a model object from JSON or array data with automatic type handling
+     *
+     * @param array $data JSON decoded data or associative array
+     * @param string $modelClass Fully qualified name of the model class
+     * @param array $overrides Optional key-value pairs to override in the data
+     * @return object The instantiated model object
+     */
+    public static function createModelFromData(array $data, string $modelClass, array $overrides = []): object
+    {
+        // Apply any overrides
+        foreach ($overrides as $key => $value) {
+            $data[$key] = $value;
+        }
+    
+        // Create a new instance of the model class
+        $modelObject = new $modelClass();
+        
+        // Use reflection to get the model properties and setters
+        $reflectionClass = new \ReflectionClass($modelClass);
+    
+        // Set simple properties first
+        foreach ($data as $key => $value) {
+            $setterMethod = 'set' . self::camelize($key);
+            
+            if ($reflectionClass->hasMethod($setterMethod)) {
+                if (is_array($value) && !self::isAssociativeArray($value)) {
+                    // Handle array of objects
+                    continue; // Skip arrays for now, handle complex objects first
+                } else if (is_array($value) && self::isAssociativeArray($value)) {
+                    // This is likely a nested object - get the param type
+                    $method = $reflectionClass->getMethod($setterMethod);
+                    $params = $method->getParameters();
+                    if (isset($params[0]) && $params[0]->hasType()) {
+                        $type = $params[0]->getType();
+                        if ($type instanceof \ReflectionNamedType && !$type->isBuiltin()) {
+                            $nestedClass = $type->getName();
+                            $nestedObject = new $nestedClass();
+                            
+                            // Set properties on the nested object
+                            $nestedReflection = new \ReflectionClass($nestedClass);
+                            foreach ($value as $nestedKey => $nestedValue) {
+                                $nestedSetter = 'set' . self::camelize($nestedKey);
+                                if ($nestedReflection->hasMethod($nestedSetter)) {
+                                    $nestedObject->$nestedSetter($nestedValue);
+                                }
+                            }
+                        
+                            // Set the nested object on the parent
+                            $modelObject->$setterMethod($nestedObject);
+                            continue;
+                        }
+                    }
+                }
+            
+                // For simple types or if we couldn't determine the complex type
+                $modelObject->$setterMethod($value);
+            }
+        }
+    
+        // Now handle array properties
+        foreach ($data as $key => $value) {
+            if (is_array($value) && !self::isAssociativeArray($value)) {
+                $setterMethod = 'set' . self::camelize($key);
+                
+                if ($reflectionClass->hasMethod($setterMethod)) {
+                    // Try to determine the type of objects in the array
+                    $method = $reflectionClass->getMethod($setterMethod);
+                    $params = $method->getParameters();
+                    
+                    // Create array of objects
+                    $objects = [];
+                    foreach ($value as $item) {
+                        if (is_array($item) && isset($params[0]) && $params[0]->hasType()) {
+                            $type = $params[0]->getType();
+                            if ($type instanceof \ReflectionNamedType && !$type->isBuiltin()) {
+                                // Extract the base type from the array type hint
+                                $itemClass = preg_replace("/\\\\\\[\\]$/", '', $type->getName());
+                                if (class_exists($itemClass)) {
+                                    $itemObject = new $itemClass();
+                                    $itemReflection = new \ReflectionClass($itemClass);
+                                    
+                                    foreach ($item as $itemKey => $itemValue) {
+                                        $itemSetter = 'set' . self::camelize($itemKey);
+                                        if ($itemReflection->hasMethod($itemSetter)) {
+                                            $itemObject->$itemSetter($itemValue);
+                                        }
+                                    }
+                                
+                                    $objects[] = $itemObject;
+                                    continue;
+                                }
+                            }
+                        }
+                    
+                        // Fallback: just add the raw value
+                        $objects[] = $item;
+                    }
+                
+                    $modelObject->$setterMethod($objects);
+                }
+            }
+        }
+    
+        return $modelObject;
+    }
+
+    /**
+     * Convert a string to camelCase
+     * 
+     * @param string $string String to convert
+     * @return string Camelized string
+     */
+    private static function camelize(string $string): string
+    {
+        return lcfirst(str_replace('_', '', ucwords($string, '_')));
+    }
+
+    /**
+     * Check if an array is associative (has string keys)
+     * 
+     * @param array $array Array to check
+     * @return bool True if associative
+     */
+    private static function isAssociativeArray(array $array): bool
+    {
+        return array_keys($array) !== range(0, count($array) - 1);
+    }
+
+    /**
+     * Creates a model object from JSON string
+     *
+     * @param string $jsonString JSON string to convert to model object
+     * @param string $modelClass Fully qualified name of the model class
+     * @param array $overrides Optional key-value pairs to override in the data
+     * @return object The instantiated model object
+     */
+    public static function createModelFromJson(string $jsonString, string $modelClass, array $overrides = []): object
+    {
+        $data = json_decode($jsonString, true);
+        
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            throw new \Exception('Error parsing JSON string: ' . json_last_error_msg());
+        }
+        
+        return self::createModelFromData($data, $modelClass, $overrides);
+    }
 }
