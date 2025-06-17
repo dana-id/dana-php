@@ -366,7 +366,7 @@ class RefundOptionBill implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable pay_method cannot be null');
         }
         $allowedValues = $this->getPayMethodAllowableValues();
-        if (!in_array($pay_method, $allowedValues, true) && !empty($pay_method)) {
+        if (!in_array($pay_method, $allowedValues, true) && (!empty($pay_method) || $pay_method !== '')) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'pay_method', must be one of '%s'",

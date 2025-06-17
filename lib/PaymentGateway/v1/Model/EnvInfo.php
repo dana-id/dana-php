@@ -761,7 +761,7 @@ class EnvInfo implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable source_platform cannot be null');
         }
         $allowedValues = $this->getSourcePlatformAllowableValues();
-        if (!in_array($source_platform, $allowedValues, true) && !empty($source_platform)) {
+        if (!in_array($source_platform, $allowedValues, true) && (!empty($source_platform) || $source_platform !== '')) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'source_platform', must be one of '%s'",
@@ -864,7 +864,7 @@ class EnvInfo implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable terminal_type cannot be null');
         }
         $allowedValues = $this->getTerminalTypeAllowableValues();
-        if (!in_array($terminal_type, $allowedValues, true) && !empty($terminal_type)) {
+        if (!in_array($terminal_type, $allowedValues, true) && (!empty($terminal_type) || $terminal_type !== '')) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'terminal_type', must be one of '%s'",
@@ -905,7 +905,7 @@ class EnvInfo implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable order_terminal_type cannot be null');
         }
         $allowedValues = $this->getOrderTerminalTypeAllowableValues();
-        if (!in_array($order_terminal_type, $allowedValues, true) && !empty($order_terminal_type)) {
+        if (!in_array($order_terminal_type, $allowedValues, true) && (!empty($order_terminal_type) || $order_terminal_type !== '')) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'order_terminal_type', must be one of '%s'",

@@ -638,7 +638,7 @@ class OrderRedirectObject implements ModelInterface, ArrayAccess, \JsonSerializa
             throw new \InvalidArgumentException('non-nullable scenario cannot be null');
         }
         $allowedValues = $this->getScenarioAllowableValues();
-        if (!in_array($scenario, $allowedValues, true) && !empty($scenario)) {
+        if (!in_array($scenario, $allowedValues, true) && (!empty($scenario) || $scenario !== '')) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'scenario', must be one of '%s'",
