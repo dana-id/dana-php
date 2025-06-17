@@ -366,7 +366,7 @@ class StatusDetail implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable acquirement_status cannot be null');
         }
         $allowedValues = $this->getAcquirementStatusAllowableValues();
-        if (!in_array($acquirement_status, $allowedValues, true)) {
+        if (!in_array($acquirement_status, $allowedValues, true) && !empty($acquirement_status)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'acquirement_status', must be one of '%s'",

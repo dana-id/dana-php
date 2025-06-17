@@ -638,7 +638,7 @@ class OrderApiObject implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable scenario cannot be null');
         }
         $allowedValues = $this->getScenarioAllowableValues();
-        if (!in_array($scenario, $allowedValues, true)) {
+        if (!in_array($scenario, $allowedValues, true) && !empty($scenario)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'scenario', must be one of '%s'",

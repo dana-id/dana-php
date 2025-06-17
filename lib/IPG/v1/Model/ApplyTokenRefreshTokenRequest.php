@@ -401,7 +401,7 @@ class ApplyTokenRefreshTokenRequest implements ModelInterface, ArrayAccess, \Jso
             throw new \InvalidArgumentException('non-nullable grant_type cannot be null');
         }
         $allowedValues = $this->getGrantTypeAllowableValues();
-        if (!in_array($grant_type, $allowedValues, true)) {
+        if (!in_array($grant_type, $allowedValues, true) && !empty($grant_type)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'grant_type', must be one of '%s'",

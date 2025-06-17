@@ -389,7 +389,7 @@ class ActorContext implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable actor_type cannot be null');
         }
         $allowedValues = $this->getActorTypeAllowableValues();
-        if (!in_array($actor_type, $allowedValues, true)) {
+        if (!in_array($actor_type, $allowedValues, true) && !empty($actor_type)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'actor_type', must be one of '%s'",

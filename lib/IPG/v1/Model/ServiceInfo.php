@@ -381,7 +381,7 @@ class ServiceInfo implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable service_type cannot be null');
         }
         $allowedValues = $this->getServiceTypeAllowableValues();
-        if (!in_array($service_type, $allowedValues, true)) {
+        if (!in_array($service_type, $allowedValues, true) && !empty($service_type)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'service_type', must be one of '%s'",
@@ -418,7 +418,7 @@ class ServiceInfo implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable service_scenario cannot be null');
         }
         $allowedValues = $this->getServiceScenarioAllowableValues();
-        if (!in_array($service_scenario, $allowedValues, true)) {
+        if (!in_array($service_scenario, $allowedValues, true) && !empty($service_scenario)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'service_scenario', must be one of '%s'",

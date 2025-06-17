@@ -445,7 +445,7 @@ class RefundPromoInfo implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable promo_type cannot be null');
         }
         $allowedValues = $this->getPromoTypeAllowableValues();
-        if (!in_array($promo_type, $allowedValues, true)) {
+        if (!in_array($promo_type, $allowedValues, true) && !empty($promo_type)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'promo_type', must be one of '%s'",

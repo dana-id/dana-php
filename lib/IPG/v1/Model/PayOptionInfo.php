@@ -473,7 +473,7 @@ class PayOptionInfo implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable pay_method cannot be null');
         }
         $allowedValues = $this->getPayMethodAllowableValues();
-        if (!in_array($pay_method, $allowedValues, true)) {
+        if (!in_array($pay_method, $allowedValues, true) && !empty($pay_method)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'pay_method', must be one of '%s'",
@@ -514,7 +514,7 @@ class PayOptionInfo implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable pay_option cannot be null');
         }
         $allowedValues = $this->getPayOptionAllowableValues();
-        if (!in_array($pay_option, $allowedValues, true)) {
+        if (!in_array($pay_option, $allowedValues, true) && !empty($pay_option)) {
             throw new \InvalidArgumentException(
                 sprintf(
                     "Invalid value '%s' for 'pay_option', must be one of '%s'",
