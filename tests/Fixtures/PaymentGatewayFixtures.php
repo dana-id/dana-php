@@ -31,8 +31,6 @@ use Dana\PaymentGateway\v1\Model\UrlParam;
 use Dana\PaymentGateway\v1\Enum\PayMethod;
 use Dana\PaymentGateway\v1\Enum\SourcePlatform;
 use Dana\PaymentGateway\v1\Enum\TerminalType;
-use Dana\PaymentGateway\v1\Enum\UrlParamType;
-use Dana\PaymentGateway\v1\Enum\OrderTerminalType;
 
 /**
  * PaymentGatewayFixtures Class

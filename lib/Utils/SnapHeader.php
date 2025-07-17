@@ -23,6 +23,11 @@ namespace Dana\Utils;
  */
 class SnapHeader
 {
+    // Signature scenario constants
+    const SCENARIO_APPLY_TOKEN = 'apply_token';
+    const SCENARIO_APPLY_OTT = 'apply_ott';
+    const SCENARIO_UNBINDING_ACCOUNT = 'unbinding_account';
+    
     /**
      * Generate a UUID v4
      *
@@ -42,6 +47,52 @@ class SnapHeader
     }
 
     /**
+     * Extract additional headers from request body if needed
+     * 
+     * @param array  &$headers Reference to the headers array to be modified
+     * @param string $body     The request body JSON string
+     * 
+     * @return void
+     */
+    private static function extractAdditionalHeaders(array &$headers, string $body): void
+    {
+        if (empty($body)) {
+            return;
+        }
+        
+        $payload = json_decode($body, true);
+        if (json_last_error() !== JSON_ERROR_NONE || !isset($payload['additionalInfo'])) {
+            return; // silently ignore parse errors
+        }
+        
+        $additionalInfo = $payload['additionalInfo'];
+        if (!is_array($additionalInfo)) {
+            return;
+        }
+        
+        // Extract various fields from additionalInfo and add them as headers
+        if (isset($additionalInfo['accessToken']) && !empty($additionalInfo['accessToken'])) {
+            $headers['Authorization-Customer'] = 'Bearer ' . $additionalInfo['accessToken'];
+        }
+        
+        if (isset($additionalInfo['endUserIpAddress']) && !empty($additionalInfo['endUserIpAddress'])) {
+            $headers['X-IP-ADDRESS'] = $additionalInfo['endUserIpAddress'];
+        }
+        
+        if (isset($additionalInfo['deviceId']) && !empty($additionalInfo['deviceId'])) {
+            $headers['X-DEVICE-ID'] = $additionalInfo['deviceId'];
+        }
+        
+        if (isset($additionalInfo['latitude']) && !empty($additionalInfo['latitude'])) {
+            $headers['X-LATITUDE'] = $additionalInfo['latitude'];
+        }
+        
+        if (isset($additionalInfo['longitude']) && !empty($additionalInfo['longitude'])) {
+            $headers['X-LONGITUDE'] = $additionalInfo['longitude'];
+        }
+    }
+    
+    /**
      * Get the private key from various sources
      * 
      * @param string $privateKey      The private key string
@@ -53,17 +104,44 @@ class SnapHeader
     {
         // If privateKeyPath is provided and exists, it takes precedence over privateKey
         if ($privateKeyPath && file_exists($privateKeyPath)) {
-            return file_get_contents($privateKeyPath);
+            $key = file_get_contents($privateKeyPath);
+            return self::convertToPEM($key, 'PRIVATE');
         }
         
         // Handle direct private key string
         if ($privateKey) {
             // Replace escaped newlines with actual newlines
-            return str_replace("\\n", "\n", $privateKey);
+            $key = str_replace("\\n", "\n", $privateKey);
+            return self::convertToPEM($key, 'PRIVATE');
         }
         
         // Throw exception if neither key is provided
         throw new \InvalidArgumentException("Provide one of privateKey or privateKeyPath");
+    }
+    
+    /**
+     * Convert a key string to proper PEM format
+     * 
+     * @param string $key The key content
+     * @param string $keyType The type of key (e.g., 'PRIVATE', 'PUBLIC')
+     * @return string The key in proper PEM format
+     */
+    private static function convertToPEM(string $key, string $keyType): string 
+    {
+        $header = "-----BEGIN {$keyType} KEY-----";
+        $footer = "-----END {$keyType} KEY-----";
+        $delimiter = "\n";
+        
+        // Check if the key is already in PEM format
+        if (strpos($key, $header) !== false && strpos($key, $footer) !== false) {
+            return $key;
+        }
+        
+        // Split the key into 64-character chunks
+        $body = chunk_split($key, 64, $delimiter);
+        
+        // Return the formatted PEM key
+        return $header . $delimiter . $body . $footer;
     }
     
     /**
@@ -104,12 +182,29 @@ class SnapHeader
      * @param string $clientId      Client ID
      * @param string $privateKey    PKCS#1 or PKCS#8 formatted private key
      * @param string $privateKeyPath Optional path to private key file (prioritized over privateKey if provided)
+     * @param string $scenario      The signature scenario (apply_token, apply_ott, unbinding_account, or empty for default)
      *
      * @return array Array of headers
      */
     public static function generateHeaders(string $httpMethod, string $path, string $body, 
-                                           string $clientId, string $privateKey, ?string $privateKeyPath = null): array
+                                           string $clientId, string $privateKey, ?string $privateKeyPath = null,
+                                           string $operationId): array
     {
+        
+        // Set scenario based on operation ID using PHP comparison
+        if (strpos($operationId, 'applyToken') !== false) {
+            // SNAP signature scenario: APPLY TOKEN
+            $scenario = SnapHeader::SCENARIO_APPLY_TOKEN;
+        } else if (strpos($operationId, 'applyOtt') !== false) {
+            // SNAP signature scenario: APPLY OTT
+            $scenario = SnapHeader::SCENARIO_APPLY_OTT;
+        } else if (strpos($operationId, 'accountUnbinding') !== false) {
+            // SNAP signature scenario: ACCOUNT UNBINDING
+            $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
+        } else {
+            // Default B2B signature scenario
+            $scenario = '';
+        }
         
         // Format timestamp as YYYY-MM-DDTHH:mm:ss+07:00 in GMT+7 (Jakarta time)
         $jakartaTimezone = new \DateTimeZone('Asia/Jakarta');
@@ -120,15 +215,39 @@ class SnapHeader
         
         $signature = self::generateSignature($httpMethod, $path, $body, $timestamp, $actualPrivateKey);
         
-        return [
+        // Base headers that apply to all scenarios
+        $baseHeaders = [
             'X-TIMESTAMP' => $timestamp,
-            'X-EXTERNAL-ID' => self::generateUuidV4(),
-            'X-SIGNATURE' => $signature,
             'X-PARTNER-ID' => $clientId,
+            'X-SIGNATURE' => $signature,
             'Content-Type' => 'application/json',
             'ORIGIN' => getenv('ORIGIN') ?: '',
             'CHANNEL-ID' => '95221',
         ];
+        
+        // Apply different header configurations based on the scenario
+        switch ($scenario) {
+            case self::SCENARIO_APPLY_TOKEN:
+                // For ApplyToken, we use client key (partner ID) instead of generating a new external ID
+                $baseHeaders['X-CLIENT-KEY'] = $clientId;
+                break;
+                
+            case self::SCENARIO_APPLY_OTT:
+            case self::SCENARIO_UNBINDING_ACCOUNT:
+                // For ApplyOTT and UnbindingAccount, generate an external ID
+                $baseHeaders['X-EXTERNAL-ID'] = self::generateUuidV4();
+                
+                // Extract additional headers from body if needed
+                self::extractAdditionalHeaders($baseHeaders, $body);
+                break;
+                
+            default:
+                // Default B2B signature scenario
+                $baseHeaders['X-EXTERNAL-ID'] = self::generateUuidV4();
+                break;
+        }
+        
+        return $baseHeaders;
     }
     
     /**
