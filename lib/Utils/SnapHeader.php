@@ -121,6 +121,11 @@ class SnapHeader
     
     /**
      * Convert a key string to proper PEM format
+     * Handles various key formats including:
+     * - Keys without headers/footers
+     * - Keys with escaped newlines (\\n)
+     * - Keys without newlines
+     * - Keys that might already be in proper PEM format
      * 
      * @param string $key The key content
      * @param string $keyType The type of key (e.g., 'PRIVATE', 'PUBLIC')
@@ -128,20 +133,71 @@ class SnapHeader
      */
     private static function convertToPEM(string $key, string $keyType): string 
     {
-        $header = "-----BEGIN {$keyType} KEY-----";
-        $footer = "-----END {$keyType} KEY-----";
-        $delimiter = "\n";
+        // Determine if this is an RSA key or generic private key format
+        $possibleHeaders = [
+            "-----BEGIN {$keyType} KEY-----",
+            "-----BEGIN RSA {$keyType} KEY-----" 
+        ];
+        $possibleFooters = [
+            "-----END {$keyType} KEY-----",
+            "-----END RSA {$keyType} KEY-----"
+        ];
         
-        // Check if the key is already in PEM format
-        if (strpos($key, $header) !== false && strpos($key, $footer) !== false) {
-            return $key;
+        $delimiter = "\n";
+        $headerFound = null;
+        $footerFound = null;
+        
+        // Clean up the key first
+        $key = trim($key);
+        
+        // Replace escaped newlines with actual newlines
+        $key = str_replace('\\n', "\n", $key);
+        
+        // Check if key already has headers/footers
+        foreach ($possibleHeaders as $index => $header) {
+            if (strpos($key, $header) !== false && strpos($key, $possibleFooters[$index]) !== false) {
+                $headerFound = $header;
+                $footerFound = $possibleFooters[$index];
+                break;
+            }
         }
         
-        // Split the key into 64-character chunks
-        $body = chunk_split($key, 64, $delimiter);
+        // If headers/footers found, extract and clean the body
+        if ($headerFound !== null && $footerFound !== null) {
+            // Extract body between header and footer
+            $parts = explode($headerFound, $key, 2);
+            $parts = explode($footerFound, $parts[1], 2);
+            $body = trim($parts[0]);
+            
+            // Keep the original format but ensure proper line breaks
+            $body = preg_replace('/\s+/', '', $body); // Remove all whitespace
+            $body = chunk_split($body, 64, $delimiter); // Format with proper line breaks
+            
+            return $headerFound . $delimiter . $body . $footerFound;
+        }
         
-        // Return the formatted PEM key
-        return $header . $delimiter . $body . $footer;
+        // For keys without headers/footers - try both RSA and standard formats
+        // First attempt standard private key format
+        $cleanKey = preg_replace('/\s+/', '', $key); // Remove all whitespace
+        $formattedBody = chunk_split($cleanKey, 64, $delimiter);
+        
+        $standardHeader = "-----BEGIN {$keyType} KEY-----";
+        $standardFooter = "-----END {$keyType} KEY-----";
+        $formattedKey = $standardHeader . $delimiter . $formattedBody . $standardFooter;
+        
+        // Test if openssl can use this key
+        $resource = @openssl_pkey_get_private($formattedKey);
+        if ($resource !== false) {
+            openssl_free_key($resource);
+            return $formattedKey;
+        }
+        
+        // If standard format fails, try RSA format
+        $rsaHeader = "-----BEGIN RSA {$keyType} KEY-----";
+        $rsaFooter = "-----END RSA {$keyType} KEY-----";
+        $rsaFormattedKey = $rsaHeader . $delimiter . $formattedBody . $rsaFooter;
+        
+        return $rsaFormattedKey;
     }
     
     /**
