@@ -58,7 +58,7 @@ class ApplyTokenResponseAdditionalInfo implements ModelInterface, ArrayAccess, \
       * @var string[]
       */
     protected static $openAPITypes = [
-        'user_info' => '\Dana\Widget\v1\Model\ApplyTokenResponseAdditionalInfoUserInfo'
+        'userInfo' => '\Dana\Widget\v1\Model\ApplyTokenResponseAdditionalInfoUserInfo'
     ];
 
     /**
@@ -69,7 +69,7 @@ class ApplyTokenResponseAdditionalInfo implements ModelInterface, ArrayAccess, \
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'user_info' => null
+        'userInfo' => null
     ];
 
     /**
@@ -78,7 +78,7 @@ class ApplyTokenResponseAdditionalInfo implements ModelInterface, ArrayAccess, \
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'user_info' => false
+        'userInfo' => false
     ];
 
     /**
@@ -167,7 +167,7 @@ class ApplyTokenResponseAdditionalInfo implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $attributeMap = [
-        'user_info' => 'userInfo'
+        'userInfo' => 'userInfo'
     ];
 
     /**
@@ -176,7 +176,7 @@ class ApplyTokenResponseAdditionalInfo implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $setters = [
-        'user_info' => 'setUserInfo'
+        'userInfo' => 'setUserInfo'
     ];
 
     /**
@@ -185,7 +185,7 @@ class ApplyTokenResponseAdditionalInfo implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $getters = [
-        'user_info' => 'getUserInfo'
+        'userInfo' => 'getUserInfo'
     ];
 
     /**
@@ -245,7 +245,7 @@ class ApplyTokenResponseAdditionalInfo implements ModelInterface, ArrayAccess, \
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('user_info', $data ?? [], null);
+        $this->setIfExists('userInfo', $data ?? [], null);
     }
 
     /**
@@ -291,28 +291,28 @@ class ApplyTokenResponseAdditionalInfo implements ModelInterface, ArrayAccess, \
 
 
     /**
-     * Gets user_info
+     * Gets userInfo
      *
      * @return \Dana\Widget\v1\Model\ApplyTokenResponseAdditionalInfoUserInfo|null
      */
     public function getUserInfo()
     {
-        return $this->container['user_info'];
+        return $this->container['userInfo'];
     }
 
     /**
-     * Sets user_info
+     * Sets userInfo
      *
-     * @param \Dana\Widget\v1\Model\ApplyTokenResponseAdditionalInfoUserInfo|null $user_info user_info
+     * @param \Dana\Widget\v1\Model\ApplyTokenResponseAdditionalInfoUserInfo|null $userInfo userInfo
      *
      * @return self
      */
-    public function setUserInfo($user_info)
+    public function setUserInfo($userInfo)
     {
-        if (is_null($user_info)) {
-            throw new \InvalidArgumentException('non-nullable user_info cannot be null');
+        if (is_null($userInfo)) {
+            throw new \InvalidArgumentException('non-nullable userInfo cannot be null');
         }
-        $this->container['user_info'] = $user_info;
+        $this->container['userInfo'] = $userInfo;
 
         return $this;
     }

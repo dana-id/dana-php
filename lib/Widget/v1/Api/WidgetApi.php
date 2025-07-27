@@ -152,16 +152,16 @@ class WidgetApi
      *
      * Account unbinding - Binding
      *
-     * @param  \Dana\Widget\v1\Model\AccountUnbindingRequest $account_unbinding_request account_unbinding_request (required)
+     * @param  \Dana\Widget\v1\Model\AccountUnbindingRequest $accountUnbindingRequest accountUnbindingRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountUnbinding'] to see the possible values for this operation
      *
      * @throws \Dana\Widget\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Dana\Widget\v1\Model\AccountUnbindingResponse
      */
-    public function accountUnbinding($account_unbinding_request, string $contentType = self::contentTypes['accountUnbinding'][0])
+    public function accountUnbinding($accountUnbindingRequest, string $contentType = self::contentTypes['accountUnbinding'][0])
     {
-        list($response) = $this->accountUnbindingWithHttpInfo($account_unbinding_request, $contentType);
+        list($response) = $this->accountUnbindingWithHttpInfo($accountUnbindingRequest, $contentType);
         return $response;
     }
 
@@ -170,16 +170,16 @@ class WidgetApi
      *
      * Account unbinding - Binding
      *
-     * @param  \Dana\Widget\v1\Model\AccountUnbindingRequest $account_unbinding_request (required)
+     * @param  \Dana\Widget\v1\Model\AccountUnbindingRequest $accountUnbindingRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountUnbinding'] to see the possible values for this operation
      *
      * @throws \Dana\Widget\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Dana\Widget\v1\Model\AccountUnbindingResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function accountUnbindingWithHttpInfo($account_unbinding_request, string $contentType = self::contentTypes['accountUnbinding'][0])
+    public function accountUnbindingWithHttpInfo($accountUnbindingRequest, string $contentType = self::contentTypes['accountUnbinding'][0])
     {
-        $request = $this->accountUnbindingRequest($account_unbinding_request, $contentType);
+        $request = $this->accountUnbindingRequest($accountUnbindingRequest, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -295,15 +295,15 @@ class WidgetApi
      *
      * Account unbinding - Binding
      *
-     * @param  \Dana\Widget\v1\Model\AccountUnbindingRequest $account_unbinding_request (required)
+     * @param  \Dana\Widget\v1\Model\AccountUnbindingRequest $accountUnbindingRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountUnbinding'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountUnbindingAsync($account_unbinding_request, string $contentType = self::contentTypes['accountUnbinding'][0])
+    public function accountUnbindingAsync($accountUnbindingRequest, string $contentType = self::contentTypes['accountUnbinding'][0])
     {
-        return $this->accountUnbindingAsyncWithHttpInfo($account_unbinding_request, $contentType)
+        return $this->accountUnbindingAsyncWithHttpInfo($accountUnbindingRequest, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -316,16 +316,16 @@ class WidgetApi
      *
      * Account unbinding - Binding
      *
-     * @param  \Dana\Widget\v1\Model\AccountUnbindingRequest $account_unbinding_request (required)
+     * @param  \Dana\Widget\v1\Model\AccountUnbindingRequest $accountUnbindingRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountUnbinding'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountUnbindingAsyncWithHttpInfo($account_unbinding_request, string $contentType = self::contentTypes['accountUnbinding'][0])
+    public function accountUnbindingAsyncWithHttpInfo($accountUnbindingRequest, string $contentType = self::contentTypes['accountUnbinding'][0])
     {
         $returnType = '\Dana\Widget\v1\Model\AccountUnbindingResponse';
-        $request = $this->accountUnbindingRequest($account_unbinding_request, $contentType);
+        $request = $this->accountUnbindingRequest($accountUnbindingRequest, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -366,19 +366,19 @@ class WidgetApi
     /**
      * Create request for operation 'accountUnbinding'
      *
-     * @param  \Dana\Widget\v1\Model\AccountUnbindingRequest $account_unbinding_request (required)
+     * @param  \Dana\Widget\v1\Model\AccountUnbindingRequest $accountUnbindingRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['accountUnbinding'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function accountUnbindingRequest($account_unbinding_request, string $contentType = self::contentTypes['accountUnbinding'][0])
+    public function accountUnbindingRequest($accountUnbindingRequest, string $contentType = self::contentTypes['accountUnbinding'][0])
     {
 
-        // verify the required parameter 'account_unbinding_request' is set
-        if ($account_unbinding_request === null || (is_array($account_unbinding_request) && count($account_unbinding_request) === 0)) {
+        // verify the required parameter 'accountUnbindingRequest' is set
+        if ($accountUnbindingRequest === null || (is_array($accountUnbindingRequest) && count($accountUnbindingRequest) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $account_unbinding_request when calling accountUnbinding'
+                'Missing the required parameter $accountUnbindingRequest when calling accountUnbinding'
             );
         }
 
@@ -401,12 +401,12 @@ class WidgetApi
         );
 
         // for model (json/xml)
-        if (isset($account_unbinding_request)) {
+        if (isset($accountUnbindingRequest)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($account_unbinding_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($accountUnbindingRequest));
             } else {
-                $httpBody = $account_unbinding_request;
+                $httpBody = $accountUnbindingRequest;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -448,18 +448,18 @@ class WidgetApi
         $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
         $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
         $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
-        if (isset($account_unbinding_request)) {
+        if (isset($accountUnbindingRequest)) {
             $resourcePathForSignature = '/v1.0/registration-account-unbinding.htm';
-            if ($account_unbinding_request !== null) {
+            if ($accountUnbindingRequest !== null) {
                 $resourcePathForSignature = str_replace(
                     '{' . 'AccountUnbindingRequest' . '}',
-                    ObjectSerializer::toPathValue($account_unbinding_request),
+                    ObjectSerializer::toPathValue($accountUnbindingRequest),
                     $resourcePathForSignature
                 );
             }
 
             // Generate security headers using SnapHeader utility
-            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($account_unbinding_request));
+            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($accountUnbindingRequest));
             
             // Determine the signature scenario based on operation ID
             $operationId = 'accountUnbinding';
@@ -468,10 +468,10 @@ class WidgetApi
             if (strpos($operationId, 'applyToken') !== false) {
                 // SNAP signature scenario: APPLY TOKEN
                 $scenario = SnapHeader::SCENARIO_APPLY_TOKEN;
-            } else if (strpos($operationId, 'applyOtt') !== false) {
+            } else if (strpos($operationId, 'applyOTT') !== false) {
                 // SNAP signature scenario: APPLY OTT
                 $scenario = SnapHeader::SCENARIO_APPLY_OTT;
-            } else if (strpos($operationId, 'unbindingAccount') !== false) {
+            } else if (strpos($operationId, 'accountUnbinding') !== false) {
                 // SNAP signature scenario: ACCOUNT UNBINDING
                 $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
             } else {
@@ -501,16 +501,16 @@ class WidgetApi
      *
      * Apply OTT - Widget
      *
-     * @param  \Dana\Widget\v1\Model\ApplyOTTRequest $apply_ott_request apply_ott_request (required)
+     * @param  \Dana\Widget\v1\Model\ApplyOTTRequest $applyOTTRequest applyOTTRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['applyOTT'] to see the possible values for this operation
      *
      * @throws \Dana\Widget\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Dana\Widget\v1\Model\ApplyOTTResponse
      */
-    public function applyOTT($apply_ott_request, string $contentType = self::contentTypes['applyOTT'][0])
+    public function applyOTT($applyOTTRequest, string $contentType = self::contentTypes['applyOTT'][0])
     {
-        list($response) = $this->applyOTTWithHttpInfo($apply_ott_request, $contentType);
+        list($response) = $this->applyOTTWithHttpInfo($applyOTTRequest, $contentType);
         return $response;
     }
 
@@ -519,16 +519,16 @@ class WidgetApi
      *
      * Apply OTT - Widget
      *
-     * @param  \Dana\Widget\v1\Model\ApplyOTTRequest $apply_ott_request (required)
+     * @param  \Dana\Widget\v1\Model\ApplyOTTRequest $applyOTTRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['applyOTT'] to see the possible values for this operation
      *
      * @throws \Dana\Widget\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Dana\Widget\v1\Model\ApplyOTTResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function applyOTTWithHttpInfo($apply_ott_request, string $contentType = self::contentTypes['applyOTT'][0])
+    public function applyOTTWithHttpInfo($applyOTTRequest, string $contentType = self::contentTypes['applyOTT'][0])
     {
-        $request = $this->applyOTTRequest($apply_ott_request, $contentType);
+        $request = $this->applyOTTRequest($applyOTTRequest, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -644,15 +644,15 @@ class WidgetApi
      *
      * Apply OTT - Widget
      *
-     * @param  \Dana\Widget\v1\Model\ApplyOTTRequest $apply_ott_request (required)
+     * @param  \Dana\Widget\v1\Model\ApplyOTTRequest $applyOTTRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['applyOTT'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function applyOTTAsync($apply_ott_request, string $contentType = self::contentTypes['applyOTT'][0])
+    public function applyOTTAsync($applyOTTRequest, string $contentType = self::contentTypes['applyOTT'][0])
     {
-        return $this->applyOTTAsyncWithHttpInfo($apply_ott_request, $contentType)
+        return $this->applyOTTAsyncWithHttpInfo($applyOTTRequest, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -665,16 +665,16 @@ class WidgetApi
      *
      * Apply OTT - Widget
      *
-     * @param  \Dana\Widget\v1\Model\ApplyOTTRequest $apply_ott_request (required)
+     * @param  \Dana\Widget\v1\Model\ApplyOTTRequest $applyOTTRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['applyOTT'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function applyOTTAsyncWithHttpInfo($apply_ott_request, string $contentType = self::contentTypes['applyOTT'][0])
+    public function applyOTTAsyncWithHttpInfo($applyOTTRequest, string $contentType = self::contentTypes['applyOTT'][0])
     {
         $returnType = '\Dana\Widget\v1\Model\ApplyOTTResponse';
-        $request = $this->applyOTTRequest($apply_ott_request, $contentType);
+        $request = $this->applyOTTRequest($applyOTTRequest, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -715,19 +715,19 @@ class WidgetApi
     /**
      * Create request for operation 'applyOTT'
      *
-     * @param  \Dana\Widget\v1\Model\ApplyOTTRequest $apply_ott_request (required)
+     * @param  \Dana\Widget\v1\Model\ApplyOTTRequest $applyOTTRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['applyOTT'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function applyOTTRequest($apply_ott_request, string $contentType = self::contentTypes['applyOTT'][0])
+    public function applyOTTRequest($applyOTTRequest, string $contentType = self::contentTypes['applyOTT'][0])
     {
 
-        // verify the required parameter 'apply_ott_request' is set
-        if ($apply_ott_request === null || (is_array($apply_ott_request) && count($apply_ott_request) === 0)) {
+        // verify the required parameter 'applyOTTRequest' is set
+        if ($applyOTTRequest === null || (is_array($applyOTTRequest) && count($applyOTTRequest) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $apply_ott_request when calling applyOTT'
+                'Missing the required parameter $applyOTTRequest when calling applyOTT'
             );
         }
 
@@ -750,12 +750,12 @@ class WidgetApi
         );
 
         // for model (json/xml)
-        if (isset($apply_ott_request)) {
+        if (isset($applyOTTRequest)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($apply_ott_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($applyOTTRequest));
             } else {
-                $httpBody = $apply_ott_request;
+                $httpBody = $applyOTTRequest;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -797,18 +797,18 @@ class WidgetApi
         $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
         $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
         $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
-        if (isset($apply_ott_request)) {
+        if (isset($applyOTTRequest)) {
             $resourcePathForSignature = '/rest/v1.1/qr/apply-ott';
-            if ($apply_ott_request !== null) {
+            if ($applyOTTRequest !== null) {
                 $resourcePathForSignature = str_replace(
                     '{' . 'ApplyOTTRequest' . '}',
-                    ObjectSerializer::toPathValue($apply_ott_request),
+                    ObjectSerializer::toPathValue($applyOTTRequest),
                     $resourcePathForSignature
                 );
             }
 
             // Generate security headers using SnapHeader utility
-            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($apply_ott_request));
+            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($applyOTTRequest));
             
             // Determine the signature scenario based on operation ID
             $operationId = 'applyOTT';
@@ -817,10 +817,10 @@ class WidgetApi
             if (strpos($operationId, 'applyToken') !== false) {
                 // SNAP signature scenario: APPLY TOKEN
                 $scenario = SnapHeader::SCENARIO_APPLY_TOKEN;
-            } else if (strpos($operationId, 'applyOtt') !== false) {
+            } else if (strpos($operationId, 'applyOTT') !== false) {
                 // SNAP signature scenario: APPLY OTT
                 $scenario = SnapHeader::SCENARIO_APPLY_OTT;
-            } else if (strpos($operationId, 'unbindingAccount') !== false) {
+            } else if (strpos($operationId, 'accountUnbinding') !== false) {
                 // SNAP signature scenario: ACCOUNT UNBINDING
                 $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
             } else {
@@ -850,16 +850,16 @@ class WidgetApi
      *
      * Apply Token, required by Apply OTT - Binding
      *
-     * @param  \Dana\Widget\v1\Model\ApplyTokenRequest $apply_token_request apply_token_request (required)
+     * @param  \Dana\Widget\v1\Model\ApplyTokenRequest $applyTokenRequest applyTokenRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['applyToken'] to see the possible values for this operation
      *
      * @throws \Dana\Widget\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Dana\Widget\v1\Model\ApplyTokenResponse
      */
-    public function applyToken($apply_token_request, string $contentType = self::contentTypes['applyToken'][0])
+    public function applyToken($applyTokenRequest, string $contentType = self::contentTypes['applyToken'][0])
     {
-        list($response) = $this->applyTokenWithHttpInfo($apply_token_request, $contentType);
+        list($response) = $this->applyTokenWithHttpInfo($applyTokenRequest, $contentType);
         return $response;
     }
 
@@ -868,16 +868,16 @@ class WidgetApi
      *
      * Apply Token, required by Apply OTT - Binding
      *
-     * @param  \Dana\Widget\v1\Model\ApplyTokenRequest $apply_token_request (required)
+     * @param  \Dana\Widget\v1\Model\ApplyTokenRequest $applyTokenRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['applyToken'] to see the possible values for this operation
      *
      * @throws \Dana\Widget\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Dana\Widget\v1\Model\ApplyTokenResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function applyTokenWithHttpInfo($apply_token_request, string $contentType = self::contentTypes['applyToken'][0])
+    public function applyTokenWithHttpInfo($applyTokenRequest, string $contentType = self::contentTypes['applyToken'][0])
     {
-        $request = $this->applyTokenRequest($apply_token_request, $contentType);
+        $request = $this->applyTokenRequest($applyTokenRequest, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -993,15 +993,15 @@ class WidgetApi
      *
      * Apply Token, required by Apply OTT - Binding
      *
-     * @param  \Dana\Widget\v1\Model\ApplyTokenRequest $apply_token_request (required)
+     * @param  \Dana\Widget\v1\Model\ApplyTokenRequest $applyTokenRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['applyToken'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function applyTokenAsync($apply_token_request, string $contentType = self::contentTypes['applyToken'][0])
+    public function applyTokenAsync($applyTokenRequest, string $contentType = self::contentTypes['applyToken'][0])
     {
-        return $this->applyTokenAsyncWithHttpInfo($apply_token_request, $contentType)
+        return $this->applyTokenAsyncWithHttpInfo($applyTokenRequest, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1014,16 +1014,16 @@ class WidgetApi
      *
      * Apply Token, required by Apply OTT - Binding
      *
-     * @param  \Dana\Widget\v1\Model\ApplyTokenRequest $apply_token_request (required)
+     * @param  \Dana\Widget\v1\Model\ApplyTokenRequest $applyTokenRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['applyToken'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function applyTokenAsyncWithHttpInfo($apply_token_request, string $contentType = self::contentTypes['applyToken'][0])
+    public function applyTokenAsyncWithHttpInfo($applyTokenRequest, string $contentType = self::contentTypes['applyToken'][0])
     {
         $returnType = '\Dana\Widget\v1\Model\ApplyTokenResponse';
-        $request = $this->applyTokenRequest($apply_token_request, $contentType);
+        $request = $this->applyTokenRequest($applyTokenRequest, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1064,19 +1064,19 @@ class WidgetApi
     /**
      * Create request for operation 'applyToken'
      *
-     * @param  \Dana\Widget\v1\Model\ApplyTokenRequest $apply_token_request (required)
+     * @param  \Dana\Widget\v1\Model\ApplyTokenRequest $applyTokenRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['applyToken'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function applyTokenRequest($apply_token_request, string $contentType = self::contentTypes['applyToken'][0])
+    public function applyTokenRequest($applyTokenRequest, string $contentType = self::contentTypes['applyToken'][0])
     {
 
-        // verify the required parameter 'apply_token_request' is set
-        if ($apply_token_request === null || (is_array($apply_token_request) && count($apply_token_request) === 0)) {
+        // verify the required parameter 'applyTokenRequest' is set
+        if ($applyTokenRequest === null || (is_array($applyTokenRequest) && count($applyTokenRequest) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $apply_token_request when calling applyToken'
+                'Missing the required parameter $applyTokenRequest when calling applyToken'
             );
         }
 
@@ -1099,12 +1099,12 @@ class WidgetApi
         );
 
         // for model (json/xml)
-        if (isset($apply_token_request)) {
+        if (isset($applyTokenRequest)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($apply_token_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($applyTokenRequest));
             } else {
-                $httpBody = $apply_token_request;
+                $httpBody = $applyTokenRequest;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1146,18 +1146,18 @@ class WidgetApi
         $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
         $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
         $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
-        if (isset($apply_token_request)) {
+        if (isset($applyTokenRequest)) {
             $resourcePathForSignature = '/v1.0/access-token/b2b2c.htm';
-            if ($apply_token_request !== null) {
+            if ($applyTokenRequest !== null) {
                 $resourcePathForSignature = str_replace(
                     '{' . 'ApplyTokenRequest' . '}',
-                    ObjectSerializer::toPathValue($apply_token_request),
+                    ObjectSerializer::toPathValue($applyTokenRequest),
                     $resourcePathForSignature
                 );
             }
 
             // Generate security headers using SnapHeader utility
-            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($apply_token_request));
+            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($applyTokenRequest));
             
             // Determine the signature scenario based on operation ID
             $operationId = 'applyToken';
@@ -1166,10 +1166,10 @@ class WidgetApi
             if (strpos($operationId, 'applyToken') !== false) {
                 // SNAP signature scenario: APPLY TOKEN
                 $scenario = SnapHeader::SCENARIO_APPLY_TOKEN;
-            } else if (strpos($operationId, 'applyOtt') !== false) {
+            } else if (strpos($operationId, 'applyOTT') !== false) {
                 // SNAP signature scenario: APPLY OTT
                 $scenario = SnapHeader::SCENARIO_APPLY_OTT;
-            } else if (strpos($operationId, 'unbindingAccount') !== false) {
+            } else if (strpos($operationId, 'accountUnbinding') !== false) {
                 // SNAP signature scenario: ACCOUNT UNBINDING
                 $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
             } else {
@@ -1199,16 +1199,16 @@ class WidgetApi
      *
      * Balance Inquiry
      *
-     * @param  \Dana\Widget\v1\Model\BalanceInquiryRequest $balance_inquiry_request balance_inquiry_request (required)
+     * @param  \Dana\Widget\v1\Model\BalanceInquiryRequest $balanceInquiryRequest balanceInquiryRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['balanceInquiry'] to see the possible values for this operation
      *
      * @throws \Dana\Widget\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Dana\Widget\v1\Model\BalanceInquiryResponse
      */
-    public function balanceInquiry($balance_inquiry_request, string $contentType = self::contentTypes['balanceInquiry'][0])
+    public function balanceInquiry($balanceInquiryRequest, string $contentType = self::contentTypes['balanceInquiry'][0])
     {
-        list($response) = $this->balanceInquiryWithHttpInfo($balance_inquiry_request, $contentType);
+        list($response) = $this->balanceInquiryWithHttpInfo($balanceInquiryRequest, $contentType);
         return $response;
     }
 
@@ -1217,16 +1217,16 @@ class WidgetApi
      *
      * Balance Inquiry
      *
-     * @param  \Dana\Widget\v1\Model\BalanceInquiryRequest $balance_inquiry_request (required)
+     * @param  \Dana\Widget\v1\Model\BalanceInquiryRequest $balanceInquiryRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['balanceInquiry'] to see the possible values for this operation
      *
      * @throws \Dana\Widget\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Dana\Widget\v1\Model\BalanceInquiryResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function balanceInquiryWithHttpInfo($balance_inquiry_request, string $contentType = self::contentTypes['balanceInquiry'][0])
+    public function balanceInquiryWithHttpInfo($balanceInquiryRequest, string $contentType = self::contentTypes['balanceInquiry'][0])
     {
-        $request = $this->balanceInquiryRequest($balance_inquiry_request, $contentType);
+        $request = $this->balanceInquiryRequest($balanceInquiryRequest, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1342,15 +1342,15 @@ class WidgetApi
      *
      * Balance Inquiry
      *
-     * @param  \Dana\Widget\v1\Model\BalanceInquiryRequest $balance_inquiry_request (required)
+     * @param  \Dana\Widget\v1\Model\BalanceInquiryRequest $balanceInquiryRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['balanceInquiry'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function balanceInquiryAsync($balance_inquiry_request, string $contentType = self::contentTypes['balanceInquiry'][0])
+    public function balanceInquiryAsync($balanceInquiryRequest, string $contentType = self::contentTypes['balanceInquiry'][0])
     {
-        return $this->balanceInquiryAsyncWithHttpInfo($balance_inquiry_request, $contentType)
+        return $this->balanceInquiryAsyncWithHttpInfo($balanceInquiryRequest, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1363,16 +1363,16 @@ class WidgetApi
      *
      * Balance Inquiry
      *
-     * @param  \Dana\Widget\v1\Model\BalanceInquiryRequest $balance_inquiry_request (required)
+     * @param  \Dana\Widget\v1\Model\BalanceInquiryRequest $balanceInquiryRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['balanceInquiry'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function balanceInquiryAsyncWithHttpInfo($balance_inquiry_request, string $contentType = self::contentTypes['balanceInquiry'][0])
+    public function balanceInquiryAsyncWithHttpInfo($balanceInquiryRequest, string $contentType = self::contentTypes['balanceInquiry'][0])
     {
         $returnType = '\Dana\Widget\v1\Model\BalanceInquiryResponse';
-        $request = $this->balanceInquiryRequest($balance_inquiry_request, $contentType);
+        $request = $this->balanceInquiryRequest($balanceInquiryRequest, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1413,19 +1413,19 @@ class WidgetApi
     /**
      * Create request for operation 'balanceInquiry'
      *
-     * @param  \Dana\Widget\v1\Model\BalanceInquiryRequest $balance_inquiry_request (required)
+     * @param  \Dana\Widget\v1\Model\BalanceInquiryRequest $balanceInquiryRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['balanceInquiry'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function balanceInquiryRequest($balance_inquiry_request, string $contentType = self::contentTypes['balanceInquiry'][0])
+    public function balanceInquiryRequest($balanceInquiryRequest, string $contentType = self::contentTypes['balanceInquiry'][0])
     {
 
-        // verify the required parameter 'balance_inquiry_request' is set
-        if ($balance_inquiry_request === null || (is_array($balance_inquiry_request) && count($balance_inquiry_request) === 0)) {
+        // verify the required parameter 'balanceInquiryRequest' is set
+        if ($balanceInquiryRequest === null || (is_array($balanceInquiryRequest) && count($balanceInquiryRequest) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $balance_inquiry_request when calling balanceInquiry'
+                'Missing the required parameter $balanceInquiryRequest when calling balanceInquiry'
             );
         }
 
@@ -1448,12 +1448,12 @@ class WidgetApi
         );
 
         // for model (json/xml)
-        if (isset($balance_inquiry_request)) {
+        if (isset($balanceInquiryRequest)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($balance_inquiry_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($balanceInquiryRequest));
             } else {
-                $httpBody = $balance_inquiry_request;
+                $httpBody = $balanceInquiryRequest;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1495,18 +1495,18 @@ class WidgetApi
         $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
         $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
         $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
-        if (isset($balance_inquiry_request)) {
+        if (isset($balanceInquiryRequest)) {
             $resourcePathForSignature = '/v1.0/balance-inquiry.htm';
-            if ($balance_inquiry_request !== null) {
+            if ($balanceInquiryRequest !== null) {
                 $resourcePathForSignature = str_replace(
                     '{' . 'BalanceInquiryRequest' . '}',
-                    ObjectSerializer::toPathValue($balance_inquiry_request),
+                    ObjectSerializer::toPathValue($balanceInquiryRequest),
                     $resourcePathForSignature
                 );
             }
 
             // Generate security headers using SnapHeader utility
-            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($balance_inquiry_request));
+            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($balanceInquiryRequest));
             
             // Determine the signature scenario based on operation ID
             $operationId = 'balanceInquiry';
@@ -1515,10 +1515,10 @@ class WidgetApi
             if (strpos($operationId, 'applyToken') !== false) {
                 // SNAP signature scenario: APPLY TOKEN
                 $scenario = SnapHeader::SCENARIO_APPLY_TOKEN;
-            } else if (strpos($operationId, 'applyOtt') !== false) {
+            } else if (strpos($operationId, 'applyOTT') !== false) {
                 // SNAP signature scenario: APPLY OTT
                 $scenario = SnapHeader::SCENARIO_APPLY_OTT;
-            } else if (strpos($operationId, 'unbindingAccount') !== false) {
+            } else if (strpos($operationId, 'accountUnbinding') !== false) {
                 // SNAP signature scenario: ACCOUNT UNBINDING
                 $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
             } else {
@@ -1548,16 +1548,16 @@ class WidgetApi
      *
      * Cancel Order - Widget
      *
-     * @param  \Dana\Widget\v1\Model\CancelOrderRequest $cancel_order_request cancel_order_request (required)
+     * @param  \Dana\Widget\v1\Model\CancelOrderRequest $cancelOrderRequest cancelOrderRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelOrder'] to see the possible values for this operation
      *
      * @throws \Dana\Widget\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Dana\Widget\v1\Model\CancelOrderResponse
      */
-    public function cancelOrder($cancel_order_request, string $contentType = self::contentTypes['cancelOrder'][0])
+    public function cancelOrder($cancelOrderRequest, string $contentType = self::contentTypes['cancelOrder'][0])
     {
-        list($response) = $this->cancelOrderWithHttpInfo($cancel_order_request, $contentType);
+        list($response) = $this->cancelOrderWithHttpInfo($cancelOrderRequest, $contentType);
         return $response;
     }
 
@@ -1566,16 +1566,16 @@ class WidgetApi
      *
      * Cancel Order - Widget
      *
-     * @param  \Dana\Widget\v1\Model\CancelOrderRequest $cancel_order_request (required)
+     * @param  \Dana\Widget\v1\Model\CancelOrderRequest $cancelOrderRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelOrder'] to see the possible values for this operation
      *
      * @throws \Dana\Widget\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Dana\Widget\v1\Model\CancelOrderResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cancelOrderWithHttpInfo($cancel_order_request, string $contentType = self::contentTypes['cancelOrder'][0])
+    public function cancelOrderWithHttpInfo($cancelOrderRequest, string $contentType = self::contentTypes['cancelOrder'][0])
     {
-        $request = $this->cancelOrderRequest($cancel_order_request, $contentType);
+        $request = $this->cancelOrderRequest($cancelOrderRequest, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1691,15 +1691,15 @@ class WidgetApi
      *
      * Cancel Order - Widget
      *
-     * @param  \Dana\Widget\v1\Model\CancelOrderRequest $cancel_order_request (required)
+     * @param  \Dana\Widget\v1\Model\CancelOrderRequest $cancelOrderRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelOrder'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelOrderAsync($cancel_order_request, string $contentType = self::contentTypes['cancelOrder'][0])
+    public function cancelOrderAsync($cancelOrderRequest, string $contentType = self::contentTypes['cancelOrder'][0])
     {
-        return $this->cancelOrderAsyncWithHttpInfo($cancel_order_request, $contentType)
+        return $this->cancelOrderAsyncWithHttpInfo($cancelOrderRequest, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1712,16 +1712,16 @@ class WidgetApi
      *
      * Cancel Order - Widget
      *
-     * @param  \Dana\Widget\v1\Model\CancelOrderRequest $cancel_order_request (required)
+     * @param  \Dana\Widget\v1\Model\CancelOrderRequest $cancelOrderRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelOrder'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelOrderAsyncWithHttpInfo($cancel_order_request, string $contentType = self::contentTypes['cancelOrder'][0])
+    public function cancelOrderAsyncWithHttpInfo($cancelOrderRequest, string $contentType = self::contentTypes['cancelOrder'][0])
     {
         $returnType = '\Dana\Widget\v1\Model\CancelOrderResponse';
-        $request = $this->cancelOrderRequest($cancel_order_request, $contentType);
+        $request = $this->cancelOrderRequest($cancelOrderRequest, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1762,19 +1762,19 @@ class WidgetApi
     /**
      * Create request for operation 'cancelOrder'
      *
-     * @param  \Dana\Widget\v1\Model\CancelOrderRequest $cancel_order_request (required)
+     * @param  \Dana\Widget\v1\Model\CancelOrderRequest $cancelOrderRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelOrder'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cancelOrderRequest($cancel_order_request, string $contentType = self::contentTypes['cancelOrder'][0])
+    public function cancelOrderRequest($cancelOrderRequest, string $contentType = self::contentTypes['cancelOrder'][0])
     {
 
-        // verify the required parameter 'cancel_order_request' is set
-        if ($cancel_order_request === null || (is_array($cancel_order_request) && count($cancel_order_request) === 0)) {
+        // verify the required parameter 'cancelOrderRequest' is set
+        if ($cancelOrderRequest === null || (is_array($cancelOrderRequest) && count($cancelOrderRequest) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $cancel_order_request when calling cancelOrder'
+                'Missing the required parameter $cancelOrderRequest when calling cancelOrder'
             );
         }
 
@@ -1797,12 +1797,12 @@ class WidgetApi
         );
 
         // for model (json/xml)
-        if (isset($cancel_order_request)) {
+        if (isset($cancelOrderRequest)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($cancel_order_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($cancelOrderRequest));
             } else {
-                $httpBody = $cancel_order_request;
+                $httpBody = $cancelOrderRequest;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1844,18 +1844,18 @@ class WidgetApi
         $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
         $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
         $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
-        if (isset($cancel_order_request)) {
+        if (isset($cancelOrderRequest)) {
             $resourcePathForSignature = '/v1.0/debit/cancel.htm';
-            if ($cancel_order_request !== null) {
+            if ($cancelOrderRequest !== null) {
                 $resourcePathForSignature = str_replace(
                     '{' . 'CancelOrderRequest' . '}',
-                    ObjectSerializer::toPathValue($cancel_order_request),
+                    ObjectSerializer::toPathValue($cancelOrderRequest),
                     $resourcePathForSignature
                 );
             }
 
             // Generate security headers using SnapHeader utility
-            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($cancel_order_request));
+            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($cancelOrderRequest));
             
             // Determine the signature scenario based on operation ID
             $operationId = 'cancelOrder';
@@ -1864,10 +1864,10 @@ class WidgetApi
             if (strpos($operationId, 'applyToken') !== false) {
                 // SNAP signature scenario: APPLY TOKEN
                 $scenario = SnapHeader::SCENARIO_APPLY_TOKEN;
-            } else if (strpos($operationId, 'applyOtt') !== false) {
+            } else if (strpos($operationId, 'applyOTT') !== false) {
                 // SNAP signature scenario: APPLY OTT
                 $scenario = SnapHeader::SCENARIO_APPLY_OTT;
-            } else if (strpos($operationId, 'unbindingAccount') !== false) {
+            } else if (strpos($operationId, 'accountUnbinding') !== false) {
                 // SNAP signature scenario: ACCOUNT UNBINDING
                 $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
             } else {
@@ -1897,16 +1897,16 @@ class WidgetApi
      *
      * Query Payment - Widget
      *
-     * @param  \Dana\Widget\v1\Model\QueryPaymentRequest $query_payment_request query_payment_request (required)
+     * @param  \Dana\Widget\v1\Model\QueryPaymentRequest $queryPaymentRequest queryPaymentRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryPayment'] to see the possible values for this operation
      *
      * @throws \Dana\Widget\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Dana\Widget\v1\Model\QueryPaymentResponse
      */
-    public function queryPayment($query_payment_request, string $contentType = self::contentTypes['queryPayment'][0])
+    public function queryPayment($queryPaymentRequest, string $contentType = self::contentTypes['queryPayment'][0])
     {
-        list($response) = $this->queryPaymentWithHttpInfo($query_payment_request, $contentType);
+        list($response) = $this->queryPaymentWithHttpInfo($queryPaymentRequest, $contentType);
         return $response;
     }
 
@@ -1915,16 +1915,16 @@ class WidgetApi
      *
      * Query Payment - Widget
      *
-     * @param  \Dana\Widget\v1\Model\QueryPaymentRequest $query_payment_request (required)
+     * @param  \Dana\Widget\v1\Model\QueryPaymentRequest $queryPaymentRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryPayment'] to see the possible values for this operation
      *
      * @throws \Dana\Widget\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Dana\Widget\v1\Model\QueryPaymentResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function queryPaymentWithHttpInfo($query_payment_request, string $contentType = self::contentTypes['queryPayment'][0])
+    public function queryPaymentWithHttpInfo($queryPaymentRequest, string $contentType = self::contentTypes['queryPayment'][0])
     {
-        $request = $this->queryPaymentRequest($query_payment_request, $contentType);
+        $request = $this->queryPaymentRequest($queryPaymentRequest, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2040,15 +2040,15 @@ class WidgetApi
      *
      * Query Payment - Widget
      *
-     * @param  \Dana\Widget\v1\Model\QueryPaymentRequest $query_payment_request (required)
+     * @param  \Dana\Widget\v1\Model\QueryPaymentRequest $queryPaymentRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryPayment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function queryPaymentAsync($query_payment_request, string $contentType = self::contentTypes['queryPayment'][0])
+    public function queryPaymentAsync($queryPaymentRequest, string $contentType = self::contentTypes['queryPayment'][0])
     {
-        return $this->queryPaymentAsyncWithHttpInfo($query_payment_request, $contentType)
+        return $this->queryPaymentAsyncWithHttpInfo($queryPaymentRequest, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2061,16 +2061,16 @@ class WidgetApi
      *
      * Query Payment - Widget
      *
-     * @param  \Dana\Widget\v1\Model\QueryPaymentRequest $query_payment_request (required)
+     * @param  \Dana\Widget\v1\Model\QueryPaymentRequest $queryPaymentRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryPayment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function queryPaymentAsyncWithHttpInfo($query_payment_request, string $contentType = self::contentTypes['queryPayment'][0])
+    public function queryPaymentAsyncWithHttpInfo($queryPaymentRequest, string $contentType = self::contentTypes['queryPayment'][0])
     {
         $returnType = '\Dana\Widget\v1\Model\QueryPaymentResponse';
-        $request = $this->queryPaymentRequest($query_payment_request, $contentType);
+        $request = $this->queryPaymentRequest($queryPaymentRequest, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2111,19 +2111,19 @@ class WidgetApi
     /**
      * Create request for operation 'queryPayment'
      *
-     * @param  \Dana\Widget\v1\Model\QueryPaymentRequest $query_payment_request (required)
+     * @param  \Dana\Widget\v1\Model\QueryPaymentRequest $queryPaymentRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryPayment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function queryPaymentRequest($query_payment_request, string $contentType = self::contentTypes['queryPayment'][0])
+    public function queryPaymentRequest($queryPaymentRequest, string $contentType = self::contentTypes['queryPayment'][0])
     {
 
-        // verify the required parameter 'query_payment_request' is set
-        if ($query_payment_request === null || (is_array($query_payment_request) && count($query_payment_request) === 0)) {
+        // verify the required parameter 'queryPaymentRequest' is set
+        if ($queryPaymentRequest === null || (is_array($queryPaymentRequest) && count($queryPaymentRequest) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $query_payment_request when calling queryPayment'
+                'Missing the required parameter $queryPaymentRequest when calling queryPayment'
             );
         }
 
@@ -2146,12 +2146,12 @@ class WidgetApi
         );
 
         // for model (json/xml)
-        if (isset($query_payment_request)) {
+        if (isset($queryPaymentRequest)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($query_payment_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($queryPaymentRequest));
             } else {
-                $httpBody = $query_payment_request;
+                $httpBody = $queryPaymentRequest;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2193,18 +2193,18 @@ class WidgetApi
         $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
         $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
         $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
-        if (isset($query_payment_request)) {
+        if (isset($queryPaymentRequest)) {
             $resourcePathForSignature = '/rest/v1.1/debit/status';
-            if ($query_payment_request !== null) {
+            if ($queryPaymentRequest !== null) {
                 $resourcePathForSignature = str_replace(
                     '{' . 'QueryPaymentRequest' . '}',
-                    ObjectSerializer::toPathValue($query_payment_request),
+                    ObjectSerializer::toPathValue($queryPaymentRequest),
                     $resourcePathForSignature
                 );
             }
 
             // Generate security headers using SnapHeader utility
-            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($query_payment_request));
+            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($queryPaymentRequest));
             
             // Determine the signature scenario based on operation ID
             $operationId = 'queryPayment';
@@ -2213,10 +2213,10 @@ class WidgetApi
             if (strpos($operationId, 'applyToken') !== false) {
                 // SNAP signature scenario: APPLY TOKEN
                 $scenario = SnapHeader::SCENARIO_APPLY_TOKEN;
-            } else if (strpos($operationId, 'applyOtt') !== false) {
+            } else if (strpos($operationId, 'applyOTT') !== false) {
                 // SNAP signature scenario: APPLY OTT
                 $scenario = SnapHeader::SCENARIO_APPLY_OTT;
-            } else if (strpos($operationId, 'unbindingAccount') !== false) {
+            } else if (strpos($operationId, 'accountUnbinding') !== false) {
                 // SNAP signature scenario: ACCOUNT UNBINDING
                 $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
             } else {
@@ -2246,16 +2246,16 @@ class WidgetApi
      *
      * Query User Profile
      *
-     * @param  \Dana\Widget\v1\Model\QueryUserProfileRequest $query_user_profile_request query_user_profile_request (required)
+     * @param  \Dana\Widget\v1\Model\QueryUserProfileRequest $queryUserProfileRequest queryUserProfileRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryUserProfile'] to see the possible values for this operation
      *
      * @throws \Dana\Widget\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Dana\Widget\v1\Model\QueryUserProfileResponse
      */
-    public function queryUserProfile($query_user_profile_request, string $contentType = self::contentTypes['queryUserProfile'][0])
+    public function queryUserProfile($queryUserProfileRequest, string $contentType = self::contentTypes['queryUserProfile'][0])
     {
-        list($response) = $this->queryUserProfileWithHttpInfo($query_user_profile_request, $contentType);
+        list($response) = $this->queryUserProfileWithHttpInfo($queryUserProfileRequest, $contentType);
         return $response;
     }
 
@@ -2264,16 +2264,16 @@ class WidgetApi
      *
      * Query User Profile
      *
-     * @param  \Dana\Widget\v1\Model\QueryUserProfileRequest $query_user_profile_request (required)
+     * @param  \Dana\Widget\v1\Model\QueryUserProfileRequest $queryUserProfileRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryUserProfile'] to see the possible values for this operation
      *
      * @throws \Dana\Widget\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Dana\Widget\v1\Model\QueryUserProfileResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function queryUserProfileWithHttpInfo($query_user_profile_request, string $contentType = self::contentTypes['queryUserProfile'][0])
+    public function queryUserProfileWithHttpInfo($queryUserProfileRequest, string $contentType = self::contentTypes['queryUserProfile'][0])
     {
-        $request = $this->queryUserProfileRequest($query_user_profile_request, $contentType);
+        $request = $this->queryUserProfileRequest($queryUserProfileRequest, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2389,15 +2389,15 @@ class WidgetApi
      *
      * Query User Profile
      *
-     * @param  \Dana\Widget\v1\Model\QueryUserProfileRequest $query_user_profile_request (required)
+     * @param  \Dana\Widget\v1\Model\QueryUserProfileRequest $queryUserProfileRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryUserProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function queryUserProfileAsync($query_user_profile_request, string $contentType = self::contentTypes['queryUserProfile'][0])
+    public function queryUserProfileAsync($queryUserProfileRequest, string $contentType = self::contentTypes['queryUserProfile'][0])
     {
-        return $this->queryUserProfileAsyncWithHttpInfo($query_user_profile_request, $contentType)
+        return $this->queryUserProfileAsyncWithHttpInfo($queryUserProfileRequest, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2410,16 +2410,16 @@ class WidgetApi
      *
      * Query User Profile
      *
-     * @param  \Dana\Widget\v1\Model\QueryUserProfileRequest $query_user_profile_request (required)
+     * @param  \Dana\Widget\v1\Model\QueryUserProfileRequest $queryUserProfileRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryUserProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function queryUserProfileAsyncWithHttpInfo($query_user_profile_request, string $contentType = self::contentTypes['queryUserProfile'][0])
+    public function queryUserProfileAsyncWithHttpInfo($queryUserProfileRequest, string $contentType = self::contentTypes['queryUserProfile'][0])
     {
         $returnType = '\Dana\Widget\v1\Model\QueryUserProfileResponse';
-        $request = $this->queryUserProfileRequest($query_user_profile_request, $contentType);
+        $request = $this->queryUserProfileRequest($queryUserProfileRequest, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2460,19 +2460,19 @@ class WidgetApi
     /**
      * Create request for operation 'queryUserProfile'
      *
-     * @param  \Dana\Widget\v1\Model\QueryUserProfileRequest $query_user_profile_request (required)
+     * @param  \Dana\Widget\v1\Model\QueryUserProfileRequest $queryUserProfileRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryUserProfile'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function queryUserProfileRequest($query_user_profile_request, string $contentType = self::contentTypes['queryUserProfile'][0])
+    public function queryUserProfileRequest($queryUserProfileRequest, string $contentType = self::contentTypes['queryUserProfile'][0])
     {
 
-        // verify the required parameter 'query_user_profile_request' is set
-        if ($query_user_profile_request === null || (is_array($query_user_profile_request) && count($query_user_profile_request) === 0)) {
+        // verify the required parameter 'queryUserProfileRequest' is set
+        if ($queryUserProfileRequest === null || (is_array($queryUserProfileRequest) && count($queryUserProfileRequest) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $query_user_profile_request when calling queryUserProfile'
+                'Missing the required parameter $queryUserProfileRequest when calling queryUserProfile'
             );
         }
 
@@ -2495,12 +2495,12 @@ class WidgetApi
         );
 
         // for model (json/xml)
-        if (isset($query_user_profile_request)) {
+        if (isset($queryUserProfileRequest)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($query_user_profile_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($queryUserProfileRequest));
             } else {
-                $httpBody = $query_user_profile_request;
+                $httpBody = $queryUserProfileRequest;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2542,18 +2542,18 @@ class WidgetApi
         $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
         $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
         $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
-        if (isset($query_user_profile_request)) {
+        if (isset($queryUserProfileRequest)) {
             $resourcePathForSignature = '/dana/member/query/queryUserProfile.htm';
-            if ($query_user_profile_request !== null) {
+            if ($queryUserProfileRequest !== null) {
                 $resourcePathForSignature = str_replace(
                     '{' . 'QueryUserProfileRequest' . '}',
-                    ObjectSerializer::toPathValue($query_user_profile_request),
+                    ObjectSerializer::toPathValue($queryUserProfileRequest),
                     $resourcePathForSignature
                 );
             }
 
             // Generate security headers using SnapHeader utility
-            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($query_user_profile_request));
+            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($queryUserProfileRequest));
             
             // Determine the signature scenario based on operation ID
             $operationId = 'queryUserProfile';
@@ -2562,10 +2562,10 @@ class WidgetApi
             if (strpos($operationId, 'applyToken') !== false) {
                 // SNAP signature scenario: APPLY TOKEN
                 $scenario = SnapHeader::SCENARIO_APPLY_TOKEN;
-            } else if (strpos($operationId, 'applyOtt') !== false) {
+            } else if (strpos($operationId, 'applyOTT') !== false) {
                 // SNAP signature scenario: APPLY OTT
                 $scenario = SnapHeader::SCENARIO_APPLY_OTT;
-            } else if (strpos($operationId, 'unbindingAccount') !== false) {
+            } else if (strpos($operationId, 'accountUnbinding') !== false) {
                 // SNAP signature scenario: ACCOUNT UNBINDING
                 $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
             } else {
@@ -2595,16 +2595,16 @@ class WidgetApi
      *
      * Refund Order - Widget
      *
-     * @param  \Dana\Widget\v1\Model\RefundOrderRequest $refund_order_request refund_order_request (required)
+     * @param  \Dana\Widget\v1\Model\RefundOrderRequest $refundOrderRequest refundOrderRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refundOrder'] to see the possible values for this operation
      *
      * @throws \Dana\Widget\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Dana\Widget\v1\Model\RefundOrderResponse
      */
-    public function refundOrder($refund_order_request, string $contentType = self::contentTypes['refundOrder'][0])
+    public function refundOrder($refundOrderRequest, string $contentType = self::contentTypes['refundOrder'][0])
     {
-        list($response) = $this->refundOrderWithHttpInfo($refund_order_request, $contentType);
+        list($response) = $this->refundOrderWithHttpInfo($refundOrderRequest, $contentType);
         return $response;
     }
 
@@ -2613,16 +2613,16 @@ class WidgetApi
      *
      * Refund Order - Widget
      *
-     * @param  \Dana\Widget\v1\Model\RefundOrderRequest $refund_order_request (required)
+     * @param  \Dana\Widget\v1\Model\RefundOrderRequest $refundOrderRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refundOrder'] to see the possible values for this operation
      *
      * @throws \Dana\Widget\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Dana\Widget\v1\Model\RefundOrderResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function refundOrderWithHttpInfo($refund_order_request, string $contentType = self::contentTypes['refundOrder'][0])
+    public function refundOrderWithHttpInfo($refundOrderRequest, string $contentType = self::contentTypes['refundOrder'][0])
     {
-        $request = $this->refundOrderRequest($refund_order_request, $contentType);
+        $request = $this->refundOrderRequest($refundOrderRequest, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2738,15 +2738,15 @@ class WidgetApi
      *
      * Refund Order - Widget
      *
-     * @param  \Dana\Widget\v1\Model\RefundOrderRequest $refund_order_request (required)
+     * @param  \Dana\Widget\v1\Model\RefundOrderRequest $refundOrderRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refundOrder'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function refundOrderAsync($refund_order_request, string $contentType = self::contentTypes['refundOrder'][0])
+    public function refundOrderAsync($refundOrderRequest, string $contentType = self::contentTypes['refundOrder'][0])
     {
-        return $this->refundOrderAsyncWithHttpInfo($refund_order_request, $contentType)
+        return $this->refundOrderAsyncWithHttpInfo($refundOrderRequest, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2759,16 +2759,16 @@ class WidgetApi
      *
      * Refund Order - Widget
      *
-     * @param  \Dana\Widget\v1\Model\RefundOrderRequest $refund_order_request (required)
+     * @param  \Dana\Widget\v1\Model\RefundOrderRequest $refundOrderRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refundOrder'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function refundOrderAsyncWithHttpInfo($refund_order_request, string $contentType = self::contentTypes['refundOrder'][0])
+    public function refundOrderAsyncWithHttpInfo($refundOrderRequest, string $contentType = self::contentTypes['refundOrder'][0])
     {
         $returnType = '\Dana\Widget\v1\Model\RefundOrderResponse';
-        $request = $this->refundOrderRequest($refund_order_request, $contentType);
+        $request = $this->refundOrderRequest($refundOrderRequest, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2809,19 +2809,19 @@ class WidgetApi
     /**
      * Create request for operation 'refundOrder'
      *
-     * @param  \Dana\Widget\v1\Model\RefundOrderRequest $refund_order_request (required)
+     * @param  \Dana\Widget\v1\Model\RefundOrderRequest $refundOrderRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refundOrder'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function refundOrderRequest($refund_order_request, string $contentType = self::contentTypes['refundOrder'][0])
+    public function refundOrderRequest($refundOrderRequest, string $contentType = self::contentTypes['refundOrder'][0])
     {
 
-        // verify the required parameter 'refund_order_request' is set
-        if ($refund_order_request === null || (is_array($refund_order_request) && count($refund_order_request) === 0)) {
+        // verify the required parameter 'refundOrderRequest' is set
+        if ($refundOrderRequest === null || (is_array($refundOrderRequest) && count($refundOrderRequest) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $refund_order_request when calling refundOrder'
+                'Missing the required parameter $refundOrderRequest when calling refundOrder'
             );
         }
 
@@ -2844,12 +2844,12 @@ class WidgetApi
         );
 
         // for model (json/xml)
-        if (isset($refund_order_request)) {
+        if (isset($refundOrderRequest)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($refund_order_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($refundOrderRequest));
             } else {
-                $httpBody = $refund_order_request;
+                $httpBody = $refundOrderRequest;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2891,18 +2891,18 @@ class WidgetApi
         $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
         $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
         $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
-        if (isset($refund_order_request)) {
+        if (isset($refundOrderRequest)) {
             $resourcePathForSignature = '/v1.0/debit/refund.htm';
-            if ($refund_order_request !== null) {
+            if ($refundOrderRequest !== null) {
                 $resourcePathForSignature = str_replace(
                     '{' . 'RefundOrderRequest' . '}',
-                    ObjectSerializer::toPathValue($refund_order_request),
+                    ObjectSerializer::toPathValue($refundOrderRequest),
                     $resourcePathForSignature
                 );
             }
 
             // Generate security headers using SnapHeader utility
-            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($refund_order_request));
+            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($refundOrderRequest));
             
             // Determine the signature scenario based on operation ID
             $operationId = 'refundOrder';
@@ -2911,10 +2911,10 @@ class WidgetApi
             if (strpos($operationId, 'applyToken') !== false) {
                 // SNAP signature scenario: APPLY TOKEN
                 $scenario = SnapHeader::SCENARIO_APPLY_TOKEN;
-            } else if (strpos($operationId, 'applyOtt') !== false) {
+            } else if (strpos($operationId, 'applyOTT') !== false) {
                 // SNAP signature scenario: APPLY OTT
                 $scenario = SnapHeader::SCENARIO_APPLY_OTT;
-            } else if (strpos($operationId, 'unbindingAccount') !== false) {
+            } else if (strpos($operationId, 'accountUnbinding') !== false) {
                 // SNAP signature scenario: ACCOUNT UNBINDING
                 $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
             } else {
@@ -2944,16 +2944,16 @@ class WidgetApi
      *
      * Widget Payment - Widget
      *
-     * @param  \Dana\Widget\v1\Model\WidgetPaymentRequest $widget_payment_request widget_payment_request (required)
+     * @param  \Dana\Widget\v1\Model\WidgetPaymentRequest $widgetPaymentRequest widgetPaymentRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['widgetPayment'] to see the possible values for this operation
      *
      * @throws \Dana\Widget\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Dana\Widget\v1\Model\WidgetPaymentResponse
      */
-    public function widgetPayment($widget_payment_request, string $contentType = self::contentTypes['widgetPayment'][0])
+    public function widgetPayment($widgetPaymentRequest, string $contentType = self::contentTypes['widgetPayment'][0])
     {
-        list($response) = $this->widgetPaymentWithHttpInfo($widget_payment_request, $contentType);
+        list($response) = $this->widgetPaymentWithHttpInfo($widgetPaymentRequest, $contentType);
         return $response;
     }
 
@@ -2962,16 +2962,16 @@ class WidgetApi
      *
      * Widget Payment - Widget
      *
-     * @param  \Dana\Widget\v1\Model\WidgetPaymentRequest $widget_payment_request (required)
+     * @param  \Dana\Widget\v1\Model\WidgetPaymentRequest $widgetPaymentRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['widgetPayment'] to see the possible values for this operation
      *
      * @throws \Dana\Widget\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Dana\Widget\v1\Model\WidgetPaymentResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function widgetPaymentWithHttpInfo($widget_payment_request, string $contentType = self::contentTypes['widgetPayment'][0])
+    public function widgetPaymentWithHttpInfo($widgetPaymentRequest, string $contentType = self::contentTypes['widgetPayment'][0])
     {
-        $request = $this->widgetPaymentRequest($widget_payment_request, $contentType);
+        $request = $this->widgetPaymentRequest($widgetPaymentRequest, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3087,15 +3087,15 @@ class WidgetApi
      *
      * Widget Payment - Widget
      *
-     * @param  \Dana\Widget\v1\Model\WidgetPaymentRequest $widget_payment_request (required)
+     * @param  \Dana\Widget\v1\Model\WidgetPaymentRequest $widgetPaymentRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['widgetPayment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function widgetPaymentAsync($widget_payment_request, string $contentType = self::contentTypes['widgetPayment'][0])
+    public function widgetPaymentAsync($widgetPaymentRequest, string $contentType = self::contentTypes['widgetPayment'][0])
     {
-        return $this->widgetPaymentAsyncWithHttpInfo($widget_payment_request, $contentType)
+        return $this->widgetPaymentAsyncWithHttpInfo($widgetPaymentRequest, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3108,16 +3108,16 @@ class WidgetApi
      *
      * Widget Payment - Widget
      *
-     * @param  \Dana\Widget\v1\Model\WidgetPaymentRequest $widget_payment_request (required)
+     * @param  \Dana\Widget\v1\Model\WidgetPaymentRequest $widgetPaymentRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['widgetPayment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function widgetPaymentAsyncWithHttpInfo($widget_payment_request, string $contentType = self::contentTypes['widgetPayment'][0])
+    public function widgetPaymentAsyncWithHttpInfo($widgetPaymentRequest, string $contentType = self::contentTypes['widgetPayment'][0])
     {
         $returnType = '\Dana\Widget\v1\Model\WidgetPaymentResponse';
-        $request = $this->widgetPaymentRequest($widget_payment_request, $contentType);
+        $request = $this->widgetPaymentRequest($widgetPaymentRequest, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3158,19 +3158,19 @@ class WidgetApi
     /**
      * Create request for operation 'widgetPayment'
      *
-     * @param  \Dana\Widget\v1\Model\WidgetPaymentRequest $widget_payment_request (required)
+     * @param  \Dana\Widget\v1\Model\WidgetPaymentRequest $widgetPaymentRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['widgetPayment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function widgetPaymentRequest($widget_payment_request, string $contentType = self::contentTypes['widgetPayment'][0])
+    public function widgetPaymentRequest($widgetPaymentRequest, string $contentType = self::contentTypes['widgetPayment'][0])
     {
 
-        // verify the required parameter 'widget_payment_request' is set
-        if ($widget_payment_request === null || (is_array($widget_payment_request) && count($widget_payment_request) === 0)) {
+        // verify the required parameter 'widgetPaymentRequest' is set
+        if ($widgetPaymentRequest === null || (is_array($widgetPaymentRequest) && count($widgetPaymentRequest) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $widget_payment_request when calling widgetPayment'
+                'Missing the required parameter $widgetPaymentRequest when calling widgetPayment'
             );
         }
 
@@ -3193,12 +3193,12 @@ class WidgetApi
         );
 
         // for model (json/xml)
-        if (isset($widget_payment_request)) {
+        if (isset($widgetPaymentRequest)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($widget_payment_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($widgetPaymentRequest));
             } else {
-                $httpBody = $widget_payment_request;
+                $httpBody = $widgetPaymentRequest;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -3240,18 +3240,18 @@ class WidgetApi
         $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
         $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
         $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
-        if (isset($widget_payment_request)) {
+        if (isset($widgetPaymentRequest)) {
             $resourcePathForSignature = '/rest/redirection/v1.0/debit/payment-host-to-host';
-            if ($widget_payment_request !== null) {
+            if ($widgetPaymentRequest !== null) {
                 $resourcePathForSignature = str_replace(
                     '{' . 'WidgetPaymentRequest' . '}',
-                    ObjectSerializer::toPathValue($widget_payment_request),
+                    ObjectSerializer::toPathValue($widgetPaymentRequest),
                     $resourcePathForSignature
                 );
             }
 
             // Generate security headers using SnapHeader utility
-            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($widget_payment_request));
+            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($widgetPaymentRequest));
             
             // Determine the signature scenario based on operation ID
             $operationId = 'widgetPayment';
@@ -3260,10 +3260,10 @@ class WidgetApi
             if (strpos($operationId, 'applyToken') !== false) {
                 // SNAP signature scenario: APPLY TOKEN
                 $scenario = SnapHeader::SCENARIO_APPLY_TOKEN;
-            } else if (strpos($operationId, 'applyOtt') !== false) {
+            } else if (strpos($operationId, 'applyOTT') !== false) {
                 // SNAP signature scenario: APPLY OTT
                 $scenario = SnapHeader::SCENARIO_APPLY_OTT;
-            } else if (strpos($operationId, 'unbindingAccount') !== false) {
+            } else if (strpos($operationId, 'accountUnbinding') !== false) {
                 // SNAP signature scenario: ACCOUNT UNBINDING
                 $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
             } else {

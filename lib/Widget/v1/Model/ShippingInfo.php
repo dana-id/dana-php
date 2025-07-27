@@ -58,23 +58,23 @@ class ShippingInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'merchant_shipping_id' => 'string',
-        'tracking_no' => 'string',
+        'merchantShippingId' => 'string',
+        'trackingNo' => 'string',
         'carrier' => 'string',
-        'charge_amount' => '\Dana\Widget\v1\Model\Money',
-        'country_name' => 'string',
-        'state_name' => 'string',
-        'city_name' => 'string',
-        'area_name' => 'string',
+        'chargeAmount' => '\Dana\Widget\v1\Model\Money',
+        'countryName' => 'string',
+        'stateName' => 'string',
+        'cityName' => 'string',
+        'areaName' => 'string',
         'address1' => 'string',
         'address2' => 'string',
-        'first_name' => 'string',
-        'last_name' => 'string',
-        'mobile_no' => 'string',
-        'phone_no' => 'string',
-        'zip_code' => 'string',
+        'firstName' => 'string',
+        'lastName' => 'string',
+        'mobileNo' => 'string',
+        'phoneNo' => 'string',
+        'zipCode' => 'string',
         'email' => 'string',
-        'fax_no' => 'string'
+        'faxNo' => 'string'
     ];
 
     /**
@@ -85,23 +85,23 @@ class ShippingInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'merchant_shipping_id' => null,
-        'tracking_no' => null,
+        'merchantShippingId' => null,
+        'trackingNo' => null,
         'carrier' => null,
-        'charge_amount' => null,
-        'country_name' => null,
-        'state_name' => null,
-        'city_name' => null,
-        'area_name' => null,
+        'chargeAmount' => null,
+        'countryName' => null,
+        'stateName' => null,
+        'cityName' => null,
+        'areaName' => null,
         'address1' => null,
         'address2' => null,
-        'first_name' => null,
-        'last_name' => null,
-        'mobile_no' => null,
-        'phone_no' => null,
-        'zip_code' => null,
+        'firstName' => null,
+        'lastName' => null,
+        'mobileNo' => null,
+        'phoneNo' => null,
+        'zipCode' => null,
         'email' => null,
-        'fax_no' => null
+        'faxNo' => null
     ];
 
     /**
@@ -110,23 +110,23 @@ class ShippingInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'merchant_shipping_id' => false,
-        'tracking_no' => false,
+        'merchantShippingId' => false,
+        'trackingNo' => false,
         'carrier' => false,
-        'charge_amount' => false,
-        'country_name' => false,
-        'state_name' => false,
-        'city_name' => false,
-        'area_name' => false,
+        'chargeAmount' => false,
+        'countryName' => false,
+        'stateName' => false,
+        'cityName' => false,
+        'areaName' => false,
         'address1' => false,
         'address2' => false,
-        'first_name' => false,
-        'last_name' => false,
-        'mobile_no' => false,
-        'phone_no' => false,
-        'zip_code' => false,
+        'firstName' => false,
+        'lastName' => false,
+        'mobileNo' => false,
+        'phoneNo' => false,
+        'zipCode' => false,
         'email' => false,
-        'fax_no' => false
+        'faxNo' => false
     ];
 
     /**
@@ -215,23 +215,23 @@ class ShippingInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'merchant_shipping_id' => 'merchantShippingId',
-        'tracking_no' => 'trackingNo',
+        'merchantShippingId' => 'merchantShippingId',
+        'trackingNo' => 'trackingNo',
         'carrier' => 'carrier',
-        'charge_amount' => 'chargeAmount',
-        'country_name' => 'countryName',
-        'state_name' => 'stateName',
-        'city_name' => 'cityName',
-        'area_name' => 'areaName',
+        'chargeAmount' => 'chargeAmount',
+        'countryName' => 'countryName',
+        'stateName' => 'stateName',
+        'cityName' => 'cityName',
+        'areaName' => 'areaName',
         'address1' => 'address1',
         'address2' => 'address2',
-        'first_name' => 'firstName',
-        'last_name' => 'lastName',
-        'mobile_no' => 'mobileNo',
-        'phone_no' => 'phoneNo',
-        'zip_code' => 'zipCode',
+        'firstName' => 'firstName',
+        'lastName' => 'lastName',
+        'mobileNo' => 'mobileNo',
+        'phoneNo' => 'phoneNo',
+        'zipCode' => 'zipCode',
         'email' => 'email',
-        'fax_no' => 'faxNo'
+        'faxNo' => 'faxNo'
     ];
 
     /**
@@ -240,23 +240,23 @@ class ShippingInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'merchant_shipping_id' => 'setMerchantShippingId',
-        'tracking_no' => 'setTrackingNo',
+        'merchantShippingId' => 'setMerchantShippingId',
+        'trackingNo' => 'setTrackingNo',
         'carrier' => 'setCarrier',
-        'charge_amount' => 'setChargeAmount',
-        'country_name' => 'setCountryName',
-        'state_name' => 'setStateName',
-        'city_name' => 'setCityName',
-        'area_name' => 'setAreaName',
+        'chargeAmount' => 'setChargeAmount',
+        'countryName' => 'setCountryName',
+        'stateName' => 'setStateName',
+        'cityName' => 'setCityName',
+        'areaName' => 'setAreaName',
         'address1' => 'setAddress1',
         'address2' => 'setAddress2',
-        'first_name' => 'setFirstName',
-        'last_name' => 'setLastName',
-        'mobile_no' => 'setMobileNo',
-        'phone_no' => 'setPhoneNo',
-        'zip_code' => 'setZipCode',
+        'firstName' => 'setFirstName',
+        'lastName' => 'setLastName',
+        'mobileNo' => 'setMobileNo',
+        'phoneNo' => 'setPhoneNo',
+        'zipCode' => 'setZipCode',
         'email' => 'setEmail',
-        'fax_no' => 'setFaxNo'
+        'faxNo' => 'setFaxNo'
     ];
 
     /**
@@ -265,23 +265,23 @@ class ShippingInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'merchant_shipping_id' => 'getMerchantShippingId',
-        'tracking_no' => 'getTrackingNo',
+        'merchantShippingId' => 'getMerchantShippingId',
+        'trackingNo' => 'getTrackingNo',
         'carrier' => 'getCarrier',
-        'charge_amount' => 'getChargeAmount',
-        'country_name' => 'getCountryName',
-        'state_name' => 'getStateName',
-        'city_name' => 'getCityName',
-        'area_name' => 'getAreaName',
+        'chargeAmount' => 'getChargeAmount',
+        'countryName' => 'getCountryName',
+        'stateName' => 'getStateName',
+        'cityName' => 'getCityName',
+        'areaName' => 'getAreaName',
         'address1' => 'getAddress1',
         'address2' => 'getAddress2',
-        'first_name' => 'getFirstName',
-        'last_name' => 'getLastName',
-        'mobile_no' => 'getMobileNo',
-        'phone_no' => 'getPhoneNo',
-        'zip_code' => 'getZipCode',
+        'firstName' => 'getFirstName',
+        'lastName' => 'getLastName',
+        'mobileNo' => 'getMobileNo',
+        'phoneNo' => 'getPhoneNo',
+        'zipCode' => 'getZipCode',
         'email' => 'getEmail',
-        'fax_no' => 'getFaxNo'
+        'faxNo' => 'getFaxNo'
     ];
 
     /**
@@ -341,23 +341,23 @@ class ShippingInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('merchant_shipping_id', $data ?? [], null);
-        $this->setIfExists('tracking_no', $data ?? [], null);
+        $this->setIfExists('merchantShippingId', $data ?? [], null);
+        $this->setIfExists('trackingNo', $data ?? [], null);
         $this->setIfExists('carrier', $data ?? [], null);
-        $this->setIfExists('charge_amount', $data ?? [], null);
-        $this->setIfExists('country_name', $data ?? [], null);
-        $this->setIfExists('state_name', $data ?? [], null);
-        $this->setIfExists('city_name', $data ?? [], null);
-        $this->setIfExists('area_name', $data ?? [], null);
+        $this->setIfExists('chargeAmount', $data ?? [], null);
+        $this->setIfExists('countryName', $data ?? [], null);
+        $this->setIfExists('stateName', $data ?? [], null);
+        $this->setIfExists('cityName', $data ?? [], null);
+        $this->setIfExists('areaName', $data ?? [], null);
         $this->setIfExists('address1', $data ?? [], null);
         $this->setIfExists('address2', $data ?? [], null);
-        $this->setIfExists('first_name', $data ?? [], null);
-        $this->setIfExists('last_name', $data ?? [], null);
-        $this->setIfExists('mobile_no', $data ?? [], null);
-        $this->setIfExists('phone_no', $data ?? [], null);
-        $this->setIfExists('zip_code', $data ?? [], null);
+        $this->setIfExists('firstName', $data ?? [], null);
+        $this->setIfExists('lastName', $data ?? [], null);
+        $this->setIfExists('mobileNo', $data ?? [], null);
+        $this->setIfExists('phoneNo', $data ?? [], null);
+        $this->setIfExists('zipCode', $data ?? [], null);
         $this->setIfExists('email', $data ?? [], null);
-        $this->setIfExists('fax_no', $data ?? [], null);
+        $this->setIfExists('faxNo', $data ?? [], null);
     }
 
     /**
@@ -387,44 +387,44 @@ class ShippingInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['merchant_shipping_id'] === null) {
-            $invalidProperties[] = "'merchant_shipping_id' can't be null";
+        if ($this->container['merchantShippingId'] === null) {
+            $invalidProperties[] = "'merchantShippingId' can't be null";
         }
-        if ((mb_strlen($this->container['merchant_shipping_id']) > 64)) {
-            $invalidProperties[] = "invalid value for 'merchant_shipping_id', the character length must be smaller than or equal to 64.";
+        if ((mb_strlen($this->container['merchantShippingId']) > 64)) {
+            $invalidProperties[] = "invalid value for 'merchantShippingId', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['tracking_no']) && (mb_strlen($this->container['tracking_no']) > 64)) {
-            $invalidProperties[] = "invalid value for 'tracking_no', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['trackingNo']) && (mb_strlen($this->container['trackingNo']) > 64)) {
+            $invalidProperties[] = "invalid value for 'trackingNo', the character length must be smaller than or equal to 64.";
         }
 
         if (!is_null($this->container['carrier']) && (mb_strlen($this->container['carrier']) > 64)) {
             $invalidProperties[] = "invalid value for 'carrier', the character length must be smaller than or equal to 64.";
         }
 
-        if ($this->container['country_name'] === null) {
-            $invalidProperties[] = "'country_name' can't be null";
+        if ($this->container['countryName'] === null) {
+            $invalidProperties[] = "'countryName' can't be null";
         }
-        if ((mb_strlen($this->container['country_name']) > 64)) {
-            $invalidProperties[] = "invalid value for 'country_name', the character length must be smaller than or equal to 64.";
-        }
-
-        if ($this->container['state_name'] === null) {
-            $invalidProperties[] = "'state_name' can't be null";
-        }
-        if ((mb_strlen($this->container['state_name']) > 64)) {
-            $invalidProperties[] = "invalid value for 'state_name', the character length must be smaller than or equal to 64.";
+        if ((mb_strlen($this->container['countryName']) > 64)) {
+            $invalidProperties[] = "invalid value for 'countryName', the character length must be smaller than or equal to 64.";
         }
 
-        if ($this->container['city_name'] === null) {
-            $invalidProperties[] = "'city_name' can't be null";
+        if ($this->container['stateName'] === null) {
+            $invalidProperties[] = "'stateName' can't be null";
         }
-        if ((mb_strlen($this->container['city_name']) > 64)) {
-            $invalidProperties[] = "invalid value for 'city_name', the character length must be smaller than or equal to 64.";
+        if ((mb_strlen($this->container['stateName']) > 64)) {
+            $invalidProperties[] = "invalid value for 'stateName', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['area_name']) && (mb_strlen($this->container['area_name']) > 64)) {
-            $invalidProperties[] = "invalid value for 'area_name', the character length must be smaller than or equal to 64.";
+        if ($this->container['cityName'] === null) {
+            $invalidProperties[] = "'cityName' can't be null";
+        }
+        if ((mb_strlen($this->container['cityName']) > 64)) {
+            $invalidProperties[] = "invalid value for 'cityName', the character length must be smaller than or equal to 64.";
+        }
+
+        if (!is_null($this->container['areaName']) && (mb_strlen($this->container['areaName']) > 64)) {
+            $invalidProperties[] = "invalid value for 'areaName', the character length must be smaller than or equal to 64.";
         }
 
         if ($this->container['address1'] === null) {
@@ -438,41 +438,41 @@ class ShippingInfo implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'address2', the character length must be smaller than or equal to 256.";
         }
 
-        if ($this->container['first_name'] === null) {
-            $invalidProperties[] = "'first_name' can't be null";
+        if ($this->container['firstName'] === null) {
+            $invalidProperties[] = "'firstName' can't be null";
         }
-        if ((mb_strlen($this->container['first_name']) > 64)) {
-            $invalidProperties[] = "invalid value for 'first_name', the character length must be smaller than or equal to 64.";
-        }
-
-        if ($this->container['last_name'] === null) {
-            $invalidProperties[] = "'last_name' can't be null";
-        }
-        if ((mb_strlen($this->container['last_name']) > 64)) {
-            $invalidProperties[] = "invalid value for 'last_name', the character length must be smaller than or equal to 64.";
+        if ((mb_strlen($this->container['firstName']) > 64)) {
+            $invalidProperties[] = "invalid value for 'firstName', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['mobile_no']) && (mb_strlen($this->container['mobile_no']) > 32)) {
-            $invalidProperties[] = "invalid value for 'mobile_no', the character length must be smaller than or equal to 32.";
+        if ($this->container['lastName'] === null) {
+            $invalidProperties[] = "'lastName' can't be null";
+        }
+        if ((mb_strlen($this->container['lastName']) > 64)) {
+            $invalidProperties[] = "invalid value for 'lastName', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['phone_no']) && (mb_strlen($this->container['phone_no']) > 32)) {
-            $invalidProperties[] = "invalid value for 'phone_no', the character length must be smaller than or equal to 32.";
+        if (!is_null($this->container['mobileNo']) && (mb_strlen($this->container['mobileNo']) > 32)) {
+            $invalidProperties[] = "invalid value for 'mobileNo', the character length must be smaller than or equal to 32.";
         }
 
-        if ($this->container['zip_code'] === null) {
-            $invalidProperties[] = "'zip_code' can't be null";
+        if (!is_null($this->container['phoneNo']) && (mb_strlen($this->container['phoneNo']) > 32)) {
+            $invalidProperties[] = "invalid value for 'phoneNo', the character length must be smaller than or equal to 32.";
         }
-        if ((mb_strlen($this->container['zip_code']) > 32)) {
-            $invalidProperties[] = "invalid value for 'zip_code', the character length must be smaller than or equal to 32.";
+
+        if ($this->container['zipCode'] === null) {
+            $invalidProperties[] = "'zipCode' can't be null";
+        }
+        if ((mb_strlen($this->container['zipCode']) > 32)) {
+            $invalidProperties[] = "invalid value for 'zipCode', the character length must be smaller than or equal to 32.";
         }
 
         if (!is_null($this->container['email']) && (mb_strlen($this->container['email']) > 128)) {
             $invalidProperties[] = "invalid value for 'email', the character length must be smaller than or equal to 128.";
         }
 
-        if (!is_null($this->container['fax_no']) && (mb_strlen($this->container['fax_no']) > 32)) {
-            $invalidProperties[] = "invalid value for 'fax_no', the character length must be smaller than or equal to 32.";
+        if (!is_null($this->container['faxNo']) && (mb_strlen($this->container['faxNo']) > 32)) {
+            $invalidProperties[] = "invalid value for 'faxNo', the character length must be smaller than or equal to 32.";
         }
 
         return $invalidProperties;
@@ -491,63 +491,63 @@ class ShippingInfo implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets merchant_shipping_id
+     * Gets merchantShippingId
      *
      * @return string
      */
     public function getMerchantShippingId()
     {
-        return $this->container['merchant_shipping_id'];
+        return $this->container['merchantShippingId'];
     }
 
     /**
-     * Sets merchant_shipping_id
+     * Sets merchantShippingId
      *
-     * @param string $merchant_shipping_id Merchant shipping identifier
+     * @param string $merchantShippingId Merchant shipping identifier
      *
      * @return self
      */
-    public function setMerchantShippingId($merchant_shipping_id)
+    public function setMerchantShippingId($merchantShippingId)
     {
-        if (is_null($merchant_shipping_id)) {
-            throw new \InvalidArgumentException('non-nullable merchant_shipping_id cannot be null');
+        if (is_null($merchantShippingId)) {
+            throw new \InvalidArgumentException('non-nullable merchantShippingId cannot be null');
         }
-        if ((mb_strlen($merchant_shipping_id) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $merchant_shipping_id when calling ShippingInfo., must be smaller than or equal to 64.');
+        if ((mb_strlen($merchantShippingId) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $merchantShippingId when calling ShippingInfo., must be smaller than or equal to 64.');
         }
 
-        $this->container['merchant_shipping_id'] = $merchant_shipping_id;
+        $this->container['merchantShippingId'] = $merchantShippingId;
 
         return $this;
     }
 
     /**
-     * Gets tracking_no
+     * Gets trackingNo
      *
      * @return string|null
      */
     public function getTrackingNo()
     {
-        return $this->container['tracking_no'];
+        return $this->container['trackingNo'];
     }
 
     /**
-     * Sets tracking_no
+     * Sets trackingNo
      *
-     * @param string|null $tracking_no Number of tracking
+     * @param string|null $trackingNo Number of tracking
      *
      * @return self
      */
-    public function setTrackingNo($tracking_no)
+    public function setTrackingNo($trackingNo)
     {
-        if (is_null($tracking_no)) {
-            throw new \InvalidArgumentException('non-nullable tracking_no cannot be null');
+        if (is_null($trackingNo)) {
+            throw new \InvalidArgumentException('non-nullable trackingNo cannot be null');
         }
-        if ((mb_strlen($tracking_no) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $tracking_no when calling ShippingInfo., must be smaller than or equal to 64.');
+        if ((mb_strlen($trackingNo) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $trackingNo when calling ShippingInfo., must be smaller than or equal to 64.');
         }
 
-        $this->container['tracking_no'] = $tracking_no;
+        $this->container['trackingNo'] = $trackingNo;
 
         return $this;
     }
@@ -584,152 +584,152 @@ class ShippingInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets charge_amount
+     * Gets chargeAmount
      *
      * @return \Dana\Widget\v1\Model\Money|null
      */
     public function getChargeAmount()
     {
-        return $this->container['charge_amount'];
+        return $this->container['chargeAmount'];
     }
 
     /**
-     * Sets charge_amount
+     * Sets chargeAmount
      *
-     * @param \Dana\Widget\v1\Model\Money|null $charge_amount Promo amount. Contains two sub-fields:<br> 1. Value: Transaction amount, including the cents<br> 2. Currency: Currency code based on ISO<br>
+     * @param \Dana\Widget\v1\Model\Money|null $chargeAmount Promo amount. Contains two sub-fields:<br> 1. Value: Transaction amount, including the cents<br> 2. Currency: Currency code based on ISO<br>
      *
      * @return self
      */
-    public function setChargeAmount($charge_amount)
+    public function setChargeAmount($chargeAmount)
     {
-        if (is_null($charge_amount)) {
-            throw new \InvalidArgumentException('non-nullable charge_amount cannot be null');
+        if (is_null($chargeAmount)) {
+            throw new \InvalidArgumentException('non-nullable chargeAmount cannot be null');
         }
-        $this->container['charge_amount'] = $charge_amount;
+        $this->container['chargeAmount'] = $chargeAmount;
 
         return $this;
     }
 
     /**
-     * Gets country_name
+     * Gets countryName
      *
      * @return string
      */
     public function getCountryName()
     {
-        return $this->container['country_name'];
+        return $this->container['countryName'];
     }
 
     /**
-     * Sets country_name
+     * Sets countryName
      *
-     * @param string $country_name Name of country
+     * @param string $countryName Name of country
      *
      * @return self
      */
-    public function setCountryName($country_name)
+    public function setCountryName($countryName)
     {
-        if (is_null($country_name)) {
-            throw new \InvalidArgumentException('non-nullable country_name cannot be null');
+        if (is_null($countryName)) {
+            throw new \InvalidArgumentException('non-nullable countryName cannot be null');
         }
-        if ((mb_strlen($country_name) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $country_name when calling ShippingInfo., must be smaller than or equal to 64.');
+        if ((mb_strlen($countryName) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $countryName when calling ShippingInfo., must be smaller than or equal to 64.');
         }
 
-        $this->container['country_name'] = $country_name;
+        $this->container['countryName'] = $countryName;
 
         return $this;
     }
 
     /**
-     * Gets state_name
+     * Gets stateName
      *
      * @return string
      */
     public function getStateName()
     {
-        return $this->container['state_name'];
+        return $this->container['stateName'];
     }
 
     /**
-     * Sets state_name
+     * Sets stateName
      *
-     * @param string $state_name Name of state
+     * @param string $stateName Name of state
      *
      * @return self
      */
-    public function setStateName($state_name)
+    public function setStateName($stateName)
     {
-        if (is_null($state_name)) {
-            throw new \InvalidArgumentException('non-nullable state_name cannot be null');
+        if (is_null($stateName)) {
+            throw new \InvalidArgumentException('non-nullable stateName cannot be null');
         }
-        if ((mb_strlen($state_name) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $state_name when calling ShippingInfo., must be smaller than or equal to 64.');
+        if ((mb_strlen($stateName) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $stateName when calling ShippingInfo., must be smaller than or equal to 64.');
         }
 
-        $this->container['state_name'] = $state_name;
+        $this->container['stateName'] = $stateName;
 
         return $this;
     }
 
     /**
-     * Gets city_name
+     * Gets cityName
      *
      * @return string
      */
     public function getCityName()
     {
-        return $this->container['city_name'];
+        return $this->container['cityName'];
     }
 
     /**
-     * Sets city_name
+     * Sets cityName
      *
-     * @param string $city_name Name of city
+     * @param string $cityName Name of city
      *
      * @return self
      */
-    public function setCityName($city_name)
+    public function setCityName($cityName)
     {
-        if (is_null($city_name)) {
-            throw new \InvalidArgumentException('non-nullable city_name cannot be null');
+        if (is_null($cityName)) {
+            throw new \InvalidArgumentException('non-nullable cityName cannot be null');
         }
-        if ((mb_strlen($city_name) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $city_name when calling ShippingInfo., must be smaller than or equal to 64.');
+        if ((mb_strlen($cityName) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $cityName when calling ShippingInfo., must be smaller than or equal to 64.');
         }
 
-        $this->container['city_name'] = $city_name;
+        $this->container['cityName'] = $cityName;
 
         return $this;
     }
 
     /**
-     * Gets area_name
+     * Gets areaName
      *
      * @return string|null
      */
     public function getAreaName()
     {
-        return $this->container['area_name'];
+        return $this->container['areaName'];
     }
 
     /**
-     * Sets area_name
+     * Sets areaName
      *
-     * @param string|null $area_name Name of area
+     * @param string|null $areaName Name of area
      *
      * @return self
      */
-    public function setAreaName($area_name)
+    public function setAreaName($areaName)
     {
-        if (is_null($area_name)) {
-            throw new \InvalidArgumentException('non-nullable area_name cannot be null');
+        if (is_null($areaName)) {
+            throw new \InvalidArgumentException('non-nullable areaName cannot be null');
         }
-        if ((mb_strlen($area_name) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $area_name when calling ShippingInfo., must be smaller than or equal to 64.');
+        if ((mb_strlen($areaName) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $areaName when calling ShippingInfo., must be smaller than or equal to 64.');
         }
 
-        $this->container['area_name'] = $area_name;
+        $this->container['areaName'] = $areaName;
 
         return $this;
     }
@@ -797,156 +797,156 @@ class ShippingInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets first_name
+     * Gets firstName
      *
      * @return string
      */
     public function getFirstName()
     {
-        return $this->container['first_name'];
+        return $this->container['firstName'];
     }
 
     /**
-     * Sets first_name
+     * Sets firstName
      *
-     * @param string $first_name First name
+     * @param string $firstName First name
      *
      * @return self
      */
-    public function setFirstName($first_name)
+    public function setFirstName($firstName)
     {
-        if (is_null($first_name)) {
-            throw new \InvalidArgumentException('non-nullable first_name cannot be null');
+        if (is_null($firstName)) {
+            throw new \InvalidArgumentException('non-nullable firstName cannot be null');
         }
-        if ((mb_strlen($first_name) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $first_name when calling ShippingInfo., must be smaller than or equal to 64.');
+        if ((mb_strlen($firstName) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $firstName when calling ShippingInfo., must be smaller than or equal to 64.');
         }
 
-        $this->container['first_name'] = $first_name;
+        $this->container['firstName'] = $firstName;
 
         return $this;
     }
 
     /**
-     * Gets last_name
+     * Gets lastName
      *
      * @return string
      */
     public function getLastName()
     {
-        return $this->container['last_name'];
+        return $this->container['lastName'];
     }
 
     /**
-     * Sets last_name
+     * Sets lastName
      *
-     * @param string $last_name Last name
+     * @param string $lastName Last name
      *
      * @return self
      */
-    public function setLastName($last_name)
+    public function setLastName($lastName)
     {
-        if (is_null($last_name)) {
-            throw new \InvalidArgumentException('non-nullable last_name cannot be null');
+        if (is_null($lastName)) {
+            throw new \InvalidArgumentException('non-nullable lastName cannot be null');
         }
-        if ((mb_strlen($last_name) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $last_name when calling ShippingInfo., must be smaller than or equal to 64.');
+        if ((mb_strlen($lastName) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $lastName when calling ShippingInfo., must be smaller than or equal to 64.');
         }
 
-        $this->container['last_name'] = $last_name;
+        $this->container['lastName'] = $lastName;
 
         return $this;
     }
 
     /**
-     * Gets mobile_no
+     * Gets mobileNo
      *
      * @return string|null
      */
     public function getMobileNo()
     {
-        return $this->container['mobile_no'];
+        return $this->container['mobileNo'];
     }
 
     /**
-     * Sets mobile_no
+     * Sets mobileNo
      *
-     * @param string|null $mobile_no Mobile number
+     * @param string|null $mobileNo Mobile number
      *
      * @return self
      */
-    public function setMobileNo($mobile_no)
+    public function setMobileNo($mobileNo)
     {
-        if (is_null($mobile_no)) {
-            throw new \InvalidArgumentException('non-nullable mobile_no cannot be null');
+        if (is_null($mobileNo)) {
+            throw new \InvalidArgumentException('non-nullable mobileNo cannot be null');
         }
-        if ((mb_strlen($mobile_no) > 32)) {
-            throw new \InvalidArgumentException('invalid length for $mobile_no when calling ShippingInfo., must be smaller than or equal to 32.');
+        if ((mb_strlen($mobileNo) > 32)) {
+            throw new \InvalidArgumentException('invalid length for $mobileNo when calling ShippingInfo., must be smaller than or equal to 32.');
         }
 
-        $this->container['mobile_no'] = $mobile_no;
+        $this->container['mobileNo'] = $mobileNo;
 
         return $this;
     }
 
     /**
-     * Gets phone_no
+     * Gets phoneNo
      *
      * @return string|null
      */
     public function getPhoneNo()
     {
-        return $this->container['phone_no'];
+        return $this->container['phoneNo'];
     }
 
     /**
-     * Sets phone_no
+     * Sets phoneNo
      *
-     * @param string|null $phone_no Phone number
+     * @param string|null $phoneNo Phone number
      *
      * @return self
      */
-    public function setPhoneNo($phone_no)
+    public function setPhoneNo($phoneNo)
     {
-        if (is_null($phone_no)) {
-            throw new \InvalidArgumentException('non-nullable phone_no cannot be null');
+        if (is_null($phoneNo)) {
+            throw new \InvalidArgumentException('non-nullable phoneNo cannot be null');
         }
-        if ((mb_strlen($phone_no) > 32)) {
-            throw new \InvalidArgumentException('invalid length for $phone_no when calling ShippingInfo., must be smaller than or equal to 32.');
+        if ((mb_strlen($phoneNo) > 32)) {
+            throw new \InvalidArgumentException('invalid length for $phoneNo when calling ShippingInfo., must be smaller than or equal to 32.');
         }
 
-        $this->container['phone_no'] = $phone_no;
+        $this->container['phoneNo'] = $phoneNo;
 
         return $this;
     }
 
     /**
-     * Gets zip_code
+     * Gets zipCode
      *
      * @return string
      */
     public function getZipCode()
     {
-        return $this->container['zip_code'];
+        return $this->container['zipCode'];
     }
 
     /**
-     * Sets zip_code
+     * Sets zipCode
      *
-     * @param string $zip_code Zip code
+     * @param string $zipCode Zip code
      *
      * @return self
      */
-    public function setZipCode($zip_code)
+    public function setZipCode($zipCode)
     {
-        if (is_null($zip_code)) {
-            throw new \InvalidArgumentException('non-nullable zip_code cannot be null');
+        if (is_null($zipCode)) {
+            throw new \InvalidArgumentException('non-nullable zipCode cannot be null');
         }
-        if ((mb_strlen($zip_code) > 32)) {
-            throw new \InvalidArgumentException('invalid length for $zip_code when calling ShippingInfo., must be smaller than or equal to 32.');
+        if ((mb_strlen($zipCode) > 32)) {
+            throw new \InvalidArgumentException('invalid length for $zipCode when calling ShippingInfo., must be smaller than or equal to 32.');
         }
 
-        $this->container['zip_code'] = $zip_code;
+        $this->container['zipCode'] = $zipCode;
 
         return $this;
     }
@@ -983,32 +983,32 @@ class ShippingInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets fax_no
+     * Gets faxNo
      *
      * @return string|null
      */
     public function getFaxNo()
     {
-        return $this->container['fax_no'];
+        return $this->container['faxNo'];
     }
 
     /**
-     * Sets fax_no
+     * Sets faxNo
      *
-     * @param string|null $fax_no Fax number
+     * @param string|null $faxNo Fax number
      *
      * @return self
      */
-    public function setFaxNo($fax_no)
+    public function setFaxNo($faxNo)
     {
-        if (is_null($fax_no)) {
-            throw new \InvalidArgumentException('non-nullable fax_no cannot be null');
+        if (is_null($faxNo)) {
+            throw new \InvalidArgumentException('non-nullable faxNo cannot be null');
         }
-        if ((mb_strlen($fax_no) > 32)) {
-            throw new \InvalidArgumentException('invalid length for $fax_no when calling ShippingInfo., must be smaller than or equal to 32.');
+        if ((mb_strlen($faxNo) > 32)) {
+            throw new \InvalidArgumentException('invalid length for $faxNo when calling ShippingInfo., must be smaller than or equal to 32.');
         }
 
-        $this->container['fax_no'] = $fax_no;
+        $this->container['faxNo'] = $faxNo;
 
         return $this;
     }

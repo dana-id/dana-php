@@ -59,13 +59,13 @@ class TransferToDanaRequestAdditionalInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'extend_info' => 'string',
-        'account_type' => 'string',
-        'fund_type' => 'string',
-        'external_division_id' => 'string',
-        'charge_target' => 'string',
-        'access_token' => 'string',
-        'customer_id' => 'string'
+        'extendInfo' => 'string',
+        'accountType' => 'string',
+        'fundType' => 'string',
+        'externalDivisionId' => 'string',
+        'chargeTarget' => 'string',
+        'accessToken' => 'string',
+        'customerId' => 'string'
     ];
 
     /**
@@ -76,13 +76,13 @@ class TransferToDanaRequestAdditionalInfo implements ModelInterface, ArrayAccess
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'extend_info' => null,
-        'account_type' => null,
-        'fund_type' => null,
-        'external_division_id' => null,
-        'charge_target' => null,
-        'access_token' => null,
-        'customer_id' => null
+        'extendInfo' => null,
+        'accountType' => null,
+        'fundType' => null,
+        'externalDivisionId' => null,
+        'chargeTarget' => null,
+        'accessToken' => null,
+        'customerId' => null
     ];
 
     /**
@@ -91,13 +91,13 @@ class TransferToDanaRequestAdditionalInfo implements ModelInterface, ArrayAccess
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'extend_info' => false,
-        'account_type' => false,
-        'fund_type' => false,
-        'external_division_id' => false,
-        'charge_target' => false,
-        'access_token' => false,
-        'customer_id' => false
+        'extendInfo' => false,
+        'accountType' => false,
+        'fundType' => false,
+        'externalDivisionId' => false,
+        'chargeTarget' => false,
+        'accessToken' => false,
+        'customerId' => false
     ];
 
     /**
@@ -186,13 +186,13 @@ class TransferToDanaRequestAdditionalInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'extend_info' => 'extendInfo',
-        'account_type' => 'accountType',
-        'fund_type' => 'fundType',
-        'external_division_id' => 'externalDivisionId',
-        'charge_target' => 'chargeTarget',
-        'access_token' => 'accessToken',
-        'customer_id' => 'customerId'
+        'extendInfo' => 'extendInfo',
+        'accountType' => 'accountType',
+        'fundType' => 'fundType',
+        'externalDivisionId' => 'externalDivisionId',
+        'chargeTarget' => 'chargeTarget',
+        'accessToken' => 'accessToken',
+        'customerId' => 'customerId'
     ];
 
     /**
@@ -201,13 +201,13 @@ class TransferToDanaRequestAdditionalInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'extend_info' => 'setExtendInfo',
-        'account_type' => 'setAccountType',
-        'fund_type' => 'setFundType',
-        'external_division_id' => 'setExternalDivisionId',
-        'charge_target' => 'setChargeTarget',
-        'access_token' => 'setAccessToken',
-        'customer_id' => 'setCustomerId'
+        'extendInfo' => 'setExtendInfo',
+        'accountType' => 'setAccountType',
+        'fundType' => 'setFundType',
+        'externalDivisionId' => 'setExternalDivisionId',
+        'chargeTarget' => 'setChargeTarget',
+        'accessToken' => 'setAccessToken',
+        'customerId' => 'setCustomerId'
     ];
 
     /**
@@ -216,13 +216,13 @@ class TransferToDanaRequestAdditionalInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'extend_info' => 'getExtendInfo',
-        'account_type' => 'getAccountType',
-        'fund_type' => 'getFundType',
-        'external_division_id' => 'getExternalDivisionId',
-        'charge_target' => 'getChargeTarget',
-        'access_token' => 'getAccessToken',
-        'customer_id' => 'getCustomerId'
+        'extendInfo' => 'getExtendInfo',
+        'accountType' => 'getAccountType',
+        'fundType' => 'getFundType',
+        'externalDivisionId' => 'getExternalDivisionId',
+        'chargeTarget' => 'getChargeTarget',
+        'accessToken' => 'getAccessToken',
+        'customerId' => 'getCustomerId'
     ];
 
     /**
@@ -297,13 +297,13 @@ class TransferToDanaRequestAdditionalInfo implements ModelInterface, ArrayAccess
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('extend_info', $data ?? [], null);
-        $this->setIfExists('account_type', $data ?? [], null);
-        $this->setIfExists('fund_type', $data ?? [], null);
-        $this->setIfExists('external_division_id', $data ?? [], null);
-        $this->setIfExists('charge_target', $data ?? [], null);
-        $this->setIfExists('access_token', $data ?? [], null);
-        $this->setIfExists('customer_id', $data ?? [], null);
+        $this->setIfExists('extendInfo', $data ?? [], null);
+        $this->setIfExists('accountType', $data ?? [], null);
+        $this->setIfExists('fundType', $data ?? [], null);
+        $this->setIfExists('externalDivisionId', $data ?? [], null);
+        $this->setIfExists('chargeTarget', $data ?? [], null);
+        $this->setIfExists('accessToken', $data ?? [], null);
+        $this->setIfExists('customerId', $data ?? [], null);
     }
 
     /**
@@ -333,44 +333,44 @@ class TransferToDanaRequestAdditionalInfo implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['extend_info']) && (mb_strlen($this->container['extend_info']) > 4096)) {
-            $invalidProperties[] = "invalid value for 'extend_info', the character length must be smaller than or equal to 4096.";
+        if (!is_null($this->container['extendInfo']) && (mb_strlen($this->container['extendInfo']) > 4096)) {
+            $invalidProperties[] = "invalid value for 'extendInfo', the character length must be smaller than or equal to 4096.";
         }
 
-        if (!is_null($this->container['account_type']) && (mb_strlen($this->container['account_type']) > 64)) {
-            $invalidProperties[] = "invalid value for 'account_type', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['accountType']) && (mb_strlen($this->container['accountType']) > 64)) {
+            $invalidProperties[] = "invalid value for 'accountType', the character length must be smaller than or equal to 64.";
         }
 
-        if ($this->container['fund_type'] === null) {
-            $invalidProperties[] = "'fund_type' can't be null";
+        if ($this->container['fundType'] === null) {
+            $invalidProperties[] = "'fundType' can't be null";
         }
-        if ((mb_strlen($this->container['fund_type']) > 64)) {
-            $invalidProperties[] = "invalid value for 'fund_type', the character length must be smaller than or equal to 64.";
+        if ((mb_strlen($this->container['fundType']) > 64)) {
+            $invalidProperties[] = "invalid value for 'fundType', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['external_division_id']) && (mb_strlen($this->container['external_division_id']) > 64)) {
-            $invalidProperties[] = "invalid value for 'external_division_id', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['externalDivisionId']) && (mb_strlen($this->container['externalDivisionId']) > 64)) {
+            $invalidProperties[] = "invalid value for 'externalDivisionId', the character length must be smaller than or equal to 64.";
         }
 
         $allowedValues = $this->getChargeTargetAllowableValues();
-        if (!is_null($this->container['charge_target']) && !in_array($this->container['charge_target'], $allowedValues, true)) {
+        if (!is_null($this->container['chargeTarget']) && !in_array($this->container['chargeTarget'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'charge_target', must be one of '%s'",
-                $this->container['charge_target'],
+                "invalid value '%s' for 'chargeTarget', must be one of '%s'",
+                $this->container['chargeTarget'],
                 implode("', '", $allowedValues)
             );
         }
 
-        if (!is_null($this->container['charge_target']) && (mb_strlen($this->container['charge_target']) > 64)) {
-            $invalidProperties[] = "invalid value for 'charge_target', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['chargeTarget']) && (mb_strlen($this->container['chargeTarget']) > 64)) {
+            $invalidProperties[] = "invalid value for 'chargeTarget', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['access_token']) && (mb_strlen($this->container['access_token']) > 512)) {
-            $invalidProperties[] = "invalid value for 'access_token', the character length must be smaller than or equal to 512.";
+        if (!is_null($this->container['accessToken']) && (mb_strlen($this->container['accessToken']) > 512)) {
+            $invalidProperties[] = "invalid value for 'accessToken', the character length must be smaller than or equal to 512.";
         }
 
-        if (!is_null($this->container['customer_id']) && (mb_strlen($this->container['customer_id']) > 32)) {
-            $invalidProperties[] = "invalid value for 'customer_id', the character length must be smaller than or equal to 32.";
+        if (!is_null($this->container['customerId']) && (mb_strlen($this->container['customerId']) > 32)) {
+            $invalidProperties[] = "invalid value for 'customerId', the character length must be smaller than or equal to 32.";
         }
 
         return $invalidProperties;
@@ -389,228 +389,228 @@ class TransferToDanaRequestAdditionalInfo implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets extend_info
+     * Gets extendInfo
      *
      * @return string|null
      */
     public function getExtendInfo()
     {
-        return $this->container['extend_info'];
+        return $this->container['extendInfo'];
     }
 
     /**
-     * Sets extend_info
+     * Sets extendInfo
      *
-     * @param string|null $extend_info Additional information of extend
+     * @param string|null $extendInfo Additional information of extend
      *
      * @return self
      */
-    public function setExtendInfo($extend_info)
+    public function setExtendInfo($extendInfo)
     {
-        if (is_null($extend_info)) {
-            throw new \InvalidArgumentException('non-nullable extend_info cannot be null');
+        if (is_null($extendInfo)) {
+            throw new \InvalidArgumentException('non-nullable extendInfo cannot be null');
         }
-        if ((mb_strlen($extend_info) > 4096)) {
-            throw new \InvalidArgumentException('invalid length for $extend_info when calling TransferToDanaRequestAdditionalInfo., must be smaller than or equal to 4096.');
+        if ((mb_strlen($extendInfo) > 4096)) {
+            throw new \InvalidArgumentException('invalid length for $extendInfo when calling TransferToDanaRequestAdditionalInfo., must be smaller than or equal to 4096.');
         }
 
-        $this->container['extend_info'] = $extend_info;
+        $this->container['extendInfo'] = $extendInfo;
 
         return $this;
     }
 
     /**
-     * Gets account_type
+     * Gets accountType
      *
      * @return string|null
      */
     public function getAccountType()
     {
-        return $this->container['account_type'];
+        return $this->container['accountType'];
     }
 
     /**
-     * Sets account_type
+     * Sets accountType
      *
-     * @param string|null $account_type Additional information of account type
+     * @param string|null $accountType Additional information of account type
      *
      * @return self
      */
-    public function setAccountType($account_type)
+    public function setAccountType($accountType)
     {
-        if (is_null($account_type)) {
-            throw new \InvalidArgumentException('non-nullable account_type cannot be null');
+        if (is_null($accountType)) {
+            throw new \InvalidArgumentException('non-nullable accountType cannot be null');
         }
-        if ((mb_strlen($account_type) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $account_type when calling TransferToDanaRequestAdditionalInfo., must be smaller than or equal to 64.');
+        if ((mb_strlen($accountType) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $accountType when calling TransferToDanaRequestAdditionalInfo., must be smaller than or equal to 64.');
         }
 
-        $this->container['account_type'] = $account_type;
+        $this->container['accountType'] = $accountType;
 
         return $this;
     }
 
     /**
-     * Gets fund_type
+     * Gets fundType
      *
      * @return string
      */
     public function getFundType()
     {
-        return $this->container['fund_type'];
+        return $this->container['fundType'];
     }
 
     /**
-     * Sets fund_type
+     * Sets fundType
      *
-     * @param string $fund_type Additional information of transfer to DANA fund type, i.e.<br> AGENT_TOPUP_FOR_USER_SETTLE
+     * @param string $fundType Additional information of transfer to DANA fund type, i.e.<br> AGENT_TOPUP_FOR_USER_SETTLE
      *
      * @return self
      */
-    public function setFundType($fund_type)
+    public function setFundType($fundType)
     {
-        if (is_null($fund_type)) {
-            throw new \InvalidArgumentException('non-nullable fund_type cannot be null');
+        if (is_null($fundType)) {
+            throw new \InvalidArgumentException('non-nullable fundType cannot be null');
         }
-        if ((mb_strlen($fund_type) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $fund_type when calling TransferToDanaRequestAdditionalInfo., must be smaller than or equal to 64.');
+        if ((mb_strlen($fundType) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $fundType when calling TransferToDanaRequestAdditionalInfo., must be smaller than or equal to 64.');
         }
 
-        $this->container['fund_type'] = $fund_type;
+        $this->container['fundType'] = $fundType;
 
         return $this;
     }
 
     /**
-     * Gets external_division_id
+     * Gets externalDivisionId
      *
      * @return string|null
      */
     public function getExternalDivisionId()
     {
-        return $this->container['external_division_id'];
+        return $this->container['externalDivisionId'];
     }
 
     /**
-     * Sets external_division_id
+     * Sets externalDivisionId
      *
-     * @param string|null $external_division_id Additional information of external division identifier. This parameter only used for Transfer to DANA subMerchant (fundType : AGENT_TOPUP_FOR_USER_SETTLE)<br> Notes:<br> The required of this parameter is Optional, but if \"additionalInfo.chargeTarget\" has value DIVISION then the required of this parameter will be changed to Mandatory
+     * @param string|null $externalDivisionId Additional information of external division identifier. This parameter only used for Transfer to DANA subMerchant (fundType : AGENT_TOPUP_FOR_USER_SETTLE)<br> Notes:<br> The required of this parameter is Optional, but if \"additionalInfo.chargeTarget\" has value DIVISION then the required of this parameter will be changed to Mandatory
      *
      * @return self
      */
-    public function setExternalDivisionId($external_division_id)
+    public function setExternalDivisionId($externalDivisionId)
     {
-        if (is_null($external_division_id)) {
-            throw new \InvalidArgumentException('non-nullable external_division_id cannot be null');
+        if (is_null($externalDivisionId)) {
+            throw new \InvalidArgumentException('non-nullable externalDivisionId cannot be null');
         }
-        if ((mb_strlen($external_division_id) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $external_division_id when calling TransferToDanaRequestAdditionalInfo., must be smaller than or equal to 64.');
+        if ((mb_strlen($externalDivisionId) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $externalDivisionId when calling TransferToDanaRequestAdditionalInfo., must be smaller than or equal to 64.');
         }
 
-        $this->container['external_division_id'] = $external_division_id;
+        $this->container['externalDivisionId'] = $externalDivisionId;
 
         return $this;
     }
 
     /**
-     * Gets charge_target
+     * Gets chargeTarget
      *
      * @return string|null
      */
     public function getChargeTarget()
     {
-        return $this->container['charge_target'];
+        return $this->container['chargeTarget'];
     }
 
     /**
-     * Sets charge_target
+     * Sets chargeTarget
      *
-     * @param string|null $charge_target Additional information of charge target. This parameter only used for Transfer to DANA subMerchant. The value are:<br> • null<br> • DIVISION<br> • MERCHANT<br> if the value is DIVISION, externalDivisionId will be Mandatory
+     * @param string|null $chargeTarget Additional information of charge target. This parameter only used for Transfer to DANA subMerchant. The value are:<br> • null<br> • DIVISION<br> • MERCHANT<br> if the value is DIVISION, externalDivisionId will be Mandatory
      *
      * @return self
      */
-    public function setChargeTarget($charge_target)
+    public function setChargeTarget($chargeTarget)
     {
-        if (is_null($charge_target)) {
-            throw new \InvalidArgumentException('non-nullable charge_target cannot be null');
+        if (is_null($chargeTarget)) {
+            throw new \InvalidArgumentException('non-nullable chargeTarget cannot be null');
         }
         $allowedValues = $this->getChargeTargetAllowableValues();
-        if (!in_array($charge_target, $allowedValues, true) && !empty($charge_target)) {
+        if (!in_array($chargeTarget, $allowedValues, true) && !empty($chargeTarget)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'charge_target', must be one of '%s'",
-                    $charge_target,
+                    "Invalid value '%s' for 'chargeTarget', must be one of '%s'",
+                    $chargeTarget,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        if ((mb_strlen($charge_target) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $charge_target when calling TransferToDanaRequestAdditionalInfo., must be smaller than or equal to 64.');
+        if ((mb_strlen($chargeTarget) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $chargeTarget when calling TransferToDanaRequestAdditionalInfo., must be smaller than or equal to 64.');
         }
 
-        $this->container['charge_target'] = $charge_target;
+        $this->container['chargeTarget'] = $chargeTarget;
 
         return $this;
     }
 
     /**
-     * Gets access_token
+     * Gets accessToken
      *
      * @return string|null
      */
     public function getAccessToken()
     {
-        return $this->container['access_token'];
+        return $this->container['accessToken'];
     }
 
     /**
-     * Sets access_token
+     * Sets accessToken
      *
-     * @param string|null $access_token Contains customer token, which has been obtained from binding process, refer to Account Binding & Unbinding documentation<br> If request is coming from user interaction, this field is mandatory. If not, just filled customerNumber
+     * @param string|null $accessToken Contains customer token, which has been obtained from binding process, refer to Account Binding & Unbinding documentation<br> If request is coming from user interaction, this field is mandatory. If not, just filled customerNumber
      *
      * @return self
      */
-    public function setAccessToken($access_token)
+    public function setAccessToken($accessToken)
     {
-        if (is_null($access_token)) {
-            throw new \InvalidArgumentException('non-nullable access_token cannot be null');
+        if (is_null($accessToken)) {
+            throw new \InvalidArgumentException('non-nullable accessToken cannot be null');
         }
-        if ((mb_strlen($access_token) > 512)) {
-            throw new \InvalidArgumentException('invalid length for $access_token when calling TransferToDanaRequestAdditionalInfo., must be smaller than or equal to 512.');
+        if ((mb_strlen($accessToken) > 512)) {
+            throw new \InvalidArgumentException('invalid length for $accessToken when calling TransferToDanaRequestAdditionalInfo., must be smaller than or equal to 512.');
         }
 
-        $this->container['access_token'] = $access_token;
+        $this->container['accessToken'] = $accessToken;
 
         return $this;
     }
 
     /**
-     * Gets customer_id
+     * Gets customerId
      *
      * @return string|null
      */
     public function getCustomerId()
     {
-        return $this->container['customer_id'];
+        return $this->container['customerId'];
     }
 
     /**
-     * Sets customer_id
+     * Sets customerId
      *
-     * @param string|null $customer_id Public user identifier of DANA user.<br> Notes: If used, requires customerNumber to be filled with default phone number literal \"620000000000\"
+     * @param string|null $customerId Public user identifier of DANA user.<br> Notes: If used, requires customerNumber to be filled with default phone number literal \"620000000000\"
      *
      * @return self
      */
-    public function setCustomerId($customer_id)
+    public function setCustomerId($customerId)
     {
-        if (is_null($customer_id)) {
-            throw new \InvalidArgumentException('non-nullable customer_id cannot be null');
+        if (is_null($customerId)) {
+            throw new \InvalidArgumentException('non-nullable customerId cannot be null');
         }
-        if ((mb_strlen($customer_id) > 32)) {
-            throw new \InvalidArgumentException('invalid length for $customer_id when calling TransferToDanaRequestAdditionalInfo., must be smaller than or equal to 32.');
+        if ((mb_strlen($customerId) > 32)) {
+            throw new \InvalidArgumentException('invalid length for $customerId when calling TransferToDanaRequestAdditionalInfo., must be smaller than or equal to 32.');
         }
 
-        $this->container['customer_id'] = $customer_id;
+        $this->container['customerId'] = $customerId;
 
         return $this;
     }

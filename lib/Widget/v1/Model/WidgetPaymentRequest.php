@@ -58,17 +58,17 @@ class WidgetPaymentRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'partner_reference_no' => 'string',
-        'merchant_id' => 'string',
-        'sub_merchant_id' => 'string',
+        'partnerReferenceNo' => 'string',
+        'merchantId' => 'string',
+        'subMerchantId' => 'string',
         'amount' => '\Dana\Widget\v1\Model\Money',
-        'external_store_id' => 'string',
-        'valid_up_to' => 'string',
-        'point_of_initiation' => 'string',
-        'disabled_pay_methods' => 'string',
-        'pay_option_details' => '\Dana\Widget\v1\Model\PayOptionDetail[]',
-        'additional_info' => '\Dana\Widget\v1\Model\WidgetPaymentRequestAdditionalInfo',
-        'url_params' => '\Dana\Widget\v1\Model\UrlParam[]'
+        'externalStoreId' => 'string',
+        'validUpTo' => 'string',
+        'pointOfInitiation' => 'string',
+        'disabledPayMethods' => 'string',
+        'payOptionDetails' => '\Dana\Widget\v1\Model\PayOptionDetail[]',
+        'additionalInfo' => '\Dana\Widget\v1\Model\WidgetPaymentRequestAdditionalInfo',
+        'urlParams' => '\Dana\Widget\v1\Model\UrlParam[]'
     ];
 
     /**
@@ -79,17 +79,17 @@ class WidgetPaymentRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'partner_reference_no' => null,
-        'merchant_id' => null,
-        'sub_merchant_id' => null,
+        'partnerReferenceNo' => null,
+        'merchantId' => null,
+        'subMerchantId' => null,
         'amount' => null,
-        'external_store_id' => null,
-        'valid_up_to' => null,
-        'point_of_initiation' => null,
-        'disabled_pay_methods' => null,
-        'pay_option_details' => null,
-        'additional_info' => null,
-        'url_params' => null
+        'externalStoreId' => null,
+        'validUpTo' => null,
+        'pointOfInitiation' => null,
+        'disabledPayMethods' => null,
+        'payOptionDetails' => null,
+        'additionalInfo' => null,
+        'urlParams' => null
     ];
 
     /**
@@ -98,17 +98,17 @@ class WidgetPaymentRequest implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'partner_reference_no' => false,
-        'merchant_id' => false,
-        'sub_merchant_id' => false,
+        'partnerReferenceNo' => false,
+        'merchantId' => false,
+        'subMerchantId' => false,
         'amount' => false,
-        'external_store_id' => false,
-        'valid_up_to' => false,
-        'point_of_initiation' => false,
-        'disabled_pay_methods' => false,
-        'pay_option_details' => false,
-        'additional_info' => false,
-        'url_params' => false
+        'externalStoreId' => false,
+        'validUpTo' => false,
+        'pointOfInitiation' => false,
+        'disabledPayMethods' => false,
+        'payOptionDetails' => false,
+        'additionalInfo' => false,
+        'urlParams' => false
     ];
 
     /**
@@ -197,17 +197,17 @@ class WidgetPaymentRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'partner_reference_no' => 'partnerReferenceNo',
-        'merchant_id' => 'merchantId',
-        'sub_merchant_id' => 'subMerchantId',
+        'partnerReferenceNo' => 'partnerReferenceNo',
+        'merchantId' => 'merchantId',
+        'subMerchantId' => 'subMerchantId',
         'amount' => 'amount',
-        'external_store_id' => 'externalStoreId',
-        'valid_up_to' => 'validUpTo',
-        'point_of_initiation' => 'pointOfInitiation',
-        'disabled_pay_methods' => 'disabledPayMethods',
-        'pay_option_details' => 'payOptionDetails',
-        'additional_info' => 'additionalInfo',
-        'url_params' => 'urlParams'
+        'externalStoreId' => 'externalStoreId',
+        'validUpTo' => 'validUpTo',
+        'pointOfInitiation' => 'pointOfInitiation',
+        'disabledPayMethods' => 'disabledPayMethods',
+        'payOptionDetails' => 'payOptionDetails',
+        'additionalInfo' => 'additionalInfo',
+        'urlParams' => 'urlParams'
     ];
 
     /**
@@ -216,17 +216,17 @@ class WidgetPaymentRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'partner_reference_no' => 'setPartnerReferenceNo',
-        'merchant_id' => 'setMerchantId',
-        'sub_merchant_id' => 'setSubMerchantId',
+        'partnerReferenceNo' => 'setPartnerReferenceNo',
+        'merchantId' => 'setMerchantId',
+        'subMerchantId' => 'setSubMerchantId',
         'amount' => 'setAmount',
-        'external_store_id' => 'setExternalStoreId',
-        'valid_up_to' => 'setValidUpTo',
-        'point_of_initiation' => 'setPointOfInitiation',
-        'disabled_pay_methods' => 'setDisabledPayMethods',
-        'pay_option_details' => 'setPayOptionDetails',
-        'additional_info' => 'setAdditionalInfo',
-        'url_params' => 'setUrlParams'
+        'externalStoreId' => 'setExternalStoreId',
+        'validUpTo' => 'setValidUpTo',
+        'pointOfInitiation' => 'setPointOfInitiation',
+        'disabledPayMethods' => 'setDisabledPayMethods',
+        'payOptionDetails' => 'setPayOptionDetails',
+        'additionalInfo' => 'setAdditionalInfo',
+        'urlParams' => 'setUrlParams'
     ];
 
     /**
@@ -235,17 +235,17 @@ class WidgetPaymentRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'partner_reference_no' => 'getPartnerReferenceNo',
-        'merchant_id' => 'getMerchantId',
-        'sub_merchant_id' => 'getSubMerchantId',
+        'partnerReferenceNo' => 'getPartnerReferenceNo',
+        'merchantId' => 'getMerchantId',
+        'subMerchantId' => 'getSubMerchantId',
         'amount' => 'getAmount',
-        'external_store_id' => 'getExternalStoreId',
-        'valid_up_to' => 'getValidUpTo',
-        'point_of_initiation' => 'getPointOfInitiation',
-        'disabled_pay_methods' => 'getDisabledPayMethods',
-        'pay_option_details' => 'getPayOptionDetails',
-        'additional_info' => 'getAdditionalInfo',
-        'url_params' => 'getUrlParams'
+        'externalStoreId' => 'getExternalStoreId',
+        'validUpTo' => 'getValidUpTo',
+        'pointOfInitiation' => 'getPointOfInitiation',
+        'disabledPayMethods' => 'getDisabledPayMethods',
+        'payOptionDetails' => 'getPayOptionDetails',
+        'additionalInfo' => 'getAdditionalInfo',
+        'urlParams' => 'getUrlParams'
     ];
 
     /**
@@ -305,17 +305,17 @@ class WidgetPaymentRequest implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('partner_reference_no', $data ?? [], null);
-        $this->setIfExists('merchant_id', $data ?? [], null);
-        $this->setIfExists('sub_merchant_id', $data ?? [], null);
+        $this->setIfExists('partnerReferenceNo', $data ?? [], null);
+        $this->setIfExists('merchantId', $data ?? [], null);
+        $this->setIfExists('subMerchantId', $data ?? [], null);
         $this->setIfExists('amount', $data ?? [], null);
-        $this->setIfExists('external_store_id', $data ?? [], null);
-        $this->setIfExists('valid_up_to', $data ?? [], null);
-        $this->setIfExists('point_of_initiation', $data ?? [], null);
-        $this->setIfExists('disabled_pay_methods', $data ?? [], null);
-        $this->setIfExists('pay_option_details', $data ?? [], null);
-        $this->setIfExists('additional_info', $data ?? [], null);
-        $this->setIfExists('url_params', $data ?? [], null);
+        $this->setIfExists('externalStoreId', $data ?? [], null);
+        $this->setIfExists('validUpTo', $data ?? [], null);
+        $this->setIfExists('pointOfInitiation', $data ?? [], null);
+        $this->setIfExists('disabledPayMethods', $data ?? [], null);
+        $this->setIfExists('payOptionDetails', $data ?? [], null);
+        $this->setIfExists('additionalInfo', $data ?? [], null);
+        $this->setIfExists('urlParams', $data ?? [], null);
     }
 
     /**
@@ -345,45 +345,45 @@ class WidgetPaymentRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $invalidProperties = [];
 
-        if ($this->container['partner_reference_no'] === null) {
-            $invalidProperties[] = "'partner_reference_no' can't be null";
+        if ($this->container['partnerReferenceNo'] === null) {
+            $invalidProperties[] = "'partnerReferenceNo' can't be null";
         }
-        if ((mb_strlen($this->container['partner_reference_no']) > 64)) {
-            $invalidProperties[] = "invalid value for 'partner_reference_no', the character length must be smaller than or equal to 64.";
-        }
-
-        if ($this->container['merchant_id'] === null) {
-            $invalidProperties[] = "'merchant_id' can't be null";
-        }
-        if ((mb_strlen($this->container['merchant_id']) > 64)) {
-            $invalidProperties[] = "invalid value for 'merchant_id', the character length must be smaller than or equal to 64.";
+        if ((mb_strlen($this->container['partnerReferenceNo']) > 64)) {
+            $invalidProperties[] = "invalid value for 'partnerReferenceNo', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['sub_merchant_id']) && (mb_strlen($this->container['sub_merchant_id']) > 32)) {
-            $invalidProperties[] = "invalid value for 'sub_merchant_id', the character length must be smaller than or equal to 32.";
+        if ($this->container['merchantId'] === null) {
+            $invalidProperties[] = "'merchantId' can't be null";
+        }
+        if ((mb_strlen($this->container['merchantId']) > 64)) {
+            $invalidProperties[] = "invalid value for 'merchantId', the character length must be smaller than or equal to 64.";
+        }
+
+        if (!is_null($this->container['subMerchantId']) && (mb_strlen($this->container['subMerchantId']) > 32)) {
+            $invalidProperties[] = "invalid value for 'subMerchantId', the character length must be smaller than or equal to 32.";
         }
 
         if ($this->container['amount'] === null) {
             $invalidProperties[] = "'amount' can't be null";
         }
-        if (!is_null($this->container['external_store_id']) && (mb_strlen($this->container['external_store_id']) > 64)) {
-            $invalidProperties[] = "invalid value for 'external_store_id', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['externalStoreId']) && (mb_strlen($this->container['externalStoreId']) > 64)) {
+            $invalidProperties[] = "invalid value for 'externalStoreId', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['valid_up_to']) && !preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['valid_up_to'])) {
-            $invalidProperties[] = "invalid value for 'valid_up_to', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
+        if (!is_null($this->container['validUpTo']) && !preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['validUpTo'])) {
+            $invalidProperties[] = "invalid value for 'validUpTo', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
         }
 
-        if (!is_null($this->container['point_of_initiation']) && (mb_strlen($this->container['point_of_initiation']) > 20)) {
-            $invalidProperties[] = "invalid value for 'point_of_initiation', the character length must be smaller than or equal to 20.";
+        if (!is_null($this->container['pointOfInitiation']) && (mb_strlen($this->container['pointOfInitiation']) > 20)) {
+            $invalidProperties[] = "invalid value for 'pointOfInitiation', the character length must be smaller than or equal to 20.";
         }
 
-        if (!is_null($this->container['disabled_pay_methods']) && (mb_strlen($this->container['disabled_pay_methods']) > 64)) {
-            $invalidProperties[] = "invalid value for 'disabled_pay_methods', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['disabledPayMethods']) && (mb_strlen($this->container['disabledPayMethods']) > 64)) {
+            $invalidProperties[] = "invalid value for 'disabledPayMethods', the character length must be smaller than or equal to 64.";
         }
 
-        if ($this->container['additional_info'] === null) {
-            $invalidProperties[] = "'additional_info' can't be null";
+        if ($this->container['additionalInfo'] === null) {
+            $invalidProperties[] = "'additionalInfo' can't be null";
         }
         return $invalidProperties;
     }
@@ -401,94 +401,94 @@ class WidgetPaymentRequest implements ModelInterface, ArrayAccess, \JsonSerializ
 
 
     /**
-     * Gets partner_reference_no
+     * Gets partnerReferenceNo
      *
      * @return string
      */
     public function getPartnerReferenceNo()
     {
-        return $this->container['partner_reference_no'];
+        return $this->container['partnerReferenceNo'];
     }
 
     /**
-     * Sets partner_reference_no
+     * Sets partnerReferenceNo
      *
-     * @param string $partner_reference_no Unique transaction identifier on partner system which assigned to each transaction
+     * @param string $partnerReferenceNo Unique transaction identifier on partner system which assigned to each transaction
      *
      * @return self
      */
-    public function setPartnerReferenceNo($partner_reference_no)
+    public function setPartnerReferenceNo($partnerReferenceNo)
     {
-        if (is_null($partner_reference_no)) {
-            throw new \InvalidArgumentException('non-nullable partner_reference_no cannot be null');
+        if (is_null($partnerReferenceNo)) {
+            throw new \InvalidArgumentException('non-nullable partnerReferenceNo cannot be null');
         }
-        if ((mb_strlen($partner_reference_no) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $partner_reference_no when calling WidgetPaymentRequest., must be smaller than or equal to 64.');
+        if ((mb_strlen($partnerReferenceNo) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $partnerReferenceNo when calling WidgetPaymentRequest., must be smaller than or equal to 64.');
         }
 
-        $this->container['partner_reference_no'] = $partner_reference_no;
+        $this->container['partnerReferenceNo'] = $partnerReferenceNo;
 
         return $this;
     }
 
     /**
-     * Gets merchant_id
+     * Gets merchantId
      *
      * @return string
      */
     public function getMerchantId()
     {
-        return $this->container['merchant_id'];
+        return $this->container['merchantId'];
     }
 
     /**
-     * Sets merchant_id
+     * Sets merchantId
      *
-     * @param string $merchant_id Merchant identifier that is unique per each merchant
+     * @param string $merchantId Merchant identifier that is unique per each merchant
      *
      * @return self
      */
-    public function setMerchantId($merchant_id)
+    public function setMerchantId($merchantId)
     {
-        if (is_null($merchant_id)) {
-            throw new \InvalidArgumentException('non-nullable merchant_id cannot be null');
+        if (is_null($merchantId)) {
+            throw new \InvalidArgumentException('non-nullable merchantId cannot be null');
         }
-        if ((mb_strlen($merchant_id) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $merchant_id when calling WidgetPaymentRequest., must be smaller than or equal to 64.');
+        if ((mb_strlen($merchantId) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $merchantId when calling WidgetPaymentRequest., must be smaller than or equal to 64.');
         }
 
-        $this->container['merchant_id'] = $merchant_id;
+        $this->container['merchantId'] = $merchantId;
 
         return $this;
     }
 
     /**
-     * Gets sub_merchant_id
+     * Gets subMerchantId
      *
      * @return string|null
      */
     public function getSubMerchantId()
     {
-        return $this->container['sub_merchant_id'];
+        return $this->container['subMerchantId'];
     }
 
     /**
-     * Sets sub_merchant_id
+     * Sets subMerchantId
      *
-     * @param string|null $sub_merchant_id sub_merchant_id
+     * @param string|null $subMerchantId subMerchantId
      *
      * @return self
      */
-    public function setSubMerchantId($sub_merchant_id)
+    public function setSubMerchantId($subMerchantId)
     {
-        if (is_null($sub_merchant_id)) {
-            throw new \InvalidArgumentException('non-nullable sub_merchant_id cannot be null');
+        if (is_null($subMerchantId)) {
+            throw new \InvalidArgumentException('non-nullable subMerchantId cannot be null');
         }
-        if ((mb_strlen($sub_merchant_id) > 32)) {
-            throw new \InvalidArgumentException('invalid length for $sub_merchant_id when calling WidgetPaymentRequest., must be smaller than or equal to 32.');
+        if ((mb_strlen($subMerchantId) > 32)) {
+            throw new \InvalidArgumentException('invalid length for $subMerchantId when calling WidgetPaymentRequest., must be smaller than or equal to 32.');
         }
 
-        $this->container['sub_merchant_id'] = $sub_merchant_id;
+        $this->container['subMerchantId'] = $subMerchantId;
 
         return $this;
     }
@@ -521,207 +521,207 @@ class WidgetPaymentRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
-     * Gets external_store_id
+     * Gets externalStoreId
      *
      * @return string|null
      */
     public function getExternalStoreId()
     {
-        return $this->container['external_store_id'];
+        return $this->container['externalStoreId'];
     }
 
     /**
-     * Sets external_store_id
+     * Sets externalStoreId
      *
-     * @param string|null $external_store_id Store identifier to indicate to which store this payment belongs to
+     * @param string|null $externalStoreId Store identifier to indicate to which store this payment belongs to
      *
      * @return self
      */
-    public function setExternalStoreId($external_store_id)
+    public function setExternalStoreId($externalStoreId)
     {
-        if (is_null($external_store_id)) {
-            throw new \InvalidArgumentException('non-nullable external_store_id cannot be null');
+        if (is_null($externalStoreId)) {
+            throw new \InvalidArgumentException('non-nullable externalStoreId cannot be null');
         }
-        if ((mb_strlen($external_store_id) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $external_store_id when calling WidgetPaymentRequest., must be smaller than or equal to 64.');
+        if ((mb_strlen($externalStoreId) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $externalStoreId when calling WidgetPaymentRequest., must be smaller than or equal to 64.');
         }
 
-        $this->container['external_store_id'] = $external_store_id;
+        $this->container['externalStoreId'] = $externalStoreId;
 
         return $this;
     }
 
     /**
-     * Gets valid_up_to
+     * Gets validUpTo
      *
      * @return string|null
      */
     public function getValidUpTo()
     {
-        return $this->container['valid_up_to'];
+        return $this->container['validUpTo'];
     }
 
     /**
-     * Sets valid_up_to
+     * Sets validUpTo
      *
-     * @param string|null $valid_up_to The time when the payment will be automatically expired, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time)
+     * @param string|null $validUpTo The time when the payment will be automatically expired, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time)
      *
      * @return self
      */
-    public function setValidUpTo($valid_up_to)
+    public function setValidUpTo($validUpTo)
     {
-        if (is_null($valid_up_to)) {
-            throw new \InvalidArgumentException('non-nullable valid_up_to cannot be null');
+        if (is_null($validUpTo)) {
+            throw new \InvalidArgumentException('non-nullable validUpTo cannot be null');
         }
 
-        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($valid_up_to)))) {
-            throw new \InvalidArgumentException("invalid value for \$valid_up_to when calling WidgetPaymentRequest., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
+        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($validUpTo)))) {
+            throw new \InvalidArgumentException("invalid value for \$validUpTo when calling WidgetPaymentRequest., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
         }
 
-        $this->container['valid_up_to'] = $valid_up_to;
+        $this->container['validUpTo'] = $validUpTo;
 
         return $this;
     }
 
     /**
-     * Gets point_of_initiation
+     * Gets pointOfInitiation
      *
      * @return string|null
      */
     public function getPointOfInitiation()
     {
-        return $this->container['point_of_initiation'];
+        return $this->container['pointOfInitiation'];
     }
 
     /**
-     * Sets point_of_initiation
+     * Sets pointOfInitiation
      *
-     * @param string|null $point_of_initiation Used for getting more info regarding source of request of the user
+     * @param string|null $pointOfInitiation Used for getting more info regarding source of request of the user
      *
      * @return self
      */
-    public function setPointOfInitiation($point_of_initiation)
+    public function setPointOfInitiation($pointOfInitiation)
     {
-        if (is_null($point_of_initiation)) {
-            throw new \InvalidArgumentException('non-nullable point_of_initiation cannot be null');
+        if (is_null($pointOfInitiation)) {
+            throw new \InvalidArgumentException('non-nullable pointOfInitiation cannot be null');
         }
-        if ((mb_strlen($point_of_initiation) > 20)) {
-            throw new \InvalidArgumentException('invalid length for $point_of_initiation when calling WidgetPaymentRequest., must be smaller than or equal to 20.');
+        if ((mb_strlen($pointOfInitiation) > 20)) {
+            throw new \InvalidArgumentException('invalid length for $pointOfInitiation when calling WidgetPaymentRequest., must be smaller than or equal to 20.');
         }
 
-        $this->container['point_of_initiation'] = $point_of_initiation;
+        $this->container['pointOfInitiation'] = $pointOfInitiation;
 
         return $this;
     }
 
     /**
-     * Gets disabled_pay_methods
+     * Gets disabledPayMethods
      *
      * @return string|null
      */
     public function getDisabledPayMethods()
     {
-        return $this->container['disabled_pay_methods'];
+        return $this->container['disabledPayMethods'];
     }
 
     /**
-     * Sets disabled_pay_methods
+     * Sets disabledPayMethods
      *
-     * @param string|null $disabled_pay_methods Payment method(s) that cannot be used for this payment
+     * @param string|null $disabledPayMethods Payment method(s) that cannot be used for this payment
      *
      * @return self
      */
-    public function setDisabledPayMethods($disabled_pay_methods)
+    public function setDisabledPayMethods($disabledPayMethods)
     {
-        if (is_null($disabled_pay_methods)) {
-            throw new \InvalidArgumentException('non-nullable disabled_pay_methods cannot be null');
+        if (is_null($disabledPayMethods)) {
+            throw new \InvalidArgumentException('non-nullable disabledPayMethods cannot be null');
         }
-        if ((mb_strlen($disabled_pay_methods) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $disabled_pay_methods when calling WidgetPaymentRequest., must be smaller than or equal to 64.');
+        if ((mb_strlen($disabledPayMethods) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $disabledPayMethods when calling WidgetPaymentRequest., must be smaller than or equal to 64.');
         }
 
-        $this->container['disabled_pay_methods'] = $disabled_pay_methods;
+        $this->container['disabledPayMethods'] = $disabledPayMethods;
 
         return $this;
     }
 
     /**
-     * Gets pay_option_details
+     * Gets payOptionDetails
      *
      * @return \Dana\Widget\v1\Model\PayOptionDetail[]|null
      */
     public function getPayOptionDetails()
     {
-        return $this->container['pay_option_details'];
+        return $this->container['payOptionDetails'];
     }
 
     /**
-     * Sets pay_option_details
+     * Sets payOptionDetails
      *
-     * @param \Dana\Widget\v1\Model\PayOptionDetail[]|null $pay_option_details Payment option that will be used for this payment
+     * @param \Dana\Widget\v1\Model\PayOptionDetail[]|null $payOptionDetails Payment option that will be used for this payment
      *
      * @return self
      */
-    public function setPayOptionDetails($pay_option_details)
+    public function setPayOptionDetails($payOptionDetails)
     {
-        if (is_null($pay_option_details)) {
-            throw new \InvalidArgumentException('non-nullable pay_option_details cannot be null');
+        if (is_null($payOptionDetails)) {
+            throw new \InvalidArgumentException('non-nullable payOptionDetails cannot be null');
         }
-        $this->container['pay_option_details'] = $pay_option_details;
+        $this->container['payOptionDetails'] = $payOptionDetails;
 
         return $this;
     }
 
     /**
-     * Gets additional_info
+     * Gets additionalInfo
      *
      * @return \Dana\Widget\v1\Model\WidgetPaymentRequestAdditionalInfo
      */
     public function getAdditionalInfo()
     {
-        return $this->container['additional_info'];
+        return $this->container['additionalInfo'];
     }
 
     /**
-     * Sets additional_info
+     * Sets additionalInfo
      *
-     * @param \Dana\Widget\v1\Model\WidgetPaymentRequestAdditionalInfo $additional_info additional_info
+     * @param \Dana\Widget\v1\Model\WidgetPaymentRequestAdditionalInfo $additionalInfo additionalInfo
      *
      * @return self
      */
-    public function setAdditionalInfo($additional_info)
+    public function setAdditionalInfo($additionalInfo)
     {
-        if (is_null($additional_info)) {
-            throw new \InvalidArgumentException('non-nullable additional_info cannot be null');
+        if (is_null($additionalInfo)) {
+            throw new \InvalidArgumentException('non-nullable additionalInfo cannot be null');
         }
-        $this->container['additional_info'] = $additional_info;
+        $this->container['additionalInfo'] = $additionalInfo;
 
         return $this;
     }
 
     /**
-     * Gets url_params
+     * Gets urlParams
      *
      * @return \Dana\Widget\v1\Model\UrlParam[]|null
      */
     public function getUrlParams()
     {
-        return $this->container['url_params'];
+        return $this->container['urlParams'];
     }
 
     /**
-     * Sets url_params
+     * Sets urlParams
      *
-     * @param \Dana\Widget\v1\Model\UrlParam[]|null $url_params Notify URL that DANA must send the payment notification to
+     * @param \Dana\Widget\v1\Model\UrlParam[]|null $urlParams Notify URL that DANA must send the payment notification to
      *
      * @return self
      */
-    public function setUrlParams($url_params)
+    public function setUrlParams($urlParams)
     {
-        if (is_null($url_params)) {
-            throw new \InvalidArgumentException('non-nullable url_params cannot be null');
+        if (is_null($urlParams)) {
+            throw new \InvalidArgumentException('non-nullable urlParams cannot be null');
         }
-        $this->container['url_params'] = $url_params;
+        $this->container['urlParams'] = $urlParams;
 
         return $this;
     }

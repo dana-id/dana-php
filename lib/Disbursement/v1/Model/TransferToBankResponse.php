@@ -58,13 +58,13 @@ class TransferToBankResponse implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'response_code' => 'string',
-        'response_message' => 'string',
-        'reference_no' => 'string',
-        'partner_reference_no' => 'string',
-        'transaction_date' => 'string',
-        'reference_number' => 'string',
-        'additional_info' => 'object'
+        'responseCode' => 'string',
+        'responseMessage' => 'string',
+        'referenceNo' => 'string',
+        'partnerReferenceNo' => 'string',
+        'transactionDate' => 'string',
+        'referenceNumber' => 'string',
+        'additionalInfo' => 'object'
     ];
 
     /**
@@ -75,13 +75,13 @@ class TransferToBankResponse implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'response_code' => null,
-        'response_message' => null,
-        'reference_no' => null,
-        'partner_reference_no' => null,
-        'transaction_date' => null,
-        'reference_number' => null,
-        'additional_info' => null
+        'responseCode' => null,
+        'responseMessage' => null,
+        'referenceNo' => null,
+        'partnerReferenceNo' => null,
+        'transactionDate' => null,
+        'referenceNumber' => null,
+        'additionalInfo' => null
     ];
 
     /**
@@ -90,13 +90,13 @@ class TransferToBankResponse implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'response_code' => false,
-        'response_message' => false,
-        'reference_no' => false,
-        'partner_reference_no' => false,
-        'transaction_date' => false,
-        'reference_number' => false,
-        'additional_info' => false
+        'responseCode' => false,
+        'responseMessage' => false,
+        'referenceNo' => false,
+        'partnerReferenceNo' => false,
+        'transactionDate' => false,
+        'referenceNumber' => false,
+        'additionalInfo' => false
     ];
 
     /**
@@ -185,13 +185,13 @@ class TransferToBankResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'response_code' => 'responseCode',
-        'response_message' => 'responseMessage',
-        'reference_no' => 'referenceNo',
-        'partner_reference_no' => 'partnerReferenceNo',
-        'transaction_date' => 'transactionDate',
-        'reference_number' => 'referenceNumber',
-        'additional_info' => 'additionalInfo'
+        'responseCode' => 'responseCode',
+        'responseMessage' => 'responseMessage',
+        'referenceNo' => 'referenceNo',
+        'partnerReferenceNo' => 'partnerReferenceNo',
+        'transactionDate' => 'transactionDate',
+        'referenceNumber' => 'referenceNumber',
+        'additionalInfo' => 'additionalInfo'
     ];
 
     /**
@@ -200,13 +200,13 @@ class TransferToBankResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'response_code' => 'setResponseCode',
-        'response_message' => 'setResponseMessage',
-        'reference_no' => 'setReferenceNo',
-        'partner_reference_no' => 'setPartnerReferenceNo',
-        'transaction_date' => 'setTransactionDate',
-        'reference_number' => 'setReferenceNumber',
-        'additional_info' => 'setAdditionalInfo'
+        'responseCode' => 'setResponseCode',
+        'responseMessage' => 'setResponseMessage',
+        'referenceNo' => 'setReferenceNo',
+        'partnerReferenceNo' => 'setPartnerReferenceNo',
+        'transactionDate' => 'setTransactionDate',
+        'referenceNumber' => 'setReferenceNumber',
+        'additionalInfo' => 'setAdditionalInfo'
     ];
 
     /**
@@ -215,13 +215,13 @@ class TransferToBankResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'response_code' => 'getResponseCode',
-        'response_message' => 'getResponseMessage',
-        'reference_no' => 'getReferenceNo',
-        'partner_reference_no' => 'getPartnerReferenceNo',
-        'transaction_date' => 'getTransactionDate',
-        'reference_number' => 'getReferenceNumber',
-        'additional_info' => 'getAdditionalInfo'
+        'responseCode' => 'getResponseCode',
+        'responseMessage' => 'getResponseMessage',
+        'referenceNo' => 'getReferenceNo',
+        'partnerReferenceNo' => 'getPartnerReferenceNo',
+        'transactionDate' => 'getTransactionDate',
+        'referenceNumber' => 'getReferenceNumber',
+        'additionalInfo' => 'getAdditionalInfo'
     ];
 
     /**
@@ -281,13 +281,13 @@ class TransferToBankResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('response_code', $data ?? [], null);
-        $this->setIfExists('response_message', $data ?? [], null);
-        $this->setIfExists('reference_no', $data ?? [], null);
-        $this->setIfExists('partner_reference_no', $data ?? [], null);
-        $this->setIfExists('transaction_date', $data ?? [], null);
-        $this->setIfExists('reference_number', $data ?? [], null);
-        $this->setIfExists('additional_info', $data ?? [], null);
+        $this->setIfExists('responseCode', $data ?? [], null);
+        $this->setIfExists('responseMessage', $data ?? [], null);
+        $this->setIfExists('referenceNo', $data ?? [], null);
+        $this->setIfExists('partnerReferenceNo', $data ?? [], null);
+        $this->setIfExists('transactionDate', $data ?? [], null);
+        $this->setIfExists('referenceNumber', $data ?? [], null);
+        $this->setIfExists('additionalInfo', $data ?? [], null);
     }
 
     /**
@@ -317,41 +317,41 @@ class TransferToBankResponse implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['response_code'] === null) {
-            $invalidProperties[] = "'response_code' can't be null";
+        if ($this->container['responseCode'] === null) {
+            $invalidProperties[] = "'responseCode' can't be null";
         }
-        if ((mb_strlen($this->container['response_code']) > 7)) {
-            $invalidProperties[] = "invalid value for 'response_code', the character length must be smaller than or equal to 7.";
-        }
-
-        if ($this->container['response_message'] === null) {
-            $invalidProperties[] = "'response_message' can't be null";
-        }
-        if ((mb_strlen($this->container['response_message']) > 150)) {
-            $invalidProperties[] = "invalid value for 'response_message', the character length must be smaller than or equal to 150.";
+        if ((mb_strlen($this->container['responseCode']) > 7)) {
+            $invalidProperties[] = "invalid value for 'responseCode', the character length must be smaller than or equal to 7.";
         }
 
-        if (!is_null($this->container['reference_no']) && (mb_strlen($this->container['reference_no']) > 64)) {
-            $invalidProperties[] = "invalid value for 'reference_no', the character length must be smaller than or equal to 64.";
+        if ($this->container['responseMessage'] === null) {
+            $invalidProperties[] = "'responseMessage' can't be null";
+        }
+        if ((mb_strlen($this->container['responseMessage']) > 150)) {
+            $invalidProperties[] = "invalid value for 'responseMessage', the character length must be smaller than or equal to 150.";
         }
 
-        if (!is_null($this->container['partner_reference_no']) && (mb_strlen($this->container['partner_reference_no']) > 64)) {
-            $invalidProperties[] = "invalid value for 'partner_reference_no', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['referenceNo']) && (mb_strlen($this->container['referenceNo']) > 64)) {
+            $invalidProperties[] = "invalid value for 'referenceNo', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['transaction_date']) && (mb_strlen($this->container['transaction_date']) > 25)) {
-            $invalidProperties[] = "invalid value for 'transaction_date', the character length must be smaller than or equal to 25.";
+        if (!is_null($this->container['partnerReferenceNo']) && (mb_strlen($this->container['partnerReferenceNo']) > 64)) {
+            $invalidProperties[] = "invalid value for 'partnerReferenceNo', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['transaction_date']) && !preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['transaction_date'])) {
-            $invalidProperties[] = "invalid value for 'transaction_date', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
+        if (!is_null($this->container['transactionDate']) && (mb_strlen($this->container['transactionDate']) > 25)) {
+            $invalidProperties[] = "invalid value for 'transactionDate', the character length must be smaller than or equal to 25.";
         }
 
-        if ($this->container['reference_number'] === null) {
-            $invalidProperties[] = "'reference_number' can't be null";
+        if (!is_null($this->container['transactionDate']) && !preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['transactionDate'])) {
+            $invalidProperties[] = "invalid value for 'transactionDate', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
         }
-        if ((mb_strlen($this->container['reference_number']) > 64)) {
-            $invalidProperties[] = "invalid value for 'reference_number', the character length must be smaller than or equal to 64.";
+
+        if ($this->container['referenceNumber'] === null) {
+            $invalidProperties[] = "'referenceNumber' can't be null";
+        }
+        if ((mb_strlen($this->container['referenceNumber']) > 64)) {
+            $invalidProperties[] = "invalid value for 'referenceNumber', the character length must be smaller than or equal to 64.";
         }
 
         return $invalidProperties;
@@ -370,217 +370,217 @@ class TransferToBankResponse implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets response_code
+     * Gets responseCode
      *
      * @return string
      */
     public function getResponseCode()
     {
-        return $this->container['response_code'];
+        return $this->container['responseCode'];
     }
 
     /**
-     * Sets response_code
+     * Sets responseCode
      *
-     * @param string $response_code Refer to response code list
+     * @param string $responseCode Refer to response code list
      *
      * @return self
      */
-    public function setResponseCode($response_code)
+    public function setResponseCode($responseCode)
     {
-        if (is_null($response_code)) {
-            throw new \InvalidArgumentException('non-nullable response_code cannot be null');
+        if (is_null($responseCode)) {
+            throw new \InvalidArgumentException('non-nullable responseCode cannot be null');
         }
-        if ((mb_strlen($response_code) > 7)) {
-            throw new \InvalidArgumentException('invalid length for $response_code when calling TransferToBankResponse., must be smaller than or equal to 7.');
+        if ((mb_strlen($responseCode) > 7)) {
+            throw new \InvalidArgumentException('invalid length for $responseCode when calling TransferToBankResponse., must be smaller than or equal to 7.');
         }
 
-        $this->container['response_code'] = $response_code;
+        $this->container['responseCode'] = $responseCode;
 
         return $this;
     }
 
     /**
-     * Gets response_message
+     * Gets responseMessage
      *
      * @return string
      */
     public function getResponseMessage()
     {
-        return $this->container['response_message'];
+        return $this->container['responseMessage'];
     }
 
     /**
-     * Sets response_message
+     * Sets responseMessage
      *
-     * @param string $response_message Refer to response code list
+     * @param string $responseMessage Refer to response code list
      *
      * @return self
      */
-    public function setResponseMessage($response_message)
+    public function setResponseMessage($responseMessage)
     {
-        if (is_null($response_message)) {
-            throw new \InvalidArgumentException('non-nullable response_message cannot be null');
+        if (is_null($responseMessage)) {
+            throw new \InvalidArgumentException('non-nullable responseMessage cannot be null');
         }
-        if ((mb_strlen($response_message) > 150)) {
-            throw new \InvalidArgumentException('invalid length for $response_message when calling TransferToBankResponse., must be smaller than or equal to 150.');
+        if ((mb_strlen($responseMessage) > 150)) {
+            throw new \InvalidArgumentException('invalid length for $responseMessage when calling TransferToBankResponse., must be smaller than or equal to 150.');
         }
 
-        $this->container['response_message'] = $response_message;
+        $this->container['responseMessage'] = $responseMessage;
 
         return $this;
     }
 
     /**
-     * Gets reference_no
+     * Gets referenceNo
      *
      * @return string|null
      */
     public function getReferenceNo()
     {
-        return $this->container['reference_no'];
+        return $this->container['referenceNo'];
     }
 
     /**
-     * Sets reference_no
+     * Sets referenceNo
      *
-     * @param string|null $reference_no Transaction identifier on DANA system
+     * @param string|null $referenceNo Transaction identifier on DANA system
      *
      * @return self
      */
-    public function setReferenceNo($reference_no)
+    public function setReferenceNo($referenceNo)
     {
-        if (is_null($reference_no)) {
-            throw new \InvalidArgumentException('non-nullable reference_no cannot be null');
+        if (is_null($referenceNo)) {
+            throw new \InvalidArgumentException('non-nullable referenceNo cannot be null');
         }
-        if ((mb_strlen($reference_no) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $reference_no when calling TransferToBankResponse., must be smaller than or equal to 64.');
+        if ((mb_strlen($referenceNo) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $referenceNo when calling TransferToBankResponse., must be smaller than or equal to 64.');
         }
 
-        $this->container['reference_no'] = $reference_no;
+        $this->container['referenceNo'] = $referenceNo;
 
         return $this;
     }
 
     /**
-     * Gets partner_reference_no
+     * Gets partnerReferenceNo
      *
      * @return string|null
      */
     public function getPartnerReferenceNo()
     {
-        return $this->container['partner_reference_no'];
+        return $this->container['partnerReferenceNo'];
     }
 
     /**
-     * Sets partner_reference_no
+     * Sets partnerReferenceNo
      *
-     * @param string|null $partner_reference_no Unique transaction identifier on partner system which assigned to each transaction<br> Notes:<br> If the partner receives a timeout or an unexpected response from DANA and partner expects to perform retry request to DANA, please use the partnerReferenceNo that is the same as the one used in the transaction request process before
+     * @param string|null $partnerReferenceNo Unique transaction identifier on partner system which assigned to each transaction<br> Notes:<br> If the partner receives a timeout or an unexpected response from DANA and partner expects to perform retry request to DANA, please use the partnerReferenceNo that is the same as the one used in the transaction request process before
      *
      * @return self
      */
-    public function setPartnerReferenceNo($partner_reference_no)
+    public function setPartnerReferenceNo($partnerReferenceNo)
     {
-        if (is_null($partner_reference_no)) {
-            throw new \InvalidArgumentException('non-nullable partner_reference_no cannot be null');
+        if (is_null($partnerReferenceNo)) {
+            throw new \InvalidArgumentException('non-nullable partnerReferenceNo cannot be null');
         }
-        if ((mb_strlen($partner_reference_no) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $partner_reference_no when calling TransferToBankResponse., must be smaller than or equal to 64.');
+        if ((mb_strlen($partnerReferenceNo) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $partnerReferenceNo when calling TransferToBankResponse., must be smaller than or equal to 64.');
         }
 
-        $this->container['partner_reference_no'] = $partner_reference_no;
+        $this->container['partnerReferenceNo'] = $partnerReferenceNo;
 
         return $this;
     }
 
     /**
-     * Gets transaction_date
+     * Gets transactionDate
      *
      * @return string|null
      */
     public function getTransactionDate()
     {
-        return $this->container['transaction_date'];
+        return $this->container['transactionDate'];
     }
 
     /**
-     * Sets transaction_date
+     * Sets transactionDate
      *
-     * @param string|null $transaction_date Transaction date, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time)
+     * @param string|null $transactionDate Transaction date, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time)
      *
      * @return self
      */
-    public function setTransactionDate($transaction_date)
+    public function setTransactionDate($transactionDate)
     {
-        if (is_null($transaction_date)) {
-            throw new \InvalidArgumentException('non-nullable transaction_date cannot be null');
+        if (is_null($transactionDate)) {
+            throw new \InvalidArgumentException('non-nullable transactionDate cannot be null');
         }
-        if ((mb_strlen($transaction_date) > 25)) {
-            throw new \InvalidArgumentException('invalid length for $transaction_date when calling TransferToBankResponse., must be smaller than or equal to 25.');
+        if ((mb_strlen($transactionDate) > 25)) {
+            throw new \InvalidArgumentException('invalid length for $transactionDate when calling TransferToBankResponse., must be smaller than or equal to 25.');
         }
-        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($transaction_date)))) {
-            throw new \InvalidArgumentException("invalid value for \$transaction_date when calling TransferToBankResponse., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
+        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($transactionDate)))) {
+            throw new \InvalidArgumentException("invalid value for \$transactionDate when calling TransferToBankResponse., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
         }
 
-        $this->container['transaction_date'] = $transaction_date;
+        $this->container['transactionDate'] = $transactionDate;
 
         return $this;
     }
 
     /**
-     * Gets reference_number
+     * Gets referenceNumber
      *
      * @return string
      */
     public function getReferenceNumber()
     {
-        return $this->container['reference_number'];
+        return $this->container['referenceNumber'];
     }
 
     /**
-     * Sets reference_number
+     * Sets referenceNumber
      *
-     * @param string $reference_number Reference number
+     * @param string $referenceNumber Reference number
      *
      * @return self
      */
-    public function setReferenceNumber($reference_number)
+    public function setReferenceNumber($referenceNumber)
     {
-        if (is_null($reference_number)) {
-            throw new \InvalidArgumentException('non-nullable reference_number cannot be null');
+        if (is_null($referenceNumber)) {
+            throw new \InvalidArgumentException('non-nullable referenceNumber cannot be null');
         }
-        if ((mb_strlen($reference_number) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $reference_number when calling TransferToBankResponse., must be smaller than or equal to 64.');
+        if ((mb_strlen($referenceNumber) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $referenceNumber when calling TransferToBankResponse., must be smaller than or equal to 64.');
         }
 
-        $this->container['reference_number'] = $reference_number;
+        $this->container['referenceNumber'] = $referenceNumber;
 
         return $this;
     }
 
     /**
-     * Gets additional_info
+     * Gets additionalInfo
      *
      * @return object|null
      */
     public function getAdditionalInfo()
     {
-        return $this->container['additional_info'];
+        return $this->container['additionalInfo'];
     }
 
     /**
-     * Sets additional_info
+     * Sets additionalInfo
      *
-     * @param object|null $additional_info Additional information
+     * @param object|null $additionalInfo Additional information
      *
      * @return self
      */
-    public function setAdditionalInfo($additional_info)
+    public function setAdditionalInfo($additionalInfo)
     {
-        if (is_null($additional_info)) {
-            throw new \InvalidArgumentException('non-nullable additional_info cannot be null');
+        if (is_null($additionalInfo)) {
+            throw new \InvalidArgumentException('non-nullable additionalInfo cannot be null');
         }
-        $this->container['additional_info'] = $additional_info;
+        $this->container['additionalInfo'] = $additionalInfo;
 
         return $this;
     }

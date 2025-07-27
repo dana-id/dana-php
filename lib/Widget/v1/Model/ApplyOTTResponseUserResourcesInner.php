@@ -58,7 +58,7 @@ class ApplyOTTResponseUserResourcesInner implements ModelInterface, ArrayAccess,
       * @var string[]
       */
     protected static $openAPITypes = [
-        'resource_type' => 'string',
+        'resourceType' => 'string',
         'value' => 'string'
     ];
 
@@ -70,7 +70,7 @@ class ApplyOTTResponseUserResourcesInner implements ModelInterface, ArrayAccess,
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'resource_type' => null,
+        'resourceType' => null,
         'value' => null
     ];
 
@@ -80,7 +80,7 @@ class ApplyOTTResponseUserResourcesInner implements ModelInterface, ArrayAccess,
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'resource_type' => false,
+        'resourceType' => false,
         'value' => false
     ];
 
@@ -170,7 +170,7 @@ class ApplyOTTResponseUserResourcesInner implements ModelInterface, ArrayAccess,
      * @var string[]
      */
     protected static $attributeMap = [
-        'resource_type' => 'resourceType',
+        'resourceType' => 'resourceType',
         'value' => 'value'
     ];
 
@@ -180,7 +180,7 @@ class ApplyOTTResponseUserResourcesInner implements ModelInterface, ArrayAccess,
      * @var string[]
      */
     protected static $setters = [
-        'resource_type' => 'setResourceType',
+        'resourceType' => 'setResourceType',
         'value' => 'setValue'
     ];
 
@@ -190,7 +190,7 @@ class ApplyOTTResponseUserResourcesInner implements ModelInterface, ArrayAccess,
      * @var string[]
      */
     protected static $getters = [
-        'resource_type' => 'getResourceType',
+        'resourceType' => 'getResourceType',
         'value' => 'getValue'
     ];
 
@@ -251,7 +251,7 @@ class ApplyOTTResponseUserResourcesInner implements ModelInterface, ArrayAccess,
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('resource_type', $data ?? [], null);
+        $this->setIfExists('resourceType', $data ?? [], null);
         $this->setIfExists('value', $data ?? [], null);
     }
 
@@ -282,8 +282,8 @@ class ApplyOTTResponseUserResourcesInner implements ModelInterface, ArrayAccess,
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['resource_type']) && (mb_strlen($this->container['resource_type']) > 32)) {
-            $invalidProperties[] = "invalid value for 'resource_type', the character length must be smaller than or equal to 32.";
+        if (!is_null($this->container['resourceType']) && (mb_strlen($this->container['resourceType']) > 32)) {
+            $invalidProperties[] = "invalid value for 'resourceType', the character length must be smaller than or equal to 32.";
         }
 
         if (!is_null($this->container['value']) && (mb_strlen($this->container['value']) > 128)) {
@@ -306,32 +306,32 @@ class ApplyOTTResponseUserResourcesInner implements ModelInterface, ArrayAccess,
 
 
     /**
-     * Gets resource_type
+     * Gets resourceType
      *
      * @return string|null
      */
     public function getResourceType()
     {
-        return $this->container['resource_type'];
+        return $this->container['resourceType'];
     }
 
     /**
-     * Sets resource_type
+     * Sets resourceType
      *
-     * @param string|null $resource_type Information of resource type. List of resource retrieved: OTT
+     * @param string|null $resourceType Information of resource type. List of resource retrieved: OTT
      *
      * @return self
      */
-    public function setResourceType($resource_type)
+    public function setResourceType($resourceType)
     {
-        if (is_null($resource_type)) {
-            throw new \InvalidArgumentException('non-nullable resource_type cannot be null');
+        if (is_null($resourceType)) {
+            throw new \InvalidArgumentException('non-nullable resourceType cannot be null');
         }
-        if ((mb_strlen($resource_type) > 32)) {
-            throw new \InvalidArgumentException('invalid length for $resource_type when calling ApplyOTTResponseUserResourcesInner., must be smaller than or equal to 32.');
+        if ((mb_strlen($resourceType) > 32)) {
+            throw new \InvalidArgumentException('invalid length for $resourceType when calling ApplyOTTResponseUserResourcesInner., must be smaller than or equal to 32.');
         }
 
-        $this->container['resource_type'] = $resource_type;
+        $this->container['resourceType'] = $resourceType;
 
         return $this;
     }

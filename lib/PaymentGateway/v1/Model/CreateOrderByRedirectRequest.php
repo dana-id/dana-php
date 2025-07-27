@@ -58,15 +58,15 @@ class CreateOrderByRedirectRequest implements ModelInterface, ArrayAccess, \Json
       * @var string[]
       */
     protected static $openAPITypes = [
-        'additional_info' => '\Dana\PaymentGateway\v1\Model\CreateOrderByRedirectAdditionalInfo',
-        'partner_reference_no' => 'string',
-        'merchant_id' => 'string',
-        'sub_merchant_id' => 'string',
+        'additionalInfo' => '\Dana\PaymentGateway\v1\Model\CreateOrderByRedirectAdditionalInfo',
+        'partnerReferenceNo' => 'string',
+        'merchantId' => 'string',
+        'subMerchantId' => 'string',
         'amount' => '\Dana\PaymentGateway\v1\Model\Money',
-        'external_store_id' => 'string',
-        'valid_up_to' => 'string',
-        'disabled_pay_methods' => 'string',
-        'url_params' => '\Dana\PaymentGateway\v1\Model\UrlParam[]'
+        'externalStoreId' => 'string',
+        'validUpTo' => 'string',
+        'disabledPayMethods' => 'string',
+        'urlParams' => '\Dana\PaymentGateway\v1\Model\UrlParam[]'
     ];
 
     /**
@@ -77,15 +77,15 @@ class CreateOrderByRedirectRequest implements ModelInterface, ArrayAccess, \Json
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'additional_info' => null,
-        'partner_reference_no' => null,
-        'merchant_id' => null,
-        'sub_merchant_id' => null,
+        'additionalInfo' => null,
+        'partnerReferenceNo' => null,
+        'merchantId' => null,
+        'subMerchantId' => null,
         'amount' => null,
-        'external_store_id' => null,
-        'valid_up_to' => null,
-        'disabled_pay_methods' => null,
-        'url_params' => null
+        'externalStoreId' => null,
+        'validUpTo' => null,
+        'disabledPayMethods' => null,
+        'urlParams' => null
     ];
 
     /**
@@ -94,15 +94,15 @@ class CreateOrderByRedirectRequest implements ModelInterface, ArrayAccess, \Json
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'additional_info' => false,
-        'partner_reference_no' => false,
-        'merchant_id' => false,
-        'sub_merchant_id' => false,
+        'additionalInfo' => false,
+        'partnerReferenceNo' => false,
+        'merchantId' => false,
+        'subMerchantId' => false,
         'amount' => false,
-        'external_store_id' => false,
-        'valid_up_to' => false,
-        'disabled_pay_methods' => false,
-        'url_params' => false
+        'externalStoreId' => false,
+        'validUpTo' => false,
+        'disabledPayMethods' => false,
+        'urlParams' => false
     ];
 
     /**
@@ -191,15 +191,15 @@ class CreateOrderByRedirectRequest implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $attributeMap = [
-        'additional_info' => 'additionalInfo',
-        'partner_reference_no' => 'partnerReferenceNo',
-        'merchant_id' => 'merchantId',
-        'sub_merchant_id' => 'subMerchantId',
+        'additionalInfo' => 'additionalInfo',
+        'partnerReferenceNo' => 'partnerReferenceNo',
+        'merchantId' => 'merchantId',
+        'subMerchantId' => 'subMerchantId',
         'amount' => 'amount',
-        'external_store_id' => 'externalStoreId',
-        'valid_up_to' => 'validUpTo',
-        'disabled_pay_methods' => 'disabledPayMethods',
-        'url_params' => 'urlParams'
+        'externalStoreId' => 'externalStoreId',
+        'validUpTo' => 'validUpTo',
+        'disabledPayMethods' => 'disabledPayMethods',
+        'urlParams' => 'urlParams'
     ];
 
     /**
@@ -208,15 +208,15 @@ class CreateOrderByRedirectRequest implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $setters = [
-        'additional_info' => 'setAdditionalInfo',
-        'partner_reference_no' => 'setPartnerReferenceNo',
-        'merchant_id' => 'setMerchantId',
-        'sub_merchant_id' => 'setSubMerchantId',
+        'additionalInfo' => 'setAdditionalInfo',
+        'partnerReferenceNo' => 'setPartnerReferenceNo',
+        'merchantId' => 'setMerchantId',
+        'subMerchantId' => 'setSubMerchantId',
         'amount' => 'setAmount',
-        'external_store_id' => 'setExternalStoreId',
-        'valid_up_to' => 'setValidUpTo',
-        'disabled_pay_methods' => 'setDisabledPayMethods',
-        'url_params' => 'setUrlParams'
+        'externalStoreId' => 'setExternalStoreId',
+        'validUpTo' => 'setValidUpTo',
+        'disabledPayMethods' => 'setDisabledPayMethods',
+        'urlParams' => 'setUrlParams'
     ];
 
     /**
@@ -225,15 +225,15 @@ class CreateOrderByRedirectRequest implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $getters = [
-        'additional_info' => 'getAdditionalInfo',
-        'partner_reference_no' => 'getPartnerReferenceNo',
-        'merchant_id' => 'getMerchantId',
-        'sub_merchant_id' => 'getSubMerchantId',
+        'additionalInfo' => 'getAdditionalInfo',
+        'partnerReferenceNo' => 'getPartnerReferenceNo',
+        'merchantId' => 'getMerchantId',
+        'subMerchantId' => 'getSubMerchantId',
         'amount' => 'getAmount',
-        'external_store_id' => 'getExternalStoreId',
-        'valid_up_to' => 'getValidUpTo',
-        'disabled_pay_methods' => 'getDisabledPayMethods',
-        'url_params' => 'getUrlParams'
+        'externalStoreId' => 'getExternalStoreId',
+        'validUpTo' => 'getValidUpTo',
+        'disabledPayMethods' => 'getDisabledPayMethods',
+        'urlParams' => 'getUrlParams'
     ];
 
     /**
@@ -293,15 +293,15 @@ class CreateOrderByRedirectRequest implements ModelInterface, ArrayAccess, \Json
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('additional_info', $data ?? [], null);
-        $this->setIfExists('partner_reference_no', $data ?? [], null);
-        $this->setIfExists('merchant_id', $data ?? [], null);
-        $this->setIfExists('sub_merchant_id', $data ?? [], null);
+        $this->setIfExists('additionalInfo', $data ?? [], null);
+        $this->setIfExists('partnerReferenceNo', $data ?? [], null);
+        $this->setIfExists('merchantId', $data ?? [], null);
+        $this->setIfExists('subMerchantId', $data ?? [], null);
         $this->setIfExists('amount', $data ?? [], null);
-        $this->setIfExists('external_store_id', $data ?? [], null);
-        $this->setIfExists('valid_up_to', $data ?? [], null);
-        $this->setIfExists('disabled_pay_methods', $data ?? [], null);
-        $this->setIfExists('url_params', $data ?? [], null);
+        $this->setIfExists('externalStoreId', $data ?? [], null);
+        $this->setIfExists('validUpTo', $data ?? [], null);
+        $this->setIfExists('disabledPayMethods', $data ?? [], null);
+        $this->setIfExists('urlParams', $data ?? [], null);
     }
 
     /**
@@ -331,45 +331,45 @@ class CreateOrderByRedirectRequest implements ModelInterface, ArrayAccess, \Json
     {
         $invalidProperties = [];
 
-        if ($this->container['partner_reference_no'] === null) {
-            $invalidProperties[] = "'partner_reference_no' can't be null";
+        if ($this->container['partnerReferenceNo'] === null) {
+            $invalidProperties[] = "'partnerReferenceNo' can't be null";
         }
-        if ((mb_strlen($this->container['partner_reference_no']) > 64)) {
-            $invalidProperties[] = "invalid value for 'partner_reference_no', the character length must be smaller than or equal to 64.";
-        }
-
-        if ($this->container['merchant_id'] === null) {
-            $invalidProperties[] = "'merchant_id' can't be null";
-        }
-        if ((mb_strlen($this->container['merchant_id']) > 64)) {
-            $invalidProperties[] = "invalid value for 'merchant_id', the character length must be smaller than or equal to 64.";
+        if ((mb_strlen($this->container['partnerReferenceNo']) > 64)) {
+            $invalidProperties[] = "invalid value for 'partnerReferenceNo', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['sub_merchant_id']) && (mb_strlen($this->container['sub_merchant_id']) > 32)) {
-            $invalidProperties[] = "invalid value for 'sub_merchant_id', the character length must be smaller than or equal to 32.";
+        if ($this->container['merchantId'] === null) {
+            $invalidProperties[] = "'merchantId' can't be null";
+        }
+        if ((mb_strlen($this->container['merchantId']) > 64)) {
+            $invalidProperties[] = "invalid value for 'merchantId', the character length must be smaller than or equal to 64.";
+        }
+
+        if (!is_null($this->container['subMerchantId']) && (mb_strlen($this->container['subMerchantId']) > 32)) {
+            $invalidProperties[] = "invalid value for 'subMerchantId', the character length must be smaller than or equal to 32.";
         }
 
         if ($this->container['amount'] === null) {
             $invalidProperties[] = "'amount' can't be null";
         }
-        if (!is_null($this->container['external_store_id']) && (mb_strlen($this->container['external_store_id']) > 64)) {
-            $invalidProperties[] = "invalid value for 'external_store_id', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['externalStoreId']) && (mb_strlen($this->container['externalStoreId']) > 64)) {
+            $invalidProperties[] = "invalid value for 'externalStoreId', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['valid_up_to']) && (mb_strlen($this->container['valid_up_to']) > 25)) {
-            $invalidProperties[] = "invalid value for 'valid_up_to', the character length must be smaller than or equal to 25.";
+        if (!is_null($this->container['validUpTo']) && (mb_strlen($this->container['validUpTo']) > 25)) {
+            $invalidProperties[] = "invalid value for 'validUpTo', the character length must be smaller than or equal to 25.";
         }
 
-        if (!is_null($this->container['valid_up_to']) && !preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['valid_up_to'])) {
-            $invalidProperties[] = "invalid value for 'valid_up_to', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
+        if (!is_null($this->container['validUpTo']) && !preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['validUpTo'])) {
+            $invalidProperties[] = "invalid value for 'validUpTo', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
         }
 
-        if (!is_null($this->container['disabled_pay_methods']) && (mb_strlen($this->container['disabled_pay_methods']) > 64)) {
-            $invalidProperties[] = "invalid value for 'disabled_pay_methods', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['disabledPayMethods']) && (mb_strlen($this->container['disabledPayMethods']) > 64)) {
+            $invalidProperties[] = "invalid value for 'disabledPayMethods', the character length must be smaller than or equal to 64.";
         }
 
-        if ($this->container['url_params'] === null) {
-            $invalidProperties[] = "'url_params' can't be null";
+        if ($this->container['urlParams'] === null) {
+            $invalidProperties[] = "'urlParams' can't be null";
         }
         return $invalidProperties;
     }
@@ -387,121 +387,121 @@ class CreateOrderByRedirectRequest implements ModelInterface, ArrayAccess, \Json
 
 
     /**
-     * Gets additional_info
+     * Gets additionalInfo
      *
      * @return \Dana\PaymentGateway\v1\Model\CreateOrderByRedirectAdditionalInfo|null
      */
     public function getAdditionalInfo()
     {
-        return $this->container['additional_info'];
+        return $this->container['additionalInfo'];
     }
 
     /**
-     * Sets additional_info
+     * Sets additionalInfo
      *
-     * @param \Dana\PaymentGateway\v1\Model\CreateOrderByRedirectAdditionalInfo|null $additional_info additional_info
+     * @param \Dana\PaymentGateway\v1\Model\CreateOrderByRedirectAdditionalInfo|null $additionalInfo additionalInfo
      *
      * @return self
      */
-    public function setAdditionalInfo($additional_info)
+    public function setAdditionalInfo($additionalInfo)
     {
-        if (is_null($additional_info)) {
-            throw new \InvalidArgumentException('non-nullable additional_info cannot be null');
+        if (is_null($additionalInfo)) {
+            throw new \InvalidArgumentException('non-nullable additionalInfo cannot be null');
         }
-        $this->container['additional_info'] = $additional_info;
+        $this->container['additionalInfo'] = $additionalInfo;
 
         return $this;
     }
 
     /**
-     * Gets partner_reference_no
+     * Gets partnerReferenceNo
      *
      * @return string
      */
     public function getPartnerReferenceNo()
     {
-        return $this->container['partner_reference_no'];
+        return $this->container['partnerReferenceNo'];
     }
 
     /**
-     * Sets partner_reference_no
+     * Sets partnerReferenceNo
      *
-     * @param string $partner_reference_no Transaction identifier on partner system
+     * @param string $partnerReferenceNo Transaction identifier on partner system
      *
      * @return self
      */
-    public function setPartnerReferenceNo($partner_reference_no)
+    public function setPartnerReferenceNo($partnerReferenceNo)
     {
-        if (is_null($partner_reference_no)) {
-            throw new \InvalidArgumentException('non-nullable partner_reference_no cannot be null');
+        if (is_null($partnerReferenceNo)) {
+            throw new \InvalidArgumentException('non-nullable partnerReferenceNo cannot be null');
         }
-        if ((mb_strlen($partner_reference_no) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $partner_reference_no when calling CreateOrderByRedirectRequest., must be smaller than or equal to 64.');
+        if ((mb_strlen($partnerReferenceNo) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $partnerReferenceNo when calling CreateOrderByRedirectRequest., must be smaller than or equal to 64.');
         }
 
-        $this->container['partner_reference_no'] = $partner_reference_no;
+        $this->container['partnerReferenceNo'] = $partnerReferenceNo;
 
         return $this;
     }
 
     /**
-     * Gets merchant_id
+     * Gets merchantId
      *
      * @return string
      */
     public function getMerchantId()
     {
-        return $this->container['merchant_id'];
+        return $this->container['merchantId'];
     }
 
     /**
-     * Sets merchant_id
+     * Sets merchantId
      *
-     * @param string $merchant_id Merchant identifier that is unique per each merchant
+     * @param string $merchantId Merchant identifier that is unique per each merchant
      *
      * @return self
      */
-    public function setMerchantId($merchant_id)
+    public function setMerchantId($merchantId)
     {
-        if (is_null($merchant_id)) {
-            throw new \InvalidArgumentException('non-nullable merchant_id cannot be null');
+        if (is_null($merchantId)) {
+            throw new \InvalidArgumentException('non-nullable merchantId cannot be null');
         }
-        if ((mb_strlen($merchant_id) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $merchant_id when calling CreateOrderByRedirectRequest., must be smaller than or equal to 64.');
+        if ((mb_strlen($merchantId) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $merchantId when calling CreateOrderByRedirectRequest., must be smaller than or equal to 64.');
         }
 
-        $this->container['merchant_id'] = $merchant_id;
+        $this->container['merchantId'] = $merchantId;
 
         return $this;
     }
 
     /**
-     * Gets sub_merchant_id
+     * Gets subMerchantId
      *
      * @return string|null
      */
     public function getSubMerchantId()
     {
-        return $this->container['sub_merchant_id'];
+        return $this->container['subMerchantId'];
     }
 
     /**
-     * Sets sub_merchant_id
+     * Sets subMerchantId
      *
-     * @param string|null $sub_merchant_id Information of sub merchant identifier
+     * @param string|null $subMerchantId Information of sub merchant identifier
      *
      * @return self
      */
-    public function setSubMerchantId($sub_merchant_id)
+    public function setSubMerchantId($subMerchantId)
     {
-        if (is_null($sub_merchant_id)) {
-            throw new \InvalidArgumentException('non-nullable sub_merchant_id cannot be null');
+        if (is_null($subMerchantId)) {
+            throw new \InvalidArgumentException('non-nullable subMerchantId cannot be null');
         }
-        if ((mb_strlen($sub_merchant_id) > 32)) {
-            throw new \InvalidArgumentException('invalid length for $sub_merchant_id when calling CreateOrderByRedirectRequest., must be smaller than or equal to 32.');
+        if ((mb_strlen($subMerchantId) > 32)) {
+            throw new \InvalidArgumentException('invalid length for $subMerchantId when calling CreateOrderByRedirectRequest., must be smaller than or equal to 32.');
         }
 
-        $this->container['sub_merchant_id'] = $sub_merchant_id;
+        $this->container['subMerchantId'] = $subMerchantId;
 
         return $this;
     }
@@ -534,124 +534,124 @@ class CreateOrderByRedirectRequest implements ModelInterface, ArrayAccess, \Json
     }
 
     /**
-     * Gets external_store_id
+     * Gets externalStoreId
      *
      * @return string|null
      */
     public function getExternalStoreId()
     {
-        return $this->container['external_store_id'];
+        return $this->container['externalStoreId'];
     }
 
     /**
-     * Sets external_store_id
+     * Sets externalStoreId
      *
-     * @param string|null $external_store_id Store identifier to indicate to which store this payment belongs to
+     * @param string|null $externalStoreId Store identifier to indicate to which store this payment belongs to
      *
      * @return self
      */
-    public function setExternalStoreId($external_store_id)
+    public function setExternalStoreId($externalStoreId)
     {
-        if (is_null($external_store_id)) {
-            throw new \InvalidArgumentException('non-nullable external_store_id cannot be null');
+        if (is_null($externalStoreId)) {
+            throw new \InvalidArgumentException('non-nullable externalStoreId cannot be null');
         }
-        if ((mb_strlen($external_store_id) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $external_store_id when calling CreateOrderByRedirectRequest., must be smaller than or equal to 64.');
+        if ((mb_strlen($externalStoreId) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $externalStoreId when calling CreateOrderByRedirectRequest., must be smaller than or equal to 64.');
         }
 
-        $this->container['external_store_id'] = $external_store_id;
+        $this->container['externalStoreId'] = $externalStoreId;
 
         return $this;
     }
 
     /**
-     * Gets valid_up_to
+     * Gets validUpTo
      *
      * @return string|null
      */
     public function getValidUpTo()
     {
-        return $this->container['valid_up_to'];
+        return $this->container['validUpTo'];
     }
 
     /**
-     * Sets valid_up_to
+     * Sets validUpTo
      *
-     * @param string|null $valid_up_to The time when the payment will be automatically expired, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time)
+     * @param string|null $validUpTo The time when the payment will be automatically expired, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time)
      *
      * @return self
      */
-    public function setValidUpTo($valid_up_to)
+    public function setValidUpTo($validUpTo)
     {
-        if (is_null($valid_up_to)) {
-            throw new \InvalidArgumentException('non-nullable valid_up_to cannot be null');
+        if (is_null($validUpTo)) {
+            throw new \InvalidArgumentException('non-nullable validUpTo cannot be null');
         }
-        if ((mb_strlen($valid_up_to) > 25)) {
-            throw new \InvalidArgumentException('invalid length for $valid_up_to when calling CreateOrderByRedirectRequest., must be smaller than or equal to 25.');
+        if ((mb_strlen($validUpTo) > 25)) {
+            throw new \InvalidArgumentException('invalid length for $validUpTo when calling CreateOrderByRedirectRequest., must be smaller than or equal to 25.');
         }
-        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($valid_up_to)))) {
-            throw new \InvalidArgumentException("invalid value for \$valid_up_to when calling CreateOrderByRedirectRequest., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
+        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($validUpTo)))) {
+            throw new \InvalidArgumentException("invalid value for \$validUpTo when calling CreateOrderByRedirectRequest., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
         }
 
-        $this->container['valid_up_to'] = $valid_up_to;
+        $this->container['validUpTo'] = $validUpTo;
 
         return $this;
     }
 
     /**
-     * Gets disabled_pay_methods
+     * Gets disabledPayMethods
      *
      * @return string|null
      */
     public function getDisabledPayMethods()
     {
-        return $this->container['disabled_pay_methods'];
+        return $this->container['disabledPayMethods'];
     }
 
     /**
-     * Sets disabled_pay_methods
+     * Sets disabledPayMethods
      *
-     * @param string|null $disabled_pay_methods Payment method(s) that cannot be used for this
+     * @param string|null $disabledPayMethods Payment method(s) that cannot be used for this
      *
      * @return self
      */
-    public function setDisabledPayMethods($disabled_pay_methods)
+    public function setDisabledPayMethods($disabledPayMethods)
     {
-        if (is_null($disabled_pay_methods)) {
-            throw new \InvalidArgumentException('non-nullable disabled_pay_methods cannot be null');
+        if (is_null($disabledPayMethods)) {
+            throw new \InvalidArgumentException('non-nullable disabledPayMethods cannot be null');
         }
-        if ((mb_strlen($disabled_pay_methods) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $disabled_pay_methods when calling CreateOrderByRedirectRequest., must be smaller than or equal to 64.');
+        if ((mb_strlen($disabledPayMethods) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $disabledPayMethods when calling CreateOrderByRedirectRequest., must be smaller than or equal to 64.');
         }
 
-        $this->container['disabled_pay_methods'] = $disabled_pay_methods;
+        $this->container['disabledPayMethods'] = $disabledPayMethods;
 
         return $this;
     }
 
     /**
-     * Gets url_params
+     * Gets urlParams
      *
      * @return \Dana\PaymentGateway\v1\Model\UrlParam[]
      */
     public function getUrlParams()
     {
-        return $this->container['url_params'];
+        return $this->container['urlParams'];
     }
 
     /**
-     * Sets url_params
+     * Sets urlParams
      *
-     * @param \Dana\PaymentGateway\v1\Model\UrlParam[] $url_params Notify URL that DANA must send the payment notification to
+     * @param \Dana\PaymentGateway\v1\Model\UrlParam[] $urlParams Notify URL that DANA must send the payment notification to
      *
      * @return self
      */
-    public function setUrlParams($url_params)
+    public function setUrlParams($urlParams)
     {
-        if (is_null($url_params)) {
-            throw new \InvalidArgumentException('non-nullable url_params cannot be null');
+        if (is_null($urlParams)) {
+            throw new \InvalidArgumentException('non-nullable urlParams cannot be null');
         }
-        $this->container['url_params'] = $url_params;
+        $this->container['urlParams'] = $urlParams;
 
         return $this;
     }

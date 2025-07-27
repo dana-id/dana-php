@@ -58,10 +58,10 @@ class ResultInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'result_status' => 'string',
-        'result_code_id' => 'string',
-        'result_code' => 'string',
-        'result_msg' => 'string'
+        'resultStatus' => 'string',
+        'resultCodeId' => 'string',
+        'resultCode' => 'string',
+        'resultMsg' => 'string'
     ];
 
     /**
@@ -72,10 +72,10 @@ class ResultInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'result_status' => null,
-        'result_code_id' => null,
-        'result_code' => null,
-        'result_msg' => null
+        'resultStatus' => null,
+        'resultCodeId' => null,
+        'resultCode' => null,
+        'resultMsg' => null
     ];
 
     /**
@@ -84,10 +84,10 @@ class ResultInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'result_status' => false,
-        'result_code_id' => false,
-        'result_code' => false,
-        'result_msg' => false
+        'resultStatus' => false,
+        'resultCodeId' => false,
+        'resultCode' => false,
+        'resultMsg' => false
     ];
 
     /**
@@ -176,10 +176,10 @@ class ResultInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'result_status' => 'resultStatus',
-        'result_code_id' => 'resultCodeId',
-        'result_code' => 'resultCode',
-        'result_msg' => 'resultMsg'
+        'resultStatus' => 'resultStatus',
+        'resultCodeId' => 'resultCodeId',
+        'resultCode' => 'resultCode',
+        'resultMsg' => 'resultMsg'
     ];
 
     /**
@@ -188,10 +188,10 @@ class ResultInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'result_status' => 'setResultStatus',
-        'result_code_id' => 'setResultCodeId',
-        'result_code' => 'setResultCode',
-        'result_msg' => 'setResultMsg'
+        'resultStatus' => 'setResultStatus',
+        'resultCodeId' => 'setResultCodeId',
+        'resultCode' => 'setResultCode',
+        'resultMsg' => 'setResultMsg'
     ];
 
     /**
@@ -200,10 +200,10 @@ class ResultInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'result_status' => 'getResultStatus',
-        'result_code_id' => 'getResultCodeId',
-        'result_code' => 'getResultCode',
-        'result_msg' => 'getResultMsg'
+        'resultStatus' => 'getResultStatus',
+        'resultCodeId' => 'getResultCodeId',
+        'resultCode' => 'getResultCode',
+        'resultMsg' => 'getResultMsg'
     ];
 
     /**
@@ -280,10 +280,10 @@ class ResultInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('result_status', $data ?? [], null);
-        $this->setIfExists('result_code_id', $data ?? [], null);
-        $this->setIfExists('result_code', $data ?? [], null);
-        $this->setIfExists('result_msg', $data ?? [], null);
+        $this->setIfExists('resultStatus', $data ?? [], null);
+        $this->setIfExists('resultCodeId', $data ?? [], null);
+        $this->setIfExists('resultCode', $data ?? [], null);
+        $this->setIfExists('resultMsg', $data ?? [], null);
     }
 
     /**
@@ -313,26 +313,26 @@ class ResultInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['result_status'] === null) {
-            $invalidProperties[] = "'result_status' can't be null";
+        if ($this->container['resultStatus'] === null) {
+            $invalidProperties[] = "'resultStatus' can't be null";
         }
         $allowedValues = $this->getResultStatusAllowableValues();
-        if (!is_null($this->container['result_status']) && !in_array($this->container['result_status'], $allowedValues, true)) {
+        if (!is_null($this->container['resultStatus']) && !in_array($this->container['resultStatus'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'result_status', must be one of '%s'",
-                $this->container['result_status'],
+                "invalid value '%s' for 'resultStatus', must be one of '%s'",
+                $this->container['resultStatus'],
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['result_code_id'] === null) {
-            $invalidProperties[] = "'result_code_id' can't be null";
+        if ($this->container['resultCodeId'] === null) {
+            $invalidProperties[] = "'resultCodeId' can't be null";
         }
-        if ($this->container['result_code'] === null) {
-            $invalidProperties[] = "'result_code' can't be null";
+        if ($this->container['resultCode'] === null) {
+            $invalidProperties[] = "'resultCode' can't be null";
         }
-        if ($this->container['result_msg'] === null) {
-            $invalidProperties[] = "'result_msg' can't be null";
+        if ($this->container['resultMsg'] === null) {
+            $invalidProperties[] = "'resultMsg' can't be null";
         }
         return $invalidProperties;
     }
@@ -350,119 +350,119 @@ class ResultInfo implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets result_status
+     * Gets resultStatus
      *
      * @return string
      */
     public function getResultStatus()
     {
-        return $this->container['result_status'];
+        return $this->container['resultStatus'];
     }
 
     /**
-     * Sets result_status
+     * Sets resultStatus
      *
-     * @param string $result_status Result status (S=Success, F=Failure, U=Unknown)
+     * @param string $resultStatus Result status (S=Success, F=Failure, U=Unknown)
      *
      * @return self
      */
-    public function setResultStatus($result_status)
+    public function setResultStatus($resultStatus)
     {
-        if (is_null($result_status)) {
-            throw new \InvalidArgumentException('non-nullable result_status cannot be null');
+        if (is_null($resultStatus)) {
+            throw new \InvalidArgumentException('non-nullable resultStatus cannot be null');
         }
         $allowedValues = $this->getResultStatusAllowableValues();
-        if (!in_array($result_status, $allowedValues, true) && !empty($result_status)) {
+        if (!in_array($resultStatus, $allowedValues, true) && !empty($resultStatus)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'result_status', must be one of '%s'",
-                    $result_status,
+                    "Invalid value '%s' for 'resultStatus', must be one of '%s'",
+                    $resultStatus,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['result_status'] = $result_status;
+        $this->container['resultStatus'] = $resultStatus;
 
         return $this;
     }
 
     /**
-     * Gets result_code_id
+     * Gets resultCodeId
      *
      * @return string
      */
     public function getResultCodeId()
     {
-        return $this->container['result_code_id'];
+        return $this->container['resultCodeId'];
     }
 
     /**
-     * Sets result_code_id
+     * Sets resultCodeId
      *
-     * @param string $result_code_id Result code identifier
+     * @param string $resultCodeId Result code identifier
      *
      * @return self
      */
-    public function setResultCodeId($result_code_id)
+    public function setResultCodeId($resultCodeId)
     {
-        if (is_null($result_code_id)) {
-            throw new \InvalidArgumentException('non-nullable result_code_id cannot be null');
+        if (is_null($resultCodeId)) {
+            throw new \InvalidArgumentException('non-nullable resultCodeId cannot be null');
         }
-        $this->container['result_code_id'] = $result_code_id;
+        $this->container['resultCodeId'] = $resultCodeId;
 
         return $this;
     }
 
     /**
-     * Gets result_code
+     * Gets resultCode
      *
      * @return string
      */
     public function getResultCode()
     {
-        return $this->container['result_code'];
+        return $this->container['resultCode'];
     }
 
     /**
-     * Sets result_code
+     * Sets resultCode
      *
-     * @param string $result_code Result code
+     * @param string $resultCode Result code
      *
      * @return self
      */
-    public function setResultCode($result_code)
+    public function setResultCode($resultCode)
     {
-        if (is_null($result_code)) {
-            throw new \InvalidArgumentException('non-nullable result_code cannot be null');
+        if (is_null($resultCode)) {
+            throw new \InvalidArgumentException('non-nullable resultCode cannot be null');
         }
-        $this->container['result_code'] = $result_code;
+        $this->container['resultCode'] = $resultCode;
 
         return $this;
     }
 
     /**
-     * Gets result_msg
+     * Gets resultMsg
      *
      * @return string
      */
     public function getResultMsg()
     {
-        return $this->container['result_msg'];
+        return $this->container['resultMsg'];
     }
 
     /**
-     * Sets result_msg
+     * Sets resultMsg
      *
-     * @param string $result_msg Result message
+     * @param string $resultMsg Result message
      *
      * @return self
      */
-    public function setResultMsg($result_msg)
+    public function setResultMsg($resultMsg)
     {
-        if (is_null($result_msg)) {
-            throw new \InvalidArgumentException('non-nullable result_msg cannot be null');
+        if (is_null($resultMsg)) {
+            throw new \InvalidArgumentException('non-nullable resultMsg cannot be null');
         }
-        $this->container['result_msg'] = $result_msg;
+        $this->container['resultMsg'] = $resultMsg;
 
         return $this;
     }

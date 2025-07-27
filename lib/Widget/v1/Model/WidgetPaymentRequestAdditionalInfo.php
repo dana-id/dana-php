@@ -58,15 +58,15 @@ class WidgetPaymentRequestAdditionalInfo implements ModelInterface, ArrayAccess,
       * @var string[]
       */
     protected static $openAPITypes = [
-        'support_deep_link_checkout_url' => 'string',
-        'phone_number' => 'string',
-        'public_user_id' => 'string',
-        'product_code' => 'string',
-        'service_info' => '\Dana\Widget\v1\Model\ServiceInfo',
+        'supportDeepLinkCheckoutUrl' => 'string',
+        'phoneNumber' => 'string',
+        'publicUserId' => 'string',
+        'productCode' => 'string',
+        'serviceInfo' => '\Dana\Widget\v1\Model\ServiceInfo',
         'order' => '\Dana\Widget\v1\Model\Order',
         'mcc' => 'string',
-        'env_info' => '\Dana\Widget\v1\Model\EnvInfo',
-        'extend_info' => 'string'
+        'envInfo' => '\Dana\Widget\v1\Model\EnvInfo',
+        'extendInfo' => 'string'
     ];
 
     /**
@@ -77,15 +77,15 @@ class WidgetPaymentRequestAdditionalInfo implements ModelInterface, ArrayAccess,
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'support_deep_link_checkout_url' => null,
-        'phone_number' => null,
-        'public_user_id' => null,
-        'product_code' => null,
-        'service_info' => null,
+        'supportDeepLinkCheckoutUrl' => null,
+        'phoneNumber' => null,
+        'publicUserId' => null,
+        'productCode' => null,
+        'serviceInfo' => null,
         'order' => null,
         'mcc' => null,
-        'env_info' => null,
-        'extend_info' => null
+        'envInfo' => null,
+        'extendInfo' => null
     ];
 
     /**
@@ -94,15 +94,15 @@ class WidgetPaymentRequestAdditionalInfo implements ModelInterface, ArrayAccess,
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'support_deep_link_checkout_url' => false,
-        'phone_number' => false,
-        'public_user_id' => false,
-        'product_code' => false,
-        'service_info' => false,
+        'supportDeepLinkCheckoutUrl' => false,
+        'phoneNumber' => false,
+        'publicUserId' => false,
+        'productCode' => false,
+        'serviceInfo' => false,
         'order' => false,
         'mcc' => false,
-        'env_info' => false,
-        'extend_info' => false
+        'envInfo' => false,
+        'extendInfo' => false
     ];
 
     /**
@@ -191,15 +191,15 @@ class WidgetPaymentRequestAdditionalInfo implements ModelInterface, ArrayAccess,
      * @var string[]
      */
     protected static $attributeMap = [
-        'support_deep_link_checkout_url' => 'supportDeepLinkCheckoutUrl',
-        'phone_number' => 'phoneNumber',
-        'public_user_id' => 'publicUserId',
-        'product_code' => 'productCode',
-        'service_info' => 'serviceInfo',
+        'supportDeepLinkCheckoutUrl' => 'supportDeepLinkCheckoutUrl',
+        'phoneNumber' => 'phoneNumber',
+        'publicUserId' => 'publicUserId',
+        'productCode' => 'productCode',
+        'serviceInfo' => 'serviceInfo',
         'order' => 'order',
         'mcc' => 'mcc',
-        'env_info' => 'envInfo',
-        'extend_info' => 'extendInfo'
+        'envInfo' => 'envInfo',
+        'extendInfo' => 'extendInfo'
     ];
 
     /**
@@ -208,15 +208,15 @@ class WidgetPaymentRequestAdditionalInfo implements ModelInterface, ArrayAccess,
      * @var string[]
      */
     protected static $setters = [
-        'support_deep_link_checkout_url' => 'setSupportDeepLinkCheckoutUrl',
-        'phone_number' => 'setPhoneNumber',
-        'public_user_id' => 'setPublicUserId',
-        'product_code' => 'setProductCode',
-        'service_info' => 'setServiceInfo',
+        'supportDeepLinkCheckoutUrl' => 'setSupportDeepLinkCheckoutUrl',
+        'phoneNumber' => 'setPhoneNumber',
+        'publicUserId' => 'setPublicUserId',
+        'productCode' => 'setProductCode',
+        'serviceInfo' => 'setServiceInfo',
         'order' => 'setOrder',
         'mcc' => 'setMcc',
-        'env_info' => 'setEnvInfo',
-        'extend_info' => 'setExtendInfo'
+        'envInfo' => 'setEnvInfo',
+        'extendInfo' => 'setExtendInfo'
     ];
 
     /**
@@ -225,15 +225,15 @@ class WidgetPaymentRequestAdditionalInfo implements ModelInterface, ArrayAccess,
      * @var string[]
      */
     protected static $getters = [
-        'support_deep_link_checkout_url' => 'getSupportDeepLinkCheckoutUrl',
-        'phone_number' => 'getPhoneNumber',
-        'public_user_id' => 'getPublicUserId',
-        'product_code' => 'getProductCode',
-        'service_info' => 'getServiceInfo',
+        'supportDeepLinkCheckoutUrl' => 'getSupportDeepLinkCheckoutUrl',
+        'phoneNumber' => 'getPhoneNumber',
+        'publicUserId' => 'getPublicUserId',
+        'productCode' => 'getProductCode',
+        'serviceInfo' => 'getServiceInfo',
         'order' => 'getOrder',
         'mcc' => 'getMcc',
-        'env_info' => 'getEnvInfo',
-        'extend_info' => 'getExtendInfo'
+        'envInfo' => 'getEnvInfo',
+        'extendInfo' => 'getExtendInfo'
     ];
 
     /**
@@ -293,15 +293,15 @@ class WidgetPaymentRequestAdditionalInfo implements ModelInterface, ArrayAccess,
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('support_deep_link_checkout_url', $data ?? [], null);
-        $this->setIfExists('phone_number', $data ?? [], null);
-        $this->setIfExists('public_user_id', $data ?? [], null);
-        $this->setIfExists('product_code', $data ?? [], null);
-        $this->setIfExists('service_info', $data ?? [], null);
+        $this->setIfExists('supportDeepLinkCheckoutUrl', $data ?? [], null);
+        $this->setIfExists('phoneNumber', $data ?? [], null);
+        $this->setIfExists('publicUserId', $data ?? [], null);
+        $this->setIfExists('productCode', $data ?? [], null);
+        $this->setIfExists('serviceInfo', $data ?? [], null);
         $this->setIfExists('order', $data ?? [], null);
         $this->setIfExists('mcc', $data ?? [], null);
-        $this->setIfExists('env_info', $data ?? [], null);
-        $this->setIfExists('extend_info', $data ?? [], null);
+        $this->setIfExists('envInfo', $data ?? [], null);
+        $this->setIfExists('extendInfo', $data ?? [], null);
     }
 
     /**
@@ -331,23 +331,23 @@ class WidgetPaymentRequestAdditionalInfo implements ModelInterface, ArrayAccess,
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['support_deep_link_checkout_url']) && (mb_strlen($this->container['support_deep_link_checkout_url']) > 64)) {
-            $invalidProperties[] = "invalid value for 'support_deep_link_checkout_url', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['supportDeepLinkCheckoutUrl']) && (mb_strlen($this->container['supportDeepLinkCheckoutUrl']) > 64)) {
+            $invalidProperties[] = "invalid value for 'supportDeepLinkCheckoutUrl', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['phone_number']) && (mb_strlen($this->container['phone_number']) > 64)) {
-            $invalidProperties[] = "invalid value for 'phone_number', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['phoneNumber']) && (mb_strlen($this->container['phoneNumber']) > 64)) {
+            $invalidProperties[] = "invalid value for 'phoneNumber', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['public_user_id']) && (mb_strlen($this->container['public_user_id']) > 64)) {
-            $invalidProperties[] = "invalid value for 'public_user_id', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['publicUserId']) && (mb_strlen($this->container['publicUserId']) > 64)) {
+            $invalidProperties[] = "invalid value for 'publicUserId', the character length must be smaller than or equal to 64.";
         }
 
-        if ($this->container['product_code'] === null) {
-            $invalidProperties[] = "'product_code' can't be null";
+        if ($this->container['productCode'] === null) {
+            $invalidProperties[] = "'productCode' can't be null";
         }
-        if ((mb_strlen($this->container['product_code']) > 32)) {
-            $invalidProperties[] = "invalid value for 'product_code', the character length must be smaller than or equal to 32.";
+        if ((mb_strlen($this->container['productCode']) > 32)) {
+            $invalidProperties[] = "invalid value for 'productCode', the character length must be smaller than or equal to 32.";
         }
 
         if ($this->container['order'] === null) {
@@ -360,11 +360,11 @@ class WidgetPaymentRequestAdditionalInfo implements ModelInterface, ArrayAccess,
             $invalidProperties[] = "invalid value for 'mcc', the character length must be smaller than or equal to 64.";
         }
 
-        if ($this->container['env_info'] === null) {
-            $invalidProperties[] = "'env_info' can't be null";
+        if ($this->container['envInfo'] === null) {
+            $invalidProperties[] = "'envInfo' can't be null";
         }
-        if (!is_null($this->container['extend_info']) && (mb_strlen($this->container['extend_info']) > 4096)) {
-            $invalidProperties[] = "invalid value for 'extend_info', the character length must be smaller than or equal to 4096.";
+        if (!is_null($this->container['extendInfo']) && (mb_strlen($this->container['extendInfo']) > 4096)) {
+            $invalidProperties[] = "invalid value for 'extendInfo', the character length must be smaller than or equal to 4096.";
         }
 
         return $invalidProperties;
@@ -383,152 +383,152 @@ class WidgetPaymentRequestAdditionalInfo implements ModelInterface, ArrayAccess,
 
 
     /**
-     * Gets support_deep_link_checkout_url
+     * Gets supportDeepLinkCheckoutUrl
      *
      * @return string|null
      */
     public function getSupportDeepLinkCheckoutUrl()
     {
-        return $this->container['support_deep_link_checkout_url'];
+        return $this->container['supportDeepLinkCheckoutUrl'];
     }
 
     /**
-     * Sets support_deep_link_checkout_url
+     * Sets supportDeepLinkCheckoutUrl
      *
-     * @param string|null $support_deep_link_checkout_url Additional information of deeplink checkout URL. For Mini Program, DANA will treat as false
+     * @param string|null $supportDeepLinkCheckoutUrl Additional information of deeplink checkout URL. For Mini Program, DANA will treat as false
      *
      * @return self
      */
-    public function setSupportDeepLinkCheckoutUrl($support_deep_link_checkout_url)
+    public function setSupportDeepLinkCheckoutUrl($supportDeepLinkCheckoutUrl)
     {
-        if (is_null($support_deep_link_checkout_url)) {
-            throw new \InvalidArgumentException('non-nullable support_deep_link_checkout_url cannot be null');
+        if (is_null($supportDeepLinkCheckoutUrl)) {
+            throw new \InvalidArgumentException('non-nullable supportDeepLinkCheckoutUrl cannot be null');
         }
-        if ((mb_strlen($support_deep_link_checkout_url) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $support_deep_link_checkout_url when calling WidgetPaymentRequestAdditionalInfo., must be smaller than or equal to 64.');
+        if ((mb_strlen($supportDeepLinkCheckoutUrl) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $supportDeepLinkCheckoutUrl when calling WidgetPaymentRequestAdditionalInfo., must be smaller than or equal to 64.');
         }
 
-        $this->container['support_deep_link_checkout_url'] = $support_deep_link_checkout_url;
+        $this->container['supportDeepLinkCheckoutUrl'] = $supportDeepLinkCheckoutUrl;
 
         return $this;
     }
 
     /**
-     * Gets phone_number
+     * Gets phoneNumber
      *
      * @return string|null
      */
     public function getPhoneNumber()
     {
-        return $this->container['phone_number'];
+        return $this->container['phoneNumber'];
     }
 
     /**
-     * Sets phone_number
+     * Sets phoneNumber
      *
-     * @param string|null $phone_number Additional information of user's phone number
+     * @param string|null $phoneNumber Additional information of user's phone number
      *
      * @return self
      */
-    public function setPhoneNumber($phone_number)
+    public function setPhoneNumber($phoneNumber)
     {
-        if (is_null($phone_number)) {
-            throw new \InvalidArgumentException('non-nullable phone_number cannot be null');
+        if (is_null($phoneNumber)) {
+            throw new \InvalidArgumentException('non-nullable phoneNumber cannot be null');
         }
-        if ((mb_strlen($phone_number) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $phone_number when calling WidgetPaymentRequestAdditionalInfo., must be smaller than or equal to 64.');
+        if ((mb_strlen($phoneNumber) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $phoneNumber when calling WidgetPaymentRequestAdditionalInfo., must be smaller than or equal to 64.');
         }
 
-        $this->container['phone_number'] = $phone_number;
+        $this->container['phoneNumber'] = $phoneNumber;
 
         return $this;
     }
 
     /**
-     * Gets public_user_id
+     * Gets publicUserId
      *
      * @return string|null
      */
     public function getPublicUserId()
     {
-        return $this->container['public_user_id'];
+        return $this->container['publicUserId'];
     }
 
     /**
-     * Sets public_user_id
+     * Sets publicUserId
      *
-     * @param string|null $public_user_id Additional information of public user's identifier
+     * @param string|null $publicUserId Additional information of public user's identifier
      *
      * @return self
      */
-    public function setPublicUserId($public_user_id)
+    public function setPublicUserId($publicUserId)
     {
-        if (is_null($public_user_id)) {
-            throw new \InvalidArgumentException('non-nullable public_user_id cannot be null');
+        if (is_null($publicUserId)) {
+            throw new \InvalidArgumentException('non-nullable publicUserId cannot be null');
         }
-        if ((mb_strlen($public_user_id) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $public_user_id when calling WidgetPaymentRequestAdditionalInfo., must be smaller than or equal to 64.');
+        if ((mb_strlen($publicUserId) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $publicUserId when calling WidgetPaymentRequestAdditionalInfo., must be smaller than or equal to 64.');
         }
 
-        $this->container['public_user_id'] = $public_user_id;
+        $this->container['publicUserId'] = $publicUserId;
 
         return $this;
     }
 
     /**
-     * Gets product_code
+     * Gets productCode
      *
      * @return string
      */
     public function getProductCode()
     {
-        return $this->container['product_code'];
+        return $this->container['productCode'];
     }
 
     /**
-     * Sets product_code
+     * Sets productCode
      *
-     * @param string $product_code Additional information of product code
+     * @param string $productCode Additional information of product code
      *
      * @return self
      */
-    public function setProductCode($product_code)
+    public function setProductCode($productCode)
     {
-        if (is_null($product_code)) {
-            throw new \InvalidArgumentException('non-nullable product_code cannot be null');
+        if (is_null($productCode)) {
+            throw new \InvalidArgumentException('non-nullable productCode cannot be null');
         }
-        if ((mb_strlen($product_code) > 32)) {
-            throw new \InvalidArgumentException('invalid length for $product_code when calling WidgetPaymentRequestAdditionalInfo., must be smaller than or equal to 32.');
+        if ((mb_strlen($productCode) > 32)) {
+            throw new \InvalidArgumentException('invalid length for $productCode when calling WidgetPaymentRequestAdditionalInfo., must be smaller than or equal to 32.');
         }
 
-        $this->container['product_code'] = $product_code;
+        $this->container['productCode'] = $productCode;
 
         return $this;
     }
 
     /**
-     * Gets service_info
+     * Gets serviceInfo
      *
      * @return \Dana\Widget\v1\Model\ServiceInfo|null
      */
     public function getServiceInfo()
     {
-        return $this->container['service_info'];
+        return $this->container['serviceInfo'];
     }
 
     /**
-     * Sets service_info
+     * Sets serviceInfo
      *
-     * @param \Dana\Widget\v1\Model\ServiceInfo|null $service_info service_info
+     * @param \Dana\Widget\v1\Model\ServiceInfo|null $serviceInfo serviceInfo
      *
      * @return self
      */
-    public function setServiceInfo($service_info)
+    public function setServiceInfo($serviceInfo)
     {
-        if (is_null($service_info)) {
-            throw new \InvalidArgumentException('non-nullable service_info cannot be null');
+        if (is_null($serviceInfo)) {
+            throw new \InvalidArgumentException('non-nullable serviceInfo cannot be null');
         }
-        $this->container['service_info'] = $service_info;
+        $this->container['serviceInfo'] = $serviceInfo;
 
         return $this;
     }
@@ -592,59 +592,59 @@ class WidgetPaymentRequestAdditionalInfo implements ModelInterface, ArrayAccess,
     }
 
     /**
-     * Gets env_info
+     * Gets envInfo
      *
      * @return \Dana\Widget\v1\Model\EnvInfo
      */
     public function getEnvInfo()
     {
-        return $this->container['env_info'];
+        return $this->container['envInfo'];
     }
 
     /**
-     * Sets env_info
+     * Sets envInfo
      *
-     * @param \Dana\Widget\v1\Model\EnvInfo $env_info env_info
+     * @param \Dana\Widget\v1\Model\EnvInfo $envInfo envInfo
      *
      * @return self
      */
-    public function setEnvInfo($env_info)
+    public function setEnvInfo($envInfo)
     {
-        if (is_null($env_info)) {
-            throw new \InvalidArgumentException('non-nullable env_info cannot be null');
+        if (is_null($envInfo)) {
+            throw new \InvalidArgumentException('non-nullable envInfo cannot be null');
         }
-        $this->container['env_info'] = $env_info;
+        $this->container['envInfo'] = $envInfo;
 
         return $this;
     }
 
     /**
-     * Gets extend_info
+     * Gets extendInfo
      *
      * @return string|null
      */
     public function getExtendInfo()
     {
-        return $this->container['extend_info'];
+        return $this->container['extendInfo'];
     }
 
     /**
-     * Sets extend_info
+     * Sets extendInfo
      *
-     * @param string|null $extend_info Additional information of extend
+     * @param string|null $extendInfo Additional information of extend
      *
      * @return self
      */
-    public function setExtendInfo($extend_info)
+    public function setExtendInfo($extendInfo)
     {
-        if (is_null($extend_info)) {
-            throw new \InvalidArgumentException('non-nullable extend_info cannot be null');
+        if (is_null($extendInfo)) {
+            throw new \InvalidArgumentException('non-nullable extendInfo cannot be null');
         }
-        if ((mb_strlen($extend_info) > 4096)) {
-            throw new \InvalidArgumentException('invalid length for $extend_info when calling WidgetPaymentRequestAdditionalInfo., must be smaller than or equal to 4096.');
+        if ((mb_strlen($extendInfo) > 4096)) {
+            throw new \InvalidArgumentException('invalid length for $extendInfo when calling WidgetPaymentRequestAdditionalInfo., must be smaller than or equal to 4096.');
         }
 
-        $this->container['extend_info'] = $extend_info;
+        $this->container['extendInfo'] = $extendInfo;
 
         return $this;
     }

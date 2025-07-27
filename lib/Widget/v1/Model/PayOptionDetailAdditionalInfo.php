@@ -58,13 +58,13 @@ class PayOptionDetailAdditionalInfo implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
-        'topup_and_pay' => 'bool',
-        'payer_account_no' => 'string',
-        'save_card_after_pay' => 'bool',
-        'channel_info' => 'string',
-        'issuing_country' => 'string',
-        'asset_type' => 'string',
-        'extend_info' => 'string'
+        'topupAndPay' => 'bool',
+        'payerAccountNo' => 'string',
+        'saveCardAfterPay' => 'bool',
+        'channelInfo' => 'string',
+        'issuingCountry' => 'string',
+        'assetType' => 'string',
+        'extendInfo' => 'string'
     ];
 
     /**
@@ -75,13 +75,13 @@ class PayOptionDetailAdditionalInfo implements ModelInterface, ArrayAccess, \Jso
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'topup_and_pay' => null,
-        'payer_account_no' => null,
-        'save_card_after_pay' => null,
-        'channel_info' => null,
-        'issuing_country' => null,
-        'asset_type' => null,
-        'extend_info' => null
+        'topupAndPay' => null,
+        'payerAccountNo' => null,
+        'saveCardAfterPay' => null,
+        'channelInfo' => null,
+        'issuingCountry' => null,
+        'assetType' => null,
+        'extendInfo' => null
     ];
 
     /**
@@ -90,13 +90,13 @@ class PayOptionDetailAdditionalInfo implements ModelInterface, ArrayAccess, \Jso
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'topup_and_pay' => false,
-        'payer_account_no' => false,
-        'save_card_after_pay' => false,
-        'channel_info' => false,
-        'issuing_country' => false,
-        'asset_type' => false,
-        'extend_info' => false
+        'topupAndPay' => false,
+        'payerAccountNo' => false,
+        'saveCardAfterPay' => false,
+        'channelInfo' => false,
+        'issuingCountry' => false,
+        'assetType' => false,
+        'extendInfo' => false
     ];
 
     /**
@@ -185,13 +185,13 @@ class PayOptionDetailAdditionalInfo implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $attributeMap = [
-        'topup_and_pay' => 'topupAndPay',
-        'payer_account_no' => 'payerAccountNo',
-        'save_card_after_pay' => 'saveCardAfterPay',
-        'channel_info' => 'channelInfo',
-        'issuing_country' => 'issuingCountry',
-        'asset_type' => 'assetType',
-        'extend_info' => 'extendInfo'
+        'topupAndPay' => 'topupAndPay',
+        'payerAccountNo' => 'payerAccountNo',
+        'saveCardAfterPay' => 'saveCardAfterPay',
+        'channelInfo' => 'channelInfo',
+        'issuingCountry' => 'issuingCountry',
+        'assetType' => 'assetType',
+        'extendInfo' => 'extendInfo'
     ];
 
     /**
@@ -200,13 +200,13 @@ class PayOptionDetailAdditionalInfo implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $setters = [
-        'topup_and_pay' => 'setTopupAndPay',
-        'payer_account_no' => 'setPayerAccountNo',
-        'save_card_after_pay' => 'setSaveCardAfterPay',
-        'channel_info' => 'setChannelInfo',
-        'issuing_country' => 'setIssuingCountry',
-        'asset_type' => 'setAssetType',
-        'extend_info' => 'setExtendInfo'
+        'topupAndPay' => 'setTopupAndPay',
+        'payerAccountNo' => 'setPayerAccountNo',
+        'saveCardAfterPay' => 'setSaveCardAfterPay',
+        'channelInfo' => 'setChannelInfo',
+        'issuingCountry' => 'setIssuingCountry',
+        'assetType' => 'setAssetType',
+        'extendInfo' => 'setExtendInfo'
     ];
 
     /**
@@ -215,13 +215,13 @@ class PayOptionDetailAdditionalInfo implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $getters = [
-        'topup_and_pay' => 'getTopupAndPay',
-        'payer_account_no' => 'getPayerAccountNo',
-        'save_card_after_pay' => 'getSaveCardAfterPay',
-        'channel_info' => 'getChannelInfo',
-        'issuing_country' => 'getIssuingCountry',
-        'asset_type' => 'getAssetType',
-        'extend_info' => 'getExtendInfo'
+        'topupAndPay' => 'getTopupAndPay',
+        'payerAccountNo' => 'getPayerAccountNo',
+        'saveCardAfterPay' => 'getSaveCardAfterPay',
+        'channelInfo' => 'getChannelInfo',
+        'issuingCountry' => 'getIssuingCountry',
+        'assetType' => 'getAssetType',
+        'extendInfo' => 'getExtendInfo'
     ];
 
     /**
@@ -281,13 +281,13 @@ class PayOptionDetailAdditionalInfo implements ModelInterface, ArrayAccess, \Jso
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('topup_and_pay', $data ?? [], null);
-        $this->setIfExists('payer_account_no', $data ?? [], null);
-        $this->setIfExists('save_card_after_pay', $data ?? [], null);
-        $this->setIfExists('channel_info', $data ?? [], null);
-        $this->setIfExists('issuing_country', $data ?? [], null);
-        $this->setIfExists('asset_type', $data ?? [], null);
-        $this->setIfExists('extend_info', $data ?? [], null);
+        $this->setIfExists('topupAndPay', $data ?? [], null);
+        $this->setIfExists('payerAccountNo', $data ?? [], null);
+        $this->setIfExists('saveCardAfterPay', $data ?? [], null);
+        $this->setIfExists('channelInfo', $data ?? [], null);
+        $this->setIfExists('issuingCountry', $data ?? [], null);
+        $this->setIfExists('assetType', $data ?? [], null);
+        $this->setIfExists('extendInfo', $data ?? [], null);
     }
 
     /**
@@ -317,24 +317,24 @@ class PayOptionDetailAdditionalInfo implements ModelInterface, ArrayAccess, \Jso
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['payer_account_no']) && (mb_strlen($this->container['payer_account_no']) > 64)) {
-            $invalidProperties[] = "invalid value for 'payer_account_no', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['payerAccountNo']) && (mb_strlen($this->container['payerAccountNo']) > 64)) {
+            $invalidProperties[] = "invalid value for 'payerAccountNo', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['channel_info']) && (mb_strlen($this->container['channel_info']) > 4096)) {
-            $invalidProperties[] = "invalid value for 'channel_info', the character length must be smaller than or equal to 4096.";
+        if (!is_null($this->container['channelInfo']) && (mb_strlen($this->container['channelInfo']) > 4096)) {
+            $invalidProperties[] = "invalid value for 'channelInfo', the character length must be smaller than or equal to 4096.";
         }
 
-        if (!is_null($this->container['issuing_country']) && (mb_strlen($this->container['issuing_country']) > 8)) {
-            $invalidProperties[] = "invalid value for 'issuing_country', the character length must be smaller than or equal to 8.";
+        if (!is_null($this->container['issuingCountry']) && (mb_strlen($this->container['issuingCountry']) > 8)) {
+            $invalidProperties[] = "invalid value for 'issuingCountry', the character length must be smaller than or equal to 8.";
         }
 
-        if (!is_null($this->container['asset_type']) && (mb_strlen($this->container['asset_type']) > 64)) {
-            $invalidProperties[] = "invalid value for 'asset_type', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['assetType']) && (mb_strlen($this->container['assetType']) > 64)) {
+            $invalidProperties[] = "invalid value for 'assetType', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['extend_info']) && (mb_strlen($this->container['extend_info']) > 4096)) {
-            $invalidProperties[] = "invalid value for 'extend_info', the character length must be smaller than or equal to 4096.";
+        if (!is_null($this->container['extendInfo']) && (mb_strlen($this->container['extendInfo']) > 4096)) {
+            $invalidProperties[] = "invalid value for 'extendInfo', the character length must be smaller than or equal to 4096.";
         }
 
         return $invalidProperties;
@@ -353,210 +353,210 @@ class PayOptionDetailAdditionalInfo implements ModelInterface, ArrayAccess, \Jso
 
 
     /**
-     * Gets topup_and_pay
+     * Gets topupAndPay
      *
      * @return bool|null
      */
     public function getTopupAndPay()
     {
-        return $this->container['topup_and_pay'];
+        return $this->container['topupAndPay'];
     }
 
     /**
-     * Sets topup_and_pay
+     * Sets topupAndPay
      *
-     * @param bool|null $topup_and_pay Top up and pay
+     * @param bool|null $topupAndPay Top up and pay
      *
      * @return self
      */
-    public function setTopupAndPay($topup_and_pay)
+    public function setTopupAndPay($topupAndPay)
     {
-        if (is_null($topup_and_pay)) {
-            throw new \InvalidArgumentException('non-nullable topup_and_pay cannot be null');
+        if (is_null($topupAndPay)) {
+            throw new \InvalidArgumentException('non-nullable topupAndPay cannot be null');
         }
-        $this->container['topup_and_pay'] = $topup_and_pay;
+        $this->container['topupAndPay'] = $topupAndPay;
 
         return $this;
     }
 
     /**
-     * Gets payer_account_no
+     * Gets payerAccountNo
      *
      * @return string|null
      */
     public function getPayerAccountNo()
     {
-        return $this->container['payer_account_no'];
+        return $this->container['payerAccountNo'];
     }
 
     /**
-     * Sets payer_account_no
+     * Sets payerAccountNo
      *
-     * @param string|null $payer_account_no Number account of payer
+     * @param string|null $payerAccountNo Number account of payer
      *
      * @return self
      */
-    public function setPayerAccountNo($payer_account_no)
+    public function setPayerAccountNo($payerAccountNo)
     {
-        if (is_null($payer_account_no)) {
-            throw new \InvalidArgumentException('non-nullable payer_account_no cannot be null');
+        if (is_null($payerAccountNo)) {
+            throw new \InvalidArgumentException('non-nullable payerAccountNo cannot be null');
         }
-        if ((mb_strlen($payer_account_no) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $payer_account_no when calling PayOptionDetailAdditionalInfo., must be smaller than or equal to 64.');
+        if ((mb_strlen($payerAccountNo) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $payerAccountNo when calling PayOptionDetailAdditionalInfo., must be smaller than or equal to 64.');
         }
 
-        $this->container['payer_account_no'] = $payer_account_no;
+        $this->container['payerAccountNo'] = $payerAccountNo;
 
         return $this;
     }
 
     /**
-     * Gets save_card_after_pay
+     * Gets saveCardAfterPay
      *
      * @return bool|null
      */
     public function getSaveCardAfterPay()
     {
-        return $this->container['save_card_after_pay'];
+        return $this->container['saveCardAfterPay'];
     }
 
     /**
-     * Sets save_card_after_pay
+     * Sets saveCardAfterPay
      *
-     * @param bool|null $save_card_after_pay Information save card after payment process
+     * @param bool|null $saveCardAfterPay Information save card after payment process
      *
      * @return self
      */
-    public function setSaveCardAfterPay($save_card_after_pay)
+    public function setSaveCardAfterPay($saveCardAfterPay)
     {
-        if (is_null($save_card_after_pay)) {
-            throw new \InvalidArgumentException('non-nullable save_card_after_pay cannot be null');
+        if (is_null($saveCardAfterPay)) {
+            throw new \InvalidArgumentException('non-nullable saveCardAfterPay cannot be null');
         }
-        $this->container['save_card_after_pay'] = $save_card_after_pay;
+        $this->container['saveCardAfterPay'] = $saveCardAfterPay;
 
         return $this;
     }
 
     /**
-     * Gets channel_info
+     * Gets channelInfo
      *
      * @return string|null
      */
     public function getChannelInfo()
     {
-        return $this->container['channel_info'];
+        return $this->container['channelInfo'];
     }
 
     /**
-     * Sets channel_info
+     * Sets channelInfo
      *
-     * @param string|null $channel_info Information of channel
+     * @param string|null $channelInfo Information of channel
      *
      * @return self
      */
-    public function setChannelInfo($channel_info)
+    public function setChannelInfo($channelInfo)
     {
-        if (is_null($channel_info)) {
-            throw new \InvalidArgumentException('non-nullable channel_info cannot be null');
+        if (is_null($channelInfo)) {
+            throw new \InvalidArgumentException('non-nullable channelInfo cannot be null');
         }
-        if ((mb_strlen($channel_info) > 4096)) {
-            throw new \InvalidArgumentException('invalid length for $channel_info when calling PayOptionDetailAdditionalInfo., must be smaller than or equal to 4096.');
+        if ((mb_strlen($channelInfo) > 4096)) {
+            throw new \InvalidArgumentException('invalid length for $channelInfo when calling PayOptionDetailAdditionalInfo., must be smaller than or equal to 4096.');
         }
 
-        $this->container['channel_info'] = $channel_info;
+        $this->container['channelInfo'] = $channelInfo;
 
         return $this;
     }
 
     /**
-     * Gets issuing_country
+     * Gets issuingCountry
      *
      * @return string|null
      */
     public function getIssuingCountry()
     {
-        return $this->container['issuing_country'];
+        return $this->container['issuingCountry'];
     }
 
     /**
-     * Sets issuing_country
+     * Sets issuingCountry
      *
-     * @param string|null $issuing_country Information of issuing country
+     * @param string|null $issuingCountry Information of issuing country
      *
      * @return self
      */
-    public function setIssuingCountry($issuing_country)
+    public function setIssuingCountry($issuingCountry)
     {
-        if (is_null($issuing_country)) {
-            throw new \InvalidArgumentException('non-nullable issuing_country cannot be null');
+        if (is_null($issuingCountry)) {
+            throw new \InvalidArgumentException('non-nullable issuingCountry cannot be null');
         }
-        if ((mb_strlen($issuing_country) > 8)) {
-            throw new \InvalidArgumentException('invalid length for $issuing_country when calling PayOptionDetailAdditionalInfo., must be smaller than or equal to 8.');
+        if ((mb_strlen($issuingCountry) > 8)) {
+            throw new \InvalidArgumentException('invalid length for $issuingCountry when calling PayOptionDetailAdditionalInfo., must be smaller than or equal to 8.');
         }
 
-        $this->container['issuing_country'] = $issuing_country;
+        $this->container['issuingCountry'] = $issuingCountry;
 
         return $this;
     }
 
     /**
-     * Gets asset_type
+     * Gets assetType
      *
      * @return string|null
      */
     public function getAssetType()
     {
-        return $this->container['asset_type'];
+        return $this->container['assetType'];
     }
 
     /**
-     * Sets asset_type
+     * Sets assetType
      *
-     * @param string|null $asset_type Type of asset
+     * @param string|null $assetType Type of asset
      *
      * @return self
      */
-    public function setAssetType($asset_type)
+    public function setAssetType($assetType)
     {
-        if (is_null($asset_type)) {
-            throw new \InvalidArgumentException('non-nullable asset_type cannot be null');
+        if (is_null($assetType)) {
+            throw new \InvalidArgumentException('non-nullable assetType cannot be null');
         }
-        if ((mb_strlen($asset_type) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $asset_type when calling PayOptionDetailAdditionalInfo., must be smaller than or equal to 64.');
+        if ((mb_strlen($assetType) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $assetType when calling PayOptionDetailAdditionalInfo., must be smaller than or equal to 64.');
         }
 
-        $this->container['asset_type'] = $asset_type;
+        $this->container['assetType'] = $assetType;
 
         return $this;
     }
 
     /**
-     * Gets extend_info
+     * Gets extendInfo
      *
      * @return string|null
      */
     public function getExtendInfo()
     {
-        return $this->container['extend_info'];
+        return $this->container['extendInfo'];
     }
 
     /**
-     * Sets extend_info
+     * Sets extendInfo
      *
-     * @param string|null $extend_info Extend information
+     * @param string|null $extendInfo Extend information
      *
      * @return self
      */
-    public function setExtendInfo($extend_info)
+    public function setExtendInfo($extendInfo)
     {
-        if (is_null($extend_info)) {
-            throw new \InvalidArgumentException('non-nullable extend_info cannot be null');
+        if (is_null($extendInfo)) {
+            throw new \InvalidArgumentException('non-nullable extendInfo cannot be null');
         }
-        if ((mb_strlen($extend_info) > 4096)) {
-            throw new \InvalidArgumentException('invalid length for $extend_info when calling PayOptionDetailAdditionalInfo., must be smaller than or equal to 4096.');
+        if ((mb_strlen($extendInfo) > 4096)) {
+            throw new \InvalidArgumentException('invalid length for $extendInfo when calling PayOptionDetailAdditionalInfo., must be smaller than or equal to 4096.');
         }
 
-        $this->container['extend_info'] = $extend_info;
+        $this->container['extendInfo'] = $extendInfo;
 
         return $this;
     }

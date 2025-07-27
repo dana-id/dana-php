@@ -58,15 +58,15 @@ class Goods implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'merchant_goods_id' => 'string',
+        'merchantGoodsId' => 'string',
         'description' => 'string',
         'category' => 'string',
         'price' => '\Dana\PaymentGateway\v1\Model\Money',
         'unit' => 'string',
         'quantity' => 'string',
-        'merchant_shipping_id' => 'string',
-        'snapshot_url' => 'string',
-        'extend_info' => 'string'
+        'merchantShippingId' => 'string',
+        'snapshotUrl' => 'string',
+        'extendInfo' => 'string'
     ];
 
     /**
@@ -77,15 +77,15 @@ class Goods implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'merchant_goods_id' => null,
+        'merchantGoodsId' => null,
         'description' => null,
         'category' => null,
         'price' => null,
         'unit' => null,
         'quantity' => null,
-        'merchant_shipping_id' => null,
-        'snapshot_url' => null,
-        'extend_info' => null
+        'merchantShippingId' => null,
+        'snapshotUrl' => null,
+        'extendInfo' => null
     ];
 
     /**
@@ -94,15 +94,15 @@ class Goods implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'merchant_goods_id' => false,
+        'merchantGoodsId' => false,
         'description' => false,
         'category' => false,
         'price' => false,
         'unit' => false,
         'quantity' => false,
-        'merchant_shipping_id' => false,
-        'snapshot_url' => false,
-        'extend_info' => false
+        'merchantShippingId' => false,
+        'snapshotUrl' => false,
+        'extendInfo' => false
     ];
 
     /**
@@ -191,15 +191,15 @@ class Goods implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'merchant_goods_id' => 'merchantGoodsId',
+        'merchantGoodsId' => 'merchantGoodsId',
         'description' => 'description',
         'category' => 'category',
         'price' => 'price',
         'unit' => 'unit',
         'quantity' => 'quantity',
-        'merchant_shipping_id' => 'merchantShippingId',
-        'snapshot_url' => 'snapshotUrl',
-        'extend_info' => 'extendInfo'
+        'merchantShippingId' => 'merchantShippingId',
+        'snapshotUrl' => 'snapshotUrl',
+        'extendInfo' => 'extendInfo'
     ];
 
     /**
@@ -208,15 +208,15 @@ class Goods implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'merchant_goods_id' => 'setMerchantGoodsId',
+        'merchantGoodsId' => 'setMerchantGoodsId',
         'description' => 'setDescription',
         'category' => 'setCategory',
         'price' => 'setPrice',
         'unit' => 'setUnit',
         'quantity' => 'setQuantity',
-        'merchant_shipping_id' => 'setMerchantShippingId',
-        'snapshot_url' => 'setSnapshotUrl',
-        'extend_info' => 'setExtendInfo'
+        'merchantShippingId' => 'setMerchantShippingId',
+        'snapshotUrl' => 'setSnapshotUrl',
+        'extendInfo' => 'setExtendInfo'
     ];
 
     /**
@@ -225,15 +225,15 @@ class Goods implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'merchant_goods_id' => 'getMerchantGoodsId',
+        'merchantGoodsId' => 'getMerchantGoodsId',
         'description' => 'getDescription',
         'category' => 'getCategory',
         'price' => 'getPrice',
         'unit' => 'getUnit',
         'quantity' => 'getQuantity',
-        'merchant_shipping_id' => 'getMerchantShippingId',
-        'snapshot_url' => 'getSnapshotUrl',
-        'extend_info' => 'getExtendInfo'
+        'merchantShippingId' => 'getMerchantShippingId',
+        'snapshotUrl' => 'getSnapshotUrl',
+        'extendInfo' => 'getExtendInfo'
     ];
 
     /**
@@ -293,15 +293,15 @@ class Goods implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('merchant_goods_id', $data ?? [], null);
+        $this->setIfExists('merchantGoodsId', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('category', $data ?? [], null);
         $this->setIfExists('price', $data ?? [], null);
         $this->setIfExists('unit', $data ?? [], null);
         $this->setIfExists('quantity', $data ?? [], null);
-        $this->setIfExists('merchant_shipping_id', $data ?? [], null);
-        $this->setIfExists('snapshot_url', $data ?? [], null);
-        $this->setIfExists('extend_info', $data ?? [], null);
+        $this->setIfExists('merchantShippingId', $data ?? [], null);
+        $this->setIfExists('snapshotUrl', $data ?? [], null);
+        $this->setIfExists('extendInfo', $data ?? [], null);
     }
 
     /**
@@ -331,11 +331,11 @@ class Goods implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['merchant_goods_id'] === null) {
-            $invalidProperties[] = "'merchant_goods_id' can't be null";
+        if ($this->container['merchantGoodsId'] === null) {
+            $invalidProperties[] = "'merchantGoodsId' can't be null";
         }
-        if ((mb_strlen($this->container['merchant_goods_id']) > 64)) {
-            $invalidProperties[] = "invalid value for 'merchant_goods_id', the character length must be smaller than or equal to 64.";
+        if ((mb_strlen($this->container['merchantGoodsId']) > 64)) {
+            $invalidProperties[] = "invalid value for 'merchantGoodsId', the character length must be smaller than or equal to 64.";
         }
 
         if ($this->container['description'] === null) {
@@ -366,16 +366,16 @@ class Goods implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'quantity', the character length must be smaller than or equal to 16.";
         }
 
-        if (!is_null($this->container['merchant_shipping_id']) && (mb_strlen($this->container['merchant_shipping_id']) > 64)) {
-            $invalidProperties[] = "invalid value for 'merchant_shipping_id', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['merchantShippingId']) && (mb_strlen($this->container['merchantShippingId']) > 64)) {
+            $invalidProperties[] = "invalid value for 'merchantShippingId', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['snapshot_url']) && (mb_strlen($this->container['snapshot_url']) > 512)) {
-            $invalidProperties[] = "invalid value for 'snapshot_url', the character length must be smaller than or equal to 512.";
+        if (!is_null($this->container['snapshotUrl']) && (mb_strlen($this->container['snapshotUrl']) > 512)) {
+            $invalidProperties[] = "invalid value for 'snapshotUrl', the character length must be smaller than or equal to 512.";
         }
 
-        if (!is_null($this->container['extend_info']) && (mb_strlen($this->container['extend_info']) > 4096)) {
-            $invalidProperties[] = "invalid value for 'extend_info', the character length must be smaller than or equal to 4096.";
+        if (!is_null($this->container['extendInfo']) && (mb_strlen($this->container['extendInfo']) > 4096)) {
+            $invalidProperties[] = "invalid value for 'extendInfo', the character length must be smaller than or equal to 4096.";
         }
 
         return $invalidProperties;
@@ -394,32 +394,32 @@ class Goods implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets merchant_goods_id
+     * Gets merchantGoodsId
      *
      * @return string
      */
     public function getMerchantGoodsId()
     {
-        return $this->container['merchant_goods_id'];
+        return $this->container['merchantGoodsId'];
     }
 
     /**
-     * Sets merchant_goods_id
+     * Sets merchantGoodsId
      *
-     * @param string $merchant_goods_id Goods identifier provided by merchant
+     * @param string $merchantGoodsId Goods identifier provided by merchant
      *
      * @return self
      */
-    public function setMerchantGoodsId($merchant_goods_id)
+    public function setMerchantGoodsId($merchantGoodsId)
     {
-        if (is_null($merchant_goods_id)) {
-            throw new \InvalidArgumentException('non-nullable merchant_goods_id cannot be null');
+        if (is_null($merchantGoodsId)) {
+            throw new \InvalidArgumentException('non-nullable merchantGoodsId cannot be null');
         }
-        if ((mb_strlen($merchant_goods_id) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $merchant_goods_id when calling Goods., must be smaller than or equal to 64.');
+        if ((mb_strlen($merchantGoodsId) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $merchantGoodsId when calling Goods., must be smaller than or equal to 64.');
         }
 
-        $this->container['merchant_goods_id'] = $merchant_goods_id;
+        $this->container['merchantGoodsId'] = $merchantGoodsId;
 
         return $this;
     }
@@ -576,94 +576,94 @@ class Goods implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets merchant_shipping_id
+     * Gets merchantShippingId
      *
      * @return string|null
      */
     public function getMerchantShippingId()
     {
-        return $this->container['merchant_shipping_id'];
+        return $this->container['merchantShippingId'];
     }
 
     /**
-     * Sets merchant_shipping_id
+     * Sets merchantShippingId
      *
-     * @param string|null $merchant_shipping_id Shipment identifier provided by merchant
+     * @param string|null $merchantShippingId Shipment identifier provided by merchant
      *
      * @return self
      */
-    public function setMerchantShippingId($merchant_shipping_id)
+    public function setMerchantShippingId($merchantShippingId)
     {
-        if (is_null($merchant_shipping_id)) {
-            throw new \InvalidArgumentException('non-nullable merchant_shipping_id cannot be null');
+        if (is_null($merchantShippingId)) {
+            throw new \InvalidArgumentException('non-nullable merchantShippingId cannot be null');
         }
-        if ((mb_strlen($merchant_shipping_id) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $merchant_shipping_id when calling Goods., must be smaller than or equal to 64.');
+        if ((mb_strlen($merchantShippingId) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $merchantShippingId when calling Goods., must be smaller than or equal to 64.');
         }
 
-        $this->container['merchant_shipping_id'] = $merchant_shipping_id;
+        $this->container['merchantShippingId'] = $merchantShippingId;
 
         return $this;
     }
 
     /**
-     * Gets snapshot_url
+     * Gets snapshotUrl
      *
      * @return string|null
      */
     public function getSnapshotUrl()
     {
-        return $this->container['snapshot_url'];
+        return $this->container['snapshotUrl'];
     }
 
     /**
-     * Sets snapshot_url
+     * Sets snapshotUrl
      *
-     * @param string|null $snapshot_url The URL of good's snapshot web page
+     * @param string|null $snapshotUrl The URL of good's snapshot web page
      *
      * @return self
      */
-    public function setSnapshotUrl($snapshot_url)
+    public function setSnapshotUrl($snapshotUrl)
     {
-        if (is_null($snapshot_url)) {
-            throw new \InvalidArgumentException('non-nullable snapshot_url cannot be null');
+        if (is_null($snapshotUrl)) {
+            throw new \InvalidArgumentException('non-nullable snapshotUrl cannot be null');
         }
-        if ((mb_strlen($snapshot_url) > 512)) {
-            throw new \InvalidArgumentException('invalid length for $snapshot_url when calling Goods., must be smaller than or equal to 512.');
+        if ((mb_strlen($snapshotUrl) > 512)) {
+            throw new \InvalidArgumentException('invalid length for $snapshotUrl when calling Goods., must be smaller than or equal to 512.');
         }
 
-        $this->container['snapshot_url'] = $snapshot_url;
+        $this->container['snapshotUrl'] = $snapshotUrl;
 
         return $this;
     }
 
     /**
-     * Gets extend_info
+     * Gets extendInfo
      *
      * @return string|null
      */
     public function getExtendInfo()
     {
-        return $this->container['extend_info'];
+        return $this->container['extendInfo'];
     }
 
     /**
-     * Sets extend_info
+     * Sets extendInfo
      *
-     * @param string|null $extend_info Extend information
+     * @param string|null $extendInfo Extend information
      *
      * @return self
      */
-    public function setExtendInfo($extend_info)
+    public function setExtendInfo($extendInfo)
     {
-        if (is_null($extend_info)) {
-            throw new \InvalidArgumentException('non-nullable extend_info cannot be null');
+        if (is_null($extendInfo)) {
+            throw new \InvalidArgumentException('non-nullable extendInfo cannot be null');
         }
-        if ((mb_strlen($extend_info) > 4096)) {
-            throw new \InvalidArgumentException('invalid length for $extend_info when calling Goods., must be smaller than or equal to 4096.');
+        if ((mb_strlen($extendInfo) > 4096)) {
+            throw new \InvalidArgumentException('invalid length for $extendInfo when calling Goods., must be smaller than or equal to 4096.');
         }
 
-        $this->container['extend_info'] = $extend_info;
+        $this->container['extendInfo'] = $extendInfo;
 
         return $this;
     }

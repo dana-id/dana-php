@@ -58,14 +58,14 @@ class AccountInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'balance_type' => 'string',
+        'balanceType' => 'string',
         'amount' => '\Dana\Widget\v1\Model\Money',
-        'float_amount' => '\Dana\Widget\v1\Model\Money',
-        'hold_amount' => '\Dana\Widget\v1\Model\Money',
-        'available_balance' => '\Dana\Widget\v1\Model\Money',
-        'ledger_balance' => '\Dana\Widget\v1\Model\Money',
-        'current_multilateral_limit' => '\Dana\Widget\v1\Model\Money',
-        'registration_status_code' => 'string',
+        'floatAmount' => '\Dana\Widget\v1\Model\Money',
+        'holdAmount' => '\Dana\Widget\v1\Model\Money',
+        'availableBalance' => '\Dana\Widget\v1\Model\Money',
+        'ledgerBalance' => '\Dana\Widget\v1\Model\Money',
+        'currentMultilateralLimit' => '\Dana\Widget\v1\Model\Money',
+        'registrationStatusCode' => 'string',
         'status' => 'string'
     ];
 
@@ -77,14 +77,14 @@ class AccountInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'balance_type' => null,
+        'balanceType' => null,
         'amount' => null,
-        'float_amount' => null,
-        'hold_amount' => null,
-        'available_balance' => null,
-        'ledger_balance' => null,
-        'current_multilateral_limit' => null,
-        'registration_status_code' => null,
+        'floatAmount' => null,
+        'holdAmount' => null,
+        'availableBalance' => null,
+        'ledgerBalance' => null,
+        'currentMultilateralLimit' => null,
+        'registrationStatusCode' => null,
         'status' => null
     ];
 
@@ -94,14 +94,14 @@ class AccountInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'balance_type' => false,
+        'balanceType' => false,
         'amount' => false,
-        'float_amount' => false,
-        'hold_amount' => false,
-        'available_balance' => false,
-        'ledger_balance' => false,
-        'current_multilateral_limit' => false,
-        'registration_status_code' => false,
+        'floatAmount' => false,
+        'holdAmount' => false,
+        'availableBalance' => false,
+        'ledgerBalance' => false,
+        'currentMultilateralLimit' => false,
+        'registrationStatusCode' => false,
         'status' => false
     ];
 
@@ -191,14 +191,14 @@ class AccountInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'balance_type' => 'balanceType',
+        'balanceType' => 'balanceType',
         'amount' => 'amount',
-        'float_amount' => 'floatAmount',
-        'hold_amount' => 'holdAmount',
-        'available_balance' => 'availableBalance',
-        'ledger_balance' => 'ledgerBalance',
-        'current_multilateral_limit' => 'currentMultilateralLimit',
-        'registration_status_code' => 'registrationStatusCode',
+        'floatAmount' => 'floatAmount',
+        'holdAmount' => 'holdAmount',
+        'availableBalance' => 'availableBalance',
+        'ledgerBalance' => 'ledgerBalance',
+        'currentMultilateralLimit' => 'currentMultilateralLimit',
+        'registrationStatusCode' => 'registrationStatusCode',
         'status' => 'status'
     ];
 
@@ -208,14 +208,14 @@ class AccountInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'balance_type' => 'setBalanceType',
+        'balanceType' => 'setBalanceType',
         'amount' => 'setAmount',
-        'float_amount' => 'setFloatAmount',
-        'hold_amount' => 'setHoldAmount',
-        'available_balance' => 'setAvailableBalance',
-        'ledger_balance' => 'setLedgerBalance',
-        'current_multilateral_limit' => 'setCurrentMultilateralLimit',
-        'registration_status_code' => 'setRegistrationStatusCode',
+        'floatAmount' => 'setFloatAmount',
+        'holdAmount' => 'setHoldAmount',
+        'availableBalance' => 'setAvailableBalance',
+        'ledgerBalance' => 'setLedgerBalance',
+        'currentMultilateralLimit' => 'setCurrentMultilateralLimit',
+        'registrationStatusCode' => 'setRegistrationStatusCode',
         'status' => 'setStatus'
     ];
 
@@ -225,14 +225,14 @@ class AccountInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'balance_type' => 'getBalanceType',
+        'balanceType' => 'getBalanceType',
         'amount' => 'getAmount',
-        'float_amount' => 'getFloatAmount',
-        'hold_amount' => 'getHoldAmount',
-        'available_balance' => 'getAvailableBalance',
-        'ledger_balance' => 'getLedgerBalance',
-        'current_multilateral_limit' => 'getCurrentMultilateralLimit',
-        'registration_status_code' => 'getRegistrationStatusCode',
+        'floatAmount' => 'getFloatAmount',
+        'holdAmount' => 'getHoldAmount',
+        'availableBalance' => 'getAvailableBalance',
+        'ledgerBalance' => 'getLedgerBalance',
+        'currentMultilateralLimit' => 'getCurrentMultilateralLimit',
+        'registrationStatusCode' => 'getRegistrationStatusCode',
         'status' => 'getStatus'
     ];
 
@@ -293,14 +293,14 @@ class AccountInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('balance_type', $data ?? [], null);
+        $this->setIfExists('balanceType', $data ?? [], null);
         $this->setIfExists('amount', $data ?? [], null);
-        $this->setIfExists('float_amount', $data ?? [], null);
-        $this->setIfExists('hold_amount', $data ?? [], null);
-        $this->setIfExists('available_balance', $data ?? [], null);
-        $this->setIfExists('ledger_balance', $data ?? [], null);
-        $this->setIfExists('current_multilateral_limit', $data ?? [], null);
-        $this->setIfExists('registration_status_code', $data ?? [], null);
+        $this->setIfExists('floatAmount', $data ?? [], null);
+        $this->setIfExists('holdAmount', $data ?? [], null);
+        $this->setIfExists('availableBalance', $data ?? [], null);
+        $this->setIfExists('ledgerBalance', $data ?? [], null);
+        $this->setIfExists('currentMultilateralLimit', $data ?? [], null);
+        $this->setIfExists('registrationStatusCode', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
     }
 
@@ -331,12 +331,12 @@ class AccountInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['balance_type']) && (mb_strlen($this->container['balance_type']) > 70)) {
-            $invalidProperties[] = "invalid value for 'balance_type', the character length must be smaller than or equal to 70.";
+        if (!is_null($this->container['balanceType']) && (mb_strlen($this->container['balanceType']) > 70)) {
+            $invalidProperties[] = "invalid value for 'balanceType', the character length must be smaller than or equal to 70.";
         }
 
-        if (!is_null($this->container['registration_status_code']) && (mb_strlen($this->container['registration_status_code']) > 4)) {
-            $invalidProperties[] = "invalid value for 'registration_status_code', the character length must be smaller than or equal to 4.";
+        if (!is_null($this->container['registrationStatusCode']) && (mb_strlen($this->container['registrationStatusCode']) > 4)) {
+            $invalidProperties[] = "invalid value for 'registrationStatusCode', the character length must be smaller than or equal to 4.";
         }
 
         if (!is_null($this->container['status']) && (mb_strlen($this->container['status']) > 4)) {
@@ -359,32 +359,32 @@ class AccountInfo implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets balance_type
+     * Gets balanceType
      *
      * @return string|null
      */
     public function getBalanceType()
     {
-        return $this->container['balance_type'];
+        return $this->container['balanceType'];
     }
 
     /**
-     * Sets balance_type
+     * Sets balanceType
      *
-     * @param string|null $balance_type Account information of balance type to specify which balance type expected to be returned. Will return all available balance type if this parameter empty
+     * @param string|null $balanceType Account information of balance type to specify which balance type expected to be returned. Will return all available balance type if this parameter empty
      *
      * @return self
      */
-    public function setBalanceType($balance_type)
+    public function setBalanceType($balanceType)
     {
-        if (is_null($balance_type)) {
-            throw new \InvalidArgumentException('non-nullable balance_type cannot be null');
+        if (is_null($balanceType)) {
+            throw new \InvalidArgumentException('non-nullable balanceType cannot be null');
         }
-        if ((mb_strlen($balance_type) > 70)) {
-            throw new \InvalidArgumentException('invalid length for $balance_type when calling AccountInfo., must be smaller than or equal to 70.');
+        if ((mb_strlen($balanceType) > 70)) {
+            throw new \InvalidArgumentException('invalid length for $balanceType when calling AccountInfo., must be smaller than or equal to 70.');
         }
 
-        $this->container['balance_type'] = $balance_type;
+        $this->container['balanceType'] = $balanceType;
 
         return $this;
     }
@@ -417,167 +417,167 @@ class AccountInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets float_amount
+     * Gets floatAmount
      *
      * @return \Dana\Widget\v1\Model\Money|null
      */
     public function getFloatAmount()
     {
-        return $this->container['float_amount'];
+        return $this->container['floatAmount'];
     }
 
     /**
-     * Sets float_amount
+     * Sets floatAmount
      *
-     * @param \Dana\Widget\v1\Model\Money|null $float_amount Account information of float amount which include the inactive amount due to cut off period. Contains two sub-fields:<br> 1. Value: Amount, including the cents<br> 2. Currency: Currency code based on ISO
+     * @param \Dana\Widget\v1\Model\Money|null $floatAmount Account information of float amount which include the inactive amount due to cut off period. Contains two sub-fields:<br> 1. Value: Amount, including the cents<br> 2. Currency: Currency code based on ISO
      *
      * @return self
      */
-    public function setFloatAmount($float_amount)
+    public function setFloatAmount($floatAmount)
     {
-        if (is_null($float_amount)) {
-            throw new \InvalidArgumentException('non-nullable float_amount cannot be null');
+        if (is_null($floatAmount)) {
+            throw new \InvalidArgumentException('non-nullable floatAmount cannot be null');
         }
-        $this->container['float_amount'] = $float_amount;
+        $this->container['floatAmount'] = $floatAmount;
 
         return $this;
     }
 
     /**
-     * Gets hold_amount
+     * Gets holdAmount
      *
      * @return \Dana\Widget\v1\Model\Money|null
      */
     public function getHoldAmount()
     {
-        return $this->container['hold_amount'];
+        return $this->container['holdAmount'];
     }
 
     /**
-     * Sets hold_amount
+     * Sets holdAmount
      *
-     * @param \Dana\Widget\v1\Model\Money|null $hold_amount Account information of hold amount which include the unusable amount due to certain type of transaction. Contains two sub-fields:<br> 1. Value: Amount, including the cents<br> 2. Currency: Currency code based on ISO
+     * @param \Dana\Widget\v1\Model\Money|null $holdAmount Account information of hold amount which include the unusable amount due to certain type of transaction. Contains two sub-fields:<br> 1. Value: Amount, including the cents<br> 2. Currency: Currency code based on ISO
      *
      * @return self
      */
-    public function setHoldAmount($hold_amount)
+    public function setHoldAmount($holdAmount)
     {
-        if (is_null($hold_amount)) {
-            throw new \InvalidArgumentException('non-nullable hold_amount cannot be null');
+        if (is_null($holdAmount)) {
+            throw new \InvalidArgumentException('non-nullable holdAmount cannot be null');
         }
-        $this->container['hold_amount'] = $hold_amount;
+        $this->container['holdAmount'] = $holdAmount;
 
         return $this;
     }
 
     /**
-     * Gets available_balance
+     * Gets availableBalance
      *
      * @return \Dana\Widget\v1\Model\Money|null
      */
     public function getAvailableBalance()
     {
-        return $this->container['available_balance'];
+        return $this->container['availableBalance'];
     }
 
     /**
-     * Sets available_balance
+     * Sets availableBalance
      *
-     * @param \Dana\Widget\v1\Model\Money|null $available_balance Account information of available balance which include the active amount that can be used for transaction. Contains two sub-fields:<br> 1. Value: Amount, including the cents<br> 2. Currency: Currency code based on ISO
+     * @param \Dana\Widget\v1\Model\Money|null $availableBalance Account information of available balance which include the active amount that can be used for transaction. Contains two sub-fields:<br> 1. Value: Amount, including the cents<br> 2. Currency: Currency code based on ISO
      *
      * @return self
      */
-    public function setAvailableBalance($available_balance)
+    public function setAvailableBalance($availableBalance)
     {
-        if (is_null($available_balance)) {
-            throw new \InvalidArgumentException('non-nullable available_balance cannot be null');
+        if (is_null($availableBalance)) {
+            throw new \InvalidArgumentException('non-nullable availableBalance cannot be null');
         }
-        $this->container['available_balance'] = $available_balance;
+        $this->container['availableBalance'] = $availableBalance;
 
         return $this;
     }
 
     /**
-     * Gets ledger_balance
+     * Gets ledgerBalance
      *
      * @return \Dana\Widget\v1\Model\Money|null
      */
     public function getLedgerBalance()
     {
-        return $this->container['ledger_balance'];
+        return $this->container['ledgerBalance'];
     }
 
     /**
-     * Sets ledger_balance
+     * Sets ledgerBalance
      *
-     * @param \Dana\Widget\v1\Model\Money|null $ledger_balance Account information of ledger balance which include the starting balance for this day. Contains two sub-fields:<br> 1. Value: Amount, including the cents<br> 2. Currency: Currency code based on ISO
+     * @param \Dana\Widget\v1\Model\Money|null $ledgerBalance Account information of ledger balance which include the starting balance for this day. Contains two sub-fields:<br> 1. Value: Amount, including the cents<br> 2. Currency: Currency code based on ISO
      *
      * @return self
      */
-    public function setLedgerBalance($ledger_balance)
+    public function setLedgerBalance($ledgerBalance)
     {
-        if (is_null($ledger_balance)) {
-            throw new \InvalidArgumentException('non-nullable ledger_balance cannot be null');
+        if (is_null($ledgerBalance)) {
+            throw new \InvalidArgumentException('non-nullable ledgerBalance cannot be null');
         }
-        $this->container['ledger_balance'] = $ledger_balance;
+        $this->container['ledgerBalance'] = $ledgerBalance;
 
         return $this;
     }
 
     /**
-     * Gets current_multilateral_limit
+     * Gets currentMultilateralLimit
      *
      * @return \Dana\Widget\v1\Model\Money|null
      */
     public function getCurrentMultilateralLimit()
     {
-        return $this->container['current_multilateral_limit'];
+        return $this->container['currentMultilateralLimit'];
     }
 
     /**
-     * Sets current_multilateral_limit
+     * Sets currentMultilateralLimit
      *
-     * @param \Dana\Widget\v1\Model\Money|null $current_multilateral_limit Account information of current multilateral limit. Contains two sub-fields:<br> 1. Value: Amount, including the cents<br> 2. Currency: Currency code based on ISO
+     * @param \Dana\Widget\v1\Model\Money|null $currentMultilateralLimit Account information of current multilateral limit. Contains two sub-fields:<br> 1. Value: Amount, including the cents<br> 2. Currency: Currency code based on ISO
      *
      * @return self
      */
-    public function setCurrentMultilateralLimit($current_multilateral_limit)
+    public function setCurrentMultilateralLimit($currentMultilateralLimit)
     {
-        if (is_null($current_multilateral_limit)) {
-            throw new \InvalidArgumentException('non-nullable current_multilateral_limit cannot be null');
+        if (is_null($currentMultilateralLimit)) {
+            throw new \InvalidArgumentException('non-nullable currentMultilateralLimit cannot be null');
         }
-        $this->container['current_multilateral_limit'] = $current_multilateral_limit;
+        $this->container['currentMultilateralLimit'] = $currentMultilateralLimit;
 
         return $this;
     }
 
     /**
-     * Gets registration_status_code
+     * Gets registrationStatusCode
      *
      * @return string|null
      */
     public function getRegistrationStatusCode()
     {
-        return $this->container['registration_status_code'];
+        return $this->container['registrationStatusCode'];
     }
 
     /**
-     * Sets registration_status_code
+     * Sets registrationStatusCode
      *
-     * @param string|null $registration_status_code Account information of customer registration status
+     * @param string|null $registrationStatusCode Account information of customer registration status
      *
      * @return self
      */
-    public function setRegistrationStatusCode($registration_status_code)
+    public function setRegistrationStatusCode($registrationStatusCode)
     {
-        if (is_null($registration_status_code)) {
-            throw new \InvalidArgumentException('non-nullable registration_status_code cannot be null');
+        if (is_null($registrationStatusCode)) {
+            throw new \InvalidArgumentException('non-nullable registrationStatusCode cannot be null');
         }
-        if ((mb_strlen($registration_status_code) > 4)) {
-            throw new \InvalidArgumentException('invalid length for $registration_status_code when calling AccountInfo., must be smaller than or equal to 4.');
+        if ((mb_strlen($registrationStatusCode) > 4)) {
+            throw new \InvalidArgumentException('invalid length for $registrationStatusCode when calling AccountInfo., must be smaller than or equal to 4.');
         }
 
-        $this->container['registration_status_code'] = $registration_status_code;
+        $this->container['registrationStatusCode'] = $registrationStatusCode;
 
         return $this;
     }

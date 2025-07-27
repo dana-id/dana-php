@@ -58,9 +58,9 @@ class PayOptionAdditionalInfo implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'phone_number' => 'string',
-        'payment_code' => 'string',
-        'promo_infos' => '\Dana\PaymentGateway\v1\Model\PromoInfo[]'
+        'phoneNumber' => 'string',
+        'paymentCode' => 'string',
+        'promoInfos' => '\Dana\PaymentGateway\v1\Model\PromoInfo[]'
     ];
 
     /**
@@ -71,9 +71,9 @@ class PayOptionAdditionalInfo implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'phone_number' => null,
-        'payment_code' => null,
-        'promo_infos' => null
+        'phoneNumber' => null,
+        'paymentCode' => null,
+        'promoInfos' => null
     ];
 
     /**
@@ -82,9 +82,9 @@ class PayOptionAdditionalInfo implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'phone_number' => false,
-        'payment_code' => false,
-        'promo_infos' => false
+        'phoneNumber' => false,
+        'paymentCode' => false,
+        'promoInfos' => false
     ];
 
     /**
@@ -173,9 +173,9 @@ class PayOptionAdditionalInfo implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'phone_number' => 'phoneNumber',
-        'payment_code' => 'paymentCode',
-        'promo_infos' => 'promoInfos'
+        'phoneNumber' => 'phoneNumber',
+        'paymentCode' => 'paymentCode',
+        'promoInfos' => 'promoInfos'
     ];
 
     /**
@@ -184,9 +184,9 @@ class PayOptionAdditionalInfo implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'phone_number' => 'setPhoneNumber',
-        'payment_code' => 'setPaymentCode',
-        'promo_infos' => 'setPromoInfos'
+        'phoneNumber' => 'setPhoneNumber',
+        'paymentCode' => 'setPaymentCode',
+        'promoInfos' => 'setPromoInfos'
     ];
 
     /**
@@ -195,9 +195,9 @@ class PayOptionAdditionalInfo implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'phone_number' => 'getPhoneNumber',
-        'payment_code' => 'getPaymentCode',
-        'promo_infos' => 'getPromoInfos'
+        'phoneNumber' => 'getPhoneNumber',
+        'paymentCode' => 'getPaymentCode',
+        'promoInfos' => 'getPromoInfos'
     ];
 
     /**
@@ -257,9 +257,9 @@ class PayOptionAdditionalInfo implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('phone_number', $data ?? [], null);
-        $this->setIfExists('payment_code', $data ?? [], null);
-        $this->setIfExists('promo_infos', $data ?? [], null);
+        $this->setIfExists('phoneNumber', $data ?? [], null);
+        $this->setIfExists('paymentCode', $data ?? [], null);
+        $this->setIfExists('promoInfos', $data ?? [], null);
     }
 
     /**
@@ -289,12 +289,12 @@ class PayOptionAdditionalInfo implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['phone_number']) && (mb_strlen($this->container['phone_number']) > 15)) {
-            $invalidProperties[] = "invalid value for 'phone_number', the character length must be smaller than or equal to 15.";
+        if (!is_null($this->container['phoneNumber']) && (mb_strlen($this->container['phoneNumber']) > 15)) {
+            $invalidProperties[] = "invalid value for 'phoneNumber', the character length must be smaller than or equal to 15.";
         }
 
-        if (!is_null($this->container['payment_code']) && (mb_strlen($this->container['payment_code']) > 64)) {
-            $invalidProperties[] = "invalid value for 'payment_code', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['paymentCode']) && (mb_strlen($this->container['paymentCode']) > 64)) {
+            $invalidProperties[] = "invalid value for 'paymentCode', the character length must be smaller than or equal to 64.";
         }
 
         return $invalidProperties;
@@ -313,90 +313,90 @@ class PayOptionAdditionalInfo implements ModelInterface, ArrayAccess, \JsonSeria
 
 
     /**
-     * Gets phone_number
+     * Gets phoneNumber
      *
      * @return string|null
      */
     public function getPhoneNumber()
     {
-        return $this->container['phone_number'];
+        return $this->container['phoneNumber'];
     }
 
     /**
-     * Sets phone_number
+     * Sets phoneNumber
      *
-     * @param string|null $phone_number User's phone number
+     * @param string|null $phoneNumber User's phone number
      *
      * @return self
      */
-    public function setPhoneNumber($phone_number)
+    public function setPhoneNumber($phoneNumber)
     {
-        if (is_null($phone_number)) {
-            throw new \InvalidArgumentException('non-nullable phone_number cannot be null');
+        if (is_null($phoneNumber)) {
+            throw new \InvalidArgumentException('non-nullable phoneNumber cannot be null');
         }
-        if ((mb_strlen($phone_number) > 15)) {
-            throw new \InvalidArgumentException('invalid length for $phone_number when calling PayOptionAdditionalInfo., must be smaller than or equal to 15.');
+        if ((mb_strlen($phoneNumber) > 15)) {
+            throw new \InvalidArgumentException('invalid length for $phoneNumber when calling PayOptionAdditionalInfo., must be smaller than or equal to 15.');
         }
 
-        $this->container['phone_number'] = $phone_number;
+        $this->container['phoneNumber'] = $phoneNumber;
 
         return $this;
     }
 
     /**
-     * Gets payment_code
+     * Gets paymentCode
      *
      * @return string|null
      */
     public function getPaymentCode()
     {
-        return $this->container['payment_code'];
+        return $this->container['paymentCode'];
     }
 
     /**
-     * Sets payment_code
+     * Sets paymentCode
      *
-     * @param string|null $payment_code Payment code that used for payment with virtual account
+     * @param string|null $paymentCode Payment code that used for payment with virtual account
      *
      * @return self
      */
-    public function setPaymentCode($payment_code)
+    public function setPaymentCode($paymentCode)
     {
-        if (is_null($payment_code)) {
-            throw new \InvalidArgumentException('non-nullable payment_code cannot be null');
+        if (is_null($paymentCode)) {
+            throw new \InvalidArgumentException('non-nullable paymentCode cannot be null');
         }
-        if ((mb_strlen($payment_code) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $payment_code when calling PayOptionAdditionalInfo., must be smaller than or equal to 64.');
+        if ((mb_strlen($paymentCode) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $paymentCode when calling PayOptionAdditionalInfo., must be smaller than or equal to 64.');
         }
 
-        $this->container['payment_code'] = $payment_code;
+        $this->container['paymentCode'] = $paymentCode;
 
         return $this;
     }
 
     /**
-     * Gets promo_infos
+     * Gets promoInfos
      *
      * @return \Dana\PaymentGateway\v1\Model\PromoInfo[]|null
      */
     public function getPromoInfos()
     {
-        return $this->container['promo_infos'];
+        return $this->container['promoInfos'];
     }
 
     /**
-     * Sets promo_infos
+     * Sets promoInfos
      *
-     * @param \Dana\PaymentGateway\v1\Model\PromoInfo[]|null $promo_infos promo_infos
+     * @param \Dana\PaymentGateway\v1\Model\PromoInfo[]|null $promoInfos promoInfos
      *
      * @return self
      */
-    public function setPromoInfos($promo_infos)
+    public function setPromoInfos($promoInfos)
     {
-        if (is_null($promo_infos)) {
-            throw new \InvalidArgumentException('non-nullable promo_infos cannot be null');
+        if (is_null($promoInfos)) {
+            throw new \InvalidArgumentException('non-nullable promoInfos cannot be null');
         }
-        $this->container['promo_infos'] = $promo_infos;
+        $this->container['promoInfos'] = $promoInfos;
 
         return $this;
     }

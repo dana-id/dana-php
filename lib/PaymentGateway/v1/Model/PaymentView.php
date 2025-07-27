@@ -58,11 +58,11 @@ class PaymentView implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'cashier_request_id' => 'string',
-        'paid_time' => 'string',
-        'pay_option_infos' => '\Dana\PaymentGateway\v1\Model\PayOptionInfo[]',
-        'pay_request_extend_info' => 'string',
-        'extend_info' => 'string'
+        'cashierRequestId' => 'string',
+        'paidTime' => 'string',
+        'payOptionInfos' => '\Dana\PaymentGateway\v1\Model\PayOptionInfo[]',
+        'payRequestExtendInfo' => 'string',
+        'extendInfo' => 'string'
     ];
 
     /**
@@ -73,11 +73,11 @@ class PaymentView implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'cashier_request_id' => null,
-        'paid_time' => null,
-        'pay_option_infos' => null,
-        'pay_request_extend_info' => null,
-        'extend_info' => null
+        'cashierRequestId' => null,
+        'paidTime' => null,
+        'payOptionInfos' => null,
+        'payRequestExtendInfo' => null,
+        'extendInfo' => null
     ];
 
     /**
@@ -86,11 +86,11 @@ class PaymentView implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'cashier_request_id' => false,
-        'paid_time' => false,
-        'pay_option_infos' => false,
-        'pay_request_extend_info' => false,
-        'extend_info' => false
+        'cashierRequestId' => false,
+        'paidTime' => false,
+        'payOptionInfos' => false,
+        'payRequestExtendInfo' => false,
+        'extendInfo' => false
     ];
 
     /**
@@ -179,11 +179,11 @@ class PaymentView implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'cashier_request_id' => 'cashierRequestId',
-        'paid_time' => 'paidTime',
-        'pay_option_infos' => 'payOptionInfos',
-        'pay_request_extend_info' => 'payRequestExtendInfo',
-        'extend_info' => 'extendInfo'
+        'cashierRequestId' => 'cashierRequestId',
+        'paidTime' => 'paidTime',
+        'payOptionInfos' => 'payOptionInfos',
+        'payRequestExtendInfo' => 'payRequestExtendInfo',
+        'extendInfo' => 'extendInfo'
     ];
 
     /**
@@ -192,11 +192,11 @@ class PaymentView implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'cashier_request_id' => 'setCashierRequestId',
-        'paid_time' => 'setPaidTime',
-        'pay_option_infos' => 'setPayOptionInfos',
-        'pay_request_extend_info' => 'setPayRequestExtendInfo',
-        'extend_info' => 'setExtendInfo'
+        'cashierRequestId' => 'setCashierRequestId',
+        'paidTime' => 'setPaidTime',
+        'payOptionInfos' => 'setPayOptionInfos',
+        'payRequestExtendInfo' => 'setPayRequestExtendInfo',
+        'extendInfo' => 'setExtendInfo'
     ];
 
     /**
@@ -205,11 +205,11 @@ class PaymentView implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'cashier_request_id' => 'getCashierRequestId',
-        'paid_time' => 'getPaidTime',
-        'pay_option_infos' => 'getPayOptionInfos',
-        'pay_request_extend_info' => 'getPayRequestExtendInfo',
-        'extend_info' => 'getExtendInfo'
+        'cashierRequestId' => 'getCashierRequestId',
+        'paidTime' => 'getPaidTime',
+        'payOptionInfos' => 'getPayOptionInfos',
+        'payRequestExtendInfo' => 'getPayRequestExtendInfo',
+        'extendInfo' => 'getExtendInfo'
     ];
 
     /**
@@ -269,11 +269,11 @@ class PaymentView implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('cashier_request_id', $data ?? [], null);
-        $this->setIfExists('paid_time', $data ?? [], null);
-        $this->setIfExists('pay_option_infos', $data ?? [], null);
-        $this->setIfExists('pay_request_extend_info', $data ?? [], null);
-        $this->setIfExists('extend_info', $data ?? [], null);
+        $this->setIfExists('cashierRequestId', $data ?? [], null);
+        $this->setIfExists('paidTime', $data ?? [], null);
+        $this->setIfExists('payOptionInfos', $data ?? [], null);
+        $this->setIfExists('payRequestExtendInfo', $data ?? [], null);
+        $this->setIfExists('extendInfo', $data ?? [], null);
     }
 
     /**
@@ -303,27 +303,27 @@ class PaymentView implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['cashier_request_id']) && (mb_strlen($this->container['cashier_request_id']) > 64)) {
-            $invalidProperties[] = "invalid value for 'cashier_request_id', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['cashierRequestId']) && (mb_strlen($this->container['cashierRequestId']) > 64)) {
+            $invalidProperties[] = "invalid value for 'cashierRequestId', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['paid_time']) && (mb_strlen($this->container['paid_time']) > 25)) {
-            $invalidProperties[] = "invalid value for 'paid_time', the character length must be smaller than or equal to 25.";
+        if (!is_null($this->container['paidTime']) && (mb_strlen($this->container['paidTime']) > 25)) {
+            $invalidProperties[] = "invalid value for 'paidTime', the character length must be smaller than or equal to 25.";
         }
 
-        if (!is_null($this->container['paid_time']) && !preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['paid_time'])) {
-            $invalidProperties[] = "invalid value for 'paid_time', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
+        if (!is_null($this->container['paidTime']) && !preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['paidTime'])) {
+            $invalidProperties[] = "invalid value for 'paidTime', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
         }
 
-        if ($this->container['pay_option_infos'] === null) {
-            $invalidProperties[] = "'pay_option_infos' can't be null";
+        if ($this->container['payOptionInfos'] === null) {
+            $invalidProperties[] = "'payOptionInfos' can't be null";
         }
-        if (!is_null($this->container['pay_request_extend_info']) && (mb_strlen($this->container['pay_request_extend_info']) > 4096)) {
-            $invalidProperties[] = "invalid value for 'pay_request_extend_info', the character length must be smaller than or equal to 4096.";
+        if (!is_null($this->container['payRequestExtendInfo']) && (mb_strlen($this->container['payRequestExtendInfo']) > 4096)) {
+            $invalidProperties[] = "invalid value for 'payRequestExtendInfo', the character length must be smaller than or equal to 4096.";
         }
 
-        if (!is_null($this->container['extend_info']) && (mb_strlen($this->container['extend_info']) > 4096)) {
-            $invalidProperties[] = "invalid value for 'extend_info', the character length must be smaller than or equal to 4096.";
+        if (!is_null($this->container['extendInfo']) && (mb_strlen($this->container['extendInfo']) > 4096)) {
+            $invalidProperties[] = "invalid value for 'extendInfo', the character length must be smaller than or equal to 4096.";
         }
 
         return $invalidProperties;
@@ -342,155 +342,155 @@ class PaymentView implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets cashier_request_id
+     * Gets cashierRequestId
      *
      * @return string|null
      */
     public function getCashierRequestId()
     {
-        return $this->container['cashier_request_id'];
+        return $this->container['cashierRequestId'];
     }
 
     /**
-     * Sets cashier_request_id
+     * Sets cashierRequestId
      *
-     * @param string|null $cashier_request_id Cashier request identifier
+     * @param string|null $cashierRequestId Cashier request identifier
      *
      * @return self
      */
-    public function setCashierRequestId($cashier_request_id)
+    public function setCashierRequestId($cashierRequestId)
     {
-        if (is_null($cashier_request_id)) {
-            throw new \InvalidArgumentException('non-nullable cashier_request_id cannot be null');
+        if (is_null($cashierRequestId)) {
+            throw new \InvalidArgumentException('non-nullable cashierRequestId cannot be null');
         }
-        if ((mb_strlen($cashier_request_id) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $cashier_request_id when calling PaymentView., must be smaller than or equal to 64.');
+        if ((mb_strlen($cashierRequestId) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $cashierRequestId when calling PaymentView., must be smaller than or equal to 64.');
         }
 
-        $this->container['cashier_request_id'] = $cashier_request_id;
+        $this->container['cashierRequestId'] = $cashierRequestId;
 
         return $this;
     }
 
     /**
-     * Gets paid_time
+     * Gets paidTime
      *
      * @return string|null
      */
     public function getPaidTime()
     {
-        return $this->container['paid_time'];
+        return $this->container['paidTime'];
     }
 
     /**
-     * Sets paid_time
+     * Sets paidTime
      *
-     * @param string|null $paid_time Information of paid time, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time)
+     * @param string|null $paidTime Information of paid time, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time)
      *
      * @return self
      */
-    public function setPaidTime($paid_time)
+    public function setPaidTime($paidTime)
     {
-        if (is_null($paid_time)) {
-            throw new \InvalidArgumentException('non-nullable paid_time cannot be null');
+        if (is_null($paidTime)) {
+            throw new \InvalidArgumentException('non-nullable paidTime cannot be null');
         }
-        if ((mb_strlen($paid_time) > 25)) {
-            throw new \InvalidArgumentException('invalid length for $paid_time when calling PaymentView., must be smaller than or equal to 25.');
+        if ((mb_strlen($paidTime) > 25)) {
+            throw new \InvalidArgumentException('invalid length for $paidTime when calling PaymentView., must be smaller than or equal to 25.');
         }
-        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($paid_time)))) {
-            throw new \InvalidArgumentException("invalid value for \$paid_time when calling PaymentView., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
+        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($paidTime)))) {
+            throw new \InvalidArgumentException("invalid value for \$paidTime when calling PaymentView., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
         }
 
-        $this->container['paid_time'] = $paid_time;
+        $this->container['paidTime'] = $paidTime;
 
         return $this;
     }
 
     /**
-     * Gets pay_option_infos
+     * Gets payOptionInfos
      *
      * @return \Dana\PaymentGateway\v1\Model\PayOptionInfo[]
      */
     public function getPayOptionInfos()
     {
-        return $this->container['pay_option_infos'];
+        return $this->container['payOptionInfos'];
     }
 
     /**
-     * Sets pay_option_infos
+     * Sets payOptionInfos
      *
-     * @param \Dana\PaymentGateway\v1\Model\PayOptionInfo[] $pay_option_infos Information of pay option
+     * @param \Dana\PaymentGateway\v1\Model\PayOptionInfo[] $payOptionInfos Information of pay option
      *
      * @return self
      */
-    public function setPayOptionInfos($pay_option_infos)
+    public function setPayOptionInfos($payOptionInfos)
     {
-        if (is_null($pay_option_infos)) {
-            throw new \InvalidArgumentException('non-nullable pay_option_infos cannot be null');
+        if (is_null($payOptionInfos)) {
+            throw new \InvalidArgumentException('non-nullable payOptionInfos cannot be null');
         }
-        $this->container['pay_option_infos'] = $pay_option_infos;
+        $this->container['payOptionInfos'] = $payOptionInfos;
 
         return $this;
     }
 
     /**
-     * Gets pay_request_extend_info
+     * Gets payRequestExtendInfo
      *
      * @return string|null
      */
     public function getPayRequestExtendInfo()
     {
-        return $this->container['pay_request_extend_info'];
+        return $this->container['payRequestExtendInfo'];
     }
 
     /**
-     * Sets pay_request_extend_info
+     * Sets payRequestExtendInfo
      *
-     * @param string|null $pay_request_extend_info Extend information of pay request
+     * @param string|null $payRequestExtendInfo Extend information of pay request
      *
      * @return self
      */
-    public function setPayRequestExtendInfo($pay_request_extend_info)
+    public function setPayRequestExtendInfo($payRequestExtendInfo)
     {
-        if (is_null($pay_request_extend_info)) {
-            throw new \InvalidArgumentException('non-nullable pay_request_extend_info cannot be null');
+        if (is_null($payRequestExtendInfo)) {
+            throw new \InvalidArgumentException('non-nullable payRequestExtendInfo cannot be null');
         }
-        if ((mb_strlen($pay_request_extend_info) > 4096)) {
-            throw new \InvalidArgumentException('invalid length for $pay_request_extend_info when calling PaymentView., must be smaller than or equal to 4096.');
+        if ((mb_strlen($payRequestExtendInfo) > 4096)) {
+            throw new \InvalidArgumentException('invalid length for $payRequestExtendInfo when calling PaymentView., must be smaller than or equal to 4096.');
         }
 
-        $this->container['pay_request_extend_info'] = $pay_request_extend_info;
+        $this->container['payRequestExtendInfo'] = $payRequestExtendInfo;
 
         return $this;
     }
 
     /**
-     * Gets extend_info
+     * Gets extendInfo
      *
      * @return string|null
      */
     public function getExtendInfo()
     {
-        return $this->container['extend_info'];
+        return $this->container['extendInfo'];
     }
 
     /**
-     * Sets extend_info
+     * Sets extendInfo
      *
-     * @param string|null $extend_info Extend information
+     * @param string|null $extendInfo Extend information
      *
      * @return self
      */
-    public function setExtendInfo($extend_info)
+    public function setExtendInfo($extendInfo)
     {
-        if (is_null($extend_info)) {
-            throw new \InvalidArgumentException('non-nullable extend_info cannot be null');
+        if (is_null($extendInfo)) {
+            throw new \InvalidArgumentException('non-nullable extendInfo cannot be null');
         }
-        if ((mb_strlen($extend_info) > 4096)) {
-            throw new \InvalidArgumentException('invalid length for $extend_info when calling PaymentView., must be smaller than or equal to 4096.');
+        if ((mb_strlen($extendInfo) > 4096)) {
+            throw new \InvalidArgumentException('invalid length for $extendInfo when calling PaymentView., must be smaller than or equal to 4096.');
         }
 
-        $this->container['extend_info'] = $extend_info;
+        $this->container['extendInfo'] = $extendInfo;
 
         return $this;
     }

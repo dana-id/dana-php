@@ -153,6 +153,7 @@ class Configuration
         $privateKey = getenv('PRIVATE_KEY');
         $privateKeyPath = getenv('PRIVATE_KEY_PATH');
         $env = getenv('ENV') ?: Env::SANDBOX;
+        $clientSecret = getenv('CLIENT_SECRET');
         
         // Set API keys based on environment variables
         if ($origin) {
@@ -169,6 +170,10 @@ class Configuration
         
         if ($privateKeyPath) {
             $this->setApiKey('PRIVATE_KEY_PATH', $privateKeyPath);
+        }
+
+        if ($clientSecret) {
+            $this->setApiKey('CLIENT_SECRET', $clientSecret);
         }
         
         // Set environment

@@ -58,9 +58,9 @@ class ServiceInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'service_type' => 'string',
-        'service_scenario' => 'string',
-        'extend_info' => 'string'
+        'serviceType' => 'string',
+        'serviceScenario' => 'string',
+        'extendInfo' => 'string'
     ];
 
     /**
@@ -71,9 +71,9 @@ class ServiceInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'service_type' => null,
-        'service_scenario' => null,
-        'extend_info' => null
+        'serviceType' => null,
+        'serviceScenario' => null,
+        'extendInfo' => null
     ];
 
     /**
@@ -82,9 +82,9 @@ class ServiceInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'service_type' => false,
-        'service_scenario' => false,
-        'extend_info' => false
+        'serviceType' => false,
+        'serviceScenario' => false,
+        'extendInfo' => false
     ];
 
     /**
@@ -173,9 +173,9 @@ class ServiceInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'service_type' => 'serviceType',
-        'service_scenario' => 'serviceScenario',
-        'extend_info' => 'extendInfo'
+        'serviceType' => 'serviceType',
+        'serviceScenario' => 'serviceScenario',
+        'extendInfo' => 'extendInfo'
     ];
 
     /**
@@ -184,9 +184,9 @@ class ServiceInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'service_type' => 'setServiceType',
-        'service_scenario' => 'setServiceScenario',
-        'extend_info' => 'setExtendInfo'
+        'serviceType' => 'setServiceType',
+        'serviceScenario' => 'setServiceScenario',
+        'extendInfo' => 'setExtendInfo'
     ];
 
     /**
@@ -195,9 +195,9 @@ class ServiceInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'service_type' => 'getServiceType',
-        'service_scenario' => 'getServiceScenario',
-        'extend_info' => 'getExtendInfo'
+        'serviceType' => 'getServiceType',
+        'serviceScenario' => 'getServiceScenario',
+        'extendInfo' => 'getExtendInfo'
     ];
 
     /**
@@ -289,9 +289,9 @@ class ServiceInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('service_type', $data ?? [], null);
-        $this->setIfExists('service_scenario', $data ?? [], null);
-        $this->setIfExists('extend_info', $data ?? [], null);
+        $this->setIfExists('serviceType', $data ?? [], null);
+        $this->setIfExists('serviceScenario', $data ?? [], null);
+        $this->setIfExists('extendInfo', $data ?? [], null);
     }
 
     /**
@@ -322,25 +322,25 @@ class ServiceInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         $invalidProperties = [];
 
         $allowedValues = $this->getServiceTypeAllowableValues();
-        if (!is_null($this->container['service_type']) && !in_array($this->container['service_type'], $allowedValues, true)) {
+        if (!is_null($this->container['serviceType']) && !in_array($this->container['serviceType'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'service_type', must be one of '%s'",
-                $this->container['service_type'],
+                "invalid value '%s' for 'serviceType', must be one of '%s'",
+                $this->container['serviceType'],
                 implode("', '", $allowedValues)
             );
         }
 
         $allowedValues = $this->getServiceScenarioAllowableValues();
-        if (!is_null($this->container['service_scenario']) && !in_array($this->container['service_scenario'], $allowedValues, true)) {
+        if (!is_null($this->container['serviceScenario']) && !in_array($this->container['serviceScenario'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'service_scenario', must be one of '%s'",
-                $this->container['service_scenario'],
+                "invalid value '%s' for 'serviceScenario', must be one of '%s'",
+                $this->container['serviceScenario'],
                 implode("', '", $allowedValues)
             );
         }
 
-        if (!is_null($this->container['extend_info']) && (mb_strlen($this->container['extend_info']) > 4096)) {
-            $invalidProperties[] = "invalid value for 'extend_info', the character length must be smaller than or equal to 4096.";
+        if (!is_null($this->container['extendInfo']) && (mb_strlen($this->container['extendInfo']) > 4096)) {
+            $invalidProperties[] = "invalid value for 'extendInfo', the character length must be smaller than or equal to 4096.";
         }
 
         return $invalidProperties;
@@ -359,106 +359,106 @@ class ServiceInfo implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets service_type
+     * Gets serviceType
      *
      * @return string|null
      */
     public function getServiceType()
     {
-        return $this->container['service_type'];
+        return $this->container['serviceType'];
     }
 
     /**
-     * Sets service_type
+     * Sets serviceType
      *
-     * @param string|null $service_type service_type
+     * @param string|null $serviceType serviceType
      *
      * @return self
      */
-    public function setServiceType($service_type)
+    public function setServiceType($serviceType)
     {
-        if (is_null($service_type)) {
-            throw new \InvalidArgumentException('non-nullable service_type cannot be null');
+        if (is_null($serviceType)) {
+            throw new \InvalidArgumentException('non-nullable serviceType cannot be null');
         }
         $allowedValues = $this->getServiceTypeAllowableValues();
-        if (!in_array($service_type, $allowedValues, true) && !empty($service_type)) {
+        if (!in_array($serviceType, $allowedValues, true) && !empty($serviceType)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'service_type', must be one of '%s'",
-                    $service_type,
+                    "Invalid value '%s' for 'serviceType', must be one of '%s'",
+                    $serviceType,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['service_type'] = $service_type;
+        $this->container['serviceType'] = $serviceType;
 
         return $this;
     }
 
     /**
-     * Gets service_scenario
+     * Gets serviceScenario
      *
      * @return string|null
      */
     public function getServiceScenario()
     {
-        return $this->container['service_scenario'];
+        return $this->container['serviceScenario'];
     }
 
     /**
-     * Sets service_scenario
+     * Sets serviceScenario
      *
-     * @param string|null $service_scenario service_scenario
+     * @param string|null $serviceScenario serviceScenario
      *
      * @return self
      */
-    public function setServiceScenario($service_scenario)
+    public function setServiceScenario($serviceScenario)
     {
-        if (is_null($service_scenario)) {
-            throw new \InvalidArgumentException('non-nullable service_scenario cannot be null');
+        if (is_null($serviceScenario)) {
+            throw new \InvalidArgumentException('non-nullable serviceScenario cannot be null');
         }
         $allowedValues = $this->getServiceScenarioAllowableValues();
-        if (!in_array($service_scenario, $allowedValues, true) && !empty($service_scenario)) {
+        if (!in_array($serviceScenario, $allowedValues, true) && !empty($serviceScenario)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'service_scenario', must be one of '%s'",
-                    $service_scenario,
+                    "Invalid value '%s' for 'serviceScenario', must be one of '%s'",
+                    $serviceScenario,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['service_scenario'] = $service_scenario;
+        $this->container['serviceScenario'] = $serviceScenario;
 
         return $this;
     }
 
     /**
-     * Gets extend_info
+     * Gets extendInfo
      *
      * @return string|null
      */
     public function getExtendInfo()
     {
-        return $this->container['extend_info'];
+        return $this->container['extendInfo'];
     }
 
     /**
-     * Sets extend_info
+     * Sets extendInfo
      *
-     * @param string|null $extend_info Extend information
+     * @param string|null $extendInfo Extend information
      *
      * @return self
      */
-    public function setExtendInfo($extend_info)
+    public function setExtendInfo($extendInfo)
     {
-        if (is_null($extend_info)) {
-            throw new \InvalidArgumentException('non-nullable extend_info cannot be null');
+        if (is_null($extendInfo)) {
+            throw new \InvalidArgumentException('non-nullable extendInfo cannot be null');
         }
-        if ((mb_strlen($extend_info) > 4096)) {
-            throw new \InvalidArgumentException('invalid length for $extend_info when calling ServiceInfo., must be smaller than or equal to 4096.');
+        if ((mb_strlen($extendInfo) > 4096)) {
+            throw new \InvalidArgumentException('invalid length for $extendInfo when calling ServiceInfo., must be smaller than or equal to 4096.');
         }
 
-        $this->container['extend_info'] = $extend_info;
+        $this->container['extendInfo'] = $extendInfo;
 
         return $this;
     }

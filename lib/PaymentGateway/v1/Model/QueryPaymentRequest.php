@@ -58,16 +58,16 @@ class QueryPaymentRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'original_partner_reference_no' => 'string',
-        'original_reference_no' => 'string',
-        'original_external_id' => 'string',
-        'service_code' => 'string',
-        'transaction_date' => 'string',
+        'originalPartnerReferenceNo' => 'string',
+        'originalReferenceNo' => 'string',
+        'originalExternalId' => 'string',
+        'serviceCode' => 'string',
+        'transactionDate' => 'string',
         'amount' => '\Dana\PaymentGateway\v1\Model\Money',
-        'merchant_id' => 'string',
-        'sub_merchant_id' => 'string',
-        'external_store_id' => 'string',
-        'additional_info' => 'object'
+        'merchantId' => 'string',
+        'subMerchantId' => 'string',
+        'externalStoreId' => 'string',
+        'additionalInfo' => 'object'
     ];
 
     /**
@@ -78,16 +78,16 @@ class QueryPaymentRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'original_partner_reference_no' => null,
-        'original_reference_no' => null,
-        'original_external_id' => null,
-        'service_code' => null,
-        'transaction_date' => null,
+        'originalPartnerReferenceNo' => null,
+        'originalReferenceNo' => null,
+        'originalExternalId' => null,
+        'serviceCode' => null,
+        'transactionDate' => null,
         'amount' => null,
-        'merchant_id' => null,
-        'sub_merchant_id' => null,
-        'external_store_id' => null,
-        'additional_info' => null
+        'merchantId' => null,
+        'subMerchantId' => null,
+        'externalStoreId' => null,
+        'additionalInfo' => null
     ];
 
     /**
@@ -96,16 +96,16 @@ class QueryPaymentRequest implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'original_partner_reference_no' => false,
-        'original_reference_no' => false,
-        'original_external_id' => false,
-        'service_code' => false,
-        'transaction_date' => false,
+        'originalPartnerReferenceNo' => false,
+        'originalReferenceNo' => false,
+        'originalExternalId' => false,
+        'serviceCode' => false,
+        'transactionDate' => false,
         'amount' => false,
-        'merchant_id' => false,
-        'sub_merchant_id' => false,
-        'external_store_id' => false,
-        'additional_info' => false
+        'merchantId' => false,
+        'subMerchantId' => false,
+        'externalStoreId' => false,
+        'additionalInfo' => false
     ];
 
     /**
@@ -194,16 +194,16 @@ class QueryPaymentRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'original_partner_reference_no' => 'originalPartnerReferenceNo',
-        'original_reference_no' => 'originalReferenceNo',
-        'original_external_id' => 'originalExternalId',
-        'service_code' => 'serviceCode',
-        'transaction_date' => 'transactionDate',
+        'originalPartnerReferenceNo' => 'originalPartnerReferenceNo',
+        'originalReferenceNo' => 'originalReferenceNo',
+        'originalExternalId' => 'originalExternalId',
+        'serviceCode' => 'serviceCode',
+        'transactionDate' => 'transactionDate',
         'amount' => 'amount',
-        'merchant_id' => 'merchantId',
-        'sub_merchant_id' => 'subMerchantId',
-        'external_store_id' => 'externalStoreId',
-        'additional_info' => 'additionalInfo'
+        'merchantId' => 'merchantId',
+        'subMerchantId' => 'subMerchantId',
+        'externalStoreId' => 'externalStoreId',
+        'additionalInfo' => 'additionalInfo'
     ];
 
     /**
@@ -212,16 +212,16 @@ class QueryPaymentRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'original_partner_reference_no' => 'setOriginalPartnerReferenceNo',
-        'original_reference_no' => 'setOriginalReferenceNo',
-        'original_external_id' => 'setOriginalExternalId',
-        'service_code' => 'setServiceCode',
-        'transaction_date' => 'setTransactionDate',
+        'originalPartnerReferenceNo' => 'setOriginalPartnerReferenceNo',
+        'originalReferenceNo' => 'setOriginalReferenceNo',
+        'originalExternalId' => 'setOriginalExternalId',
+        'serviceCode' => 'setServiceCode',
+        'transactionDate' => 'setTransactionDate',
         'amount' => 'setAmount',
-        'merchant_id' => 'setMerchantId',
-        'sub_merchant_id' => 'setSubMerchantId',
-        'external_store_id' => 'setExternalStoreId',
-        'additional_info' => 'setAdditionalInfo'
+        'merchantId' => 'setMerchantId',
+        'subMerchantId' => 'setSubMerchantId',
+        'externalStoreId' => 'setExternalStoreId',
+        'additionalInfo' => 'setAdditionalInfo'
     ];
 
     /**
@@ -230,16 +230,16 @@ class QueryPaymentRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'original_partner_reference_no' => 'getOriginalPartnerReferenceNo',
-        'original_reference_no' => 'getOriginalReferenceNo',
-        'original_external_id' => 'getOriginalExternalId',
-        'service_code' => 'getServiceCode',
-        'transaction_date' => 'getTransactionDate',
+        'originalPartnerReferenceNo' => 'getOriginalPartnerReferenceNo',
+        'originalReferenceNo' => 'getOriginalReferenceNo',
+        'originalExternalId' => 'getOriginalExternalId',
+        'serviceCode' => 'getServiceCode',
+        'transactionDate' => 'getTransactionDate',
         'amount' => 'getAmount',
-        'merchant_id' => 'getMerchantId',
-        'sub_merchant_id' => 'getSubMerchantId',
-        'external_store_id' => 'getExternalStoreId',
-        'additional_info' => 'getAdditionalInfo'
+        'merchantId' => 'getMerchantId',
+        'subMerchantId' => 'getSubMerchantId',
+        'externalStoreId' => 'getExternalStoreId',
+        'additionalInfo' => 'getAdditionalInfo'
     ];
 
     /**
@@ -299,16 +299,16 @@ class QueryPaymentRequest implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('original_partner_reference_no', $data ?? [], null);
-        $this->setIfExists('original_reference_no', $data ?? [], null);
-        $this->setIfExists('original_external_id', $data ?? [], null);
-        $this->setIfExists('service_code', $data ?? [], '54');
-        $this->setIfExists('transaction_date', $data ?? [], null);
+        $this->setIfExists('originalPartnerReferenceNo', $data ?? [], null);
+        $this->setIfExists('originalReferenceNo', $data ?? [], null);
+        $this->setIfExists('originalExternalId', $data ?? [], null);
+        $this->setIfExists('serviceCode', $data ?? [], '54');
+        $this->setIfExists('transactionDate', $data ?? [], null);
         $this->setIfExists('amount', $data ?? [], null);
-        $this->setIfExists('merchant_id', $data ?? [], null);
-        $this->setIfExists('sub_merchant_id', $data ?? [], null);
-        $this->setIfExists('external_store_id', $data ?? [], null);
-        $this->setIfExists('additional_info', $data ?? [], null);
+        $this->setIfExists('merchantId', $data ?? [], null);
+        $this->setIfExists('subMerchantId', $data ?? [], null);
+        $this->setIfExists('externalStoreId', $data ?? [], null);
+        $this->setIfExists('additionalInfo', $data ?? [], null);
     }
 
     /**
@@ -338,46 +338,46 @@ class QueryPaymentRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['original_partner_reference_no']) && (mb_strlen($this->container['original_partner_reference_no']) > 64)) {
-            $invalidProperties[] = "invalid value for 'original_partner_reference_no', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['originalPartnerReferenceNo']) && (mb_strlen($this->container['originalPartnerReferenceNo']) > 64)) {
+            $invalidProperties[] = "invalid value for 'originalPartnerReferenceNo', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['original_reference_no']) && (mb_strlen($this->container['original_reference_no']) > 64)) {
-            $invalidProperties[] = "invalid value for 'original_reference_no', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['originalReferenceNo']) && (mb_strlen($this->container['originalReferenceNo']) > 64)) {
+            $invalidProperties[] = "invalid value for 'originalReferenceNo', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['original_external_id']) && (mb_strlen($this->container['original_external_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'original_external_id', the character length must be smaller than or equal to 36.";
+        if (!is_null($this->container['originalExternalId']) && (mb_strlen($this->container['originalExternalId']) > 36)) {
+            $invalidProperties[] = "invalid value for 'originalExternalId', the character length must be smaller than or equal to 36.";
         }
 
-        if ($this->container['service_code'] === null) {
-            $invalidProperties[] = "'service_code' can't be null";
+        if ($this->container['serviceCode'] === null) {
+            $invalidProperties[] = "'serviceCode' can't be null";
         }
-        if ((mb_strlen($this->container['service_code']) > 2)) {
-            $invalidProperties[] = "invalid value for 'service_code', the character length must be smaller than or equal to 2.";
-        }
-
-        if (!is_null($this->container['transaction_date']) && (mb_strlen($this->container['transaction_date']) > 25)) {
-            $invalidProperties[] = "invalid value for 'transaction_date', the character length must be smaller than or equal to 25.";
+        if ((mb_strlen($this->container['serviceCode']) > 2)) {
+            $invalidProperties[] = "invalid value for 'serviceCode', the character length must be smaller than or equal to 2.";
         }
 
-        if (!is_null($this->container['transaction_date']) && !preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['transaction_date'])) {
-            $invalidProperties[] = "invalid value for 'transaction_date', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
+        if (!is_null($this->container['transactionDate']) && (mb_strlen($this->container['transactionDate']) > 25)) {
+            $invalidProperties[] = "invalid value for 'transactionDate', the character length must be smaller than or equal to 25.";
         }
 
-        if ($this->container['merchant_id'] === null) {
-            $invalidProperties[] = "'merchant_id' can't be null";
-        }
-        if ((mb_strlen($this->container['merchant_id']) > 64)) {
-            $invalidProperties[] = "invalid value for 'merchant_id', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['transactionDate']) && !preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['transactionDate'])) {
+            $invalidProperties[] = "invalid value for 'transactionDate', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
         }
 
-        if (!is_null($this->container['sub_merchant_id']) && (mb_strlen($this->container['sub_merchant_id']) > 32)) {
-            $invalidProperties[] = "invalid value for 'sub_merchant_id', the character length must be smaller than or equal to 32.";
+        if ($this->container['merchantId'] === null) {
+            $invalidProperties[] = "'merchantId' can't be null";
+        }
+        if ((mb_strlen($this->container['merchantId']) > 64)) {
+            $invalidProperties[] = "invalid value for 'merchantId', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['external_store_id']) && (mb_strlen($this->container['external_store_id']) > 64)) {
-            $invalidProperties[] = "invalid value for 'external_store_id', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['subMerchantId']) && (mb_strlen($this->container['subMerchantId']) > 32)) {
+            $invalidProperties[] = "invalid value for 'subMerchantId', the character length must be smaller than or equal to 32.";
+        }
+
+        if (!is_null($this->container['externalStoreId']) && (mb_strlen($this->container['externalStoreId']) > 64)) {
+            $invalidProperties[] = "invalid value for 'externalStoreId', the character length must be smaller than or equal to 64.";
         }
 
         return $invalidProperties;
@@ -396,159 +396,159 @@ class QueryPaymentRequest implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets original_partner_reference_no
+     * Gets originalPartnerReferenceNo
      *
      * @return string|null
      */
     public function getOriginalPartnerReferenceNo()
     {
-        return $this->container['original_partner_reference_no'];
+        return $this->container['originalPartnerReferenceNo'];
     }
 
     /**
-     * Sets original_partner_reference_no
+     * Sets originalPartnerReferenceNo
      *
-     * @param string|null $original_partner_reference_no Original transaction identifier on partner system. Required if originalReferenceNo is not filled
+     * @param string|null $originalPartnerReferenceNo Original transaction identifier on partner system. Required if originalReferenceNo is not filled
      *
      * @return self
      */
-    public function setOriginalPartnerReferenceNo($original_partner_reference_no)
+    public function setOriginalPartnerReferenceNo($originalPartnerReferenceNo)
     {
-        if (is_null($original_partner_reference_no)) {
-            throw new \InvalidArgumentException('non-nullable original_partner_reference_no cannot be null');
+        if (is_null($originalPartnerReferenceNo)) {
+            throw new \InvalidArgumentException('non-nullable originalPartnerReferenceNo cannot be null');
         }
-        if ((mb_strlen($original_partner_reference_no) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $original_partner_reference_no when calling QueryPaymentRequest., must be smaller than or equal to 64.');
+        if ((mb_strlen($originalPartnerReferenceNo) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $originalPartnerReferenceNo when calling QueryPaymentRequest., must be smaller than or equal to 64.');
         }
 
-        $this->container['original_partner_reference_no'] = $original_partner_reference_no;
+        $this->container['originalPartnerReferenceNo'] = $originalPartnerReferenceNo;
 
         return $this;
     }
 
     /**
-     * Gets original_reference_no
+     * Gets originalReferenceNo
      *
      * @return string|null
      */
     public function getOriginalReferenceNo()
     {
-        return $this->container['original_reference_no'];
+        return $this->container['originalReferenceNo'];
     }
 
     /**
-     * Sets original_reference_no
+     * Sets originalReferenceNo
      *
-     * @param string|null $original_reference_no Original transaction identifier on DANA system. Required if originalPartnerReferenceNo is not filled
+     * @param string|null $originalReferenceNo Original transaction identifier on DANA system. Required if originalPartnerReferenceNo is not filled
      *
      * @return self
      */
-    public function setOriginalReferenceNo($original_reference_no)
+    public function setOriginalReferenceNo($originalReferenceNo)
     {
-        if (is_null($original_reference_no)) {
-            throw new \InvalidArgumentException('non-nullable original_reference_no cannot be null');
+        if (is_null($originalReferenceNo)) {
+            throw new \InvalidArgumentException('non-nullable originalReferenceNo cannot be null');
         }
-        if ((mb_strlen($original_reference_no) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $original_reference_no when calling QueryPaymentRequest., must be smaller than or equal to 64.');
+        if ((mb_strlen($originalReferenceNo) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $originalReferenceNo when calling QueryPaymentRequest., must be smaller than or equal to 64.');
         }
 
-        $this->container['original_reference_no'] = $original_reference_no;
+        $this->container['originalReferenceNo'] = $originalReferenceNo;
 
         return $this;
     }
 
     /**
-     * Gets original_external_id
+     * Gets originalExternalId
      *
      * @return string|null
      */
     public function getOriginalExternalId()
     {
-        return $this->container['original_external_id'];
+        return $this->container['originalExternalId'];
     }
 
     /**
-     * Sets original_external_id
+     * Sets originalExternalId
      *
-     * @param string|null $original_external_id Original external identifier on header message
+     * @param string|null $originalExternalId Original external identifier on header message
      *
      * @return self
      */
-    public function setOriginalExternalId($original_external_id)
+    public function setOriginalExternalId($originalExternalId)
     {
-        if (is_null($original_external_id)) {
-            throw new \InvalidArgumentException('non-nullable original_external_id cannot be null');
+        if (is_null($originalExternalId)) {
+            throw new \InvalidArgumentException('non-nullable originalExternalId cannot be null');
         }
-        if ((mb_strlen($original_external_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $original_external_id when calling QueryPaymentRequest., must be smaller than or equal to 36.');
+        if ((mb_strlen($originalExternalId) > 36)) {
+            throw new \InvalidArgumentException('invalid length for $originalExternalId when calling QueryPaymentRequest., must be smaller than or equal to 36.');
         }
 
-        $this->container['original_external_id'] = $original_external_id;
+        $this->container['originalExternalId'] = $originalExternalId;
 
         return $this;
     }
 
     /**
-     * Gets service_code
+     * Gets serviceCode
      *
      * @return string
      */
     public function getServiceCode()
     {
-        return $this->container['service_code'];
+        return $this->container['serviceCode'];
     }
 
     /**
-     * Sets service_code
+     * Sets serviceCode
      *
-     * @param string $service_code Transaction type indicator is based on the service code of the original transaction request:<br> - IPG Cashier Pay - SNAP: 54<br> - QRIS CPM (Acquirer) - SNAP: 60<br> - QRIS MPM (Acquirer) - SNAP: 47<br> - Payment Gateway: 54<br>
+     * @param string $serviceCode Transaction type indicator is based on the service code of the original transaction request:<br> - IPG Cashier Pay - SNAP: 54<br> - QRIS CPM (Acquirer) - SNAP: 60<br> - QRIS MPM (Acquirer) - SNAP: 47<br> - Payment Gateway: 54<br>
      *
      * @return self
      */
-    public function setServiceCode($service_code)
+    public function setServiceCode($serviceCode)
     {
-        if (is_null($service_code)) {
-            throw new \InvalidArgumentException('non-nullable service_code cannot be null');
+        if (is_null($serviceCode)) {
+            throw new \InvalidArgumentException('non-nullable serviceCode cannot be null');
         }
-        if ((mb_strlen($service_code) > 2)) {
-            throw new \InvalidArgumentException('invalid length for $service_code when calling QueryPaymentRequest., must be smaller than or equal to 2.');
+        if ((mb_strlen($serviceCode) > 2)) {
+            throw new \InvalidArgumentException('invalid length for $serviceCode when calling QueryPaymentRequest., must be smaller than or equal to 2.');
         }
 
-        $this->container['service_code'] = $service_code;
+        $this->container['serviceCode'] = $serviceCode;
 
         return $this;
     }
 
     /**
-     * Gets transaction_date
+     * Gets transactionDate
      *
      * @return string|null
      */
     public function getTransactionDate()
     {
-        return $this->container['transaction_date'];
+        return $this->container['transactionDate'];
     }
 
     /**
-     * Sets transaction_date
+     * Sets transactionDate
      *
-     * @param string|null $transaction_date Transaction date, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time)
+     * @param string|null $transactionDate Transaction date, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time)
      *
      * @return self
      */
-    public function setTransactionDate($transaction_date)
+    public function setTransactionDate($transactionDate)
     {
-        if (is_null($transaction_date)) {
-            throw new \InvalidArgumentException('non-nullable transaction_date cannot be null');
+        if (is_null($transactionDate)) {
+            throw new \InvalidArgumentException('non-nullable transactionDate cannot be null');
         }
-        if ((mb_strlen($transaction_date) > 25)) {
-            throw new \InvalidArgumentException('invalid length for $transaction_date when calling QueryPaymentRequest., must be smaller than or equal to 25.');
+        if ((mb_strlen($transactionDate) > 25)) {
+            throw new \InvalidArgumentException('invalid length for $transactionDate when calling QueryPaymentRequest., must be smaller than or equal to 25.');
         }
-        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($transaction_date)))) {
-            throw new \InvalidArgumentException("invalid value for \$transaction_date when calling QueryPaymentRequest., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
+        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($transactionDate)))) {
+            throw new \InvalidArgumentException("invalid value for \$transactionDate when calling QueryPaymentRequest., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
         }
 
-        $this->container['transaction_date'] = $transaction_date;
+        $this->container['transactionDate'] = $transactionDate;
 
         return $this;
     }
@@ -581,121 +581,121 @@ class QueryPaymentRequest implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Gets merchant_id
+     * Gets merchantId
      *
      * @return string
      */
     public function getMerchantId()
     {
-        return $this->container['merchant_id'];
+        return $this->container['merchantId'];
     }
 
     /**
-     * Sets merchant_id
+     * Sets merchantId
      *
-     * @param string $merchant_id Merchant identifier that is unique per each merchant
+     * @param string $merchantId Merchant identifier that is unique per each merchant
      *
      * @return self
      */
-    public function setMerchantId($merchant_id)
+    public function setMerchantId($merchantId)
     {
-        if (is_null($merchant_id)) {
-            throw new \InvalidArgumentException('non-nullable merchant_id cannot be null');
+        if (is_null($merchantId)) {
+            throw new \InvalidArgumentException('non-nullable merchantId cannot be null');
         }
-        if ((mb_strlen($merchant_id) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $merchant_id when calling QueryPaymentRequest., must be smaller than or equal to 64.');
+        if ((mb_strlen($merchantId) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $merchantId when calling QueryPaymentRequest., must be smaller than or equal to 64.');
         }
 
-        $this->container['merchant_id'] = $merchant_id;
+        $this->container['merchantId'] = $merchantId;
 
         return $this;
     }
 
     /**
-     * Gets sub_merchant_id
+     * Gets subMerchantId
      *
      * @return string|null
      */
     public function getSubMerchantId()
     {
-        return $this->container['sub_merchant_id'];
+        return $this->container['subMerchantId'];
     }
 
     /**
-     * Sets sub_merchant_id
+     * Sets subMerchantId
      *
-     * @param string|null $sub_merchant_id Information of sub merchant identifier
+     * @param string|null $subMerchantId Information of sub merchant identifier
      *
      * @return self
      */
-    public function setSubMerchantId($sub_merchant_id)
+    public function setSubMerchantId($subMerchantId)
     {
-        if (is_null($sub_merchant_id)) {
-            throw new \InvalidArgumentException('non-nullable sub_merchant_id cannot be null');
+        if (is_null($subMerchantId)) {
+            throw new \InvalidArgumentException('non-nullable subMerchantId cannot be null');
         }
-        if ((mb_strlen($sub_merchant_id) > 32)) {
-            throw new \InvalidArgumentException('invalid length for $sub_merchant_id when calling QueryPaymentRequest., must be smaller than or equal to 32.');
+        if ((mb_strlen($subMerchantId) > 32)) {
+            throw new \InvalidArgumentException('invalid length for $subMerchantId when calling QueryPaymentRequest., must be smaller than or equal to 32.');
         }
 
-        $this->container['sub_merchant_id'] = $sub_merchant_id;
+        $this->container['subMerchantId'] = $subMerchantId;
 
         return $this;
     }
 
     /**
-     * Gets external_store_id
+     * Gets externalStoreId
      *
      * @return string|null
      */
     public function getExternalStoreId()
     {
-        return $this->container['external_store_id'];
+        return $this->container['externalStoreId'];
     }
 
     /**
-     * Sets external_store_id
+     * Sets externalStoreId
      *
-     * @param string|null $external_store_id Store identifier to indicate to which store this payment belongs to
+     * @param string|null $externalStoreId Store identifier to indicate to which store this payment belongs to
      *
      * @return self
      */
-    public function setExternalStoreId($external_store_id)
+    public function setExternalStoreId($externalStoreId)
     {
-        if (is_null($external_store_id)) {
-            throw new \InvalidArgumentException('non-nullable external_store_id cannot be null');
+        if (is_null($externalStoreId)) {
+            throw new \InvalidArgumentException('non-nullable externalStoreId cannot be null');
         }
-        if ((mb_strlen($external_store_id) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $external_store_id when calling QueryPaymentRequest., must be smaller than or equal to 64.');
+        if ((mb_strlen($externalStoreId) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $externalStoreId when calling QueryPaymentRequest., must be smaller than or equal to 64.');
         }
 
-        $this->container['external_store_id'] = $external_store_id;
+        $this->container['externalStoreId'] = $externalStoreId;
 
         return $this;
     }
 
     /**
-     * Gets additional_info
+     * Gets additionalInfo
      *
      * @return object|null
      */
     public function getAdditionalInfo()
     {
-        return $this->container['additional_info'];
+        return $this->container['additionalInfo'];
     }
 
     /**
-     * Sets additional_info
+     * Sets additionalInfo
      *
-     * @param object|null $additional_info Additional information
+     * @param object|null $additionalInfo Additional information
      *
      * @return self
      */
-    public function setAdditionalInfo($additional_info)
+    public function setAdditionalInfo($additionalInfo)
     {
-        if (is_null($additional_info)) {
-            throw new \InvalidArgumentException('non-nullable additional_info cannot be null');
+        if (is_null($additionalInfo)) {
+            throw new \InvalidArgumentException('non-nullable additionalInfo cannot be null');
         }
-        $this->container['additional_info'] = $additional_info;
+        $this->container['additionalInfo'] = $additionalInfo;
 
         return $this;
     }

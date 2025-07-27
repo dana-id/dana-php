@@ -58,11 +58,11 @@ class TimeDetail implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'created_time' => 'string',
-        'expiry_time' => 'string',
-        'paid_times' => 'string[]',
-        'confirmed_times' => 'string[]',
-        'cancelled_time' => 'string'
+        'createdTime' => 'string',
+        'expiryTime' => 'string',
+        'paidTimes' => 'string[]',
+        'confirmedTimes' => 'string[]',
+        'cancelledTime' => 'string'
     ];
 
     /**
@@ -73,11 +73,11 @@ class TimeDetail implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'created_time' => null,
-        'expiry_time' => null,
-        'paid_times' => null,
-        'confirmed_times' => null,
-        'cancelled_time' => null
+        'createdTime' => null,
+        'expiryTime' => null,
+        'paidTimes' => null,
+        'confirmedTimes' => null,
+        'cancelledTime' => null
     ];
 
     /**
@@ -86,11 +86,11 @@ class TimeDetail implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'created_time' => false,
-        'expiry_time' => false,
-        'paid_times' => false,
-        'confirmed_times' => false,
-        'cancelled_time' => false
+        'createdTime' => false,
+        'expiryTime' => false,
+        'paidTimes' => false,
+        'confirmedTimes' => false,
+        'cancelledTime' => false
     ];
 
     /**
@@ -179,11 +179,11 @@ class TimeDetail implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'created_time' => 'createdTime',
-        'expiry_time' => 'expiryTime',
-        'paid_times' => 'paidTimes',
-        'confirmed_times' => 'confirmedTimes',
-        'cancelled_time' => 'cancelledTime'
+        'createdTime' => 'createdTime',
+        'expiryTime' => 'expiryTime',
+        'paidTimes' => 'paidTimes',
+        'confirmedTimes' => 'confirmedTimes',
+        'cancelledTime' => 'cancelledTime'
     ];
 
     /**
@@ -192,11 +192,11 @@ class TimeDetail implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'created_time' => 'setCreatedTime',
-        'expiry_time' => 'setExpiryTime',
-        'paid_times' => 'setPaidTimes',
-        'confirmed_times' => 'setConfirmedTimes',
-        'cancelled_time' => 'setCancelledTime'
+        'createdTime' => 'setCreatedTime',
+        'expiryTime' => 'setExpiryTime',
+        'paidTimes' => 'setPaidTimes',
+        'confirmedTimes' => 'setConfirmedTimes',
+        'cancelledTime' => 'setCancelledTime'
     ];
 
     /**
@@ -205,11 +205,11 @@ class TimeDetail implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'created_time' => 'getCreatedTime',
-        'expiry_time' => 'getExpiryTime',
-        'paid_times' => 'getPaidTimes',
-        'confirmed_times' => 'getConfirmedTimes',
-        'cancelled_time' => 'getCancelledTime'
+        'createdTime' => 'getCreatedTime',
+        'expiryTime' => 'getExpiryTime',
+        'paidTimes' => 'getPaidTimes',
+        'confirmedTimes' => 'getConfirmedTimes',
+        'cancelledTime' => 'getCancelledTime'
     ];
 
     /**
@@ -269,11 +269,11 @@ class TimeDetail implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('created_time', $data ?? [], null);
-        $this->setIfExists('expiry_time', $data ?? [], null);
-        $this->setIfExists('paid_times', $data ?? [], null);
-        $this->setIfExists('confirmed_times', $data ?? [], null);
-        $this->setIfExists('cancelled_time', $data ?? [], null);
+        $this->setIfExists('createdTime', $data ?? [], null);
+        $this->setIfExists('expiryTime', $data ?? [], null);
+        $this->setIfExists('paidTimes', $data ?? [], null);
+        $this->setIfExists('confirmedTimes', $data ?? [], null);
+        $this->setIfExists('cancelledTime', $data ?? [], null);
     }
 
     /**
@@ -303,34 +303,34 @@ class TimeDetail implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['created_time'] === null) {
-            $invalidProperties[] = "'created_time' can't be null";
+        if ($this->container['createdTime'] === null) {
+            $invalidProperties[] = "'createdTime' can't be null";
         }
-        if ((mb_strlen($this->container['created_time']) > 25)) {
-            $invalidProperties[] = "invalid value for 'created_time', the character length must be smaller than or equal to 25.";
-        }
-
-        if (!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['created_time'])) {
-            $invalidProperties[] = "invalid value for 'created_time', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
+        if ((mb_strlen($this->container['createdTime']) > 25)) {
+            $invalidProperties[] = "invalid value for 'createdTime', the character length must be smaller than or equal to 25.";
         }
 
-        if ($this->container['expiry_time'] === null) {
-            $invalidProperties[] = "'expiry_time' can't be null";
-        }
-        if ((mb_strlen($this->container['expiry_time']) > 25)) {
-            $invalidProperties[] = "invalid value for 'expiry_time', the character length must be smaller than or equal to 25.";
+        if (!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['createdTime'])) {
+            $invalidProperties[] = "invalid value for 'createdTime', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
         }
 
-        if (!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['expiry_time'])) {
-            $invalidProperties[] = "invalid value for 'expiry_time', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
+        if ($this->container['expiryTime'] === null) {
+            $invalidProperties[] = "'expiryTime' can't be null";
+        }
+        if ((mb_strlen($this->container['expiryTime']) > 25)) {
+            $invalidProperties[] = "invalid value for 'expiryTime', the character length must be smaller than or equal to 25.";
         }
 
-        if (!is_null($this->container['cancelled_time']) && (mb_strlen($this->container['cancelled_time']) > 25)) {
-            $invalidProperties[] = "invalid value for 'cancelled_time', the character length must be smaller than or equal to 25.";
+        if (!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['expiryTime'])) {
+            $invalidProperties[] = "invalid value for 'expiryTime', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
         }
 
-        if (!is_null($this->container['cancelled_time']) && !preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['cancelled_time'])) {
-            $invalidProperties[] = "invalid value for 'cancelled_time', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
+        if (!is_null($this->container['cancelledTime']) && (mb_strlen($this->container['cancelledTime']) > 25)) {
+            $invalidProperties[] = "invalid value for 'cancelledTime', the character length must be smaller than or equal to 25.";
+        }
+
+        if (!is_null($this->container['cancelledTime']) && !preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['cancelledTime'])) {
+            $invalidProperties[] = "invalid value for 'cancelledTime', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
         }
 
         return $invalidProperties;
@@ -349,157 +349,157 @@ class TimeDetail implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets created_time
+     * Gets createdTime
      *
      * @return string
      */
     public function getCreatedTime()
     {
-        return $this->container['created_time'];
+        return $this->container['createdTime'];
     }
 
     /**
-     * Sets created_time
+     * Sets createdTime
      *
-     * @param string $created_time Time of created order, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time)
+     * @param string $createdTime Time of created order, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time)
      *
      * @return self
      */
-    public function setCreatedTime($created_time)
+    public function setCreatedTime($createdTime)
     {
-        if (is_null($created_time)) {
-            throw new \InvalidArgumentException('non-nullable created_time cannot be null');
+        if (is_null($createdTime)) {
+            throw new \InvalidArgumentException('non-nullable createdTime cannot be null');
         }
-        if ((mb_strlen($created_time) > 25)) {
-            throw new \InvalidArgumentException('invalid length for $created_time when calling TimeDetail., must be smaller than or equal to 25.');
+        if ((mb_strlen($createdTime) > 25)) {
+            throw new \InvalidArgumentException('invalid length for $createdTime when calling TimeDetail., must be smaller than or equal to 25.');
         }
-        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($created_time)))) {
-            throw new \InvalidArgumentException("invalid value for \$created_time when calling TimeDetail., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
+        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($createdTime)))) {
+            throw new \InvalidArgumentException("invalid value for \$createdTime when calling TimeDetail., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
         }
 
-        $this->container['created_time'] = $created_time;
+        $this->container['createdTime'] = $createdTime;
 
         return $this;
     }
 
     /**
-     * Gets expiry_time
+     * Gets expiryTime
      *
      * @return string
      */
     public function getExpiryTime()
     {
-        return $this->container['expiry_time'];
+        return $this->container['expiryTime'];
     }
 
     /**
-     * Sets expiry_time
+     * Sets expiryTime
      *
-     * @param string $expiry_time Time of expiry order, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time)
+     * @param string $expiryTime Time of expiry order, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time)
      *
      * @return self
      */
-    public function setExpiryTime($expiry_time)
+    public function setExpiryTime($expiryTime)
     {
-        if (is_null($expiry_time)) {
-            throw new \InvalidArgumentException('non-nullable expiry_time cannot be null');
+        if (is_null($expiryTime)) {
+            throw new \InvalidArgumentException('non-nullable expiryTime cannot be null');
         }
-        if ((mb_strlen($expiry_time) > 25)) {
-            throw new \InvalidArgumentException('invalid length for $expiry_time when calling TimeDetail., must be smaller than or equal to 25.');
+        if ((mb_strlen($expiryTime) > 25)) {
+            throw new \InvalidArgumentException('invalid length for $expiryTime when calling TimeDetail., must be smaller than or equal to 25.');
         }
-        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($expiry_time)))) {
-            throw new \InvalidArgumentException("invalid value for \$expiry_time when calling TimeDetail., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
+        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($expiryTime)))) {
+            throw new \InvalidArgumentException("invalid value for \$expiryTime when calling TimeDetail., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
         }
 
-        $this->container['expiry_time'] = $expiry_time;
+        $this->container['expiryTime'] = $expiryTime;
 
         return $this;
     }
 
     /**
-     * Gets paid_times
+     * Gets paidTimes
      *
      * @return string[]|null
      */
     public function getPaidTimes()
     {
-        return $this->container['paid_times'];
+        return $this->container['paidTimes'];
     }
 
     /**
-     * Sets paid_times
+     * Sets paidTimes
      *
-     * @param string[]|null $paid_times Time of paid order, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time)
+     * @param string[]|null $paidTimes Time of paid order, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time)
      *
      * @return self
      */
-    public function setPaidTimes($paid_times)
+    public function setPaidTimes($paidTimes)
     {
-        if (is_null($paid_times)) {
-            throw new \InvalidArgumentException('non-nullable paid_times cannot be null');
+        if (is_null($paidTimes)) {
+            throw new \InvalidArgumentException('non-nullable paidTimes cannot be null');
         }
-        $this->container['paid_times'] = $paid_times;
+        $this->container['paidTimes'] = $paidTimes;
 
         return $this;
     }
 
     /**
-     * Gets confirmed_times
+     * Gets confirmedTimes
      *
      * @return string[]|null
      */
     public function getConfirmedTimes()
     {
-        return $this->container['confirmed_times'];
+        return $this->container['confirmedTimes'];
     }
 
     /**
-     * Sets confirmed_times
+     * Sets confirmedTimes
      *
-     * @param string[]|null $confirmed_times Time of confirmed order, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time)
+     * @param string[]|null $confirmedTimes Time of confirmed order, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time)
      *
      * @return self
      */
-    public function setConfirmedTimes($confirmed_times)
+    public function setConfirmedTimes($confirmedTimes)
     {
-        if (is_null($confirmed_times)) {
-            throw new \InvalidArgumentException('non-nullable confirmed_times cannot be null');
+        if (is_null($confirmedTimes)) {
+            throw new \InvalidArgumentException('non-nullable confirmedTimes cannot be null');
         }
-        $this->container['confirmed_times'] = $confirmed_times;
+        $this->container['confirmedTimes'] = $confirmedTimes;
 
         return $this;
     }
 
     /**
-     * Gets cancelled_time
+     * Gets cancelledTime
      *
      * @return string|null
      */
     public function getCancelledTime()
     {
-        return $this->container['cancelled_time'];
+        return $this->container['cancelledTime'];
     }
 
     /**
-     * Sets cancelled_time
+     * Sets cancelledTime
      *
-     * @param string|null $cancelled_time Time of cancelled order, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time)
+     * @param string|null $cancelledTime Time of cancelled order, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time)
      *
      * @return self
      */
-    public function setCancelledTime($cancelled_time)
+    public function setCancelledTime($cancelledTime)
     {
-        if (is_null($cancelled_time)) {
-            throw new \InvalidArgumentException('non-nullable cancelled_time cannot be null');
+        if (is_null($cancelledTime)) {
+            throw new \InvalidArgumentException('non-nullable cancelledTime cannot be null');
         }
-        if ((mb_strlen($cancelled_time) > 25)) {
-            throw new \InvalidArgumentException('invalid length for $cancelled_time when calling TimeDetail., must be smaller than or equal to 25.');
+        if ((mb_strlen($cancelledTime) > 25)) {
+            throw new \InvalidArgumentException('invalid length for $cancelledTime when calling TimeDetail., must be smaller than or equal to 25.');
         }
-        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($cancelled_time)))) {
-            throw new \InvalidArgumentException("invalid value for \$cancelled_time when calling TimeDetail., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
+        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($cancelledTime)))) {
+            throw new \InvalidArgumentException("invalid value for \$cancelledTime when calling TimeDetail., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
         }
 
-        $this->container['cancelled_time'] = $cancelled_time;
+        $this->container['cancelledTime'] = $cancelledTime;
 
         return $this;
     }

@@ -58,7 +58,7 @@ class QueryUserProfileRequest implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'user_resources' => 'string[]'
+        'userResources' => 'string[]'
     ];
 
     /**
@@ -69,7 +69,7 @@ class QueryUserProfileRequest implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'user_resources' => null
+        'userResources' => null
     ];
 
     /**
@@ -78,7 +78,7 @@ class QueryUserProfileRequest implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'user_resources' => false
+        'userResources' => false
     ];
 
     /**
@@ -167,7 +167,7 @@ class QueryUserProfileRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'user_resources' => 'userResources'
+        'userResources' => 'userResources'
     ];
 
     /**
@@ -176,7 +176,7 @@ class QueryUserProfileRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'user_resources' => 'setUserResources'
+        'userResources' => 'setUserResources'
     ];
 
     /**
@@ -185,7 +185,7 @@ class QueryUserProfileRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'user_resources' => 'getUserResources'
+        'userResources' => 'getUserResources'
     ];
 
     /**
@@ -268,7 +268,7 @@ class QueryUserProfileRequest implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('user_resources', $data ?? [], null);
+        $this->setIfExists('userResources', $data ?? [], null);
     }
 
     /**
@@ -298,11 +298,11 @@ class QueryUserProfileRequest implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $invalidProperties = [];
 
-        if ($this->container['user_resources'] === null) {
-            $invalidProperties[] = "'user_resources' can't be null";
+        if ($this->container['userResources'] === null) {
+            $invalidProperties[] = "'userResources' can't be null";
         }
-        if ((count($this->container['user_resources']) < 1)) {
-            $invalidProperties[] = "invalid value for 'user_resources', number of items must be greater than or equal to 1.";
+        if ((count($this->container['userResources']) < 1)) {
+            $invalidProperties[] = "invalid value for 'userResources', number of items must be greater than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -321,42 +321,42 @@ class QueryUserProfileRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
 
     /**
-     * Gets user_resources
+     * Gets userResources
      *
      * @return string[]
      */
     public function getUserResources()
     {
-        return $this->container['user_resources'];
+        return $this->container['userResources'];
     }
 
     /**
-     * Sets user_resources
+     * Sets userResources
      *
-     * @param string[] $user_resources The resource type list that the merchant server wants to get from DANA
+     * @param string[] $userResources The resource type list that the merchant server wants to get from DANA
      *
      * @return self
      */
-    public function setUserResources($user_resources)
+    public function setUserResources($userResources)
     {
-        if (is_null($user_resources)) {
-            throw new \InvalidArgumentException('non-nullable user_resources cannot be null');
+        if (is_null($userResources)) {
+            throw new \InvalidArgumentException('non-nullable userResources cannot be null');
         }
         $allowedValues = $this->getUserResourcesAllowableValues();
-        if (array_diff($user_resources, $allowedValues)) {
+        if (array_diff($userResources, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'user_resources', must be one of '%s'",
+                    "Invalid value for 'userResources', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
 
 
-        if ((count($user_resources) < 1)) {
-            throw new \InvalidArgumentException('invalid length for $user_resources when calling QueryUserProfileRequest., number of items must be greater than or equal to 1.');
+        if ((count($userResources) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $userResources when calling QueryUserProfileRequest., number of items must be greater than or equal to 1.');
         }
-        $this->container['user_resources'] = $user_resources;
+        $this->container['userResources'] = $userResources;
 
         return $this;
     }

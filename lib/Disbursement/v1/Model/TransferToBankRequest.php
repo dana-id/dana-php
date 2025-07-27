@@ -58,13 +58,13 @@ class TransferToBankRequest implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'partner_reference_no' => 'string',
-        'customer_number' => 'string',
-        'account_type' => 'string',
-        'beneficiary_account_number' => 'string',
-        'beneficiary_bank_code' => 'string',
+        'partnerReferenceNo' => 'string',
+        'customerNumber' => 'string',
+        'accountType' => 'string',
+        'beneficiaryAccountNumber' => 'string',
+        'beneficiaryBankCode' => 'string',
         'amount' => '\Dana\Disbursement\v1\Model\Money',
-        'additional_info' => '\Dana\Disbursement\v1\Model\TransferToBankRequestAdditionalInfo'
+        'additionalInfo' => '\Dana\Disbursement\v1\Model\TransferToBankRequestAdditionalInfo'
     ];
 
     /**
@@ -75,13 +75,13 @@ class TransferToBankRequest implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'partner_reference_no' => null,
-        'customer_number' => null,
-        'account_type' => null,
-        'beneficiary_account_number' => null,
-        'beneficiary_bank_code' => null,
+        'partnerReferenceNo' => null,
+        'customerNumber' => null,
+        'accountType' => null,
+        'beneficiaryAccountNumber' => null,
+        'beneficiaryBankCode' => null,
         'amount' => null,
-        'additional_info' => null
+        'additionalInfo' => null
     ];
 
     /**
@@ -90,13 +90,13 @@ class TransferToBankRequest implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'partner_reference_no' => false,
-        'customer_number' => false,
-        'account_type' => false,
-        'beneficiary_account_number' => false,
-        'beneficiary_bank_code' => false,
+        'partnerReferenceNo' => false,
+        'customerNumber' => false,
+        'accountType' => false,
+        'beneficiaryAccountNumber' => false,
+        'beneficiaryBankCode' => false,
         'amount' => false,
-        'additional_info' => false
+        'additionalInfo' => false
     ];
 
     /**
@@ -185,13 +185,13 @@ class TransferToBankRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'partner_reference_no' => 'partnerReferenceNo',
-        'customer_number' => 'customerNumber',
-        'account_type' => 'accountType',
-        'beneficiary_account_number' => 'beneficiaryAccountNumber',
-        'beneficiary_bank_code' => 'beneficiaryBankCode',
+        'partnerReferenceNo' => 'partnerReferenceNo',
+        'customerNumber' => 'customerNumber',
+        'accountType' => 'accountType',
+        'beneficiaryAccountNumber' => 'beneficiaryAccountNumber',
+        'beneficiaryBankCode' => 'beneficiaryBankCode',
         'amount' => 'amount',
-        'additional_info' => 'additionalInfo'
+        'additionalInfo' => 'additionalInfo'
     ];
 
     /**
@@ -200,13 +200,13 @@ class TransferToBankRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'partner_reference_no' => 'setPartnerReferenceNo',
-        'customer_number' => 'setCustomerNumber',
-        'account_type' => 'setAccountType',
-        'beneficiary_account_number' => 'setBeneficiaryAccountNumber',
-        'beneficiary_bank_code' => 'setBeneficiaryBankCode',
+        'partnerReferenceNo' => 'setPartnerReferenceNo',
+        'customerNumber' => 'setCustomerNumber',
+        'accountType' => 'setAccountType',
+        'beneficiaryAccountNumber' => 'setBeneficiaryAccountNumber',
+        'beneficiaryBankCode' => 'setBeneficiaryBankCode',
         'amount' => 'setAmount',
-        'additional_info' => 'setAdditionalInfo'
+        'additionalInfo' => 'setAdditionalInfo'
     ];
 
     /**
@@ -215,13 +215,13 @@ class TransferToBankRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'partner_reference_no' => 'getPartnerReferenceNo',
-        'customer_number' => 'getCustomerNumber',
-        'account_type' => 'getAccountType',
-        'beneficiary_account_number' => 'getBeneficiaryAccountNumber',
-        'beneficiary_bank_code' => 'getBeneficiaryBankCode',
+        'partnerReferenceNo' => 'getPartnerReferenceNo',
+        'customerNumber' => 'getCustomerNumber',
+        'accountType' => 'getAccountType',
+        'beneficiaryAccountNumber' => 'getBeneficiaryAccountNumber',
+        'beneficiaryBankCode' => 'getBeneficiaryBankCode',
         'amount' => 'getAmount',
-        'additional_info' => 'getAdditionalInfo'
+        'additionalInfo' => 'getAdditionalInfo'
     ];
 
     /**
@@ -281,13 +281,13 @@ class TransferToBankRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('partner_reference_no', $data ?? [], null);
-        $this->setIfExists('customer_number', $data ?? [], null);
-        $this->setIfExists('account_type', $data ?? [], null);
-        $this->setIfExists('beneficiary_account_number', $data ?? [], null);
-        $this->setIfExists('beneficiary_bank_code', $data ?? [], null);
+        $this->setIfExists('partnerReferenceNo', $data ?? [], null);
+        $this->setIfExists('customerNumber', $data ?? [], null);
+        $this->setIfExists('accountType', $data ?? [], null);
+        $this->setIfExists('beneficiaryAccountNumber', $data ?? [], null);
+        $this->setIfExists('beneficiaryBankCode', $data ?? [], null);
         $this->setIfExists('amount', $data ?? [], null);
-        $this->setIfExists('additional_info', $data ?? [], null);
+        $this->setIfExists('additionalInfo', $data ?? [], null);
     }
 
     /**
@@ -317,40 +317,40 @@ class TransferToBankRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['partner_reference_no']) && (mb_strlen($this->container['partner_reference_no']) > 64)) {
-            $invalidProperties[] = "invalid value for 'partner_reference_no', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['partnerReferenceNo']) && (mb_strlen($this->container['partnerReferenceNo']) > 64)) {
+            $invalidProperties[] = "invalid value for 'partnerReferenceNo', the character length must be smaller than or equal to 64.";
         }
 
-        if ($this->container['customer_number'] === null) {
-            $invalidProperties[] = "'customer_number' can't be null";
+        if ($this->container['customerNumber'] === null) {
+            $invalidProperties[] = "'customerNumber' can't be null";
         }
-        if ((mb_strlen($this->container['customer_number']) > 32)) {
-            $invalidProperties[] = "invalid value for 'customer_number', the character length must be smaller than or equal to 32.";
-        }
-
-        if (!is_null($this->container['account_type']) && (mb_strlen($this->container['account_type']) > 25)) {
-            $invalidProperties[] = "invalid value for 'account_type', the character length must be smaller than or equal to 25.";
+        if ((mb_strlen($this->container['customerNumber']) > 32)) {
+            $invalidProperties[] = "invalid value for 'customerNumber', the character length must be smaller than or equal to 32.";
         }
 
-        if ($this->container['beneficiary_account_number'] === null) {
-            $invalidProperties[] = "'beneficiary_account_number' can't be null";
-        }
-        if ((mb_strlen($this->container['beneficiary_account_number']) > 32)) {
-            $invalidProperties[] = "invalid value for 'beneficiary_account_number', the character length must be smaller than or equal to 32.";
+        if (!is_null($this->container['accountType']) && (mb_strlen($this->container['accountType']) > 25)) {
+            $invalidProperties[] = "invalid value for 'accountType', the character length must be smaller than or equal to 25.";
         }
 
-        if ($this->container['beneficiary_bank_code'] === null) {
-            $invalidProperties[] = "'beneficiary_bank_code' can't be null";
+        if ($this->container['beneficiaryAccountNumber'] === null) {
+            $invalidProperties[] = "'beneficiaryAccountNumber' can't be null";
         }
-        if ((mb_strlen($this->container['beneficiary_bank_code']) > 8)) {
-            $invalidProperties[] = "invalid value for 'beneficiary_bank_code', the character length must be smaller than or equal to 8.";
+        if ((mb_strlen($this->container['beneficiaryAccountNumber']) > 32)) {
+            $invalidProperties[] = "invalid value for 'beneficiaryAccountNumber', the character length must be smaller than or equal to 32.";
+        }
+
+        if ($this->container['beneficiaryBankCode'] === null) {
+            $invalidProperties[] = "'beneficiaryBankCode' can't be null";
+        }
+        if ((mb_strlen($this->container['beneficiaryBankCode']) > 8)) {
+            $invalidProperties[] = "invalid value for 'beneficiaryBankCode', the character length must be smaller than or equal to 8.";
         }
 
         if ($this->container['amount'] === null) {
             $invalidProperties[] = "'amount' can't be null";
         }
-        if ($this->container['additional_info'] === null) {
-            $invalidProperties[] = "'additional_info' can't be null";
+        if ($this->container['additionalInfo'] === null) {
+            $invalidProperties[] = "'additionalInfo' can't be null";
         }
         return $invalidProperties;
     }
@@ -368,156 +368,156 @@ class TransferToBankRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
 
     /**
-     * Gets partner_reference_no
+     * Gets partnerReferenceNo
      *
      * @return string|null
      */
     public function getPartnerReferenceNo()
     {
-        return $this->container['partner_reference_no'];
+        return $this->container['partnerReferenceNo'];
     }
 
     /**
-     * Sets partner_reference_no
+     * Sets partnerReferenceNo
      *
-     * @param string|null $partner_reference_no Unique transaction identifier on partner system which assigned to each transaction<br> Notes:<br> If the partner receives a timeout or an unexpected response from DANA and partner expects to perform retry request to DANA, please use the partnerReferenceNo that is the same as the one used in the transaction request process before
+     * @param string|null $partnerReferenceNo Unique transaction identifier on partner system which assigned to each transaction<br> Notes:<br> If the partner receives a timeout or an unexpected response from DANA and partner expects to perform retry request to DANA, please use the partnerReferenceNo that is the same as the one used in the transaction request process before
      *
      * @return self
      */
-    public function setPartnerReferenceNo($partner_reference_no)
+    public function setPartnerReferenceNo($partnerReferenceNo)
     {
-        if (is_null($partner_reference_no)) {
-            throw new \InvalidArgumentException('non-nullable partner_reference_no cannot be null');
+        if (is_null($partnerReferenceNo)) {
+            throw new \InvalidArgumentException('non-nullable partnerReferenceNo cannot be null');
         }
-        if ((mb_strlen($partner_reference_no) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $partner_reference_no when calling TransferToBankRequest., must be smaller than or equal to 64.');
+        if ((mb_strlen($partnerReferenceNo) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $partnerReferenceNo when calling TransferToBankRequest., must be smaller than or equal to 64.');
         }
 
-        $this->container['partner_reference_no'] = $partner_reference_no;
+        $this->container['partnerReferenceNo'] = $partnerReferenceNo;
 
         return $this;
     }
 
     /**
-     * Gets customer_number
+     * Gets customerNumber
      *
      * @return string
      */
     public function getCustomerNumber()
     {
-        return $this->container['customer_number'];
+        return $this->container['customerNumber'];
     }
 
     /**
-     * Sets customer_number
+     * Sets customerNumber
      *
-     * @param string $customer_number Customer account number, in format 628xxx
+     * @param string $customerNumber Customer account number, in format 628xxx
      *
      * @return self
      */
-    public function setCustomerNumber($customer_number)
+    public function setCustomerNumber($customerNumber)
     {
-        if (is_null($customer_number)) {
-            throw new \InvalidArgumentException('non-nullable customer_number cannot be null');
+        if (is_null($customerNumber)) {
+            throw new \InvalidArgumentException('non-nullable customerNumber cannot be null');
         }
-        if ((mb_strlen($customer_number) > 32)) {
-            throw new \InvalidArgumentException('invalid length for $customer_number when calling TransferToBankRequest., must be smaller than or equal to 32.');
+        if ((mb_strlen($customerNumber) > 32)) {
+            throw new \InvalidArgumentException('invalid length for $customerNumber when calling TransferToBankRequest., must be smaller than or equal to 32.');
         }
 
-        $this->container['customer_number'] = $customer_number;
+        $this->container['customerNumber'] = $customerNumber;
 
         return $this;
     }
 
     /**
-     * Gets account_type
+     * Gets accountType
      *
      * @return string|null
      */
     public function getAccountType()
     {
-        return $this->container['account_type'];
+        return $this->container['accountType'];
     }
 
     /**
-     * Sets account_type
+     * Sets accountType
      *
-     * @param string|null $account_type Customer account type
+     * @param string|null $accountType Customer account type
      *
      * @return self
      */
-    public function setAccountType($account_type)
+    public function setAccountType($accountType)
     {
-        if (is_null($account_type)) {
-            throw new \InvalidArgumentException('non-nullable account_type cannot be null');
+        if (is_null($accountType)) {
+            throw new \InvalidArgumentException('non-nullable accountType cannot be null');
         }
-        if ((mb_strlen($account_type) > 25)) {
-            throw new \InvalidArgumentException('invalid length for $account_type when calling TransferToBankRequest., must be smaller than or equal to 25.');
+        if ((mb_strlen($accountType) > 25)) {
+            throw new \InvalidArgumentException('invalid length for $accountType when calling TransferToBankRequest., must be smaller than or equal to 25.');
         }
 
-        $this->container['account_type'] = $account_type;
+        $this->container['accountType'] = $accountType;
 
         return $this;
     }
 
     /**
-     * Gets beneficiary_account_number
+     * Gets beneficiaryAccountNumber
      *
      * @return string
      */
     public function getBeneficiaryAccountNumber()
     {
-        return $this->container['beneficiary_account_number'];
+        return $this->container['beneficiaryAccountNumber'];
     }
 
     /**
-     * Sets beneficiary_account_number
+     * Sets beneficiaryAccountNumber
      *
-     * @param string $beneficiary_account_number Beneficiary account number
+     * @param string $beneficiaryAccountNumber Beneficiary account number
      *
      * @return self
      */
-    public function setBeneficiaryAccountNumber($beneficiary_account_number)
+    public function setBeneficiaryAccountNumber($beneficiaryAccountNumber)
     {
-        if (is_null($beneficiary_account_number)) {
-            throw new \InvalidArgumentException('non-nullable beneficiary_account_number cannot be null');
+        if (is_null($beneficiaryAccountNumber)) {
+            throw new \InvalidArgumentException('non-nullable beneficiaryAccountNumber cannot be null');
         }
-        if ((mb_strlen($beneficiary_account_number) > 32)) {
-            throw new \InvalidArgumentException('invalid length for $beneficiary_account_number when calling TransferToBankRequest., must be smaller than or equal to 32.');
+        if ((mb_strlen($beneficiaryAccountNumber) > 32)) {
+            throw new \InvalidArgumentException('invalid length for $beneficiaryAccountNumber when calling TransferToBankRequest., must be smaller than or equal to 32.');
         }
 
-        $this->container['beneficiary_account_number'] = $beneficiary_account_number;
+        $this->container['beneficiaryAccountNumber'] = $beneficiaryAccountNumber;
 
         return $this;
     }
 
     /**
-     * Gets beneficiary_bank_code
+     * Gets beneficiaryBankCode
      *
      * @return string
      */
     public function getBeneficiaryBankCode()
     {
-        return $this->container['beneficiary_bank_code'];
+        return $this->container['beneficiaryBankCode'];
     }
 
     /**
-     * Sets beneficiary_bank_code
+     * Sets beneficiaryBankCode
      *
-     * @param string $beneficiary_bank_code Beneficiary Bank code
+     * @param string $beneficiaryBankCode Beneficiary Bank code
      *
      * @return self
      */
-    public function setBeneficiaryBankCode($beneficiary_bank_code)
+    public function setBeneficiaryBankCode($beneficiaryBankCode)
     {
-        if (is_null($beneficiary_bank_code)) {
-            throw new \InvalidArgumentException('non-nullable beneficiary_bank_code cannot be null');
+        if (is_null($beneficiaryBankCode)) {
+            throw new \InvalidArgumentException('non-nullable beneficiaryBankCode cannot be null');
         }
-        if ((mb_strlen($beneficiary_bank_code) > 8)) {
-            throw new \InvalidArgumentException('invalid length for $beneficiary_bank_code when calling TransferToBankRequest., must be smaller than or equal to 8.');
+        if ((mb_strlen($beneficiaryBankCode) > 8)) {
+            throw new \InvalidArgumentException('invalid length for $beneficiaryBankCode when calling TransferToBankRequest., must be smaller than or equal to 8.');
         }
 
-        $this->container['beneficiary_bank_code'] = $beneficiary_bank_code;
+        $this->container['beneficiaryBankCode'] = $beneficiaryBankCode;
 
         return $this;
     }
@@ -550,28 +550,28 @@ class TransferToBankRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
-     * Gets additional_info
+     * Gets additionalInfo
      *
      * @return \Dana\Disbursement\v1\Model\TransferToBankRequestAdditionalInfo
      */
     public function getAdditionalInfo()
     {
-        return $this->container['additional_info'];
+        return $this->container['additionalInfo'];
     }
 
     /**
-     * Sets additional_info
+     * Sets additionalInfo
      *
-     * @param \Dana\Disbursement\v1\Model\TransferToBankRequestAdditionalInfo $additional_info additional_info
+     * @param \Dana\Disbursement\v1\Model\TransferToBankRequestAdditionalInfo $additionalInfo additionalInfo
      *
      * @return self
      */
-    public function setAdditionalInfo($additional_info)
+    public function setAdditionalInfo($additionalInfo)
     {
-        if (is_null($additional_info)) {
-            throw new \InvalidArgumentException('non-nullable additional_info cannot be null');
+        if (is_null($additionalInfo)) {
+            throw new \InvalidArgumentException('non-nullable additionalInfo cannot be null');
         }
-        $this->container['additional_info'] = $additional_info;
+        $this->container['additionalInfo'] = $additionalInfo;
 
         return $this;
     }

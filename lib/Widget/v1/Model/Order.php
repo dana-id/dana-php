@@ -60,14 +60,14 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'buyer' => '\Dana\Widget\v1\Model\Buyer',
         'seller' => '\Dana\Widget\v1\Model\Seller',
-        'order_title' => 'string',
-        'merchant_trans_type' => 'string',
-        'order_memo' => 'string',
-        'created_time' => 'string',
+        'orderTitle' => 'string',
+        'merchantTransType' => 'string',
+        'orderMemo' => 'string',
+        'createdTime' => 'string',
         'goods' => '\Dana\Widget\v1\Model\Goods[]',
-        'shipping_info' => '\Dana\Widget\v1\Model\ShippingInfo[]',
-        'international_order_info' => '\Dana\Widget\v1\Model\InternationalOrderInfo',
-        'extend_info' => 'string'
+        'shippingInfo' => '\Dana\Widget\v1\Model\ShippingInfo[]',
+        'internationalOrderInfo' => '\Dana\Widget\v1\Model\InternationalOrderInfo',
+        'extendInfo' => 'string'
     ];
 
     /**
@@ -80,14 +80,14 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'buyer' => null,
         'seller' => null,
-        'order_title' => null,
-        'merchant_trans_type' => null,
-        'order_memo' => null,
-        'created_time' => null,
+        'orderTitle' => null,
+        'merchantTransType' => null,
+        'orderMemo' => null,
+        'createdTime' => null,
         'goods' => null,
-        'shipping_info' => null,
-        'international_order_info' => null,
-        'extend_info' => null
+        'shippingInfo' => null,
+        'internationalOrderInfo' => null,
+        'extendInfo' => null
     ];
 
     /**
@@ -98,14 +98,14 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'buyer' => false,
         'seller' => false,
-        'order_title' => false,
-        'merchant_trans_type' => false,
-        'order_memo' => false,
-        'created_time' => false,
+        'orderTitle' => false,
+        'merchantTransType' => false,
+        'orderMemo' => false,
+        'createdTime' => false,
         'goods' => false,
-        'shipping_info' => false,
-        'international_order_info' => false,
-        'extend_info' => false
+        'shippingInfo' => false,
+        'internationalOrderInfo' => false,
+        'extendInfo' => false
     ];
 
     /**
@@ -196,14 +196,14 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'buyer' => 'buyer',
         'seller' => 'seller',
-        'order_title' => 'orderTitle',
-        'merchant_trans_type' => 'merchantTransType',
-        'order_memo' => 'orderMemo',
-        'created_time' => 'createdTime',
+        'orderTitle' => 'orderTitle',
+        'merchantTransType' => 'merchantTransType',
+        'orderMemo' => 'orderMemo',
+        'createdTime' => 'createdTime',
         'goods' => 'goods',
-        'shipping_info' => 'shippingInfo',
-        'international_order_info' => 'internationalOrderInfo',
-        'extend_info' => 'extendInfo'
+        'shippingInfo' => 'shippingInfo',
+        'internationalOrderInfo' => 'internationalOrderInfo',
+        'extendInfo' => 'extendInfo'
     ];
 
     /**
@@ -214,14 +214,14 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'buyer' => 'setBuyer',
         'seller' => 'setSeller',
-        'order_title' => 'setOrderTitle',
-        'merchant_trans_type' => 'setMerchantTransType',
-        'order_memo' => 'setOrderMemo',
-        'created_time' => 'setCreatedTime',
+        'orderTitle' => 'setOrderTitle',
+        'merchantTransType' => 'setMerchantTransType',
+        'orderMemo' => 'setOrderMemo',
+        'createdTime' => 'setCreatedTime',
         'goods' => 'setGoods',
-        'shipping_info' => 'setShippingInfo',
-        'international_order_info' => 'setInternationalOrderInfo',
-        'extend_info' => 'setExtendInfo'
+        'shippingInfo' => 'setShippingInfo',
+        'internationalOrderInfo' => 'setInternationalOrderInfo',
+        'extendInfo' => 'setExtendInfo'
     ];
 
     /**
@@ -232,14 +232,14 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'buyer' => 'getBuyer',
         'seller' => 'getSeller',
-        'order_title' => 'getOrderTitle',
-        'merchant_trans_type' => 'getMerchantTransType',
-        'order_memo' => 'getOrderMemo',
-        'created_time' => 'getCreatedTime',
+        'orderTitle' => 'getOrderTitle',
+        'merchantTransType' => 'getMerchantTransType',
+        'orderMemo' => 'getOrderMemo',
+        'createdTime' => 'getCreatedTime',
         'goods' => 'getGoods',
-        'shipping_info' => 'getShippingInfo',
-        'international_order_info' => 'getInternationalOrderInfo',
-        'extend_info' => 'getExtendInfo'
+        'shippingInfo' => 'getShippingInfo',
+        'internationalOrderInfo' => 'getInternationalOrderInfo',
+        'extendInfo' => 'getExtendInfo'
     ];
 
     /**
@@ -301,14 +301,14 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('buyer', $data ?? [], null);
         $this->setIfExists('seller', $data ?? [], null);
-        $this->setIfExists('order_title', $data ?? [], null);
-        $this->setIfExists('merchant_trans_type', $data ?? [], null);
-        $this->setIfExists('order_memo', $data ?? [], null);
-        $this->setIfExists('created_time', $data ?? [], null);
+        $this->setIfExists('orderTitle', $data ?? [], null);
+        $this->setIfExists('merchantTransType', $data ?? [], null);
+        $this->setIfExists('orderMemo', $data ?? [], null);
+        $this->setIfExists('createdTime', $data ?? [], null);
         $this->setIfExists('goods', $data ?? [], null);
-        $this->setIfExists('shipping_info', $data ?? [], null);
-        $this->setIfExists('international_order_info', $data ?? [], null);
-        $this->setIfExists('extend_info', $data ?? [], null);
+        $this->setIfExists('shippingInfo', $data ?? [], null);
+        $this->setIfExists('internationalOrderInfo', $data ?? [], null);
+        $this->setIfExists('extendInfo', $data ?? [], null);
     }
 
     /**
@@ -338,27 +338,27 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['order_title'] === null) {
-            $invalidProperties[] = "'order_title' can't be null";
+        if ($this->container['orderTitle'] === null) {
+            $invalidProperties[] = "'orderTitle' can't be null";
         }
-        if ((mb_strlen($this->container['order_title']) > 64)) {
-            $invalidProperties[] = "invalid value for 'order_title', the character length must be smaller than or equal to 64.";
-        }
-
-        if (!is_null($this->container['merchant_trans_type']) && (mb_strlen($this->container['merchant_trans_type']) > 64)) {
-            $invalidProperties[] = "invalid value for 'merchant_trans_type', the character length must be smaller than or equal to 64.";
+        if ((mb_strlen($this->container['orderTitle']) > 64)) {
+            $invalidProperties[] = "invalid value for 'orderTitle', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['order_memo']) && (mb_strlen($this->container['order_memo']) > 64)) {
-            $invalidProperties[] = "invalid value for 'order_memo', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['merchantTransType']) && (mb_strlen($this->container['merchantTransType']) > 64)) {
+            $invalidProperties[] = "invalid value for 'merchantTransType', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['created_time']) && !preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['created_time'])) {
-            $invalidProperties[] = "invalid value for 'created_time', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
+        if (!is_null($this->container['orderMemo']) && (mb_strlen($this->container['orderMemo']) > 64)) {
+            $invalidProperties[] = "invalid value for 'orderMemo', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['extend_info']) && (mb_strlen($this->container['extend_info']) > 4096)) {
-            $invalidProperties[] = "invalid value for 'extend_info', the character length must be smaller than or equal to 4096.";
+        if (!is_null($this->container['createdTime']) && !preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['createdTime'])) {
+            $invalidProperties[] = "invalid value for 'createdTime', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
+        }
+
+        if (!is_null($this->container['extendInfo']) && (mb_strlen($this->container['extendInfo']) > 4096)) {
+            $invalidProperties[] = "invalid value for 'extendInfo', the character length must be smaller than or equal to 4096.";
         }
 
         return $invalidProperties;
@@ -431,126 +431,126 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets order_title
+     * Gets orderTitle
      *
      * @return string
      */
     public function getOrderTitle()
     {
-        return $this->container['order_title'];
+        return $this->container['orderTitle'];
     }
 
     /**
-     * Sets order_title
+     * Sets orderTitle
      *
-     * @param string $order_title Additional information of order title
+     * @param string $orderTitle Additional information of order title
      *
      * @return self
      */
-    public function setOrderTitle($order_title)
+    public function setOrderTitle($orderTitle)
     {
-        if (is_null($order_title)) {
-            throw new \InvalidArgumentException('non-nullable order_title cannot be null');
+        if (is_null($orderTitle)) {
+            throw new \InvalidArgumentException('non-nullable orderTitle cannot be null');
         }
-        if ((mb_strlen($order_title) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $order_title when calling Order., must be smaller than or equal to 64.');
+        if ((mb_strlen($orderTitle) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $orderTitle when calling Order., must be smaller than or equal to 64.');
         }
 
-        $this->container['order_title'] = $order_title;
+        $this->container['orderTitle'] = $orderTitle;
 
         return $this;
     }
 
     /**
-     * Gets merchant_trans_type
+     * Gets merchantTransType
      *
      * @return string|null
      */
     public function getMerchantTransType()
     {
-        return $this->container['merchant_trans_type'];
+        return $this->container['merchantTransType'];
     }
 
     /**
-     * Sets merchant_trans_type
+     * Sets merchantTransType
      *
-     * @param string|null $merchant_trans_type Additional information of merchant transaction type
+     * @param string|null $merchantTransType Additional information of merchant transaction type
      *
      * @return self
      */
-    public function setMerchantTransType($merchant_trans_type)
+    public function setMerchantTransType($merchantTransType)
     {
-        if (is_null($merchant_trans_type)) {
-            throw new \InvalidArgumentException('non-nullable merchant_trans_type cannot be null');
+        if (is_null($merchantTransType)) {
+            throw new \InvalidArgumentException('non-nullable merchantTransType cannot be null');
         }
-        if ((mb_strlen($merchant_trans_type) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $merchant_trans_type when calling Order., must be smaller than or equal to 64.');
+        if ((mb_strlen($merchantTransType) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $merchantTransType when calling Order., must be smaller than or equal to 64.');
         }
 
-        $this->container['merchant_trans_type'] = $merchant_trans_type;
+        $this->container['merchantTransType'] = $merchantTransType;
 
         return $this;
     }
 
     /**
-     * Gets order_memo
+     * Gets orderMemo
      *
      * @return string|null
      */
     public function getOrderMemo()
     {
-        return $this->container['order_memo'];
+        return $this->container['orderMemo'];
     }
 
     /**
-     * Sets order_memo
+     * Sets orderMemo
      *
-     * @param string|null $order_memo Additional information of order memo
+     * @param string|null $orderMemo Additional information of order memo
      *
      * @return self
      */
-    public function setOrderMemo($order_memo)
+    public function setOrderMemo($orderMemo)
     {
-        if (is_null($order_memo)) {
-            throw new \InvalidArgumentException('non-nullable order_memo cannot be null');
+        if (is_null($orderMemo)) {
+            throw new \InvalidArgumentException('non-nullable orderMemo cannot be null');
         }
-        if ((mb_strlen($order_memo) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $order_memo when calling Order., must be smaller than or equal to 64.');
+        if ((mb_strlen($orderMemo) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $orderMemo when calling Order., must be smaller than or equal to 64.');
         }
 
-        $this->container['order_memo'] = $order_memo;
+        $this->container['orderMemo'] = $orderMemo;
 
         return $this;
     }
 
     /**
-     * Gets created_time
+     * Gets createdTime
      *
      * @return string|null
      */
     public function getCreatedTime()
     {
-        return $this->container['created_time'];
+        return $this->container['createdTime'];
     }
 
     /**
-     * Sets created_time
+     * Sets createdTime
      *
-     * @param string|null $created_time Additional information of created time, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time)
+     * @param string|null $createdTime Additional information of created time, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time)
      *
      * @return self
      */
-    public function setCreatedTime($created_time)
+    public function setCreatedTime($createdTime)
     {
-        if (is_null($created_time)) {
-            throw new \InvalidArgumentException('non-nullable created_time cannot be null');
+        if (is_null($createdTime)) {
+            throw new \InvalidArgumentException('non-nullable createdTime cannot be null');
         }
 
-        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($created_time)))) {
-            throw new \InvalidArgumentException("invalid value for \$created_time when calling Order., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
+        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($createdTime)))) {
+            throw new \InvalidArgumentException("invalid value for \$createdTime when calling Order., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
         }
 
-        $this->container['created_time'] = $created_time;
+        $this->container['createdTime'] = $createdTime;
 
         return $this;
     }
@@ -583,86 +583,86 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets shipping_info
+     * Gets shippingInfo
      *
      * @return \Dana\Widget\v1\Model\ShippingInfo[]|null
      */
     public function getShippingInfo()
     {
-        return $this->container['shipping_info'];
+        return $this->container['shippingInfo'];
     }
 
     /**
-     * Sets shipping_info
+     * Sets shippingInfo
      *
-     * @param \Dana\Widget\v1\Model\ShippingInfo[]|null $shipping_info Additional information of shipping
+     * @param \Dana\Widget\v1\Model\ShippingInfo[]|null $shippingInfo Additional information of shipping
      *
      * @return self
      */
-    public function setShippingInfo($shipping_info)
+    public function setShippingInfo($shippingInfo)
     {
-        if (is_null($shipping_info)) {
-            throw new \InvalidArgumentException('non-nullable shipping_info cannot be null');
+        if (is_null($shippingInfo)) {
+            throw new \InvalidArgumentException('non-nullable shippingInfo cannot be null');
         }
-        $this->container['shipping_info'] = $shipping_info;
+        $this->container['shippingInfo'] = $shippingInfo;
 
         return $this;
     }
 
     /**
-     * Gets international_order_info
+     * Gets internationalOrderInfo
      *
      * @return \Dana\Widget\v1\Model\InternationalOrderInfo|null
      */
     public function getInternationalOrderInfo()
     {
-        return $this->container['international_order_info'];
+        return $this->container['internationalOrderInfo'];
     }
 
     /**
-     * Sets international_order_info
+     * Sets internationalOrderInfo
      *
-     * @param \Dana\Widget\v1\Model\InternationalOrderInfo|null $international_order_info Additional information of international order. Only use for Mini Program service
+     * @param \Dana\Widget\v1\Model\InternationalOrderInfo|null $internationalOrderInfo Additional information of international order. Only use for Mini Program service
      *
      * @return self
      */
-    public function setInternationalOrderInfo($international_order_info)
+    public function setInternationalOrderInfo($internationalOrderInfo)
     {
-        if (is_null($international_order_info)) {
-            throw new \InvalidArgumentException('non-nullable international_order_info cannot be null');
+        if (is_null($internationalOrderInfo)) {
+            throw new \InvalidArgumentException('non-nullable internationalOrderInfo cannot be null');
         }
-        $this->container['international_order_info'] = $international_order_info;
+        $this->container['internationalOrderInfo'] = $internationalOrderInfo;
 
         return $this;
     }
 
     /**
-     * Gets extend_info
+     * Gets extendInfo
      *
      * @return string|null
      */
     public function getExtendInfo()
     {
-        return $this->container['extend_info'];
+        return $this->container['extendInfo'];
     }
 
     /**
-     * Sets extend_info
+     * Sets extendInfo
      *
-     * @param string|null $extend_info Additional information of extend
+     * @param string|null $extendInfo Additional information of extend
      *
      * @return self
      */
-    public function setExtendInfo($extend_info)
+    public function setExtendInfo($extendInfo)
     {
-        if (is_null($extend_info)) {
-            throw new \InvalidArgumentException('non-nullable extend_info cannot be null');
+        if (is_null($extendInfo)) {
+            throw new \InvalidArgumentException('non-nullable extendInfo cannot be null');
         }
-        if ((mb_strlen($extend_info) > 4096)) {
-            throw new \InvalidArgumentException('invalid length for $extend_info when calling Order., must be smaller than or equal to 4096.');
+        if ((mb_strlen($extendInfo) > 4096)) {
+            throw new \InvalidArgumentException('invalid length for $extendInfo when calling Order., must be smaller than or equal to 4096.');
         }
 
-        $this->container['extend_info'] = $extend_info;
+        $this->container['extendInfo'] = $extendInfo;
 
         return $this;
     }

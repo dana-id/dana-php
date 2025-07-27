@@ -59,7 +59,7 @@ class BankAccountInquiryResponseAdditionalInfo implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $openAPITypes = [
-        'fee_amount' => '\Dana\Disbursement\v1\Model\Money'
+        'feeAmount' => '\Dana\Disbursement\v1\Model\Money'
     ];
 
     /**
@@ -70,7 +70,7 @@ class BankAccountInquiryResponseAdditionalInfo implements ModelInterface, ArrayA
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'fee_amount' => null
+        'feeAmount' => null
     ];
 
     /**
@@ -79,7 +79,7 @@ class BankAccountInquiryResponseAdditionalInfo implements ModelInterface, ArrayA
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'fee_amount' => false
+        'feeAmount' => false
     ];
 
     /**
@@ -168,7 +168,7 @@ class BankAccountInquiryResponseAdditionalInfo implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-        'fee_amount' => 'feeAmount'
+        'feeAmount' => 'feeAmount'
     ];
 
     /**
@@ -177,7 +177,7 @@ class BankAccountInquiryResponseAdditionalInfo implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-        'fee_amount' => 'setFeeAmount'
+        'feeAmount' => 'setFeeAmount'
     ];
 
     /**
@@ -186,7 +186,7 @@ class BankAccountInquiryResponseAdditionalInfo implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-        'fee_amount' => 'getFeeAmount'
+        'feeAmount' => 'getFeeAmount'
     ];
 
     /**
@@ -246,7 +246,7 @@ class BankAccountInquiryResponseAdditionalInfo implements ModelInterface, ArrayA
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('fee_amount', $data ?? [], null);
+        $this->setIfExists('feeAmount', $data ?? [], null);
     }
 
     /**
@@ -276,8 +276,8 @@ class BankAccountInquiryResponseAdditionalInfo implements ModelInterface, ArrayA
     {
         $invalidProperties = [];
 
-        if ($this->container['fee_amount'] === null) {
-            $invalidProperties[] = "'fee_amount' can't be null";
+        if ($this->container['feeAmount'] === null) {
+            $invalidProperties[] = "'feeAmount' can't be null";
         }
         return $invalidProperties;
     }
@@ -295,28 +295,28 @@ class BankAccountInquiryResponseAdditionalInfo implements ModelInterface, ArrayA
 
 
     /**
-     * Gets fee_amount
+     * Gets feeAmount
      *
      * @return \Dana\Disbursement\v1\Model\Money
      */
     public function getFeeAmount()
     {
-        return $this->container['fee_amount'];
+        return $this->container['feeAmount'];
     }
 
     /**
-     * Sets fee_amount
+     * Sets feeAmount
      *
-     * @param \Dana\Disbursement\v1\Model\Money $fee_amount Additional information of fee amount. Contains two sub-fields:<br> 1. Value: Amount, including the cents<br> 2. Currency: Currency code based on ISO
+     * @param \Dana\Disbursement\v1\Model\Money $feeAmount Additional information of fee amount. Contains two sub-fields:<br> 1. Value: Amount, including the cents<br> 2. Currency: Currency code based on ISO
      *
      * @return self
      */
-    public function setFeeAmount($fee_amount)
+    public function setFeeAmount($feeAmount)
     {
-        if (is_null($fee_amount)) {
-            throw new \InvalidArgumentException('non-nullable fee_amount cannot be null');
+        if (is_null($feeAmount)) {
+            throw new \InvalidArgumentException('non-nullable feeAmount cannot be null');
         }
-        $this->container['fee_amount'] = $fee_amount;
+        $this->container['feeAmount'] = $feeAmount;
 
         return $this;
     }

@@ -58,10 +58,10 @@ class ApplyOTTResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'response_code' => 'string',
-        'response_message' => 'string',
-        'user_resources' => '\Dana\Widget\v1\Model\ApplyOTTResponseUserResourcesInner[]',
-        'additional_info' => 'object'
+        'responseCode' => 'string',
+        'responseMessage' => 'string',
+        'userResources' => '\Dana\Widget\v1\Model\ApplyOTTResponseUserResourcesInner[]',
+        'additionalInfo' => 'object'
     ];
 
     /**
@@ -72,10 +72,10 @@ class ApplyOTTResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'response_code' => null,
-        'response_message' => null,
-        'user_resources' => null,
-        'additional_info' => null
+        'responseCode' => null,
+        'responseMessage' => null,
+        'userResources' => null,
+        'additionalInfo' => null
     ];
 
     /**
@@ -84,10 +84,10 @@ class ApplyOTTResponse implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'response_code' => false,
-        'response_message' => false,
-        'user_resources' => false,
-        'additional_info' => false
+        'responseCode' => false,
+        'responseMessage' => false,
+        'userResources' => false,
+        'additionalInfo' => false
     ];
 
     /**
@@ -176,10 +176,10 @@ class ApplyOTTResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'response_code' => 'responseCode',
-        'response_message' => 'responseMessage',
-        'user_resources' => 'userResources',
-        'additional_info' => 'additionalInfo'
+        'responseCode' => 'responseCode',
+        'responseMessage' => 'responseMessage',
+        'userResources' => 'userResources',
+        'additionalInfo' => 'additionalInfo'
     ];
 
     /**
@@ -188,10 +188,10 @@ class ApplyOTTResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'response_code' => 'setResponseCode',
-        'response_message' => 'setResponseMessage',
-        'user_resources' => 'setUserResources',
-        'additional_info' => 'setAdditionalInfo'
+        'responseCode' => 'setResponseCode',
+        'responseMessage' => 'setResponseMessage',
+        'userResources' => 'setUserResources',
+        'additionalInfo' => 'setAdditionalInfo'
     ];
 
     /**
@@ -200,10 +200,10 @@ class ApplyOTTResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'response_code' => 'getResponseCode',
-        'response_message' => 'getResponseMessage',
-        'user_resources' => 'getUserResources',
-        'additional_info' => 'getAdditionalInfo'
+        'responseCode' => 'getResponseCode',
+        'responseMessage' => 'getResponseMessage',
+        'userResources' => 'getUserResources',
+        'additionalInfo' => 'getAdditionalInfo'
     ];
 
     /**
@@ -263,10 +263,10 @@ class ApplyOTTResponse implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('response_code', $data ?? [], null);
-        $this->setIfExists('response_message', $data ?? [], null);
-        $this->setIfExists('user_resources', $data ?? [], null);
-        $this->setIfExists('additional_info', $data ?? [], null);
+        $this->setIfExists('responseCode', $data ?? [], null);
+        $this->setIfExists('responseMessage', $data ?? [], null);
+        $this->setIfExists('userResources', $data ?? [], null);
+        $this->setIfExists('additionalInfo', $data ?? [], null);
     }
 
     /**
@@ -296,22 +296,22 @@ class ApplyOTTResponse implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['response_code'] === null) {
-            $invalidProperties[] = "'response_code' can't be null";
+        if ($this->container['responseCode'] === null) {
+            $invalidProperties[] = "'responseCode' can't be null";
         }
-        if ((mb_strlen($this->container['response_code']) > 7)) {
-            $invalidProperties[] = "invalid value for 'response_code', the character length must be smaller than or equal to 7.";
-        }
-
-        if ($this->container['response_message'] === null) {
-            $invalidProperties[] = "'response_message' can't be null";
-        }
-        if ((mb_strlen($this->container['response_message']) > 150)) {
-            $invalidProperties[] = "invalid value for 'response_message', the character length must be smaller than or equal to 150.";
+        if ((mb_strlen($this->container['responseCode']) > 7)) {
+            $invalidProperties[] = "invalid value for 'responseCode', the character length must be smaller than or equal to 7.";
         }
 
-        if ($this->container['user_resources'] === null) {
-            $invalidProperties[] = "'user_resources' can't be null";
+        if ($this->container['responseMessage'] === null) {
+            $invalidProperties[] = "'responseMessage' can't be null";
+        }
+        if ((mb_strlen($this->container['responseMessage']) > 150)) {
+            $invalidProperties[] = "invalid value for 'responseMessage', the character length must be smaller than or equal to 150.";
+        }
+
+        if ($this->container['userResources'] === null) {
+            $invalidProperties[] = "'userResources' can't be null";
         }
         return $invalidProperties;
     }
@@ -329,117 +329,117 @@ class ApplyOTTResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets response_code
+     * Gets responseCode
      *
      * @return string
      */
     public function getResponseCode()
     {
-        return $this->container['response_code'];
+        return $this->container['responseCode'];
     }
 
     /**
-     * Sets response_code
+     * Sets responseCode
      *
-     * @param string $response_code Response code. https://dashboard.dana.id/api-docs/read/109#HTML-API-ApplyOTT-ResponseCodeandMessage
+     * @param string $responseCode Response code. https://dashboard.dana.id/api-docs/read/109#HTML-API-ApplyOTT-ResponseCodeandMessage
      *
      * @return self
      */
-    public function setResponseCode($response_code)
+    public function setResponseCode($responseCode)
     {
-        if (is_null($response_code)) {
-            throw new \InvalidArgumentException('non-nullable response_code cannot be null');
+        if (is_null($responseCode)) {
+            throw new \InvalidArgumentException('non-nullable responseCode cannot be null');
         }
-        if ((mb_strlen($response_code) > 7)) {
-            throw new \InvalidArgumentException('invalid length for $response_code when calling ApplyOTTResponse., must be smaller than or equal to 7.');
+        if ((mb_strlen($responseCode) > 7)) {
+            throw new \InvalidArgumentException('invalid length for $responseCode when calling ApplyOTTResponse., must be smaller than or equal to 7.');
         }
 
-        $this->container['response_code'] = $response_code;
+        $this->container['responseCode'] = $responseCode;
 
         return $this;
     }
 
     /**
-     * Gets response_message
+     * Gets responseMessage
      *
      * @return string
      */
     public function getResponseMessage()
     {
-        return $this->container['response_message'];
+        return $this->container['responseMessage'];
     }
 
     /**
-     * Sets response_message
+     * Sets responseMessage
      *
-     * @param string $response_message Response message. https://dashboard.dana.id/api-docs/read/109#HTML-API-ApplyOTT-ResponseCodeandMessage
+     * @param string $responseMessage Response message. https://dashboard.dana.id/api-docs/read/109#HTML-API-ApplyOTT-ResponseCodeandMessage
      *
      * @return self
      */
-    public function setResponseMessage($response_message)
+    public function setResponseMessage($responseMessage)
     {
-        if (is_null($response_message)) {
-            throw new \InvalidArgumentException('non-nullable response_message cannot be null');
+        if (is_null($responseMessage)) {
+            throw new \InvalidArgumentException('non-nullable responseMessage cannot be null');
         }
-        if ((mb_strlen($response_message) > 150)) {
-            throw new \InvalidArgumentException('invalid length for $response_message when calling ApplyOTTResponse., must be smaller than or equal to 150.');
+        if ((mb_strlen($responseMessage) > 150)) {
+            throw new \InvalidArgumentException('invalid length for $responseMessage when calling ApplyOTTResponse., must be smaller than or equal to 150.');
         }
 
-        $this->container['response_message'] = $response_message;
+        $this->container['responseMessage'] = $responseMessage;
 
         return $this;
     }
 
     /**
-     * Gets user_resources
+     * Gets userResources
      *
      * @return \Dana\Widget\v1\Model\ApplyOTTResponseUserResourcesInner[]
      */
     public function getUserResources()
     {
-        return $this->container['user_resources'];
+        return $this->container['userResources'];
     }
 
     /**
-     * Sets user_resources
+     * Sets userResources
      *
-     * @param \Dana\Widget\v1\Model\ApplyOTTResponseUserResourcesInner[] $user_resources User resources
+     * @param \Dana\Widget\v1\Model\ApplyOTTResponseUserResourcesInner[] $userResources User resources
      *
      * @return self
      */
-    public function setUserResources($user_resources)
+    public function setUserResources($userResources)
     {
-        if (is_null($user_resources)) {
-            throw new \InvalidArgumentException('non-nullable user_resources cannot be null');
+        if (is_null($userResources)) {
+            throw new \InvalidArgumentException('non-nullable userResources cannot be null');
         }
-        $this->container['user_resources'] = $user_resources;
+        $this->container['userResources'] = $userResources;
 
         return $this;
     }
 
     /**
-     * Gets additional_info
+     * Gets additionalInfo
      *
      * @return object|null
      */
     public function getAdditionalInfo()
     {
-        return $this->container['additional_info'];
+        return $this->container['additionalInfo'];
     }
 
     /**
-     * Sets additional_info
+     * Sets additionalInfo
      *
-     * @param object|null $additional_info Additional information
+     * @param object|null $additionalInfo Additional information
      *
      * @return self
      */
-    public function setAdditionalInfo($additional_info)
+    public function setAdditionalInfo($additionalInfo)
     {
-        if (is_null($additional_info)) {
-            throw new \InvalidArgumentException('non-nullable additional_info cannot be null');
+        if (is_null($additionalInfo)) {
+            throw new \InvalidArgumentException('non-nullable additionalInfo cannot be null');
         }
-        $this->container['additional_info'] = $additional_info;
+        $this->container['additionalInfo'] = $additionalInfo;
 
         return $this;
     }

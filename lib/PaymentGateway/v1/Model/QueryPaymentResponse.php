@@ -58,24 +58,24 @@ class QueryPaymentResponse implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var string[]
       */
     protected static $openAPITypes = [
-        'response_code' => 'string',
-        'response_message' => 'string',
-        'original_partner_reference_no' => 'string',
-        'original_reference_no' => 'string',
-        'original_external_id' => 'string',
-        'service_code' => 'string',
-        'latest_transaction_status' => 'string',
-        'transaction_status_desc' => 'string',
-        'original_response_code' => 'string',
-        'original_response_message' => 'string',
-        'session_id' => 'string',
-        'request_id' => 'string',
-        'trans_amount' => '\Dana\PaymentGateway\v1\Model\Money',
+        'responseCode' => 'string',
+        'responseMessage' => 'string',
+        'originalPartnerReferenceNo' => 'string',
+        'originalReferenceNo' => 'string',
+        'originalExternalId' => 'string',
+        'serviceCode' => 'string',
+        'latestTransactionStatus' => 'string',
+        'transactionStatusDesc' => 'string',
+        'originalResponseCode' => 'string',
+        'originalResponseMessage' => 'string',
+        'sessionId' => 'string',
+        'requestID' => 'string',
+        'transAmount' => '\Dana\PaymentGateway\v1\Model\Money',
         'amount' => '\Dana\PaymentGateway\v1\Model\Money',
-        'fee_amount' => '\Dana\PaymentGateway\v1\Model\Money',
-        'paid_time' => 'string',
+        'feeAmount' => '\Dana\PaymentGateway\v1\Model\Money',
+        'paidTime' => 'string',
         'title' => 'string',
-        'additional_info' => '\Dana\PaymentGateway\v1\Model\QueryPaymentResponseAdditionalInfo'
+        'additionalInfo' => '\Dana\PaymentGateway\v1\Model\QueryPaymentResponseAdditionalInfo'
     ];
 
     /**
@@ -86,24 +86,24 @@ class QueryPaymentResponse implements ModelInterface, ArrayAccess, \JsonSerializ
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'response_code' => null,
-        'response_message' => null,
-        'original_partner_reference_no' => null,
-        'original_reference_no' => null,
-        'original_external_id' => null,
-        'service_code' => null,
-        'latest_transaction_status' => null,
-        'transaction_status_desc' => null,
-        'original_response_code' => null,
-        'original_response_message' => null,
-        'session_id' => null,
-        'request_id' => null,
-        'trans_amount' => null,
+        'responseCode' => null,
+        'responseMessage' => null,
+        'originalPartnerReferenceNo' => null,
+        'originalReferenceNo' => null,
+        'originalExternalId' => null,
+        'serviceCode' => null,
+        'latestTransactionStatus' => null,
+        'transactionStatusDesc' => null,
+        'originalResponseCode' => null,
+        'originalResponseMessage' => null,
+        'sessionId' => null,
+        'requestID' => null,
+        'transAmount' => null,
         'amount' => null,
-        'fee_amount' => null,
-        'paid_time' => null,
+        'feeAmount' => null,
+        'paidTime' => null,
         'title' => null,
-        'additional_info' => null
+        'additionalInfo' => null
     ];
 
     /**
@@ -112,24 +112,24 @@ class QueryPaymentResponse implements ModelInterface, ArrayAccess, \JsonSerializ
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'response_code' => false,
-        'response_message' => false,
-        'original_partner_reference_no' => false,
-        'original_reference_no' => false,
-        'original_external_id' => false,
-        'service_code' => false,
-        'latest_transaction_status' => false,
-        'transaction_status_desc' => false,
-        'original_response_code' => false,
-        'original_response_message' => false,
-        'session_id' => false,
-        'request_id' => false,
-        'trans_amount' => false,
+        'responseCode' => false,
+        'responseMessage' => false,
+        'originalPartnerReferenceNo' => false,
+        'originalReferenceNo' => false,
+        'originalExternalId' => false,
+        'serviceCode' => false,
+        'latestTransactionStatus' => false,
+        'transactionStatusDesc' => false,
+        'originalResponseCode' => false,
+        'originalResponseMessage' => false,
+        'sessionId' => false,
+        'requestID' => false,
+        'transAmount' => false,
         'amount' => false,
-        'fee_amount' => false,
-        'paid_time' => false,
+        'feeAmount' => false,
+        'paidTime' => false,
         'title' => false,
-        'additional_info' => false
+        'additionalInfo' => false
     ];
 
     /**
@@ -218,24 +218,24 @@ class QueryPaymentResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $attributeMap = [
-        'response_code' => 'responseCode',
-        'response_message' => 'responseMessage',
-        'original_partner_reference_no' => 'originalPartnerReferenceNo',
-        'original_reference_no' => 'originalReferenceNo',
-        'original_external_id' => 'originalExternalId',
-        'service_code' => 'serviceCode',
-        'latest_transaction_status' => 'latestTransactionStatus',
-        'transaction_status_desc' => 'transactionStatusDesc',
-        'original_response_code' => 'originalResponseCode',
-        'original_response_message' => 'originalResponseMessage',
-        'session_id' => 'sessionId',
-        'request_id' => 'requestID',
-        'trans_amount' => 'transAmount',
+        'responseCode' => 'responseCode',
+        'responseMessage' => 'responseMessage',
+        'originalPartnerReferenceNo' => 'originalPartnerReferenceNo',
+        'originalReferenceNo' => 'originalReferenceNo',
+        'originalExternalId' => 'originalExternalId',
+        'serviceCode' => 'serviceCode',
+        'latestTransactionStatus' => 'latestTransactionStatus',
+        'transactionStatusDesc' => 'transactionStatusDesc',
+        'originalResponseCode' => 'originalResponseCode',
+        'originalResponseMessage' => 'originalResponseMessage',
+        'sessionId' => 'sessionId',
+        'requestID' => 'requestID',
+        'transAmount' => 'transAmount',
         'amount' => 'amount',
-        'fee_amount' => 'feeAmount',
-        'paid_time' => 'paidTime',
+        'feeAmount' => 'feeAmount',
+        'paidTime' => 'paidTime',
         'title' => 'title',
-        'additional_info' => 'additionalInfo'
+        'additionalInfo' => 'additionalInfo'
     ];
 
     /**
@@ -244,24 +244,24 @@ class QueryPaymentResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $setters = [
-        'response_code' => 'setResponseCode',
-        'response_message' => 'setResponseMessage',
-        'original_partner_reference_no' => 'setOriginalPartnerReferenceNo',
-        'original_reference_no' => 'setOriginalReferenceNo',
-        'original_external_id' => 'setOriginalExternalId',
-        'service_code' => 'setServiceCode',
-        'latest_transaction_status' => 'setLatestTransactionStatus',
-        'transaction_status_desc' => 'setTransactionStatusDesc',
-        'original_response_code' => 'setOriginalResponseCode',
-        'original_response_message' => 'setOriginalResponseMessage',
-        'session_id' => 'setSessionId',
-        'request_id' => 'setRequestId',
-        'trans_amount' => 'setTransAmount',
+        'responseCode' => 'setResponseCode',
+        'responseMessage' => 'setResponseMessage',
+        'originalPartnerReferenceNo' => 'setOriginalPartnerReferenceNo',
+        'originalReferenceNo' => 'setOriginalReferenceNo',
+        'originalExternalId' => 'setOriginalExternalId',
+        'serviceCode' => 'setServiceCode',
+        'latestTransactionStatus' => 'setLatestTransactionStatus',
+        'transactionStatusDesc' => 'setTransactionStatusDesc',
+        'originalResponseCode' => 'setOriginalResponseCode',
+        'originalResponseMessage' => 'setOriginalResponseMessage',
+        'sessionId' => 'setSessionId',
+        'requestID' => 'setRequestID',
+        'transAmount' => 'setTransAmount',
         'amount' => 'setAmount',
-        'fee_amount' => 'setFeeAmount',
-        'paid_time' => 'setPaidTime',
+        'feeAmount' => 'setFeeAmount',
+        'paidTime' => 'setPaidTime',
         'title' => 'setTitle',
-        'additional_info' => 'setAdditionalInfo'
+        'additionalInfo' => 'setAdditionalInfo'
     ];
 
     /**
@@ -270,24 +270,24 @@ class QueryPaymentResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      * @var string[]
      */
     protected static $getters = [
-        'response_code' => 'getResponseCode',
-        'response_message' => 'getResponseMessage',
-        'original_partner_reference_no' => 'getOriginalPartnerReferenceNo',
-        'original_reference_no' => 'getOriginalReferenceNo',
-        'original_external_id' => 'getOriginalExternalId',
-        'service_code' => 'getServiceCode',
-        'latest_transaction_status' => 'getLatestTransactionStatus',
-        'transaction_status_desc' => 'getTransactionStatusDesc',
-        'original_response_code' => 'getOriginalResponseCode',
-        'original_response_message' => 'getOriginalResponseMessage',
-        'session_id' => 'getSessionId',
-        'request_id' => 'getRequestId',
-        'trans_amount' => 'getTransAmount',
+        'responseCode' => 'getResponseCode',
+        'responseMessage' => 'getResponseMessage',
+        'originalPartnerReferenceNo' => 'getOriginalPartnerReferenceNo',
+        'originalReferenceNo' => 'getOriginalReferenceNo',
+        'originalExternalId' => 'getOriginalExternalId',
+        'serviceCode' => 'getServiceCode',
+        'latestTransactionStatus' => 'getLatestTransactionStatus',
+        'transactionStatusDesc' => 'getTransactionStatusDesc',
+        'originalResponseCode' => 'getOriginalResponseCode',
+        'originalResponseMessage' => 'getOriginalResponseMessage',
+        'sessionId' => 'getSessionId',
+        'requestID' => 'getRequestID',
+        'transAmount' => 'getTransAmount',
         'amount' => 'getAmount',
-        'fee_amount' => 'getFeeAmount',
-        'paid_time' => 'getPaidTime',
+        'feeAmount' => 'getFeeAmount',
+        'paidTime' => 'getPaidTime',
         'title' => 'getTitle',
-        'additional_info' => 'getAdditionalInfo'
+        'additionalInfo' => 'getAdditionalInfo'
     ];
 
     /**
@@ -347,24 +347,24 @@ class QueryPaymentResponse implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('response_code', $data ?? [], null);
-        $this->setIfExists('response_message', $data ?? [], null);
-        $this->setIfExists('original_partner_reference_no', $data ?? [], null);
-        $this->setIfExists('original_reference_no', $data ?? [], null);
-        $this->setIfExists('original_external_id', $data ?? [], null);
-        $this->setIfExists('service_code', $data ?? [], '54');
-        $this->setIfExists('latest_transaction_status', $data ?? [], null);
-        $this->setIfExists('transaction_status_desc', $data ?? [], null);
-        $this->setIfExists('original_response_code', $data ?? [], null);
-        $this->setIfExists('original_response_message', $data ?? [], null);
-        $this->setIfExists('session_id', $data ?? [], null);
-        $this->setIfExists('request_id', $data ?? [], null);
-        $this->setIfExists('trans_amount', $data ?? [], null);
+        $this->setIfExists('responseCode', $data ?? [], null);
+        $this->setIfExists('responseMessage', $data ?? [], null);
+        $this->setIfExists('originalPartnerReferenceNo', $data ?? [], null);
+        $this->setIfExists('originalReferenceNo', $data ?? [], null);
+        $this->setIfExists('originalExternalId', $data ?? [], null);
+        $this->setIfExists('serviceCode', $data ?? [], '54');
+        $this->setIfExists('latestTransactionStatus', $data ?? [], null);
+        $this->setIfExists('transactionStatusDesc', $data ?? [], null);
+        $this->setIfExists('originalResponseCode', $data ?? [], null);
+        $this->setIfExists('originalResponseMessage', $data ?? [], null);
+        $this->setIfExists('sessionId', $data ?? [], null);
+        $this->setIfExists('requestID', $data ?? [], null);
+        $this->setIfExists('transAmount', $data ?? [], null);
         $this->setIfExists('amount', $data ?? [], null);
-        $this->setIfExists('fee_amount', $data ?? [], null);
-        $this->setIfExists('paid_time', $data ?? [], null);
+        $this->setIfExists('feeAmount', $data ?? [], null);
+        $this->setIfExists('paidTime', $data ?? [], null);
         $this->setIfExists('title', $data ?? [], null);
-        $this->setIfExists('additional_info', $data ?? [], null);
+        $this->setIfExists('additionalInfo', $data ?? [], null);
     }
 
     /**
@@ -394,72 +394,72 @@ class QueryPaymentResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         $invalidProperties = [];
 
-        if ($this->container['response_code'] === null) {
-            $invalidProperties[] = "'response_code' can't be null";
+        if ($this->container['responseCode'] === null) {
+            $invalidProperties[] = "'responseCode' can't be null";
         }
-        if ((mb_strlen($this->container['response_code']) > 7)) {
-            $invalidProperties[] = "invalid value for 'response_code', the character length must be smaller than or equal to 7.";
-        }
-
-        if ($this->container['response_message'] === null) {
-            $invalidProperties[] = "'response_message' can't be null";
-        }
-        if ((mb_strlen($this->container['response_message']) > 150)) {
-            $invalidProperties[] = "invalid value for 'response_message', the character length must be smaller than or equal to 150.";
+        if ((mb_strlen($this->container['responseCode']) > 7)) {
+            $invalidProperties[] = "invalid value for 'responseCode', the character length must be smaller than or equal to 7.";
         }
 
-        if (!is_null($this->container['original_partner_reference_no']) && (mb_strlen($this->container['original_partner_reference_no']) > 64)) {
-            $invalidProperties[] = "invalid value for 'original_partner_reference_no', the character length must be smaller than or equal to 64.";
+        if ($this->container['responseMessage'] === null) {
+            $invalidProperties[] = "'responseMessage' can't be null";
+        }
+        if ((mb_strlen($this->container['responseMessage']) > 150)) {
+            $invalidProperties[] = "invalid value for 'responseMessage', the character length must be smaller than or equal to 150.";
         }
 
-        if (!is_null($this->container['original_reference_no']) && (mb_strlen($this->container['original_reference_no']) > 64)) {
-            $invalidProperties[] = "invalid value for 'original_reference_no', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['originalPartnerReferenceNo']) && (mb_strlen($this->container['originalPartnerReferenceNo']) > 64)) {
+            $invalidProperties[] = "invalid value for 'originalPartnerReferenceNo', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['original_external_id']) && (mb_strlen($this->container['original_external_id']) > 32)) {
-            $invalidProperties[] = "invalid value for 'original_external_id', the character length must be smaller than or equal to 32.";
+        if (!is_null($this->container['originalReferenceNo']) && (mb_strlen($this->container['originalReferenceNo']) > 64)) {
+            $invalidProperties[] = "invalid value for 'originalReferenceNo', the character length must be smaller than or equal to 64.";
         }
 
-        if ($this->container['service_code'] === null) {
-            $invalidProperties[] = "'service_code' can't be null";
-        }
-        if ((mb_strlen($this->container['service_code']) > 2)) {
-            $invalidProperties[] = "invalid value for 'service_code', the character length must be smaller than or equal to 2.";
+        if (!is_null($this->container['originalExternalId']) && (mb_strlen($this->container['originalExternalId']) > 32)) {
+            $invalidProperties[] = "invalid value for 'originalExternalId', the character length must be smaller than or equal to 32.";
         }
 
-        if ($this->container['latest_transaction_status'] === null) {
-            $invalidProperties[] = "'latest_transaction_status' can't be null";
+        if ($this->container['serviceCode'] === null) {
+            $invalidProperties[] = "'serviceCode' can't be null";
         }
-        if ((mb_strlen($this->container['latest_transaction_status']) > 2)) {
-            $invalidProperties[] = "invalid value for 'latest_transaction_status', the character length must be smaller than or equal to 2.";
-        }
-
-        if (!is_null($this->container['transaction_status_desc']) && (mb_strlen($this->container['transaction_status_desc']) > 50)) {
-            $invalidProperties[] = "invalid value for 'transaction_status_desc', the character length must be smaller than or equal to 50.";
+        if ((mb_strlen($this->container['serviceCode']) > 2)) {
+            $invalidProperties[] = "invalid value for 'serviceCode', the character length must be smaller than or equal to 2.";
         }
 
-        if (!is_null($this->container['original_response_code']) && (mb_strlen($this->container['original_response_code']) > 7)) {
-            $invalidProperties[] = "invalid value for 'original_response_code', the character length must be smaller than or equal to 7.";
+        if ($this->container['latestTransactionStatus'] === null) {
+            $invalidProperties[] = "'latestTransactionStatus' can't be null";
+        }
+        if ((mb_strlen($this->container['latestTransactionStatus']) > 2)) {
+            $invalidProperties[] = "invalid value for 'latestTransactionStatus', the character length must be smaller than or equal to 2.";
         }
 
-        if (!is_null($this->container['original_response_message']) && (mb_strlen($this->container['original_response_message']) > 150)) {
-            $invalidProperties[] = "invalid value for 'original_response_message', the character length must be smaller than or equal to 150.";
+        if (!is_null($this->container['transactionStatusDesc']) && (mb_strlen($this->container['transactionStatusDesc']) > 50)) {
+            $invalidProperties[] = "invalid value for 'transactionStatusDesc', the character length must be smaller than or equal to 50.";
         }
 
-        if (!is_null($this->container['session_id']) && (mb_strlen($this->container['session_id']) > 25)) {
-            $invalidProperties[] = "invalid value for 'session_id', the character length must be smaller than or equal to 25.";
+        if (!is_null($this->container['originalResponseCode']) && (mb_strlen($this->container['originalResponseCode']) > 7)) {
+            $invalidProperties[] = "invalid value for 'originalResponseCode', the character length must be smaller than or equal to 7.";
         }
 
-        if (!is_null($this->container['request_id']) && (mb_strlen($this->container['request_id']) > 25)) {
-            $invalidProperties[] = "invalid value for 'request_id', the character length must be smaller than or equal to 25.";
+        if (!is_null($this->container['originalResponseMessage']) && (mb_strlen($this->container['originalResponseMessage']) > 150)) {
+            $invalidProperties[] = "invalid value for 'originalResponseMessage', the character length must be smaller than or equal to 150.";
         }
 
-        if (!is_null($this->container['paid_time']) && (mb_strlen($this->container['paid_time']) > 25)) {
-            $invalidProperties[] = "invalid value for 'paid_time', the character length must be smaller than or equal to 25.";
+        if (!is_null($this->container['sessionId']) && (mb_strlen($this->container['sessionId']) > 25)) {
+            $invalidProperties[] = "invalid value for 'sessionId', the character length must be smaller than or equal to 25.";
         }
 
-        if (!is_null($this->container['paid_time']) && !preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['paid_time'])) {
-            $invalidProperties[] = "invalid value for 'paid_time', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
+        if (!is_null($this->container['requestID']) && (mb_strlen($this->container['requestID']) > 25)) {
+            $invalidProperties[] = "invalid value for 'requestID', the character length must be smaller than or equal to 25.";
+        }
+
+        if (!is_null($this->container['paidTime']) && (mb_strlen($this->container['paidTime']) > 25)) {
+            $invalidProperties[] = "invalid value for 'paidTime', the character length must be smaller than or equal to 25.";
+        }
+
+        if (!is_null($this->container['paidTime']) && !preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['paidTime'])) {
+            $invalidProperties[] = "invalid value for 'paidTime', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
         }
 
         if (!is_null($this->container['title']) && (mb_strlen($this->container['title']) > 256)) {
@@ -482,400 +482,400 @@ class QueryPaymentResponse implements ModelInterface, ArrayAccess, \JsonSerializ
 
 
     /**
-     * Gets response_code
+     * Gets responseCode
      *
      * @return string
      */
     public function getResponseCode()
     {
-        return $this->container['response_code'];
+        return $this->container['responseCode'];
     }
 
     /**
-     * Sets response_code
+     * Sets responseCode
      *
-     * @param string $response_code Response code. Refer to https://dashboard.dana.id/api-docs/read/126#HTML-API-QueryPayment-ResponseCodeandMessage
+     * @param string $responseCode Response code. Refer to https://dashboard.dana.id/api-docs/read/126#HTML-API-QueryPayment-ResponseCodeandMessage
      *
      * @return self
      */
-    public function setResponseCode($response_code)
+    public function setResponseCode($responseCode)
     {
-        if (is_null($response_code)) {
-            throw new \InvalidArgumentException('non-nullable response_code cannot be null');
+        if (is_null($responseCode)) {
+            throw new \InvalidArgumentException('non-nullable responseCode cannot be null');
         }
-        if ((mb_strlen($response_code) > 7)) {
-            throw new \InvalidArgumentException('invalid length for $response_code when calling QueryPaymentResponse., must be smaller than or equal to 7.');
+        if ((mb_strlen($responseCode) > 7)) {
+            throw new \InvalidArgumentException('invalid length for $responseCode when calling QueryPaymentResponse., must be smaller than or equal to 7.');
         }
 
-        $this->container['response_code'] = $response_code;
+        $this->container['responseCode'] = $responseCode;
 
         return $this;
     }
 
     /**
-     * Gets response_message
+     * Gets responseMessage
      *
      * @return string
      */
     public function getResponseMessage()
     {
-        return $this->container['response_message'];
+        return $this->container['responseMessage'];
     }
 
     /**
-     * Sets response_message
+     * Sets responseMessage
      *
-     * @param string $response_message Response message. Refer to https://dashboard.dana.id/api-docs/read/126#HTML-API-QueryPayment-ResponseCodeandMessage
+     * @param string $responseMessage Response message. Refer to https://dashboard.dana.id/api-docs/read/126#HTML-API-QueryPayment-ResponseCodeandMessage
      *
      * @return self
      */
-    public function setResponseMessage($response_message)
+    public function setResponseMessage($responseMessage)
     {
-        if (is_null($response_message)) {
-            throw new \InvalidArgumentException('non-nullable response_message cannot be null');
+        if (is_null($responseMessage)) {
+            throw new \InvalidArgumentException('non-nullable responseMessage cannot be null');
         }
-        if ((mb_strlen($response_message) > 150)) {
-            throw new \InvalidArgumentException('invalid length for $response_message when calling QueryPaymentResponse., must be smaller than or equal to 150.');
+        if ((mb_strlen($responseMessage) > 150)) {
+            throw new \InvalidArgumentException('invalid length for $responseMessage when calling QueryPaymentResponse., must be smaller than or equal to 150.');
         }
 
-        $this->container['response_message'] = $response_message;
+        $this->container['responseMessage'] = $responseMessage;
 
         return $this;
     }
 
     /**
-     * Gets original_partner_reference_no
+     * Gets originalPartnerReferenceNo
      *
      * @return string|null
      */
     public function getOriginalPartnerReferenceNo()
     {
-        return $this->container['original_partner_reference_no'];
+        return $this->container['originalPartnerReferenceNo'];
     }
 
     /**
-     * Sets original_partner_reference_no
+     * Sets originalPartnerReferenceNo
      *
-     * @param string|null $original_partner_reference_no Original transaction identifier on partner system. Present if transaction found
+     * @param string|null $originalPartnerReferenceNo Original transaction identifier on partner system. Present if transaction found
      *
      * @return self
      */
-    public function setOriginalPartnerReferenceNo($original_partner_reference_no)
+    public function setOriginalPartnerReferenceNo($originalPartnerReferenceNo)
     {
-        if (is_null($original_partner_reference_no)) {
-            throw new \InvalidArgumentException('non-nullable original_partner_reference_no cannot be null');
+        if (is_null($originalPartnerReferenceNo)) {
+            throw new \InvalidArgumentException('non-nullable originalPartnerReferenceNo cannot be null');
         }
-        if ((mb_strlen($original_partner_reference_no) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $original_partner_reference_no when calling QueryPaymentResponse., must be smaller than or equal to 64.');
+        if ((mb_strlen($originalPartnerReferenceNo) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $originalPartnerReferenceNo when calling QueryPaymentResponse., must be smaller than or equal to 64.');
         }
 
-        $this->container['original_partner_reference_no'] = $original_partner_reference_no;
+        $this->container['originalPartnerReferenceNo'] = $originalPartnerReferenceNo;
 
         return $this;
     }
 
     /**
-     * Gets original_reference_no
+     * Gets originalReferenceNo
      *
      * @return string|null
      */
     public function getOriginalReferenceNo()
     {
-        return $this->container['original_reference_no'];
+        return $this->container['originalReferenceNo'];
     }
 
     /**
-     * Sets original_reference_no
+     * Sets originalReferenceNo
      *
-     * @param string|null $original_reference_no Original transaction identifier on DANA system. Present if transaction found
+     * @param string|null $originalReferenceNo Original transaction identifier on DANA system. Present if transaction found
      *
      * @return self
      */
-    public function setOriginalReferenceNo($original_reference_no)
+    public function setOriginalReferenceNo($originalReferenceNo)
     {
-        if (is_null($original_reference_no)) {
-            throw new \InvalidArgumentException('non-nullable original_reference_no cannot be null');
+        if (is_null($originalReferenceNo)) {
+            throw new \InvalidArgumentException('non-nullable originalReferenceNo cannot be null');
         }
-        if ((mb_strlen($original_reference_no) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $original_reference_no when calling QueryPaymentResponse., must be smaller than or equal to 64.');
+        if ((mb_strlen($originalReferenceNo) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $originalReferenceNo when calling QueryPaymentResponse., must be smaller than or equal to 64.');
         }
 
-        $this->container['original_reference_no'] = $original_reference_no;
+        $this->container['originalReferenceNo'] = $originalReferenceNo;
 
         return $this;
     }
 
     /**
-     * Gets original_external_id
+     * Gets originalExternalId
      *
      * @return string|null
      */
     public function getOriginalExternalId()
     {
-        return $this->container['original_external_id'];
+        return $this->container['originalExternalId'];
     }
 
     /**
-     * Sets original_external_id
+     * Sets originalExternalId
      *
-     * @param string|null $original_external_id Original external identifier on header message
+     * @param string|null $originalExternalId Original external identifier on header message
      *
      * @return self
      */
-    public function setOriginalExternalId($original_external_id)
+    public function setOriginalExternalId($originalExternalId)
     {
-        if (is_null($original_external_id)) {
-            throw new \InvalidArgumentException('non-nullable original_external_id cannot be null');
+        if (is_null($originalExternalId)) {
+            throw new \InvalidArgumentException('non-nullable originalExternalId cannot be null');
         }
-        if ((mb_strlen($original_external_id) > 32)) {
-            throw new \InvalidArgumentException('invalid length for $original_external_id when calling QueryPaymentResponse., must be smaller than or equal to 32.');
+        if ((mb_strlen($originalExternalId) > 32)) {
+            throw new \InvalidArgumentException('invalid length for $originalExternalId when calling QueryPaymentResponse., must be smaller than or equal to 32.');
         }
 
-        $this->container['original_external_id'] = $original_external_id;
+        $this->container['originalExternalId'] = $originalExternalId;
 
         return $this;
     }
 
     /**
-     * Gets service_code
+     * Gets serviceCode
      *
      * @return string
      */
     public function getServiceCode()
     {
-        return $this->container['service_code'];
+        return $this->container['serviceCode'];
     }
 
     /**
-     * Sets service_code
+     * Sets serviceCode
      *
-     * @param string $service_code Transaction type indicator is based on the service code of the original transaction request:<br> - IPG Cashier Pay - SNAP: 54<br> - QRIS CPM (Acquirer) - SNAP: 60<br> - QRIS MPM (Acquirer) - SNAP: 47<br> - Payment Gateway: 54<br>
+     * @param string $serviceCode Transaction type indicator is based on the service code of the original transaction request:<br> - IPG Cashier Pay - SNAP: 54<br> - QRIS CPM (Acquirer) - SNAP: 60<br> - QRIS MPM (Acquirer) - SNAP: 47<br> - Payment Gateway: 54<br>
      *
      * @return self
      */
-    public function setServiceCode($service_code)
+    public function setServiceCode($serviceCode)
     {
-        if (is_null($service_code)) {
-            throw new \InvalidArgumentException('non-nullable service_code cannot be null');
+        if (is_null($serviceCode)) {
+            throw new \InvalidArgumentException('non-nullable serviceCode cannot be null');
         }
-        if ((mb_strlen($service_code) > 2)) {
-            throw new \InvalidArgumentException('invalid length for $service_code when calling QueryPaymentResponse., must be smaller than or equal to 2.');
+        if ((mb_strlen($serviceCode) > 2)) {
+            throw new \InvalidArgumentException('invalid length for $serviceCode when calling QueryPaymentResponse., must be smaller than or equal to 2.');
         }
 
-        $this->container['service_code'] = $service_code;
+        $this->container['serviceCode'] = $serviceCode;
 
         return $this;
     }
 
     /**
-     * Gets latest_transaction_status
+     * Gets latestTransactionStatus
      *
      * @return string
      */
     public function getLatestTransactionStatus()
     {
-        return $this->container['latest_transaction_status'];
+        return $this->container['latestTransactionStatus'];
     }
 
     /**
-     * Sets latest_transaction_status
+     * Sets latestTransactionStatus
      *
-     * @param string $latest_transaction_status Category code for the status of the transaction. The values include:<br> - 00 = Success, the order has been successfully in final state and paid<br> - 01 = Initiated, the order has been created, but has not been paid<br> - 02 = Paying, the order is in process, not in final state, payment is success<br> - 05 = Cancelled, the order has been closed<br> - 07 = Not found, the order is not found<br>
+     * @param string $latestTransactionStatus Category code for the status of the transaction. The values include:<br> - 00 = Success, the order has been successfully in final state and paid<br> - 01 = Initiated, the order has been created, but has not been paid<br> - 02 = Paying, the order is in process, not in final state, payment is success<br> - 05 = Cancelled, the order has been closed<br> - 07 = Not found, the order is not found<br>
      *
      * @return self
      */
-    public function setLatestTransactionStatus($latest_transaction_status)
+    public function setLatestTransactionStatus($latestTransactionStatus)
     {
-        if (is_null($latest_transaction_status)) {
-            throw new \InvalidArgumentException('non-nullable latest_transaction_status cannot be null');
+        if (is_null($latestTransactionStatus)) {
+            throw new \InvalidArgumentException('non-nullable latestTransactionStatus cannot be null');
         }
-        if ((mb_strlen($latest_transaction_status) > 2)) {
-            throw new \InvalidArgumentException('invalid length for $latest_transaction_status when calling QueryPaymentResponse., must be smaller than or equal to 2.');
+        if ((mb_strlen($latestTransactionStatus) > 2)) {
+            throw new \InvalidArgumentException('invalid length for $latestTransactionStatus when calling QueryPaymentResponse., must be smaller than or equal to 2.');
         }
 
-        $this->container['latest_transaction_status'] = $latest_transaction_status;
+        $this->container['latestTransactionStatus'] = $latestTransactionStatus;
 
         return $this;
     }
 
     /**
-     * Gets transaction_status_desc
+     * Gets transactionStatusDesc
      *
      * @return string|null
      */
     public function getTransactionStatusDesc()
     {
-        return $this->container['transaction_status_desc'];
+        return $this->container['transactionStatusDesc'];
     }
 
     /**
-     * Sets transaction_status_desc
+     * Sets transactionStatusDesc
      *
-     * @param string|null $transaction_status_desc Description of transaction status
+     * @param string|null $transactionStatusDesc Description of transaction status
      *
      * @return self
      */
-    public function setTransactionStatusDesc($transaction_status_desc)
+    public function setTransactionStatusDesc($transactionStatusDesc)
     {
-        if (is_null($transaction_status_desc)) {
-            throw new \InvalidArgumentException('non-nullable transaction_status_desc cannot be null');
+        if (is_null($transactionStatusDesc)) {
+            throw new \InvalidArgumentException('non-nullable transactionStatusDesc cannot be null');
         }
-        if ((mb_strlen($transaction_status_desc) > 50)) {
-            throw new \InvalidArgumentException('invalid length for $transaction_status_desc when calling QueryPaymentResponse., must be smaller than or equal to 50.');
+        if ((mb_strlen($transactionStatusDesc) > 50)) {
+            throw new \InvalidArgumentException('invalid length for $transactionStatusDesc when calling QueryPaymentResponse., must be smaller than or equal to 50.');
         }
 
-        $this->container['transaction_status_desc'] = $transaction_status_desc;
+        $this->container['transactionStatusDesc'] = $transactionStatusDesc;
 
         return $this;
     }
 
     /**
-     * Gets original_response_code
+     * Gets originalResponseCode
      *
      * @return string|null
      */
     public function getOriginalResponseCode()
     {
-        return $this->container['original_response_code'];
+        return $this->container['originalResponseCode'];
     }
 
     /**
-     * Sets original_response_code
+     * Sets originalResponseCode
      *
-     * @param string|null $original_response_code Original response code
+     * @param string|null $originalResponseCode Original response code
      *
      * @return self
      */
-    public function setOriginalResponseCode($original_response_code)
+    public function setOriginalResponseCode($originalResponseCode)
     {
-        if (is_null($original_response_code)) {
-            throw new \InvalidArgumentException('non-nullable original_response_code cannot be null');
+        if (is_null($originalResponseCode)) {
+            throw new \InvalidArgumentException('non-nullable originalResponseCode cannot be null');
         }
-        if ((mb_strlen($original_response_code) > 7)) {
-            throw new \InvalidArgumentException('invalid length for $original_response_code when calling QueryPaymentResponse., must be smaller than or equal to 7.');
+        if ((mb_strlen($originalResponseCode) > 7)) {
+            throw new \InvalidArgumentException('invalid length for $originalResponseCode when calling QueryPaymentResponse., must be smaller than or equal to 7.');
         }
 
-        $this->container['original_response_code'] = $original_response_code;
+        $this->container['originalResponseCode'] = $originalResponseCode;
 
         return $this;
     }
 
     /**
-     * Gets original_response_message
+     * Gets originalResponseMessage
      *
      * @return string|null
      */
     public function getOriginalResponseMessage()
     {
-        return $this->container['original_response_message'];
+        return $this->container['originalResponseMessage'];
     }
 
     /**
-     * Sets original_response_message
+     * Sets originalResponseMessage
      *
-     * @param string|null $original_response_message Original response message
+     * @param string|null $originalResponseMessage Original response message
      *
      * @return self
      */
-    public function setOriginalResponseMessage($original_response_message)
+    public function setOriginalResponseMessage($originalResponseMessage)
     {
-        if (is_null($original_response_message)) {
-            throw new \InvalidArgumentException('non-nullable original_response_message cannot be null');
+        if (is_null($originalResponseMessage)) {
+            throw new \InvalidArgumentException('non-nullable originalResponseMessage cannot be null');
         }
-        if ((mb_strlen($original_response_message) > 150)) {
-            throw new \InvalidArgumentException('invalid length for $original_response_message when calling QueryPaymentResponse., must be smaller than or equal to 150.');
+        if ((mb_strlen($originalResponseMessage) > 150)) {
+            throw new \InvalidArgumentException('invalid length for $originalResponseMessage when calling QueryPaymentResponse., must be smaller than or equal to 150.');
         }
 
-        $this->container['original_response_message'] = $original_response_message;
+        $this->container['originalResponseMessage'] = $originalResponseMessage;
 
         return $this;
     }
 
     /**
-     * Gets session_id
+     * Gets sessionId
      *
      * @return string|null
      */
     public function getSessionId()
     {
-        return $this->container['session_id'];
+        return $this->container['sessionId'];
     }
 
     /**
-     * Sets session_id
+     * Sets sessionId
      *
-     * @param string|null $session_id Session identifier
+     * @param string|null $sessionId Session identifier
      *
      * @return self
      */
-    public function setSessionId($session_id)
+    public function setSessionId($sessionId)
     {
-        if (is_null($session_id)) {
-            throw new \InvalidArgumentException('non-nullable session_id cannot be null');
+        if (is_null($sessionId)) {
+            throw new \InvalidArgumentException('non-nullable sessionId cannot be null');
         }
-        if ((mb_strlen($session_id) > 25)) {
-            throw new \InvalidArgumentException('invalid length for $session_id when calling QueryPaymentResponse., must be smaller than or equal to 25.');
+        if ((mb_strlen($sessionId) > 25)) {
+            throw new \InvalidArgumentException('invalid length for $sessionId when calling QueryPaymentResponse., must be smaller than or equal to 25.');
         }
 
-        $this->container['session_id'] = $session_id;
+        $this->container['sessionId'] = $sessionId;
 
         return $this;
     }
 
     /**
-     * Gets request_id
+     * Gets requestID
      *
      * @return string|null
      */
-    public function getRequestId()
+    public function getRequestID()
     {
-        return $this->container['request_id'];
+        return $this->container['requestID'];
     }
 
     /**
-     * Sets request_id
+     * Sets requestID
      *
-     * @param string|null $request_id Transaction request identifier
+     * @param string|null $requestID Transaction request identifier
      *
      * @return self
      */
-    public function setRequestId($request_id)
+    public function setRequestID($requestID)
     {
-        if (is_null($request_id)) {
-            throw new \InvalidArgumentException('non-nullable request_id cannot be null');
+        if (is_null($requestID)) {
+            throw new \InvalidArgumentException('non-nullable requestID cannot be null');
         }
-        if ((mb_strlen($request_id) > 25)) {
-            throw new \InvalidArgumentException('invalid length for $request_id when calling QueryPaymentResponse., must be smaller than or equal to 25.');
+        if ((mb_strlen($requestID) > 25)) {
+            throw new \InvalidArgumentException('invalid length for $requestID when calling QueryPaymentResponse., must be smaller than or equal to 25.');
         }
 
-        $this->container['request_id'] = $request_id;
+        $this->container['requestID'] = $requestID;
 
         return $this;
     }
 
     /**
-     * Gets trans_amount
+     * Gets transAmount
      *
      * @return \Dana\PaymentGateway\v1\Model\Money|null
      */
     public function getTransAmount()
     {
-        return $this->container['trans_amount'];
+        return $this->container['transAmount'];
     }
 
     /**
-     * Sets trans_amount
+     * Sets transAmount
      *
-     * @param \Dana\PaymentGateway\v1\Model\Money|null $trans_amount Trans amount. Present if transaction found. Contains two sub-fields:<br> 1. Value: Transaction amount, including the cents<br> 2. Currency: Currency code based on ISO<br>
+     * @param \Dana\PaymentGateway\v1\Model\Money|null $transAmount Trans amount. Present if transaction found. Contains two sub-fields:<br> 1. Value: Transaction amount, including the cents<br> 2. Currency: Currency code based on ISO<br>
      *
      * @return self
      */
-    public function setTransAmount($trans_amount)
+    public function setTransAmount($transAmount)
     {
-        if (is_null($trans_amount)) {
-            throw new \InvalidArgumentException('non-nullable trans_amount cannot be null');
+        if (is_null($transAmount)) {
+            throw new \InvalidArgumentException('non-nullable transAmount cannot be null');
         }
-        $this->container['trans_amount'] = $trans_amount;
+        $this->container['transAmount'] = $transAmount;
 
         return $this;
     }
@@ -908,62 +908,62 @@ class QueryPaymentResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
-     * Gets fee_amount
+     * Gets feeAmount
      *
      * @return \Dana\PaymentGateway\v1\Model\Money|null
      */
     public function getFeeAmount()
     {
-        return $this->container['fee_amount'];
+        return $this->container['feeAmount'];
     }
 
     /**
-     * Sets fee_amount
+     * Sets feeAmount
      *
-     * @param \Dana\PaymentGateway\v1\Model\Money|null $fee_amount Fee amount. Present if transaction found. Contains two sub-fields:<br> 1. Value: Transaction amount, including the cents<br> 2. Currency: Currency code based on ISO<br>
+     * @param \Dana\PaymentGateway\v1\Model\Money|null $feeAmount Fee amount. Present if transaction found. Contains two sub-fields:<br> 1. Value: Transaction amount, including the cents<br> 2. Currency: Currency code based on ISO<br>
      *
      * @return self
      */
-    public function setFeeAmount($fee_amount)
+    public function setFeeAmount($feeAmount)
     {
-        if (is_null($fee_amount)) {
-            throw new \InvalidArgumentException('non-nullable fee_amount cannot be null');
+        if (is_null($feeAmount)) {
+            throw new \InvalidArgumentException('non-nullable feeAmount cannot be null');
         }
-        $this->container['fee_amount'] = $fee_amount;
+        $this->container['feeAmount'] = $feeAmount;
 
         return $this;
     }
 
     /**
-     * Gets paid_time
+     * Gets paidTime
      *
      * @return string|null
      */
     public function getPaidTime()
     {
-        return $this->container['paid_time'];
+        return $this->container['paidTime'];
     }
 
     /**
-     * Sets paid_time
+     * Sets paidTime
      *
-     * @param string|null $paid_time Transaction paid time, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time). Present if transaction is paid
+     * @param string|null $paidTime Transaction paid time, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time). Present if transaction is paid
      *
      * @return self
      */
-    public function setPaidTime($paid_time)
+    public function setPaidTime($paidTime)
     {
-        if (is_null($paid_time)) {
-            throw new \InvalidArgumentException('non-nullable paid_time cannot be null');
+        if (is_null($paidTime)) {
+            throw new \InvalidArgumentException('non-nullable paidTime cannot be null');
         }
-        if ((mb_strlen($paid_time) > 25)) {
-            throw new \InvalidArgumentException('invalid length for $paid_time when calling QueryPaymentResponse., must be smaller than or equal to 25.');
+        if ((mb_strlen($paidTime) > 25)) {
+            throw new \InvalidArgumentException('invalid length for $paidTime when calling QueryPaymentResponse., must be smaller than or equal to 25.');
         }
-        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($paid_time)))) {
-            throw new \InvalidArgumentException("invalid value for \$paid_time when calling QueryPaymentResponse., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
+        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($paidTime)))) {
+            throw new \InvalidArgumentException("invalid value for \$paidTime when calling QueryPaymentResponse., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
         }
 
-        $this->container['paid_time'] = $paid_time;
+        $this->container['paidTime'] = $paidTime;
 
         return $this;
     }
@@ -1000,28 +1000,28 @@ class QueryPaymentResponse implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     /**
-     * Gets additional_info
+     * Gets additionalInfo
      *
      * @return \Dana\PaymentGateway\v1\Model\QueryPaymentResponseAdditionalInfo|null
      */
     public function getAdditionalInfo()
     {
-        return $this->container['additional_info'];
+        return $this->container['additionalInfo'];
     }
 
     /**
-     * Sets additional_info
+     * Sets additionalInfo
      *
-     * @param \Dana\PaymentGateway\v1\Model\QueryPaymentResponseAdditionalInfo|null $additional_info Additional information
+     * @param \Dana\PaymentGateway\v1\Model\QueryPaymentResponseAdditionalInfo|null $additionalInfo Additional information
      *
      * @return self
      */
-    public function setAdditionalInfo($additional_info)
+    public function setAdditionalInfo($additionalInfo)
     {
-        if (is_null($additional_info)) {
-            throw new \InvalidArgumentException('non-nullable additional_info cannot be null');
+        if (is_null($additionalInfo)) {
+            throw new \InvalidArgumentException('non-nullable additionalInfo cannot be null');
         }
-        $this->container['additional_info'] = $additional_info;
+        $this->container['additionalInfo'] = $additionalInfo;
 
         return $this;
     }

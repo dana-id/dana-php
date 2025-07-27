@@ -60,9 +60,9 @@ class QueryUserProfileResponseResponseHead implements ModelInterface, ArrayAcces
     protected static $openAPITypes = [
         'version' => 'string',
         'function' => 'string',
-        'client_id' => 'string',
-        'resp_time' => 'string',
-        'req_msg_id' => 'string',
+        'clientId' => 'string',
+        'respTime' => 'string',
+        'reqMsgId' => 'string',
         'reserve' => 'string'
     ];
 
@@ -76,9 +76,9 @@ class QueryUserProfileResponseResponseHead implements ModelInterface, ArrayAcces
     protected static $openAPIFormats = [
         'version' => null,
         'function' => null,
-        'client_id' => null,
-        'resp_time' => null,
-        'req_msg_id' => null,
+        'clientId' => null,
+        'respTime' => null,
+        'reqMsgId' => null,
         'reserve' => null
     ];
 
@@ -90,9 +90,9 @@ class QueryUserProfileResponseResponseHead implements ModelInterface, ArrayAcces
     protected static array $openAPINullables = [
         'version' => false,
         'function' => false,
-        'client_id' => false,
-        'resp_time' => false,
-        'req_msg_id' => false,
+        'clientId' => false,
+        'respTime' => false,
+        'reqMsgId' => false,
         'reserve' => false
     ];
 
@@ -184,9 +184,9 @@ class QueryUserProfileResponseResponseHead implements ModelInterface, ArrayAcces
     protected static $attributeMap = [
         'version' => 'version',
         'function' => 'function',
-        'client_id' => 'clientId',
-        'resp_time' => 'respTime',
-        'req_msg_id' => 'reqMsgId',
+        'clientId' => 'clientId',
+        'respTime' => 'respTime',
+        'reqMsgId' => 'reqMsgId',
         'reserve' => 'reserve'
     ];
 
@@ -198,9 +198,9 @@ class QueryUserProfileResponseResponseHead implements ModelInterface, ArrayAcces
     protected static $setters = [
         'version' => 'setVersion',
         'function' => 'setFunction',
-        'client_id' => 'setClientId',
-        'resp_time' => 'setRespTime',
-        'req_msg_id' => 'setReqMsgId',
+        'clientId' => 'setClientId',
+        'respTime' => 'setRespTime',
+        'reqMsgId' => 'setReqMsgId',
         'reserve' => 'setReserve'
     ];
 
@@ -212,9 +212,9 @@ class QueryUserProfileResponseResponseHead implements ModelInterface, ArrayAcces
     protected static $getters = [
         'version' => 'getVersion',
         'function' => 'getFunction',
-        'client_id' => 'getClientId',
-        'resp_time' => 'getRespTime',
-        'req_msg_id' => 'getReqMsgId',
+        'clientId' => 'getClientId',
+        'respTime' => 'getRespTime',
+        'reqMsgId' => 'getReqMsgId',
         'reserve' => 'getReserve'
     ];
 
@@ -290,9 +290,9 @@ class QueryUserProfileResponseResponseHead implements ModelInterface, ArrayAcces
     {
         $this->setIfExists('version', $data ?? [], '2.0');
         $this->setIfExists('function', $data ?? [], null);
-        $this->setIfExists('client_id', $data ?? [], null);
-        $this->setIfExists('resp_time', $data ?? [], null);
-        $this->setIfExists('req_msg_id', $data ?? [], null);
+        $this->setIfExists('clientId', $data ?? [], null);
+        $this->setIfExists('respTime', $data ?? [], null);
+        $this->setIfExists('reqMsgId', $data ?? [], null);
         $this->setIfExists('reserve', $data ?? [], null);
     }
 
@@ -340,12 +340,12 @@ class QueryUserProfileResponseResponseHead implements ModelInterface, ArrayAcces
             $invalidProperties[] = "invalid value for 'function', the character length must be smaller than or equal to 128.";
         }
 
-        if (!is_null($this->container['client_id']) && (mb_strlen($this->container['client_id']) > 32)) {
-            $invalidProperties[] = "invalid value for 'client_id', the character length must be smaller than or equal to 32.";
+        if (!is_null($this->container['clientId']) && (mb_strlen($this->container['clientId']) > 32)) {
+            $invalidProperties[] = "invalid value for 'clientId', the character length must be smaller than or equal to 32.";
         }
 
-        if (!is_null($this->container['req_msg_id']) && (mb_strlen($this->container['req_msg_id']) > 64)) {
-            $invalidProperties[] = "invalid value for 'req_msg_id', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['reqMsgId']) && (mb_strlen($this->container['reqMsgId']) > 64)) {
+            $invalidProperties[] = "invalid value for 'reqMsgId', the character length must be smaller than or equal to 64.";
         }
 
         if (!is_null($this->container['reserve']) && (mb_strlen($this->container['reserve']) > 256)) {
@@ -440,90 +440,90 @@ class QueryUserProfileResponseResponseHead implements ModelInterface, ArrayAcces
     }
 
     /**
-     * Gets client_id
+     * Gets clientId
      *
      * @return string|null
      */
     public function getClientId()
     {
-        return $this->container['client_id'];
+        return $this->container['clientId'];
     }
 
     /**
-     * Sets client_id
+     * Sets clientId
      *
-     * @param string|null $client_id Client ID provided by DANA, used to identify partner and application system
+     * @param string|null $clientId Client ID provided by DANA, used to identify partner and application system
      *
      * @return self
      */
-    public function setClientId($client_id)
+    public function setClientId($clientId)
     {
-        if (is_null($client_id)) {
-            throw new \InvalidArgumentException('non-nullable client_id cannot be null');
+        if (is_null($clientId)) {
+            throw new \InvalidArgumentException('non-nullable clientId cannot be null');
         }
-        if ((mb_strlen($client_id) > 32)) {
-            throw new \InvalidArgumentException('invalid length for $client_id when calling QueryUserProfileResponseResponseHead., must be smaller than or equal to 32.');
+        if ((mb_strlen($clientId) > 32)) {
+            throw new \InvalidArgumentException('invalid length for $clientId when calling QueryUserProfileResponseResponseHead., must be smaller than or equal to 32.');
         }
 
-        $this->container['client_id'] = $client_id;
+        $this->container['clientId'] = $clientId;
 
         return $this;
     }
 
     /**
-     * Gets resp_time
+     * Gets respTime
      *
      * @return string|null
      */
     public function getRespTime()
     {
-        return $this->container['resp_time'];
+        return $this->container['respTime'];
     }
 
     /**
-     * Sets resp_time
+     * Sets respTime
      *
-     * @param string|null $resp_time Response time, dateTime with timezone, which follows the ISO-8601 standard. Refer to RFC 3339 Section 5.6
+     * @param string|null $respTime Response time, dateTime with timezone, which follows the ISO-8601 standard. Refer to RFC 3339 Section 5.6
      *
      * @return self
      */
-    public function setRespTime($resp_time)
+    public function setRespTime($respTime)
     {
-        if (is_null($resp_time)) {
-            throw new \InvalidArgumentException('non-nullable resp_time cannot be null');
+        if (is_null($respTime)) {
+            throw new \InvalidArgumentException('non-nullable respTime cannot be null');
         }
-        $this->container['resp_time'] = $resp_time;
+        $this->container['respTime'] = $respTime;
 
         return $this;
     }
 
     /**
-     * Gets req_msg_id
+     * Gets reqMsgId
      *
      * @return string|null
      */
     public function getReqMsgId()
     {
-        return $this->container['req_msg_id'];
+        return $this->container['reqMsgId'];
     }
 
     /**
-     * Sets req_msg_id
+     * Sets reqMsgId
      *
-     * @param string|null $req_msg_id Each request will be assigned with a unique id (uuid)
+     * @param string|null $reqMsgId Each request will be assigned with a unique id (uuid)
      *
      * @return self
      */
-    public function setReqMsgId($req_msg_id)
+    public function setReqMsgId($reqMsgId)
     {
-        if (is_null($req_msg_id)) {
-            throw new \InvalidArgumentException('non-nullable req_msg_id cannot be null');
+        if (is_null($reqMsgId)) {
+            throw new \InvalidArgumentException('non-nullable reqMsgId cannot be null');
         }
-        if ((mb_strlen($req_msg_id) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $req_msg_id when calling QueryUserProfileResponseResponseHead., must be smaller than or equal to 64.');
+        if ((mb_strlen($reqMsgId) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $reqMsgId when calling QueryUserProfileResponseResponseHead., must be smaller than or equal to 64.');
         }
 
-        $this->container['req_msg_id'] = $req_msg_id;
+        $this->container['reqMsgId'] = $reqMsgId;
 
         return $this;
     }

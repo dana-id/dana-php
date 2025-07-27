@@ -58,9 +58,9 @@ class ConsultPayResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'response_code' => 'string',
-        'response_message' => 'string',
-        'payment_infos' => '\Dana\PaymentGateway\v1\Model\ConsultPayPaymentInfo[]'
+        'responseCode' => 'string',
+        'responseMessage' => 'string',
+        'paymentInfos' => '\Dana\PaymentGateway\v1\Model\ConsultPayPaymentInfo[]'
     ];
 
     /**
@@ -71,9 +71,9 @@ class ConsultPayResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'response_code' => null,
-        'response_message' => null,
-        'payment_infos' => null
+        'responseCode' => null,
+        'responseMessage' => null,
+        'paymentInfos' => null
     ];
 
     /**
@@ -82,9 +82,9 @@ class ConsultPayResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'response_code' => false,
-        'response_message' => false,
-        'payment_infos' => false
+        'responseCode' => false,
+        'responseMessage' => false,
+        'paymentInfos' => false
     ];
 
     /**
@@ -173,9 +173,9 @@ class ConsultPayResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'response_code' => 'responseCode',
-        'response_message' => 'responseMessage',
-        'payment_infos' => 'paymentInfos'
+        'responseCode' => 'responseCode',
+        'responseMessage' => 'responseMessage',
+        'paymentInfos' => 'paymentInfos'
     ];
 
     /**
@@ -184,9 +184,9 @@ class ConsultPayResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'response_code' => 'setResponseCode',
-        'response_message' => 'setResponseMessage',
-        'payment_infos' => 'setPaymentInfos'
+        'responseCode' => 'setResponseCode',
+        'responseMessage' => 'setResponseMessage',
+        'paymentInfos' => 'setPaymentInfos'
     ];
 
     /**
@@ -195,9 +195,9 @@ class ConsultPayResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'response_code' => 'getResponseCode',
-        'response_message' => 'getResponseMessage',
-        'payment_infos' => 'getPaymentInfos'
+        'responseCode' => 'getResponseCode',
+        'responseMessage' => 'getResponseMessage',
+        'paymentInfos' => 'getPaymentInfos'
     ];
 
     /**
@@ -257,9 +257,9 @@ class ConsultPayResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('response_code', $data ?? [], null);
-        $this->setIfExists('response_message', $data ?? [], null);
-        $this->setIfExists('payment_infos', $data ?? [], null);
+        $this->setIfExists('responseCode', $data ?? [], null);
+        $this->setIfExists('responseMessage', $data ?? [], null);
+        $this->setIfExists('paymentInfos', $data ?? [], null);
     }
 
     /**
@@ -289,12 +289,12 @@ class ConsultPayResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['response_code']) && (mb_strlen($this->container['response_code']) > 7)) {
-            $invalidProperties[] = "invalid value for 'response_code', the character length must be smaller than or equal to 7.";
+        if (!is_null($this->container['responseCode']) && (mb_strlen($this->container['responseCode']) > 7)) {
+            $invalidProperties[] = "invalid value for 'responseCode', the character length must be smaller than or equal to 7.";
         }
 
-        if (!is_null($this->container['response_message']) && (mb_strlen($this->container['response_message']) > 150)) {
-            $invalidProperties[] = "invalid value for 'response_message', the character length must be smaller than or equal to 150.";
+        if (!is_null($this->container['responseMessage']) && (mb_strlen($this->container['responseMessage']) > 150)) {
+            $invalidProperties[] = "invalid value for 'responseMessage', the character length must be smaller than or equal to 150.";
         }
 
         return $invalidProperties;
@@ -313,90 +313,90 @@ class ConsultPayResponse implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
-     * Gets response_code
+     * Gets responseCode
      *
      * @return string|null
      */
     public function getResponseCode()
     {
-        return $this->container['response_code'];
+        return $this->container['responseCode'];
     }
 
     /**
-     * Sets response_code
+     * Sets responseCode
      *
-     * @param string|null $response_code Response code. Refer to https://dashboard.dana.id/api-docs/read/237#paymentgatewayprod-ConsultPay-ResponseCodeandMessage
+     * @param string|null $responseCode Response code. Refer to https://dashboard.dana.id/api-docs/read/237#paymentgatewayprod-ConsultPay-ResponseCodeandMessage
      *
      * @return self
      */
-    public function setResponseCode($response_code)
+    public function setResponseCode($responseCode)
     {
-        if (is_null($response_code)) {
-            throw new \InvalidArgumentException('non-nullable response_code cannot be null');
+        if (is_null($responseCode)) {
+            throw new \InvalidArgumentException('non-nullable responseCode cannot be null');
         }
-        if ((mb_strlen($response_code) > 7)) {
-            throw new \InvalidArgumentException('invalid length for $response_code when calling ConsultPayResponse., must be smaller than or equal to 7.');
+        if ((mb_strlen($responseCode) > 7)) {
+            throw new \InvalidArgumentException('invalid length for $responseCode when calling ConsultPayResponse., must be smaller than or equal to 7.');
         }
 
-        $this->container['response_code'] = $response_code;
+        $this->container['responseCode'] = $responseCode;
 
         return $this;
     }
 
     /**
-     * Gets response_message
+     * Gets responseMessage
      *
      * @return string|null
      */
     public function getResponseMessage()
     {
-        return $this->container['response_message'];
+        return $this->container['responseMessage'];
     }
 
     /**
-     * Sets response_message
+     * Sets responseMessage
      *
-     * @param string|null $response_message Response message. Refer to https://dashboard.dana.id/api-docs/read/237#paymentgatewayprod-ConsultPay-ResponseCodeandMessage
+     * @param string|null $responseMessage Response message. Refer to https://dashboard.dana.id/api-docs/read/237#paymentgatewayprod-ConsultPay-ResponseCodeandMessage
      *
      * @return self
      */
-    public function setResponseMessage($response_message)
+    public function setResponseMessage($responseMessage)
     {
-        if (is_null($response_message)) {
-            throw new \InvalidArgumentException('non-nullable response_message cannot be null');
+        if (is_null($responseMessage)) {
+            throw new \InvalidArgumentException('non-nullable responseMessage cannot be null');
         }
-        if ((mb_strlen($response_message) > 150)) {
-            throw new \InvalidArgumentException('invalid length for $response_message when calling ConsultPayResponse., must be smaller than or equal to 150.');
+        if ((mb_strlen($responseMessage) > 150)) {
+            throw new \InvalidArgumentException('invalid length for $responseMessage when calling ConsultPayResponse., must be smaller than or equal to 150.');
         }
 
-        $this->container['response_message'] = $response_message;
+        $this->container['responseMessage'] = $responseMessage;
 
         return $this;
     }
 
     /**
-     * Gets payment_infos
+     * Gets paymentInfos
      *
      * @return \Dana\PaymentGateway\v1\Model\ConsultPayPaymentInfo[]|null
      */
     public function getPaymentInfos()
     {
-        return $this->container['payment_infos'];
+        return $this->container['paymentInfos'];
     }
 
     /**
-     * Sets payment_infos
+     * Sets paymentInfos
      *
-     * @param \Dana\PaymentGateway\v1\Model\ConsultPayPaymentInfo[]|null $payment_infos Define list of payment information that includes payment method and payment option for transaction
+     * @param \Dana\PaymentGateway\v1\Model\ConsultPayPaymentInfo[]|null $paymentInfos Define list of payment information that includes payment method and payment option for transaction
      *
      * @return self
      */
-    public function setPaymentInfos($payment_infos)
+    public function setPaymentInfos($paymentInfos)
     {
-        if (is_null($payment_infos)) {
-            throw new \InvalidArgumentException('non-nullable payment_infos cannot be null');
+        if (is_null($paymentInfos)) {
+            throw new \InvalidArgumentException('non-nullable paymentInfos cannot be null');
         }
-        $this->container['payment_infos'] = $payment_infos;
+        $this->container['paymentInfos'] = $paymentInfos;
 
         return $this;
     }

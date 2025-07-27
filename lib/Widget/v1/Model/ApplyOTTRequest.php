@@ -58,8 +58,8 @@ class ApplyOTTRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'user_resources' => 'string[]',
-        'additional_info' => '\Dana\Widget\v1\Model\ApplyOTTRequestAdditionalInfo'
+        'userResources' => 'string[]',
+        'additionalInfo' => '\Dana\Widget\v1\Model\ApplyOTTRequestAdditionalInfo'
     ];
 
     /**
@@ -70,8 +70,8 @@ class ApplyOTTRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'user_resources' => null,
-        'additional_info' => null
+        'userResources' => null,
+        'additionalInfo' => null
     ];
 
     /**
@@ -80,8 +80,8 @@ class ApplyOTTRequest implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'user_resources' => false,
-        'additional_info' => false
+        'userResources' => false,
+        'additionalInfo' => false
     ];
 
     /**
@@ -170,8 +170,8 @@ class ApplyOTTRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'user_resources' => 'userResources',
-        'additional_info' => 'additionalInfo'
+        'userResources' => 'userResources',
+        'additionalInfo' => 'additionalInfo'
     ];
 
     /**
@@ -180,8 +180,8 @@ class ApplyOTTRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'user_resources' => 'setUserResources',
-        'additional_info' => 'setAdditionalInfo'
+        'userResources' => 'setUserResources',
+        'additionalInfo' => 'setAdditionalInfo'
     ];
 
     /**
@@ -190,8 +190,8 @@ class ApplyOTTRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'user_resources' => 'getUserResources',
-        'additional_info' => 'getAdditionalInfo'
+        'userResources' => 'getUserResources',
+        'additionalInfo' => 'getAdditionalInfo'
     ];
 
     /**
@@ -264,8 +264,8 @@ class ApplyOTTRequest implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('user_resources', $data ?? [], null);
-        $this->setIfExists('additional_info', $data ?? [], null);
+        $this->setIfExists('userResources', $data ?? [], null);
+        $this->setIfExists('additionalInfo', $data ?? [], null);
     }
 
     /**
@@ -295,11 +295,11 @@ class ApplyOTTRequest implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['user_resources'] === null) {
-            $invalidProperties[] = "'user_resources' can't be null";
+        if ($this->container['userResources'] === null) {
+            $invalidProperties[] = "'userResources' can't be null";
         }
-        if ($this->container['additional_info'] === null) {
-            $invalidProperties[] = "'additional_info' can't be null";
+        if ($this->container['additionalInfo'] === null) {
+            $invalidProperties[] = "'additionalInfo' can't be null";
         }
         return $invalidProperties;
     }
@@ -317,64 +317,64 @@ class ApplyOTTRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets user_resources
+     * Gets userResources
      *
      * @return string[]
      */
     public function getUserResources()
     {
-        return $this->container['user_resources'];
+        return $this->container['userResources'];
     }
 
     /**
-     * Sets user_resources
+     * Sets userResources
      *
-     * @param string[] $user_resources user_resources
+     * @param string[] $userResources userResources
      *
      * @return self
      */
-    public function setUserResources($user_resources)
+    public function setUserResources($userResources)
     {
-        if (is_null($user_resources)) {
-            throw new \InvalidArgumentException('non-nullable user_resources cannot be null');
+        if (is_null($userResources)) {
+            throw new \InvalidArgumentException('non-nullable userResources cannot be null');
         }
         $allowedValues = $this->getUserResourcesAllowableValues();
-        if (array_diff($user_resources, $allowedValues)) {
+        if (array_diff($userResources, $allowedValues)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'user_resources', must be one of '%s'",
+                    "Invalid value for 'userResources', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['user_resources'] = $user_resources;
+        $this->container['userResources'] = $userResources;
 
         return $this;
     }
 
     /**
-     * Gets additional_info
+     * Gets additionalInfo
      *
      * @return \Dana\Widget\v1\Model\ApplyOTTRequestAdditionalInfo
      */
     public function getAdditionalInfo()
     {
-        return $this->container['additional_info'];
+        return $this->container['additionalInfo'];
     }
 
     /**
-     * Sets additional_info
+     * Sets additionalInfo
      *
-     * @param \Dana\Widget\v1\Model\ApplyOTTRequestAdditionalInfo $additional_info additional_info
+     * @param \Dana\Widget\v1\Model\ApplyOTTRequestAdditionalInfo $additionalInfo additionalInfo
      *
      * @return self
      */
-    public function setAdditionalInfo($additional_info)
+    public function setAdditionalInfo($additionalInfo)
     {
-        if (is_null($additional_info)) {
-            throw new \InvalidArgumentException('non-nullable additional_info cannot be null');
+        if (is_null($additionalInfo)) {
+            throw new \InvalidArgumentException('non-nullable additionalInfo cannot be null');
         }
-        $this->container['additional_info'] = $additional_info;
+        $this->container['additionalInfo'] = $additionalInfo;
 
         return $this;
     }

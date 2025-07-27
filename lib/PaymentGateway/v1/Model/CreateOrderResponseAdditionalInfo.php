@@ -58,7 +58,7 @@ class CreateOrderResponseAdditionalInfo implements ModelInterface, ArrayAccess, 
       * @var string[]
       */
     protected static $openAPITypes = [
-        'payment_code' => 'string'
+        'paymentCode' => 'string'
     ];
 
     /**
@@ -69,7 +69,7 @@ class CreateOrderResponseAdditionalInfo implements ModelInterface, ArrayAccess, 
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'payment_code' => null
+        'paymentCode' => null
     ];
 
     /**
@@ -78,7 +78,7 @@ class CreateOrderResponseAdditionalInfo implements ModelInterface, ArrayAccess, 
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'payment_code' => false
+        'paymentCode' => false
     ];
 
     /**
@@ -167,7 +167,7 @@ class CreateOrderResponseAdditionalInfo implements ModelInterface, ArrayAccess, 
      * @var string[]
      */
     protected static $attributeMap = [
-        'payment_code' => 'paymentCode'
+        'paymentCode' => 'paymentCode'
     ];
 
     /**
@@ -176,7 +176,7 @@ class CreateOrderResponseAdditionalInfo implements ModelInterface, ArrayAccess, 
      * @var string[]
      */
     protected static $setters = [
-        'payment_code' => 'setPaymentCode'
+        'paymentCode' => 'setPaymentCode'
     ];
 
     /**
@@ -185,7 +185,7 @@ class CreateOrderResponseAdditionalInfo implements ModelInterface, ArrayAccess, 
      * @var string[]
      */
     protected static $getters = [
-        'payment_code' => 'getPaymentCode'
+        'paymentCode' => 'getPaymentCode'
     ];
 
     /**
@@ -245,7 +245,7 @@ class CreateOrderResponseAdditionalInfo implements ModelInterface, ArrayAccess, 
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('payment_code', $data ?? [], null);
+        $this->setIfExists('paymentCode', $data ?? [], null);
     }
 
     /**
@@ -275,8 +275,8 @@ class CreateOrderResponseAdditionalInfo implements ModelInterface, ArrayAccess, 
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['payment_code']) && (mb_strlen($this->container['payment_code']) > 64)) {
-            $invalidProperties[] = "invalid value for 'payment_code', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['paymentCode']) && (mb_strlen($this->container['paymentCode']) > 64)) {
+            $invalidProperties[] = "invalid value for 'paymentCode', the character length must be smaller than or equal to 64.";
         }
 
         return $invalidProperties;
@@ -295,32 +295,32 @@ class CreateOrderResponseAdditionalInfo implements ModelInterface, ArrayAccess, 
 
 
     /**
-     * Gets payment_code
+     * Gets paymentCode
      *
      * @return string|null
      */
     public function getPaymentCode()
     {
-        return $this->container['payment_code'];
+        return $this->container['paymentCode'];
     }
 
     /**
-     * Sets payment_code
+     * Sets paymentCode
      *
-     * @param string|null $payment_code Additional information of payment code. Only use for Payment Gateway service. Present if payment using Virtual Account/QRIS
+     * @param string|null $paymentCode Additional information of payment code. Only use for Payment Gateway service. Present if payment using Virtual Account/QRIS
      *
      * @return self
      */
-    public function setPaymentCode($payment_code)
+    public function setPaymentCode($paymentCode)
     {
-        if (is_null($payment_code)) {
-            throw new \InvalidArgumentException('non-nullable payment_code cannot be null');
+        if (is_null($paymentCode)) {
+            throw new \InvalidArgumentException('non-nullable paymentCode cannot be null');
         }
-        if ((mb_strlen($payment_code) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $payment_code when calling CreateOrderResponseAdditionalInfo., must be smaller than or equal to 64.');
+        if ((mb_strlen($paymentCode) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $paymentCode when calling CreateOrderResponseAdditionalInfo., must be smaller than or equal to 64.');
         }
 
-        $this->container['payment_code'] = $payment_code;
+        $this->container['paymentCode'] = $paymentCode;
 
         return $this;
     }

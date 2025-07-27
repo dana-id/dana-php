@@ -58,15 +58,15 @@ class AccountUnbindingResponse implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'response_code' => 'string',
-        'response_message' => 'string',
-        'reference_no' => 'string',
-        'partner_reference_no' => 'string',
-        'merchant_id' => 'string',
-        'sub_merchant_id' => 'string',
-        'link_id' => 'string',
-        'unlink_result' => 'string',
-        'additional_info' => 'object'
+        'responseCode' => 'string',
+        'responseMessage' => 'string',
+        'referenceNo' => 'string',
+        'partnerReferenceNo' => 'string',
+        'merchantId' => 'string',
+        'subMerchantId' => 'string',
+        'linkId' => 'string',
+        'unlinkResult' => 'string',
+        'additionalInfo' => 'object'
     ];
 
     /**
@@ -77,15 +77,15 @@ class AccountUnbindingResponse implements ModelInterface, ArrayAccess, \JsonSeri
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'response_code' => null,
-        'response_message' => null,
-        'reference_no' => null,
-        'partner_reference_no' => null,
-        'merchant_id' => null,
-        'sub_merchant_id' => null,
-        'link_id' => null,
-        'unlink_result' => null,
-        'additional_info' => null
+        'responseCode' => null,
+        'responseMessage' => null,
+        'referenceNo' => null,
+        'partnerReferenceNo' => null,
+        'merchantId' => null,
+        'subMerchantId' => null,
+        'linkId' => null,
+        'unlinkResult' => null,
+        'additionalInfo' => null
     ];
 
     /**
@@ -94,15 +94,15 @@ class AccountUnbindingResponse implements ModelInterface, ArrayAccess, \JsonSeri
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'response_code' => false,
-        'response_message' => false,
-        'reference_no' => false,
-        'partner_reference_no' => false,
-        'merchant_id' => false,
-        'sub_merchant_id' => false,
-        'link_id' => false,
-        'unlink_result' => false,
-        'additional_info' => false
+        'responseCode' => false,
+        'responseMessage' => false,
+        'referenceNo' => false,
+        'partnerReferenceNo' => false,
+        'merchantId' => false,
+        'subMerchantId' => false,
+        'linkId' => false,
+        'unlinkResult' => false,
+        'additionalInfo' => false
     ];
 
     /**
@@ -191,15 +191,15 @@ class AccountUnbindingResponse implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'response_code' => 'responseCode',
-        'response_message' => 'responseMessage',
-        'reference_no' => 'referenceNo',
-        'partner_reference_no' => 'partnerReferenceNo',
-        'merchant_id' => 'merchantId',
-        'sub_merchant_id' => 'subMerchantId',
-        'link_id' => 'linkId',
-        'unlink_result' => 'unlinkResult',
-        'additional_info' => 'additionalInfo'
+        'responseCode' => 'responseCode',
+        'responseMessage' => 'responseMessage',
+        'referenceNo' => 'referenceNo',
+        'partnerReferenceNo' => 'partnerReferenceNo',
+        'merchantId' => 'merchantId',
+        'subMerchantId' => 'subMerchantId',
+        'linkId' => 'linkId',
+        'unlinkResult' => 'unlinkResult',
+        'additionalInfo' => 'additionalInfo'
     ];
 
     /**
@@ -208,15 +208,15 @@ class AccountUnbindingResponse implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'response_code' => 'setResponseCode',
-        'response_message' => 'setResponseMessage',
-        'reference_no' => 'setReferenceNo',
-        'partner_reference_no' => 'setPartnerReferenceNo',
-        'merchant_id' => 'setMerchantId',
-        'sub_merchant_id' => 'setSubMerchantId',
-        'link_id' => 'setLinkId',
-        'unlink_result' => 'setUnlinkResult',
-        'additional_info' => 'setAdditionalInfo'
+        'responseCode' => 'setResponseCode',
+        'responseMessage' => 'setResponseMessage',
+        'referenceNo' => 'setReferenceNo',
+        'partnerReferenceNo' => 'setPartnerReferenceNo',
+        'merchantId' => 'setMerchantId',
+        'subMerchantId' => 'setSubMerchantId',
+        'linkId' => 'setLinkId',
+        'unlinkResult' => 'setUnlinkResult',
+        'additionalInfo' => 'setAdditionalInfo'
     ];
 
     /**
@@ -225,15 +225,15 @@ class AccountUnbindingResponse implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'response_code' => 'getResponseCode',
-        'response_message' => 'getResponseMessage',
-        'reference_no' => 'getReferenceNo',
-        'partner_reference_no' => 'getPartnerReferenceNo',
-        'merchant_id' => 'getMerchantId',
-        'sub_merchant_id' => 'getSubMerchantId',
-        'link_id' => 'getLinkId',
-        'unlink_result' => 'getUnlinkResult',
-        'additional_info' => 'getAdditionalInfo'
+        'responseCode' => 'getResponseCode',
+        'responseMessage' => 'getResponseMessage',
+        'referenceNo' => 'getReferenceNo',
+        'partnerReferenceNo' => 'getPartnerReferenceNo',
+        'merchantId' => 'getMerchantId',
+        'subMerchantId' => 'getSubMerchantId',
+        'linkId' => 'getLinkId',
+        'unlinkResult' => 'getUnlinkResult',
+        'additionalInfo' => 'getAdditionalInfo'
     ];
 
     /**
@@ -293,15 +293,15 @@ class AccountUnbindingResponse implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('response_code', $data ?? [], null);
-        $this->setIfExists('response_message', $data ?? [], null);
-        $this->setIfExists('reference_no', $data ?? [], null);
-        $this->setIfExists('partner_reference_no', $data ?? [], null);
-        $this->setIfExists('merchant_id', $data ?? [], null);
-        $this->setIfExists('sub_merchant_id', $data ?? [], null);
-        $this->setIfExists('link_id', $data ?? [], null);
-        $this->setIfExists('unlink_result', $data ?? [], null);
-        $this->setIfExists('additional_info', $data ?? [], null);
+        $this->setIfExists('responseCode', $data ?? [], null);
+        $this->setIfExists('responseMessage', $data ?? [], null);
+        $this->setIfExists('referenceNo', $data ?? [], null);
+        $this->setIfExists('partnerReferenceNo', $data ?? [], null);
+        $this->setIfExists('merchantId', $data ?? [], null);
+        $this->setIfExists('subMerchantId', $data ?? [], null);
+        $this->setIfExists('linkId', $data ?? [], null);
+        $this->setIfExists('unlinkResult', $data ?? [], null);
+        $this->setIfExists('additionalInfo', $data ?? [], null);
     }
 
     /**
@@ -331,42 +331,42 @@ class AccountUnbindingResponse implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
-        if ($this->container['response_code'] === null) {
-            $invalidProperties[] = "'response_code' can't be null";
+        if ($this->container['responseCode'] === null) {
+            $invalidProperties[] = "'responseCode' can't be null";
         }
-        if ((mb_strlen($this->container['response_code']) > 7)) {
-            $invalidProperties[] = "invalid value for 'response_code', the character length must be smaller than or equal to 7.";
-        }
-
-        if ($this->container['response_message'] === null) {
-            $invalidProperties[] = "'response_message' can't be null";
-        }
-        if ((mb_strlen($this->container['response_message']) > 150)) {
-            $invalidProperties[] = "invalid value for 'response_message', the character length must be smaller than or equal to 150.";
+        if ((mb_strlen($this->container['responseCode']) > 7)) {
+            $invalidProperties[] = "invalid value for 'responseCode', the character length must be smaller than or equal to 7.";
         }
 
-        if (!is_null($this->container['reference_no']) && (mb_strlen($this->container['reference_no']) > 64)) {
-            $invalidProperties[] = "invalid value for 'reference_no', the character length must be smaller than or equal to 64.";
+        if ($this->container['responseMessage'] === null) {
+            $invalidProperties[] = "'responseMessage' can't be null";
+        }
+        if ((mb_strlen($this->container['responseMessage']) > 150)) {
+            $invalidProperties[] = "invalid value for 'responseMessage', the character length must be smaller than or equal to 150.";
         }
 
-        if (!is_null($this->container['partner_reference_no']) && (mb_strlen($this->container['partner_reference_no']) > 64)) {
-            $invalidProperties[] = "invalid value for 'partner_reference_no', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['referenceNo']) && (mb_strlen($this->container['referenceNo']) > 64)) {
+            $invalidProperties[] = "invalid value for 'referenceNo', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['merchant_id']) && (mb_strlen($this->container['merchant_id']) > 64)) {
-            $invalidProperties[] = "invalid value for 'merchant_id', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['partnerReferenceNo']) && (mb_strlen($this->container['partnerReferenceNo']) > 64)) {
+            $invalidProperties[] = "invalid value for 'partnerReferenceNo', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['sub_merchant_id']) && (mb_strlen($this->container['sub_merchant_id']) > 32)) {
-            $invalidProperties[] = "invalid value for 'sub_merchant_id', the character length must be smaller than or equal to 32.";
+        if (!is_null($this->container['merchantId']) && (mb_strlen($this->container['merchantId']) > 64)) {
+            $invalidProperties[] = "invalid value for 'merchantId', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['link_id']) && (mb_strlen($this->container['link_id']) > 24)) {
-            $invalidProperties[] = "invalid value for 'link_id', the character length must be smaller than or equal to 24.";
+        if (!is_null($this->container['subMerchantId']) && (mb_strlen($this->container['subMerchantId']) > 32)) {
+            $invalidProperties[] = "invalid value for 'subMerchantId', the character length must be smaller than or equal to 32.";
         }
 
-        if (!is_null($this->container['unlink_result']) && (mb_strlen($this->container['unlink_result']) > 64)) {
-            $invalidProperties[] = "invalid value for 'unlink_result', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['linkId']) && (mb_strlen($this->container['linkId']) > 24)) {
+            $invalidProperties[] = "invalid value for 'linkId', the character length must be smaller than or equal to 24.";
+        }
+
+        if (!is_null($this->container['unlinkResult']) && (mb_strlen($this->container['unlinkResult']) > 64)) {
+            $invalidProperties[] = "invalid value for 'unlinkResult', the character length must be smaller than or equal to 64.";
         }
 
         return $invalidProperties;
@@ -385,276 +385,276 @@ class AccountUnbindingResponse implements ModelInterface, ArrayAccess, \JsonSeri
 
 
     /**
-     * Gets response_code
+     * Gets responseCode
      *
      * @return string
      */
     public function getResponseCode()
     {
-        return $this->container['response_code'];
+        return $this->container['responseCode'];
     }
 
     /**
-     * Sets response_code
+     * Sets responseCode
      *
-     * @param string $response_code Response code. Refer to https://dashboard.dana.id/api-docs/read/108#HTML-AccountUnbinding-ResponseCodeandMessage
+     * @param string $responseCode Response code. Refer to https://dashboard.dana.id/api-docs/read/108#HTML-AccountUnbinding-ResponseCodeandMessage
      *
      * @return self
      */
-    public function setResponseCode($response_code)
+    public function setResponseCode($responseCode)
     {
-        if (is_null($response_code)) {
-            throw new \InvalidArgumentException('non-nullable response_code cannot be null');
+        if (is_null($responseCode)) {
+            throw new \InvalidArgumentException('non-nullable responseCode cannot be null');
         }
-        if ((mb_strlen($response_code) > 7)) {
-            throw new \InvalidArgumentException('invalid length for $response_code when calling AccountUnbindingResponse., must be smaller than or equal to 7.');
+        if ((mb_strlen($responseCode) > 7)) {
+            throw new \InvalidArgumentException('invalid length for $responseCode when calling AccountUnbindingResponse., must be smaller than or equal to 7.');
         }
 
-        $this->container['response_code'] = $response_code;
+        $this->container['responseCode'] = $responseCode;
 
         return $this;
     }
 
     /**
-     * Gets response_message
+     * Gets responseMessage
      *
      * @return string
      */
     public function getResponseMessage()
     {
-        return $this->container['response_message'];
+        return $this->container['responseMessage'];
     }
 
     /**
-     * Sets response_message
+     * Sets responseMessage
      *
-     * @param string $response_message Response message. Refer to https://dashboard.dana.id/api-docs/read/108#HTML-AccountUnbinding-ResponseCodeandMessage
+     * @param string $responseMessage Response message. Refer to https://dashboard.dana.id/api-docs/read/108#HTML-AccountUnbinding-ResponseCodeandMessage
      *
      * @return self
      */
-    public function setResponseMessage($response_message)
+    public function setResponseMessage($responseMessage)
     {
-        if (is_null($response_message)) {
-            throw new \InvalidArgumentException('non-nullable response_message cannot be null');
+        if (is_null($responseMessage)) {
+            throw new \InvalidArgumentException('non-nullable responseMessage cannot be null');
         }
-        if ((mb_strlen($response_message) > 150)) {
-            throw new \InvalidArgumentException('invalid length for $response_message when calling AccountUnbindingResponse., must be smaller than or equal to 150.');
+        if ((mb_strlen($responseMessage) > 150)) {
+            throw new \InvalidArgumentException('invalid length for $responseMessage when calling AccountUnbindingResponse., must be smaller than or equal to 150.');
         }
 
-        $this->container['response_message'] = $response_message;
+        $this->container['responseMessage'] = $responseMessage;
 
         return $this;
     }
 
     /**
-     * Gets reference_no
+     * Gets referenceNo
      *
      * @return string|null
      */
     public function getReferenceNo()
     {
-        return $this->container['reference_no'];
+        return $this->container['referenceNo'];
     }
 
     /**
-     * Sets reference_no
+     * Sets referenceNo
      *
-     * @param string|null $reference_no Transaction identifier on DANA system
+     * @param string|null $referenceNo Transaction identifier on DANA system
      *
      * @return self
      */
-    public function setReferenceNo($reference_no)
+    public function setReferenceNo($referenceNo)
     {
-        if (is_null($reference_no)) {
-            throw new \InvalidArgumentException('non-nullable reference_no cannot be null');
+        if (is_null($referenceNo)) {
+            throw new \InvalidArgumentException('non-nullable referenceNo cannot be null');
         }
-        if ((mb_strlen($reference_no) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $reference_no when calling AccountUnbindingResponse., must be smaller than or equal to 64.');
+        if ((mb_strlen($referenceNo) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $referenceNo when calling AccountUnbindingResponse., must be smaller than or equal to 64.');
         }
 
-        $this->container['reference_no'] = $reference_no;
+        $this->container['referenceNo'] = $referenceNo;
 
         return $this;
     }
 
     /**
-     * Gets partner_reference_no
+     * Gets partnerReferenceNo
      *
      * @return string|null
      */
     public function getPartnerReferenceNo()
     {
-        return $this->container['partner_reference_no'];
+        return $this->container['partnerReferenceNo'];
     }
 
     /**
-     * Sets partner_reference_no
+     * Sets partnerReferenceNo
      *
-     * @param string|null $partner_reference_no Unique transaction identifier on partner system which assigned to each transaction
+     * @param string|null $partnerReferenceNo Unique transaction identifier on partner system which assigned to each transaction
      *
      * @return self
      */
-    public function setPartnerReferenceNo($partner_reference_no)
+    public function setPartnerReferenceNo($partnerReferenceNo)
     {
-        if (is_null($partner_reference_no)) {
-            throw new \InvalidArgumentException('non-nullable partner_reference_no cannot be null');
+        if (is_null($partnerReferenceNo)) {
+            throw new \InvalidArgumentException('non-nullable partnerReferenceNo cannot be null');
         }
-        if ((mb_strlen($partner_reference_no) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $partner_reference_no when calling AccountUnbindingResponse., must be smaller than or equal to 64.');
+        if ((mb_strlen($partnerReferenceNo) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $partnerReferenceNo when calling AccountUnbindingResponse., must be smaller than or equal to 64.');
         }
 
-        $this->container['partner_reference_no'] = $partner_reference_no;
+        $this->container['partnerReferenceNo'] = $partnerReferenceNo;
 
         return $this;
     }
 
     /**
-     * Gets merchant_id
+     * Gets merchantId
      *
      * @return string|null
      */
     public function getMerchantId()
     {
-        return $this->container['merchant_id'];
+        return $this->container['merchantId'];
     }
 
     /**
-     * Sets merchant_id
+     * Sets merchantId
      *
-     * @param string|null $merchant_id Merchant identifier that is unique per each merchant
+     * @param string|null $merchantId Merchant identifier that is unique per each merchant
      *
      * @return self
      */
-    public function setMerchantId($merchant_id)
+    public function setMerchantId($merchantId)
     {
-        if (is_null($merchant_id)) {
-            throw new \InvalidArgumentException('non-nullable merchant_id cannot be null');
+        if (is_null($merchantId)) {
+            throw new \InvalidArgumentException('non-nullable merchantId cannot be null');
         }
-        if ((mb_strlen($merchant_id) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $merchant_id when calling AccountUnbindingResponse., must be smaller than or equal to 64.');
+        if ((mb_strlen($merchantId) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $merchantId when calling AccountUnbindingResponse., must be smaller than or equal to 64.');
         }
 
-        $this->container['merchant_id'] = $merchant_id;
+        $this->container['merchantId'] = $merchantId;
 
         return $this;
     }
 
     /**
-     * Gets sub_merchant_id
+     * Gets subMerchantId
      *
      * @return string|null
      */
     public function getSubMerchantId()
     {
-        return $this->container['sub_merchant_id'];
+        return $this->container['subMerchantId'];
     }
 
     /**
-     * Sets sub_merchant_id
+     * Sets subMerchantId
      *
-     * @param string|null $sub_merchant_id Information of sub merchant identifier
+     * @param string|null $subMerchantId Information of sub merchant identifier
      *
      * @return self
      */
-    public function setSubMerchantId($sub_merchant_id)
+    public function setSubMerchantId($subMerchantId)
     {
-        if (is_null($sub_merchant_id)) {
-            throw new \InvalidArgumentException('non-nullable sub_merchant_id cannot be null');
+        if (is_null($subMerchantId)) {
+            throw new \InvalidArgumentException('non-nullable subMerchantId cannot be null');
         }
-        if ((mb_strlen($sub_merchant_id) > 32)) {
-            throw new \InvalidArgumentException('invalid length for $sub_merchant_id when calling AccountUnbindingResponse., must be smaller than or equal to 32.');
+        if ((mb_strlen($subMerchantId) > 32)) {
+            throw new \InvalidArgumentException('invalid length for $subMerchantId when calling AccountUnbindingResponse., must be smaller than or equal to 32.');
         }
 
-        $this->container['sub_merchant_id'] = $sub_merchant_id;
+        $this->container['subMerchantId'] = $subMerchantId;
 
         return $this;
     }
 
     /**
-     * Gets link_id
+     * Gets linkId
      *
      * @return string|null
      */
     public function getLinkId()
     {
-        return $this->container['link_id'];
+        return $this->container['linkId'];
     }
 
     /**
-     * Sets link_id
+     * Sets linkId
      *
-     * @param string|null $link_id Information of link identifier
+     * @param string|null $linkId Information of link identifier
      *
      * @return self
      */
-    public function setLinkId($link_id)
+    public function setLinkId($linkId)
     {
-        if (is_null($link_id)) {
-            throw new \InvalidArgumentException('non-nullable link_id cannot be null');
+        if (is_null($linkId)) {
+            throw new \InvalidArgumentException('non-nullable linkId cannot be null');
         }
-        if ((mb_strlen($link_id) > 24)) {
-            throw new \InvalidArgumentException('invalid length for $link_id when calling AccountUnbindingResponse., must be smaller than or equal to 24.');
+        if ((mb_strlen($linkId) > 24)) {
+            throw new \InvalidArgumentException('invalid length for $linkId when calling AccountUnbindingResponse., must be smaller than or equal to 24.');
         }
 
-        $this->container['link_id'] = $link_id;
+        $this->container['linkId'] = $linkId;
 
         return $this;
     }
 
     /**
-     * Gets unlink_result
+     * Gets unlinkResult
      *
      * @return string|null
      */
     public function getUnlinkResult()
     {
-        return $this->container['unlink_result'];
+        return $this->container['unlinkResult'];
     }
 
     /**
-     * Sets unlink_result
+     * Sets unlinkResult
      *
-     * @param string|null $unlink_result Result of unlinking process
+     * @param string|null $unlinkResult Result of unlinking process
      *
      * @return self
      */
-    public function setUnlinkResult($unlink_result)
+    public function setUnlinkResult($unlinkResult)
     {
-        if (is_null($unlink_result)) {
-            throw new \InvalidArgumentException('non-nullable unlink_result cannot be null');
+        if (is_null($unlinkResult)) {
+            throw new \InvalidArgumentException('non-nullable unlinkResult cannot be null');
         }
-        if ((mb_strlen($unlink_result) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $unlink_result when calling AccountUnbindingResponse., must be smaller than or equal to 64.');
+        if ((mb_strlen($unlinkResult) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $unlinkResult when calling AccountUnbindingResponse., must be smaller than or equal to 64.');
         }
 
-        $this->container['unlink_result'] = $unlink_result;
+        $this->container['unlinkResult'] = $unlinkResult;
 
         return $this;
     }
 
     /**
-     * Gets additional_info
+     * Gets additionalInfo
      *
      * @return object|null
      */
     public function getAdditionalInfo()
     {
-        return $this->container['additional_info'];
+        return $this->container['additionalInfo'];
     }
 
     /**
-     * Sets additional_info
+     * Sets additionalInfo
      *
-     * @param object|null $additional_info Additional information
+     * @param object|null $additionalInfo Additional information
      *
      * @return self
      */
-    public function setAdditionalInfo($additional_info)
+    public function setAdditionalInfo($additionalInfo)
     {
-        if (is_null($additional_info)) {
-            throw new \InvalidArgumentException('non-nullable additional_info cannot be null');
+        if (is_null($additionalInfo)) {
+            throw new \InvalidArgumentException('non-nullable additionalInfo cannot be null');
         }
-        $this->container['additional_info'] = $additional_info;
+        $this->container['additionalInfo'] = $additionalInfo;
 
         return $this;
     }

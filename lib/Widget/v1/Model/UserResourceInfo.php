@@ -58,7 +58,7 @@ class UserResourceInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'resource_type' => 'string',
+        'resourceType' => 'string',
         'value' => 'string'
     ];
 
@@ -70,7 +70,7 @@ class UserResourceInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'resource_type' => null,
+        'resourceType' => null,
         'value' => null
     ];
 
@@ -80,7 +80,7 @@ class UserResourceInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'resource_type' => false,
+        'resourceType' => false,
         'value' => false
     ];
 
@@ -170,7 +170,7 @@ class UserResourceInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'resource_type' => 'resourceType',
+        'resourceType' => 'resourceType',
         'value' => 'value'
     ];
 
@@ -180,7 +180,7 @@ class UserResourceInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'resource_type' => 'setResourceType',
+        'resourceType' => 'setResourceType',
         'value' => 'setValue'
     ];
 
@@ -190,7 +190,7 @@ class UserResourceInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'resource_type' => 'getResourceType',
+        'resourceType' => 'getResourceType',
         'value' => 'getValue'
     ];
 
@@ -274,7 +274,7 @@ class UserResourceInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('resource_type', $data ?? [], null);
+        $this->setIfExists('resourceType', $data ?? [], null);
         $this->setIfExists('value', $data ?? [], null);
     }
 
@@ -305,14 +305,14 @@ class UserResourceInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['resource_type'] === null) {
-            $invalidProperties[] = "'resource_type' can't be null";
+        if ($this->container['resourceType'] === null) {
+            $invalidProperties[] = "'resourceType' can't be null";
         }
         $allowedValues = $this->getResourceTypeAllowableValues();
-        if (!is_null($this->container['resource_type']) && !in_array($this->container['resource_type'], $allowedValues, true)) {
+        if (!is_null($this->container['resourceType']) && !in_array($this->container['resourceType'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'resource_type', must be one of '%s'",
-                $this->container['resource_type'],
+                "invalid value '%s' for 'resourceType', must be one of '%s'",
+                $this->container['resourceType'],
                 implode("', '", $allowedValues)
             );
         }
@@ -336,38 +336,38 @@ class UserResourceInfo implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets resource_type
+     * Gets resourceType
      *
      * @return string
      */
     public function getResourceType()
     {
-        return $this->container['resource_type'];
+        return $this->container['resourceType'];
     }
 
     /**
-     * Sets resource_type
+     * Sets resourceType
      *
-     * @param string $resource_type Type of user resource
+     * @param string $resourceType Type of user resource
      *
      * @return self
      */
-    public function setResourceType($resource_type)
+    public function setResourceType($resourceType)
     {
-        if (is_null($resource_type)) {
-            throw new \InvalidArgumentException('non-nullable resource_type cannot be null');
+        if (is_null($resourceType)) {
+            throw new \InvalidArgumentException('non-nullable resourceType cannot be null');
         }
         $allowedValues = $this->getResourceTypeAllowableValues();
-        if (!in_array($resource_type, $allowedValues, true) && !empty($resource_type)) {
+        if (!in_array($resourceType, $allowedValues, true) && !empty($resourceType)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'resource_type', must be one of '%s'",
-                    $resource_type,
+                    "Invalid value '%s' for 'resourceType', must be one of '%s'",
+                    $resourceType,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['resource_type'] = $resource_type;
+        $this->container['resourceType'] = $resourceType;
 
         return $this;
     }

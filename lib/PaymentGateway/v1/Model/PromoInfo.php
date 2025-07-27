@@ -58,9 +58,9 @@ class PromoInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'promo_amount' => '\Dana\PaymentGateway\v1\Model\Money',
-        'promo_id' => 'string',
-        'promo_type' => 'string'
+        'promoAmount' => '\Dana\PaymentGateway\v1\Model\Money',
+        'promoId' => 'string',
+        'promoType' => 'string'
     ];
 
     /**
@@ -71,9 +71,9 @@ class PromoInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'promo_amount' => null,
-        'promo_id' => null,
-        'promo_type' => null
+        'promoAmount' => null,
+        'promoId' => null,
+        'promoType' => null
     ];
 
     /**
@@ -82,9 +82,9 @@ class PromoInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'promo_amount' => false,
-        'promo_id' => false,
-        'promo_type' => false
+        'promoAmount' => false,
+        'promoId' => false,
+        'promoType' => false
     ];
 
     /**
@@ -173,9 +173,9 @@ class PromoInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'promo_amount' => 'promoAmount',
-        'promo_id' => 'promoId',
-        'promo_type' => 'promoType'
+        'promoAmount' => 'promoAmount',
+        'promoId' => 'promoId',
+        'promoType' => 'promoType'
     ];
 
     /**
@@ -184,9 +184,9 @@ class PromoInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'promo_amount' => 'setPromoAmount',
-        'promo_id' => 'setPromoId',
-        'promo_type' => 'setPromoType'
+        'promoAmount' => 'setPromoAmount',
+        'promoId' => 'setPromoId',
+        'promoType' => 'setPromoType'
     ];
 
     /**
@@ -195,9 +195,9 @@ class PromoInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'promo_amount' => 'getPromoAmount',
-        'promo_id' => 'getPromoId',
-        'promo_type' => 'getPromoType'
+        'promoAmount' => 'getPromoAmount',
+        'promoId' => 'getPromoId',
+        'promoType' => 'getPromoType'
     ];
 
     /**
@@ -257,9 +257,9 @@ class PromoInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('promo_amount', $data ?? [], null);
-        $this->setIfExists('promo_id', $data ?? [], null);
-        $this->setIfExists('promo_type', $data ?? [], 'DIRECT_DISCOUNT');
+        $this->setIfExists('promoAmount', $data ?? [], null);
+        $this->setIfExists('promoId', $data ?? [], null);
+        $this->setIfExists('promoType', $data ?? [], 'DIRECT_DISCOUNT');
     }
 
     /**
@@ -289,21 +289,21 @@ class PromoInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['promo_amount'] === null) {
-            $invalidProperties[] = "'promo_amount' can't be null";
+        if ($this->container['promoAmount'] === null) {
+            $invalidProperties[] = "'promoAmount' can't be null";
         }
-        if ($this->container['promo_id'] === null) {
-            $invalidProperties[] = "'promo_id' can't be null";
+        if ($this->container['promoId'] === null) {
+            $invalidProperties[] = "'promoId' can't be null";
         }
-        if ((mb_strlen($this->container['promo_id']) > 64)) {
-            $invalidProperties[] = "invalid value for 'promo_id', the character length must be smaller than or equal to 64.";
+        if ((mb_strlen($this->container['promoId']) > 64)) {
+            $invalidProperties[] = "invalid value for 'promoId', the character length must be smaller than or equal to 64.";
         }
 
-        if ($this->container['promo_type'] === null) {
-            $invalidProperties[] = "'promo_type' can't be null";
+        if ($this->container['promoType'] === null) {
+            $invalidProperties[] = "'promoType' can't be null";
         }
-        if ((mb_strlen($this->container['promo_type']) > 32)) {
-            $invalidProperties[] = "invalid value for 'promo_type', the character length must be smaller than or equal to 32.";
+        if ((mb_strlen($this->container['promoType']) > 32)) {
+            $invalidProperties[] = "invalid value for 'promoType', the character length must be smaller than or equal to 32.";
         }
 
         return $invalidProperties;
@@ -322,90 +322,90 @@ class PromoInfo implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets promo_amount
+     * Gets promoAmount
      *
      * @return \Dana\PaymentGateway\v1\Model\Money
      */
     public function getPromoAmount()
     {
-        return $this->container['promo_amount'];
+        return $this->container['promoAmount'];
     }
 
     /**
-     * Sets promo_amount
+     * Sets promoAmount
      *
-     * @param \Dana\PaymentGateway\v1\Model\Money $promo_amount Promo amount. Contains two sub-fields:<br> 1. Value: Transaction amount, including the cents<br> 2. Currency: Currency code based on ISO<br>
+     * @param \Dana\PaymentGateway\v1\Model\Money $promoAmount Promo amount. Contains two sub-fields:<br> 1. Value: Transaction amount, including the cents<br> 2. Currency: Currency code based on ISO<br>
      *
      * @return self
      */
-    public function setPromoAmount($promo_amount)
+    public function setPromoAmount($promoAmount)
     {
-        if (is_null($promo_amount)) {
-            throw new \InvalidArgumentException('non-nullable promo_amount cannot be null');
+        if (is_null($promoAmount)) {
+            throw new \InvalidArgumentException('non-nullable promoAmount cannot be null');
         }
-        $this->container['promo_amount'] = $promo_amount;
+        $this->container['promoAmount'] = $promoAmount;
 
         return $this;
     }
 
     /**
-     * Gets promo_id
+     * Gets promoId
      *
      * @return string
      */
     public function getPromoId()
     {
-        return $this->container['promo_id'];
+        return $this->container['promoId'];
     }
 
     /**
-     * Sets promo_id
+     * Sets promoId
      *
-     * @param string $promo_id Promo identifier
+     * @param string $promoId Promo identifier
      *
      * @return self
      */
-    public function setPromoId($promo_id)
+    public function setPromoId($promoId)
     {
-        if (is_null($promo_id)) {
-            throw new \InvalidArgumentException('non-nullable promo_id cannot be null');
+        if (is_null($promoId)) {
+            throw new \InvalidArgumentException('non-nullable promoId cannot be null');
         }
-        if ((mb_strlen($promo_id) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $promo_id when calling PromoInfo., must be smaller than or equal to 64.');
+        if ((mb_strlen($promoId) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $promoId when calling PromoInfo., must be smaller than or equal to 64.');
         }
 
-        $this->container['promo_id'] = $promo_id;
+        $this->container['promoId'] = $promoId;
 
         return $this;
     }
 
     /**
-     * Gets promo_type
+     * Gets promoType
      *
      * @return string
      */
     public function getPromoType()
     {
-        return $this->container['promo_type'];
+        return $this->container['promoType'];
     }
 
     /**
-     * Sets promo_type
+     * Sets promoType
      *
-     * @param string $promo_type Type's of promo, value always DIRECT_DISCOUNT
+     * @param string $promoType Type's of promo, value always DIRECT_DISCOUNT
      *
      * @return self
      */
-    public function setPromoType($promo_type)
+    public function setPromoType($promoType)
     {
-        if (is_null($promo_type)) {
-            throw new \InvalidArgumentException('non-nullable promo_type cannot be null');
+        if (is_null($promoType)) {
+            throw new \InvalidArgumentException('non-nullable promoType cannot be null');
         }
-        if ((mb_strlen($promo_type) > 32)) {
-            throw new \InvalidArgumentException('invalid length for $promo_type when calling PromoInfo., must be smaller than or equal to 32.');
+        if ((mb_strlen($promoType) > 32)) {
+            throw new \InvalidArgumentException('invalid length for $promoType when calling PromoInfo., must be smaller than or equal to 32.');
         }
 
-        $this->container['promo_type'] = $promo_type;
+        $this->container['promoType'] = $promoType;
 
         return $this;
     }

@@ -12,6 +12,8 @@
 
 namespace Dana\Utils;
 
+use OpenSSLAsymmetricKey;
+
 /**
  * SnapHeader Class
  *
@@ -27,6 +29,23 @@ class SnapHeader
     const SCENARIO_APPLY_TOKEN = 'apply_token';
     const SCENARIO_APPLY_OTT = 'apply_ott';
     const SCENARIO_UNBINDING_ACCOUNT = 'unbinding_account';
+    
+    /**
+     * Get current time in Jakarta timezone (WIB)
+     */
+    private static function getJakartaTimestamp(): string
+    {
+        try {
+            $jakarta = new \DateTimeZone('Asia/Jakarta');
+            $now = new \DateTime('now', $jakarta);
+        } catch (\Exception $e) {
+            // Fallback to UTC+7 if Jakarta timezone is not available
+            $now = new \DateTime('now', new \DateTimeZone('UTC'));
+            $now->modify('+7 hours');
+        }
+        
+        return $now->format('Y-m-d\TH:i:s+07:00');
+    }
     
     /**
      * Generate a UUID v4
@@ -131,7 +150,7 @@ class SnapHeader
      * @param string $keyType The type of key (e.g., 'PRIVATE', 'PUBLIC')
      * @return string The key in proper PEM format
      */
-    private static function convertToPEM(string $key, string $keyType): string 
+    public static function convertToPEM(string $key, string $keyType): string 
     {
         // Determine if this is an RSA key or generic private key format
         $possibleHeaders = [
@@ -211,16 +230,25 @@ class SnapHeader
      *
      * @return string Base64 encoded signature
      */
-    public static function generateSignature(string $httpMethod, string $path, string $body, string $timestamp, string $privateKey): string
+    public static function generateSignature(string $httpMethod, string $path, string $body, string $timestamp, string $privateKey, string $scenario = '', string $clientId = ''): string
     {
-        // Minify the body by removing all whitespace outside of strings
-        $minifiedBody = $body ? self::minifyJson($body) : '';
-                
-        // Calculate SHA-256 hash of minified body
-        $hashedBody = hash('sha256', $minifiedBody);
+        $dataToSign = '';
         
-        // Construct data to sign
-        $dataToSign = strtoupper($httpMethod) . ':' . $path . ':' . strtolower($hashedBody) . ':' . $timestamp;
+        // Handle different scenarios
+        if ($scenario === self::SCENARIO_APPLY_TOKEN) {
+            // Apply token signature: "<clientKey>|<timestamp>"
+            $dataToSign = sprintf('%s|%s', $clientId, $timestamp);
+        } else {
+            // Default signature format for other scenarios
+            // Minify the body by removing all whitespace outside of strings
+            $minifiedBody = $body ? self::minifyJson($body) : '';
+                    
+            // Calculate SHA-256 hash of minified body
+            $hashedBody = hash('sha256', $minifiedBody);
+            
+            // Construct data to sign
+            $dataToSign = strtoupper($httpMethod) . ':' . $path . ':' . strtolower($hashedBody) . ':' . $timestamp;
+        }
         
         // Generate signature
         $signature = '';
@@ -244,24 +272,8 @@ class SnapHeader
      */
     public static function generateHeaders(string $httpMethod, string $path, string $body, 
                                            string $clientId, string $privateKey, ?string $privateKeyPath = null,
-                                           string $operationId): array
+                                           string $scenario): array
     {
-        
-        // Set scenario based on operation ID using PHP comparison
-        if (strpos($operationId, 'applyToken') !== false) {
-            // SNAP signature scenario: APPLY TOKEN
-            $scenario = SnapHeader::SCENARIO_APPLY_TOKEN;
-        } else if (strpos($operationId, 'applyOtt') !== false) {
-            // SNAP signature scenario: APPLY OTT
-            $scenario = SnapHeader::SCENARIO_APPLY_OTT;
-        } else if (strpos($operationId, 'accountUnbinding') !== false) {
-            // SNAP signature scenario: ACCOUNT UNBINDING
-            $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
-        } else {
-            // Default B2B signature scenario
-            $scenario = '';
-        }
-        
         // Format timestamp as YYYY-MM-DDTHH:mm:ss+07:00 in GMT+7 (Jakarta time)
         $jakartaTimezone = new \DateTimeZone('Asia/Jakarta');
         $timestamp = (new \DateTime('now', $jakartaTimezone))->format('Y-m-d\TH:i:sP');
@@ -269,7 +281,7 @@ class SnapHeader
         // Get the actual private key to use
         $actualPrivateKey = self::getPrivateKey($privateKey, $privateKeyPath);
         
-        $signature = self::generateSignature($httpMethod, $path, $body, $timestamp, $actualPrivateKey);
+        $signature = self::generateSignature($httpMethod, $path, $body, $timestamp, $actualPrivateKey, $scenario, $clientId);
         
         // Base headers that apply to all scenarios
         $baseHeaders = [

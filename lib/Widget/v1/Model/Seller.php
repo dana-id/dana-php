@@ -58,10 +58,10 @@ class Seller implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'external_user_type' => 'string',
+        'externalUserType' => 'string',
         'nickname' => 'string',
-        'external_user_id' => 'string',
-        'user_id' => 'string'
+        'externalUserId' => 'string',
+        'userId' => 'string'
     ];
 
     /**
@@ -72,10 +72,10 @@ class Seller implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'external_user_type' => null,
+        'externalUserType' => null,
         'nickname' => null,
-        'external_user_id' => null,
-        'user_id' => null
+        'externalUserId' => null,
+        'userId' => null
     ];
 
     /**
@@ -84,10 +84,10 @@ class Seller implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'external_user_type' => false,
+        'externalUserType' => false,
         'nickname' => false,
-        'external_user_id' => false,
-        'user_id' => false
+        'externalUserId' => false,
+        'userId' => false
     ];
 
     /**
@@ -176,10 +176,10 @@ class Seller implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'external_user_type' => 'externalUserType',
+        'externalUserType' => 'externalUserType',
         'nickname' => 'nickname',
-        'external_user_id' => 'externalUserId',
-        'user_id' => 'userId'
+        'externalUserId' => 'externalUserId',
+        'userId' => 'userId'
     ];
 
     /**
@@ -188,10 +188,10 @@ class Seller implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'external_user_type' => 'setExternalUserType',
+        'externalUserType' => 'setExternalUserType',
         'nickname' => 'setNickname',
-        'external_user_id' => 'setExternalUserId',
-        'user_id' => 'setUserId'
+        'externalUserId' => 'setExternalUserId',
+        'userId' => 'setUserId'
     ];
 
     /**
@@ -200,10 +200,10 @@ class Seller implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'external_user_type' => 'getExternalUserType',
+        'externalUserType' => 'getExternalUserType',
         'nickname' => 'getNickname',
-        'external_user_id' => 'getExternalUserId',
-        'user_id' => 'getUserId'
+        'externalUserId' => 'getExternalUserId',
+        'userId' => 'getUserId'
     ];
 
     /**
@@ -263,10 +263,10 @@ class Seller implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('external_user_type', $data ?? [], null);
+        $this->setIfExists('externalUserType', $data ?? [], null);
         $this->setIfExists('nickname', $data ?? [], null);
-        $this->setIfExists('external_user_id', $data ?? [], null);
-        $this->setIfExists('user_id', $data ?? [], null);
+        $this->setIfExists('externalUserId', $data ?? [], null);
+        $this->setIfExists('userId', $data ?? [], null);
     }
 
     /**
@@ -296,20 +296,20 @@ class Seller implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['external_user_type']) && (mb_strlen($this->container['external_user_type']) > 32)) {
-            $invalidProperties[] = "invalid value for 'external_user_type', the character length must be smaller than or equal to 32.";
+        if (!is_null($this->container['externalUserType']) && (mb_strlen($this->container['externalUserType']) > 32)) {
+            $invalidProperties[] = "invalid value for 'externalUserType', the character length must be smaller than or equal to 32.";
         }
 
         if (!is_null($this->container['nickname']) && (mb_strlen($this->container['nickname']) > 64)) {
             $invalidProperties[] = "invalid value for 'nickname', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['external_user_id']) && (mb_strlen($this->container['external_user_id']) > 32)) {
-            $invalidProperties[] = "invalid value for 'external_user_id', the character length must be smaller than or equal to 32.";
+        if (!is_null($this->container['externalUserId']) && (mb_strlen($this->container['externalUserId']) > 32)) {
+            $invalidProperties[] = "invalid value for 'externalUserId', the character length must be smaller than or equal to 32.";
         }
 
-        if (!is_null($this->container['user_id']) && (mb_strlen($this->container['user_id']) > 32)) {
-            $invalidProperties[] = "invalid value for 'user_id', the character length must be smaller than or equal to 32.";
+        if (!is_null($this->container['userId']) && (mb_strlen($this->container['userId']) > 32)) {
+            $invalidProperties[] = "invalid value for 'userId', the character length must be smaller than or equal to 32.";
         }
 
         return $invalidProperties;
@@ -328,32 +328,32 @@ class Seller implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets external_user_type
+     * Gets externalUserType
      *
      * @return string|null
      */
     public function getExternalUserType()
     {
-        return $this->container['external_user_type'];
+        return $this->container['externalUserType'];
     }
 
     /**
-     * Sets external_user_type
+     * Sets externalUserType
      *
-     * @param string|null $external_user_type Type of external user. Required if externalUserId is filled
+     * @param string|null $externalUserType Type of external user. Required if externalUserId is filled
      *
      * @return self
      */
-    public function setExternalUserType($external_user_type)
+    public function setExternalUserType($externalUserType)
     {
-        if (is_null($external_user_type)) {
-            throw new \InvalidArgumentException('non-nullable external_user_type cannot be null');
+        if (is_null($externalUserType)) {
+            throw new \InvalidArgumentException('non-nullable externalUserType cannot be null');
         }
-        if ((mb_strlen($external_user_type) > 32)) {
-            throw new \InvalidArgumentException('invalid length for $external_user_type when calling Seller., must be smaller than or equal to 32.');
+        if ((mb_strlen($externalUserType) > 32)) {
+            throw new \InvalidArgumentException('invalid length for $externalUserType when calling Seller., must be smaller than or equal to 32.');
         }
 
-        $this->container['external_user_type'] = $external_user_type;
+        $this->container['externalUserType'] = $externalUserType;
 
         return $this;
     }
@@ -390,63 +390,63 @@ class Seller implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets external_user_id
+     * Gets externalUserId
      *
      * @return string|null
      */
     public function getExternalUserId()
     {
-        return $this->container['external_user_id'];
+        return $this->container['externalUserId'];
     }
 
     /**
-     * Sets external_user_id
+     * Sets externalUserId
      *
-     * @param string|null $external_user_id External user identifier. Required if externalUserType is filled
+     * @param string|null $externalUserId External user identifier. Required if externalUserType is filled
      *
      * @return self
      */
-    public function setExternalUserId($external_user_id)
+    public function setExternalUserId($externalUserId)
     {
-        if (is_null($external_user_id)) {
-            throw new \InvalidArgumentException('non-nullable external_user_id cannot be null');
+        if (is_null($externalUserId)) {
+            throw new \InvalidArgumentException('non-nullable externalUserId cannot be null');
         }
-        if ((mb_strlen($external_user_id) > 32)) {
-            throw new \InvalidArgumentException('invalid length for $external_user_id when calling Seller., must be smaller than or equal to 32.');
+        if ((mb_strlen($externalUserId) > 32)) {
+            throw new \InvalidArgumentException('invalid length for $externalUserId when calling Seller., must be smaller than or equal to 32.');
         }
 
-        $this->container['external_user_id'] = $external_user_id;
+        $this->container['externalUserId'] = $externalUserId;
 
         return $this;
     }
 
     /**
-     * Gets user_id
+     * Gets userId
      *
      * @return string|null
      */
     public function getUserId()
     {
-        return $this->container['user_id'];
+        return $this->container['userId'];
     }
 
     /**
-     * Sets user_id
+     * Sets userId
      *
-     * @param string|null $user_id DANA's user identifier
+     * @param string|null $userId DANA's user identifier
      *
      * @return self
      */
-    public function setUserId($user_id)
+    public function setUserId($userId)
     {
-        if (is_null($user_id)) {
-            throw new \InvalidArgumentException('non-nullable user_id cannot be null');
+        if (is_null($userId)) {
+            throw new \InvalidArgumentException('non-nullable userId cannot be null');
         }
-        if ((mb_strlen($user_id) > 32)) {
-            throw new \InvalidArgumentException('invalid length for $user_id when calling Seller., must be smaller than or equal to 32.');
+        if ((mb_strlen($userId) > 32)) {
+            throw new \InvalidArgumentException('invalid length for $userId when calling Seller., must be smaller than or equal to 32.');
         }
 
-        $this->container['user_id'] = $user_id;
+        $this->container['userId'] = $userId;
 
         return $this;
     }

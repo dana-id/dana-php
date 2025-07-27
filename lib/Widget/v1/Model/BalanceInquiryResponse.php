@@ -58,13 +58,13 @@ class BalanceInquiryResponse implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'response_code' => 'string',
-        'response_message' => 'string',
-        'reference_no' => 'string',
-        'partner_reference_no' => 'string',
+        'responseCode' => 'string',
+        'responseMessage' => 'string',
+        'referenceNo' => 'string',
+        'partnerReferenceNo' => 'string',
         'name' => 'string',
-        'account_infos' => '\Dana\Widget\v1\Model\AccountInfo[]',
-        'additional_info' => 'object'
+        'accountInfos' => '\Dana\Widget\v1\Model\AccountInfo[]',
+        'additionalInfo' => 'object'
     ];
 
     /**
@@ -75,13 +75,13 @@ class BalanceInquiryResponse implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'response_code' => null,
-        'response_message' => null,
-        'reference_no' => null,
-        'partner_reference_no' => null,
+        'responseCode' => null,
+        'responseMessage' => null,
+        'referenceNo' => null,
+        'partnerReferenceNo' => null,
         'name' => null,
-        'account_infos' => null,
-        'additional_info' => null
+        'accountInfos' => null,
+        'additionalInfo' => null
     ];
 
     /**
@@ -90,13 +90,13 @@ class BalanceInquiryResponse implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'response_code' => false,
-        'response_message' => false,
-        'reference_no' => false,
-        'partner_reference_no' => false,
+        'responseCode' => false,
+        'responseMessage' => false,
+        'referenceNo' => false,
+        'partnerReferenceNo' => false,
         'name' => false,
-        'account_infos' => false,
-        'additional_info' => false
+        'accountInfos' => false,
+        'additionalInfo' => false
     ];
 
     /**
@@ -185,13 +185,13 @@ class BalanceInquiryResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'response_code' => 'responseCode',
-        'response_message' => 'responseMessage',
-        'reference_no' => 'referenceNo',
-        'partner_reference_no' => 'partnerReferenceNo',
+        'responseCode' => 'responseCode',
+        'responseMessage' => 'responseMessage',
+        'referenceNo' => 'referenceNo',
+        'partnerReferenceNo' => 'partnerReferenceNo',
         'name' => 'name',
-        'account_infos' => 'accountInfos',
-        'additional_info' => 'additionalInfo'
+        'accountInfos' => 'accountInfos',
+        'additionalInfo' => 'additionalInfo'
     ];
 
     /**
@@ -200,13 +200,13 @@ class BalanceInquiryResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'response_code' => 'setResponseCode',
-        'response_message' => 'setResponseMessage',
-        'reference_no' => 'setReferenceNo',
-        'partner_reference_no' => 'setPartnerReferenceNo',
+        'responseCode' => 'setResponseCode',
+        'responseMessage' => 'setResponseMessage',
+        'referenceNo' => 'setReferenceNo',
+        'partnerReferenceNo' => 'setPartnerReferenceNo',
         'name' => 'setName',
-        'account_infos' => 'setAccountInfos',
-        'additional_info' => 'setAdditionalInfo'
+        'accountInfos' => 'setAccountInfos',
+        'additionalInfo' => 'setAdditionalInfo'
     ];
 
     /**
@@ -215,13 +215,13 @@ class BalanceInquiryResponse implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'response_code' => 'getResponseCode',
-        'response_message' => 'getResponseMessage',
-        'reference_no' => 'getReferenceNo',
-        'partner_reference_no' => 'getPartnerReferenceNo',
+        'responseCode' => 'getResponseCode',
+        'responseMessage' => 'getResponseMessage',
+        'referenceNo' => 'getReferenceNo',
+        'partnerReferenceNo' => 'getPartnerReferenceNo',
         'name' => 'getName',
-        'account_infos' => 'getAccountInfos',
-        'additional_info' => 'getAdditionalInfo'
+        'accountInfos' => 'getAccountInfos',
+        'additionalInfo' => 'getAdditionalInfo'
     ];
 
     /**
@@ -281,13 +281,13 @@ class BalanceInquiryResponse implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('response_code', $data ?? [], null);
-        $this->setIfExists('response_message', $data ?? [], null);
-        $this->setIfExists('reference_no', $data ?? [], null);
-        $this->setIfExists('partner_reference_no', $data ?? [], null);
+        $this->setIfExists('responseCode', $data ?? [], null);
+        $this->setIfExists('responseMessage', $data ?? [], null);
+        $this->setIfExists('referenceNo', $data ?? [], null);
+        $this->setIfExists('partnerReferenceNo', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('account_infos', $data ?? [], null);
-        $this->setIfExists('additional_info', $data ?? [], null);
+        $this->setIfExists('accountInfos', $data ?? [], null);
+        $this->setIfExists('additionalInfo', $data ?? [], null);
     }
 
     /**
@@ -317,26 +317,26 @@ class BalanceInquiryResponse implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['response_code'] === null) {
-            $invalidProperties[] = "'response_code' can't be null";
+        if ($this->container['responseCode'] === null) {
+            $invalidProperties[] = "'responseCode' can't be null";
         }
-        if ((mb_strlen($this->container['response_code']) > 7)) {
-            $invalidProperties[] = "invalid value for 'response_code', the character length must be smaller than or equal to 7.";
-        }
-
-        if ($this->container['response_message'] === null) {
-            $invalidProperties[] = "'response_message' can't be null";
-        }
-        if ((mb_strlen($this->container['response_message']) > 150)) {
-            $invalidProperties[] = "invalid value for 'response_message', the character length must be smaller than or equal to 150.";
+        if ((mb_strlen($this->container['responseCode']) > 7)) {
+            $invalidProperties[] = "invalid value for 'responseCode', the character length must be smaller than or equal to 7.";
         }
 
-        if (!is_null($this->container['reference_no']) && (mb_strlen($this->container['reference_no']) > 64)) {
-            $invalidProperties[] = "invalid value for 'reference_no', the character length must be smaller than or equal to 64.";
+        if ($this->container['responseMessage'] === null) {
+            $invalidProperties[] = "'responseMessage' can't be null";
+        }
+        if ((mb_strlen($this->container['responseMessage']) > 150)) {
+            $invalidProperties[] = "invalid value for 'responseMessage', the character length must be smaller than or equal to 150.";
         }
 
-        if (!is_null($this->container['partner_reference_no']) && (mb_strlen($this->container['partner_reference_no']) > 64)) {
-            $invalidProperties[] = "invalid value for 'partner_reference_no', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['referenceNo']) && (mb_strlen($this->container['referenceNo']) > 64)) {
+            $invalidProperties[] = "invalid value for 'referenceNo', the character length must be smaller than or equal to 64.";
+        }
+
+        if (!is_null($this->container['partnerReferenceNo']) && (mb_strlen($this->container['partnerReferenceNo']) > 64)) {
+            $invalidProperties[] = "invalid value for 'partnerReferenceNo', the character length must be smaller than or equal to 64.";
         }
 
         if (!is_null($this->container['name']) && (mb_strlen($this->container['name']) > 140)) {
@@ -359,125 +359,125 @@ class BalanceInquiryResponse implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets response_code
+     * Gets responseCode
      *
      * @return string
      */
     public function getResponseCode()
     {
-        return $this->container['response_code'];
+        return $this->container['responseCode'];
     }
 
     /**
-     * Sets response_code
+     * Sets responseCode
      *
-     * @param string $response_code Refer to response code list
+     * @param string $responseCode Refer to response code list
      *
      * @return self
      */
-    public function setResponseCode($response_code)
+    public function setResponseCode($responseCode)
     {
-        if (is_null($response_code)) {
-            throw new \InvalidArgumentException('non-nullable response_code cannot be null');
+        if (is_null($responseCode)) {
+            throw new \InvalidArgumentException('non-nullable responseCode cannot be null');
         }
-        if ((mb_strlen($response_code) > 7)) {
-            throw new \InvalidArgumentException('invalid length for $response_code when calling BalanceInquiryResponse., must be smaller than or equal to 7.');
+        if ((mb_strlen($responseCode) > 7)) {
+            throw new \InvalidArgumentException('invalid length for $responseCode when calling BalanceInquiryResponse., must be smaller than or equal to 7.');
         }
 
-        $this->container['response_code'] = $response_code;
+        $this->container['responseCode'] = $responseCode;
 
         return $this;
     }
 
     /**
-     * Gets response_message
+     * Gets responseMessage
      *
      * @return string
      */
     public function getResponseMessage()
     {
-        return $this->container['response_message'];
+        return $this->container['responseMessage'];
     }
 
     /**
-     * Sets response_message
+     * Sets responseMessage
      *
-     * @param string $response_message Refer to response code list
+     * @param string $responseMessage Refer to response code list
      *
      * @return self
      */
-    public function setResponseMessage($response_message)
+    public function setResponseMessage($responseMessage)
     {
-        if (is_null($response_message)) {
-            throw new \InvalidArgumentException('non-nullable response_message cannot be null');
+        if (is_null($responseMessage)) {
+            throw new \InvalidArgumentException('non-nullable responseMessage cannot be null');
         }
-        if ((mb_strlen($response_message) > 150)) {
-            throw new \InvalidArgumentException('invalid length for $response_message when calling BalanceInquiryResponse., must be smaller than or equal to 150.');
+        if ((mb_strlen($responseMessage) > 150)) {
+            throw new \InvalidArgumentException('invalid length for $responseMessage when calling BalanceInquiryResponse., must be smaller than or equal to 150.');
         }
 
-        $this->container['response_message'] = $response_message;
+        $this->container['responseMessage'] = $responseMessage;
 
         return $this;
     }
 
     /**
-     * Gets reference_no
+     * Gets referenceNo
      *
      * @return string|null
      */
     public function getReferenceNo()
     {
-        return $this->container['reference_no'];
+        return $this->container['referenceNo'];
     }
 
     /**
-     * Sets reference_no
+     * Sets referenceNo
      *
-     * @param string|null $reference_no Transaction identifier on DANA system
+     * @param string|null $referenceNo Transaction identifier on DANA system
      *
      * @return self
      */
-    public function setReferenceNo($reference_no)
+    public function setReferenceNo($referenceNo)
     {
-        if (is_null($reference_no)) {
-            throw new \InvalidArgumentException('non-nullable reference_no cannot be null');
+        if (is_null($referenceNo)) {
+            throw new \InvalidArgumentException('non-nullable referenceNo cannot be null');
         }
-        if ((mb_strlen($reference_no) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $reference_no when calling BalanceInquiryResponse., must be smaller than or equal to 64.');
+        if ((mb_strlen($referenceNo) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $referenceNo when calling BalanceInquiryResponse., must be smaller than or equal to 64.');
         }
 
-        $this->container['reference_no'] = $reference_no;
+        $this->container['referenceNo'] = $referenceNo;
 
         return $this;
     }
 
     /**
-     * Gets partner_reference_no
+     * Gets partnerReferenceNo
      *
      * @return string|null
      */
     public function getPartnerReferenceNo()
     {
-        return $this->container['partner_reference_no'];
+        return $this->container['partnerReferenceNo'];
     }
 
     /**
-     * Sets partner_reference_no
+     * Sets partnerReferenceNo
      *
-     * @param string|null $partner_reference_no Unique transaction identifier on partner system which assigned to each transaction<br> Notes:<br> If the partner receives a timeout or an unexpected response from DANA and partner expects to perform retry request to DANA, please use the partnerReferenceNo that is the same as the one used in the transaction request process before
+     * @param string|null $partnerReferenceNo Unique transaction identifier on partner system which assigned to each transaction<br> Notes:<br> If the partner receives a timeout or an unexpected response from DANA and partner expects to perform retry request to DANA, please use the partnerReferenceNo that is the same as the one used in the transaction request process before
      *
      * @return self
      */
-    public function setPartnerReferenceNo($partner_reference_no)
+    public function setPartnerReferenceNo($partnerReferenceNo)
     {
-        if (is_null($partner_reference_no)) {
-            throw new \InvalidArgumentException('non-nullable partner_reference_no cannot be null');
+        if (is_null($partnerReferenceNo)) {
+            throw new \InvalidArgumentException('non-nullable partnerReferenceNo cannot be null');
         }
-        if ((mb_strlen($partner_reference_no) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $partner_reference_no when calling BalanceInquiryResponse., must be smaller than or equal to 64.');
+        if ((mb_strlen($partnerReferenceNo) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $partnerReferenceNo when calling BalanceInquiryResponse., must be smaller than or equal to 64.');
         }
 
-        $this->container['partner_reference_no'] = $partner_reference_no;
+        $this->container['partnerReferenceNo'] = $partnerReferenceNo;
 
         return $this;
     }
@@ -514,55 +514,55 @@ class BalanceInquiryResponse implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
-     * Gets account_infos
+     * Gets accountInfos
      *
      * @return \Dana\Widget\v1\Model\AccountInfo[]|null
      */
     public function getAccountInfos()
     {
-        return $this->container['account_infos'];
+        return $this->container['accountInfos'];
     }
 
     /**
-     * Sets account_infos
+     * Sets accountInfos
      *
-     * @param \Dana\Widget\v1\Model\AccountInfo[]|null $account_infos Account information
+     * @param \Dana\Widget\v1\Model\AccountInfo[]|null $accountInfos Account information
      *
      * @return self
      */
-    public function setAccountInfos($account_infos)
+    public function setAccountInfos($accountInfos)
     {
-        if (is_null($account_infos)) {
-            throw new \InvalidArgumentException('non-nullable account_infos cannot be null');
+        if (is_null($accountInfos)) {
+            throw new \InvalidArgumentException('non-nullable accountInfos cannot be null');
         }
-        $this->container['account_infos'] = $account_infos;
+        $this->container['accountInfos'] = $accountInfos;
 
         return $this;
     }
 
     /**
-     * Gets additional_info
+     * Gets additionalInfo
      *
      * @return object|null
      */
     public function getAdditionalInfo()
     {
-        return $this->container['additional_info'];
+        return $this->container['additionalInfo'];
     }
 
     /**
-     * Sets additional_info
+     * Sets additionalInfo
      *
-     * @param object|null $additional_info Additional information
+     * @param object|null $additionalInfo Additional information
      *
      * @return self
      */
-    public function setAdditionalInfo($additional_info)
+    public function setAdditionalInfo($additionalInfo)
     {
-        if (is_null($additional_info)) {
-            throw new \InvalidArgumentException('non-nullable additional_info cannot be null');
+        if (is_null($additionalInfo)) {
+            throw new \InvalidArgumentException('non-nullable additionalInfo cannot be null');
         }
-        $this->container['additional_info'] = $additional_info;
+        $this->container['additionalInfo'] = $additionalInfo;
 
         return $this;
     }

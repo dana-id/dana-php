@@ -58,11 +58,11 @@ class DanaAccountInquiryRequest implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'partner_reference_no' => 'string',
-        'customer_number' => 'string',
+        'partnerReferenceNo' => 'string',
+        'customerNumber' => 'string',
         'amount' => '\Dana\Disbursement\v1\Model\Money',
-        'transaction_date' => 'string',
-        'additional_info' => '\Dana\Disbursement\v1\Model\DanaAccountInquiryRequestAdditionalInfo'
+        'transactionDate' => 'string',
+        'additionalInfo' => '\Dana\Disbursement\v1\Model\DanaAccountInquiryRequestAdditionalInfo'
     ];
 
     /**
@@ -73,11 +73,11 @@ class DanaAccountInquiryRequest implements ModelInterface, ArrayAccess, \JsonSer
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'partner_reference_no' => null,
-        'customer_number' => null,
+        'partnerReferenceNo' => null,
+        'customerNumber' => null,
         'amount' => null,
-        'transaction_date' => null,
-        'additional_info' => null
+        'transactionDate' => null,
+        'additionalInfo' => null
     ];
 
     /**
@@ -86,11 +86,11 @@ class DanaAccountInquiryRequest implements ModelInterface, ArrayAccess, \JsonSer
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'partner_reference_no' => false,
-        'customer_number' => false,
+        'partnerReferenceNo' => false,
+        'customerNumber' => false,
         'amount' => false,
-        'transaction_date' => false,
-        'additional_info' => false
+        'transactionDate' => false,
+        'additionalInfo' => false
     ];
 
     /**
@@ -179,11 +179,11 @@ class DanaAccountInquiryRequest implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
-        'partner_reference_no' => 'partnerReferenceNo',
-        'customer_number' => 'customerNumber',
+        'partnerReferenceNo' => 'partnerReferenceNo',
+        'customerNumber' => 'customerNumber',
         'amount' => 'amount',
-        'transaction_date' => 'transactionDate',
-        'additional_info' => 'additionalInfo'
+        'transactionDate' => 'transactionDate',
+        'additionalInfo' => 'additionalInfo'
     ];
 
     /**
@@ -192,11 +192,11 @@ class DanaAccountInquiryRequest implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $setters = [
-        'partner_reference_no' => 'setPartnerReferenceNo',
-        'customer_number' => 'setCustomerNumber',
+        'partnerReferenceNo' => 'setPartnerReferenceNo',
+        'customerNumber' => 'setCustomerNumber',
         'amount' => 'setAmount',
-        'transaction_date' => 'setTransactionDate',
-        'additional_info' => 'setAdditionalInfo'
+        'transactionDate' => 'setTransactionDate',
+        'additionalInfo' => 'setAdditionalInfo'
     ];
 
     /**
@@ -205,11 +205,11 @@ class DanaAccountInquiryRequest implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $getters = [
-        'partner_reference_no' => 'getPartnerReferenceNo',
-        'customer_number' => 'getCustomerNumber',
+        'partnerReferenceNo' => 'getPartnerReferenceNo',
+        'customerNumber' => 'getCustomerNumber',
         'amount' => 'getAmount',
-        'transaction_date' => 'getTransactionDate',
-        'additional_info' => 'getAdditionalInfo'
+        'transactionDate' => 'getTransactionDate',
+        'additionalInfo' => 'getAdditionalInfo'
     ];
 
     /**
@@ -269,11 +269,11 @@ class DanaAccountInquiryRequest implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('partner_reference_no', $data ?? [], null);
-        $this->setIfExists('customer_number', $data ?? [], null);
+        $this->setIfExists('partnerReferenceNo', $data ?? [], null);
+        $this->setIfExists('customerNumber', $data ?? [], null);
         $this->setIfExists('amount', $data ?? [], null);
-        $this->setIfExists('transaction_date', $data ?? [], null);
-        $this->setIfExists('additional_info', $data ?? [], null);
+        $this->setIfExists('transactionDate', $data ?? [], null);
+        $this->setIfExists('additionalInfo', $data ?? [], null);
     }
 
     /**
@@ -303,27 +303,27 @@ class DanaAccountInquiryRequest implements ModelInterface, ArrayAccess, \JsonSer
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['partner_reference_no']) && (mb_strlen($this->container['partner_reference_no']) > 64)) {
-            $invalidProperties[] = "invalid value for 'partner_reference_no', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['partnerReferenceNo']) && (mb_strlen($this->container['partnerReferenceNo']) > 64)) {
+            $invalidProperties[] = "invalid value for 'partnerReferenceNo', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['customer_number']) && (mb_strlen($this->container['customer_number']) > 32)) {
-            $invalidProperties[] = "invalid value for 'customer_number', the character length must be smaller than or equal to 32.";
+        if (!is_null($this->container['customerNumber']) && (mb_strlen($this->container['customerNumber']) > 32)) {
+            $invalidProperties[] = "invalid value for 'customerNumber', the character length must be smaller than or equal to 32.";
         }
 
         if ($this->container['amount'] === null) {
             $invalidProperties[] = "'amount' can't be null";
         }
-        if (!is_null($this->container['transaction_date']) && (mb_strlen($this->container['transaction_date']) > 25)) {
-            $invalidProperties[] = "invalid value for 'transaction_date', the character length must be smaller than or equal to 25.";
+        if (!is_null($this->container['transactionDate']) && (mb_strlen($this->container['transactionDate']) > 25)) {
+            $invalidProperties[] = "invalid value for 'transactionDate', the character length must be smaller than or equal to 25.";
         }
 
-        if (!is_null($this->container['transaction_date']) && !preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['transaction_date'])) {
-            $invalidProperties[] = "invalid value for 'transaction_date', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
+        if (!is_null($this->container['transactionDate']) && !preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['transactionDate'])) {
+            $invalidProperties[] = "invalid value for 'transactionDate', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
         }
 
-        if ($this->container['additional_info'] === null) {
-            $invalidProperties[] = "'additional_info' can't be null";
+        if ($this->container['additionalInfo'] === null) {
+            $invalidProperties[] = "'additionalInfo' can't be null";
         }
         return $invalidProperties;
     }
@@ -341,63 +341,63 @@ class DanaAccountInquiryRequest implements ModelInterface, ArrayAccess, \JsonSer
 
 
     /**
-     * Gets partner_reference_no
+     * Gets partnerReferenceNo
      *
      * @return string|null
      */
     public function getPartnerReferenceNo()
     {
-        return $this->container['partner_reference_no'];
+        return $this->container['partnerReferenceNo'];
     }
 
     /**
-     * Sets partner_reference_no
+     * Sets partnerReferenceNo
      *
-     * @param string|null $partner_reference_no Unique transaction identifier on partner system which assigned to each transaction<br> Notes:<br> If the partner receives a timeout or an unexpected response from DANA and partner expects to perform retry request to DANA, please use the partnerReferenceNo that is the same as the one used in the transaction request process before
+     * @param string|null $partnerReferenceNo Unique transaction identifier on partner system which assigned to each transaction<br> Notes:<br> If the partner receives a timeout or an unexpected response from DANA and partner expects to perform retry request to DANA, please use the partnerReferenceNo that is the same as the one used in the transaction request process before
      *
      * @return self
      */
-    public function setPartnerReferenceNo($partner_reference_no)
+    public function setPartnerReferenceNo($partnerReferenceNo)
     {
-        if (is_null($partner_reference_no)) {
-            throw new \InvalidArgumentException('non-nullable partner_reference_no cannot be null');
+        if (is_null($partnerReferenceNo)) {
+            throw new \InvalidArgumentException('non-nullable partnerReferenceNo cannot be null');
         }
-        if ((mb_strlen($partner_reference_no) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $partner_reference_no when calling DanaAccountInquiryRequest., must be smaller than or equal to 64.');
+        if ((mb_strlen($partnerReferenceNo) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $partnerReferenceNo when calling DanaAccountInquiryRequest., must be smaller than or equal to 64.');
         }
 
-        $this->container['partner_reference_no'] = $partner_reference_no;
+        $this->container['partnerReferenceNo'] = $partnerReferenceNo;
 
         return $this;
     }
 
     /**
-     * Gets customer_number
+     * Gets customerNumber
      *
      * @return string|null
      */
     public function getCustomerNumber()
     {
-        return $this->container['customer_number'];
+        return $this->container['customerNumber'];
     }
 
     /**
-     * Sets customer_number
+     * Sets customerNumber
      *
-     * @param string|null $customer_number Customer account number, in format 628xxx
+     * @param string|null $customerNumber Customer account number, in format 628xxx
      *
      * @return self
      */
-    public function setCustomerNumber($customer_number)
+    public function setCustomerNumber($customerNumber)
     {
-        if (is_null($customer_number)) {
-            throw new \InvalidArgumentException('non-nullable customer_number cannot be null');
+        if (is_null($customerNumber)) {
+            throw new \InvalidArgumentException('non-nullable customerNumber cannot be null');
         }
-        if ((mb_strlen($customer_number) > 32)) {
-            throw new \InvalidArgumentException('invalid length for $customer_number when calling DanaAccountInquiryRequest., must be smaller than or equal to 32.');
+        if ((mb_strlen($customerNumber) > 32)) {
+            throw new \InvalidArgumentException('invalid length for $customerNumber when calling DanaAccountInquiryRequest., must be smaller than or equal to 32.');
         }
 
-        $this->container['customer_number'] = $customer_number;
+        $this->container['customerNumber'] = $customerNumber;
 
         return $this;
     }
@@ -430,62 +430,62 @@ class DanaAccountInquiryRequest implements ModelInterface, ArrayAccess, \JsonSer
     }
 
     /**
-     * Gets transaction_date
+     * Gets transactionDate
      *
      * @return string|null
      */
     public function getTransactionDate()
     {
-        return $this->container['transaction_date'];
+        return $this->container['transactionDate'];
     }
 
     /**
-     * Sets transaction_date
+     * Sets transactionDate
      *
-     * @param string|null $transaction_date Transaction date, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time)
+     * @param string|null $transactionDate Transaction date, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time)
      *
      * @return self
      */
-    public function setTransactionDate($transaction_date)
+    public function setTransactionDate($transactionDate)
     {
-        if (is_null($transaction_date)) {
-            throw new \InvalidArgumentException('non-nullable transaction_date cannot be null');
+        if (is_null($transactionDate)) {
+            throw new \InvalidArgumentException('non-nullable transactionDate cannot be null');
         }
-        if ((mb_strlen($transaction_date) > 25)) {
-            throw new \InvalidArgumentException('invalid length for $transaction_date when calling DanaAccountInquiryRequest., must be smaller than or equal to 25.');
+        if ((mb_strlen($transactionDate) > 25)) {
+            throw new \InvalidArgumentException('invalid length for $transactionDate when calling DanaAccountInquiryRequest., must be smaller than or equal to 25.');
         }
-        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($transaction_date)))) {
-            throw new \InvalidArgumentException("invalid value for \$transaction_date when calling DanaAccountInquiryRequest., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
+        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($transactionDate)))) {
+            throw new \InvalidArgumentException("invalid value for \$transactionDate when calling DanaAccountInquiryRequest., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
         }
 
-        $this->container['transaction_date'] = $transaction_date;
+        $this->container['transactionDate'] = $transactionDate;
 
         return $this;
     }
 
     /**
-     * Gets additional_info
+     * Gets additionalInfo
      *
      * @return \Dana\Disbursement\v1\Model\DanaAccountInquiryRequestAdditionalInfo
      */
     public function getAdditionalInfo()
     {
-        return $this->container['additional_info'];
+        return $this->container['additionalInfo'];
     }
 
     /**
-     * Sets additional_info
+     * Sets additionalInfo
      *
-     * @param \Dana\Disbursement\v1\Model\DanaAccountInquiryRequestAdditionalInfo $additional_info additional_info
+     * @param \Dana\Disbursement\v1\Model\DanaAccountInquiryRequestAdditionalInfo $additionalInfo additionalInfo
      *
      * @return self
      */
-    public function setAdditionalInfo($additional_info)
+    public function setAdditionalInfo($additionalInfo)
     {
-        if (is_null($additional_info)) {
-            throw new \InvalidArgumentException('non-nullable additional_info cannot be null');
+        if (is_null($additionalInfo)) {
+            throw new \InvalidArgumentException('non-nullable additionalInfo cannot be null');
         }
-        $this->container['additional_info'] = $additional_info;
+        $this->container['additionalInfo'] = $additionalInfo;
 
         return $this;
     }

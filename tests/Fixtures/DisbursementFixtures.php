@@ -75,15 +75,15 @@ class DisbursementFixtures
     public static function getDanaAccountInquiryRequest(): DanaAccountInquiryRequest
     {
         $additionalInfo = new DanaAccountInquiryRequestAdditionalInfo([
-            'fund_type' => 'AGENT_TOPUP_FOR_USER_SETTLE'
+            'fundType' => 'AGENT_TOPUP_FOR_USER_SETTLE'
         ]);
 
         return new DanaAccountInquiryRequest([
-            'partner_reference_no' => self::generatePartnerReferenceNo('ACCINQ-'),
-            'customer_number' => '62811742234',
+            'partnerReferenceNo' => self::generatePartnerReferenceNo('ACCINQ-'),
+            'customerNumber' => '62811742234',
             'amount' => self::createMoney('1.00'),
-            'transaction_date' => self::getCurrentTransactionDate(),
-            'additional_info' => $additionalInfo
+            'transactionDate' => self::getCurrentTransactionDate(),
+            'additionalInfo' => $additionalInfo
         ]);
     }
 
@@ -96,16 +96,16 @@ class DisbursementFixtures
     public static function getBankAccountInquiryRequest(): BankAccountInquiryRequest
     {
         $additionalInfo = new BankAccountInquiryRequestAdditionalInfo([
-            'fund_type' => 'MERCHANT_WITHDRAW_FOR_CORPORATE',
-            'beneficiary_bank_code' => '014'
+            'fundType' => 'MERCHANT_WITHDRAW_FOR_CORPORATE',
+            'beneficiaryBankCode' => '014'
         ]);
 
         return new BankAccountInquiryRequest([
-            'partner_reference_no' => self::generatePartnerReferenceNo('BANKINQ-'),
-            'customer_number' => '62811742234',
-            'beneficiary_account_number' => '2460888509',
+            'partnerReferenceNo' => self::generatePartnerReferenceNo('BANKINQ-'),
+            'customerNumber' => '62811742234',
+            'beneficiaryAccountNumber' => '2460888509',
             'amount' => self::createMoney('50000.00'),
-            'additional_info' => $additionalInfo
+            'additionalInfo' => $additionalInfo
         ]);
     }
 
@@ -118,16 +118,16 @@ class DisbursementFixtures
     public static function getTransferToBankRequest(): TransferToBankRequest
     {
         $additionalInfo = new TransferToBankRequestAdditionalInfo([
-            'fund_type' => 'MERCHANT_WITHDRAW_FOR_CORPORATE'
+            'fundType' => 'MERCHANT_WITHDRAW_FOR_CORPORATE'
         ]);
 
         return new TransferToBankRequest([
-            'partner_reference_no' => self::generatePartnerReferenceNo('TRANSFER-'),
-            'customer_number' => '62811742234',
-            'beneficiary_account_number' => '2460888509',
-            'beneficiary_bank_code' => '014',
+            'partnerReferenceNo' => self::generatePartnerReferenceNo('TRANSFER-'),
+            'customerNumber' => '62811742234',
+            'beneficiaryAccountNumber' => '2460888509',
+            'beneficiaryBankCode' => '014',
             'amount' => self::createMoney('50000.00'),
-            'additional_info' => $additionalInfo
+            'additionalInfo' => $additionalInfo
         ]);
     }
 
@@ -140,8 +140,8 @@ class DisbursementFixtures
     public static function getTransferToBankInquiryStatusRequest(?string $originalPartnerReferenceNo = null): TransferToBankInquiryStatusRequest
     {
         return new TransferToBankInquiryStatusRequest([
-            'original_partner_reference_no' => $originalPartnerReferenceNo ?: self::generatePartnerReferenceNo('TRANSFER-'),
-            'service_code' => '00'  // Service code for transfer to bank inquiry status
+            'originalPartnerReferenceNo' => $originalPartnerReferenceNo ?: self::generatePartnerReferenceNo('TRANSFER-'),
+            'serviceCode' => '00'  // Service code for transfer to bank inquiry status
         ]);
     }
 
@@ -153,16 +153,16 @@ class DisbursementFixtures
     public static function getTransferToDanaRequest(): TransferToDanaRequest
     {
         $additionalInfo = new TransferToDanaRequestAdditionalInfo([
-            'fund_type' => 'AGENT_TOPUP_FOR_USER_SETTLE'
+            'fundType' => 'AGENT_TOPUP_FOR_USER_SETTLE'
         ]);
 
         return new TransferToDanaRequest([
-            'partner_reference_no' => self::generatePartnerReferenceNo('TOPUP-'),
-            'customer_number' => '62811742234',
+            'partnerReferenceNo' => self::generatePartnerReferenceNo('TOPUP-'),
+            'customerNumber' => '62811742234',
             'amount' => self::createMoney('1.00'),
-            'fee_amount' => self::createMoney('1.00'),
-            'transaction_date' => self::getCurrentTransactionDate(),
-            'additional_info' => $additionalInfo
+            'feeAmount' => self::createMoney('1.00'),
+            'transactionDate' => self::getCurrentTransactionDate(),
+            'additionalInfo' => $additionalInfo
         ]);
     }
 
@@ -175,8 +175,8 @@ class DisbursementFixtures
     public static function getTransferToDanaInquiryStatusRequest(?string $originalPartnerReferenceNo = null): TransferToDanaInquiryStatusRequest
     {
         return new TransferToDanaInquiryStatusRequest([
-            'original_partner_reference_no' => $originalPartnerReferenceNo ?: self::generatePartnerReferenceNo('TOPUP-'),
-            'service_code' => '38'  // Service code for transfer to DANA
+            'originalPartnerReferenceNo' => $originalPartnerReferenceNo ?: self::generatePartnerReferenceNo('TOPUP-'),
+            'serviceCode' => '38'  // Service code for transfer to DANA
         ]);
     }
 
@@ -189,15 +189,15 @@ class DisbursementFixtures
     public static function getDynamicDanaAccountInquiryRequest(): DanaAccountInquiryRequest
     {
         $additionalInfo = new DanaAccountInquiryRequestAdditionalInfo([
-            'fund_type' => 'AGENT_TOPUP_FOR_USER_SETTLE'
+            'fundType' => 'AGENT_TOPUP_FOR_USER_SETTLE'
         ]);
 
         return new DanaAccountInquiryRequest([
-            'partner_reference_no' => self::generatePartnerReferenceNo('ACCINQ-' . time() . '-'),
-            'customer_number' => '62811742234',
+            'partnerReferenceNo' => self::generatePartnerReferenceNo('ACCINQ-' . time() . '-'),
+            'customerNumber' => '62811742234',
             'amount' => self::createMoney('1.00'),
-            'transaction_date' => self::getCurrentTransactionDate(),
-            'additional_info' => $additionalInfo
+            'transactionDate' => self::getCurrentTransactionDate(),
+            'additionalInfo' => $additionalInfo
         ]);
     }
 
@@ -209,18 +209,18 @@ class DisbursementFixtures
     public static function getDynamicTransferToDanaRequest(): TransferToDanaRequest
     {
         $additionalInfo = new TransferToDanaRequestAdditionalInfo([
-            'fund_type' => 'AGENT_TOPUP_FOR_USER_SETTLE',
-            'account_type' => 'DANA_WALLET'
+            'fundType' => 'AGENT_TOPUP_FOR_USER_SETTLE',
+            'accountType' => 'DANA_WALLET'
         ]);
 
         return new TransferToDanaRequest([
-            'partner_reference_no' => self::generatePartnerReferenceNo('TOPUP-' . time() . '-'),
-            'customer_number' => '62811742234',
+            'partnerReferenceNo' => self::generatePartnerReferenceNo('TOPUP-' . time() . '-'),
+            'customerNumber' => '62811742234',
             'amount' => self::createMoney('1.00'),
-            'fee_amount' => self::createMoney('1.00'),
-            'transaction_date' => self::getCurrentTransactionDate(),
+            'feeAmount' => self::createMoney('1.00'),
+            'transactionDate' => self::getCurrentTransactionDate(),
             'notes' => 'Test transfer to DANA',
-            'additional_info' => $additionalInfo
+            'additionalInfo' => $additionalInfo
         ]);
     }
 
@@ -232,12 +232,12 @@ class DisbursementFixtures
     public static function getDynamicBankAccountInquiryRequest(): BankAccountInquiryRequest
     {
         $additionalInfo = new BankAccountInquiryRequestAdditionalInfo([
-            'fund_type' => 'MERCHANT_WITHDRAW_FOR_CORPORATE',
-            'beneficiary_bank_code' => '014'
+            'fundType' => 'MERCHANT_WITHDRAW_FOR_CORPORATE',
+            'beneficiaryBankCode' => '014'
         ]);
 
         return new BankAccountInquiryRequest([
-            'partner_reference_no' => self::generatePartnerReferenceNo('BANKINQ-' . time() . '-'),
+            'partnerReferenceNo' => self::generatePartnerReferenceNo('BANKINQ-' . time() . '-'),
             'customer_number' => '62811742234',
             'beneficiary_account_number' => '2460888509',
             'amount' => self::createMoney('1.00'),
@@ -253,16 +253,16 @@ class DisbursementFixtures
     public static function getDynamicTransferToBankRequest(): TransferToBankRequest
     {
         $additionalInfo = new TransferToBankRequestAdditionalInfo([
-            'fund_type' => 'MERCHANT_WITHDRAW_FOR_CORPORATE'
+            'fundType' => 'MERCHANT_WITHDRAW_FOR_CORPORATE'
         ]);
 
         return new TransferToBankRequest([
-            'partner_reference_no' => self::generatePartnerReferenceNo('TRANSFER-' . time() . '-'),
-            'customer_number' => '62811742234',
-            'beneficiary_account_number' => '2460888509',
-            'beneficiary_bank_code' => '014',
+            'partnerReferenceNo' => self::generatePartnerReferenceNo('TRANSFER-' . time() . '-'),
+            'customerNumber' => '62811742234',
+            'beneficiaryAccountNumber' => '2460888509',
+            'beneficiaryBankCode' => '014',
             'amount' => self::createMoney('1.00'),
-            'additional_info' => $additionalInfo
+            'additionalInfo' => $additionalInfo
         ]);
     }
 } 

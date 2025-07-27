@@ -59,12 +59,12 @@ class TransferToBankRequestAdditionalInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'fund_type' => 'string',
-        'external_division_id' => 'string',
-        'charge_target' => 'string',
-        'need_notify' => 'bool',
-        'beneficiary_account_name' => 'string',
-        'access_token' => 'string'
+        'fundType' => 'string',
+        'externalDivisionId' => 'string',
+        'chargeTarget' => 'string',
+        'needNotify' => 'bool',
+        'beneficiaryAccountName' => 'string',
+        'accessToken' => 'string'
     ];
 
     /**
@@ -75,12 +75,12 @@ class TransferToBankRequestAdditionalInfo implements ModelInterface, ArrayAccess
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'fund_type' => null,
-        'external_division_id' => null,
-        'charge_target' => null,
-        'need_notify' => null,
-        'beneficiary_account_name' => null,
-        'access_token' => null
+        'fundType' => null,
+        'externalDivisionId' => null,
+        'chargeTarget' => null,
+        'needNotify' => null,
+        'beneficiaryAccountName' => null,
+        'accessToken' => null
     ];
 
     /**
@@ -89,12 +89,12 @@ class TransferToBankRequestAdditionalInfo implements ModelInterface, ArrayAccess
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'fund_type' => false,
-        'external_division_id' => false,
-        'charge_target' => false,
-        'need_notify' => false,
-        'beneficiary_account_name' => false,
-        'access_token' => false
+        'fundType' => false,
+        'externalDivisionId' => false,
+        'chargeTarget' => false,
+        'needNotify' => false,
+        'beneficiaryAccountName' => false,
+        'accessToken' => false
     ];
 
     /**
@@ -183,12 +183,12 @@ class TransferToBankRequestAdditionalInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'fund_type' => 'fundType',
-        'external_division_id' => 'externalDivisionId',
-        'charge_target' => 'chargeTarget',
-        'need_notify' => 'needNotify',
-        'beneficiary_account_name' => 'beneficiaryAccountName',
-        'access_token' => 'accessToken'
+        'fundType' => 'fundType',
+        'externalDivisionId' => 'externalDivisionId',
+        'chargeTarget' => 'chargeTarget',
+        'needNotify' => 'needNotify',
+        'beneficiaryAccountName' => 'beneficiaryAccountName',
+        'accessToken' => 'accessToken'
     ];
 
     /**
@@ -197,12 +197,12 @@ class TransferToBankRequestAdditionalInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'fund_type' => 'setFundType',
-        'external_division_id' => 'setExternalDivisionId',
-        'charge_target' => 'setChargeTarget',
-        'need_notify' => 'setNeedNotify',
-        'beneficiary_account_name' => 'setBeneficiaryAccountName',
-        'access_token' => 'setAccessToken'
+        'fundType' => 'setFundType',
+        'externalDivisionId' => 'setExternalDivisionId',
+        'chargeTarget' => 'setChargeTarget',
+        'needNotify' => 'setNeedNotify',
+        'beneficiaryAccountName' => 'setBeneficiaryAccountName',
+        'accessToken' => 'setAccessToken'
     ];
 
     /**
@@ -211,12 +211,12 @@ class TransferToBankRequestAdditionalInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'fund_type' => 'getFundType',
-        'external_division_id' => 'getExternalDivisionId',
-        'charge_target' => 'getChargeTarget',
-        'need_notify' => 'getNeedNotify',
-        'beneficiary_account_name' => 'getBeneficiaryAccountName',
-        'access_token' => 'getAccessToken'
+        'fundType' => 'getFundType',
+        'externalDivisionId' => 'getExternalDivisionId',
+        'chargeTarget' => 'getChargeTarget',
+        'needNotify' => 'getNeedNotify',
+        'beneficiaryAccountName' => 'getBeneficiaryAccountName',
+        'accessToken' => 'getAccessToken'
     ];
 
     /**
@@ -291,12 +291,12 @@ class TransferToBankRequestAdditionalInfo implements ModelInterface, ArrayAccess
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('fund_type', $data ?? [], null);
-        $this->setIfExists('external_division_id', $data ?? [], null);
-        $this->setIfExists('charge_target', $data ?? [], null);
-        $this->setIfExists('need_notify', $data ?? [], null);
-        $this->setIfExists('beneficiary_account_name', $data ?? [], null);
-        $this->setIfExists('access_token', $data ?? [], null);
+        $this->setIfExists('fundType', $data ?? [], null);
+        $this->setIfExists('externalDivisionId', $data ?? [], null);
+        $this->setIfExists('chargeTarget', $data ?? [], null);
+        $this->setIfExists('needNotify', $data ?? [], null);
+        $this->setIfExists('beneficiaryAccountName', $data ?? [], null);
+        $this->setIfExists('accessToken', $data ?? [], null);
     }
 
     /**
@@ -326,36 +326,36 @@ class TransferToBankRequestAdditionalInfo implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['fund_type'] === null) {
-            $invalidProperties[] = "'fund_type' can't be null";
+        if ($this->container['fundType'] === null) {
+            $invalidProperties[] = "'fundType' can't be null";
         }
-        if ((mb_strlen($this->container['fund_type']) > 64)) {
-            $invalidProperties[] = "invalid value for 'fund_type', the character length must be smaller than or equal to 64.";
+        if ((mb_strlen($this->container['fundType']) > 64)) {
+            $invalidProperties[] = "invalid value for 'fundType', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['external_division_id']) && (mb_strlen($this->container['external_division_id']) > 64)) {
-            $invalidProperties[] = "invalid value for 'external_division_id', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['externalDivisionId']) && (mb_strlen($this->container['externalDivisionId']) > 64)) {
+            $invalidProperties[] = "invalid value for 'externalDivisionId', the character length must be smaller than or equal to 64.";
         }
 
         $allowedValues = $this->getChargeTargetAllowableValues();
-        if (!is_null($this->container['charge_target']) && !in_array($this->container['charge_target'], $allowedValues, true)) {
+        if (!is_null($this->container['chargeTarget']) && !in_array($this->container['chargeTarget'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'charge_target', must be one of '%s'",
-                $this->container['charge_target'],
+                "invalid value '%s' for 'chargeTarget', must be one of '%s'",
+                $this->container['chargeTarget'],
                 implode("', '", $allowedValues)
             );
         }
 
-        if (!is_null($this->container['charge_target']) && (mb_strlen($this->container['charge_target']) > 64)) {
-            $invalidProperties[] = "invalid value for 'charge_target', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['chargeTarget']) && (mb_strlen($this->container['chargeTarget']) > 64)) {
+            $invalidProperties[] = "invalid value for 'chargeTarget', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['beneficiary_account_name']) && (mb_strlen($this->container['beneficiary_account_name']) > 64)) {
-            $invalidProperties[] = "invalid value for 'beneficiary_account_name', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['beneficiaryAccountName']) && (mb_strlen($this->container['beneficiaryAccountName']) > 64)) {
+            $invalidProperties[] = "invalid value for 'beneficiaryAccountName', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['access_token']) && (mb_strlen($this->container['access_token']) > 512)) {
-            $invalidProperties[] = "invalid value for 'access_token', the character length must be smaller than or equal to 512.";
+        if (!is_null($this->container['accessToken']) && (mb_strlen($this->container['accessToken']) > 512)) {
+            $invalidProperties[] = "invalid value for 'accessToken', the character length must be smaller than or equal to 512.";
         }
 
         return $invalidProperties;
@@ -374,193 +374,193 @@ class TransferToBankRequestAdditionalInfo implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets fund_type
+     * Gets fundType
      *
      * @return string
      */
     public function getFundType()
     {
-        return $this->container['fund_type'];
+        return $this->container['fundType'];
     }
 
     /**
-     * Sets fund_type
+     * Sets fundType
      *
-     * @param string $fund_type Additional information of withdraw fund type, i.e.<br> MERCHANT_WITHDRAW_FOR_CORPORATE
+     * @param string $fundType Additional information of withdraw fund type, i.e.<br> MERCHANT_WITHDRAW_FOR_CORPORATE
      *
      * @return self
      */
-    public function setFundType($fund_type)
+    public function setFundType($fundType)
     {
-        if (is_null($fund_type)) {
-            throw new \InvalidArgumentException('non-nullable fund_type cannot be null');
+        if (is_null($fundType)) {
+            throw new \InvalidArgumentException('non-nullable fundType cannot be null');
         }
-        if ((mb_strlen($fund_type) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $fund_type when calling TransferToBankRequestAdditionalInfo., must be smaller than or equal to 64.');
+        if ((mb_strlen($fundType) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $fundType when calling TransferToBankRequestAdditionalInfo., must be smaller than or equal to 64.');
         }
 
-        $this->container['fund_type'] = $fund_type;
+        $this->container['fundType'] = $fundType;
 
         return $this;
     }
 
     /**
-     * Gets external_division_id
+     * Gets externalDivisionId
      *
      * @return string|null
      */
     public function getExternalDivisionId()
     {
-        return $this->container['external_division_id'];
+        return $this->container['externalDivisionId'];
     }
 
     /**
-     * Sets external_division_id
+     * Sets externalDivisionId
      *
-     * @param string|null $external_division_id Additional information of external division identifier. (fundType: MERCHANT_WITHDRAW_FOR_CORPORATE)<br> Notes: The required of this parameter is Optional, but if \"additionalInfo.chargeTarget\" has value DIVISION then the required of this parameter will be changed to Mandatory
+     * @param string|null $externalDivisionId Additional information of external division identifier. (fundType: MERCHANT_WITHDRAW_FOR_CORPORATE)<br> Notes: The required of this parameter is Optional, but if \"additionalInfo.chargeTarget\" has value DIVISION then the required of this parameter will be changed to Mandatory
      *
      * @return self
      */
-    public function setExternalDivisionId($external_division_id)
+    public function setExternalDivisionId($externalDivisionId)
     {
-        if (is_null($external_division_id)) {
-            throw new \InvalidArgumentException('non-nullable external_division_id cannot be null');
+        if (is_null($externalDivisionId)) {
+            throw new \InvalidArgumentException('non-nullable externalDivisionId cannot be null');
         }
-        if ((mb_strlen($external_division_id) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $external_division_id when calling TransferToBankRequestAdditionalInfo., must be smaller than or equal to 64.');
+        if ((mb_strlen($externalDivisionId) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $externalDivisionId when calling TransferToBankRequestAdditionalInfo., must be smaller than or equal to 64.');
         }
 
-        $this->container['external_division_id'] = $external_division_id;
+        $this->container['externalDivisionId'] = $externalDivisionId;
 
         return $this;
     }
 
     /**
-     * Gets charge_target
+     * Gets chargeTarget
      *
      * @return string|null
      */
     public function getChargeTarget()
     {
-        return $this->container['charge_target'];
+        return $this->container['chargeTarget'];
     }
 
     /**
-     * Sets charge_target
+     * Sets chargeTarget
      *
-     * @param string|null $charge_target Additional information of charge target. The values are:<br> • null<br> • DIVISION<br> • MERCHANT<br> Notes: If the value is DIVISION, externalDivisionId will be Mandatory
+     * @param string|null $chargeTarget Additional information of charge target. The values are:<br> • null<br> • DIVISION<br> • MERCHANT<br> Notes: If the value is DIVISION, externalDivisionId will be Mandatory
      *
      * @return self
      */
-    public function setChargeTarget($charge_target)
+    public function setChargeTarget($chargeTarget)
     {
-        if (is_null($charge_target)) {
-            throw new \InvalidArgumentException('non-nullable charge_target cannot be null');
+        if (is_null($chargeTarget)) {
+            throw new \InvalidArgumentException('non-nullable chargeTarget cannot be null');
         }
         $allowedValues = $this->getChargeTargetAllowableValues();
-        if (!in_array($charge_target, $allowedValues, true) && !empty($charge_target)) {
+        if (!in_array($chargeTarget, $allowedValues, true) && !empty($chargeTarget)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'charge_target', must be one of '%s'",
-                    $charge_target,
+                    "Invalid value '%s' for 'chargeTarget', must be one of '%s'",
+                    $chargeTarget,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        if ((mb_strlen($charge_target) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $charge_target when calling TransferToBankRequestAdditionalInfo., must be smaller than or equal to 64.');
+        if ((mb_strlen($chargeTarget) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $chargeTarget when calling TransferToBankRequestAdditionalInfo., must be smaller than or equal to 64.');
         }
 
-        $this->container['charge_target'] = $charge_target;
+        $this->container['chargeTarget'] = $chargeTarget;
 
         return $this;
     }
 
     /**
-     * Gets need_notify
+     * Gets needNotify
      *
      * @return bool|null
      */
     public function getNeedNotify()
     {
-        return $this->container['need_notify'];
+        return $this->container['needNotify'];
     }
 
     /**
-     * Sets need_notify
+     * Sets needNotify
      *
-     * @param bool|null $need_notify Additional information of flag result notification on transaction completed (result sync/async)
+     * @param bool|null $needNotify Additional information of flag result notification on transaction completed (result sync/async)
      *
      * @return self
      */
-    public function setNeedNotify($need_notify)
+    public function setNeedNotify($needNotify)
     {
-        if (is_null($need_notify)) {
-            throw new \InvalidArgumentException('non-nullable need_notify cannot be null');
+        if (is_null($needNotify)) {
+            throw new \InvalidArgumentException('non-nullable needNotify cannot be null');
         }
-        $this->container['need_notify'] = $need_notify;
+        $this->container['needNotify'] = $needNotify;
 
         return $this;
     }
 
     /**
-     * Gets beneficiary_account_name
+     * Gets beneficiaryAccountName
      *
      * @return string|null
      */
     public function getBeneficiaryAccountName()
     {
-        return $this->container['beneficiary_account_name'];
+        return $this->container['beneficiaryAccountName'];
     }
 
     /**
-     * Sets beneficiary_account_name
+     * Sets beneficiaryAccountName
      *
-     * @param string|null $beneficiary_account_name Additional information of beneficiary account name for validation purpose
+     * @param string|null $beneficiaryAccountName Additional information of beneficiary account name for validation purpose
      *
      * @return self
      */
-    public function setBeneficiaryAccountName($beneficiary_account_name)
+    public function setBeneficiaryAccountName($beneficiaryAccountName)
     {
-        if (is_null($beneficiary_account_name)) {
-            throw new \InvalidArgumentException('non-nullable beneficiary_account_name cannot be null');
+        if (is_null($beneficiaryAccountName)) {
+            throw new \InvalidArgumentException('non-nullable beneficiaryAccountName cannot be null');
         }
-        if ((mb_strlen($beneficiary_account_name) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $beneficiary_account_name when calling TransferToBankRequestAdditionalInfo., must be smaller than or equal to 64.');
+        if ((mb_strlen($beneficiaryAccountName) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $beneficiaryAccountName when calling TransferToBankRequestAdditionalInfo., must be smaller than or equal to 64.');
         }
 
-        $this->container['beneficiary_account_name'] = $beneficiary_account_name;
+        $this->container['beneficiaryAccountName'] = $beneficiaryAccountName;
 
         return $this;
     }
 
     /**
-     * Gets access_token
+     * Gets accessToken
      *
      * @return string|null
      */
     public function getAccessToken()
     {
-        return $this->container['access_token'];
+        return $this->container['accessToken'];
     }
 
     /**
-     * Sets access_token
+     * Sets accessToken
      *
-     * @param string|null $access_token Contains customer token, which has been obtained from binding process, refer to Account Binding & Unbinding documentation<br> If request is coming from user interaction, this field is mandatory. If not, just filled customerNumber
+     * @param string|null $accessToken Contains customer token, which has been obtained from binding process, refer to Account Binding & Unbinding documentation<br> If request is coming from user interaction, this field is mandatory. If not, just filled customerNumber
      *
      * @return self
      */
-    public function setAccessToken($access_token)
+    public function setAccessToken($accessToken)
     {
-        if (is_null($access_token)) {
-            throw new \InvalidArgumentException('non-nullable access_token cannot be null');
+        if (is_null($accessToken)) {
+            throw new \InvalidArgumentException('non-nullable accessToken cannot be null');
         }
-        if ((mb_strlen($access_token) > 512)) {
-            throw new \InvalidArgumentException('invalid length for $access_token when calling TransferToBankRequestAdditionalInfo., must be smaller than or equal to 512.');
+        if ((mb_strlen($accessToken) > 512)) {
+            throw new \InvalidArgumentException('invalid length for $accessToken when calling TransferToBankRequestAdditionalInfo., must be smaller than or equal to 512.');
         }
 
-        $this->container['access_token'] = $access_token;
+        $this->container['accessToken'] = $accessToken;
 
         return $this;
     }

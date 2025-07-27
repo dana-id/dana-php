@@ -59,8 +59,8 @@ class ConsultPayRequestAdditionalInfo implements ModelInterface, ArrayAccess, \J
       */
     protected static $openAPITypes = [
         'buyer' => '\Dana\PaymentGateway\v1\Model\Buyer',
-        'env_info' => '\Dana\PaymentGateway\v1\Model\EnvInfo',
-        'merchant_trans_type' => 'string'
+        'envInfo' => '\Dana\PaymentGateway\v1\Model\EnvInfo',
+        'merchantTransType' => 'string'
     ];
 
     /**
@@ -72,8 +72,8 @@ class ConsultPayRequestAdditionalInfo implements ModelInterface, ArrayAccess, \J
       */
     protected static $openAPIFormats = [
         'buyer' => null,
-        'env_info' => null,
-        'merchant_trans_type' => null
+        'envInfo' => null,
+        'merchantTransType' => null
     ];
 
     /**
@@ -83,8 +83,8 @@ class ConsultPayRequestAdditionalInfo implements ModelInterface, ArrayAccess, \J
       */
     protected static array $openAPINullables = [
         'buyer' => false,
-        'env_info' => false,
-        'merchant_trans_type' => false
+        'envInfo' => false,
+        'merchantTransType' => false
     ];
 
     /**
@@ -174,8 +174,8 @@ class ConsultPayRequestAdditionalInfo implements ModelInterface, ArrayAccess, \J
      */
     protected static $attributeMap = [
         'buyer' => 'buyer',
-        'env_info' => 'envInfo',
-        'merchant_trans_type' => 'merchantTransType'
+        'envInfo' => 'envInfo',
+        'merchantTransType' => 'merchantTransType'
     ];
 
     /**
@@ -185,8 +185,8 @@ class ConsultPayRequestAdditionalInfo implements ModelInterface, ArrayAccess, \J
      */
     protected static $setters = [
         'buyer' => 'setBuyer',
-        'env_info' => 'setEnvInfo',
-        'merchant_trans_type' => 'setMerchantTransType'
+        'envInfo' => 'setEnvInfo',
+        'merchantTransType' => 'setMerchantTransType'
     ];
 
     /**
@@ -196,8 +196,8 @@ class ConsultPayRequestAdditionalInfo implements ModelInterface, ArrayAccess, \J
      */
     protected static $getters = [
         'buyer' => 'getBuyer',
-        'env_info' => 'getEnvInfo',
-        'merchant_trans_type' => 'getMerchantTransType'
+        'envInfo' => 'getEnvInfo',
+        'merchantTransType' => 'getMerchantTransType'
     ];
 
     /**
@@ -258,8 +258,8 @@ class ConsultPayRequestAdditionalInfo implements ModelInterface, ArrayAccess, \J
     public function __construct(?array $data = null)
     {
         $this->setIfExists('buyer', $data ?? [], null);
-        $this->setIfExists('env_info', $data ?? [], null);
-        $this->setIfExists('merchant_trans_type', $data ?? [], null);
+        $this->setIfExists('envInfo', $data ?? [], null);
+        $this->setIfExists('merchantTransType', $data ?? [], null);
     }
 
     /**
@@ -292,11 +292,11 @@ class ConsultPayRequestAdditionalInfo implements ModelInterface, ArrayAccess, \J
         if ($this->container['buyer'] === null) {
             $invalidProperties[] = "'buyer' can't be null";
         }
-        if ($this->container['env_info'] === null) {
-            $invalidProperties[] = "'env_info' can't be null";
+        if ($this->container['envInfo'] === null) {
+            $invalidProperties[] = "'envInfo' can't be null";
         }
-        if (!is_null($this->container['merchant_trans_type']) && (mb_strlen($this->container['merchant_trans_type']) > 64)) {
-            $invalidProperties[] = "invalid value for 'merchant_trans_type', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['merchantTransType']) && (mb_strlen($this->container['merchantTransType']) > 64)) {
+            $invalidProperties[] = "invalid value for 'merchantTransType', the character length must be smaller than or equal to 64.";
         }
 
         return $invalidProperties;
@@ -342,59 +342,59 @@ class ConsultPayRequestAdditionalInfo implements ModelInterface, ArrayAccess, \J
     }
 
     /**
-     * Gets env_info
+     * Gets envInfo
      *
      * @return \Dana\PaymentGateway\v1\Model\EnvInfo
      */
     public function getEnvInfo()
     {
-        return $this->container['env_info'];
+        return $this->container['envInfo'];
     }
 
     /**
-     * Sets env_info
+     * Sets envInfo
      *
-     * @param \Dana\PaymentGateway\v1\Model\EnvInfo $env_info Additional information of environment info
+     * @param \Dana\PaymentGateway\v1\Model\EnvInfo $envInfo Additional information of environment info
      *
      * @return self
      */
-    public function setEnvInfo($env_info)
+    public function setEnvInfo($envInfo)
     {
-        if (is_null($env_info)) {
-            throw new \InvalidArgumentException('non-nullable env_info cannot be null');
+        if (is_null($envInfo)) {
+            throw new \InvalidArgumentException('non-nullable envInfo cannot be null');
         }
-        $this->container['env_info'] = $env_info;
+        $this->container['envInfo'] = $envInfo;
 
         return $this;
     }
 
     /**
-     * Gets merchant_trans_type
+     * Gets merchantTransType
      *
      * @return string|null
      */
     public function getMerchantTransType()
     {
-        return $this->container['merchant_trans_type'];
+        return $this->container['merchantTransType'];
     }
 
     /**
-     * Sets merchant_trans_type
+     * Sets merchantTransType
      *
-     * @param string|null $merchant_trans_type Additional information of merchant transaction type
+     * @param string|null $merchantTransType Additional information of merchant transaction type
      *
      * @return self
      */
-    public function setMerchantTransType($merchant_trans_type)
+    public function setMerchantTransType($merchantTransType)
     {
-        if (is_null($merchant_trans_type)) {
-            throw new \InvalidArgumentException('non-nullable merchant_trans_type cannot be null');
+        if (is_null($merchantTransType)) {
+            throw new \InvalidArgumentException('non-nullable merchantTransType cannot be null');
         }
-        if ((mb_strlen($merchant_trans_type) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $merchant_trans_type when calling ConsultPayRequestAdditionalInfo., must be smaller than or equal to 64.');
+        if ((mb_strlen($merchantTransType) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $merchantTransType when calling ConsultPayRequestAdditionalInfo., must be smaller than or equal to 64.');
         }
 
-        $this->container['merchant_trans_type'] = $merchant_trans_type;
+        $this->container['merchantTransType'] = $merchantTransType;
 
         return $this;
     }

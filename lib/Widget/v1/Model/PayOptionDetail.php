@@ -58,13 +58,13 @@ class PayOptionDetail implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'pay_method' => 'string',
-        'pay_option' => 'string',
-        'trans_amount' => '\Dana\Widget\v1\Model\Money',
-        'fee_amount' => '\Dana\Widget\v1\Model\Money',
-        'card_token' => 'string',
-        'merchant_token' => 'string',
-        'additional_info' => '\Dana\Widget\v1\Model\PayOptionDetailAdditionalInfo'
+        'payMethod' => 'string',
+        'payOption' => 'string',
+        'transAmount' => '\Dana\Widget\v1\Model\Money',
+        'feeAmount' => '\Dana\Widget\v1\Model\Money',
+        'cardToken' => 'string',
+        'merchantToken' => 'string',
+        'additionalInfo' => '\Dana\Widget\v1\Model\PayOptionDetailAdditionalInfo'
     ];
 
     /**
@@ -75,13 +75,13 @@ class PayOptionDetail implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'pay_method' => null,
-        'pay_option' => null,
-        'trans_amount' => null,
-        'fee_amount' => null,
-        'card_token' => null,
-        'merchant_token' => null,
-        'additional_info' => null
+        'payMethod' => null,
+        'payOption' => null,
+        'transAmount' => null,
+        'feeAmount' => null,
+        'cardToken' => null,
+        'merchantToken' => null,
+        'additionalInfo' => null
     ];
 
     /**
@@ -90,13 +90,13 @@ class PayOptionDetail implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'pay_method' => false,
-        'pay_option' => false,
-        'trans_amount' => false,
-        'fee_amount' => false,
-        'card_token' => false,
-        'merchant_token' => false,
-        'additional_info' => false
+        'payMethod' => false,
+        'payOption' => false,
+        'transAmount' => false,
+        'feeAmount' => false,
+        'cardToken' => false,
+        'merchantToken' => false,
+        'additionalInfo' => false
     ];
 
     /**
@@ -185,13 +185,13 @@ class PayOptionDetail implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'pay_method' => 'payMethod',
-        'pay_option' => 'payOption',
-        'trans_amount' => 'transAmount',
-        'fee_amount' => 'feeAmount',
-        'card_token' => 'cardToken',
-        'merchant_token' => 'merchantToken',
-        'additional_info' => 'additionalInfo'
+        'payMethod' => 'payMethod',
+        'payOption' => 'payOption',
+        'transAmount' => 'transAmount',
+        'feeAmount' => 'feeAmount',
+        'cardToken' => 'cardToken',
+        'merchantToken' => 'merchantToken',
+        'additionalInfo' => 'additionalInfo'
     ];
 
     /**
@@ -200,13 +200,13 @@ class PayOptionDetail implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'pay_method' => 'setPayMethod',
-        'pay_option' => 'setPayOption',
-        'trans_amount' => 'setTransAmount',
-        'fee_amount' => 'setFeeAmount',
-        'card_token' => 'setCardToken',
-        'merchant_token' => 'setMerchantToken',
-        'additional_info' => 'setAdditionalInfo'
+        'payMethod' => 'setPayMethod',
+        'payOption' => 'setPayOption',
+        'transAmount' => 'setTransAmount',
+        'feeAmount' => 'setFeeAmount',
+        'cardToken' => 'setCardToken',
+        'merchantToken' => 'setMerchantToken',
+        'additionalInfo' => 'setAdditionalInfo'
     ];
 
     /**
@@ -215,13 +215,13 @@ class PayOptionDetail implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'pay_method' => 'getPayMethod',
-        'pay_option' => 'getPayOption',
-        'trans_amount' => 'getTransAmount',
-        'fee_amount' => 'getFeeAmount',
-        'card_token' => 'getCardToken',
-        'merchant_token' => 'getMerchantToken',
-        'additional_info' => 'getAdditionalInfo'
+        'payMethod' => 'getPayMethod',
+        'payOption' => 'getPayOption',
+        'transAmount' => 'getTransAmount',
+        'feeAmount' => 'getFeeAmount',
+        'cardToken' => 'getCardToken',
+        'merchantToken' => 'getMerchantToken',
+        'additionalInfo' => 'getAdditionalInfo'
     ];
 
     /**
@@ -281,13 +281,13 @@ class PayOptionDetail implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('pay_method', $data ?? [], null);
-        $this->setIfExists('pay_option', $data ?? [], null);
-        $this->setIfExists('trans_amount', $data ?? [], null);
-        $this->setIfExists('fee_amount', $data ?? [], null);
-        $this->setIfExists('card_token', $data ?? [], null);
-        $this->setIfExists('merchant_token', $data ?? [], null);
-        $this->setIfExists('additional_info', $data ?? [], null);
+        $this->setIfExists('payMethod', $data ?? [], null);
+        $this->setIfExists('payOption', $data ?? [], null);
+        $this->setIfExists('transAmount', $data ?? [], null);
+        $this->setIfExists('feeAmount', $data ?? [], null);
+        $this->setIfExists('cardToken', $data ?? [], null);
+        $this->setIfExists('merchantToken', $data ?? [], null);
+        $this->setIfExists('additionalInfo', $data ?? [], null);
     }
 
     /**
@@ -317,26 +317,26 @@ class PayOptionDetail implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['pay_method'] === null) {
-            $invalidProperties[] = "'pay_method' can't be null";
+        if ($this->container['payMethod'] === null) {
+            $invalidProperties[] = "'payMethod' can't be null";
         }
-        if ((mb_strlen($this->container['pay_method']) > 64)) {
-            $invalidProperties[] = "invalid value for 'pay_method', the character length must be smaller than or equal to 64.";
-        }
-
-        if ($this->container['pay_option'] === null) {
-            $invalidProperties[] = "'pay_option' can't be null";
-        }
-        if ((mb_strlen($this->container['pay_option']) > 64)) {
-            $invalidProperties[] = "invalid value for 'pay_option', the character length must be smaller than or equal to 64.";
+        if ((mb_strlen($this->container['payMethod']) > 64)) {
+            $invalidProperties[] = "invalid value for 'payMethod', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['card_token']) && (mb_strlen($this->container['card_token']) > 64)) {
-            $invalidProperties[] = "invalid value for 'card_token', the character length must be smaller than or equal to 64.";
+        if ($this->container['payOption'] === null) {
+            $invalidProperties[] = "'payOption' can't be null";
+        }
+        if ((mb_strlen($this->container['payOption']) > 64)) {
+            $invalidProperties[] = "invalid value for 'payOption', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['merchant_token']) && (mb_strlen($this->container['merchant_token']) > 64)) {
-            $invalidProperties[] = "invalid value for 'merchant_token', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['cardToken']) && (mb_strlen($this->container['cardToken']) > 64)) {
+            $invalidProperties[] = "invalid value for 'cardToken', the character length must be smaller than or equal to 64.";
+        }
+
+        if (!is_null($this->container['merchantToken']) && (mb_strlen($this->container['merchantToken']) > 64)) {
+            $invalidProperties[] = "invalid value for 'merchantToken', the character length must be smaller than or equal to 64.";
         }
 
         return $invalidProperties;
@@ -355,206 +355,206 @@ class PayOptionDetail implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets pay_method
+     * Gets payMethod
      *
      * @return string
      */
     public function getPayMethod()
     {
-        return $this->container['pay_method'];
+        return $this->container['payMethod'];
     }
 
     /**
-     * Sets pay_method
+     * Sets payMethod
      *
-     * @param string $pay_method Payment Method, e.g. CREDIT_CARD
+     * @param string $payMethod Payment Method, e.g. CREDIT_CARD
      *
      * @return self
      */
-    public function setPayMethod($pay_method)
+    public function setPayMethod($payMethod)
     {
-        if (is_null($pay_method)) {
-            throw new \InvalidArgumentException('non-nullable pay_method cannot be null');
+        if (is_null($payMethod)) {
+            throw new \InvalidArgumentException('non-nullable payMethod cannot be null');
         }
-        if ((mb_strlen($pay_method) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $pay_method when calling PayOptionDetail., must be smaller than or equal to 64.');
+        if ((mb_strlen($payMethod) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $payMethod when calling PayOptionDetail., must be smaller than or equal to 64.');
         }
 
-        $this->container['pay_method'] = $pay_method;
+        $this->container['payMethod'] = $payMethod;
 
         return $this;
     }
 
     /**
-     * Gets pay_option
+     * Gets payOption
      *
      * @return string
      */
     public function getPayOption()
     {
-        return $this->container['pay_option'];
+        return $this->container['payOption'];
     }
 
     /**
-     * Sets pay_option
+     * Sets payOption
      *
-     * @param string $pay_option Payment option which shows the provider of this payment e.g. CREDIT_CARD_VISA
+     * @param string $payOption Payment option which shows the provider of this payment e.g. CREDIT_CARD_VISA
      *
      * @return self
      */
-    public function setPayOption($pay_option)
+    public function setPayOption($payOption)
     {
-        if (is_null($pay_option)) {
-            throw new \InvalidArgumentException('non-nullable pay_option cannot be null');
+        if (is_null($payOption)) {
+            throw new \InvalidArgumentException('non-nullable payOption cannot be null');
         }
-        if ((mb_strlen($pay_option) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $pay_option when calling PayOptionDetail., must be smaller than or equal to 64.');
+        if ((mb_strlen($payOption) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $payOption when calling PayOptionDetail., must be smaller than or equal to 64.');
         }
 
-        $this->container['pay_option'] = $pay_option;
+        $this->container['payOption'] = $payOption;
 
         return $this;
     }
 
     /**
-     * Gets trans_amount
+     * Gets transAmount
      *
      * @return \Dana\Widget\v1\Model\Money|null
      */
     public function getTransAmount()
     {
-        return $this->container['trans_amount'];
+        return $this->container['transAmount'];
     }
 
     /**
-     * Sets trans_amount
+     * Sets transAmount
      *
-     * @param \Dana\Widget\v1\Model\Money|null $trans_amount Trans amount. Contains value and currency
+     * @param \Dana\Widget\v1\Model\Money|null $transAmount Trans amount. Contains value and currency
      *
      * @return self
      */
-    public function setTransAmount($trans_amount)
+    public function setTransAmount($transAmount)
     {
-        if (is_null($trans_amount)) {
-            throw new \InvalidArgumentException('non-nullable trans_amount cannot be null');
+        if (is_null($transAmount)) {
+            throw new \InvalidArgumentException('non-nullable transAmount cannot be null');
         }
-        $this->container['trans_amount'] = $trans_amount;
+        $this->container['transAmount'] = $transAmount;
 
         return $this;
     }
 
     /**
-     * Gets fee_amount
+     * Gets feeAmount
      *
      * @return \Dana\Widget\v1\Model\Money|null
      */
     public function getFeeAmount()
     {
-        return $this->container['fee_amount'];
+        return $this->container['feeAmount'];
     }
 
     /**
-     * Sets fee_amount
+     * Sets feeAmount
      *
-     * @param \Dana\Widget\v1\Model\Money|null $fee_amount Fee amount. Contains value and currency
+     * @param \Dana\Widget\v1\Model\Money|null $feeAmount Fee amount. Contains value and currency
      *
      * @return self
      */
-    public function setFeeAmount($fee_amount)
+    public function setFeeAmount($feeAmount)
     {
-        if (is_null($fee_amount)) {
-            throw new \InvalidArgumentException('non-nullable fee_amount cannot be null');
+        if (is_null($feeAmount)) {
+            throw new \InvalidArgumentException('non-nullable feeAmount cannot be null');
         }
-        $this->container['fee_amount'] = $fee_amount;
+        $this->container['feeAmount'] = $feeAmount;
 
         return $this;
     }
 
     /**
-     * Gets card_token
+     * Gets cardToken
      *
      * @return string|null
      */
     public function getCardToken()
     {
-        return $this->container['card_token'];
+        return $this->container['cardToken'];
     }
 
     /**
-     * Sets card_token
+     * Sets cardToken
      *
-     * @param string|null $card_token Card token used for this payment
+     * @param string|null $cardToken Card token used for this payment
      *
      * @return self
      */
-    public function setCardToken($card_token)
+    public function setCardToken($cardToken)
     {
-        if (is_null($card_token)) {
-            throw new \InvalidArgumentException('non-nullable card_token cannot be null');
+        if (is_null($cardToken)) {
+            throw new \InvalidArgumentException('non-nullable cardToken cannot be null');
         }
-        if ((mb_strlen($card_token) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $card_token when calling PayOptionDetail., must be smaller than or equal to 64.');
+        if ((mb_strlen($cardToken) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $cardToken when calling PayOptionDetail., must be smaller than or equal to 64.');
         }
 
-        $this->container['card_token'] = $card_token;
+        $this->container['cardToken'] = $cardToken;
 
         return $this;
     }
 
     /**
-     * Gets merchant_token
+     * Gets merchantToken
      *
      * @return string|null
      */
     public function getMerchantToken()
     {
-        return $this->container['merchant_token'];
+        return $this->container['merchantToken'];
     }
 
     /**
-     * Sets merchant_token
+     * Sets merchantToken
      *
-     * @param string|null $merchant_token Merchant token used for this payment
+     * @param string|null $merchantToken Merchant token used for this payment
      *
      * @return self
      */
-    public function setMerchantToken($merchant_token)
+    public function setMerchantToken($merchantToken)
     {
-        if (is_null($merchant_token)) {
-            throw new \InvalidArgumentException('non-nullable merchant_token cannot be null');
+        if (is_null($merchantToken)) {
+            throw new \InvalidArgumentException('non-nullable merchantToken cannot be null');
         }
-        if ((mb_strlen($merchant_token) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $merchant_token when calling PayOptionDetail., must be smaller than or equal to 64.');
+        if ((mb_strlen($merchantToken) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $merchantToken when calling PayOptionDetail., must be smaller than or equal to 64.');
         }
 
-        $this->container['merchant_token'] = $merchant_token;
+        $this->container['merchantToken'] = $merchantToken;
 
         return $this;
     }
 
     /**
-     * Gets additional_info
+     * Gets additionalInfo
      *
      * @return \Dana\Widget\v1\Model\PayOptionDetailAdditionalInfo|null
      */
     public function getAdditionalInfo()
     {
-        return $this->container['additional_info'];
+        return $this->container['additionalInfo'];
     }
 
     /**
-     * Sets additional_info
+     * Sets additionalInfo
      *
-     * @param \Dana\Widget\v1\Model\PayOptionDetailAdditionalInfo|null $additional_info additional_info
+     * @param \Dana\Widget\v1\Model\PayOptionDetailAdditionalInfo|null $additionalInfo additionalInfo
      *
      * @return self
      */
-    public function setAdditionalInfo($additional_info)
+    public function setAdditionalInfo($additionalInfo)
     {
-        if (is_null($additional_info)) {
-            throw new \InvalidArgumentException('non-nullable additional_info cannot be null');
+        if (is_null($additionalInfo)) {
+            throw new \InvalidArgumentException('non-nullable additionalInfo cannot be null');
         }
-        $this->container['additional_info'] = $additional_info;
+        $this->container['additionalInfo'] = $additionalInfo;
 
         return $this;
     }

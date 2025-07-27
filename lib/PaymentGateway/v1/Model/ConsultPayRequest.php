@@ -58,9 +58,9 @@ class ConsultPayRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'merchant_id' => 'string',
+        'merchantId' => 'string',
         'amount' => '\Dana\PaymentGateway\v1\Model\Money',
-        'additional_info' => '\Dana\PaymentGateway\v1\Model\ConsultPayRequestAdditionalInfo'
+        'additionalInfo' => '\Dana\PaymentGateway\v1\Model\ConsultPayRequestAdditionalInfo'
     ];
 
     /**
@@ -71,9 +71,9 @@ class ConsultPayRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'merchant_id' => null,
+        'merchantId' => null,
         'amount' => null,
-        'additional_info' => null
+        'additionalInfo' => null
     ];
 
     /**
@@ -82,9 +82,9 @@ class ConsultPayRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'merchant_id' => false,
+        'merchantId' => false,
         'amount' => false,
-        'additional_info' => false
+        'additionalInfo' => false
     ];
 
     /**
@@ -173,9 +173,9 @@ class ConsultPayRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'merchant_id' => 'merchantId',
+        'merchantId' => 'merchantId',
         'amount' => 'amount',
-        'additional_info' => 'additionalInfo'
+        'additionalInfo' => 'additionalInfo'
     ];
 
     /**
@@ -184,9 +184,9 @@ class ConsultPayRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'merchant_id' => 'setMerchantId',
+        'merchantId' => 'setMerchantId',
         'amount' => 'setAmount',
-        'additional_info' => 'setAdditionalInfo'
+        'additionalInfo' => 'setAdditionalInfo'
     ];
 
     /**
@@ -195,9 +195,9 @@ class ConsultPayRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'merchant_id' => 'getMerchantId',
+        'merchantId' => 'getMerchantId',
         'amount' => 'getAmount',
-        'additional_info' => 'getAdditionalInfo'
+        'additionalInfo' => 'getAdditionalInfo'
     ];
 
     /**
@@ -257,9 +257,9 @@ class ConsultPayRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('merchant_id', $data ?? [], null);
+        $this->setIfExists('merchantId', $data ?? [], null);
         $this->setIfExists('amount', $data ?? [], null);
-        $this->setIfExists('additional_info', $data ?? [], null);
+        $this->setIfExists('additionalInfo', $data ?? [], null);
     }
 
     /**
@@ -289,18 +289,18 @@ class ConsultPayRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
-        if ($this->container['merchant_id'] === null) {
-            $invalidProperties[] = "'merchant_id' can't be null";
+        if ($this->container['merchantId'] === null) {
+            $invalidProperties[] = "'merchantId' can't be null";
         }
-        if ((mb_strlen($this->container['merchant_id']) > 64)) {
-            $invalidProperties[] = "invalid value for 'merchant_id', the character length must be smaller than or equal to 64.";
+        if ((mb_strlen($this->container['merchantId']) > 64)) {
+            $invalidProperties[] = "invalid value for 'merchantId', the character length must be smaller than or equal to 64.";
         }
 
         if ($this->container['amount'] === null) {
             $invalidProperties[] = "'amount' can't be null";
         }
-        if ($this->container['additional_info'] === null) {
-            $invalidProperties[] = "'additional_info' can't be null";
+        if ($this->container['additionalInfo'] === null) {
+            $invalidProperties[] = "'additionalInfo' can't be null";
         }
         return $invalidProperties;
     }
@@ -318,32 +318,32 @@ class ConsultPayRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets merchant_id
+     * Gets merchantId
      *
      * @return string
      */
     public function getMerchantId()
     {
-        return $this->container['merchant_id'];
+        return $this->container['merchantId'];
     }
 
     /**
-     * Sets merchant_id
+     * Sets merchantId
      *
-     * @param string $merchant_id Merchant identifier that is unique per each merchant
+     * @param string $merchantId Merchant identifier that is unique per each merchant
      *
      * @return self
      */
-    public function setMerchantId($merchant_id)
+    public function setMerchantId($merchantId)
     {
-        if (is_null($merchant_id)) {
-            throw new \InvalidArgumentException('non-nullable merchant_id cannot be null');
+        if (is_null($merchantId)) {
+            throw new \InvalidArgumentException('non-nullable merchantId cannot be null');
         }
-        if ((mb_strlen($merchant_id) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $merchant_id when calling ConsultPayRequest., must be smaller than or equal to 64.');
+        if ((mb_strlen($merchantId) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $merchantId when calling ConsultPayRequest., must be smaller than or equal to 64.');
         }
 
-        $this->container['merchant_id'] = $merchant_id;
+        $this->container['merchantId'] = $merchantId;
 
         return $this;
     }
@@ -376,28 +376,28 @@ class ConsultPayRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     }
 
     /**
-     * Gets additional_info
+     * Gets additionalInfo
      *
      * @return \Dana\PaymentGateway\v1\Model\ConsultPayRequestAdditionalInfo
      */
     public function getAdditionalInfo()
     {
-        return $this->container['additional_info'];
+        return $this->container['additionalInfo'];
     }
 
     /**
-     * Sets additional_info
+     * Sets additionalInfo
      *
-     * @param \Dana\PaymentGateway\v1\Model\ConsultPayRequestAdditionalInfo $additional_info Additional information
+     * @param \Dana\PaymentGateway\v1\Model\ConsultPayRequestAdditionalInfo $additionalInfo Additional information
      *
      * @return self
      */
-    public function setAdditionalInfo($additional_info)
+    public function setAdditionalInfo($additionalInfo)
     {
-        if (is_null($additional_info)) {
-            throw new \InvalidArgumentException('non-nullable additional_info cannot be null');
+        if (is_null($additionalInfo)) {
+            throw new \InvalidArgumentException('non-nullable additionalInfo cannot be null');
         }
-        $this->container['additional_info'] = $additional_info;
+        $this->container['additionalInfo'] = $additionalInfo;
 
         return $this;
     }

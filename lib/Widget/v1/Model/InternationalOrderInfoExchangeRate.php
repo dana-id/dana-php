@@ -60,7 +60,7 @@ class InternationalOrderInfoExchangeRate implements ModelInterface, ArrayAccess,
       */
     protected static $openAPITypes = [
         'rate' => 'string',
-        'exchange_relation' => 'string'
+        'exchangeRelation' => 'string'
     ];
 
     /**
@@ -72,7 +72,7 @@ class InternationalOrderInfoExchangeRate implements ModelInterface, ArrayAccess,
       */
     protected static $openAPIFormats = [
         'rate' => null,
-        'exchange_relation' => null
+        'exchangeRelation' => null
     ];
 
     /**
@@ -82,7 +82,7 @@ class InternationalOrderInfoExchangeRate implements ModelInterface, ArrayAccess,
       */
     protected static array $openAPINullables = [
         'rate' => false,
-        'exchange_relation' => false
+        'exchangeRelation' => false
     ];
 
     /**
@@ -172,7 +172,7 @@ class InternationalOrderInfoExchangeRate implements ModelInterface, ArrayAccess,
      */
     protected static $attributeMap = [
         'rate' => 'rate',
-        'exchange_relation' => 'exchangeRelation'
+        'exchangeRelation' => 'exchangeRelation'
     ];
 
     /**
@@ -182,7 +182,7 @@ class InternationalOrderInfoExchangeRate implements ModelInterface, ArrayAccess,
      */
     protected static $setters = [
         'rate' => 'setRate',
-        'exchange_relation' => 'setExchangeRelation'
+        'exchangeRelation' => 'setExchangeRelation'
     ];
 
     /**
@@ -192,7 +192,7 @@ class InternationalOrderInfoExchangeRate implements ModelInterface, ArrayAccess,
      */
     protected static $getters = [
         'rate' => 'getRate',
-        'exchange_relation' => 'getExchangeRelation'
+        'exchangeRelation' => 'getExchangeRelation'
     ];
 
     /**
@@ -253,7 +253,7 @@ class InternationalOrderInfoExchangeRate implements ModelInterface, ArrayAccess,
     public function __construct(?array $data = null)
     {
         $this->setIfExists('rate', $data ?? [], null);
-        $this->setIfExists('exchange_relation', $data ?? [], null);
+        $this->setIfExists('exchangeRelation', $data ?? [], null);
     }
 
     /**
@@ -326,28 +326,28 @@ class InternationalOrderInfoExchangeRate implements ModelInterface, ArrayAccess,
     }
 
     /**
-     * Gets exchange_relation
+     * Gets exchangeRelation
      *
      * @return string|null
      */
     public function getExchangeRelation()
     {
-        return $this->container['exchange_relation'];
+        return $this->container['exchangeRelation'];
     }
 
     /**
-     * Sets exchange_relation
+     * Sets exchangeRelation
      *
-     * @param string|null $exchange_relation Exchange rate between two currencies. For example USD/IDR, refers to how much of one currency (in this case, Indonesian Rupiah or IDR) can be exchanged for one unit of another currency (in this case, US Dollar or USD)
+     * @param string|null $exchangeRelation Exchange rate between two currencies. For example USD/IDR, refers to how much of one currency (in this case, Indonesian Rupiah or IDR) can be exchanged for one unit of another currency (in this case, US Dollar or USD)
      *
      * @return self
      */
-    public function setExchangeRelation($exchange_relation)
+    public function setExchangeRelation($exchangeRelation)
     {
-        if (is_null($exchange_relation)) {
-            throw new \InvalidArgumentException('non-nullable exchange_relation cannot be null');
+        if (is_null($exchangeRelation)) {
+            throw new \InvalidArgumentException('non-nullable exchangeRelation cannot be null');
         }
-        $this->container['exchange_relation'] = $exchange_relation;
+        $this->container['exchangeRelation'] = $exchangeRelation;
 
         return $this;
     }

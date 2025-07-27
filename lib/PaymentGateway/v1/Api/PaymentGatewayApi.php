@@ -140,16 +140,16 @@ class PaymentGatewayApi
      *
      * Cancel Order - Payment Gateway
      *
-     * @param  \Dana\PaymentGateway\v1\Model\CancelOrderRequest $cancel_order_request cancel_order_request (required)
+     * @param  \Dana\PaymentGateway\v1\Model\CancelOrderRequest $cancelOrderRequest cancelOrderRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelOrder'] to see the possible values for this operation
      *
      * @throws \Dana\PaymentGateway\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Dana\PaymentGateway\v1\Model\CancelOrderResponse|\Dana\PaymentGateway\v1\Model\CancelOrderResponse
      */
-    public function cancelOrder($cancel_order_request, string $contentType = self::contentTypes['cancelOrder'][0])
+    public function cancelOrder($cancelOrderRequest, string $contentType = self::contentTypes['cancelOrder'][0])
     {
-        list($response) = $this->cancelOrderWithHttpInfo($cancel_order_request, $contentType);
+        list($response) = $this->cancelOrderWithHttpInfo($cancelOrderRequest, $contentType);
         return $response;
     }
 
@@ -158,16 +158,16 @@ class PaymentGatewayApi
      *
      * Cancel Order - Payment Gateway
      *
-     * @param  \Dana\PaymentGateway\v1\Model\CancelOrderRequest $cancel_order_request (required)
+     * @param  \Dana\PaymentGateway\v1\Model\CancelOrderRequest $cancelOrderRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelOrder'] to see the possible values for this operation
      *
      * @throws \Dana\PaymentGateway\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Dana\PaymentGateway\v1\Model\CancelOrderResponse|\Dana\PaymentGateway\v1\Model\CancelOrderResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cancelOrderWithHttpInfo($cancel_order_request, string $contentType = self::contentTypes['cancelOrder'][0])
+    public function cancelOrderWithHttpInfo($cancelOrderRequest, string $contentType = self::contentTypes['cancelOrder'][0])
     {
-        $request = $this->cancelOrderRequest($cancel_order_request, $contentType);
+        $request = $this->cancelOrderRequest($cancelOrderRequest, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -318,15 +318,15 @@ class PaymentGatewayApi
      *
      * Cancel Order - Payment Gateway
      *
-     * @param  \Dana\PaymentGateway\v1\Model\CancelOrderRequest $cancel_order_request (required)
+     * @param  \Dana\PaymentGateway\v1\Model\CancelOrderRequest $cancelOrderRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelOrder'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelOrderAsync($cancel_order_request, string $contentType = self::contentTypes['cancelOrder'][0])
+    public function cancelOrderAsync($cancelOrderRequest, string $contentType = self::contentTypes['cancelOrder'][0])
     {
-        return $this->cancelOrderAsyncWithHttpInfo($cancel_order_request, $contentType)
+        return $this->cancelOrderAsyncWithHttpInfo($cancelOrderRequest, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -339,16 +339,16 @@ class PaymentGatewayApi
      *
      * Cancel Order - Payment Gateway
      *
-     * @param  \Dana\PaymentGateway\v1\Model\CancelOrderRequest $cancel_order_request (required)
+     * @param  \Dana\PaymentGateway\v1\Model\CancelOrderRequest $cancelOrderRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelOrder'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelOrderAsyncWithHttpInfo($cancel_order_request, string $contentType = self::contentTypes['cancelOrder'][0])
+    public function cancelOrderAsyncWithHttpInfo($cancelOrderRequest, string $contentType = self::contentTypes['cancelOrder'][0])
     {
         $returnType = '\Dana\PaymentGateway\v1\Model\CancelOrderResponse';
-        $request = $this->cancelOrderRequest($cancel_order_request, $contentType);
+        $request = $this->cancelOrderRequest($cancelOrderRequest, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -389,19 +389,19 @@ class PaymentGatewayApi
     /**
      * Create request for operation 'cancelOrder'
      *
-     * @param  \Dana\PaymentGateway\v1\Model\CancelOrderRequest $cancel_order_request (required)
+     * @param  \Dana\PaymentGateway\v1\Model\CancelOrderRequest $cancelOrderRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['cancelOrder'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function cancelOrderRequest($cancel_order_request, string $contentType = self::contentTypes['cancelOrder'][0])
+    public function cancelOrderRequest($cancelOrderRequest, string $contentType = self::contentTypes['cancelOrder'][0])
     {
 
-        // verify the required parameter 'cancel_order_request' is set
-        if ($cancel_order_request === null || (is_array($cancel_order_request) && count($cancel_order_request) === 0)) {
+        // verify the required parameter 'cancelOrderRequest' is set
+        if ($cancelOrderRequest === null || (is_array($cancelOrderRequest) && count($cancelOrderRequest) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $cancel_order_request when calling cancelOrder'
+                'Missing the required parameter $cancelOrderRequest when calling cancelOrder'
             );
         }
 
@@ -424,12 +424,12 @@ class PaymentGatewayApi
         );
 
         // for model (json/xml)
-        if (isset($cancel_order_request)) {
+        if (isset($cancelOrderRequest)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($cancel_order_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($cancelOrderRequest));
             } else {
-                $httpBody = $cancel_order_request;
+                $httpBody = $cancelOrderRequest;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -471,18 +471,18 @@ class PaymentGatewayApi
         $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
         $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
         $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
-        if (isset($cancel_order_request)) {
+        if (isset($cancelOrderRequest)) {
             $resourcePathForSignature = '/payment-gateway/v1.0/debit/cancel.htm';
-            if ($cancel_order_request !== null) {
+            if ($cancelOrderRequest !== null) {
                 $resourcePathForSignature = str_replace(
                     '{' . 'CancelOrderRequest' . '}',
-                    ObjectSerializer::toPathValue($cancel_order_request),
+                    ObjectSerializer::toPathValue($cancelOrderRequest),
                     $resourcePathForSignature
                 );
             }
 
             // Generate security headers using SnapHeader utility
-            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($cancel_order_request));
+            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($cancelOrderRequest));
             $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $clientKey, $privateKey, $privateKeyPath, "");
             
             // Add security headers to the request
@@ -506,16 +506,16 @@ class PaymentGatewayApi
      *
      * Consult Pay - Payment Gateway
      *
-     * @param  \Dana\PaymentGateway\v1\Model\ConsultPayRequest $consult_pay_request consult_pay_request (required)
+     * @param  \Dana\PaymentGateway\v1\Model\ConsultPayRequest $consultPayRequest consultPayRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['consultPay'] to see the possible values for this operation
      *
      * @throws \Dana\PaymentGateway\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Dana\PaymentGateway\v1\Model\ConsultPayResponse
      */
-    public function consultPay($consult_pay_request, string $contentType = self::contentTypes['consultPay'][0])
+    public function consultPay($consultPayRequest, string $contentType = self::contentTypes['consultPay'][0])
     {
-        list($response) = $this->consultPayWithHttpInfo($consult_pay_request, $contentType);
+        list($response) = $this->consultPayWithHttpInfo($consultPayRequest, $contentType);
         return $response;
     }
 
@@ -524,16 +524,16 @@ class PaymentGatewayApi
      *
      * Consult Pay - Payment Gateway
      *
-     * @param  \Dana\PaymentGateway\v1\Model\ConsultPayRequest $consult_pay_request (required)
+     * @param  \Dana\PaymentGateway\v1\Model\ConsultPayRequest $consultPayRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['consultPay'] to see the possible values for this operation
      *
      * @throws \Dana\PaymentGateway\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Dana\PaymentGateway\v1\Model\ConsultPayResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function consultPayWithHttpInfo($consult_pay_request, string $contentType = self::contentTypes['consultPay'][0])
+    public function consultPayWithHttpInfo($consultPayRequest, string $contentType = self::contentTypes['consultPay'][0])
     {
-        $request = $this->consultPayRequest($consult_pay_request, $contentType);
+        $request = $this->consultPayRequest($consultPayRequest, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -649,15 +649,15 @@ class PaymentGatewayApi
      *
      * Consult Pay - Payment Gateway
      *
-     * @param  \Dana\PaymentGateway\v1\Model\ConsultPayRequest $consult_pay_request (required)
+     * @param  \Dana\PaymentGateway\v1\Model\ConsultPayRequest $consultPayRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['consultPay'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function consultPayAsync($consult_pay_request, string $contentType = self::contentTypes['consultPay'][0])
+    public function consultPayAsync($consultPayRequest, string $contentType = self::contentTypes['consultPay'][0])
     {
-        return $this->consultPayAsyncWithHttpInfo($consult_pay_request, $contentType)
+        return $this->consultPayAsyncWithHttpInfo($consultPayRequest, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -670,16 +670,16 @@ class PaymentGatewayApi
      *
      * Consult Pay - Payment Gateway
      *
-     * @param  \Dana\PaymentGateway\v1\Model\ConsultPayRequest $consult_pay_request (required)
+     * @param  \Dana\PaymentGateway\v1\Model\ConsultPayRequest $consultPayRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['consultPay'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function consultPayAsyncWithHttpInfo($consult_pay_request, string $contentType = self::contentTypes['consultPay'][0])
+    public function consultPayAsyncWithHttpInfo($consultPayRequest, string $contentType = self::contentTypes['consultPay'][0])
     {
         $returnType = '\Dana\PaymentGateway\v1\Model\ConsultPayResponse';
-        $request = $this->consultPayRequest($consult_pay_request, $contentType);
+        $request = $this->consultPayRequest($consultPayRequest, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -720,19 +720,19 @@ class PaymentGatewayApi
     /**
      * Create request for operation 'consultPay'
      *
-     * @param  \Dana\PaymentGateway\v1\Model\ConsultPayRequest $consult_pay_request (required)
+     * @param  \Dana\PaymentGateway\v1\Model\ConsultPayRequest $consultPayRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['consultPay'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function consultPayRequest($consult_pay_request, string $contentType = self::contentTypes['consultPay'][0])
+    public function consultPayRequest($consultPayRequest, string $contentType = self::contentTypes['consultPay'][0])
     {
 
-        // verify the required parameter 'consult_pay_request' is set
-        if ($consult_pay_request === null || (is_array($consult_pay_request) && count($consult_pay_request) === 0)) {
+        // verify the required parameter 'consultPayRequest' is set
+        if ($consultPayRequest === null || (is_array($consultPayRequest) && count($consultPayRequest) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $consult_pay_request when calling consultPay'
+                'Missing the required parameter $consultPayRequest when calling consultPay'
             );
         }
 
@@ -755,12 +755,12 @@ class PaymentGatewayApi
         );
 
         // for model (json/xml)
-        if (isset($consult_pay_request)) {
+        if (isset($consultPayRequest)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($consult_pay_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($consultPayRequest));
             } else {
-                $httpBody = $consult_pay_request;
+                $httpBody = $consultPayRequest;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -802,18 +802,18 @@ class PaymentGatewayApi
         $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
         $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
         $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
-        if (isset($consult_pay_request)) {
+        if (isset($consultPayRequest)) {
             $resourcePathForSignature = '/v1.0/payment-gateway/consult-pay.htm';
-            if ($consult_pay_request !== null) {
+            if ($consultPayRequest !== null) {
                 $resourcePathForSignature = str_replace(
                     '{' . 'ConsultPayRequest' . '}',
-                    ObjectSerializer::toPathValue($consult_pay_request),
+                    ObjectSerializer::toPathValue($consultPayRequest),
                     $resourcePathForSignature
                 );
             }
 
             // Generate security headers using SnapHeader utility
-            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($consult_pay_request));
+            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($consultPayRequest));
             $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $clientKey, $privateKey, $privateKeyPath, "");
             
             // Add security headers to the request
@@ -837,16 +837,16 @@ class PaymentGatewayApi
      *
      * Create Order - Payment Gateway
      *
-     * @param  \Dana\PaymentGateway\v1\Model\CreateOrderRequest $create_order_request create_order_request (required)
+     * @param  \Dana\PaymentGateway\v1\Model\CreateOrderRequest $createOrderRequest createOrderRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createOrder'] to see the possible values for this operation
      *
      * @throws \Dana\PaymentGateway\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Dana\PaymentGateway\v1\Model\CreateOrderResponse
      */
-    public function createOrder($create_order_request, string $contentType = self::contentTypes['createOrder'][0])
+    public function createOrder($createOrderRequest, string $contentType = self::contentTypes['createOrder'][0])
     {
-        list($response) = $this->createOrderWithHttpInfo($create_order_request, $contentType);
+        list($response) = $this->createOrderWithHttpInfo($createOrderRequest, $contentType);
         return $response;
     }
 
@@ -855,16 +855,16 @@ class PaymentGatewayApi
      *
      * Create Order - Payment Gateway
      *
-     * @param  \Dana\PaymentGateway\v1\Model\CreateOrderRequest $create_order_request (required)
+     * @param  \Dana\PaymentGateway\v1\Model\CreateOrderRequest $createOrderRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createOrder'] to see the possible values for this operation
      *
      * @throws \Dana\PaymentGateway\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Dana\PaymentGateway\v1\Model\CreateOrderResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createOrderWithHttpInfo($create_order_request, string $contentType = self::contentTypes['createOrder'][0])
+    public function createOrderWithHttpInfo($createOrderRequest, string $contentType = self::contentTypes['createOrder'][0])
     {
-        $request = $this->createOrderRequest($create_order_request, $contentType);
+        $request = $this->createOrderRequest($createOrderRequest, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -980,15 +980,15 @@ class PaymentGatewayApi
      *
      * Create Order - Payment Gateway
      *
-     * @param  \Dana\PaymentGateway\v1\Model\CreateOrderRequest $create_order_request (required)
+     * @param  \Dana\PaymentGateway\v1\Model\CreateOrderRequest $createOrderRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createOrder'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createOrderAsync($create_order_request, string $contentType = self::contentTypes['createOrder'][0])
+    public function createOrderAsync($createOrderRequest, string $contentType = self::contentTypes['createOrder'][0])
     {
-        return $this->createOrderAsyncWithHttpInfo($create_order_request, $contentType)
+        return $this->createOrderAsyncWithHttpInfo($createOrderRequest, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1001,16 +1001,16 @@ class PaymentGatewayApi
      *
      * Create Order - Payment Gateway
      *
-     * @param  \Dana\PaymentGateway\v1\Model\CreateOrderRequest $create_order_request (required)
+     * @param  \Dana\PaymentGateway\v1\Model\CreateOrderRequest $createOrderRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createOrder'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createOrderAsyncWithHttpInfo($create_order_request, string $contentType = self::contentTypes['createOrder'][0])
+    public function createOrderAsyncWithHttpInfo($createOrderRequest, string $contentType = self::contentTypes['createOrder'][0])
     {
         $returnType = '\Dana\PaymentGateway\v1\Model\CreateOrderResponse';
-        $request = $this->createOrderRequest($create_order_request, $contentType);
+        $request = $this->createOrderRequest($createOrderRequest, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1051,19 +1051,19 @@ class PaymentGatewayApi
     /**
      * Create request for operation 'createOrder'
      *
-     * @param  \Dana\PaymentGateway\v1\Model\CreateOrderRequest $create_order_request (required)
+     * @param  \Dana\PaymentGateway\v1\Model\CreateOrderRequest $createOrderRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createOrder'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createOrderRequest($create_order_request, string $contentType = self::contentTypes['createOrder'][0])
+    public function createOrderRequest($createOrderRequest, string $contentType = self::contentTypes['createOrder'][0])
     {
 
-        // verify the required parameter 'create_order_request' is set
-        if ($create_order_request === null || (is_array($create_order_request) && count($create_order_request) === 0)) {
+        // verify the required parameter 'createOrderRequest' is set
+        if ($createOrderRequest === null || (is_array($createOrderRequest) && count($createOrderRequest) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $create_order_request when calling createOrder'
+                'Missing the required parameter $createOrderRequest when calling createOrder'
             );
         }
 
@@ -1086,12 +1086,12 @@ class PaymentGatewayApi
         );
 
         // for model (json/xml)
-        if (isset($create_order_request)) {
+        if (isset($createOrderRequest)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_order_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($createOrderRequest));
             } else {
-                $httpBody = $create_order_request;
+                $httpBody = $createOrderRequest;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1133,18 +1133,18 @@ class PaymentGatewayApi
         $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
         $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
         $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
-        if (isset($create_order_request)) {
+        if (isset($createOrderRequest)) {
             $resourcePathForSignature = '/payment-gateway/v1.0/debit/payment-host-to-host.htm';
-            if ($create_order_request !== null) {
+            if ($createOrderRequest !== null) {
                 $resourcePathForSignature = str_replace(
                     '{' . 'CreateOrderRequest' . '}',
-                    ObjectSerializer::toPathValue($create_order_request),
+                    ObjectSerializer::toPathValue($createOrderRequest),
                     $resourcePathForSignature
                 );
             }
 
             // Generate security headers using SnapHeader utility
-            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_order_request));
+            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($createOrderRequest));
             $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $clientKey, $privateKey, $privateKeyPath, "");
             
             // Add security headers to the request
@@ -1168,16 +1168,16 @@ class PaymentGatewayApi
      *
      * Query Payment - Payment Gateway
      *
-     * @param  \Dana\PaymentGateway\v1\Model\QueryPaymentRequest $query_payment_request query_payment_request (required)
+     * @param  \Dana\PaymentGateway\v1\Model\QueryPaymentRequest $queryPaymentRequest queryPaymentRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryPayment'] to see the possible values for this operation
      *
      * @throws \Dana\PaymentGateway\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Dana\PaymentGateway\v1\Model\QueryPaymentResponse
      */
-    public function queryPayment($query_payment_request, string $contentType = self::contentTypes['queryPayment'][0])
+    public function queryPayment($queryPaymentRequest, string $contentType = self::contentTypes['queryPayment'][0])
     {
-        list($response) = $this->queryPaymentWithHttpInfo($query_payment_request, $contentType);
+        list($response) = $this->queryPaymentWithHttpInfo($queryPaymentRequest, $contentType);
         return $response;
     }
 
@@ -1186,16 +1186,16 @@ class PaymentGatewayApi
      *
      * Query Payment - Payment Gateway
      *
-     * @param  \Dana\PaymentGateway\v1\Model\QueryPaymentRequest $query_payment_request (required)
+     * @param  \Dana\PaymentGateway\v1\Model\QueryPaymentRequest $queryPaymentRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryPayment'] to see the possible values for this operation
      *
      * @throws \Dana\PaymentGateway\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Dana\PaymentGateway\v1\Model\QueryPaymentResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function queryPaymentWithHttpInfo($query_payment_request, string $contentType = self::contentTypes['queryPayment'][0])
+    public function queryPaymentWithHttpInfo($queryPaymentRequest, string $contentType = self::contentTypes['queryPayment'][0])
     {
-        $request = $this->queryPaymentRequest($query_payment_request, $contentType);
+        $request = $this->queryPaymentRequest($queryPaymentRequest, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1311,15 +1311,15 @@ class PaymentGatewayApi
      *
      * Query Payment - Payment Gateway
      *
-     * @param  \Dana\PaymentGateway\v1\Model\QueryPaymentRequest $query_payment_request (required)
+     * @param  \Dana\PaymentGateway\v1\Model\QueryPaymentRequest $queryPaymentRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryPayment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function queryPaymentAsync($query_payment_request, string $contentType = self::contentTypes['queryPayment'][0])
+    public function queryPaymentAsync($queryPaymentRequest, string $contentType = self::contentTypes['queryPayment'][0])
     {
-        return $this->queryPaymentAsyncWithHttpInfo($query_payment_request, $contentType)
+        return $this->queryPaymentAsyncWithHttpInfo($queryPaymentRequest, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1332,16 +1332,16 @@ class PaymentGatewayApi
      *
      * Query Payment - Payment Gateway
      *
-     * @param  \Dana\PaymentGateway\v1\Model\QueryPaymentRequest $query_payment_request (required)
+     * @param  \Dana\PaymentGateway\v1\Model\QueryPaymentRequest $queryPaymentRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryPayment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function queryPaymentAsyncWithHttpInfo($query_payment_request, string $contentType = self::contentTypes['queryPayment'][0])
+    public function queryPaymentAsyncWithHttpInfo($queryPaymentRequest, string $contentType = self::contentTypes['queryPayment'][0])
     {
         $returnType = '\Dana\PaymentGateway\v1\Model\QueryPaymentResponse';
-        $request = $this->queryPaymentRequest($query_payment_request, $contentType);
+        $request = $this->queryPaymentRequest($queryPaymentRequest, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1382,19 +1382,19 @@ class PaymentGatewayApi
     /**
      * Create request for operation 'queryPayment'
      *
-     * @param  \Dana\PaymentGateway\v1\Model\QueryPaymentRequest $query_payment_request (required)
+     * @param  \Dana\PaymentGateway\v1\Model\QueryPaymentRequest $queryPaymentRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryPayment'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function queryPaymentRequest($query_payment_request, string $contentType = self::contentTypes['queryPayment'][0])
+    public function queryPaymentRequest($queryPaymentRequest, string $contentType = self::contentTypes['queryPayment'][0])
     {
 
-        // verify the required parameter 'query_payment_request' is set
-        if ($query_payment_request === null || (is_array($query_payment_request) && count($query_payment_request) === 0)) {
+        // verify the required parameter 'queryPaymentRequest' is set
+        if ($queryPaymentRequest === null || (is_array($queryPaymentRequest) && count($queryPaymentRequest) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $query_payment_request when calling queryPayment'
+                'Missing the required parameter $queryPaymentRequest when calling queryPayment'
             );
         }
 
@@ -1417,12 +1417,12 @@ class PaymentGatewayApi
         );
 
         // for model (json/xml)
-        if (isset($query_payment_request)) {
+        if (isset($queryPaymentRequest)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($query_payment_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($queryPaymentRequest));
             } else {
-                $httpBody = $query_payment_request;
+                $httpBody = $queryPaymentRequest;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1464,18 +1464,18 @@ class PaymentGatewayApi
         $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
         $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
         $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
-        if (isset($query_payment_request)) {
+        if (isset($queryPaymentRequest)) {
             $resourcePathForSignature = '/payment-gateway/v1.0/debit/status.htm';
-            if ($query_payment_request !== null) {
+            if ($queryPaymentRequest !== null) {
                 $resourcePathForSignature = str_replace(
                     '{' . 'QueryPaymentRequest' . '}',
-                    ObjectSerializer::toPathValue($query_payment_request),
+                    ObjectSerializer::toPathValue($queryPaymentRequest),
                     $resourcePathForSignature
                 );
             }
 
             // Generate security headers using SnapHeader utility
-            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($query_payment_request));
+            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($queryPaymentRequest));
             $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $clientKey, $privateKey, $privateKeyPath, "");
             
             // Add security headers to the request
@@ -1499,16 +1499,16 @@ class PaymentGatewayApi
      *
      * Refund Order - Payment Gateway
      *
-     * @param  \Dana\PaymentGateway\v1\Model\RefundOrderRequest $refund_order_request refund_order_request (required)
+     * @param  \Dana\PaymentGateway\v1\Model\RefundOrderRequest $refundOrderRequest refundOrderRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refundOrder'] to see the possible values for this operation
      *
      * @throws \Dana\PaymentGateway\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Dana\PaymentGateway\v1\Model\RefundOrderResponse|\Dana\PaymentGateway\v1\Model\RefundOrderResponse
      */
-    public function refundOrder($refund_order_request, string $contentType = self::contentTypes['refundOrder'][0])
+    public function refundOrder($refundOrderRequest, string $contentType = self::contentTypes['refundOrder'][0])
     {
-        list($response) = $this->refundOrderWithHttpInfo($refund_order_request, $contentType);
+        list($response) = $this->refundOrderWithHttpInfo($refundOrderRequest, $contentType);
         return $response;
     }
 
@@ -1517,16 +1517,16 @@ class PaymentGatewayApi
      *
      * Refund Order - Payment Gateway
      *
-     * @param  \Dana\PaymentGateway\v1\Model\RefundOrderRequest $refund_order_request (required)
+     * @param  \Dana\PaymentGateway\v1\Model\RefundOrderRequest $refundOrderRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refundOrder'] to see the possible values for this operation
      *
      * @throws \Dana\PaymentGateway\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Dana\PaymentGateway\v1\Model\RefundOrderResponse|\Dana\PaymentGateway\v1\Model\RefundOrderResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function refundOrderWithHttpInfo($refund_order_request, string $contentType = self::contentTypes['refundOrder'][0])
+    public function refundOrderWithHttpInfo($refundOrderRequest, string $contentType = self::contentTypes['refundOrder'][0])
     {
-        $request = $this->refundOrderRequest($refund_order_request, $contentType);
+        $request = $this->refundOrderRequest($refundOrderRequest, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1677,15 +1677,15 @@ class PaymentGatewayApi
      *
      * Refund Order - Payment Gateway
      *
-     * @param  \Dana\PaymentGateway\v1\Model\RefundOrderRequest $refund_order_request (required)
+     * @param  \Dana\PaymentGateway\v1\Model\RefundOrderRequest $refundOrderRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refundOrder'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function refundOrderAsync($refund_order_request, string $contentType = self::contentTypes['refundOrder'][0])
+    public function refundOrderAsync($refundOrderRequest, string $contentType = self::contentTypes['refundOrder'][0])
     {
-        return $this->refundOrderAsyncWithHttpInfo($refund_order_request, $contentType)
+        return $this->refundOrderAsyncWithHttpInfo($refundOrderRequest, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1698,16 +1698,16 @@ class PaymentGatewayApi
      *
      * Refund Order - Payment Gateway
      *
-     * @param  \Dana\PaymentGateway\v1\Model\RefundOrderRequest $refund_order_request (required)
+     * @param  \Dana\PaymentGateway\v1\Model\RefundOrderRequest $refundOrderRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refundOrder'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function refundOrderAsyncWithHttpInfo($refund_order_request, string $contentType = self::contentTypes['refundOrder'][0])
+    public function refundOrderAsyncWithHttpInfo($refundOrderRequest, string $contentType = self::contentTypes['refundOrder'][0])
     {
         $returnType = '\Dana\PaymentGateway\v1\Model\RefundOrderResponse';
-        $request = $this->refundOrderRequest($refund_order_request, $contentType);
+        $request = $this->refundOrderRequest($refundOrderRequest, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1748,19 +1748,19 @@ class PaymentGatewayApi
     /**
      * Create request for operation 'refundOrder'
      *
-     * @param  \Dana\PaymentGateway\v1\Model\RefundOrderRequest $refund_order_request (required)
+     * @param  \Dana\PaymentGateway\v1\Model\RefundOrderRequest $refundOrderRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refundOrder'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function refundOrderRequest($refund_order_request, string $contentType = self::contentTypes['refundOrder'][0])
+    public function refundOrderRequest($refundOrderRequest, string $contentType = self::contentTypes['refundOrder'][0])
     {
 
-        // verify the required parameter 'refund_order_request' is set
-        if ($refund_order_request === null || (is_array($refund_order_request) && count($refund_order_request) === 0)) {
+        // verify the required parameter 'refundOrderRequest' is set
+        if ($refundOrderRequest === null || (is_array($refundOrderRequest) && count($refundOrderRequest) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $refund_order_request when calling refundOrder'
+                'Missing the required parameter $refundOrderRequest when calling refundOrder'
             );
         }
 
@@ -1783,12 +1783,12 @@ class PaymentGatewayApi
         );
 
         // for model (json/xml)
-        if (isset($refund_order_request)) {
+        if (isset($refundOrderRequest)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($refund_order_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($refundOrderRequest));
             } else {
-                $httpBody = $refund_order_request;
+                $httpBody = $refundOrderRequest;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1830,18 +1830,18 @@ class PaymentGatewayApi
         $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
         $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
         $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
-        if (isset($refund_order_request)) {
+        if (isset($refundOrderRequest)) {
             $resourcePathForSignature = '/payment-gateway/v1.0/debit/refund.htm';
-            if ($refund_order_request !== null) {
+            if ($refundOrderRequest !== null) {
                 $resourcePathForSignature = str_replace(
                     '{' . 'RefundOrderRequest' . '}',
-                    ObjectSerializer::toPathValue($refund_order_request),
+                    ObjectSerializer::toPathValue($refundOrderRequest),
                     $resourcePathForSignature
                 );
             }
 
             // Generate security headers using SnapHeader utility
-            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($refund_order_request));
+            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($refundOrderRequest));
             $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $clientKey, $privateKey, $privateKeyPath, "");
             
             // Add security headers to the request

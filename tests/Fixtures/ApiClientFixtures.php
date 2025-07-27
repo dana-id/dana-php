@@ -16,6 +16,8 @@ use Dana\Configuration;
 use Dana\Env;
 use Dana\PaymentGateway\v1\Api\PaymentGatewayApi;
 use Dana\Disbursement\v1\Api\DisbursementApi;
+use Dana\MerchantManagement\v1\Api\MerchantManagementApi;
+use Dana\Widget\v1\Api\WidgetApi;
 
 /**
  * ApiClientFixtures Class
@@ -54,6 +56,35 @@ class ApiClientFixtures
     }
 
     /**
+     * Get a PaymentGatewayApi instance for testing
+     * 
+     * Uses environment variables for configuration
+     * 
+     * @return PaymentGatewayApi
+     */
+    public static function getWidgetApiInstance(): WidgetApi
+    {
+        // Get configuration from environment or use defaults
+        $origin = getenv('ORIGIN') ?: 'test-origin';
+        $partnerId = getenv('X_PARTNER_ID') ?: 'test-partner-id';
+        $privateKey = getenv('PRIVATE_KEY') ?: 'test-private-key';
+        $privateKeyPath = getenv('PRIVATE_KEY_PATH') ?: null;
+        $env = Env::SANDBOX;
+
+        // Create configuration
+        $config = new Configuration();
+        
+        $config->setApiKey('ORIGIN', $origin);
+        $config->setApiKey('X_PARTNER_ID', $partnerId);
+        $config->setApiKey('PRIVATE_KEY', $privateKey);
+        $config->setApiKey('PRIVATE_KEY_PATH', $privateKeyPath);
+
+        $config->setApiKey('ENV', $env);
+        
+        return new WidgetApi(null, $config);
+    }
+
+    /**
      * Get a DisbursementApi instance for testing
      * 
      * Uses environment variables for configuration
@@ -80,5 +111,31 @@ class ApiClientFixtures
         $config->setApiKey('ENV', $env);
         
         return new DisbursementApi(null, $config);
+    }
+
+    public static function getMerchantManagementApiInstance(): MerchantManagementApi
+    {
+        // Get configuration from environment or use defaults
+        $origin = getenv('ORIGIN') ?: 'test-origin';
+        $partnerId = getenv('X_PARTNER_ID') ?: 'test-partner-id';
+        $privateKey = getenv('PRIVATE_KEY') ?: 'test-private-key';
+        $privateKeyPath = getenv('PRIVATE_KEY_PATH') ?: null;
+        $env = Env::SANDBOX;
+        $clientId = getenv('CLIENT_ID') ?: 'test-client-id';
+        $clientSecret = getenv('CLIENT_SECRET') ?: 'test-client-secret';
+
+        // Create configuration
+        $config = new Configuration();
+        
+        $config->setApiKey('ORIGIN', $origin);
+        $config->setApiKey('X_PARTNER_ID', $partnerId);
+        $config->setApiKey('PRIVATE_KEY', $privateKey);
+        $config->setApiKey('PRIVATE_KEY_PATH', $privateKeyPath);
+        $config->setApiKey('CLIENT_ID', $clientId);
+        $config->setApiKey('CLIENT_SECRET', $clientSecret);
+
+        $config->setApiKey('ENV', $env);
+        
+        return new MerchantManagementApi(null, $config);
     }
 }

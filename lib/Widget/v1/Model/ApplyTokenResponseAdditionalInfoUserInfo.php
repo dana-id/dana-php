@@ -59,7 +59,7 @@ class ApplyTokenResponseAdditionalInfoUserInfo implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $openAPITypes = [
-        'public_user_id' => 'string'
+        'publicUserId' => 'string'
     ];
 
     /**
@@ -70,7 +70,7 @@ class ApplyTokenResponseAdditionalInfoUserInfo implements ModelInterface, ArrayA
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'public_user_id' => null
+        'publicUserId' => null
     ];
 
     /**
@@ -79,7 +79,7 @@ class ApplyTokenResponseAdditionalInfoUserInfo implements ModelInterface, ArrayA
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'public_user_id' => false
+        'publicUserId' => false
     ];
 
     /**
@@ -168,7 +168,7 @@ class ApplyTokenResponseAdditionalInfoUserInfo implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-        'public_user_id' => 'publicUserId'
+        'publicUserId' => 'publicUserId'
     ];
 
     /**
@@ -177,7 +177,7 @@ class ApplyTokenResponseAdditionalInfoUserInfo implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-        'public_user_id' => 'setPublicUserId'
+        'publicUserId' => 'setPublicUserId'
     ];
 
     /**
@@ -186,7 +186,7 @@ class ApplyTokenResponseAdditionalInfoUserInfo implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-        'public_user_id' => 'getPublicUserId'
+        'publicUserId' => 'getPublicUserId'
     ];
 
     /**
@@ -246,7 +246,7 @@ class ApplyTokenResponseAdditionalInfoUserInfo implements ModelInterface, ArrayA
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('public_user_id', $data ?? [], null);
+        $this->setIfExists('publicUserId', $data ?? [], null);
     }
 
     /**
@@ -276,8 +276,8 @@ class ApplyTokenResponseAdditionalInfoUserInfo implements ModelInterface, ArrayA
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['public_user_id']) && (mb_strlen($this->container['public_user_id']) > 64)) {
-            $invalidProperties[] = "invalid value for 'public_user_id', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['publicUserId']) && (mb_strlen($this->container['publicUserId']) > 64)) {
+            $invalidProperties[] = "invalid value for 'publicUserId', the character length must be smaller than or equal to 64.";
         }
 
         return $invalidProperties;
@@ -296,32 +296,32 @@ class ApplyTokenResponseAdditionalInfoUserInfo implements ModelInterface, ArrayA
 
 
     /**
-     * Gets public_user_id
+     * Gets publicUserId
      *
      * @return string|null
      */
     public function getPublicUserId()
     {
-        return $this->container['public_user_id'];
+        return $this->container['publicUserId'];
     }
 
     /**
-     * Sets public_user_id
+     * Sets publicUserId
      *
-     * @param string|null $public_user_id Static unique identifier for one user
+     * @param string|null $publicUserId Static unique identifier for one user
      *
      * @return self
      */
-    public function setPublicUserId($public_user_id)
+    public function setPublicUserId($publicUserId)
     {
-        if (is_null($public_user_id)) {
-            throw new \InvalidArgumentException('non-nullable public_user_id cannot be null');
+        if (is_null($publicUserId)) {
+            throw new \InvalidArgumentException('non-nullable publicUserId cannot be null');
         }
-        if ((mb_strlen($public_user_id) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $public_user_id when calling ApplyTokenResponseAdditionalInfoUserInfo., must be smaller than or equal to 64.');
+        if ((mb_strlen($publicUserId) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $publicUserId when calling ApplyTokenResponseAdditionalInfoUserInfo., must be smaller than or equal to 64.');
         }
 
-        $this->container['public_user_id'] = $public_user_id;
+        $this->container['publicUserId'] = $publicUserId;
 
         return $this;
     }

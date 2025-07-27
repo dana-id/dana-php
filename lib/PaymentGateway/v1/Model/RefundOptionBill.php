@@ -58,8 +58,8 @@ class RefundOptionBill implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'pay_method' => 'string',
-        'trans_amount' => '\Dana\PaymentGateway\v1\Model\Money'
+        'payMethod' => 'string',
+        'transAmount' => '\Dana\PaymentGateway\v1\Model\Money'
     ];
 
     /**
@@ -70,8 +70,8 @@ class RefundOptionBill implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'pay_method' => null,
-        'trans_amount' => null
+        'payMethod' => null,
+        'transAmount' => null
     ];
 
     /**
@@ -80,8 +80,8 @@ class RefundOptionBill implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'pay_method' => false,
-        'trans_amount' => false
+        'payMethod' => false,
+        'transAmount' => false
     ];
 
     /**
@@ -170,8 +170,8 @@ class RefundOptionBill implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'pay_method' => 'payMethod',
-        'trans_amount' => 'transAmount'
+        'payMethod' => 'payMethod',
+        'transAmount' => 'transAmount'
     ];
 
     /**
@@ -180,8 +180,8 @@ class RefundOptionBill implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'pay_method' => 'setPayMethod',
-        'trans_amount' => 'setTransAmount'
+        'payMethod' => 'setPayMethod',
+        'transAmount' => 'setTransAmount'
     ];
 
     /**
@@ -190,8 +190,8 @@ class RefundOptionBill implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'pay_method' => 'getPayMethod',
-        'trans_amount' => 'getTransAmount'
+        'payMethod' => 'getPayMethod',
+        'transAmount' => 'getTransAmount'
     ];
 
     /**
@@ -284,8 +284,8 @@ class RefundOptionBill implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('pay_method', $data ?? [], null);
-        $this->setIfExists('trans_amount', $data ?? [], null);
+        $this->setIfExists('payMethod', $data ?? [], null);
+        $this->setIfExists('transAmount', $data ?? [], null);
     }
 
     /**
@@ -316,16 +316,16 @@ class RefundOptionBill implements ModelInterface, ArrayAccess, \JsonSerializable
         $invalidProperties = [];
 
         $allowedValues = $this->getPayMethodAllowableValues();
-        if (!is_null($this->container['pay_method']) && !in_array($this->container['pay_method'], $allowedValues, true)) {
+        if (!is_null($this->container['payMethod']) && !in_array($this->container['payMethod'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'pay_method', must be one of '%s'",
-                $this->container['pay_method'],
+                "invalid value '%s' for 'payMethod', must be one of '%s'",
+                $this->container['payMethod'],
                 implode("', '", $allowedValues)
             );
         }
 
-        if (!is_null($this->container['pay_method']) && (mb_strlen($this->container['pay_method']) > 64)) {
-            $invalidProperties[] = "invalid value for 'pay_method', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['payMethod']) && (mb_strlen($this->container['payMethod']) > 64)) {
+            $invalidProperties[] = "invalid value for 'payMethod', the character length must be smaller than or equal to 64.";
         }
 
         return $invalidProperties;
@@ -344,69 +344,69 @@ class RefundOptionBill implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets pay_method
+     * Gets payMethod
      *
      * @return string|null
      */
     public function getPayMethod()
     {
-        return $this->container['pay_method'];
+        return $this->container['payMethod'];
     }
 
     /**
-     * Sets pay_method
+     * Sets payMethod
      *
-     * @param string|null $pay_method Payment method name. The enums:<br>   * BALANCE - Payment method with balance<br>   * COUPON - Payment method with coupon<br>   * NET_BANKING - Payment method with internet banking<br>   * CREDIT_CARD - Payment method with credit card<br>   * DEBIT_CARD - Payment method with debit card<br>   * VIRTUAL_ACCOUNT - Payment method with virtual account<br>   * OTC - Payment method with OTC<br>   * DIRECT_DEBIT_CREDIT_CARD - Payment method with direct debit of credit card<br>   * DIRECT_DEBIT_DEBIT_CARD - Payment method with direct debit of debit card<br>   * ONLINE_CREDIT - Payment method with online Credit<br>   * LOAN_CREDIT - Payment method with DANA Cicil<br>
+     * @param string|null $payMethod Payment method name. The enums:<br>   * BALANCE - Payment method with balance<br>   * COUPON - Payment method with coupon<br>   * NET_BANKING - Payment method with internet banking<br>   * CREDIT_CARD - Payment method with credit card<br>   * DEBIT_CARD - Payment method with debit card<br>   * VIRTUAL_ACCOUNT - Payment method with virtual account<br>   * OTC - Payment method with OTC<br>   * DIRECT_DEBIT_CREDIT_CARD - Payment method with direct debit of credit card<br>   * DIRECT_DEBIT_DEBIT_CARD - Payment method with direct debit of debit card<br>   * ONLINE_CREDIT - Payment method with online Credit<br>   * LOAN_CREDIT - Payment method with DANA Cicil<br>
      *
      * @return self
      */
-    public function setPayMethod($pay_method)
+    public function setPayMethod($payMethod)
     {
-        if (is_null($pay_method)) {
-            throw new \InvalidArgumentException('non-nullable pay_method cannot be null');
+        if (is_null($payMethod)) {
+            throw new \InvalidArgumentException('non-nullable payMethod cannot be null');
         }
         $allowedValues = $this->getPayMethodAllowableValues();
-        if (!in_array($pay_method, $allowedValues, true) && (!empty($pay_method) || $pay_method !== '')) {
+        if (!in_array($payMethod, $allowedValues, true) && (!empty($payMethod) || $payMethod !== '')) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'pay_method', must be one of '%s'",
-                    $pay_method,
+                    "Invalid value '%s' for 'payMethod', must be one of '%s'",
+                    $payMethod,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        if ((mb_strlen($pay_method) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $pay_method when calling RefundOptionBill., must be smaller than or equal to 64.');
+        if ((mb_strlen($payMethod) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $payMethod when calling RefundOptionBill., must be smaller than or equal to 64.');
         }
 
-        $this->container['pay_method'] = $pay_method;
+        $this->container['payMethod'] = $payMethod;
 
         return $this;
     }
 
     /**
-     * Gets trans_amount
+     * Gets transAmount
      *
      * @return \Dana\PaymentGateway\v1\Model\Money|null
      */
     public function getTransAmount()
     {
-        return $this->container['trans_amount'];
+        return $this->container['transAmount'];
     }
 
     /**
-     * Sets trans_amount
+     * Sets transAmount
      *
-     * @param \Dana\PaymentGateway\v1\Model\Money|null $trans_amount Trans amount. Contains two sub-fields:<br> 1. Value: Transaction amount, including the cents<br> 2. Currency: Currency code based on ISO<br>
+     * @param \Dana\PaymentGateway\v1\Model\Money|null $transAmount Trans amount. Contains two sub-fields:<br> 1. Value: Transaction amount, including the cents<br> 2. Currency: Currency code based on ISO<br>
      *
      * @return self
      */
-    public function setTransAmount($trans_amount)
+    public function setTransAmount($transAmount)
     {
-        if (is_null($trans_amount)) {
-            throw new \InvalidArgumentException('non-nullable trans_amount cannot be null');
+        if (is_null($transAmount)) {
+            throw new \InvalidArgumentException('non-nullable transAmount cannot be null');
         }
-        $this->container['trans_amount'] = $trans_amount;
+        $this->container['transAmount'] = $transAmount;
 
         return $this;
     }

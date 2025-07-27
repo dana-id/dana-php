@@ -60,7 +60,7 @@ class UrlParam implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'url' => 'string',
         'type' => 'string',
-        'is_deeplink' => 'string'
+        'isDeeplink' => 'string'
     ];
 
     /**
@@ -73,7 +73,7 @@ class UrlParam implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'url' => null,
         'type' => null,
-        'is_deeplink' => null
+        'isDeeplink' => null
     ];
 
     /**
@@ -84,7 +84,7 @@ class UrlParam implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'url' => false,
         'type' => false,
-        'is_deeplink' => false
+        'isDeeplink' => false
     ];
 
     /**
@@ -175,7 +175,7 @@ class UrlParam implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'url' => 'url',
         'type' => 'type',
-        'is_deeplink' => 'isDeeplink'
+        'isDeeplink' => 'isDeeplink'
     ];
 
     /**
@@ -186,7 +186,7 @@ class UrlParam implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'url' => 'setUrl',
         'type' => 'setType',
-        'is_deeplink' => 'setIsDeeplink'
+        'isDeeplink' => 'setIsDeeplink'
     ];
 
     /**
@@ -197,7 +197,7 @@ class UrlParam implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'url' => 'getUrl',
         'type' => 'getType',
-        'is_deeplink' => 'getIsDeeplink'
+        'isDeeplink' => 'getIsDeeplink'
     ];
 
     /**
@@ -274,7 +274,7 @@ class UrlParam implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('url', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('is_deeplink', $data ?? [], null);
+        $this->setIfExists('isDeeplink', $data ?? [], null);
     }
 
     /**
@@ -327,11 +327,11 @@ class UrlParam implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'type', the character length must be smaller than or equal to 32.";
         }
 
-        if ($this->container['is_deeplink'] === null) {
-            $invalidProperties[] = "'is_deeplink' can't be null";
+        if ($this->container['isDeeplink'] === null) {
+            $invalidProperties[] = "'isDeeplink' can't be null";
         }
-        if ((mb_strlen($this->container['is_deeplink']) > 1)) {
-            $invalidProperties[] = "invalid value for 'is_deeplink', the character length must be smaller than or equal to 1.";
+        if ((mb_strlen($this->container['isDeeplink']) > 1)) {
+            $invalidProperties[] = "invalid value for 'isDeeplink', the character length must be smaller than or equal to 1.";
         }
 
         return $invalidProperties;
@@ -422,32 +422,32 @@ class UrlParam implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets is_deeplink
+     * Gets isDeeplink
      *
      * @return string
      */
     public function getIsDeeplink()
     {
-        return $this->container['is_deeplink'];
+        return $this->container['isDeeplink'];
     }
 
     /**
-     * Sets is_deeplink
+     * Sets isDeeplink
      *
-     * @param string $is_deeplink Deeplink URL or not
+     * @param string $isDeeplink Deeplink URL or not
      *
      * @return self
      */
-    public function setIsDeeplink($is_deeplink)
+    public function setIsDeeplink($isDeeplink)
     {
-        if (is_null($is_deeplink)) {
-            throw new \InvalidArgumentException('non-nullable is_deeplink cannot be null');
+        if (is_null($isDeeplink)) {
+            throw new \InvalidArgumentException('non-nullable isDeeplink cannot be null');
         }
-        if ((mb_strlen($is_deeplink) > 1)) {
-            throw new \InvalidArgumentException('invalid length for $is_deeplink when calling UrlParam., must be smaller than or equal to 1.');
+        if ((mb_strlen($isDeeplink) > 1)) {
+            throw new \InvalidArgumentException('invalid length for $isDeeplink when calling UrlParam., must be smaller than or equal to 1.');
         }
 
-        $this->container['is_deeplink'] = $is_deeplink;
+        $this->container['isDeeplink'] = $isDeeplink;
 
         return $this;
     }

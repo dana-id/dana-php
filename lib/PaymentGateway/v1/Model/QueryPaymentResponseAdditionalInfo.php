@@ -60,17 +60,17 @@ class QueryPaymentResponseAdditionalInfo implements ModelInterface, ArrayAccess,
     protected static $openAPITypes = [
         'buyer' => '\Dana\PaymentGateway\v1\Model\Buyer',
         'seller' => '\Dana\PaymentGateway\v1\Model\Seller',
-        'amount_detail' => '\Dana\PaymentGateway\v1\Model\AmountDetail',
-        'time_detail' => '\Dana\PaymentGateway\v1\Model\TimeDetail',
+        'amountDetail' => '\Dana\PaymentGateway\v1\Model\AmountDetail',
+        'timeDetail' => '\Dana\PaymentGateway\v1\Model\TimeDetail',
         'goods' => '\Dana\PaymentGateway\v1\Model\Goods[]',
-        'shipping_info' => '\Dana\PaymentGateway\v1\Model\ShippingInfo[]',
-        'order_memo' => 'string',
-        'payment_views' => '\Dana\PaymentGateway\v1\Model\PaymentView[]',
-        'extend_info' => 'string',
-        'status_detail' => '\Dana\PaymentGateway\v1\Model\StatusDetail',
-        'close_reason' => 'string',
-        'virtual_account_info' => '\Dana\PaymentGateway\v1\Model\VirtualAccountInfo',
-        'merchant_id' => 'string'
+        'shippingInfo' => '\Dana\PaymentGateway\v1\Model\ShippingInfo[]',
+        'orderMemo' => 'string',
+        'paymentViews' => '\Dana\PaymentGateway\v1\Model\PaymentView[]',
+        'extendInfo' => 'string',
+        'statusDetail' => '\Dana\PaymentGateway\v1\Model\StatusDetail',
+        'closeReason' => 'string',
+        'virtualAccountInfo' => '\Dana\PaymentGateway\v1\Model\VirtualAccountInfo',
+        'merchantId' => 'string'
     ];
 
     /**
@@ -83,17 +83,17 @@ class QueryPaymentResponseAdditionalInfo implements ModelInterface, ArrayAccess,
     protected static $openAPIFormats = [
         'buyer' => null,
         'seller' => null,
-        'amount_detail' => null,
-        'time_detail' => null,
+        'amountDetail' => null,
+        'timeDetail' => null,
         'goods' => null,
-        'shipping_info' => null,
-        'order_memo' => null,
-        'payment_views' => null,
-        'extend_info' => null,
-        'status_detail' => null,
-        'close_reason' => null,
-        'virtual_account_info' => null,
-        'merchant_id' => null
+        'shippingInfo' => null,
+        'orderMemo' => null,
+        'paymentViews' => null,
+        'extendInfo' => null,
+        'statusDetail' => null,
+        'closeReason' => null,
+        'virtualAccountInfo' => null,
+        'merchantId' => null
     ];
 
     /**
@@ -104,17 +104,17 @@ class QueryPaymentResponseAdditionalInfo implements ModelInterface, ArrayAccess,
     protected static array $openAPINullables = [
         'buyer' => false,
         'seller' => false,
-        'amount_detail' => false,
-        'time_detail' => false,
+        'amountDetail' => false,
+        'timeDetail' => false,
         'goods' => false,
-        'shipping_info' => false,
-        'order_memo' => false,
-        'payment_views' => false,
-        'extend_info' => false,
-        'status_detail' => false,
-        'close_reason' => false,
-        'virtual_account_info' => false,
-        'merchant_id' => false
+        'shippingInfo' => false,
+        'orderMemo' => false,
+        'paymentViews' => false,
+        'extendInfo' => false,
+        'statusDetail' => false,
+        'closeReason' => false,
+        'virtualAccountInfo' => false,
+        'merchantId' => false
     ];
 
     /**
@@ -205,17 +205,17 @@ class QueryPaymentResponseAdditionalInfo implements ModelInterface, ArrayAccess,
     protected static $attributeMap = [
         'buyer' => 'buyer',
         'seller' => 'seller',
-        'amount_detail' => 'amountDetail',
-        'time_detail' => 'timeDetail',
+        'amountDetail' => 'amountDetail',
+        'timeDetail' => 'timeDetail',
         'goods' => 'goods',
-        'shipping_info' => 'shippingInfo',
-        'order_memo' => 'orderMemo',
-        'payment_views' => 'paymentViews',
-        'extend_info' => 'extendInfo',
-        'status_detail' => 'statusDetail',
-        'close_reason' => 'closeReason',
-        'virtual_account_info' => 'virtualAccountInfo',
-        'merchant_id' => 'merchantId'
+        'shippingInfo' => 'shippingInfo',
+        'orderMemo' => 'orderMemo',
+        'paymentViews' => 'paymentViews',
+        'extendInfo' => 'extendInfo',
+        'statusDetail' => 'statusDetail',
+        'closeReason' => 'closeReason',
+        'virtualAccountInfo' => 'virtualAccountInfo',
+        'merchantId' => 'merchantId'
     ];
 
     /**
@@ -226,17 +226,17 @@ class QueryPaymentResponseAdditionalInfo implements ModelInterface, ArrayAccess,
     protected static $setters = [
         'buyer' => 'setBuyer',
         'seller' => 'setSeller',
-        'amount_detail' => 'setAmountDetail',
-        'time_detail' => 'setTimeDetail',
+        'amountDetail' => 'setAmountDetail',
+        'timeDetail' => 'setTimeDetail',
         'goods' => 'setGoods',
-        'shipping_info' => 'setShippingInfo',
-        'order_memo' => 'setOrderMemo',
-        'payment_views' => 'setPaymentViews',
-        'extend_info' => 'setExtendInfo',
-        'status_detail' => 'setStatusDetail',
-        'close_reason' => 'setCloseReason',
-        'virtual_account_info' => 'setVirtualAccountInfo',
-        'merchant_id' => 'setMerchantId'
+        'shippingInfo' => 'setShippingInfo',
+        'orderMemo' => 'setOrderMemo',
+        'paymentViews' => 'setPaymentViews',
+        'extendInfo' => 'setExtendInfo',
+        'statusDetail' => 'setStatusDetail',
+        'closeReason' => 'setCloseReason',
+        'virtualAccountInfo' => 'setVirtualAccountInfo',
+        'merchantId' => 'setMerchantId'
     ];
 
     /**
@@ -247,17 +247,17 @@ class QueryPaymentResponseAdditionalInfo implements ModelInterface, ArrayAccess,
     protected static $getters = [
         'buyer' => 'getBuyer',
         'seller' => 'getSeller',
-        'amount_detail' => 'getAmountDetail',
-        'time_detail' => 'getTimeDetail',
+        'amountDetail' => 'getAmountDetail',
+        'timeDetail' => 'getTimeDetail',
         'goods' => 'getGoods',
-        'shipping_info' => 'getShippingInfo',
-        'order_memo' => 'getOrderMemo',
-        'payment_views' => 'getPaymentViews',
-        'extend_info' => 'getExtendInfo',
-        'status_detail' => 'getStatusDetail',
-        'close_reason' => 'getCloseReason',
-        'virtual_account_info' => 'getVirtualAccountInfo',
-        'merchant_id' => 'getMerchantId'
+        'shippingInfo' => 'getShippingInfo',
+        'orderMemo' => 'getOrderMemo',
+        'paymentViews' => 'getPaymentViews',
+        'extendInfo' => 'getExtendInfo',
+        'statusDetail' => 'getStatusDetail',
+        'closeReason' => 'getCloseReason',
+        'virtualAccountInfo' => 'getVirtualAccountInfo',
+        'merchantId' => 'getMerchantId'
     ];
 
     /**
@@ -319,17 +319,17 @@ class QueryPaymentResponseAdditionalInfo implements ModelInterface, ArrayAccess,
     {
         $this->setIfExists('buyer', $data ?? [], null);
         $this->setIfExists('seller', $data ?? [], null);
-        $this->setIfExists('amount_detail', $data ?? [], null);
-        $this->setIfExists('time_detail', $data ?? [], null);
+        $this->setIfExists('amountDetail', $data ?? [], null);
+        $this->setIfExists('timeDetail', $data ?? [], null);
         $this->setIfExists('goods', $data ?? [], null);
-        $this->setIfExists('shipping_info', $data ?? [], null);
-        $this->setIfExists('order_memo', $data ?? [], null);
-        $this->setIfExists('payment_views', $data ?? [], null);
-        $this->setIfExists('extend_info', $data ?? [], null);
-        $this->setIfExists('status_detail', $data ?? [], null);
-        $this->setIfExists('close_reason', $data ?? [], null);
-        $this->setIfExists('virtual_account_info', $data ?? [], null);
-        $this->setIfExists('merchant_id', $data ?? [], null);
+        $this->setIfExists('shippingInfo', $data ?? [], null);
+        $this->setIfExists('orderMemo', $data ?? [], null);
+        $this->setIfExists('paymentViews', $data ?? [], null);
+        $this->setIfExists('extendInfo', $data ?? [], null);
+        $this->setIfExists('statusDetail', $data ?? [], null);
+        $this->setIfExists('closeReason', $data ?? [], null);
+        $this->setIfExists('virtualAccountInfo', $data ?? [], null);
+        $this->setIfExists('merchantId', $data ?? [], null);
     }
 
     /**
@@ -359,16 +359,16 @@ class QueryPaymentResponseAdditionalInfo implements ModelInterface, ArrayAccess,
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['order_memo']) && (mb_strlen($this->container['order_memo']) > 64)) {
-            $invalidProperties[] = "invalid value for 'order_memo', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['orderMemo']) && (mb_strlen($this->container['orderMemo']) > 64)) {
+            $invalidProperties[] = "invalid value for 'orderMemo', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['extend_info']) && (mb_strlen($this->container['extend_info']) > 4096)) {
-            $invalidProperties[] = "invalid value for 'extend_info', the character length must be smaller than or equal to 4096.";
+        if (!is_null($this->container['extendInfo']) && (mb_strlen($this->container['extendInfo']) > 4096)) {
+            $invalidProperties[] = "invalid value for 'extendInfo', the character length must be smaller than or equal to 4096.";
         }
 
-        if (!is_null($this->container['close_reason']) && (mb_strlen($this->container['close_reason']) > 128)) {
-            $invalidProperties[] = "invalid value for 'close_reason', the character length must be smaller than or equal to 128.";
+        if (!is_null($this->container['closeReason']) && (mb_strlen($this->container['closeReason']) > 128)) {
+            $invalidProperties[] = "invalid value for 'closeReason', the character length must be smaller than or equal to 128.";
         }
 
         return $invalidProperties;
@@ -441,55 +441,55 @@ class QueryPaymentResponseAdditionalInfo implements ModelInterface, ArrayAccess,
     }
 
     /**
-     * Gets amount_detail
+     * Gets amountDetail
      *
      * @return \Dana\PaymentGateway\v1\Model\AmountDetail|null
      */
     public function getAmountDetail()
     {
-        return $this->container['amount_detail'];
+        return $this->container['amountDetail'];
     }
 
     /**
-     * Sets amount_detail
+     * Sets amountDetail
      *
-     * @param \Dana\PaymentGateway\v1\Model\AmountDetail|null $amount_detail Additional information of amount detail. Present if transaction found
+     * @param \Dana\PaymentGateway\v1\Model\AmountDetail|null $amountDetail Additional information of amount detail. Present if transaction found
      *
      * @return self
      */
-    public function setAmountDetail($amount_detail)
+    public function setAmountDetail($amountDetail)
     {
-        if (is_null($amount_detail)) {
-            throw new \InvalidArgumentException('non-nullable amount_detail cannot be null');
+        if (is_null($amountDetail)) {
+            throw new \InvalidArgumentException('non-nullable amountDetail cannot be null');
         }
-        $this->container['amount_detail'] = $amount_detail;
+        $this->container['amountDetail'] = $amountDetail;
 
         return $this;
     }
 
     /**
-     * Gets time_detail
+     * Gets timeDetail
      *
      * @return \Dana\PaymentGateway\v1\Model\TimeDetail|null
      */
     public function getTimeDetail()
     {
-        return $this->container['time_detail'];
+        return $this->container['timeDetail'];
     }
 
     /**
-     * Sets time_detail
+     * Sets timeDetail
      *
-     * @param \Dana\PaymentGateway\v1\Model\TimeDetail|null $time_detail Additional information of time detail. Present if transaction found
+     * @param \Dana\PaymentGateway\v1\Model\TimeDetail|null $timeDetail Additional information of time detail. Present if transaction found
      *
      * @return self
      */
-    public function setTimeDetail($time_detail)
+    public function setTimeDetail($timeDetail)
     {
-        if (is_null($time_detail)) {
-            throw new \InvalidArgumentException('non-nullable time_detail cannot be null');
+        if (is_null($timeDetail)) {
+            throw new \InvalidArgumentException('non-nullable timeDetail cannot be null');
         }
-        $this->container['time_detail'] = $time_detail;
+        $this->container['timeDetail'] = $timeDetail;
 
         return $this;
     }
@@ -522,229 +522,229 @@ class QueryPaymentResponseAdditionalInfo implements ModelInterface, ArrayAccess,
     }
 
     /**
-     * Gets shipping_info
+     * Gets shippingInfo
      *
      * @return \Dana\PaymentGateway\v1\Model\ShippingInfo[]|null
      */
     public function getShippingInfo()
     {
-        return $this->container['shipping_info'];
+        return $this->container['shippingInfo'];
     }
 
     /**
-     * Sets shipping_info
+     * Sets shippingInfo
      *
-     * @param \Dana\PaymentGateway\v1\Model\ShippingInfo[]|null $shipping_info Additional information of shipping
+     * @param \Dana\PaymentGateway\v1\Model\ShippingInfo[]|null $shippingInfo Additional information of shipping
      *
      * @return self
      */
-    public function setShippingInfo($shipping_info)
+    public function setShippingInfo($shippingInfo)
     {
-        if (is_null($shipping_info)) {
-            throw new \InvalidArgumentException('non-nullable shipping_info cannot be null');
+        if (is_null($shippingInfo)) {
+            throw new \InvalidArgumentException('non-nullable shippingInfo cannot be null');
         }
-        $this->container['shipping_info'] = $shipping_info;
+        $this->container['shippingInfo'] = $shippingInfo;
 
         return $this;
     }
 
     /**
-     * Gets order_memo
+     * Gets orderMemo
      *
      * @return string|null
      */
     public function getOrderMemo()
     {
-        return $this->container['order_memo'];
+        return $this->container['orderMemo'];
     }
 
     /**
-     * Sets order_memo
+     * Sets orderMemo
      *
-     * @param string|null $order_memo Additional information of memo
+     * @param string|null $orderMemo Additional information of memo
      *
      * @return self
      */
-    public function setOrderMemo($order_memo)
+    public function setOrderMemo($orderMemo)
     {
-        if (is_null($order_memo)) {
-            throw new \InvalidArgumentException('non-nullable order_memo cannot be null');
+        if (is_null($orderMemo)) {
+            throw new \InvalidArgumentException('non-nullable orderMemo cannot be null');
         }
-        if ((mb_strlen($order_memo) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $order_memo when calling QueryPaymentResponseAdditionalInfo., must be smaller than or equal to 64.');
+        if ((mb_strlen($orderMemo) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $orderMemo when calling QueryPaymentResponseAdditionalInfo., must be smaller than or equal to 64.');
         }
 
-        $this->container['order_memo'] = $order_memo;
+        $this->container['orderMemo'] = $orderMemo;
 
         return $this;
     }
 
     /**
-     * Gets payment_views
+     * Gets paymentViews
      *
      * @return \Dana\PaymentGateway\v1\Model\PaymentView[]|null
      */
     public function getPaymentViews()
     {
-        return $this->container['payment_views'];
+        return $this->container['paymentViews'];
     }
 
     /**
-     * Sets payment_views
+     * Sets paymentViews
      *
-     * @param \Dana\PaymentGateway\v1\Model\PaymentView[]|null $payment_views Additional information of payment views. Present if transaction found
+     * @param \Dana\PaymentGateway\v1\Model\PaymentView[]|null $paymentViews Additional information of payment views. Present if transaction found
      *
      * @return self
      */
-    public function setPaymentViews($payment_views)
+    public function setPaymentViews($paymentViews)
     {
-        if (is_null($payment_views)) {
-            throw new \InvalidArgumentException('non-nullable payment_views cannot be null');
+        if (is_null($paymentViews)) {
+            throw new \InvalidArgumentException('non-nullable paymentViews cannot be null');
         }
-        $this->container['payment_views'] = $payment_views;
+        $this->container['paymentViews'] = $paymentViews;
 
         return $this;
     }
 
     /**
-     * Gets extend_info
+     * Gets extendInfo
      *
      * @return string|null
      */
     public function getExtendInfo()
     {
-        return $this->container['extend_info'];
+        return $this->container['extendInfo'];
     }
 
     /**
-     * Sets extend_info
+     * Sets extendInfo
      *
-     * @param string|null $extend_info Additional information of extend
+     * @param string|null $extendInfo Additional information of extend
      *
      * @return self
      */
-    public function setExtendInfo($extend_info)
+    public function setExtendInfo($extendInfo)
     {
-        if (is_null($extend_info)) {
-            throw new \InvalidArgumentException('non-nullable extend_info cannot be null');
+        if (is_null($extendInfo)) {
+            throw new \InvalidArgumentException('non-nullable extendInfo cannot be null');
         }
-        if ((mb_strlen($extend_info) > 4096)) {
-            throw new \InvalidArgumentException('invalid length for $extend_info when calling QueryPaymentResponseAdditionalInfo., must be smaller than or equal to 4096.');
+        if ((mb_strlen($extendInfo) > 4096)) {
+            throw new \InvalidArgumentException('invalid length for $extendInfo when calling QueryPaymentResponseAdditionalInfo., must be smaller than or equal to 4096.');
         }
 
-        $this->container['extend_info'] = $extend_info;
+        $this->container['extendInfo'] = $extendInfo;
 
         return $this;
     }
 
     /**
-     * Gets status_detail
+     * Gets statusDetail
      *
      * @return \Dana\PaymentGateway\v1\Model\StatusDetail|null
      */
     public function getStatusDetail()
     {
-        return $this->container['status_detail'];
+        return $this->container['statusDetail'];
     }
 
     /**
-     * Sets status_detail
+     * Sets statusDetail
      *
-     * @param \Dana\PaymentGateway\v1\Model\StatusDetail|null $status_detail Additional information of status detail
+     * @param \Dana\PaymentGateway\v1\Model\StatusDetail|null $statusDetail Additional information of status detail
      *
      * @return self
      */
-    public function setStatusDetail($status_detail)
+    public function setStatusDetail($statusDetail)
     {
-        if (is_null($status_detail)) {
-            throw new \InvalidArgumentException('non-nullable status_detail cannot be null');
+        if (is_null($statusDetail)) {
+            throw new \InvalidArgumentException('non-nullable statusDetail cannot be null');
         }
-        $this->container['status_detail'] = $status_detail;
+        $this->container['statusDetail'] = $statusDetail;
 
         return $this;
     }
 
     /**
-     * Gets close_reason
+     * Gets closeReason
      *
      * @return string|null
      */
     public function getCloseReason()
     {
-        return $this->container['close_reason'];
+        return $this->container['closeReason'];
     }
 
     /**
-     * Sets close_reason
+     * Sets closeReason
      *
-     * @param string|null $close_reason Additional information of close reason
+     * @param string|null $closeReason Additional information of close reason
      *
      * @return self
      */
-    public function setCloseReason($close_reason)
+    public function setCloseReason($closeReason)
     {
-        if (is_null($close_reason)) {
-            throw new \InvalidArgumentException('non-nullable close_reason cannot be null');
+        if (is_null($closeReason)) {
+            throw new \InvalidArgumentException('non-nullable closeReason cannot be null');
         }
-        if ((mb_strlen($close_reason) > 128)) {
-            throw new \InvalidArgumentException('invalid length for $close_reason when calling QueryPaymentResponseAdditionalInfo., must be smaller than or equal to 128.');
+        if ((mb_strlen($closeReason) > 128)) {
+            throw new \InvalidArgumentException('invalid length for $closeReason when calling QueryPaymentResponseAdditionalInfo., must be smaller than or equal to 128.');
         }
 
-        $this->container['close_reason'] = $close_reason;
+        $this->container['closeReason'] = $closeReason;
 
         return $this;
     }
 
     /**
-     * Gets virtual_account_info
+     * Gets virtualAccountInfo
      *
      * @return \Dana\PaymentGateway\v1\Model\VirtualAccountInfo|null
      */
     public function getVirtualAccountInfo()
     {
-        return $this->container['virtual_account_info'];
+        return $this->container['virtualAccountInfo'];
     }
 
     /**
-     * Sets virtual_account_info
+     * Sets virtualAccountInfo
      *
-     * @param \Dana\PaymentGateway\v1\Model\VirtualAccountInfo|null $virtual_account_info Additional information of virtual account. Only use for Payment Gateway service
+     * @param \Dana\PaymentGateway\v1\Model\VirtualAccountInfo|null $virtualAccountInfo Additional information of virtual account. Only use for Payment Gateway service
      *
      * @return self
      */
-    public function setVirtualAccountInfo($virtual_account_info)
+    public function setVirtualAccountInfo($virtualAccountInfo)
     {
-        if (is_null($virtual_account_info)) {
-            throw new \InvalidArgumentException('non-nullable virtual_account_info cannot be null');
+        if (is_null($virtualAccountInfo)) {
+            throw new \InvalidArgumentException('non-nullable virtualAccountInfo cannot be null');
         }
-        $this->container['virtual_account_info'] = $virtual_account_info;
+        $this->container['virtualAccountInfo'] = $virtualAccountInfo;
 
         return $this;
     }
 
     /**
-     * Gets merchant_id
+     * Gets merchantId
      *
      * @return string|null
      */
     public function getMerchantId()
     {
-        return $this->container['merchant_id'];
+        return $this->container['merchantId'];
     }
 
     /**
-     * Sets merchant_id
+     * Sets merchantId
      *
-     * @param string|null $merchant_id Merchant identifier
+     * @param string|null $merchantId Merchant identifier
      *
      * @return self
      */
-    public function setMerchantId($merchant_id)
+    public function setMerchantId($merchantId)
     {
-        if (is_null($merchant_id)) {
-            throw new \InvalidArgumentException('non-nullable merchant_id cannot be null');
+        if (is_null($merchantId)) {
+            throw new \InvalidArgumentException('non-nullable merchantId cannot be null');
         }
-        $this->container['merchant_id'] = $merchant_id;
+        $this->container['merchantId'] = $merchantId;
 
         return $this;
     }

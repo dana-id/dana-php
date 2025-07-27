@@ -58,14 +58,14 @@ class ApplyTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'response_code' => 'string',
-        'response_message' => 'string',
-        'token_type' => 'string',
-        'access_token' => 'string',
-        'access_token_expiry_time' => 'string',
-        'refresh_token' => 'string',
-        'refresh_token_expiry_time' => 'string',
-        'additional_info' => '\Dana\Widget\v1\Model\ApplyTokenResponseAdditionalInfo'
+        'responseCode' => 'string',
+        'responseMessage' => 'string',
+        'tokenType' => 'string',
+        'accessToken' => 'string',
+        'accessTokenExpiryTime' => 'string',
+        'refreshToken' => 'string',
+        'refreshTokenExpiryTime' => 'string',
+        'additionalInfo' => '\Dana\Widget\v1\Model\ApplyTokenResponseAdditionalInfo'
     ];
 
     /**
@@ -76,14 +76,14 @@ class ApplyTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'response_code' => null,
-        'response_message' => null,
-        'token_type' => null,
-        'access_token' => null,
-        'access_token_expiry_time' => null,
-        'refresh_token' => null,
-        'refresh_token_expiry_time' => null,
-        'additional_info' => null
+        'responseCode' => null,
+        'responseMessage' => null,
+        'tokenType' => null,
+        'accessToken' => null,
+        'accessTokenExpiryTime' => null,
+        'refreshToken' => null,
+        'refreshTokenExpiryTime' => null,
+        'additionalInfo' => null
     ];
 
     /**
@@ -92,14 +92,14 @@ class ApplyTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'response_code' => false,
-        'response_message' => false,
-        'token_type' => false,
-        'access_token' => false,
-        'access_token_expiry_time' => false,
-        'refresh_token' => false,
-        'refresh_token_expiry_time' => false,
-        'additional_info' => false
+        'responseCode' => false,
+        'responseMessage' => false,
+        'tokenType' => false,
+        'accessToken' => false,
+        'accessTokenExpiryTime' => false,
+        'refreshToken' => false,
+        'refreshTokenExpiryTime' => false,
+        'additionalInfo' => false
     ];
 
     /**
@@ -188,14 +188,14 @@ class ApplyTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'response_code' => 'responseCode',
-        'response_message' => 'responseMessage',
-        'token_type' => 'tokenType',
-        'access_token' => 'accessToken',
-        'access_token_expiry_time' => 'accessTokenExpiryTime',
-        'refresh_token' => 'refreshToken',
-        'refresh_token_expiry_time' => 'refreshTokenExpiryTime',
-        'additional_info' => 'additionalInfo'
+        'responseCode' => 'responseCode',
+        'responseMessage' => 'responseMessage',
+        'tokenType' => 'tokenType',
+        'accessToken' => 'accessToken',
+        'accessTokenExpiryTime' => 'accessTokenExpiryTime',
+        'refreshToken' => 'refreshToken',
+        'refreshTokenExpiryTime' => 'refreshTokenExpiryTime',
+        'additionalInfo' => 'additionalInfo'
     ];
 
     /**
@@ -204,14 +204,14 @@ class ApplyTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'response_code' => 'setResponseCode',
-        'response_message' => 'setResponseMessage',
-        'token_type' => 'setTokenType',
-        'access_token' => 'setAccessToken',
-        'access_token_expiry_time' => 'setAccessTokenExpiryTime',
-        'refresh_token' => 'setRefreshToken',
-        'refresh_token_expiry_time' => 'setRefreshTokenExpiryTime',
-        'additional_info' => 'setAdditionalInfo'
+        'responseCode' => 'setResponseCode',
+        'responseMessage' => 'setResponseMessage',
+        'tokenType' => 'setTokenType',
+        'accessToken' => 'setAccessToken',
+        'accessTokenExpiryTime' => 'setAccessTokenExpiryTime',
+        'refreshToken' => 'setRefreshToken',
+        'refreshTokenExpiryTime' => 'setRefreshTokenExpiryTime',
+        'additionalInfo' => 'setAdditionalInfo'
     ];
 
     /**
@@ -220,14 +220,14 @@ class ApplyTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'response_code' => 'getResponseCode',
-        'response_message' => 'getResponseMessage',
-        'token_type' => 'getTokenType',
-        'access_token' => 'getAccessToken',
-        'access_token_expiry_time' => 'getAccessTokenExpiryTime',
-        'refresh_token' => 'getRefreshToken',
-        'refresh_token_expiry_time' => 'getRefreshTokenExpiryTime',
-        'additional_info' => 'getAdditionalInfo'
+        'responseCode' => 'getResponseCode',
+        'responseMessage' => 'getResponseMessage',
+        'tokenType' => 'getTokenType',
+        'accessToken' => 'getAccessToken',
+        'accessTokenExpiryTime' => 'getAccessTokenExpiryTime',
+        'refreshToken' => 'getRefreshToken',
+        'refreshTokenExpiryTime' => 'getRefreshTokenExpiryTime',
+        'additionalInfo' => 'getAdditionalInfo'
     ];
 
     /**
@@ -287,14 +287,14 @@ class ApplyTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('response_code', $data ?? [], null);
-        $this->setIfExists('response_message', $data ?? [], null);
-        $this->setIfExists('token_type', $data ?? [], null);
-        $this->setIfExists('access_token', $data ?? [], null);
-        $this->setIfExists('access_token_expiry_time', $data ?? [], null);
-        $this->setIfExists('refresh_token', $data ?? [], null);
-        $this->setIfExists('refresh_token_expiry_time', $data ?? [], null);
-        $this->setIfExists('additional_info', $data ?? [], null);
+        $this->setIfExists('responseCode', $data ?? [], null);
+        $this->setIfExists('responseMessage', $data ?? [], null);
+        $this->setIfExists('tokenType', $data ?? [], null);
+        $this->setIfExists('accessToken', $data ?? [], null);
+        $this->setIfExists('accessTokenExpiryTime', $data ?? [], null);
+        $this->setIfExists('refreshToken', $data ?? [], null);
+        $this->setIfExists('refreshTokenExpiryTime', $data ?? [], null);
+        $this->setIfExists('additionalInfo', $data ?? [], null);
     }
 
     /**
@@ -324,49 +324,49 @@ class ApplyTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
-        if ($this->container['response_code'] === null) {
-            $invalidProperties[] = "'response_code' can't be null";
+        if ($this->container['responseCode'] === null) {
+            $invalidProperties[] = "'responseCode' can't be null";
         }
-        if ((mb_strlen($this->container['response_code']) > 7)) {
-            $invalidProperties[] = "invalid value for 'response_code', the character length must be smaller than or equal to 7.";
-        }
-
-        if ($this->container['response_message'] === null) {
-            $invalidProperties[] = "'response_message' can't be null";
-        }
-        if ((mb_strlen($this->container['response_message']) > 150)) {
-            $invalidProperties[] = "invalid value for 'response_message', the character length must be smaller than or equal to 150.";
+        if ((mb_strlen($this->container['responseCode']) > 7)) {
+            $invalidProperties[] = "invalid value for 'responseCode', the character length must be smaller than or equal to 7.";
         }
 
-        if (!is_null($this->container['token_type']) && (mb_strlen($this->container['token_type']) > 7)) {
-            $invalidProperties[] = "invalid value for 'token_type', the character length must be smaller than or equal to 7.";
+        if ($this->container['responseMessage'] === null) {
+            $invalidProperties[] = "'responseMessage' can't be null";
+        }
+        if ((mb_strlen($this->container['responseMessage']) > 150)) {
+            $invalidProperties[] = "invalid value for 'responseMessage', the character length must be smaller than or equal to 150.";
         }
 
-        if ($this->container['access_token'] === null) {
-            $invalidProperties[] = "'access_token' can't be null";
-        }
-        if ((mb_strlen($this->container['access_token']) > 512)) {
-            $invalidProperties[] = "invalid value for 'access_token', the character length must be smaller than or equal to 512.";
+        if (!is_null($this->container['tokenType']) && (mb_strlen($this->container['tokenType']) > 7)) {
+            $invalidProperties[] = "invalid value for 'tokenType', the character length must be smaller than or equal to 7.";
         }
 
-        if (!is_null($this->container['access_token_expiry_time']) && (mb_strlen($this->container['access_token_expiry_time']) > 25)) {
-            $invalidProperties[] = "invalid value for 'access_token_expiry_time', the character length must be smaller than or equal to 25.";
+        if ($this->container['accessToken'] === null) {
+            $invalidProperties[] = "'accessToken' can't be null";
+        }
+        if ((mb_strlen($this->container['accessToken']) > 512)) {
+            $invalidProperties[] = "invalid value for 'accessToken', the character length must be smaller than or equal to 512.";
         }
 
-        if (!is_null($this->container['access_token_expiry_time']) && !preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['access_token_expiry_time'])) {
-            $invalidProperties[] = "invalid value for 'access_token_expiry_time', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
+        if (!is_null($this->container['accessTokenExpiryTime']) && (mb_strlen($this->container['accessTokenExpiryTime']) > 25)) {
+            $invalidProperties[] = "invalid value for 'accessTokenExpiryTime', the character length must be smaller than or equal to 25.";
         }
 
-        if (!is_null($this->container['refresh_token']) && (mb_strlen($this->container['refresh_token']) > 512)) {
-            $invalidProperties[] = "invalid value for 'refresh_token', the character length must be smaller than or equal to 512.";
+        if (!is_null($this->container['accessTokenExpiryTime']) && !preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['accessTokenExpiryTime'])) {
+            $invalidProperties[] = "invalid value for 'accessTokenExpiryTime', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
         }
 
-        if (!is_null($this->container['refresh_token_expiry_time']) && (mb_strlen($this->container['refresh_token_expiry_time']) > 25)) {
-            $invalidProperties[] = "invalid value for 'refresh_token_expiry_time', the character length must be smaller than or equal to 25.";
+        if (!is_null($this->container['refreshToken']) && (mb_strlen($this->container['refreshToken']) > 512)) {
+            $invalidProperties[] = "invalid value for 'refreshToken', the character length must be smaller than or equal to 512.";
         }
 
-        if (!is_null($this->container['refresh_token_expiry_time']) && !preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['refresh_token_expiry_time'])) {
-            $invalidProperties[] = "invalid value for 'refresh_token_expiry_time', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
+        if (!is_null($this->container['refreshTokenExpiryTime']) && (mb_strlen($this->container['refreshTokenExpiryTime']) > 25)) {
+            $invalidProperties[] = "invalid value for 'refreshTokenExpiryTime', the character length must be smaller than or equal to 25.";
+        }
+
+        if (!is_null($this->container['refreshTokenExpiryTime']) && !preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['refreshTokenExpiryTime'])) {
+            $invalidProperties[] = "invalid value for 'refreshTokenExpiryTime', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
         }
 
         return $invalidProperties;
@@ -385,251 +385,251 @@ class ApplyTokenResponse implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
-     * Gets response_code
+     * Gets responseCode
      *
      * @return string
      */
     public function getResponseCode()
     {
-        return $this->container['response_code'];
+        return $this->container['responseCode'];
     }
 
     /**
-     * Sets response_code
+     * Sets responseCode
      *
-     * @param string $response_code Response code. Refer to https://dashboard.dana.id/api-docs/read/110#HTML-ApplyToken-ResponseCodeandMessage
+     * @param string $responseCode Response code. Refer to https://dashboard.dana.id/api-docs/read/110#HTML-ApplyToken-ResponseCodeandMessage
      *
      * @return self
      */
-    public function setResponseCode($response_code)
+    public function setResponseCode($responseCode)
     {
-        if (is_null($response_code)) {
-            throw new \InvalidArgumentException('non-nullable response_code cannot be null');
+        if (is_null($responseCode)) {
+            throw new \InvalidArgumentException('non-nullable responseCode cannot be null');
         }
-        if ((mb_strlen($response_code) > 7)) {
-            throw new \InvalidArgumentException('invalid length for $response_code when calling ApplyTokenResponse., must be smaller than or equal to 7.');
+        if ((mb_strlen($responseCode) > 7)) {
+            throw new \InvalidArgumentException('invalid length for $responseCode when calling ApplyTokenResponse., must be smaller than or equal to 7.');
         }
 
-        $this->container['response_code'] = $response_code;
+        $this->container['responseCode'] = $responseCode;
 
         return $this;
     }
 
     /**
-     * Gets response_message
+     * Gets responseMessage
      *
      * @return string
      */
     public function getResponseMessage()
     {
-        return $this->container['response_message'];
+        return $this->container['responseMessage'];
     }
 
     /**
-     * Sets response_message
+     * Sets responseMessage
      *
-     * @param string $response_message Response message. Refer to https://dashboard.dana.id/api-docs/read/110#HTML-ApplyToken-ResponseCodeandMessage
+     * @param string $responseMessage Response message. Refer to https://dashboard.dana.id/api-docs/read/110#HTML-ApplyToken-ResponseCodeandMessage
      *
      * @return self
      */
-    public function setResponseMessage($response_message)
+    public function setResponseMessage($responseMessage)
     {
-        if (is_null($response_message)) {
-            throw new \InvalidArgumentException('non-nullable response_message cannot be null');
+        if (is_null($responseMessage)) {
+            throw new \InvalidArgumentException('non-nullable responseMessage cannot be null');
         }
-        if ((mb_strlen($response_message) > 150)) {
-            throw new \InvalidArgumentException('invalid length for $response_message when calling ApplyTokenResponse., must be smaller than or equal to 150.');
+        if ((mb_strlen($responseMessage) > 150)) {
+            throw new \InvalidArgumentException('invalid length for $responseMessage when calling ApplyTokenResponse., must be smaller than or equal to 150.');
         }
 
-        $this->container['response_message'] = $response_message;
+        $this->container['responseMessage'] = $responseMessage;
 
         return $this;
     }
 
     /**
-     * Gets token_type
+     * Gets tokenType
      *
      * @return string|null
      */
     public function getTokenType()
     {
-        return $this->container['token_type'];
+        return $this->container['tokenType'];
     }
 
     /**
-     * Sets token_type
+     * Sets tokenType
      *
-     * @param string|null $token_type Token type. Present if successfully processed
+     * @param string|null $tokenType Token type. Present if successfully processed
      *
      * @return self
      */
-    public function setTokenType($token_type)
+    public function setTokenType($tokenType)
     {
-        if (is_null($token_type)) {
-            throw new \InvalidArgumentException('non-nullable token_type cannot be null');
+        if (is_null($tokenType)) {
+            throw new \InvalidArgumentException('non-nullable tokenType cannot be null');
         }
-        if ((mb_strlen($token_type) > 7)) {
-            throw new \InvalidArgumentException('invalid length for $token_type when calling ApplyTokenResponse., must be smaller than or equal to 7.');
+        if ((mb_strlen($tokenType) > 7)) {
+            throw new \InvalidArgumentException('invalid length for $tokenType when calling ApplyTokenResponse., must be smaller than or equal to 7.');
         }
 
-        $this->container['token_type'] = $token_type;
+        $this->container['tokenType'] = $tokenType;
 
         return $this;
     }
 
     /**
-     * Gets access_token
+     * Gets accessToken
      *
      * @return string
      */
     public function getAccessToken()
     {
-        return $this->container['access_token'];
+        return $this->container['accessToken'];
     }
 
     /**
-     * Sets access_token
+     * Sets accessToken
      *
-     * @param string $access_token This token is called Customer Token that will be used as a parameter on header in other API “Authorization-Customer”. Present if successfully processed
+     * @param string $accessToken This token is called Customer Token that will be used as a parameter on header in other API “Authorization-Customer”. Present if successfully processed
      *
      * @return self
      */
-    public function setAccessToken($access_token)
+    public function setAccessToken($accessToken)
     {
-        if (is_null($access_token)) {
-            throw new \InvalidArgumentException('non-nullable access_token cannot be null');
+        if (is_null($accessToken)) {
+            throw new \InvalidArgumentException('non-nullable accessToken cannot be null');
         }
-        if ((mb_strlen($access_token) > 512)) {
-            throw new \InvalidArgumentException('invalid length for $access_token when calling ApplyTokenResponse., must be smaller than or equal to 512.');
+        if ((mb_strlen($accessToken) > 512)) {
+            throw new \InvalidArgumentException('invalid length for $accessToken when calling ApplyTokenResponse., must be smaller than or equal to 512.');
         }
 
-        $this->container['access_token'] = $access_token;
+        $this->container['accessToken'] = $accessToken;
 
         return $this;
     }
 
     /**
-     * Gets access_token_expiry_time
+     * Gets accessTokenExpiryTime
      *
      * @return string|null
      */
     public function getAccessTokenExpiryTime()
     {
-        return $this->container['access_token_expiry_time'];
+        return $this->container['accessTokenExpiryTime'];
     }
 
     /**
-     * Sets access_token_expiry_time
+     * Sets accessTokenExpiryTime
      *
-     * @param string|null $access_token_expiry_time Expiry time for access token was given to user, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time). Present if successfully processed
+     * @param string|null $accessTokenExpiryTime Expiry time for access token was given to user, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time). Present if successfully processed
      *
      * @return self
      */
-    public function setAccessTokenExpiryTime($access_token_expiry_time)
+    public function setAccessTokenExpiryTime($accessTokenExpiryTime)
     {
-        if (is_null($access_token_expiry_time)) {
-            throw new \InvalidArgumentException('non-nullable access_token_expiry_time cannot be null');
+        if (is_null($accessTokenExpiryTime)) {
+            throw new \InvalidArgumentException('non-nullable accessTokenExpiryTime cannot be null');
         }
-        if ((mb_strlen($access_token_expiry_time) > 25)) {
-            throw new \InvalidArgumentException('invalid length for $access_token_expiry_time when calling ApplyTokenResponse., must be smaller than or equal to 25.');
+        if ((mb_strlen($accessTokenExpiryTime) > 25)) {
+            throw new \InvalidArgumentException('invalid length for $accessTokenExpiryTime when calling ApplyTokenResponse., must be smaller than or equal to 25.');
         }
-        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($access_token_expiry_time)))) {
-            throw new \InvalidArgumentException("invalid value for \$access_token_expiry_time when calling ApplyTokenResponse., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
+        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($accessTokenExpiryTime)))) {
+            throw new \InvalidArgumentException("invalid value for \$accessTokenExpiryTime when calling ApplyTokenResponse., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
         }
 
-        $this->container['access_token_expiry_time'] = $access_token_expiry_time;
+        $this->container['accessTokenExpiryTime'] = $accessTokenExpiryTime;
 
         return $this;
     }
 
     /**
-     * Gets refresh_token
+     * Gets refreshToken
      *
      * @return string|null
      */
     public function getRefreshToken()
     {
-        return $this->container['refresh_token'];
+        return $this->container['refreshToken'];
     }
 
     /**
-     * Sets refresh_token
+     * Sets refreshToken
      *
-     * @param string|null $refresh_token This token is used for refresh session if existing token has been expired. Present if successfully processed
+     * @param string|null $refreshToken This token is used for refresh session if existing token has been expired. Present if successfully processed
      *
      * @return self
      */
-    public function setRefreshToken($refresh_token)
+    public function setRefreshToken($refreshToken)
     {
-        if (is_null($refresh_token)) {
-            throw new \InvalidArgumentException('non-nullable refresh_token cannot be null');
+        if (is_null($refreshToken)) {
+            throw new \InvalidArgumentException('non-nullable refreshToken cannot be null');
         }
-        if ((mb_strlen($refresh_token) > 512)) {
-            throw new \InvalidArgumentException('invalid length for $refresh_token when calling ApplyTokenResponse., must be smaller than or equal to 512.');
+        if ((mb_strlen($refreshToken) > 512)) {
+            throw new \InvalidArgumentException('invalid length for $refreshToken when calling ApplyTokenResponse., must be smaller than or equal to 512.');
         }
 
-        $this->container['refresh_token'] = $refresh_token;
+        $this->container['refreshToken'] = $refreshToken;
 
         return $this;
     }
 
     /**
-     * Gets refresh_token_expiry_time
+     * Gets refreshTokenExpiryTime
      *
      * @return string|null
      */
     public function getRefreshTokenExpiryTime()
     {
-        return $this->container['refresh_token_expiry_time'];
+        return $this->container['refreshTokenExpiryTime'];
     }
 
     /**
-     * Sets refresh_token_expiry_time
+     * Sets refreshTokenExpiryTime
      *
-     * @param string|null $refresh_token_expiry_time Expiry time for refresh token was given to user, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time). Present if successfully processed
+     * @param string|null $refreshTokenExpiryTime Expiry time for refresh token was given to user, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time). Present if successfully processed
      *
      * @return self
      */
-    public function setRefreshTokenExpiryTime($refresh_token_expiry_time)
+    public function setRefreshTokenExpiryTime($refreshTokenExpiryTime)
     {
-        if (is_null($refresh_token_expiry_time)) {
-            throw new \InvalidArgumentException('non-nullable refresh_token_expiry_time cannot be null');
+        if (is_null($refreshTokenExpiryTime)) {
+            throw new \InvalidArgumentException('non-nullable refreshTokenExpiryTime cannot be null');
         }
-        if ((mb_strlen($refresh_token_expiry_time) > 25)) {
-            throw new \InvalidArgumentException('invalid length for $refresh_token_expiry_time when calling ApplyTokenResponse., must be smaller than or equal to 25.');
+        if ((mb_strlen($refreshTokenExpiryTime) > 25)) {
+            throw new \InvalidArgumentException('invalid length for $refreshTokenExpiryTime when calling ApplyTokenResponse., must be smaller than or equal to 25.');
         }
-        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($refresh_token_expiry_time)))) {
-            throw new \InvalidArgumentException("invalid value for \$refresh_token_expiry_time when calling ApplyTokenResponse., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
+        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($refreshTokenExpiryTime)))) {
+            throw new \InvalidArgumentException("invalid value for \$refreshTokenExpiryTime when calling ApplyTokenResponse., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
         }
 
-        $this->container['refresh_token_expiry_time'] = $refresh_token_expiry_time;
+        $this->container['refreshTokenExpiryTime'] = $refreshTokenExpiryTime;
 
         return $this;
     }
 
     /**
-     * Gets additional_info
+     * Gets additionalInfo
      *
      * @return \Dana\Widget\v1\Model\ApplyTokenResponseAdditionalInfo|null
      */
     public function getAdditionalInfo()
     {
-        return $this->container['additional_info'];
+        return $this->container['additionalInfo'];
     }
 
     /**
-     * Sets additional_info
+     * Sets additionalInfo
      *
-     * @param \Dana\Widget\v1\Model\ApplyTokenResponseAdditionalInfo|null $additional_info Additional information
+     * @param \Dana\Widget\v1\Model\ApplyTokenResponseAdditionalInfo|null $additionalInfo Additional information
      *
      * @return self
      */
-    public function setAdditionalInfo($additional_info)
+    public function setAdditionalInfo($additionalInfo)
     {
-        if (is_null($additional_info)) {
-            throw new \InvalidArgumentException('non-nullable additional_info cannot be null');
+        if (is_null($additionalInfo)) {
+            throw new \InvalidArgumentException('non-nullable additionalInfo cannot be null');
         }
-        $this->container['additional_info'] = $additional_info;
+        $this->container['additionalInfo'] = $additionalInfo;
 
         return $this;
     }

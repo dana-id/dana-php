@@ -143,16 +143,16 @@ class DisbursementApi
      *
      * Transfer to Bank Account Inquiry
      *
-     * @param  \Dana\Disbursement\v1\Model\BankAccountInquiryRequest $bank_account_inquiry_request bank_account_inquiry_request (required)
+     * @param  \Dana\Disbursement\v1\Model\BankAccountInquiryRequest $bankAccountInquiryRequest bankAccountInquiryRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bankAccountInquiry'] to see the possible values for this operation
      *
      * @throws \Dana\Disbursement\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Dana\Disbursement\v1\Model\BankAccountInquiryResponse
      */
-    public function bankAccountInquiry($bank_account_inquiry_request, string $contentType = self::contentTypes['bankAccountInquiry'][0])
+    public function bankAccountInquiry($bankAccountInquiryRequest, string $contentType = self::contentTypes['bankAccountInquiry'][0])
     {
-        list($response) = $this->bankAccountInquiryWithHttpInfo($bank_account_inquiry_request, $contentType);
+        list($response) = $this->bankAccountInquiryWithHttpInfo($bankAccountInquiryRequest, $contentType);
         return $response;
     }
 
@@ -161,16 +161,16 @@ class DisbursementApi
      *
      * Transfer to Bank Account Inquiry
      *
-     * @param  \Dana\Disbursement\v1\Model\BankAccountInquiryRequest $bank_account_inquiry_request (required)
+     * @param  \Dana\Disbursement\v1\Model\BankAccountInquiryRequest $bankAccountInquiryRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bankAccountInquiry'] to see the possible values for this operation
      *
      * @throws \Dana\Disbursement\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Dana\Disbursement\v1\Model\BankAccountInquiryResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function bankAccountInquiryWithHttpInfo($bank_account_inquiry_request, string $contentType = self::contentTypes['bankAccountInquiry'][0])
+    public function bankAccountInquiryWithHttpInfo($bankAccountInquiryRequest, string $contentType = self::contentTypes['bankAccountInquiry'][0])
     {
-        $request = $this->bankAccountInquiryRequest($bank_account_inquiry_request, $contentType);
+        $request = $this->bankAccountInquiryRequest($bankAccountInquiryRequest, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -286,15 +286,15 @@ class DisbursementApi
      *
      * Transfer to Bank Account Inquiry
      *
-     * @param  \Dana\Disbursement\v1\Model\BankAccountInquiryRequest $bank_account_inquiry_request (required)
+     * @param  \Dana\Disbursement\v1\Model\BankAccountInquiryRequest $bankAccountInquiryRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bankAccountInquiry'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function bankAccountInquiryAsync($bank_account_inquiry_request, string $contentType = self::contentTypes['bankAccountInquiry'][0])
+    public function bankAccountInquiryAsync($bankAccountInquiryRequest, string $contentType = self::contentTypes['bankAccountInquiry'][0])
     {
-        return $this->bankAccountInquiryAsyncWithHttpInfo($bank_account_inquiry_request, $contentType)
+        return $this->bankAccountInquiryAsyncWithHttpInfo($bankAccountInquiryRequest, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -307,16 +307,16 @@ class DisbursementApi
      *
      * Transfer to Bank Account Inquiry
      *
-     * @param  \Dana\Disbursement\v1\Model\BankAccountInquiryRequest $bank_account_inquiry_request (required)
+     * @param  \Dana\Disbursement\v1\Model\BankAccountInquiryRequest $bankAccountInquiryRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bankAccountInquiry'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function bankAccountInquiryAsyncWithHttpInfo($bank_account_inquiry_request, string $contentType = self::contentTypes['bankAccountInquiry'][0])
+    public function bankAccountInquiryAsyncWithHttpInfo($bankAccountInquiryRequest, string $contentType = self::contentTypes['bankAccountInquiry'][0])
     {
         $returnType = '\Dana\Disbursement\v1\Model\BankAccountInquiryResponse';
-        $request = $this->bankAccountInquiryRequest($bank_account_inquiry_request, $contentType);
+        $request = $this->bankAccountInquiryRequest($bankAccountInquiryRequest, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -357,19 +357,19 @@ class DisbursementApi
     /**
      * Create request for operation 'bankAccountInquiry'
      *
-     * @param  \Dana\Disbursement\v1\Model\BankAccountInquiryRequest $bank_account_inquiry_request (required)
+     * @param  \Dana\Disbursement\v1\Model\BankAccountInquiryRequest $bankAccountInquiryRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['bankAccountInquiry'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function bankAccountInquiryRequest($bank_account_inquiry_request, string $contentType = self::contentTypes['bankAccountInquiry'][0])
+    public function bankAccountInquiryRequest($bankAccountInquiryRequest, string $contentType = self::contentTypes['bankAccountInquiry'][0])
     {
 
-        // verify the required parameter 'bank_account_inquiry_request' is set
-        if ($bank_account_inquiry_request === null || (is_array($bank_account_inquiry_request) && count($bank_account_inquiry_request) === 0)) {
+        // verify the required parameter 'bankAccountInquiryRequest' is set
+        if ($bankAccountInquiryRequest === null || (is_array($bankAccountInquiryRequest) && count($bankAccountInquiryRequest) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $bank_account_inquiry_request when calling bankAccountInquiry'
+                'Missing the required parameter $bankAccountInquiryRequest when calling bankAccountInquiry'
             );
         }
 
@@ -392,12 +392,12 @@ class DisbursementApi
         );
 
         // for model (json/xml)
-        if (isset($bank_account_inquiry_request)) {
+        if (isset($bankAccountInquiryRequest)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($bank_account_inquiry_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($bankAccountInquiryRequest));
             } else {
-                $httpBody = $bank_account_inquiry_request;
+                $httpBody = $bankAccountInquiryRequest;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -439,18 +439,18 @@ class DisbursementApi
         $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
         $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
         $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
-        if (isset($bank_account_inquiry_request)) {
+        if (isset($bankAccountInquiryRequest)) {
             $resourcePathForSignature = '/v1.0/emoney/bank-account-inquiry.htm';
-            if ($bank_account_inquiry_request !== null) {
+            if ($bankAccountInquiryRequest !== null) {
                 $resourcePathForSignature = str_replace(
                     '{' . 'BankAccountInquiryRequest' . '}',
-                    ObjectSerializer::toPathValue($bank_account_inquiry_request),
+                    ObjectSerializer::toPathValue($bankAccountInquiryRequest),
                     $resourcePathForSignature
                 );
             }
 
             // Generate security headers using SnapHeader utility
-            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($bank_account_inquiry_request));
+            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($bankAccountInquiryRequest));
             $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $clientKey, $privateKey, $privateKeyPath);
             
             // Add security headers to the request
@@ -474,16 +474,16 @@ class DisbursementApi
      *
      * DANA Account Inquiry
      *
-     * @param  \Dana\Disbursement\v1\Model\DanaAccountInquiryRequest $dana_account_inquiry_request dana_account_inquiry_request (required)
+     * @param  \Dana\Disbursement\v1\Model\DanaAccountInquiryRequest $danaAccountInquiryRequest danaAccountInquiryRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['danaAccountInquiry'] to see the possible values for this operation
      *
      * @throws \Dana\Disbursement\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Dana\Disbursement\v1\Model\DanaAccountInquiryResponse
      */
-    public function danaAccountInquiry($dana_account_inquiry_request, string $contentType = self::contentTypes['danaAccountInquiry'][0])
+    public function danaAccountInquiry($danaAccountInquiryRequest, string $contentType = self::contentTypes['danaAccountInquiry'][0])
     {
-        list($response) = $this->danaAccountInquiryWithHttpInfo($dana_account_inquiry_request, $contentType);
+        list($response) = $this->danaAccountInquiryWithHttpInfo($danaAccountInquiryRequest, $contentType);
         return $response;
     }
 
@@ -492,16 +492,16 @@ class DisbursementApi
      *
      * DANA Account Inquiry
      *
-     * @param  \Dana\Disbursement\v1\Model\DanaAccountInquiryRequest $dana_account_inquiry_request (required)
+     * @param  \Dana\Disbursement\v1\Model\DanaAccountInquiryRequest $danaAccountInquiryRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['danaAccountInquiry'] to see the possible values for this operation
      *
      * @throws \Dana\Disbursement\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Dana\Disbursement\v1\Model\DanaAccountInquiryResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function danaAccountInquiryWithHttpInfo($dana_account_inquiry_request, string $contentType = self::contentTypes['danaAccountInquiry'][0])
+    public function danaAccountInquiryWithHttpInfo($danaAccountInquiryRequest, string $contentType = self::contentTypes['danaAccountInquiry'][0])
     {
-        $request = $this->danaAccountInquiryRequest($dana_account_inquiry_request, $contentType);
+        $request = $this->danaAccountInquiryRequest($danaAccountInquiryRequest, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -617,15 +617,15 @@ class DisbursementApi
      *
      * DANA Account Inquiry
      *
-     * @param  \Dana\Disbursement\v1\Model\DanaAccountInquiryRequest $dana_account_inquiry_request (required)
+     * @param  \Dana\Disbursement\v1\Model\DanaAccountInquiryRequest $danaAccountInquiryRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['danaAccountInquiry'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function danaAccountInquiryAsync($dana_account_inquiry_request, string $contentType = self::contentTypes['danaAccountInquiry'][0])
+    public function danaAccountInquiryAsync($danaAccountInquiryRequest, string $contentType = self::contentTypes['danaAccountInquiry'][0])
     {
-        return $this->danaAccountInquiryAsyncWithHttpInfo($dana_account_inquiry_request, $contentType)
+        return $this->danaAccountInquiryAsyncWithHttpInfo($danaAccountInquiryRequest, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -638,16 +638,16 @@ class DisbursementApi
      *
      * DANA Account Inquiry
      *
-     * @param  \Dana\Disbursement\v1\Model\DanaAccountInquiryRequest $dana_account_inquiry_request (required)
+     * @param  \Dana\Disbursement\v1\Model\DanaAccountInquiryRequest $danaAccountInquiryRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['danaAccountInquiry'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function danaAccountInquiryAsyncWithHttpInfo($dana_account_inquiry_request, string $contentType = self::contentTypes['danaAccountInquiry'][0])
+    public function danaAccountInquiryAsyncWithHttpInfo($danaAccountInquiryRequest, string $contentType = self::contentTypes['danaAccountInquiry'][0])
     {
         $returnType = '\Dana\Disbursement\v1\Model\DanaAccountInquiryResponse';
-        $request = $this->danaAccountInquiryRequest($dana_account_inquiry_request, $contentType);
+        $request = $this->danaAccountInquiryRequest($danaAccountInquiryRequest, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -688,19 +688,19 @@ class DisbursementApi
     /**
      * Create request for operation 'danaAccountInquiry'
      *
-     * @param  \Dana\Disbursement\v1\Model\DanaAccountInquiryRequest $dana_account_inquiry_request (required)
+     * @param  \Dana\Disbursement\v1\Model\DanaAccountInquiryRequest $danaAccountInquiryRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['danaAccountInquiry'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function danaAccountInquiryRequest($dana_account_inquiry_request, string $contentType = self::contentTypes['danaAccountInquiry'][0])
+    public function danaAccountInquiryRequest($danaAccountInquiryRequest, string $contentType = self::contentTypes['danaAccountInquiry'][0])
     {
 
-        // verify the required parameter 'dana_account_inquiry_request' is set
-        if ($dana_account_inquiry_request === null || (is_array($dana_account_inquiry_request) && count($dana_account_inquiry_request) === 0)) {
+        // verify the required parameter 'danaAccountInquiryRequest' is set
+        if ($danaAccountInquiryRequest === null || (is_array($danaAccountInquiryRequest) && count($danaAccountInquiryRequest) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $dana_account_inquiry_request when calling danaAccountInquiry'
+                'Missing the required parameter $danaAccountInquiryRequest when calling danaAccountInquiry'
             );
         }
 
@@ -723,12 +723,12 @@ class DisbursementApi
         );
 
         // for model (json/xml)
-        if (isset($dana_account_inquiry_request)) {
+        if (isset($danaAccountInquiryRequest)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($dana_account_inquiry_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($danaAccountInquiryRequest));
             } else {
-                $httpBody = $dana_account_inquiry_request;
+                $httpBody = $danaAccountInquiryRequest;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -770,18 +770,18 @@ class DisbursementApi
         $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
         $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
         $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
-        if (isset($dana_account_inquiry_request)) {
+        if (isset($danaAccountInquiryRequest)) {
             $resourcePathForSignature = '/v1.0/emoney/account-inquiry.htm';
-            if ($dana_account_inquiry_request !== null) {
+            if ($danaAccountInquiryRequest !== null) {
                 $resourcePathForSignature = str_replace(
                     '{' . 'DanaAccountInquiryRequest' . '}',
-                    ObjectSerializer::toPathValue($dana_account_inquiry_request),
+                    ObjectSerializer::toPathValue($danaAccountInquiryRequest),
                     $resourcePathForSignature
                 );
             }
 
             // Generate security headers using SnapHeader utility
-            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($dana_account_inquiry_request));
+            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($danaAccountInquiryRequest));
             $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $clientKey, $privateKey, $privateKeyPath);
             
             // Add security headers to the request
@@ -805,16 +805,16 @@ class DisbursementApi
      *
      * Transfer to Bank
      *
-     * @param  \Dana\Disbursement\v1\Model\TransferToBankRequest $transfer_to_bank_request transfer_to_bank_request (required)
+     * @param  \Dana\Disbursement\v1\Model\TransferToBankRequest $transferToBankRequest transferToBankRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferToBank'] to see the possible values for this operation
      *
      * @throws \Dana\Disbursement\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Dana\Disbursement\v1\Model\TransferToBankResponse|\Dana\Disbursement\v1\Model\TransferToBankResponse
      */
-    public function transferToBank($transfer_to_bank_request, string $contentType = self::contentTypes['transferToBank'][0])
+    public function transferToBank($transferToBankRequest, string $contentType = self::contentTypes['transferToBank'][0])
     {
-        list($response) = $this->transferToBankWithHttpInfo($transfer_to_bank_request, $contentType);
+        list($response) = $this->transferToBankWithHttpInfo($transferToBankRequest, $contentType);
         return $response;
     }
 
@@ -823,16 +823,16 @@ class DisbursementApi
      *
      * Transfer to Bank
      *
-     * @param  \Dana\Disbursement\v1\Model\TransferToBankRequest $transfer_to_bank_request (required)
+     * @param  \Dana\Disbursement\v1\Model\TransferToBankRequest $transferToBankRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferToBank'] to see the possible values for this operation
      *
      * @throws \Dana\Disbursement\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Dana\Disbursement\v1\Model\TransferToBankResponse|\Dana\Disbursement\v1\Model\TransferToBankResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function transferToBankWithHttpInfo($transfer_to_bank_request, string $contentType = self::contentTypes['transferToBank'][0])
+    public function transferToBankWithHttpInfo($transferToBankRequest, string $contentType = self::contentTypes['transferToBank'][0])
     {
-        $request = $this->transferToBankRequest($transfer_to_bank_request, $contentType);
+        $request = $this->transferToBankRequest($transferToBankRequest, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -983,15 +983,15 @@ class DisbursementApi
      *
      * Transfer to Bank
      *
-     * @param  \Dana\Disbursement\v1\Model\TransferToBankRequest $transfer_to_bank_request (required)
+     * @param  \Dana\Disbursement\v1\Model\TransferToBankRequest $transferToBankRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferToBank'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function transferToBankAsync($transfer_to_bank_request, string $contentType = self::contentTypes['transferToBank'][0])
+    public function transferToBankAsync($transferToBankRequest, string $contentType = self::contentTypes['transferToBank'][0])
     {
-        return $this->transferToBankAsyncWithHttpInfo($transfer_to_bank_request, $contentType)
+        return $this->transferToBankAsyncWithHttpInfo($transferToBankRequest, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1004,16 +1004,16 @@ class DisbursementApi
      *
      * Transfer to Bank
      *
-     * @param  \Dana\Disbursement\v1\Model\TransferToBankRequest $transfer_to_bank_request (required)
+     * @param  \Dana\Disbursement\v1\Model\TransferToBankRequest $transferToBankRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferToBank'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function transferToBankAsyncWithHttpInfo($transfer_to_bank_request, string $contentType = self::contentTypes['transferToBank'][0])
+    public function transferToBankAsyncWithHttpInfo($transferToBankRequest, string $contentType = self::contentTypes['transferToBank'][0])
     {
         $returnType = '\Dana\Disbursement\v1\Model\TransferToBankResponse';
-        $request = $this->transferToBankRequest($transfer_to_bank_request, $contentType);
+        $request = $this->transferToBankRequest($transferToBankRequest, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1054,19 +1054,19 @@ class DisbursementApi
     /**
      * Create request for operation 'transferToBank'
      *
-     * @param  \Dana\Disbursement\v1\Model\TransferToBankRequest $transfer_to_bank_request (required)
+     * @param  \Dana\Disbursement\v1\Model\TransferToBankRequest $transferToBankRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferToBank'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function transferToBankRequest($transfer_to_bank_request, string $contentType = self::contentTypes['transferToBank'][0])
+    public function transferToBankRequest($transferToBankRequest, string $contentType = self::contentTypes['transferToBank'][0])
     {
 
-        // verify the required parameter 'transfer_to_bank_request' is set
-        if ($transfer_to_bank_request === null || (is_array($transfer_to_bank_request) && count($transfer_to_bank_request) === 0)) {
+        // verify the required parameter 'transferToBankRequest' is set
+        if ($transferToBankRequest === null || (is_array($transferToBankRequest) && count($transferToBankRequest) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $transfer_to_bank_request when calling transferToBank'
+                'Missing the required parameter $transferToBankRequest when calling transferToBank'
             );
         }
 
@@ -1089,12 +1089,12 @@ class DisbursementApi
         );
 
         // for model (json/xml)
-        if (isset($transfer_to_bank_request)) {
+        if (isset($transferToBankRequest)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($transfer_to_bank_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($transferToBankRequest));
             } else {
-                $httpBody = $transfer_to_bank_request;
+                $httpBody = $transferToBankRequest;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1136,18 +1136,18 @@ class DisbursementApi
         $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
         $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
         $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
-        if (isset($transfer_to_bank_request)) {
+        if (isset($transferToBankRequest)) {
             $resourcePathForSignature = '/v1.0/emoney/transfer-bank.htm';
-            if ($transfer_to_bank_request !== null) {
+            if ($transferToBankRequest !== null) {
                 $resourcePathForSignature = str_replace(
                     '{' . 'TransferToBankRequest' . '}',
-                    ObjectSerializer::toPathValue($transfer_to_bank_request),
+                    ObjectSerializer::toPathValue($transferToBankRequest),
                     $resourcePathForSignature
                 );
             }
 
             // Generate security headers using SnapHeader utility
-            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($transfer_to_bank_request));
+            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($transferToBankRequest));
             $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $clientKey, $privateKey, $privateKeyPath);
             
             // Add security headers to the request
@@ -1171,16 +1171,16 @@ class DisbursementApi
      *
      * Transfer to Bank Inquiry Status
      *
-     * @param  \Dana\Disbursement\v1\Model\TransferToBankInquiryStatusRequest $transfer_to_bank_inquiry_status_request transfer_to_bank_inquiry_status_request (required)
+     * @param  \Dana\Disbursement\v1\Model\TransferToBankInquiryStatusRequest $transferToBankInquiryStatusRequest transferToBankInquiryStatusRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferToBankInquiryStatus'] to see the possible values for this operation
      *
      * @throws \Dana\Disbursement\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Dana\Disbursement\v1\Model\TransferToBankInquiryStatusResponse
      */
-    public function transferToBankInquiryStatus($transfer_to_bank_inquiry_status_request, string $contentType = self::contentTypes['transferToBankInquiryStatus'][0])
+    public function transferToBankInquiryStatus($transferToBankInquiryStatusRequest, string $contentType = self::contentTypes['transferToBankInquiryStatus'][0])
     {
-        list($response) = $this->transferToBankInquiryStatusWithHttpInfo($transfer_to_bank_inquiry_status_request, $contentType);
+        list($response) = $this->transferToBankInquiryStatusWithHttpInfo($transferToBankInquiryStatusRequest, $contentType);
         return $response;
     }
 
@@ -1189,16 +1189,16 @@ class DisbursementApi
      *
      * Transfer to Bank Inquiry Status
      *
-     * @param  \Dana\Disbursement\v1\Model\TransferToBankInquiryStatusRequest $transfer_to_bank_inquiry_status_request (required)
+     * @param  \Dana\Disbursement\v1\Model\TransferToBankInquiryStatusRequest $transferToBankInquiryStatusRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferToBankInquiryStatus'] to see the possible values for this operation
      *
      * @throws \Dana\Disbursement\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Dana\Disbursement\v1\Model\TransferToBankInquiryStatusResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function transferToBankInquiryStatusWithHttpInfo($transfer_to_bank_inquiry_status_request, string $contentType = self::contentTypes['transferToBankInquiryStatus'][0])
+    public function transferToBankInquiryStatusWithHttpInfo($transferToBankInquiryStatusRequest, string $contentType = self::contentTypes['transferToBankInquiryStatus'][0])
     {
-        $request = $this->transferToBankInquiryStatusRequest($transfer_to_bank_inquiry_status_request, $contentType);
+        $request = $this->transferToBankInquiryStatusRequest($transferToBankInquiryStatusRequest, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1314,15 +1314,15 @@ class DisbursementApi
      *
      * Transfer to Bank Inquiry Status
      *
-     * @param  \Dana\Disbursement\v1\Model\TransferToBankInquiryStatusRequest $transfer_to_bank_inquiry_status_request (required)
+     * @param  \Dana\Disbursement\v1\Model\TransferToBankInquiryStatusRequest $transferToBankInquiryStatusRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferToBankInquiryStatus'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function transferToBankInquiryStatusAsync($transfer_to_bank_inquiry_status_request, string $contentType = self::contentTypes['transferToBankInquiryStatus'][0])
+    public function transferToBankInquiryStatusAsync($transferToBankInquiryStatusRequest, string $contentType = self::contentTypes['transferToBankInquiryStatus'][0])
     {
-        return $this->transferToBankInquiryStatusAsyncWithHttpInfo($transfer_to_bank_inquiry_status_request, $contentType)
+        return $this->transferToBankInquiryStatusAsyncWithHttpInfo($transferToBankInquiryStatusRequest, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1335,16 +1335,16 @@ class DisbursementApi
      *
      * Transfer to Bank Inquiry Status
      *
-     * @param  \Dana\Disbursement\v1\Model\TransferToBankInquiryStatusRequest $transfer_to_bank_inquiry_status_request (required)
+     * @param  \Dana\Disbursement\v1\Model\TransferToBankInquiryStatusRequest $transferToBankInquiryStatusRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferToBankInquiryStatus'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function transferToBankInquiryStatusAsyncWithHttpInfo($transfer_to_bank_inquiry_status_request, string $contentType = self::contentTypes['transferToBankInquiryStatus'][0])
+    public function transferToBankInquiryStatusAsyncWithHttpInfo($transferToBankInquiryStatusRequest, string $contentType = self::contentTypes['transferToBankInquiryStatus'][0])
     {
         $returnType = '\Dana\Disbursement\v1\Model\TransferToBankInquiryStatusResponse';
-        $request = $this->transferToBankInquiryStatusRequest($transfer_to_bank_inquiry_status_request, $contentType);
+        $request = $this->transferToBankInquiryStatusRequest($transferToBankInquiryStatusRequest, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1385,19 +1385,19 @@ class DisbursementApi
     /**
      * Create request for operation 'transferToBankInquiryStatus'
      *
-     * @param  \Dana\Disbursement\v1\Model\TransferToBankInquiryStatusRequest $transfer_to_bank_inquiry_status_request (required)
+     * @param  \Dana\Disbursement\v1\Model\TransferToBankInquiryStatusRequest $transferToBankInquiryStatusRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferToBankInquiryStatus'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function transferToBankInquiryStatusRequest($transfer_to_bank_inquiry_status_request, string $contentType = self::contentTypes['transferToBankInquiryStatus'][0])
+    public function transferToBankInquiryStatusRequest($transferToBankInquiryStatusRequest, string $contentType = self::contentTypes['transferToBankInquiryStatus'][0])
     {
 
-        // verify the required parameter 'transfer_to_bank_inquiry_status_request' is set
-        if ($transfer_to_bank_inquiry_status_request === null || (is_array($transfer_to_bank_inquiry_status_request) && count($transfer_to_bank_inquiry_status_request) === 0)) {
+        // verify the required parameter 'transferToBankInquiryStatusRequest' is set
+        if ($transferToBankInquiryStatusRequest === null || (is_array($transferToBankInquiryStatusRequest) && count($transferToBankInquiryStatusRequest) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $transfer_to_bank_inquiry_status_request when calling transferToBankInquiryStatus'
+                'Missing the required parameter $transferToBankInquiryStatusRequest when calling transferToBankInquiryStatus'
             );
         }
 
@@ -1420,12 +1420,12 @@ class DisbursementApi
         );
 
         // for model (json/xml)
-        if (isset($transfer_to_bank_inquiry_status_request)) {
+        if (isset($transferToBankInquiryStatusRequest)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($transfer_to_bank_inquiry_status_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($transferToBankInquiryStatusRequest));
             } else {
-                $httpBody = $transfer_to_bank_inquiry_status_request;
+                $httpBody = $transferToBankInquiryStatusRequest;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1467,18 +1467,18 @@ class DisbursementApi
         $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
         $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
         $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
-        if (isset($transfer_to_bank_inquiry_status_request)) {
+        if (isset($transferToBankInquiryStatusRequest)) {
             $resourcePathForSignature = '/v1.0/emoney/transfer-bank-status.htm';
-            if ($transfer_to_bank_inquiry_status_request !== null) {
+            if ($transferToBankInquiryStatusRequest !== null) {
                 $resourcePathForSignature = str_replace(
                     '{' . 'TransferToBankInquiryStatusRequest' . '}',
-                    ObjectSerializer::toPathValue($transfer_to_bank_inquiry_status_request),
+                    ObjectSerializer::toPathValue($transferToBankInquiryStatusRequest),
                     $resourcePathForSignature
                 );
             }
 
             // Generate security headers using SnapHeader utility
-            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($transfer_to_bank_inquiry_status_request));
+            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($transferToBankInquiryStatusRequest));
             $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $clientKey, $privateKey, $privateKeyPath);
             
             // Add security headers to the request
@@ -1502,16 +1502,16 @@ class DisbursementApi
      *
      * Transfer to DANA
      *
-     * @param  \Dana\Disbursement\v1\Model\TransferToDanaRequest $transfer_to_dana_request transfer_to_dana_request (required)
+     * @param  \Dana\Disbursement\v1\Model\TransferToDanaRequest $transferToDanaRequest transferToDanaRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferToDana'] to see the possible values for this operation
      *
      * @throws \Dana\Disbursement\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Dana\Disbursement\v1\Model\TransferToDanaResponse
      */
-    public function transferToDana($transfer_to_dana_request, string $contentType = self::contentTypes['transferToDana'][0])
+    public function transferToDana($transferToDanaRequest, string $contentType = self::contentTypes['transferToDana'][0])
     {
-        list($response) = $this->transferToDanaWithHttpInfo($transfer_to_dana_request, $contentType);
+        list($response) = $this->transferToDanaWithHttpInfo($transferToDanaRequest, $contentType);
         return $response;
     }
 
@@ -1520,16 +1520,16 @@ class DisbursementApi
      *
      * Transfer to DANA
      *
-     * @param  \Dana\Disbursement\v1\Model\TransferToDanaRequest $transfer_to_dana_request (required)
+     * @param  \Dana\Disbursement\v1\Model\TransferToDanaRequest $transferToDanaRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferToDana'] to see the possible values for this operation
      *
      * @throws \Dana\Disbursement\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Dana\Disbursement\v1\Model\TransferToDanaResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function transferToDanaWithHttpInfo($transfer_to_dana_request, string $contentType = self::contentTypes['transferToDana'][0])
+    public function transferToDanaWithHttpInfo($transferToDanaRequest, string $contentType = self::contentTypes['transferToDana'][0])
     {
-        $request = $this->transferToDanaRequest($transfer_to_dana_request, $contentType);
+        $request = $this->transferToDanaRequest($transferToDanaRequest, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1645,15 +1645,15 @@ class DisbursementApi
      *
      * Transfer to DANA
      *
-     * @param  \Dana\Disbursement\v1\Model\TransferToDanaRequest $transfer_to_dana_request (required)
+     * @param  \Dana\Disbursement\v1\Model\TransferToDanaRequest $transferToDanaRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferToDana'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function transferToDanaAsync($transfer_to_dana_request, string $contentType = self::contentTypes['transferToDana'][0])
+    public function transferToDanaAsync($transferToDanaRequest, string $contentType = self::contentTypes['transferToDana'][0])
     {
-        return $this->transferToDanaAsyncWithHttpInfo($transfer_to_dana_request, $contentType)
+        return $this->transferToDanaAsyncWithHttpInfo($transferToDanaRequest, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1666,16 +1666,16 @@ class DisbursementApi
      *
      * Transfer to DANA
      *
-     * @param  \Dana\Disbursement\v1\Model\TransferToDanaRequest $transfer_to_dana_request (required)
+     * @param  \Dana\Disbursement\v1\Model\TransferToDanaRequest $transferToDanaRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferToDana'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function transferToDanaAsyncWithHttpInfo($transfer_to_dana_request, string $contentType = self::contentTypes['transferToDana'][0])
+    public function transferToDanaAsyncWithHttpInfo($transferToDanaRequest, string $contentType = self::contentTypes['transferToDana'][0])
     {
         $returnType = '\Dana\Disbursement\v1\Model\TransferToDanaResponse';
-        $request = $this->transferToDanaRequest($transfer_to_dana_request, $contentType);
+        $request = $this->transferToDanaRequest($transferToDanaRequest, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1716,19 +1716,19 @@ class DisbursementApi
     /**
      * Create request for operation 'transferToDana'
      *
-     * @param  \Dana\Disbursement\v1\Model\TransferToDanaRequest $transfer_to_dana_request (required)
+     * @param  \Dana\Disbursement\v1\Model\TransferToDanaRequest $transferToDanaRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferToDana'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function transferToDanaRequest($transfer_to_dana_request, string $contentType = self::contentTypes['transferToDana'][0])
+    public function transferToDanaRequest($transferToDanaRequest, string $contentType = self::contentTypes['transferToDana'][0])
     {
 
-        // verify the required parameter 'transfer_to_dana_request' is set
-        if ($transfer_to_dana_request === null || (is_array($transfer_to_dana_request) && count($transfer_to_dana_request) === 0)) {
+        // verify the required parameter 'transferToDanaRequest' is set
+        if ($transferToDanaRequest === null || (is_array($transferToDanaRequest) && count($transferToDanaRequest) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $transfer_to_dana_request when calling transferToDana'
+                'Missing the required parameter $transferToDanaRequest when calling transferToDana'
             );
         }
 
@@ -1751,12 +1751,12 @@ class DisbursementApi
         );
 
         // for model (json/xml)
-        if (isset($transfer_to_dana_request)) {
+        if (isset($transferToDanaRequest)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($transfer_to_dana_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($transferToDanaRequest));
             } else {
-                $httpBody = $transfer_to_dana_request;
+                $httpBody = $transferToDanaRequest;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1798,18 +1798,18 @@ class DisbursementApi
         $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
         $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
         $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
-        if (isset($transfer_to_dana_request)) {
+        if (isset($transferToDanaRequest)) {
             $resourcePathForSignature = '/v1.0/emoney/topup.htm';
-            if ($transfer_to_dana_request !== null) {
+            if ($transferToDanaRequest !== null) {
                 $resourcePathForSignature = str_replace(
                     '{' . 'TransferToDanaRequest' . '}',
-                    ObjectSerializer::toPathValue($transfer_to_dana_request),
+                    ObjectSerializer::toPathValue($transferToDanaRequest),
                     $resourcePathForSignature
                 );
             }
 
             // Generate security headers using SnapHeader utility
-            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($transfer_to_dana_request));
+            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($transferToDanaRequest));
             $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $clientKey, $privateKey, $privateKeyPath);
             
             // Add security headers to the request
@@ -1833,16 +1833,16 @@ class DisbursementApi
      *
      * Transfer to DANA Inquiry Status
      *
-     * @param  \Dana\Disbursement\v1\Model\TransferToDanaInquiryStatusRequest $transfer_to_dana_inquiry_status_request transfer_to_dana_inquiry_status_request (required)
+     * @param  \Dana\Disbursement\v1\Model\TransferToDanaInquiryStatusRequest $transferToDanaInquiryStatusRequest transferToDanaInquiryStatusRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferToDanaInquiryStatus'] to see the possible values for this operation
      *
      * @throws \Dana\Disbursement\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \Dana\Disbursement\v1\Model\TransferToDanaInquiryStatusResponse
      */
-    public function transferToDanaInquiryStatus($transfer_to_dana_inquiry_status_request, string $contentType = self::contentTypes['transferToDanaInquiryStatus'][0])
+    public function transferToDanaInquiryStatus($transferToDanaInquiryStatusRequest, string $contentType = self::contentTypes['transferToDanaInquiryStatus'][0])
     {
-        list($response) = $this->transferToDanaInquiryStatusWithHttpInfo($transfer_to_dana_inquiry_status_request, $contentType);
+        list($response) = $this->transferToDanaInquiryStatusWithHttpInfo($transferToDanaInquiryStatusRequest, $contentType);
         return $response;
     }
 
@@ -1851,16 +1851,16 @@ class DisbursementApi
      *
      * Transfer to DANA Inquiry Status
      *
-     * @param  \Dana\Disbursement\v1\Model\TransferToDanaInquiryStatusRequest $transfer_to_dana_inquiry_status_request (required)
+     * @param  \Dana\Disbursement\v1\Model\TransferToDanaInquiryStatusRequest $transferToDanaInquiryStatusRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferToDanaInquiryStatus'] to see the possible values for this operation
      *
      * @throws \Dana\Disbursement\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \Dana\Disbursement\v1\Model\TransferToDanaInquiryStatusResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function transferToDanaInquiryStatusWithHttpInfo($transfer_to_dana_inquiry_status_request, string $contentType = self::contentTypes['transferToDanaInquiryStatus'][0])
+    public function transferToDanaInquiryStatusWithHttpInfo($transferToDanaInquiryStatusRequest, string $contentType = self::contentTypes['transferToDanaInquiryStatus'][0])
     {
-        $request = $this->transferToDanaInquiryStatusRequest($transfer_to_dana_inquiry_status_request, $contentType);
+        $request = $this->transferToDanaInquiryStatusRequest($transferToDanaInquiryStatusRequest, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1976,15 +1976,15 @@ class DisbursementApi
      *
      * Transfer to DANA Inquiry Status
      *
-     * @param  \Dana\Disbursement\v1\Model\TransferToDanaInquiryStatusRequest $transfer_to_dana_inquiry_status_request (required)
+     * @param  \Dana\Disbursement\v1\Model\TransferToDanaInquiryStatusRequest $transferToDanaInquiryStatusRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferToDanaInquiryStatus'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function transferToDanaInquiryStatusAsync($transfer_to_dana_inquiry_status_request, string $contentType = self::contentTypes['transferToDanaInquiryStatus'][0])
+    public function transferToDanaInquiryStatusAsync($transferToDanaInquiryStatusRequest, string $contentType = self::contentTypes['transferToDanaInquiryStatus'][0])
     {
-        return $this->transferToDanaInquiryStatusAsyncWithHttpInfo($transfer_to_dana_inquiry_status_request, $contentType)
+        return $this->transferToDanaInquiryStatusAsyncWithHttpInfo($transferToDanaInquiryStatusRequest, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1997,16 +1997,16 @@ class DisbursementApi
      *
      * Transfer to DANA Inquiry Status
      *
-     * @param  \Dana\Disbursement\v1\Model\TransferToDanaInquiryStatusRequest $transfer_to_dana_inquiry_status_request (required)
+     * @param  \Dana\Disbursement\v1\Model\TransferToDanaInquiryStatusRequest $transferToDanaInquiryStatusRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferToDanaInquiryStatus'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function transferToDanaInquiryStatusAsyncWithHttpInfo($transfer_to_dana_inquiry_status_request, string $contentType = self::contentTypes['transferToDanaInquiryStatus'][0])
+    public function transferToDanaInquiryStatusAsyncWithHttpInfo($transferToDanaInquiryStatusRequest, string $contentType = self::contentTypes['transferToDanaInquiryStatus'][0])
     {
         $returnType = '\Dana\Disbursement\v1\Model\TransferToDanaInquiryStatusResponse';
-        $request = $this->transferToDanaInquiryStatusRequest($transfer_to_dana_inquiry_status_request, $contentType);
+        $request = $this->transferToDanaInquiryStatusRequest($transferToDanaInquiryStatusRequest, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2047,19 +2047,19 @@ class DisbursementApi
     /**
      * Create request for operation 'transferToDanaInquiryStatus'
      *
-     * @param  \Dana\Disbursement\v1\Model\TransferToDanaInquiryStatusRequest $transfer_to_dana_inquiry_status_request (required)
+     * @param  \Dana\Disbursement\v1\Model\TransferToDanaInquiryStatusRequest $transferToDanaInquiryStatusRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['transferToDanaInquiryStatus'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function transferToDanaInquiryStatusRequest($transfer_to_dana_inquiry_status_request, string $contentType = self::contentTypes['transferToDanaInquiryStatus'][0])
+    public function transferToDanaInquiryStatusRequest($transferToDanaInquiryStatusRequest, string $contentType = self::contentTypes['transferToDanaInquiryStatus'][0])
     {
 
-        // verify the required parameter 'transfer_to_dana_inquiry_status_request' is set
-        if ($transfer_to_dana_inquiry_status_request === null || (is_array($transfer_to_dana_inquiry_status_request) && count($transfer_to_dana_inquiry_status_request) === 0)) {
+        // verify the required parameter 'transferToDanaInquiryStatusRequest' is set
+        if ($transferToDanaInquiryStatusRequest === null || (is_array($transferToDanaInquiryStatusRequest) && count($transferToDanaInquiryStatusRequest) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $transfer_to_dana_inquiry_status_request when calling transferToDanaInquiryStatus'
+                'Missing the required parameter $transferToDanaInquiryStatusRequest when calling transferToDanaInquiryStatus'
             );
         }
 
@@ -2082,12 +2082,12 @@ class DisbursementApi
         );
 
         // for model (json/xml)
-        if (isset($transfer_to_dana_inquiry_status_request)) {
+        if (isset($transferToDanaInquiryStatusRequest)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($transfer_to_dana_inquiry_status_request));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($transferToDanaInquiryStatusRequest));
             } else {
-                $httpBody = $transfer_to_dana_inquiry_status_request;
+                $httpBody = $transferToDanaInquiryStatusRequest;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2129,18 +2129,18 @@ class DisbursementApi
         $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
         $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
         $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
-        if (isset($transfer_to_dana_inquiry_status_request)) {
+        if (isset($transferToDanaInquiryStatusRequest)) {
             $resourcePathForSignature = '/v1.0/emoney/topup-status.htm';
-            if ($transfer_to_dana_inquiry_status_request !== null) {
+            if ($transferToDanaInquiryStatusRequest !== null) {
                 $resourcePathForSignature = str_replace(
                     '{' . 'TransferToDanaInquiryStatusRequest' . '}',
-                    ObjectSerializer::toPathValue($transfer_to_dana_inquiry_status_request),
+                    ObjectSerializer::toPathValue($transferToDanaInquiryStatusRequest),
                     $resourcePathForSignature
                 );
             }
 
             // Generate security headers using SnapHeader utility
-            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($transfer_to_dana_inquiry_status_request));
+            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($transferToDanaInquiryStatusRequest));
             $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $clientKey, $privateKey, $privateKeyPath);
             
             // Add security headers to the request

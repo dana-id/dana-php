@@ -58,7 +58,7 @@ class StatusDetail implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'acquirement_status' => 'string',
+        'acquirementStatus' => 'string',
         'frozen' => 'string',
         'cancelled' => 'string'
     ];
@@ -71,7 +71,7 @@ class StatusDetail implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'acquirement_status' => null,
+        'acquirementStatus' => null,
         'frozen' => null,
         'cancelled' => null
     ];
@@ -82,7 +82,7 @@ class StatusDetail implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'acquirement_status' => false,
+        'acquirementStatus' => false,
         'frozen' => false,
         'cancelled' => false
     ];
@@ -173,7 +173,7 @@ class StatusDetail implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'acquirement_status' => 'acquirementStatus',
+        'acquirementStatus' => 'acquirementStatus',
         'frozen' => 'frozen',
         'cancelled' => 'cancelled'
     ];
@@ -184,7 +184,7 @@ class StatusDetail implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'acquirement_status' => 'setAcquirementStatus',
+        'acquirementStatus' => 'setAcquirementStatus',
         'frozen' => 'setFrozen',
         'cancelled' => 'setCancelled'
     ];
@@ -195,7 +195,7 @@ class StatusDetail implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'acquirement_status' => 'getAcquirementStatus',
+        'acquirementStatus' => 'getAcquirementStatus',
         'frozen' => 'getFrozen',
         'cancelled' => 'getCancelled'
     ];
@@ -280,7 +280,7 @@ class StatusDetail implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('acquirement_status', $data ?? [], null);
+        $this->setIfExists('acquirementStatus', $data ?? [], null);
         $this->setIfExists('frozen', $data ?? [], null);
         $this->setIfExists('cancelled', $data ?? [], null);
     }
@@ -312,20 +312,20 @@ class StatusDetail implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['acquirement_status'] === null) {
-            $invalidProperties[] = "'acquirement_status' can't be null";
+        if ($this->container['acquirementStatus'] === null) {
+            $invalidProperties[] = "'acquirementStatus' can't be null";
         }
         $allowedValues = $this->getAcquirementStatusAllowableValues();
-        if (!is_null($this->container['acquirement_status']) && !in_array($this->container['acquirement_status'], $allowedValues, true)) {
+        if (!is_null($this->container['acquirementStatus']) && !in_array($this->container['acquirementStatus'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'acquirement_status', must be one of '%s'",
-                $this->container['acquirement_status'],
+                "invalid value '%s' for 'acquirementStatus', must be one of '%s'",
+                $this->container['acquirementStatus'],
                 implode("', '", $allowedValues)
             );
         }
 
-        if ((mb_strlen($this->container['acquirement_status']) > 64)) {
-            $invalidProperties[] = "invalid value for 'acquirement_status', the character length must be smaller than or equal to 64.";
+        if ((mb_strlen($this->container['acquirementStatus']) > 64)) {
+            $invalidProperties[] = "invalid value for 'acquirementStatus', the character length must be smaller than or equal to 64.";
         }
 
         return $invalidProperties;
@@ -344,42 +344,42 @@ class StatusDetail implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets acquirement_status
+     * Gets acquirementStatus
      *
      * @return string
      */
     public function getAcquirementStatus()
     {
-        return $this->container['acquirement_status'];
+        return $this->container['acquirementStatus'];
     }
 
     /**
-     * Sets acquirement_status
+     * Sets acquirementStatus
      *
-     * @param string $acquirement_status The status of acquirement
+     * @param string $acquirementStatus The status of acquirement
      *
      * @return self
      */
-    public function setAcquirementStatus($acquirement_status)
+    public function setAcquirementStatus($acquirementStatus)
     {
-        if (is_null($acquirement_status)) {
-            throw new \InvalidArgumentException('non-nullable acquirement_status cannot be null');
+        if (is_null($acquirementStatus)) {
+            throw new \InvalidArgumentException('non-nullable acquirementStatus cannot be null');
         }
         $allowedValues = $this->getAcquirementStatusAllowableValues();
-        if (!in_array($acquirement_status, $allowedValues, true) && !empty($acquirement_status)) {
+        if (!in_array($acquirementStatus, $allowedValues, true) && !empty($acquirementStatus)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'acquirement_status', must be one of '%s'",
-                    $acquirement_status,
+                    "Invalid value '%s' for 'acquirementStatus', must be one of '%s'",
+                    $acquirementStatus,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        if ((mb_strlen($acquirement_status) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $acquirement_status when calling StatusDetail., must be smaller than or equal to 64.');
+        if ((mb_strlen($acquirementStatus) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $acquirementStatus when calling StatusDetail., must be smaller than or equal to 64.');
         }
 
-        $this->container['acquirement_status'] = $acquirement_status;
+        $this->container['acquirementStatus'] = $acquirementStatus;
 
         return $this;
     }

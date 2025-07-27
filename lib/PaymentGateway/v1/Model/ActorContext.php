@@ -58,8 +58,8 @@ class ActorContext implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'actor_id' => 'string',
-        'actor_type' => 'string'
+        'actorId' => 'string',
+        'actorType' => 'string'
     ];
 
     /**
@@ -70,8 +70,8 @@ class ActorContext implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'actor_id' => null,
-        'actor_type' => null
+        'actorId' => null,
+        'actorType' => null
     ];
 
     /**
@@ -80,8 +80,8 @@ class ActorContext implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'actor_id' => false,
-        'actor_type' => false
+        'actorId' => false,
+        'actorType' => false
     ];
 
     /**
@@ -170,8 +170,8 @@ class ActorContext implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'actor_id' => 'actorId',
-        'actor_type' => 'actorType'
+        'actorId' => 'actorId',
+        'actorType' => 'actorType'
     ];
 
     /**
@@ -180,8 +180,8 @@ class ActorContext implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'actor_id' => 'setActorId',
-        'actor_type' => 'setActorType'
+        'actorId' => 'setActorId',
+        'actorType' => 'setActorType'
     ];
 
     /**
@@ -190,8 +190,8 @@ class ActorContext implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'actor_id' => 'getActorId',
-        'actor_type' => 'getActorType'
+        'actorId' => 'getActorId',
+        'actorType' => 'getActorType'
     ];
 
     /**
@@ -272,8 +272,8 @@ class ActorContext implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('actor_id', $data ?? [], null);
-        $this->setIfExists('actor_type', $data ?? [], null);
+        $this->setIfExists('actorId', $data ?? [], null);
+        $this->setIfExists('actorType', $data ?? [], null);
     }
 
     /**
@@ -303,21 +303,21 @@ class ActorContext implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['actor_id']) && (mb_strlen($this->container['actor_id']) > 64)) {
-            $invalidProperties[] = "invalid value for 'actor_id', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['actorId']) && (mb_strlen($this->container['actorId']) > 64)) {
+            $invalidProperties[] = "invalid value for 'actorId', the character length must be smaller than or equal to 64.";
         }
 
         $allowedValues = $this->getActorTypeAllowableValues();
-        if (!is_null($this->container['actor_type']) && !in_array($this->container['actor_type'], $allowedValues, true)) {
+        if (!is_null($this->container['actorType']) && !in_array($this->container['actorType'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'actor_type', must be one of '%s'",
-                $this->container['actor_type'],
+                "invalid value '%s' for 'actorType', must be one of '%s'",
+                $this->container['actorType'],
                 implode("', '", $allowedValues)
             );
         }
 
-        if (!is_null($this->container['actor_type']) && (mb_strlen($this->container['actor_type']) > 32)) {
-            $invalidProperties[] = "invalid value for 'actor_type', the character length must be smaller than or equal to 32.";
+        if (!is_null($this->container['actorType']) && (mb_strlen($this->container['actorType']) > 32)) {
+            $invalidProperties[] = "invalid value for 'actorType', the character length must be smaller than or equal to 32.";
         }
 
         return $invalidProperties;
@@ -336,73 +336,73 @@ class ActorContext implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets actor_id
+     * Gets actorId
      *
      * @return string|null
      */
     public function getActorId()
     {
-        return $this->container['actor_id'];
+        return $this->container['actorId'];
     }
 
     /**
-     * Sets actor_id
+     * Sets actorId
      *
-     * @param string|null $actor_id Actor identifier
+     * @param string|null $actorId Actor identifier
      *
      * @return self
      */
-    public function setActorId($actor_id)
+    public function setActorId($actorId)
     {
-        if (is_null($actor_id)) {
-            throw new \InvalidArgumentException('non-nullable actor_id cannot be null');
+        if (is_null($actorId)) {
+            throw new \InvalidArgumentException('non-nullable actorId cannot be null');
         }
-        if ((mb_strlen($actor_id) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $actor_id when calling ActorContext., must be smaller than or equal to 64.');
+        if ((mb_strlen($actorId) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $actorId when calling ActorContext., must be smaller than or equal to 64.');
         }
 
-        $this->container['actor_id'] = $actor_id;
+        $this->container['actorId'] = $actorId;
 
         return $this;
     }
 
     /**
-     * Gets actor_type
+     * Gets actorType
      *
      * @return string|null
      */
     public function getActorType()
     {
-        return $this->container['actor_type'];
+        return $this->container['actorType'];
     }
 
     /**
-     * Sets actor_type
+     * Sets actorType
      *
-     * @param string|null $actor_type Actor type. The enums:<br> * USER - User<br> * MERCHANT - Merchant<br * MERCHANT_OPERATOR - Merchant operator<br> * BACK_OFFICE - Back office<br> * SYSTEM - System<br>
+     * @param string|null $actorType Actor type. The enums:<br> * USER - User<br> * MERCHANT - Merchant<br * MERCHANT_OPERATOR - Merchant operator<br> * BACK_OFFICE - Back office<br> * SYSTEM - System<br>
      *
      * @return self
      */
-    public function setActorType($actor_type)
+    public function setActorType($actorType)
     {
-        if (is_null($actor_type)) {
-            throw new \InvalidArgumentException('non-nullable actor_type cannot be null');
+        if (is_null($actorType)) {
+            throw new \InvalidArgumentException('non-nullable actorType cannot be null');
         }
         $allowedValues = $this->getActorTypeAllowableValues();
-        if (!in_array($actor_type, $allowedValues, true) && (!empty($actor_type) || $actor_type !== '')) {
+        if (!in_array($actorType, $allowedValues, true) && (!empty($actorType) || $actorType !== '')) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'actor_type', must be one of '%s'",
-                    $actor_type,
+                    "Invalid value '%s' for 'actorType', must be one of '%s'",
+                    $actorType,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        if ((mb_strlen($actor_type) > 32)) {
-            throw new \InvalidArgumentException('invalid length for $actor_type when calling ActorContext., must be smaller than or equal to 32.');
+        if ((mb_strlen($actorType) > 32)) {
+            throw new \InvalidArgumentException('invalid length for $actorType when calling ActorContext., must be smaller than or equal to 32.');
         }
 
-        $this->container['actor_type'] = $actor_type;
+        $this->container['actorType'] = $actorType;
 
         return $this;
     }

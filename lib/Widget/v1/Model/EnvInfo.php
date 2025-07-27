@@ -58,20 +58,20 @@ class EnvInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'session_id' => 'string',
-        'token_id' => 'string',
-        'website_language' => 'string',
-        'client_ip' => 'string',
-        'os_type' => 'string',
-        'app_version' => 'string',
-        'sdk_version' => 'string',
-        'source_platform' => 'string',
-        'order_os_type' => 'string',
-        'merchant_app_version' => 'string',
-        'terminal_type' => 'string',
-        'order_terminal_type' => 'string',
-        'extend_info' => 'string',
-        'client_key' => 'string'
+        'sessionId' => 'string',
+        'tokenId' => 'string',
+        'websiteLanguage' => 'string',
+        'clientIp' => 'string',
+        'osType' => 'string',
+        'appVersion' => 'string',
+        'sdkVersion' => 'string',
+        'sourcePlatform' => 'string',
+        'orderOsType' => 'string',
+        'merchantAppVersion' => 'string',
+        'terminalType' => 'string',
+        'orderTerminalType' => 'string',
+        'extendInfo' => 'string',
+        'clientKey' => 'string'
     ];
 
     /**
@@ -82,20 +82,20 @@ class EnvInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'session_id' => null,
-        'token_id' => null,
-        'website_language' => null,
-        'client_ip' => null,
-        'os_type' => null,
-        'app_version' => null,
-        'sdk_version' => null,
-        'source_platform' => null,
-        'order_os_type' => null,
-        'merchant_app_version' => null,
-        'terminal_type' => null,
-        'order_terminal_type' => null,
-        'extend_info' => null,
-        'client_key' => null
+        'sessionId' => null,
+        'tokenId' => null,
+        'websiteLanguage' => null,
+        'clientIp' => null,
+        'osType' => null,
+        'appVersion' => null,
+        'sdkVersion' => null,
+        'sourcePlatform' => null,
+        'orderOsType' => null,
+        'merchantAppVersion' => null,
+        'terminalType' => null,
+        'orderTerminalType' => null,
+        'extendInfo' => null,
+        'clientKey' => null
     ];
 
     /**
@@ -104,20 +104,20 @@ class EnvInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'session_id' => false,
-        'token_id' => false,
-        'website_language' => false,
-        'client_ip' => false,
-        'os_type' => false,
-        'app_version' => false,
-        'sdk_version' => false,
-        'source_platform' => false,
-        'order_os_type' => false,
-        'merchant_app_version' => false,
-        'terminal_type' => false,
-        'order_terminal_type' => false,
-        'extend_info' => false,
-        'client_key' => false
+        'sessionId' => false,
+        'tokenId' => false,
+        'websiteLanguage' => false,
+        'clientIp' => false,
+        'osType' => false,
+        'appVersion' => false,
+        'sdkVersion' => false,
+        'sourcePlatform' => false,
+        'orderOsType' => false,
+        'merchantAppVersion' => false,
+        'terminalType' => false,
+        'orderTerminalType' => false,
+        'extendInfo' => false,
+        'clientKey' => false
     ];
 
     /**
@@ -206,20 +206,20 @@ class EnvInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'session_id' => 'sessionId',
-        'token_id' => 'tokenId',
-        'website_language' => 'websiteLanguage',
-        'client_ip' => 'clientIp',
-        'os_type' => 'osType',
-        'app_version' => 'appVersion',
-        'sdk_version' => 'sdkVersion',
-        'source_platform' => 'sourcePlatform',
-        'order_os_type' => 'orderOsType',
-        'merchant_app_version' => 'merchantAppVersion',
-        'terminal_type' => 'terminalType',
-        'order_terminal_type' => 'orderTerminalType',
-        'extend_info' => 'extendInfo',
-        'client_key' => 'clientKey'
+        'sessionId' => 'sessionId',
+        'tokenId' => 'tokenId',
+        'websiteLanguage' => 'websiteLanguage',
+        'clientIp' => 'clientIp',
+        'osType' => 'osType',
+        'appVersion' => 'appVersion',
+        'sdkVersion' => 'sdkVersion',
+        'sourcePlatform' => 'sourcePlatform',
+        'orderOsType' => 'orderOsType',
+        'merchantAppVersion' => 'merchantAppVersion',
+        'terminalType' => 'terminalType',
+        'orderTerminalType' => 'orderTerminalType',
+        'extendInfo' => 'extendInfo',
+        'clientKey' => 'clientKey'
     ];
 
     /**
@@ -228,20 +228,20 @@ class EnvInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'session_id' => 'setSessionId',
-        'token_id' => 'setTokenId',
-        'website_language' => 'setWebsiteLanguage',
-        'client_ip' => 'setClientIp',
-        'os_type' => 'setOsType',
-        'app_version' => 'setAppVersion',
-        'sdk_version' => 'setSdkVersion',
-        'source_platform' => 'setSourcePlatform',
-        'order_os_type' => 'setOrderOsType',
-        'merchant_app_version' => 'setMerchantAppVersion',
-        'terminal_type' => 'setTerminalType',
-        'order_terminal_type' => 'setOrderTerminalType',
-        'extend_info' => 'setExtendInfo',
-        'client_key' => 'setClientKey'
+        'sessionId' => 'setSessionId',
+        'tokenId' => 'setTokenId',
+        'websiteLanguage' => 'setWebsiteLanguage',
+        'clientIp' => 'setClientIp',
+        'osType' => 'setOsType',
+        'appVersion' => 'setAppVersion',
+        'sdkVersion' => 'setSdkVersion',
+        'sourcePlatform' => 'setSourcePlatform',
+        'orderOsType' => 'setOrderOsType',
+        'merchantAppVersion' => 'setMerchantAppVersion',
+        'terminalType' => 'setTerminalType',
+        'orderTerminalType' => 'setOrderTerminalType',
+        'extendInfo' => 'setExtendInfo',
+        'clientKey' => 'setClientKey'
     ];
 
     /**
@@ -250,20 +250,20 @@ class EnvInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'session_id' => 'getSessionId',
-        'token_id' => 'getTokenId',
-        'website_language' => 'getWebsiteLanguage',
-        'client_ip' => 'getClientIp',
-        'os_type' => 'getOsType',
-        'app_version' => 'getAppVersion',
-        'sdk_version' => 'getSdkVersion',
-        'source_platform' => 'getSourcePlatform',
-        'order_os_type' => 'getOrderOsType',
-        'merchant_app_version' => 'getMerchantAppVersion',
-        'terminal_type' => 'getTerminalType',
-        'order_terminal_type' => 'getOrderTerminalType',
-        'extend_info' => 'getExtendInfo',
-        'client_key' => 'getClientKey'
+        'sessionId' => 'getSessionId',
+        'tokenId' => 'getTokenId',
+        'websiteLanguage' => 'getWebsiteLanguage',
+        'clientIp' => 'getClientIp',
+        'osType' => 'getOsType',
+        'appVersion' => 'getAppVersion',
+        'sdkVersion' => 'getSdkVersion',
+        'sourcePlatform' => 'getSourcePlatform',
+        'orderOsType' => 'getOrderOsType',
+        'merchantAppVersion' => 'getMerchantAppVersion',
+        'terminalType' => 'getTerminalType',
+        'orderTerminalType' => 'getOrderTerminalType',
+        'extendInfo' => 'getExtendInfo',
+        'clientKey' => 'getClientKey'
     ];
 
     /**
@@ -374,20 +374,20 @@ class EnvInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('session_id', $data ?? [], null);
-        $this->setIfExists('token_id', $data ?? [], null);
-        $this->setIfExists('website_language', $data ?? [], null);
-        $this->setIfExists('client_ip', $data ?? [], null);
-        $this->setIfExists('os_type', $data ?? [], null);
-        $this->setIfExists('app_version', $data ?? [], null);
-        $this->setIfExists('sdk_version', $data ?? [], null);
-        $this->setIfExists('source_platform', $data ?? [], null);
-        $this->setIfExists('order_os_type', $data ?? [], null);
-        $this->setIfExists('merchant_app_version', $data ?? [], null);
-        $this->setIfExists('terminal_type', $data ?? [], null);
-        $this->setIfExists('order_terminal_type', $data ?? [], null);
-        $this->setIfExists('extend_info', $data ?? [], null);
-        $this->setIfExists('client_key', $data ?? [], null);
+        $this->setIfExists('sessionId', $data ?? [], null);
+        $this->setIfExists('tokenId', $data ?? [], null);
+        $this->setIfExists('websiteLanguage', $data ?? [], null);
+        $this->setIfExists('clientIp', $data ?? [], null);
+        $this->setIfExists('osType', $data ?? [], null);
+        $this->setIfExists('appVersion', $data ?? [], null);
+        $this->setIfExists('sdkVersion', $data ?? [], null);
+        $this->setIfExists('sourcePlatform', $data ?? [], null);
+        $this->setIfExists('orderOsType', $data ?? [], null);
+        $this->setIfExists('merchantAppVersion', $data ?? [], null);
+        $this->setIfExists('terminalType', $data ?? [], null);
+        $this->setIfExists('orderTerminalType', $data ?? [], null);
+        $this->setIfExists('extendInfo', $data ?? [], null);
+        $this->setIfExists('clientKey', $data ?? [], null);
     }
 
     /**
@@ -417,93 +417,93 @@ class EnvInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['session_id']) && (mb_strlen($this->container['session_id']) > 128)) {
-            $invalidProperties[] = "invalid value for 'session_id', the character length must be smaller than or equal to 128.";
+        if (!is_null($this->container['sessionId']) && (mb_strlen($this->container['sessionId']) > 128)) {
+            $invalidProperties[] = "invalid value for 'sessionId', the character length must be smaller than or equal to 128.";
         }
 
-        if (!is_null($this->container['token_id']) && (mb_strlen($this->container['token_id']) > 128)) {
-            $invalidProperties[] = "invalid value for 'token_id', the character length must be smaller than or equal to 128.";
+        if (!is_null($this->container['tokenId']) && (mb_strlen($this->container['tokenId']) > 128)) {
+            $invalidProperties[] = "invalid value for 'tokenId', the character length must be smaller than or equal to 128.";
         }
 
-        if (!is_null($this->container['website_language']) && (mb_strlen($this->container['website_language']) > 16)) {
-            $invalidProperties[] = "invalid value for 'website_language', the character length must be smaller than or equal to 16.";
+        if (!is_null($this->container['websiteLanguage']) && (mb_strlen($this->container['websiteLanguage']) > 16)) {
+            $invalidProperties[] = "invalid value for 'websiteLanguage', the character length must be smaller than or equal to 16.";
         }
 
-        if (!is_null($this->container['client_ip']) && (mb_strlen($this->container['client_ip']) > 32)) {
-            $invalidProperties[] = "invalid value for 'client_ip', the character length must be smaller than or equal to 32.";
+        if (!is_null($this->container['clientIp']) && (mb_strlen($this->container['clientIp']) > 32)) {
+            $invalidProperties[] = "invalid value for 'clientIp', the character length must be smaller than or equal to 32.";
         }
 
-        if (!is_null($this->container['os_type']) && (mb_strlen($this->container['os_type']) > 128)) {
-            $invalidProperties[] = "invalid value for 'os_type', the character length must be smaller than or equal to 128.";
+        if (!is_null($this->container['osType']) && (mb_strlen($this->container['osType']) > 128)) {
+            $invalidProperties[] = "invalid value for 'osType', the character length must be smaller than or equal to 128.";
         }
 
-        if (!is_null($this->container['app_version']) && (mb_strlen($this->container['app_version']) > 128)) {
-            $invalidProperties[] = "invalid value for 'app_version', the character length must be smaller than or equal to 128.";
+        if (!is_null($this->container['appVersion']) && (mb_strlen($this->container['appVersion']) > 128)) {
+            $invalidProperties[] = "invalid value for 'appVersion', the character length must be smaller than or equal to 128.";
         }
 
-        if (!is_null($this->container['sdk_version']) && (mb_strlen($this->container['sdk_version']) > 128)) {
-            $invalidProperties[] = "invalid value for 'sdk_version', the character length must be smaller than or equal to 128.";
+        if (!is_null($this->container['sdkVersion']) && (mb_strlen($this->container['sdkVersion']) > 128)) {
+            $invalidProperties[] = "invalid value for 'sdkVersion', the character length must be smaller than or equal to 128.";
         }
 
-        if ($this->container['source_platform'] === null) {
-            $invalidProperties[] = "'source_platform' can't be null";
+        if ($this->container['sourcePlatform'] === null) {
+            $invalidProperties[] = "'sourcePlatform' can't be null";
         }
         $allowedValues = $this->getSourcePlatformAllowableValues();
-        if (!is_null($this->container['source_platform']) && !in_array($this->container['source_platform'], $allowedValues, true)) {
+        if (!is_null($this->container['sourcePlatform']) && !in_array($this->container['sourcePlatform'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'source_platform', must be one of '%s'",
-                $this->container['source_platform'],
+                "invalid value '%s' for 'sourcePlatform', must be one of '%s'",
+                $this->container['sourcePlatform'],
                 implode("', '", $allowedValues)
             );
         }
 
-        if ((mb_strlen($this->container['source_platform']) > 32)) {
-            $invalidProperties[] = "invalid value for 'source_platform', the character length must be smaller than or equal to 32.";
+        if ((mb_strlen($this->container['sourcePlatform']) > 32)) {
+            $invalidProperties[] = "invalid value for 'sourcePlatform', the character length must be smaller than or equal to 32.";
         }
 
-        if (!is_null($this->container['order_os_type']) && (mb_strlen($this->container['order_os_type']) > 128)) {
-            $invalidProperties[] = "invalid value for 'order_os_type', the character length must be smaller than or equal to 128.";
+        if (!is_null($this->container['orderOsType']) && (mb_strlen($this->container['orderOsType']) > 128)) {
+            $invalidProperties[] = "invalid value for 'orderOsType', the character length must be smaller than or equal to 128.";
         }
 
-        if (!is_null($this->container['merchant_app_version']) && (mb_strlen($this->container['merchant_app_version']) > 128)) {
-            $invalidProperties[] = "invalid value for 'merchant_app_version', the character length must be smaller than or equal to 128.";
+        if (!is_null($this->container['merchantAppVersion']) && (mb_strlen($this->container['merchantAppVersion']) > 128)) {
+            $invalidProperties[] = "invalid value for 'merchantAppVersion', the character length must be smaller than or equal to 128.";
         }
 
-        if ($this->container['terminal_type'] === null) {
-            $invalidProperties[] = "'terminal_type' can't be null";
+        if ($this->container['terminalType'] === null) {
+            $invalidProperties[] = "'terminalType' can't be null";
         }
         $allowedValues = $this->getTerminalTypeAllowableValues();
-        if (!is_null($this->container['terminal_type']) && !in_array($this->container['terminal_type'], $allowedValues, true)) {
+        if (!is_null($this->container['terminalType']) && !in_array($this->container['terminalType'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'terminal_type', must be one of '%s'",
-                $this->container['terminal_type'],
+                "invalid value '%s' for 'terminalType', must be one of '%s'",
+                $this->container['terminalType'],
                 implode("', '", $allowedValues)
             );
         }
 
-        if ((mb_strlen($this->container['terminal_type']) > 32)) {
-            $invalidProperties[] = "invalid value for 'terminal_type', the character length must be smaller than or equal to 32.";
+        if ((mb_strlen($this->container['terminalType']) > 32)) {
+            $invalidProperties[] = "invalid value for 'terminalType', the character length must be smaller than or equal to 32.";
         }
 
         $allowedValues = $this->getOrderTerminalTypeAllowableValues();
-        if (!is_null($this->container['order_terminal_type']) && !in_array($this->container['order_terminal_type'], $allowedValues, true)) {
+        if (!is_null($this->container['orderTerminalType']) && !in_array($this->container['orderTerminalType'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'order_terminal_type', must be one of '%s'",
-                $this->container['order_terminal_type'],
+                "invalid value '%s' for 'orderTerminalType', must be one of '%s'",
+                $this->container['orderTerminalType'],
                 implode("', '", $allowedValues)
             );
         }
 
-        if (!is_null($this->container['order_terminal_type']) && (mb_strlen($this->container['order_terminal_type']) > 32)) {
-            $invalidProperties[] = "invalid value for 'order_terminal_type', the character length must be smaller than or equal to 32.";
+        if (!is_null($this->container['orderTerminalType']) && (mb_strlen($this->container['orderTerminalType']) > 32)) {
+            $invalidProperties[] = "invalid value for 'orderTerminalType', the character length must be smaller than or equal to 32.";
         }
 
-        if (!is_null($this->container['extend_info']) && (mb_strlen($this->container['extend_info']) > 4096)) {
-            $invalidProperties[] = "invalid value for 'extend_info', the character length must be smaller than or equal to 4096.";
+        if (!is_null($this->container['extendInfo']) && (mb_strlen($this->container['extendInfo']) > 4096)) {
+            $invalidProperties[] = "invalid value for 'extendInfo', the character length must be smaller than or equal to 4096.";
         }
 
-        if (!is_null($this->container['client_key']) && (mb_strlen($this->container['client_key']) > 64)) {
-            $invalidProperties[] = "invalid value for 'client_key', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['clientKey']) && (mb_strlen($this->container['clientKey']) > 64)) {
+            $invalidProperties[] = "invalid value for 'clientKey', the character length must be smaller than or equal to 64.";
         }
 
         return $invalidProperties;
@@ -522,465 +522,465 @@ class EnvInfo implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets session_id
+     * Gets sessionId
      *
      * @return string|null
      */
     public function getSessionId()
     {
-        return $this->container['session_id'];
+        return $this->container['sessionId'];
     }
 
     /**
-     * Sets session_id
+     * Sets sessionId
      *
-     * @param string|null $session_id Session identifier
+     * @param string|null $sessionId Session identifier
      *
      * @return self
      */
-    public function setSessionId($session_id)
+    public function setSessionId($sessionId)
     {
-        if (is_null($session_id)) {
-            throw new \InvalidArgumentException('non-nullable session_id cannot be null');
+        if (is_null($sessionId)) {
+            throw new \InvalidArgumentException('non-nullable sessionId cannot be null');
         }
-        if ((mb_strlen($session_id) > 128)) {
-            throw new \InvalidArgumentException('invalid length for $session_id when calling EnvInfo., must be smaller than or equal to 128.');
+        if ((mb_strlen($sessionId) > 128)) {
+            throw new \InvalidArgumentException('invalid length for $sessionId when calling EnvInfo., must be smaller than or equal to 128.');
         }
 
-        $this->container['session_id'] = $session_id;
+        $this->container['sessionId'] = $sessionId;
 
         return $this;
     }
 
     /**
-     * Gets token_id
+     * Gets tokenId
      *
      * @return string|null
      */
     public function getTokenId()
     {
-        return $this->container['token_id'];
+        return $this->container['tokenId'];
     }
 
     /**
-     * Sets token_id
+     * Sets tokenId
      *
-     * @param string|null $token_id Token identifier
+     * @param string|null $tokenId Token identifier
      *
      * @return self
      */
-    public function setTokenId($token_id)
+    public function setTokenId($tokenId)
     {
-        if (is_null($token_id)) {
-            throw new \InvalidArgumentException('non-nullable token_id cannot be null');
+        if (is_null($tokenId)) {
+            throw new \InvalidArgumentException('non-nullable tokenId cannot be null');
         }
-        if ((mb_strlen($token_id) > 128)) {
-            throw new \InvalidArgumentException('invalid length for $token_id when calling EnvInfo., must be smaller than or equal to 128.');
+        if ((mb_strlen($tokenId) > 128)) {
+            throw new \InvalidArgumentException('invalid length for $tokenId when calling EnvInfo., must be smaller than or equal to 128.');
         }
 
-        $this->container['token_id'] = $token_id;
+        $this->container['tokenId'] = $tokenId;
 
         return $this;
     }
 
     /**
-     * Gets website_language
+     * Gets websiteLanguage
      *
      * @return string|null
      */
     public function getWebsiteLanguage()
     {
-        return $this->container['website_language'];
+        return $this->container['websiteLanguage'];
     }
 
     /**
-     * Sets website_language
+     * Sets websiteLanguage
      *
-     * @param string|null $website_language Website language
+     * @param string|null $websiteLanguage Website language
      *
      * @return self
      */
-    public function setWebsiteLanguage($website_language)
+    public function setWebsiteLanguage($websiteLanguage)
     {
-        if (is_null($website_language)) {
-            throw new \InvalidArgumentException('non-nullable website_language cannot be null');
+        if (is_null($websiteLanguage)) {
+            throw new \InvalidArgumentException('non-nullable websiteLanguage cannot be null');
         }
-        if ((mb_strlen($website_language) > 16)) {
-            throw new \InvalidArgumentException('invalid length for $website_language when calling EnvInfo., must be smaller than or equal to 16.');
+        if ((mb_strlen($websiteLanguage) > 16)) {
+            throw new \InvalidArgumentException('invalid length for $websiteLanguage when calling EnvInfo., must be smaller than or equal to 16.');
         }
 
-        $this->container['website_language'] = $website_language;
+        $this->container['websiteLanguage'] = $websiteLanguage;
 
         return $this;
     }
 
     /**
-     * Gets client_ip
+     * Gets clientIp
      *
      * @return string|null
      */
     public function getClientIp()
     {
-        return $this->container['client_ip'];
+        return $this->container['clientIp'];
     }
 
     /**
-     * Sets client_ip
+     * Sets clientIp
      *
-     * @param string|null $client_ip Client IP address
+     * @param string|null $clientIp Client IP address
      *
      * @return self
      */
-    public function setClientIp($client_ip)
+    public function setClientIp($clientIp)
     {
-        if (is_null($client_ip)) {
-            throw new \InvalidArgumentException('non-nullable client_ip cannot be null');
+        if (is_null($clientIp)) {
+            throw new \InvalidArgumentException('non-nullable clientIp cannot be null');
         }
-        if ((mb_strlen($client_ip) > 32)) {
-            throw new \InvalidArgumentException('invalid length for $client_ip when calling EnvInfo., must be smaller than or equal to 32.');
+        if ((mb_strlen($clientIp) > 32)) {
+            throw new \InvalidArgumentException('invalid length for $clientIp when calling EnvInfo., must be smaller than or equal to 32.');
         }
 
-        $this->container['client_ip'] = $client_ip;
+        $this->container['clientIp'] = $clientIp;
 
         return $this;
     }
 
     /**
-     * Gets os_type
+     * Gets osType
      *
      * @return string|null
      */
     public function getOsType()
     {
-        return $this->container['os_type'];
+        return $this->container['osType'];
     }
 
     /**
-     * Sets os_type
+     * Sets osType
      *
-     * @param string|null $os_type Operating system type
+     * @param string|null $osType Operating system type
      *
      * @return self
      */
-    public function setOsType($os_type)
+    public function setOsType($osType)
     {
-        if (is_null($os_type)) {
-            throw new \InvalidArgumentException('non-nullable os_type cannot be null');
+        if (is_null($osType)) {
+            throw new \InvalidArgumentException('non-nullable osType cannot be null');
         }
-        if ((mb_strlen($os_type) > 128)) {
-            throw new \InvalidArgumentException('invalid length for $os_type when calling EnvInfo., must be smaller than or equal to 128.');
+        if ((mb_strlen($osType) > 128)) {
+            throw new \InvalidArgumentException('invalid length for $osType when calling EnvInfo., must be smaller than or equal to 128.');
         }
 
-        $this->container['os_type'] = $os_type;
+        $this->container['osType'] = $osType;
 
         return $this;
     }
 
     /**
-     * Gets app_version
+     * Gets appVersion
      *
      * @return string|null
      */
     public function getAppVersion()
     {
-        return $this->container['app_version'];
+        return $this->container['appVersion'];
     }
 
     /**
-     * Sets app_version
+     * Sets appVersion
      *
-     * @param string|null $app_version App version
+     * @param string|null $appVersion App version
      *
      * @return self
      */
-    public function setAppVersion($app_version)
+    public function setAppVersion($appVersion)
     {
-        if (is_null($app_version)) {
-            throw new \InvalidArgumentException('non-nullable app_version cannot be null');
+        if (is_null($appVersion)) {
+            throw new \InvalidArgumentException('non-nullable appVersion cannot be null');
         }
-        if ((mb_strlen($app_version) > 128)) {
-            throw new \InvalidArgumentException('invalid length for $app_version when calling EnvInfo., must be smaller than or equal to 128.');
+        if ((mb_strlen($appVersion) > 128)) {
+            throw new \InvalidArgumentException('invalid length for $appVersion when calling EnvInfo., must be smaller than or equal to 128.');
         }
 
-        $this->container['app_version'] = $app_version;
+        $this->container['appVersion'] = $appVersion;
 
         return $this;
     }
 
     /**
-     * Gets sdk_version
+     * Gets sdkVersion
      *
      * @return string|null
      */
     public function getSdkVersion()
     {
-        return $this->container['sdk_version'];
+        return $this->container['sdkVersion'];
     }
 
     /**
-     * Sets sdk_version
+     * Sets sdkVersion
      *
-     * @param string|null $sdk_version SDK version
+     * @param string|null $sdkVersion SDK version
      *
      * @return self
      */
-    public function setSdkVersion($sdk_version)
+    public function setSdkVersion($sdkVersion)
     {
-        if (is_null($sdk_version)) {
-            throw new \InvalidArgumentException('non-nullable sdk_version cannot be null');
+        if (is_null($sdkVersion)) {
+            throw new \InvalidArgumentException('non-nullable sdkVersion cannot be null');
         }
-        if ((mb_strlen($sdk_version) > 128)) {
-            throw new \InvalidArgumentException('invalid length for $sdk_version when calling EnvInfo., must be smaller than or equal to 128.');
+        if ((mb_strlen($sdkVersion) > 128)) {
+            throw new \InvalidArgumentException('invalid length for $sdkVersion when calling EnvInfo., must be smaller than or equal to 128.');
         }
 
-        $this->container['sdk_version'] = $sdk_version;
+        $this->container['sdkVersion'] = $sdkVersion;
 
         return $this;
     }
 
     /**
-     * Gets source_platform
+     * Gets sourcePlatform
      *
      * @return string
      */
     public function getSourcePlatform()
     {
-        return $this->container['source_platform'];
+        return $this->container['sourcePlatform'];
     }
 
     /**
-     * Sets source_platform
+     * Sets sourcePlatform
      *
-     * @param string $source_platform The source platform is always independent payment gateway (IPG)
+     * @param string $sourcePlatform The source platform is always independent payment gateway (IPG)
      *
      * @return self
      */
-    public function setSourcePlatform($source_platform)
+    public function setSourcePlatform($sourcePlatform)
     {
-        if (is_null($source_platform)) {
-            throw new \InvalidArgumentException('non-nullable source_platform cannot be null');
+        if (is_null($sourcePlatform)) {
+            throw new \InvalidArgumentException('non-nullable sourcePlatform cannot be null');
         }
         $allowedValues = $this->getSourcePlatformAllowableValues();
-        if (!in_array($source_platform, $allowedValues, true) && !empty($source_platform)) {
+        if (!in_array($sourcePlatform, $allowedValues, true) && !empty($sourcePlatform)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'source_platform', must be one of '%s'",
-                    $source_platform,
+                    "Invalid value '%s' for 'sourcePlatform', must be one of '%s'",
+                    $sourcePlatform,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        if ((mb_strlen($source_platform) > 32)) {
-            throw new \InvalidArgumentException('invalid length for $source_platform when calling EnvInfo., must be smaller than or equal to 32.');
+        if ((mb_strlen($sourcePlatform) > 32)) {
+            throw new \InvalidArgumentException('invalid length for $sourcePlatform when calling EnvInfo., must be smaller than or equal to 32.');
         }
 
-        $this->container['source_platform'] = $source_platform;
+        $this->container['sourcePlatform'] = $sourcePlatform;
 
         return $this;
     }
 
     /**
-     * Gets order_os_type
+     * Gets orderOsType
      *
      * @return string|null
      */
     public function getOrderOsType()
     {
-        return $this->container['order_os_type'];
+        return $this->container['orderOsType'];
     }
 
     /**
-     * Sets order_os_type
+     * Sets orderOsType
      *
-     * @param string|null $order_os_type Order operating system type
+     * @param string|null $orderOsType Order operating system type
      *
      * @return self
      */
-    public function setOrderOsType($order_os_type)
+    public function setOrderOsType($orderOsType)
     {
-        if (is_null($order_os_type)) {
-            throw new \InvalidArgumentException('non-nullable order_os_type cannot be null');
+        if (is_null($orderOsType)) {
+            throw new \InvalidArgumentException('non-nullable orderOsType cannot be null');
         }
-        if ((mb_strlen($order_os_type) > 128)) {
-            throw new \InvalidArgumentException('invalid length for $order_os_type when calling EnvInfo., must be smaller than or equal to 128.');
+        if ((mb_strlen($orderOsType) > 128)) {
+            throw new \InvalidArgumentException('invalid length for $orderOsType when calling EnvInfo., must be smaller than or equal to 128.');
         }
 
-        $this->container['order_os_type'] = $order_os_type;
+        $this->container['orderOsType'] = $orderOsType;
 
         return $this;
     }
 
     /**
-     * Gets merchant_app_version
+     * Gets merchantAppVersion
      *
      * @return string|null
      */
     public function getMerchantAppVersion()
     {
-        return $this->container['merchant_app_version'];
+        return $this->container['merchantAppVersion'];
     }
 
     /**
-     * Sets merchant_app_version
+     * Sets merchantAppVersion
      *
-     * @param string|null $merchant_app_version Merchant App version
+     * @param string|null $merchantAppVersion Merchant App version
      *
      * @return self
      */
-    public function setMerchantAppVersion($merchant_app_version)
+    public function setMerchantAppVersion($merchantAppVersion)
     {
-        if (is_null($merchant_app_version)) {
-            throw new \InvalidArgumentException('non-nullable merchant_app_version cannot be null');
+        if (is_null($merchantAppVersion)) {
+            throw new \InvalidArgumentException('non-nullable merchantAppVersion cannot be null');
         }
-        if ((mb_strlen($merchant_app_version) > 128)) {
-            throw new \InvalidArgumentException('invalid length for $merchant_app_version when calling EnvInfo., must be smaller than or equal to 128.');
+        if ((mb_strlen($merchantAppVersion) > 128)) {
+            throw new \InvalidArgumentException('invalid length for $merchantAppVersion when calling EnvInfo., must be smaller than or equal to 128.');
         }
 
-        $this->container['merchant_app_version'] = $merchant_app_version;
+        $this->container['merchantAppVersion'] = $merchantAppVersion;
 
         return $this;
     }
 
     /**
-     * Gets terminal_type
+     * Gets terminalType
      *
      * @return string
      */
     public function getTerminalType()
     {
-        return $this->container['terminal_type'];
+        return $this->container['terminalType'];
     }
 
     /**
-     * Sets terminal_type
+     * Sets terminalType
      *
-     * @param string $terminal_type Terminal type. The enums:<br> * APP - Mobile Application<br> * WEB - Browser Web<br> * WAP - Mobile Wap<br> * SYSTEM - System Call<br>
+     * @param string $terminalType Terminal type. The enums:<br> * APP - Mobile Application<br> * WEB - Browser Web<br> * WAP - Mobile Wap<br> * SYSTEM - System Call<br>
      *
      * @return self
      */
-    public function setTerminalType($terminal_type)
+    public function setTerminalType($terminalType)
     {
-        if (is_null($terminal_type)) {
-            throw new \InvalidArgumentException('non-nullable terminal_type cannot be null');
+        if (is_null($terminalType)) {
+            throw new \InvalidArgumentException('non-nullable terminalType cannot be null');
         }
         $allowedValues = $this->getTerminalTypeAllowableValues();
-        if (!in_array($terminal_type, $allowedValues, true) && !empty($terminal_type)) {
+        if (!in_array($terminalType, $allowedValues, true) && !empty($terminalType)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'terminal_type', must be one of '%s'",
-                    $terminal_type,
+                    "Invalid value '%s' for 'terminalType', must be one of '%s'",
+                    $terminalType,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        if ((mb_strlen($terminal_type) > 32)) {
-            throw new \InvalidArgumentException('invalid length for $terminal_type when calling EnvInfo., must be smaller than or equal to 32.');
+        if ((mb_strlen($terminalType) > 32)) {
+            throw new \InvalidArgumentException('invalid length for $terminalType when calling EnvInfo., must be smaller than or equal to 32.');
         }
 
-        $this->container['terminal_type'] = $terminal_type;
+        $this->container['terminalType'] = $terminalType;
 
         return $this;
     }
 
     /**
-     * Gets order_terminal_type
+     * Gets orderTerminalType
      *
      * @return string|null
      */
     public function getOrderTerminalType()
     {
-        return $this->container['order_terminal_type'];
+        return $this->container['orderTerminalType'];
     }
 
     /**
-     * Sets order_terminal_type
+     * Sets orderTerminalType
      *
-     * @param string|null $order_terminal_type Order terminal type. The enums:<br> * APP - Mobile Application<br> * WEB - Browser Web<br> * WAP - Mobile Wap<br> * SYSTEM - System Call<br>
+     * @param string|null $orderTerminalType Order terminal type. The enums:<br> * APP - Mobile Application<br> * WEB - Browser Web<br> * WAP - Mobile Wap<br> * SYSTEM - System Call<br>
      *
      * @return self
      */
-    public function setOrderTerminalType($order_terminal_type)
+    public function setOrderTerminalType($orderTerminalType)
     {
-        if (is_null($order_terminal_type)) {
-            throw new \InvalidArgumentException('non-nullable order_terminal_type cannot be null');
+        if (is_null($orderTerminalType)) {
+            throw new \InvalidArgumentException('non-nullable orderTerminalType cannot be null');
         }
         $allowedValues = $this->getOrderTerminalTypeAllowableValues();
-        if (!in_array($order_terminal_type, $allowedValues, true) && !empty($order_terminal_type)) {
+        if (!in_array($orderTerminalType, $allowedValues, true) && !empty($orderTerminalType)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'order_terminal_type', must be one of '%s'",
-                    $order_terminal_type,
+                    "Invalid value '%s' for 'orderTerminalType', must be one of '%s'",
+                    $orderTerminalType,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        if ((mb_strlen($order_terminal_type) > 32)) {
-            throw new \InvalidArgumentException('invalid length for $order_terminal_type when calling EnvInfo., must be smaller than or equal to 32.');
+        if ((mb_strlen($orderTerminalType) > 32)) {
+            throw new \InvalidArgumentException('invalid length for $orderTerminalType when calling EnvInfo., must be smaller than or equal to 32.');
         }
 
-        $this->container['order_terminal_type'] = $order_terminal_type;
+        $this->container['orderTerminalType'] = $orderTerminalType;
 
         return $this;
     }
 
     /**
-     * Gets extend_info
+     * Gets extendInfo
      *
      * @return string|null
      */
     public function getExtendInfo()
     {
-        return $this->container['extend_info'];
+        return $this->container['extendInfo'];
     }
 
     /**
-     * Sets extend_info
+     * Sets extendInfo
      *
-     * @param string|null $extend_info Extend information
+     * @param string|null $extendInfo Extend information
      *
      * @return self
      */
-    public function setExtendInfo($extend_info)
+    public function setExtendInfo($extendInfo)
     {
-        if (is_null($extend_info)) {
-            throw new \InvalidArgumentException('non-nullable extend_info cannot be null');
+        if (is_null($extendInfo)) {
+            throw new \InvalidArgumentException('non-nullable extendInfo cannot be null');
         }
-        if ((mb_strlen($extend_info) > 4096)) {
-            throw new \InvalidArgumentException('invalid length for $extend_info when calling EnvInfo., must be smaller than or equal to 4096.');
+        if ((mb_strlen($extendInfo) > 4096)) {
+            throw new \InvalidArgumentException('invalid length for $extendInfo when calling EnvInfo., must be smaller than or equal to 4096.');
         }
 
-        $this->container['extend_info'] = $extend_info;
+        $this->container['extendInfo'] = $extendInfo;
 
         return $this;
     }
 
     /**
-     * Gets client_key
+     * Gets clientKey
      *
      * @return string|null
      */
     public function getClientKey()
     {
-        return $this->container['client_key'];
+        return $this->container['clientKey'];
     }
 
     /**
-     * Sets client_key
+     * Sets clientKey
      *
-     * @param string|null $client_key Unique identifier for partner was generated by DANA
+     * @param string|null $clientKey Unique identifier for partner was generated by DANA
      *
      * @return self
      */
-    public function setClientKey($client_key)
+    public function setClientKey($clientKey)
     {
-        if (is_null($client_key)) {
-            throw new \InvalidArgumentException('non-nullable client_key cannot be null');
+        if (is_null($clientKey)) {
+            throw new \InvalidArgumentException('non-nullable clientKey cannot be null');
         }
-        if ((mb_strlen($client_key) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $client_key when calling EnvInfo., must be smaller than or equal to 64.');
+        if ((mb_strlen($clientKey) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $clientKey when calling EnvInfo., must be smaller than or equal to 64.');
         }
 
-        $this->container['client_key'] = $client_key;
+        $this->container['clientKey'] = $clientKey;
 
         return $this;
     }

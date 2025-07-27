@@ -58,16 +58,16 @@ class TransferToBankInquiryStatusResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'response_code' => 'string',
-        'response_message' => 'string',
-        'original_partner_reference_no' => 'string',
-        'original_reference_no' => 'string',
-        'original_external_id' => 'string',
-        'service_code' => 'string',
+        'responseCode' => 'string',
+        'responseMessage' => 'string',
+        'originalPartnerReferenceNo' => 'string',
+        'originalReferenceNo' => 'string',
+        'originalExternalId' => 'string',
+        'serviceCode' => 'string',
         'amount' => '\Dana\Disbursement\v1\Model\Money',
-        'latest_transaction_status' => 'string',
-        'transaction_status_desc' => 'string',
-        'additional_info' => 'object'
+        'latestTransactionStatus' => 'string',
+        'transactionStatusDesc' => 'string',
+        'additionalInfo' => 'object'
     ];
 
     /**
@@ -78,16 +78,16 @@ class TransferToBankInquiryStatusResponse implements ModelInterface, ArrayAccess
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'response_code' => null,
-        'response_message' => null,
-        'original_partner_reference_no' => null,
-        'original_reference_no' => null,
-        'original_external_id' => null,
-        'service_code' => null,
+        'responseCode' => null,
+        'responseMessage' => null,
+        'originalPartnerReferenceNo' => null,
+        'originalReferenceNo' => null,
+        'originalExternalId' => null,
+        'serviceCode' => null,
         'amount' => null,
-        'latest_transaction_status' => null,
-        'transaction_status_desc' => null,
-        'additional_info' => null
+        'latestTransactionStatus' => null,
+        'transactionStatusDesc' => null,
+        'additionalInfo' => null
     ];
 
     /**
@@ -96,16 +96,16 @@ class TransferToBankInquiryStatusResponse implements ModelInterface, ArrayAccess
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'response_code' => false,
-        'response_message' => false,
-        'original_partner_reference_no' => false,
-        'original_reference_no' => false,
-        'original_external_id' => false,
-        'service_code' => false,
+        'responseCode' => false,
+        'responseMessage' => false,
+        'originalPartnerReferenceNo' => false,
+        'originalReferenceNo' => false,
+        'originalExternalId' => false,
+        'serviceCode' => false,
         'amount' => false,
-        'latest_transaction_status' => false,
-        'transaction_status_desc' => false,
-        'additional_info' => false
+        'latestTransactionStatus' => false,
+        'transactionStatusDesc' => false,
+        'additionalInfo' => false
     ];
 
     /**
@@ -194,16 +194,16 @@ class TransferToBankInquiryStatusResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'response_code' => 'responseCode',
-        'response_message' => 'responseMessage',
-        'original_partner_reference_no' => 'originalPartnerReferenceNo',
-        'original_reference_no' => 'originalReferenceNo',
-        'original_external_id' => 'originalExternalId',
-        'service_code' => 'serviceCode',
+        'responseCode' => 'responseCode',
+        'responseMessage' => 'responseMessage',
+        'originalPartnerReferenceNo' => 'originalPartnerReferenceNo',
+        'originalReferenceNo' => 'originalReferenceNo',
+        'originalExternalId' => 'originalExternalId',
+        'serviceCode' => 'serviceCode',
         'amount' => 'amount',
-        'latest_transaction_status' => 'latestTransactionStatus',
-        'transaction_status_desc' => 'transactionStatusDesc',
-        'additional_info' => 'additionalInfo'
+        'latestTransactionStatus' => 'latestTransactionStatus',
+        'transactionStatusDesc' => 'transactionStatusDesc',
+        'additionalInfo' => 'additionalInfo'
     ];
 
     /**
@@ -212,16 +212,16 @@ class TransferToBankInquiryStatusResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'response_code' => 'setResponseCode',
-        'response_message' => 'setResponseMessage',
-        'original_partner_reference_no' => 'setOriginalPartnerReferenceNo',
-        'original_reference_no' => 'setOriginalReferenceNo',
-        'original_external_id' => 'setOriginalExternalId',
-        'service_code' => 'setServiceCode',
+        'responseCode' => 'setResponseCode',
+        'responseMessage' => 'setResponseMessage',
+        'originalPartnerReferenceNo' => 'setOriginalPartnerReferenceNo',
+        'originalReferenceNo' => 'setOriginalReferenceNo',
+        'originalExternalId' => 'setOriginalExternalId',
+        'serviceCode' => 'setServiceCode',
         'amount' => 'setAmount',
-        'latest_transaction_status' => 'setLatestTransactionStatus',
-        'transaction_status_desc' => 'setTransactionStatusDesc',
-        'additional_info' => 'setAdditionalInfo'
+        'latestTransactionStatus' => 'setLatestTransactionStatus',
+        'transactionStatusDesc' => 'setTransactionStatusDesc',
+        'additionalInfo' => 'setAdditionalInfo'
     ];
 
     /**
@@ -230,16 +230,16 @@ class TransferToBankInquiryStatusResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'response_code' => 'getResponseCode',
-        'response_message' => 'getResponseMessage',
-        'original_partner_reference_no' => 'getOriginalPartnerReferenceNo',
-        'original_reference_no' => 'getOriginalReferenceNo',
-        'original_external_id' => 'getOriginalExternalId',
-        'service_code' => 'getServiceCode',
+        'responseCode' => 'getResponseCode',
+        'responseMessage' => 'getResponseMessage',
+        'originalPartnerReferenceNo' => 'getOriginalPartnerReferenceNo',
+        'originalReferenceNo' => 'getOriginalReferenceNo',
+        'originalExternalId' => 'getOriginalExternalId',
+        'serviceCode' => 'getServiceCode',
         'amount' => 'getAmount',
-        'latest_transaction_status' => 'getLatestTransactionStatus',
-        'transaction_status_desc' => 'getTransactionStatusDesc',
-        'additional_info' => 'getAdditionalInfo'
+        'latestTransactionStatus' => 'getLatestTransactionStatus',
+        'transactionStatusDesc' => 'getTransactionStatusDesc',
+        'additionalInfo' => 'getAdditionalInfo'
     ];
 
     /**
@@ -326,16 +326,16 @@ class TransferToBankInquiryStatusResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('response_code', $data ?? [], null);
-        $this->setIfExists('response_message', $data ?? [], null);
-        $this->setIfExists('original_partner_reference_no', $data ?? [], null);
-        $this->setIfExists('original_reference_no', $data ?? [], null);
-        $this->setIfExists('original_external_id', $data ?? [], null);
-        $this->setIfExists('service_code', $data ?? [], '00');
+        $this->setIfExists('responseCode', $data ?? [], null);
+        $this->setIfExists('responseMessage', $data ?? [], null);
+        $this->setIfExists('originalPartnerReferenceNo', $data ?? [], null);
+        $this->setIfExists('originalReferenceNo', $data ?? [], null);
+        $this->setIfExists('originalExternalId', $data ?? [], null);
+        $this->setIfExists('serviceCode', $data ?? [], '00');
         $this->setIfExists('amount', $data ?? [], null);
-        $this->setIfExists('latest_transaction_status', $data ?? [], null);
-        $this->setIfExists('transaction_status_desc', $data ?? [], null);
-        $this->setIfExists('additional_info', $data ?? [], null);
+        $this->setIfExists('latestTransactionStatus', $data ?? [], null);
+        $this->setIfExists('transactionStatusDesc', $data ?? [], null);
+        $this->setIfExists('additionalInfo', $data ?? [], null);
     }
 
     /**
@@ -365,57 +365,57 @@ class TransferToBankInquiryStatusResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['response_code'] === null) {
-            $invalidProperties[] = "'response_code' can't be null";
+        if ($this->container['responseCode'] === null) {
+            $invalidProperties[] = "'responseCode' can't be null";
         }
-        if ((mb_strlen($this->container['response_code']) > 7)) {
-            $invalidProperties[] = "invalid value for 'response_code', the character length must be smaller than or equal to 7.";
-        }
-
-        if ($this->container['response_message'] === null) {
-            $invalidProperties[] = "'response_message' can't be null";
-        }
-        if ((mb_strlen($this->container['response_message']) > 150)) {
-            $invalidProperties[] = "invalid value for 'response_message', the character length must be smaller than or equal to 150.";
+        if ((mb_strlen($this->container['responseCode']) > 7)) {
+            $invalidProperties[] = "invalid value for 'responseCode', the character length must be smaller than or equal to 7.";
         }
 
-        if (!is_null($this->container['original_partner_reference_no']) && (mb_strlen($this->container['original_partner_reference_no']) > 64)) {
-            $invalidProperties[] = "invalid value for 'original_partner_reference_no', the character length must be smaller than or equal to 64.";
+        if ($this->container['responseMessage'] === null) {
+            $invalidProperties[] = "'responseMessage' can't be null";
+        }
+        if ((mb_strlen($this->container['responseMessage']) > 150)) {
+            $invalidProperties[] = "invalid value for 'responseMessage', the character length must be smaller than or equal to 150.";
         }
 
-        if (!is_null($this->container['original_reference_no']) && (mb_strlen($this->container['original_reference_no']) > 64)) {
-            $invalidProperties[] = "invalid value for 'original_reference_no', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['originalPartnerReferenceNo']) && (mb_strlen($this->container['originalPartnerReferenceNo']) > 64)) {
+            $invalidProperties[] = "invalid value for 'originalPartnerReferenceNo', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['original_external_id']) && (mb_strlen($this->container['original_external_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'original_external_id', the character length must be smaller than or equal to 36.";
+        if (!is_null($this->container['originalReferenceNo']) && (mb_strlen($this->container['originalReferenceNo']) > 64)) {
+            $invalidProperties[] = "invalid value for 'originalReferenceNo', the character length must be smaller than or equal to 64.";
         }
 
-        if ($this->container['service_code'] === null) {
-            $invalidProperties[] = "'service_code' can't be null";
-        }
-        if ((mb_strlen($this->container['service_code']) > 2)) {
-            $invalidProperties[] = "invalid value for 'service_code', the character length must be smaller than or equal to 2.";
+        if (!is_null($this->container['originalExternalId']) && (mb_strlen($this->container['originalExternalId']) > 36)) {
+            $invalidProperties[] = "invalid value for 'originalExternalId', the character length must be smaller than or equal to 36.";
         }
 
-        if ($this->container['latest_transaction_status'] === null) {
-            $invalidProperties[] = "'latest_transaction_status' can't be null";
+        if ($this->container['serviceCode'] === null) {
+            $invalidProperties[] = "'serviceCode' can't be null";
+        }
+        if ((mb_strlen($this->container['serviceCode']) > 2)) {
+            $invalidProperties[] = "invalid value for 'serviceCode', the character length must be smaller than or equal to 2.";
+        }
+
+        if ($this->container['latestTransactionStatus'] === null) {
+            $invalidProperties[] = "'latestTransactionStatus' can't be null";
         }
         $allowedValues = $this->getLatestTransactionStatusAllowableValues();
-        if (!is_null($this->container['latest_transaction_status']) && !in_array($this->container['latest_transaction_status'], $allowedValues, true)) {
+        if (!is_null($this->container['latestTransactionStatus']) && !in_array($this->container['latestTransactionStatus'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'latest_transaction_status', must be one of '%s'",
-                $this->container['latest_transaction_status'],
+                "invalid value '%s' for 'latestTransactionStatus', must be one of '%s'",
+                $this->container['latestTransactionStatus'],
                 implode("', '", $allowedValues)
             );
         }
 
-        if ((mb_strlen($this->container['latest_transaction_status']) > 2)) {
-            $invalidProperties[] = "invalid value for 'latest_transaction_status', the character length must be smaller than or equal to 2.";
+        if ((mb_strlen($this->container['latestTransactionStatus']) > 2)) {
+            $invalidProperties[] = "invalid value for 'latestTransactionStatus', the character length must be smaller than or equal to 2.";
         }
 
-        if (!is_null($this->container['transaction_status_desc']) && (mb_strlen($this->container['transaction_status_desc']) > 50)) {
-            $invalidProperties[] = "invalid value for 'transaction_status_desc', the character length must be smaller than or equal to 50.";
+        if (!is_null($this->container['transactionStatusDesc']) && (mb_strlen($this->container['transactionStatusDesc']) > 50)) {
+            $invalidProperties[] = "invalid value for 'transactionStatusDesc', the character length must be smaller than or equal to 50.";
         }
 
         return $invalidProperties;
@@ -434,187 +434,187 @@ class TransferToBankInquiryStatusResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets response_code
+     * Gets responseCode
      *
      * @return string
      */
     public function getResponseCode()
     {
-        return $this->container['response_code'];
+        return $this->container['responseCode'];
     }
 
     /**
-     * Sets response_code
+     * Sets responseCode
      *
-     * @param string $response_code Refer to response code list
+     * @param string $responseCode Refer to response code list
      *
      * @return self
      */
-    public function setResponseCode($response_code)
+    public function setResponseCode($responseCode)
     {
-        if (is_null($response_code)) {
-            throw new \InvalidArgumentException('non-nullable response_code cannot be null');
+        if (is_null($responseCode)) {
+            throw new \InvalidArgumentException('non-nullable responseCode cannot be null');
         }
-        if ((mb_strlen($response_code) > 7)) {
-            throw new \InvalidArgumentException('invalid length for $response_code when calling TransferToBankInquiryStatusResponse., must be smaller than or equal to 7.');
+        if ((mb_strlen($responseCode) > 7)) {
+            throw new \InvalidArgumentException('invalid length for $responseCode when calling TransferToBankInquiryStatusResponse., must be smaller than or equal to 7.');
         }
 
-        $this->container['response_code'] = $response_code;
+        $this->container['responseCode'] = $responseCode;
 
         return $this;
     }
 
     /**
-     * Gets response_message
+     * Gets responseMessage
      *
      * @return string
      */
     public function getResponseMessage()
     {
-        return $this->container['response_message'];
+        return $this->container['responseMessage'];
     }
 
     /**
-     * Sets response_message
+     * Sets responseMessage
      *
-     * @param string $response_message Refer to response code list
+     * @param string $responseMessage Refer to response code list
      *
      * @return self
      */
-    public function setResponseMessage($response_message)
+    public function setResponseMessage($responseMessage)
     {
-        if (is_null($response_message)) {
-            throw new \InvalidArgumentException('non-nullable response_message cannot be null');
+        if (is_null($responseMessage)) {
+            throw new \InvalidArgumentException('non-nullable responseMessage cannot be null');
         }
-        if ((mb_strlen($response_message) > 150)) {
-            throw new \InvalidArgumentException('invalid length for $response_message when calling TransferToBankInquiryStatusResponse., must be smaller than or equal to 150.');
+        if ((mb_strlen($responseMessage) > 150)) {
+            throw new \InvalidArgumentException('invalid length for $responseMessage when calling TransferToBankInquiryStatusResponse., must be smaller than or equal to 150.');
         }
 
-        $this->container['response_message'] = $response_message;
+        $this->container['responseMessage'] = $responseMessage;
 
         return $this;
     }
 
     /**
-     * Gets original_partner_reference_no
+     * Gets originalPartnerReferenceNo
      *
      * @return string|null
      */
     public function getOriginalPartnerReferenceNo()
     {
-        return $this->container['original_partner_reference_no'];
+        return $this->container['originalPartnerReferenceNo'];
     }
 
     /**
-     * Sets original_partner_reference_no
+     * Sets originalPartnerReferenceNo
      *
-     * @param string|null $original_partner_reference_no Original transaction identifier on partner system
+     * @param string|null $originalPartnerReferenceNo Original transaction identifier on partner system
      *
      * @return self
      */
-    public function setOriginalPartnerReferenceNo($original_partner_reference_no)
+    public function setOriginalPartnerReferenceNo($originalPartnerReferenceNo)
     {
-        if (is_null($original_partner_reference_no)) {
-            throw new \InvalidArgumentException('non-nullable original_partner_reference_no cannot be null');
+        if (is_null($originalPartnerReferenceNo)) {
+            throw new \InvalidArgumentException('non-nullable originalPartnerReferenceNo cannot be null');
         }
-        if ((mb_strlen($original_partner_reference_no) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $original_partner_reference_no when calling TransferToBankInquiryStatusResponse., must be smaller than or equal to 64.');
+        if ((mb_strlen($originalPartnerReferenceNo) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $originalPartnerReferenceNo when calling TransferToBankInquiryStatusResponse., must be smaller than or equal to 64.');
         }
 
-        $this->container['original_partner_reference_no'] = $original_partner_reference_no;
+        $this->container['originalPartnerReferenceNo'] = $originalPartnerReferenceNo;
 
         return $this;
     }
 
     /**
-     * Gets original_reference_no
+     * Gets originalReferenceNo
      *
      * @return string|null
      */
     public function getOriginalReferenceNo()
     {
-        return $this->container['original_reference_no'];
+        return $this->container['originalReferenceNo'];
     }
 
     /**
-     * Sets original_reference_no
+     * Sets originalReferenceNo
      *
-     * @param string|null $original_reference_no Original transaction identifier on DANA system
+     * @param string|null $originalReferenceNo Original transaction identifier on DANA system
      *
      * @return self
      */
-    public function setOriginalReferenceNo($original_reference_no)
+    public function setOriginalReferenceNo($originalReferenceNo)
     {
-        if (is_null($original_reference_no)) {
-            throw new \InvalidArgumentException('non-nullable original_reference_no cannot be null');
+        if (is_null($originalReferenceNo)) {
+            throw new \InvalidArgumentException('non-nullable originalReferenceNo cannot be null');
         }
-        if ((mb_strlen($original_reference_no) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $original_reference_no when calling TransferToBankInquiryStatusResponse., must be smaller than or equal to 64.');
+        if ((mb_strlen($originalReferenceNo) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $originalReferenceNo when calling TransferToBankInquiryStatusResponse., must be smaller than or equal to 64.');
         }
 
-        $this->container['original_reference_no'] = $original_reference_no;
+        $this->container['originalReferenceNo'] = $originalReferenceNo;
 
         return $this;
     }
 
     /**
-     * Gets original_external_id
+     * Gets originalExternalId
      *
      * @return string|null
      */
     public function getOriginalExternalId()
     {
-        return $this->container['original_external_id'];
+        return $this->container['originalExternalId'];
     }
 
     /**
-     * Sets original_external_id
+     * Sets originalExternalId
      *
-     * @param string|null $original_external_id Original external identifier on header message
+     * @param string|null $originalExternalId Original external identifier on header message
      *
      * @return self
      */
-    public function setOriginalExternalId($original_external_id)
+    public function setOriginalExternalId($originalExternalId)
     {
-        if (is_null($original_external_id)) {
-            throw new \InvalidArgumentException('non-nullable original_external_id cannot be null');
+        if (is_null($originalExternalId)) {
+            throw new \InvalidArgumentException('non-nullable originalExternalId cannot be null');
         }
-        if ((mb_strlen($original_external_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $original_external_id when calling TransferToBankInquiryStatusResponse., must be smaller than or equal to 36.');
+        if ((mb_strlen($originalExternalId) > 36)) {
+            throw new \InvalidArgumentException('invalid length for $originalExternalId when calling TransferToBankInquiryStatusResponse., must be smaller than or equal to 36.');
         }
 
-        $this->container['original_external_id'] = $original_external_id;
+        $this->container['originalExternalId'] = $originalExternalId;
 
         return $this;
     }
 
     /**
-     * Gets service_code
+     * Gets serviceCode
      *
      * @return string
      */
     public function getServiceCode()
     {
-        return $this->container['service_code'];
+        return $this->container['serviceCode'];
     }
 
     /**
-     * Sets service_code
+     * Sets serviceCode
      *
-     * @param string $service_code Transaction type indicator is based on the service code of the original transaction request, value always 00
+     * @param string $serviceCode Transaction type indicator is based on the service code of the original transaction request, value always 00
      *
      * @return self
      */
-    public function setServiceCode($service_code)
+    public function setServiceCode($serviceCode)
     {
-        if (is_null($service_code)) {
-            throw new \InvalidArgumentException('non-nullable service_code cannot be null');
+        if (is_null($serviceCode)) {
+            throw new \InvalidArgumentException('non-nullable serviceCode cannot be null');
         }
-        if ((mb_strlen($service_code) > 2)) {
-            throw new \InvalidArgumentException('invalid length for $service_code when calling TransferToBankInquiryStatusResponse., must be smaller than or equal to 2.');
+        if ((mb_strlen($serviceCode) > 2)) {
+            throw new \InvalidArgumentException('invalid length for $serviceCode when calling TransferToBankInquiryStatusResponse., must be smaller than or equal to 2.');
         }
 
-        $this->container['service_code'] = $service_code;
+        $this->container['serviceCode'] = $serviceCode;
 
         return $this;
     }
@@ -647,100 +647,100 @@ class TransferToBankInquiryStatusResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets latest_transaction_status
+     * Gets latestTransactionStatus
      *
      * @return string
      */
     public function getLatestTransactionStatus()
     {
-        return $this->container['latest_transaction_status'];
+        return $this->container['latestTransactionStatus'];
     }
 
     /**
-     * Sets latest_transaction_status
+     * Sets latestTransactionStatus
      *
-     * @param string $latest_transaction_status Status of latest transaction:<br> 00 - Success<br> 01 - Initiated<br> 02 - Paying<br> 03 - Pending<br> 04 - Refunded<br> 05 - Canceled<br> 06 - Failed<br> 07 - Not found
+     * @param string $latestTransactionStatus Status of latest transaction:<br> 00 - Success<br> 01 - Initiated<br> 02 - Paying<br> 03 - Pending<br> 04 - Refunded<br> 05 - Canceled<br> 06 - Failed<br> 07 - Not found
      *
      * @return self
      */
-    public function setLatestTransactionStatus($latest_transaction_status)
+    public function setLatestTransactionStatus($latestTransactionStatus)
     {
-        if (is_null($latest_transaction_status)) {
-            throw new \InvalidArgumentException('non-nullable latest_transaction_status cannot be null');
+        if (is_null($latestTransactionStatus)) {
+            throw new \InvalidArgumentException('non-nullable latestTransactionStatus cannot be null');
         }
         $allowedValues = $this->getLatestTransactionStatusAllowableValues();
-        if (!in_array($latest_transaction_status, $allowedValues, true) && !empty($latest_transaction_status)) {
+        if (!in_array($latestTransactionStatus, $allowedValues, true) && !empty($latestTransactionStatus)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'latest_transaction_status', must be one of '%s'",
-                    $latest_transaction_status,
+                    "Invalid value '%s' for 'latestTransactionStatus', must be one of '%s'",
+                    $latestTransactionStatus,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        if ((mb_strlen($latest_transaction_status) > 2)) {
-            throw new \InvalidArgumentException('invalid length for $latest_transaction_status when calling TransferToBankInquiryStatusResponse., must be smaller than or equal to 2.');
+        if ((mb_strlen($latestTransactionStatus) > 2)) {
+            throw new \InvalidArgumentException('invalid length for $latestTransactionStatus when calling TransferToBankInquiryStatusResponse., must be smaller than or equal to 2.');
         }
 
-        $this->container['latest_transaction_status'] = $latest_transaction_status;
+        $this->container['latestTransactionStatus'] = $latestTransactionStatus;
 
         return $this;
     }
 
     /**
-     * Gets transaction_status_desc
+     * Gets transactionStatusDesc
      *
      * @return string|null
      */
     public function getTransactionStatusDesc()
     {
-        return $this->container['transaction_status_desc'];
+        return $this->container['transactionStatusDesc'];
     }
 
     /**
-     * Sets transaction_status_desc
+     * Sets transactionStatusDesc
      *
-     * @param string|null $transaction_status_desc Description of transaction status
+     * @param string|null $transactionStatusDesc Description of transaction status
      *
      * @return self
      */
-    public function setTransactionStatusDesc($transaction_status_desc)
+    public function setTransactionStatusDesc($transactionStatusDesc)
     {
-        if (is_null($transaction_status_desc)) {
-            throw new \InvalidArgumentException('non-nullable transaction_status_desc cannot be null');
+        if (is_null($transactionStatusDesc)) {
+            throw new \InvalidArgumentException('non-nullable transactionStatusDesc cannot be null');
         }
-        if ((mb_strlen($transaction_status_desc) > 50)) {
-            throw new \InvalidArgumentException('invalid length for $transaction_status_desc when calling TransferToBankInquiryStatusResponse., must be smaller than or equal to 50.');
+        if ((mb_strlen($transactionStatusDesc) > 50)) {
+            throw new \InvalidArgumentException('invalid length for $transactionStatusDesc when calling TransferToBankInquiryStatusResponse., must be smaller than or equal to 50.');
         }
 
-        $this->container['transaction_status_desc'] = $transaction_status_desc;
+        $this->container['transactionStatusDesc'] = $transactionStatusDesc;
 
         return $this;
     }
 
     /**
-     * Gets additional_info
+     * Gets additionalInfo
      *
      * @return object|null
      */
     public function getAdditionalInfo()
     {
-        return $this->container['additional_info'];
+        return $this->container['additionalInfo'];
     }
 
     /**
-     * Sets additional_info
+     * Sets additionalInfo
      *
-     * @param object|null $additional_info Additional information
+     * @param object|null $additionalInfo Additional information
      *
      * @return self
      */
-    public function setAdditionalInfo($additional_info)
+    public function setAdditionalInfo($additionalInfo)
     {
-        if (is_null($additional_info)) {
-            throw new \InvalidArgumentException('non-nullable additional_info cannot be null');
+        if (is_null($additionalInfo)) {
+            throw new \InvalidArgumentException('non-nullable additionalInfo cannot be null');
         }
-        $this->container['additional_info'] = $additional_info;
+        $this->container['additionalInfo'] = $additionalInfo;
 
         return $this;
     }

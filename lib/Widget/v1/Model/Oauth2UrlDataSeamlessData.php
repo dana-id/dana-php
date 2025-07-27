@@ -59,12 +59,12 @@ class Oauth2UrlDataSeamlessData implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'biz_scenario' => 'string',
-        'mobile_number' => 'string',
-        'verified_time' => 'string',
-        'external_uid' => 'string',
-        'device_id' => 'string',
-        'skip_register_consult' => 'bool'
+        'bizScenario' => 'string',
+        'mobileNumber' => 'string',
+        'verifiedTime' => 'string',
+        'externalUid' => 'string',
+        'deviceId' => 'string',
+        'skipRegisterConsult' => 'bool'
     ];
 
     /**
@@ -75,12 +75,12 @@ class Oauth2UrlDataSeamlessData implements ModelInterface, ArrayAccess, \JsonSer
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'biz_scenario' => null,
-        'mobile_number' => null,
-        'verified_time' => null,
-        'external_uid' => null,
-        'device_id' => null,
-        'skip_register_consult' => null
+        'bizScenario' => null,
+        'mobileNumber' => null,
+        'verifiedTime' => null,
+        'externalUid' => null,
+        'deviceId' => null,
+        'skipRegisterConsult' => null
     ];
 
     /**
@@ -89,12 +89,12 @@ class Oauth2UrlDataSeamlessData implements ModelInterface, ArrayAccess, \JsonSer
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'biz_scenario' => false,
-        'mobile_number' => false,
-        'verified_time' => false,
-        'external_uid' => false,
-        'device_id' => false,
-        'skip_register_consult' => false
+        'bizScenario' => false,
+        'mobileNumber' => false,
+        'verifiedTime' => false,
+        'externalUid' => false,
+        'deviceId' => false,
+        'skipRegisterConsult' => false
     ];
 
     /**
@@ -183,12 +183,12 @@ class Oauth2UrlDataSeamlessData implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
-        'biz_scenario' => 'bizScenario',
-        'mobile_number' => 'mobileNumber',
-        'verified_time' => 'verifiedTime',
-        'external_uid' => 'externalUid',
-        'device_id' => 'deviceId',
-        'skip_register_consult' => 'skipRegisterConsult'
+        'bizScenario' => 'bizScenario',
+        'mobileNumber' => 'mobileNumber',
+        'verifiedTime' => 'verifiedTime',
+        'externalUid' => 'externalUid',
+        'deviceId' => 'deviceId',
+        'skipRegisterConsult' => 'skipRegisterConsult'
     ];
 
     /**
@@ -197,12 +197,12 @@ class Oauth2UrlDataSeamlessData implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $setters = [
-        'biz_scenario' => 'setBizScenario',
-        'mobile_number' => 'setMobileNumber',
-        'verified_time' => 'setVerifiedTime',
-        'external_uid' => 'setExternalUid',
-        'device_id' => 'setDeviceId',
-        'skip_register_consult' => 'setSkipRegisterConsult'
+        'bizScenario' => 'setBizScenario',
+        'mobileNumber' => 'setMobileNumber',
+        'verifiedTime' => 'setVerifiedTime',
+        'externalUid' => 'setExternalUid',
+        'deviceId' => 'setDeviceId',
+        'skipRegisterConsult' => 'setSkipRegisterConsult'
     ];
 
     /**
@@ -211,12 +211,12 @@ class Oauth2UrlDataSeamlessData implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $getters = [
-        'biz_scenario' => 'getBizScenario',
-        'mobile_number' => 'getMobileNumber',
-        'verified_time' => 'getVerifiedTime',
-        'external_uid' => 'getExternalUid',
-        'device_id' => 'getDeviceId',
-        'skip_register_consult' => 'getSkipRegisterConsult'
+        'bizScenario' => 'getBizScenario',
+        'mobileNumber' => 'getMobileNumber',
+        'verifiedTime' => 'getVerifiedTime',
+        'externalUid' => 'getExternalUid',
+        'deviceId' => 'getDeviceId',
+        'skipRegisterConsult' => 'getSkipRegisterConsult'
     ];
 
     /**
@@ -276,12 +276,12 @@ class Oauth2UrlDataSeamlessData implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('biz_scenario', $data ?? [], null);
-        $this->setIfExists('mobile_number', $data ?? [], null);
-        $this->setIfExists('verified_time', $data ?? [], null);
-        $this->setIfExists('external_uid', $data ?? [], null);
-        $this->setIfExists('device_id', $data ?? [], null);
-        $this->setIfExists('skip_register_consult', $data ?? [], null);
+        $this->setIfExists('bizScenario', $data ?? [], null);
+        $this->setIfExists('mobileNumber', $data ?? [], null);
+        $this->setIfExists('verifiedTime', $data ?? [], null);
+        $this->setIfExists('externalUid', $data ?? [], null);
+        $this->setIfExists('deviceId', $data ?? [], null);
+        $this->setIfExists('skipRegisterConsult', $data ?? [], null);
     }
 
     /**
@@ -327,163 +327,163 @@ class Oauth2UrlDataSeamlessData implements ModelInterface, ArrayAccess, \JsonSer
 
 
     /**
-     * Gets biz_scenario
+     * Gets bizScenario
      *
      * @return string|null
      */
     public function getBizScenario()
     {
-        return $this->container['biz_scenario'];
+        return $this->container['bizScenario'];
     }
 
     /**
-     * Sets biz_scenario
+     * Sets bizScenario
      *
-     * @param string|null $biz_scenario User’s bizScenario
+     * @param string|null $bizScenario User’s bizScenario
      *
      * @return self
      */
-    public function setBizScenario($biz_scenario)
+    public function setBizScenario($bizScenario)
     {
-        if (is_null($biz_scenario)) {
-            throw new \InvalidArgumentException('non-nullable biz_scenario cannot be null');
+        if (is_null($bizScenario)) {
+            throw new \InvalidArgumentException('non-nullable bizScenario cannot be null');
         }
-        $this->container['biz_scenario'] = $biz_scenario;
+        $this->container['bizScenario'] = $bizScenario;
 
         return $this;
     }
 
     /**
-     * Gets mobile_number
+     * Gets mobileNumber
      *
      * @return string|null
      */
     public function getMobileNumber()
     {
-        return $this->container['mobile_number'];
+        return $this->container['mobileNumber'];
     }
 
     /**
-     * Sets mobile_number
+     * Sets mobileNumber
      *
-     * @param string|null $mobile_number User's phone number. If this field is filled in, the user must log in with the number that has been included
+     * @param string|null $mobileNumber User's phone number. If this field is filled in, the user must log in with the number that has been included
      *
      * @return self
      */
-    public function setMobileNumber($mobile_number)
+    public function setMobileNumber($mobileNumber)
     {
-        if (is_null($mobile_number)) {
-            throw new \InvalidArgumentException('non-nullable mobile_number cannot be null');
+        if (is_null($mobileNumber)) {
+            throw new \InvalidArgumentException('non-nullable mobileNumber cannot be null');
         }
-        $this->container['mobile_number'] = $mobile_number;
+        $this->container['mobileNumber'] = $mobileNumber;
 
         return $this;
     }
 
     /**
-     * Gets verified_time
+     * Gets verifiedTime
      *
      * @return string|null
      */
     public function getVerifiedTime()
     {
-        return $this->container['verified_time'];
+        return $this->container['verifiedTime'];
     }
 
     /**
-     * Sets verified_time
+     * Sets verifiedTime
      *
-     * @param string|null $verified_time Value which states that the mobile number that has been included in seamlessData has verified ownership and does not require OTP verification by the provider, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time)
+     * @param string|null $verifiedTime Value which states that the mobile number that has been included in seamlessData has verified ownership and does not require OTP verification by the provider, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time)
      *
      * @return self
      */
-    public function setVerifiedTime($verified_time)
+    public function setVerifiedTime($verifiedTime)
     {
-        if (is_null($verified_time)) {
-            throw new \InvalidArgumentException('non-nullable verified_time cannot be null');
+        if (is_null($verifiedTime)) {
+            throw new \InvalidArgumentException('non-nullable verifiedTime cannot be null');
         }
-        $this->container['verified_time'] = $verified_time;
+        $this->container['verifiedTime'] = $verifiedTime;
 
         return $this;
     }
 
     /**
-     * Gets external_uid
+     * Gets externalUid
      *
      * @return string|null
      */
     public function getExternalUid()
     {
-        return $this->container['external_uid'];
+        return $this->container['externalUid'];
     }
 
     /**
-     * Sets external_uid
+     * Sets externalUid
      *
-     * @param string|null $external_uid User identifier on partner application
+     * @param string|null $externalUid User identifier on partner application
      *
      * @return self
      */
-    public function setExternalUid($external_uid)
+    public function setExternalUid($externalUid)
     {
-        if (is_null($external_uid)) {
-            throw new \InvalidArgumentException('non-nullable external_uid cannot be null');
+        if (is_null($externalUid)) {
+            throw new \InvalidArgumentException('non-nullable externalUid cannot be null');
         }
-        $this->container['external_uid'] = $external_uid;
+        $this->container['externalUid'] = $externalUid;
 
         return $this;
     }
 
     /**
-     * Gets device_id
+     * Gets deviceId
      *
      * @return string|null
      */
     public function getDeviceId()
     {
-        return $this->container['device_id'];
+        return $this->container['deviceId'];
     }
 
     /**
-     * Sets device_id
+     * Sets deviceId
      *
-     * @param string|null $device_id User's device identifier
+     * @param string|null $deviceId User's device identifier
      *
      * @return self
      */
-    public function setDeviceId($device_id)
+    public function setDeviceId($deviceId)
     {
-        if (is_null($device_id)) {
-            throw new \InvalidArgumentException('non-nullable device_id cannot be null');
+        if (is_null($deviceId)) {
+            throw new \InvalidArgumentException('non-nullable deviceId cannot be null');
         }
-        $this->container['device_id'] = $device_id;
+        $this->container['deviceId'] = $deviceId;
 
         return $this;
     }
 
     /**
-     * Gets skip_register_consult
+     * Gets skipRegisterConsult
      *
      * @return bool|null
      */
     public function getSkipRegisterConsult()
     {
-        return $this->container['skip_register_consult'];
+        return $this->container['skipRegisterConsult'];
     }
 
     /**
-     * Sets skip_register_consult
+     * Sets skipRegisterConsult
      *
-     * @param bool|null $skip_register_consult Identifier to differentiate seamless registration flow. The possible values are true or false
+     * @param bool|null $skipRegisterConsult Identifier to differentiate seamless registration flow. The possible values are true or false
      *
      * @return self
      */
-    public function setSkipRegisterConsult($skip_register_consult)
+    public function setSkipRegisterConsult($skipRegisterConsult)
     {
-        if (is_null($skip_register_consult)) {
-            throw new \InvalidArgumentException('non-nullable skip_register_consult cannot be null');
+        if (is_null($skipRegisterConsult)) {
+            throw new \InvalidArgumentException('non-nullable skipRegisterConsult cannot be null');
         }
-        $this->container['skip_register_consult'] = $skip_register_consult;
+        $this->container['skipRegisterConsult'] = $skipRegisterConsult;
 
         return $this;
     }

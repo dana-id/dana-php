@@ -16,6 +16,7 @@ use Dana\PaymentGateway\v1\Model\AmountDetail;
 use Dana\PaymentGateway\v1\Model\Buyer;
 use Dana\PaymentGateway\v1\Model\CancelOrderRequest;
 use Dana\PaymentGateway\v1\Model\ConsultPayRequest;
+use Dana\PaymentGateway\v1\Model\RefundOrderRequest;
 use Dana\PaymentGateway\v1\Model\ConsultPayRequestAdditionalInfo;
 use Dana\PaymentGateway\v1\Model\CreateOrderByApiAdditionalInfo;
 use Dana\PaymentGateway\v1\Model\CreateOrderByApiRequest;
@@ -70,32 +71,11 @@ class PaymentGatewayFixtures
         $merchantId = self::getMerchantId();
         
         return new ConsultPayRequest([
-            'merchant_id' => $merchantId,
+            'merchantId' => $merchantId,
             'amount' => new Money([
                 'value' => '12345678.00',
                 'currency' => 'IDR'
             ]),
-            'additional_info' => new ConsultPayRequestAdditionalInfo([
-                'buyer' => new Buyer([
-                    'external_user_id' => '8392183912832913821',
-                ]),
-                'env_info' => new EnvInfo([
-                    'session_id' => '8EU6mLl5mUpUBgyRFT4v7DjfQ3fcauthcenter',
-                    'token_id' => 'a8d359d6-ca3d-4048-9295-bbea5f6715a6',
-                    'website_language' => 'en_US',
-                    'client_ip' => '10.15.8.189',
-                    'os_type' => 'Windows.PC',
-                    'app_version' => '1.0',
-                    'sdk_version' => '1.0',
-                    'source_platform' => "IPG",
-                    'order_os_type' => 'IOS',
-                    'merchant_app_version' => '1.0',
-                    'terminal_type' => "SYSTEM",
-                    'order_terminal_type' => "WEB",
-                    'extend_info' => '{"deviceId":"CV19A56370e8a00d54293aab8001e4794"}'
-                ]),
-                'merchant_trans_type' => 'SPECIAL_MOVIE'
-            ])
         ]);
     }
 
@@ -115,45 +95,102 @@ class PaymentGatewayFixtures
             ->format('Y-m-d\TH:i:s+07:00');
             
         return new CreateOrderByApiRequest([
-            'partner_reference_no' => date('Y-m-d\TH:i:s\Z'),
-            'merchant_id' => $merchantId,
+            'partnerReferenceNo' => date('Y-m-d\TH:i:s\Z'),
+            'merchantId' => $merchantId,
             'amount' => new Money([
                 'value' => '222000.00',
                 'currency' => 'IDR'
             ]),
-            'url_params' => [
+            'urlParams' => [
                 new UrlParam([
                     'url' => 'https://tinknet.my.id/v1/test',
                     'type' => UrlParam::TYPE_PAY_RETURN,
-                    'is_deeplink' => 'Y'
+                    'isDeeplink' => 'Y'
                 ]),
                 new UrlParam([
                     'url' => 'https://tinknet.my.id/v1/test',
                     'type' => UrlParam::TYPE_NOTIFICATION,
-                    'is_deeplink' => 'Y'
+                    'isDeeplink' => 'Y'
                 ])
             ],
-            'valid_up_to' => $validUpTo,
-            'pay_option_details' => [
+            'validUpTo' => $validUpTo,
+            'payOptionDetails' => [
                 new PayOptionDetail([
-                    'pay_method' => PayMethod::BALANCE,
-                    'pay_option' => '',
-                    'trans_amount' => new Money([
+                    'payMethod' => PayMethod::BALANCE,
+                    'payOption' => '',
+                    'transAmount' => new Money([
                         'value' => '222000.00',
                         'currency' => 'IDR'
                     ])
                 ])
             ],
-            'additional_info' => new CreateOrderByApiAdditionalInfo([
+            'additionalInfo' => new CreateOrderByApiAdditionalInfo([
                 'order' => new OrderApiObject([
-                    'order_title' => 'Paket Tinknet 10Mb',
+                    'orderTitle' => 'Paket Tinknet 10Mb',
                     'scenario' => 'API',
-                    'merchant_trans_type' => 'SPECIAL_MOVIE'
+                    'merchantTransType' => 'SPECIAL_MOVIE'
                 ]),
                 'mcc' => '5732',
-                'env_info' => new EnvInfo([
-                    'source_platform' => SourcePlatform::IPG,
-                    'terminal_type' => TerminalType::SYSTEM
+                'envInfo' => new EnvInfo([
+                    'sourcePlatform' => SourcePlatform::IPG,
+                    'terminalType' => TerminalType::SYSTEM
+                ])
+            ])
+        ]);
+    }
+    
+    /**
+     * Get a CreateOrderByApiRequest fixture with paid configuration
+     * Matches the Node.js implementation of getCreateOrderByApiPaidRequest
+     * 
+     * @return CreateOrderByApiRequest
+     */
+    public static function getCreateOrderByApiPaidRequest(): CreateOrderByApiRequest
+    {
+        $merchantId = self::getMerchantId();
+        $partnerReferenceNo = self::generatePartnerReferenceNo();
+        
+        return new CreateOrderByApiRequest([
+            'partnerReferenceNo' => $partnerReferenceNo,
+            'merchantId' => $merchantId,
+            'amount' => new Money([
+                'value' => '50001.00',
+                'currency' => 'IDR'
+            ]),
+            'validUpTo' => '2030-05-01T00:46:43+07:00',
+            'urlParams' => [
+                new UrlParam([
+                    'url' => 'https://example.com/return',
+                    'type' => UrlParam::TYPE_PAY_RETURN,
+                    'isDeeplink' => 'N'
+                ]),
+                new UrlParam([
+                    'url' => 'https://example.com/notify',
+                    'type' => UrlParam::TYPE_NOTIFICATION,
+                    'isDeeplink' => 'N'
+                ])
+            ],
+            'additionalInfo' => new CreateOrderByApiAdditionalInfo([
+                'order' => new OrderApiObject([
+                    'orderTitle' => 'Test Product',
+                    'scenario' => 'REDIRECT',
+                    'merchantTransType' => 'SPECIAL_MOVIE'
+                ]),
+                'mcc' => '5732',
+                'envInfo' => new EnvInfo([
+                    'sourcePlatform' => SourcePlatform::IPG,
+                    'terminalType' => TerminalType::SYSTEM,
+                    'sessionId' => '8EU6mLl5mUpUBgyRFT4v7DjfQ3fcauthcenter',
+                    'tokenId' => 'a8d359d6-ca3d-4048-9295-bbea5f6715a6',
+                    'websiteLanguage' => 'en_US',
+                    'clientIp' => '10.15.8.189',
+                    'osType' => 'Windows.PC',
+                    'appVersion' => '1.0',
+                    'sdkVersion' => '1.0',
+                    'clientKey' => 'e5806b64-598d-414f-b7f7-83f9576eb6fb',
+                    'orderTerminalType' => 'WEB',
+                    'orderOsType' => 'IOS',
+                    'merchantAppVersion' => '1.0'
                 ])
             ])
         ]);
@@ -170,8 +207,8 @@ class PaymentGatewayFixtures
         $merchantId = self::getMerchantId();
         
         return new QueryPaymentRequest([
-            'original_partner_reference_no' => $partnerReferenceNo ?: self::generatePartnerReferenceNo(),
-            'merchant_id' => $merchantId
+            'originalPartnerReferenceNo' => $partnerReferenceNo ?: self::generatePartnerReferenceNo(),
+            'merchantId' => $merchantId
         ]);
     }
 
@@ -186,9 +223,46 @@ class PaymentGatewayFixtures
         $merchantId = self::getMerchantId();
         
         return new CancelOrderRequest([
-            'original_partner_reference_no' => $partnerReferenceNo ?: self::generatePartnerReferenceNo(),
-            'merchant_id' => $merchantId,
+            'originalPartnerReferenceNo' => $partnerReferenceNo ?: self::generatePartnerReferenceNo(),
+            'merchantId' => $merchantId,
             'reason' => 'Test cancellation'
+        ]);
+    }
+
+    /**
+     * Get a RefundOrderRequest fixture
+     * 
+     * @param CreateOrderByApiRequest|null $createOrderRequest Original create order request
+     * @param string|null $originalReferenceNo Original reference number from the successful payment
+     * @param string|null $originalPartnerReferenceNo Original partner reference number
+     * @return RefundOrderRequest
+     */
+    public static function getRefundOrderRequest(
+        ?CreateOrderByApiRequest $createOrderRequest = null, 
+        ?string $originalReferenceNo = null,
+        ?string $originalPartnerReferenceNo = null
+    ): RefundOrderRequest {
+        $merchantId = self::getMerchantId();
+        $partnerRefundNo = self::generatePartnerReferenceNo('PHP-REFUND-');
+        
+        // Get the amount from the original request or use a default value
+        $refundAmount = null;
+        if ($createOrderRequest && $createOrderRequest->getAmount()) {
+            $refundAmount = $createOrderRequest->getAmount();
+        } else {
+            $refundAmount = new Money([
+                'value' => '10000.00',
+                'currency' => 'IDR'
+            ]);
+        }
+        
+        return new RefundOrderRequest([
+            'merchantId' => $merchantId,
+            'originalReferenceNo' => $originalReferenceNo,
+            'originalPartnerReferenceNo' => $originalPartnerReferenceNo,
+            'partnerRefundNo' => $partnerRefundNo,
+            'refundAmount' => $refundAmount,
+            'reason' => 'Test refund'
         ]);
     }
 }

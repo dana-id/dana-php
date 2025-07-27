@@ -44,6 +44,8 @@ use \Dana\Model\ModelInterface;
  */
 class ApplyTokenRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
+    public const GRANT_TYPE_AUTHORIZATION_CODE = 'AUTHORIZATION_CODE';
+
     public const DISCRIMINATOR = null;
 
     /**
@@ -59,10 +61,10 @@ class ApplyTokenRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'additional_info' => 'array<string,mixed>',
-        'grant_type' => 'string',
-        'auth_code' => 'string',
-        'refresh_token' => 'string'
+        'additionalInfo' => 'array<string,mixed>',
+        'grantType' => 'string',
+        'authCode' => 'string',
+        'refreshToken' => 'string'
     ];
 
     /**
@@ -73,10 +75,10 @@ class ApplyTokenRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'additional_info' => null,
-        'grant_type' => null,
-        'auth_code' => null,
-        'refresh_token' => null
+        'additionalInfo' => null,
+        'grantType' => null,
+        'authCode' => null,
+        'refreshToken' => null
     ];
 
     /**
@@ -85,10 +87,10 @@ class ApplyTokenRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'additional_info' => false,
-        'grant_type' => false,
-        'auth_code' => false,
-        'refresh_token' => false
+        'additionalInfo' => false,
+        'grantType' => false,
+        'authCode' => false,
+        'refreshToken' => false
     ];
 
     /**
@@ -177,10 +179,10 @@ class ApplyTokenRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'additional_info' => 'additionalInfo',
-        'grant_type' => 'grantType',
-        'auth_code' => 'authCode',
-        'refresh_token' => 'refreshToken'
+        'additionalInfo' => 'additionalInfo',
+        'grantType' => 'grantType',
+        'authCode' => 'authCode',
+        'refreshToken' => 'refreshToken'
     ];
 
     /**
@@ -189,10 +191,10 @@ class ApplyTokenRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'additional_info' => 'setAdditionalInfo',
-        'grant_type' => 'setGrantType',
-        'auth_code' => 'setAuthCode',
-        'refresh_token' => 'setRefreshToken'
+        'additionalInfo' => 'setAdditionalInfo',
+        'grantType' => 'setGrantType',
+        'authCode' => 'setAuthCode',
+        'refreshToken' => 'setRefreshToken'
     ];
 
     /**
@@ -201,10 +203,10 @@ class ApplyTokenRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'additional_info' => 'getAdditionalInfo',
-        'grant_type' => 'getGrantType',
-        'auth_code' => 'getAuthCode',
-        'refresh_token' => 'getRefreshToken'
+        'additionalInfo' => 'getAdditionalInfo',
+        'grantType' => 'getGrantType',
+        'authCode' => 'getAuthCode',
+        'refreshToken' => 'getRefreshToken'
     ];
 
     /**
@@ -255,9 +257,15 @@ class ApplyTokenRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
      *
      * @return string[]
      */
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
     public function getGrantTypeAllowableValues()
     {
         return [
+            self::GRANT_TYPE_AUTHORIZATION_CODE,
             self::GRANT_TYPE_REFRESH_TOKEN,
         ];
     }
@@ -277,10 +285,10 @@ class ApplyTokenRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('additional_info', $data ?? [], null);
-        $this->setIfExists('grant_type', $data ?? [], null);
-        $this->setIfExists('auth_code', $data ?? [], null);
-        $this->setIfExists('refresh_token', $data ?? [], null);
+        $this->setIfExists('additionalInfo', $data ?? [], null);
+        $this->setIfExists('grantType', $data ?? [], null);
+        $this->setIfExists('authCode', $data ?? [], null);
+        $this->setIfExists('refreshToken', $data ?? [], null);
     }
 
     /**
@@ -310,34 +318,34 @@ class ApplyTokenRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
-        if ($this->container['grant_type'] === null) {
-            $invalidProperties[] = "'grant_type' can't be null";
+        if ($this->container['grantType'] === null) {
+            $invalidProperties[] = "'grantType' can't be null";
         }
         $allowedValues = $this->getGrantTypeAllowableValues();
-        if (!is_null($this->container['grant_type']) && !in_array($this->container['grant_type'], $allowedValues, true)) {
+        if (!is_null($this->container['grantType']) && !in_array($this->container['grantType'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'grant_type', must be one of '%s'",
-                $this->container['grant_type'],
+                "invalid value '%s' for 'grantType', must be one of '%s'",
+                $this->container['grantType'],
                 implode("', '", $allowedValues)
             );
         }
 
-        if ((mb_strlen($this->container['grant_type']) > 64)) {
-            $invalidProperties[] = "invalid value for 'grant_type', the character length must be smaller than or equal to 64.";
+        if ((mb_strlen($this->container['grantType']) > 64)) {
+            $invalidProperties[] = "invalid value for 'grantType', the character length must be smaller than or equal to 64.";
         }
 
-        if ($this->container['auth_code'] === null) {
-            $invalidProperties[] = "'auth_code' can't be null";
+        if ($this->container['authCode'] === null) {
+            $invalidProperties[] = "'authCode' can't be null";
         }
-        if ((mb_strlen($this->container['auth_code']) > 256)) {
-            $invalidProperties[] = "invalid value for 'auth_code', the character length must be smaller than or equal to 256.";
+        if ((mb_strlen($this->container['authCode']) > 256)) {
+            $invalidProperties[] = "invalid value for 'authCode', the character length must be smaller than or equal to 256.";
         }
 
-        if ($this->container['refresh_token'] === null) {
-            $invalidProperties[] = "'refresh_token' can't be null";
+        if ($this->container['refreshToken'] === null) {
+            $invalidProperties[] = "'refreshToken' can't be null";
         }
-        if ((mb_strlen($this->container['refresh_token']) > 512)) {
-            $invalidProperties[] = "invalid value for 'refresh_token', the character length must be smaller than or equal to 512.";
+        if ((mb_strlen($this->container['refreshToken']) > 512)) {
+            $invalidProperties[] = "invalid value for 'refreshToken', the character length must be smaller than or equal to 512.";
         }
 
         return $invalidProperties;
@@ -356,131 +364,131 @@ class ApplyTokenRequest implements ModelInterface, ArrayAccess, \JsonSerializabl
 
 
     /**
-     * Gets additional_info
+     * Gets additionalInfo
      *
      * @return array<string,mixed>|null
      */
     public function getAdditionalInfo()
     {
-        return $this->container['additional_info'];
+        return $this->container['additionalInfo'];
     }
 
     /**
-     * Sets additional_info
+     * Sets additionalInfo
      *
-     * @param array<string,mixed>|null $additional_info Additional information
+     * @param array<string,mixed>|null $additionalInfo Additional information
      *
      * @return self
      */
-    public function setAdditionalInfo($additional_info)
+    public function setAdditionalInfo($additionalInfo)
     {
-        if (is_null($additional_info)) {
-            throw new \InvalidArgumentException('non-nullable additional_info cannot be null');
+        if (is_null($additionalInfo)) {
+            throw new \InvalidArgumentException('non-nullable additionalInfo cannot be null');
         }
-        $this->container['additional_info'] = $additional_info;
+        $this->container['additionalInfo'] = $additionalInfo;
 
         return $this;
     }
 
     /**
-     * Gets grant_type
+     * Gets grantType
      *
      * @return string
      */
     public function getGrantType()
     {
-        return $this->container['grant_type'];
+        return $this->container['grantType'];
     }
 
     /**
-     * Sets grant_type
+     * Sets grantType
      *
-     * @param string $grant_type Apply token request type. The value is REFRESH_TOKEN
+     * @param string $grantType Apply token request type. The value is REFRESH_TOKEN
      *
      * @return self
      */
-    public function setGrantType($grant_type)
+    public function setGrantType($grantType)
     {
-        if (is_null($grant_type)) {
-            throw new \InvalidArgumentException('non-nullable grant_type cannot be null');
+        if (is_null($grantType)) {
+            throw new \InvalidArgumentException('non-nullable grantType cannot be null');
         }
         $allowedValues = $this->getGrantTypeAllowableValues();
-        if (!in_array($grant_type, $allowedValues, true) && !empty($grant_type)) {
+        if (!in_array($grantType, $allowedValues, true) && !empty($grantType)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'grant_type', must be one of '%s'",
-                    $grant_type,
+                    "Invalid value '%s' for 'grantType', must be one of '%s'",
+                    $grantType,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        if ((mb_strlen($grant_type) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $grant_type when calling ApplyTokenRequest., must be smaller than or equal to 64.');
+        if ((mb_strlen($grantType) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $grantType when calling ApplyTokenRequest., must be smaller than or equal to 64.');
         }
 
-        $this->container['grant_type'] = $grant_type;
+        $this->container['grantType'] = $grantType;
 
         return $this;
     }
 
     /**
-     * Gets auth_code
+     * Gets authCode
      *
      * @return string
      */
     public function getAuthCode()
     {
-        return $this->container['auth_code'];
+        return $this->container['authCode'];
     }
 
     /**
-     * Sets auth_code
+     * Sets authCode
      *
-     * @param string $auth_code Authorization code. Please refer to https://dashboard.dana.id/api-docs/read/125. Required if grantType is AUTHORIZATION_CODE
+     * @param string $authCode Authorization code. Please refer to https://dashboard.dana.id/api-docs/read/125. Required if grantType is AUTHORIZATION_CODE
      *
      * @return self
      */
-    public function setAuthCode($auth_code)
+    public function setAuthCode($authCode)
     {
-        if (is_null($auth_code)) {
-            throw new \InvalidArgumentException('non-nullable auth_code cannot be null');
+        if (is_null($authCode)) {
+            throw new \InvalidArgumentException('non-nullable authCode cannot be null');
         }
-        if ((mb_strlen($auth_code) > 256)) {
-            throw new \InvalidArgumentException('invalid length for $auth_code when calling ApplyTokenRequest., must be smaller than or equal to 256.');
+        if ((mb_strlen($authCode) > 256)) {
+            throw new \InvalidArgumentException('invalid length for $authCode when calling ApplyTokenRequest., must be smaller than or equal to 256.');
         }
 
-        $this->container['auth_code'] = $auth_code;
+        $this->container['authCode'] = $authCode;
 
         return $this;
     }
 
     /**
-     * Gets refresh_token
+     * Gets refreshToken
      *
      * @return string
      */
     public function getRefreshToken()
     {
-        return $this->container['refresh_token'];
+        return $this->container['refreshToken'];
     }
 
     /**
-     * Sets refresh_token
+     * Sets refreshToken
      *
-     * @param string $refresh_token This token is used for refresh session if existing token has been expired
+     * @param string $refreshToken This token is used for refresh session if existing token has been expired
      *
      * @return self
      */
-    public function setRefreshToken($refresh_token)
+    public function setRefreshToken($refreshToken)
     {
-        if (is_null($refresh_token)) {
-            throw new \InvalidArgumentException('non-nullable refresh_token cannot be null');
+        if (is_null($refreshToken)) {
+            throw new \InvalidArgumentException('non-nullable refreshToken cannot be null');
         }
-        if ((mb_strlen($refresh_token) > 512)) {
-            throw new \InvalidArgumentException('invalid length for $refresh_token when calling ApplyTokenRequest., must be smaller than or equal to 512.');
+        if ((mb_strlen($refreshToken) > 512)) {
+            throw new \InvalidArgumentException('invalid length for $refreshToken when calling ApplyTokenRequest., must be smaller than or equal to 512.');
         }
 
-        $this->container['refresh_token'] = $refresh_token;
+        $this->container['refreshToken'] = $refreshToken;
 
         return $this;
     }

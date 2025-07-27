@@ -58,13 +58,13 @@ class CreateOrderResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'response_code' => 'string',
-        'response_message' => 'string',
-        'reference_no' => 'string',
-        'partner_reference_no' => 'string',
-        'web_redirect_url' => 'string',
-        'additional_info' => '\Dana\PaymentGateway\v1\Model\CreateOrderResponseAdditionalInfo',
-        'external_order_id' => 'string'
+        'responseCode' => 'string',
+        'responseMessage' => 'string',
+        'referenceNo' => 'string',
+        'partnerReferenceNo' => 'string',
+        'webRedirectUrl' => 'string',
+        'additionalInfo' => '\Dana\PaymentGateway\v1\Model\CreateOrderResponseAdditionalInfo',
+        'externalOrderId' => 'string'
     ];
 
     /**
@@ -75,13 +75,13 @@ class CreateOrderResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'response_code' => null,
-        'response_message' => null,
-        'reference_no' => null,
-        'partner_reference_no' => null,
-        'web_redirect_url' => null,
-        'additional_info' => null,
-        'external_order_id' => null
+        'responseCode' => null,
+        'responseMessage' => null,
+        'referenceNo' => null,
+        'partnerReferenceNo' => null,
+        'webRedirectUrl' => null,
+        'additionalInfo' => null,
+        'externalOrderId' => null
     ];
 
     /**
@@ -90,13 +90,13 @@ class CreateOrderResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'response_code' => false,
-        'response_message' => false,
-        'reference_no' => false,
-        'partner_reference_no' => false,
-        'web_redirect_url' => false,
-        'additional_info' => false,
-        'external_order_id' => false
+        'responseCode' => false,
+        'responseMessage' => false,
+        'referenceNo' => false,
+        'partnerReferenceNo' => false,
+        'webRedirectUrl' => false,
+        'additionalInfo' => false,
+        'externalOrderId' => false
     ];
 
     /**
@@ -185,13 +185,13 @@ class CreateOrderResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'response_code' => 'responseCode',
-        'response_message' => 'responseMessage',
-        'reference_no' => 'referenceNo',
-        'partner_reference_no' => 'partnerReferenceNo',
-        'web_redirect_url' => 'webRedirectUrl',
-        'additional_info' => 'additionalInfo',
-        'external_order_id' => 'externalOrderId'
+        'responseCode' => 'responseCode',
+        'responseMessage' => 'responseMessage',
+        'referenceNo' => 'referenceNo',
+        'partnerReferenceNo' => 'partnerReferenceNo',
+        'webRedirectUrl' => 'webRedirectUrl',
+        'additionalInfo' => 'additionalInfo',
+        'externalOrderId' => 'externalOrderId'
     ];
 
     /**
@@ -200,13 +200,13 @@ class CreateOrderResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'response_code' => 'setResponseCode',
-        'response_message' => 'setResponseMessage',
-        'reference_no' => 'setReferenceNo',
-        'partner_reference_no' => 'setPartnerReferenceNo',
-        'web_redirect_url' => 'setWebRedirectUrl',
-        'additional_info' => 'setAdditionalInfo',
-        'external_order_id' => 'setExternalOrderId'
+        'responseCode' => 'setResponseCode',
+        'responseMessage' => 'setResponseMessage',
+        'referenceNo' => 'setReferenceNo',
+        'partnerReferenceNo' => 'setPartnerReferenceNo',
+        'webRedirectUrl' => 'setWebRedirectUrl',
+        'additionalInfo' => 'setAdditionalInfo',
+        'externalOrderId' => 'setExternalOrderId'
     ];
 
     /**
@@ -215,13 +215,13 @@ class CreateOrderResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'response_code' => 'getResponseCode',
-        'response_message' => 'getResponseMessage',
-        'reference_no' => 'getReferenceNo',
-        'partner_reference_no' => 'getPartnerReferenceNo',
-        'web_redirect_url' => 'getWebRedirectUrl',
-        'additional_info' => 'getAdditionalInfo',
-        'external_order_id' => 'getExternalOrderId'
+        'responseCode' => 'getResponseCode',
+        'responseMessage' => 'getResponseMessage',
+        'referenceNo' => 'getReferenceNo',
+        'partnerReferenceNo' => 'getPartnerReferenceNo',
+        'webRedirectUrl' => 'getWebRedirectUrl',
+        'additionalInfo' => 'getAdditionalInfo',
+        'externalOrderId' => 'getExternalOrderId'
     ];
 
     /**
@@ -281,13 +281,13 @@ class CreateOrderResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('response_code', $data ?? [], null);
-        $this->setIfExists('response_message', $data ?? [], null);
-        $this->setIfExists('reference_no', $data ?? [], null);
-        $this->setIfExists('partner_reference_no', $data ?? [], null);
-        $this->setIfExists('web_redirect_url', $data ?? [], null);
-        $this->setIfExists('additional_info', $data ?? [], null);
-        $this->setIfExists('external_order_id', $data ?? [], null);
+        $this->setIfExists('responseCode', $data ?? [], null);
+        $this->setIfExists('responseMessage', $data ?? [], null);
+        $this->setIfExists('referenceNo', $data ?? [], null);
+        $this->setIfExists('partnerReferenceNo', $data ?? [], null);
+        $this->setIfExists('webRedirectUrl', $data ?? [], null);
+        $this->setIfExists('additionalInfo', $data ?? [], null);
+        $this->setIfExists('externalOrderId', $data ?? [], null);
     }
 
     /**
@@ -317,33 +317,33 @@ class CreateOrderResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
-        if ($this->container['response_code'] === null) {
-            $invalidProperties[] = "'response_code' can't be null";
+        if ($this->container['responseCode'] === null) {
+            $invalidProperties[] = "'responseCode' can't be null";
         }
-        if ((mb_strlen($this->container['response_code']) > 7)) {
-            $invalidProperties[] = "invalid value for 'response_code', the character length must be smaller than or equal to 7.";
-        }
-
-        if ($this->container['response_message'] === null) {
-            $invalidProperties[] = "'response_message' can't be null";
-        }
-        if ((mb_strlen($this->container['response_message']) > 150)) {
-            $invalidProperties[] = "invalid value for 'response_message', the character length must be smaller than or equal to 150.";
+        if ((mb_strlen($this->container['responseCode']) > 7)) {
+            $invalidProperties[] = "invalid value for 'responseCode', the character length must be smaller than or equal to 7.";
         }
 
-        if (!is_null($this->container['reference_no']) && (mb_strlen($this->container['reference_no']) > 64)) {
-            $invalidProperties[] = "invalid value for 'reference_no', the character length must be smaller than or equal to 64.";
+        if ($this->container['responseMessage'] === null) {
+            $invalidProperties[] = "'responseMessage' can't be null";
+        }
+        if ((mb_strlen($this->container['responseMessage']) > 150)) {
+            $invalidProperties[] = "invalid value for 'responseMessage', the character length must be smaller than or equal to 150.";
         }
 
-        if ($this->container['partner_reference_no'] === null) {
-            $invalidProperties[] = "'partner_reference_no' can't be null";
-        }
-        if ((mb_strlen($this->container['partner_reference_no']) > 64)) {
-            $invalidProperties[] = "invalid value for 'partner_reference_no', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['referenceNo']) && (mb_strlen($this->container['referenceNo']) > 64)) {
+            $invalidProperties[] = "invalid value for 'referenceNo', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['web_redirect_url']) && (mb_strlen($this->container['web_redirect_url']) > 2048)) {
-            $invalidProperties[] = "invalid value for 'web_redirect_url', the character length must be smaller than or equal to 2048.";
+        if ($this->container['partnerReferenceNo'] === null) {
+            $invalidProperties[] = "'partnerReferenceNo' can't be null";
+        }
+        if ((mb_strlen($this->container['partnerReferenceNo']) > 64)) {
+            $invalidProperties[] = "invalid value for 'partnerReferenceNo', the character length must be smaller than or equal to 64.";
+        }
+
+        if (!is_null($this->container['webRedirectUrl']) && (mb_strlen($this->container['webRedirectUrl']) > 2048)) {
+            $invalidProperties[] = "invalid value for 'webRedirectUrl', the character length must be smaller than or equal to 2048.";
         }
 
         return $invalidProperties;
@@ -362,210 +362,210 @@ class CreateOrderResponse implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets response_code
+     * Gets responseCode
      *
      * @return string
      */
     public function getResponseCode()
     {
-        return $this->container['response_code'];
+        return $this->container['responseCode'];
     }
 
     /**
-     * Sets response_code
+     * Sets responseCode
      *
-     * @param string $response_code Response code. Refer to https://dashboard.dana.id/api-docs/read/243#paymentgatewayprod-paymentRedirect-ResponseCodeandMessage
+     * @param string $responseCode Response code. Refer to https://dashboard.dana.id/api-docs/read/243#paymentgatewayprod-paymentRedirect-ResponseCodeandMessage
      *
      * @return self
      */
-    public function setResponseCode($response_code)
+    public function setResponseCode($responseCode)
     {
-        if (is_null($response_code)) {
-            throw new \InvalidArgumentException('non-nullable response_code cannot be null');
+        if (is_null($responseCode)) {
+            throw new \InvalidArgumentException('non-nullable responseCode cannot be null');
         }
-        if ((mb_strlen($response_code) > 7)) {
-            throw new \InvalidArgumentException('invalid length for $response_code when calling CreateOrderResponse., must be smaller than or equal to 7.');
+        if ((mb_strlen($responseCode) > 7)) {
+            throw new \InvalidArgumentException('invalid length for $responseCode when calling CreateOrderResponse., must be smaller than or equal to 7.');
         }
 
-        $this->container['response_code'] = $response_code;
+        $this->container['responseCode'] = $responseCode;
 
         return $this;
     }
 
     /**
-     * Gets response_message
+     * Gets responseMessage
      *
      * @return string
      */
     public function getResponseMessage()
     {
-        return $this->container['response_message'];
+        return $this->container['responseMessage'];
     }
 
     /**
-     * Sets response_message
+     * Sets responseMessage
      *
-     * @param string $response_message Response message. Refer to https://dashboard.dana.id/api-docs/read/243#paymentgatewayprod-paymentRedirect-ResponseCodeandMessage
+     * @param string $responseMessage Response message. Refer to https://dashboard.dana.id/api-docs/read/243#paymentgatewayprod-paymentRedirect-ResponseCodeandMessage
      *
      * @return self
      */
-    public function setResponseMessage($response_message)
+    public function setResponseMessage($responseMessage)
     {
-        if (is_null($response_message)) {
-            throw new \InvalidArgumentException('non-nullable response_message cannot be null');
+        if (is_null($responseMessage)) {
+            throw new \InvalidArgumentException('non-nullable responseMessage cannot be null');
         }
-        if ((mb_strlen($response_message) > 150)) {
-            throw new \InvalidArgumentException('invalid length for $response_message when calling CreateOrderResponse., must be smaller than or equal to 150.');
+        if ((mb_strlen($responseMessage) > 150)) {
+            throw new \InvalidArgumentException('invalid length for $responseMessage when calling CreateOrderResponse., must be smaller than or equal to 150.');
         }
 
-        $this->container['response_message'] = $response_message;
+        $this->container['responseMessage'] = $responseMessage;
 
         return $this;
     }
 
     /**
-     * Gets reference_no
+     * Gets referenceNo
      *
      * @return string|null
      */
     public function getReferenceNo()
     {
-        return $this->container['reference_no'];
+        return $this->container['referenceNo'];
     }
 
     /**
-     * Sets reference_no
+     * Sets referenceNo
      *
-     * @param string|null $reference_no Transaction identifier on DANA system. Present if successfully processed
+     * @param string|null $referenceNo Transaction identifier on DANA system. Present if successfully processed
      *
      * @return self
      */
-    public function setReferenceNo($reference_no)
+    public function setReferenceNo($referenceNo)
     {
-        if (is_null($reference_no)) {
-            throw new \InvalidArgumentException('non-nullable reference_no cannot be null');
+        if (is_null($referenceNo)) {
+            throw new \InvalidArgumentException('non-nullable referenceNo cannot be null');
         }
-        if ((mb_strlen($reference_no) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $reference_no when calling CreateOrderResponse., must be smaller than or equal to 64.');
+        if ((mb_strlen($referenceNo) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $referenceNo when calling CreateOrderResponse., must be smaller than or equal to 64.');
         }
 
-        $this->container['reference_no'] = $reference_no;
+        $this->container['referenceNo'] = $referenceNo;
 
         return $this;
     }
 
     /**
-     * Gets partner_reference_no
+     * Gets partnerReferenceNo
      *
      * @return string
      */
     public function getPartnerReferenceNo()
     {
-        return $this->container['partner_reference_no'];
+        return $this->container['partnerReferenceNo'];
     }
 
     /**
-     * Sets partner_reference_no
+     * Sets partnerReferenceNo
      *
-     * @param string $partner_reference_no Transaction identifier on partner system
+     * @param string $partnerReferenceNo Transaction identifier on partner system
      *
      * @return self
      */
-    public function setPartnerReferenceNo($partner_reference_no)
+    public function setPartnerReferenceNo($partnerReferenceNo)
     {
-        if (is_null($partner_reference_no)) {
-            throw new \InvalidArgumentException('non-nullable partner_reference_no cannot be null');
+        if (is_null($partnerReferenceNo)) {
+            throw new \InvalidArgumentException('non-nullable partnerReferenceNo cannot be null');
         }
-        if ((mb_strlen($partner_reference_no) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $partner_reference_no when calling CreateOrderResponse., must be smaller than or equal to 64.');
+        if ((mb_strlen($partnerReferenceNo) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $partnerReferenceNo when calling CreateOrderResponse., must be smaller than or equal to 64.');
         }
 
-        $this->container['partner_reference_no'] = $partner_reference_no;
+        $this->container['partnerReferenceNo'] = $partnerReferenceNo;
 
         return $this;
     }
 
     /**
-     * Gets web_redirect_url
+     * Gets webRedirectUrl
      *
      * @return string|null
      */
     public function getWebRedirectUrl()
     {
-        return $this->container['web_redirect_url'];
+        return $this->container['webRedirectUrl'];
     }
 
     /**
-     * Sets web_redirect_url
+     * Sets webRedirectUrl
      *
-     * @param string|null $web_redirect_url Checkout URLs. Present if successfully processed and payment method is not OVO/Virtual Account/QRIS
+     * @param string|null $webRedirectUrl Checkout URLs. Present if successfully processed and payment method is not OVO/Virtual Account/QRIS
      *
      * @return self
      */
-    public function setWebRedirectUrl($web_redirect_url)
+    public function setWebRedirectUrl($webRedirectUrl)
     {
-        if (is_null($web_redirect_url)) {
-            throw new \InvalidArgumentException('non-nullable web_redirect_url cannot be null');
+        if (is_null($webRedirectUrl)) {
+            throw new \InvalidArgumentException('non-nullable webRedirectUrl cannot be null');
         }
-        if ((mb_strlen($web_redirect_url) > 2048)) {
-            throw new \InvalidArgumentException('invalid length for $web_redirect_url when calling CreateOrderResponse., must be smaller than or equal to 2048.');
+        if ((mb_strlen($webRedirectUrl) > 2048)) {
+            throw new \InvalidArgumentException('invalid length for $webRedirectUrl when calling CreateOrderResponse., must be smaller than or equal to 2048.');
         }
 
-        $this->container['web_redirect_url'] = $web_redirect_url;
+        $this->container['webRedirectUrl'] = $webRedirectUrl;
 
         return $this;
     }
 
     /**
-     * Gets additional_info
+     * Gets additionalInfo
      *
      * @return \Dana\PaymentGateway\v1\Model\CreateOrderResponseAdditionalInfo|null
      */
     public function getAdditionalInfo()
     {
-        return $this->container['additional_info'];
+        return $this->container['additionalInfo'];
     }
 
     /**
-     * Sets additional_info
+     * Sets additionalInfo
      *
-     * @param \Dana\PaymentGateway\v1\Model\CreateOrderResponseAdditionalInfo|null $additional_info Additional information
+     * @param \Dana\PaymentGateway\v1\Model\CreateOrderResponseAdditionalInfo|null $additionalInfo Additional information
      *
      * @return self
      */
-    public function setAdditionalInfo($additional_info)
+    public function setAdditionalInfo($additionalInfo)
     {
-        if (is_null($additional_info)) {
-            throw new \InvalidArgumentException('non-nullable additional_info cannot be null');
+        if (is_null($additionalInfo)) {
+            throw new \InvalidArgumentException('non-nullable additionalInfo cannot be null');
         }
-        $this->container['additional_info'] = $additional_info;
+        $this->container['additionalInfo'] = $additionalInfo;
 
         return $this;
     }
 
     /**
-     * Gets external_order_id
+     * Gets externalOrderId
      *
      * @return string|null
      */
     public function getExternalOrderId()
     {
-        return $this->container['external_order_id'];
+        return $this->container['externalOrderId'];
     }
 
     /**
-     * Sets external_order_id
+     * Sets externalOrderId
      *
-     * @param string|null $external_order_id External order identifier
+     * @param string|null $externalOrderId External order identifier
      *
      * @return self
      */
-    public function setExternalOrderId($external_order_id)
+    public function setExternalOrderId($externalOrderId)
     {
-        if (is_null($external_order_id)) {
-            throw new \InvalidArgumentException('non-nullable external_order_id cannot be null');
+        if (is_null($externalOrderId)) {
+            throw new \InvalidArgumentException('non-nullable externalOrderId cannot be null');
         }
-        $this->container['external_order_id'] = $external_order_id;
+        $this->container['externalOrderId'] = $externalOrderId;
 
         return $this;
     }

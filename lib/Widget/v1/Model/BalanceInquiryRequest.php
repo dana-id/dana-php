@@ -58,9 +58,9 @@ class BalanceInquiryRequest implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'partner_reference_no' => 'string',
-        'balance_types' => 'string[]',
-        'additional_info' => '\Dana\Widget\v1\Model\BalanceInquiryRequestAdditionalInfo'
+        'partnerReferenceNo' => 'string',
+        'balanceTypes' => 'string[]',
+        'additionalInfo' => '\Dana\Widget\v1\Model\BalanceInquiryRequestAdditionalInfo'
     ];
 
     /**
@@ -71,9 +71,9 @@ class BalanceInquiryRequest implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'partner_reference_no' => null,
-        'balance_types' => null,
-        'additional_info' => null
+        'partnerReferenceNo' => null,
+        'balanceTypes' => null,
+        'additionalInfo' => null
     ];
 
     /**
@@ -82,9 +82,9 @@ class BalanceInquiryRequest implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'partner_reference_no' => false,
-        'balance_types' => false,
-        'additional_info' => false
+        'partnerReferenceNo' => false,
+        'balanceTypes' => false,
+        'additionalInfo' => false
     ];
 
     /**
@@ -173,9 +173,9 @@ class BalanceInquiryRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'partner_reference_no' => 'partnerReferenceNo',
-        'balance_types' => 'balanceTypes',
-        'additional_info' => 'additionalInfo'
+        'partnerReferenceNo' => 'partnerReferenceNo',
+        'balanceTypes' => 'balanceTypes',
+        'additionalInfo' => 'additionalInfo'
     ];
 
     /**
@@ -184,9 +184,9 @@ class BalanceInquiryRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'partner_reference_no' => 'setPartnerReferenceNo',
-        'balance_types' => 'setBalanceTypes',
-        'additional_info' => 'setAdditionalInfo'
+        'partnerReferenceNo' => 'setPartnerReferenceNo',
+        'balanceTypes' => 'setBalanceTypes',
+        'additionalInfo' => 'setAdditionalInfo'
     ];
 
     /**
@@ -195,9 +195,9 @@ class BalanceInquiryRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'partner_reference_no' => 'getPartnerReferenceNo',
-        'balance_types' => 'getBalanceTypes',
-        'additional_info' => 'getAdditionalInfo'
+        'partnerReferenceNo' => 'getPartnerReferenceNo',
+        'balanceTypes' => 'getBalanceTypes',
+        'additionalInfo' => 'getAdditionalInfo'
     ];
 
     /**
@@ -257,9 +257,9 @@ class BalanceInquiryRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('partner_reference_no', $data ?? [], null);
-        $this->setIfExists('balance_types', $data ?? [], null);
-        $this->setIfExists('additional_info', $data ?? [], null);
+        $this->setIfExists('partnerReferenceNo', $data ?? [], null);
+        $this->setIfExists('balanceTypes', $data ?? [], null);
+        $this->setIfExists('additionalInfo', $data ?? [], null);
     }
 
     /**
@@ -289,8 +289,8 @@ class BalanceInquiryRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['partner_reference_no']) && (mb_strlen($this->container['partner_reference_no']) > 64)) {
-            $invalidProperties[] = "invalid value for 'partner_reference_no', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['partnerReferenceNo']) && (mb_strlen($this->container['partnerReferenceNo']) > 64)) {
+            $invalidProperties[] = "invalid value for 'partnerReferenceNo', the character length must be smaller than or equal to 64.";
         }
 
         return $invalidProperties;
@@ -309,86 +309,86 @@ class BalanceInquiryRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
 
     /**
-     * Gets partner_reference_no
+     * Gets partnerReferenceNo
      *
      * @return string|null
      */
     public function getPartnerReferenceNo()
     {
-        return $this->container['partner_reference_no'];
+        return $this->container['partnerReferenceNo'];
     }
 
     /**
-     * Sets partner_reference_no
+     * Sets partnerReferenceNo
      *
-     * @param string|null $partner_reference_no Unique transaction identifier on partner system which assigned to each transaction<br> Notes:<br> If the partner receives a timeout or an unexpected response from DANA and partner expects to perform retry request to DANA, please use the partnerReferenceNo that is the same as the one used in the transaction request process before
+     * @param string|null $partnerReferenceNo Unique transaction identifier on partner system which assigned to each transaction<br> Notes:<br> If the partner receives a timeout or an unexpected response from DANA and partner expects to perform retry request to DANA, please use the partnerReferenceNo that is the same as the one used in the transaction request process before
      *
      * @return self
      */
-    public function setPartnerReferenceNo($partner_reference_no)
+    public function setPartnerReferenceNo($partnerReferenceNo)
     {
-        if (is_null($partner_reference_no)) {
-            throw new \InvalidArgumentException('non-nullable partner_reference_no cannot be null');
+        if (is_null($partnerReferenceNo)) {
+            throw new \InvalidArgumentException('non-nullable partnerReferenceNo cannot be null');
         }
-        if ((mb_strlen($partner_reference_no) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $partner_reference_no when calling BalanceInquiryRequest., must be smaller than or equal to 64.');
+        if ((mb_strlen($partnerReferenceNo) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $partnerReferenceNo when calling BalanceInquiryRequest., must be smaller than or equal to 64.');
         }
 
-        $this->container['partner_reference_no'] = $partner_reference_no;
+        $this->container['partnerReferenceNo'] = $partnerReferenceNo;
 
         return $this;
     }
 
     /**
-     * Gets balance_types
+     * Gets balanceTypes
      *
      * @return string[]|null
      */
     public function getBalanceTypes()
     {
-        return $this->container['balance_types'];
+        return $this->container['balanceTypes'];
     }
 
     /**
-     * Sets balance_types
+     * Sets balanceTypes
      *
-     * @param string[]|null $balance_types Information of balance types to specify which balance type expected to be returned. Will return all available balance type if this parameter empty
+     * @param string[]|null $balanceTypes Information of balance types to specify which balance type expected to be returned. Will return all available balance type if this parameter empty
      *
      * @return self
      */
-    public function setBalanceTypes($balance_types)
+    public function setBalanceTypes($balanceTypes)
     {
-        if (is_null($balance_types)) {
-            throw new \InvalidArgumentException('non-nullable balance_types cannot be null');
+        if (is_null($balanceTypes)) {
+            throw new \InvalidArgumentException('non-nullable balanceTypes cannot be null');
         }
-        $this->container['balance_types'] = $balance_types;
+        $this->container['balanceTypes'] = $balanceTypes;
 
         return $this;
     }
 
     /**
-     * Gets additional_info
+     * Gets additionalInfo
      *
      * @return \Dana\Widget\v1\Model\BalanceInquiryRequestAdditionalInfo|null
      */
     public function getAdditionalInfo()
     {
-        return $this->container['additional_info'];
+        return $this->container['additionalInfo'];
     }
 
     /**
-     * Sets additional_info
+     * Sets additionalInfo
      *
-     * @param \Dana\Widget\v1\Model\BalanceInquiryRequestAdditionalInfo|null $additional_info additional_info
+     * @param \Dana\Widget\v1\Model\BalanceInquiryRequestAdditionalInfo|null $additionalInfo additionalInfo
      *
      * @return self
      */
-    public function setAdditionalInfo($additional_info)
+    public function setAdditionalInfo($additionalInfo)
     {
-        if (is_null($additional_info)) {
-            throw new \InvalidArgumentException('non-nullable additional_info cannot be null');
+        if (is_null($additionalInfo)) {
+            throw new \InvalidArgumentException('non-nullable additionalInfo cannot be null');
         }
-        $this->container['additional_info'] = $additional_info;
+        $this->container['additionalInfo'] = $additionalInfo;
 
         return $this;
     }

@@ -58,17 +58,17 @@ class RefundOrderRequestAdditionalInfo implements ModelInterface, ArrayAccess, \
       * @var string[]
       */
     protected static $openAPITypes = [
-        'payout_account_no' => 'string',
-        'refund_applied_time' => 'string',
-        'actor_type' => 'string',
-        'return_charge_to_payer' => 'string',
+        'payoutAccountNo' => 'string',
+        'refundAppliedTime' => 'string',
+        'actorType' => 'string',
+        'returnChargeToPayer' => 'string',
         'destination' => 'string',
-        'env_info' => '\Dana\PaymentGateway\v1\Model\EnvInfo',
-        'audit_info' => '\Dana\PaymentGateway\v1\Model\AuditInfo',
-        'actor_context' => '\Dana\PaymentGateway\v1\Model\ActorContext',
-        'refund_option_bill' => '\Dana\PaymentGateway\v1\Model\RefundOptionBill[]',
-        'extend_info' => 'string',
-        'async_refund' => 'string'
+        'envInfo' => '\Dana\PaymentGateway\v1\Model\EnvInfo',
+        'auditInfo' => '\Dana\PaymentGateway\v1\Model\AuditInfo',
+        'actorContext' => '\Dana\PaymentGateway\v1\Model\ActorContext',
+        'refundOptionBill' => '\Dana\PaymentGateway\v1\Model\RefundOptionBill[]',
+        'extendInfo' => 'string',
+        'asyncRefund' => 'string'
     ];
 
     /**
@@ -79,17 +79,17 @@ class RefundOrderRequestAdditionalInfo implements ModelInterface, ArrayAccess, \
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'payout_account_no' => null,
-        'refund_applied_time' => null,
-        'actor_type' => null,
-        'return_charge_to_payer' => null,
+        'payoutAccountNo' => null,
+        'refundAppliedTime' => null,
+        'actorType' => null,
+        'returnChargeToPayer' => null,
         'destination' => null,
-        'env_info' => null,
-        'audit_info' => null,
-        'actor_context' => null,
-        'refund_option_bill' => null,
-        'extend_info' => null,
-        'async_refund' => null
+        'envInfo' => null,
+        'auditInfo' => null,
+        'actorContext' => null,
+        'refundOptionBill' => null,
+        'extendInfo' => null,
+        'asyncRefund' => null
     ];
 
     /**
@@ -98,17 +98,17 @@ class RefundOrderRequestAdditionalInfo implements ModelInterface, ArrayAccess, \
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'payout_account_no' => false,
-        'refund_applied_time' => false,
-        'actor_type' => false,
-        'return_charge_to_payer' => false,
+        'payoutAccountNo' => false,
+        'refundAppliedTime' => false,
+        'actorType' => false,
+        'returnChargeToPayer' => false,
         'destination' => false,
-        'env_info' => false,
-        'audit_info' => false,
-        'actor_context' => false,
-        'refund_option_bill' => false,
-        'extend_info' => false,
-        'async_refund' => false
+        'envInfo' => false,
+        'auditInfo' => false,
+        'actorContext' => false,
+        'refundOptionBill' => false,
+        'extendInfo' => false,
+        'asyncRefund' => false
     ];
 
     /**
@@ -197,17 +197,17 @@ class RefundOrderRequestAdditionalInfo implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $attributeMap = [
-        'payout_account_no' => 'payoutAccountNo',
-        'refund_applied_time' => 'refundAppliedTime',
-        'actor_type' => 'actorType',
-        'return_charge_to_payer' => 'returnChargeToPayer',
+        'payoutAccountNo' => 'payoutAccountNo',
+        'refundAppliedTime' => 'refundAppliedTime',
+        'actorType' => 'actorType',
+        'returnChargeToPayer' => 'returnChargeToPayer',
         'destination' => 'destination',
-        'env_info' => 'envInfo',
-        'audit_info' => 'auditInfo',
-        'actor_context' => 'actorContext',
-        'refund_option_bill' => 'refundOptionBill',
-        'extend_info' => 'extendInfo',
-        'async_refund' => 'asyncRefund'
+        'envInfo' => 'envInfo',
+        'auditInfo' => 'auditInfo',
+        'actorContext' => 'actorContext',
+        'refundOptionBill' => 'refundOptionBill',
+        'extendInfo' => 'extendInfo',
+        'asyncRefund' => 'asyncRefund'
     ];
 
     /**
@@ -216,17 +216,17 @@ class RefundOrderRequestAdditionalInfo implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $setters = [
-        'payout_account_no' => 'setPayoutAccountNo',
-        'refund_applied_time' => 'setRefundAppliedTime',
-        'actor_type' => 'setActorType',
-        'return_charge_to_payer' => 'setReturnChargeToPayer',
+        'payoutAccountNo' => 'setPayoutAccountNo',
+        'refundAppliedTime' => 'setRefundAppliedTime',
+        'actorType' => 'setActorType',
+        'returnChargeToPayer' => 'setReturnChargeToPayer',
         'destination' => 'setDestination',
-        'env_info' => 'setEnvInfo',
-        'audit_info' => 'setAuditInfo',
-        'actor_context' => 'setActorContext',
-        'refund_option_bill' => 'setRefundOptionBill',
-        'extend_info' => 'setExtendInfo',
-        'async_refund' => 'setAsyncRefund'
+        'envInfo' => 'setEnvInfo',
+        'auditInfo' => 'setAuditInfo',
+        'actorContext' => 'setActorContext',
+        'refundOptionBill' => 'setRefundOptionBill',
+        'extendInfo' => 'setExtendInfo',
+        'asyncRefund' => 'setAsyncRefund'
     ];
 
     /**
@@ -235,17 +235,17 @@ class RefundOrderRequestAdditionalInfo implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $getters = [
-        'payout_account_no' => 'getPayoutAccountNo',
-        'refund_applied_time' => 'getRefundAppliedTime',
-        'actor_type' => 'getActorType',
-        'return_charge_to_payer' => 'getReturnChargeToPayer',
+        'payoutAccountNo' => 'getPayoutAccountNo',
+        'refundAppliedTime' => 'getRefundAppliedTime',
+        'actorType' => 'getActorType',
+        'returnChargeToPayer' => 'getReturnChargeToPayer',
         'destination' => 'getDestination',
-        'env_info' => 'getEnvInfo',
-        'audit_info' => 'getAuditInfo',
-        'actor_context' => 'getActorContext',
-        'refund_option_bill' => 'getRefundOptionBill',
-        'extend_info' => 'getExtendInfo',
-        'async_refund' => 'getAsyncRefund'
+        'envInfo' => 'getEnvInfo',
+        'auditInfo' => 'getAuditInfo',
+        'actorContext' => 'getActorContext',
+        'refundOptionBill' => 'getRefundOptionBill',
+        'extendInfo' => 'getExtendInfo',
+        'asyncRefund' => 'getAsyncRefund'
     ];
 
     /**
@@ -326,17 +326,17 @@ class RefundOrderRequestAdditionalInfo implements ModelInterface, ArrayAccess, \
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('payout_account_no', $data ?? [], null);
-        $this->setIfExists('refund_applied_time', $data ?? [], null);
-        $this->setIfExists('actor_type', $data ?? [], null);
-        $this->setIfExists('return_charge_to_payer', $data ?? [], null);
+        $this->setIfExists('payoutAccountNo', $data ?? [], null);
+        $this->setIfExists('refundAppliedTime', $data ?? [], null);
+        $this->setIfExists('actorType', $data ?? [], null);
+        $this->setIfExists('returnChargeToPayer', $data ?? [], null);
         $this->setIfExists('destination', $data ?? [], null);
-        $this->setIfExists('env_info', $data ?? [], null);
-        $this->setIfExists('audit_info', $data ?? [], null);
-        $this->setIfExists('actor_context', $data ?? [], null);
-        $this->setIfExists('refund_option_bill', $data ?? [], null);
-        $this->setIfExists('extend_info', $data ?? [], null);
-        $this->setIfExists('async_refund', $data ?? [], null);
+        $this->setIfExists('envInfo', $data ?? [], null);
+        $this->setIfExists('auditInfo', $data ?? [], null);
+        $this->setIfExists('actorContext', $data ?? [], null);
+        $this->setIfExists('refundOptionBill', $data ?? [], null);
+        $this->setIfExists('extendInfo', $data ?? [], null);
+        $this->setIfExists('asyncRefund', $data ?? [], null);
     }
 
     /**
@@ -366,41 +366,41 @@ class RefundOrderRequestAdditionalInfo implements ModelInterface, ArrayAccess, \
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['payout_account_no']) && (mb_strlen($this->container['payout_account_no']) > 64)) {
-            $invalidProperties[] = "invalid value for 'payout_account_no', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['payoutAccountNo']) && (mb_strlen($this->container['payoutAccountNo']) > 64)) {
+            $invalidProperties[] = "invalid value for 'payoutAccountNo', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['refund_applied_time']) && (mb_strlen($this->container['refund_applied_time']) > 25)) {
-            $invalidProperties[] = "invalid value for 'refund_applied_time', the character length must be smaller than or equal to 25.";
+        if (!is_null($this->container['refundAppliedTime']) && (mb_strlen($this->container['refundAppliedTime']) > 25)) {
+            $invalidProperties[] = "invalid value for 'refundAppliedTime', the character length must be smaller than or equal to 25.";
         }
 
         $allowedValues = $this->getActorTypeAllowableValues();
-        if (!is_null($this->container['actor_type']) && !in_array($this->container['actor_type'], $allowedValues, true)) {
+        if (!is_null($this->container['actorType']) && !in_array($this->container['actorType'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'actor_type', must be one of '%s'",
-                $this->container['actor_type'],
+                "invalid value '%s' for 'actorType', must be one of '%s'",
+                $this->container['actorType'],
                 implode("', '", $allowedValues)
             );
         }
 
-        if (!is_null($this->container['actor_type']) && (mb_strlen($this->container['actor_type']) > 64)) {
-            $invalidProperties[] = "invalid value for 'actor_type', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['actorType']) && (mb_strlen($this->container['actorType']) > 64)) {
+            $invalidProperties[] = "invalid value for 'actorType', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['return_charge_to_payer']) && (mb_strlen($this->container['return_charge_to_payer']) > 64)) {
-            $invalidProperties[] = "invalid value for 'return_charge_to_payer', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['returnChargeToPayer']) && (mb_strlen($this->container['returnChargeToPayer']) > 64)) {
+            $invalidProperties[] = "invalid value for 'returnChargeToPayer', the character length must be smaller than or equal to 64.";
         }
 
         if (!is_null($this->container['destination']) && (mb_strlen($this->container['destination']) > 64)) {
             $invalidProperties[] = "invalid value for 'destination', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['extend_info']) && (mb_strlen($this->container['extend_info']) > 4096)) {
-            $invalidProperties[] = "invalid value for 'extend_info', the character length must be smaller than or equal to 4096.";
+        if (!is_null($this->container['extendInfo']) && (mb_strlen($this->container['extendInfo']) > 4096)) {
+            $invalidProperties[] = "invalid value for 'extendInfo', the character length must be smaller than or equal to 4096.";
         }
 
-        if (!is_null($this->container['async_refund']) && (mb_strlen($this->container['async_refund']) > 5)) {
-            $invalidProperties[] = "invalid value for 'async_refund', the character length must be smaller than or equal to 5.";
+        if (!is_null($this->container['asyncRefund']) && (mb_strlen($this->container['asyncRefund']) > 5)) {
+            $invalidProperties[] = "invalid value for 'asyncRefund', the character length must be smaller than or equal to 5.";
         }
 
         return $invalidProperties;
@@ -419,135 +419,135 @@ class RefundOrderRequestAdditionalInfo implements ModelInterface, ArrayAccess, \
 
 
     /**
-     * Gets payout_account_no
+     * Gets payoutAccountNo
      *
      * @return string|null
      */
     public function getPayoutAccountNo()
     {
-        return $this->container['payout_account_no'];
+        return $this->container['payoutAccountNo'];
     }
 
     /**
-     * Sets payout_account_no
+     * Sets payoutAccountNo
      *
-     * @param string|null $payout_account_no Additional information of payout account number. This param need to be filled if want to refund to specific payout account not that specified by DANA
+     * @param string|null $payoutAccountNo Additional information of payout account number. This param need to be filled if want to refund to specific payout account not that specified by DANA
      *
      * @return self
      */
-    public function setPayoutAccountNo($payout_account_no)
+    public function setPayoutAccountNo($payoutAccountNo)
     {
-        if (is_null($payout_account_no)) {
-            throw new \InvalidArgumentException('non-nullable payout_account_no cannot be null');
+        if (is_null($payoutAccountNo)) {
+            throw new \InvalidArgumentException('non-nullable payoutAccountNo cannot be null');
         }
-        if ((mb_strlen($payout_account_no) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $payout_account_no when calling RefundOrderRequestAdditionalInfo., must be smaller than or equal to 64.');
+        if ((mb_strlen($payoutAccountNo) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $payoutAccountNo when calling RefundOrderRequestAdditionalInfo., must be smaller than or equal to 64.');
         }
 
-        $this->container['payout_account_no'] = $payout_account_no;
+        $this->container['payoutAccountNo'] = $payoutAccountNo;
 
         return $this;
     }
 
     /**
-     * Gets refund_applied_time
+     * Gets refundAppliedTime
      *
      * @return string|null
      */
     public function getRefundAppliedTime()
     {
-        return $this->container['refund_applied_time'];
+        return $this->container['refundAppliedTime'];
     }
 
     /**
-     * Sets refund_applied_time
+     * Sets refundAppliedTime
      *
-     * @param string|null $refund_applied_time Additional information of refund applied time, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time)
+     * @param string|null $refundAppliedTime Additional information of refund applied time, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time)
      *
      * @return self
      */
-    public function setRefundAppliedTime($refund_applied_time)
+    public function setRefundAppliedTime($refundAppliedTime)
     {
-        if (is_null($refund_applied_time)) {
-            throw new \InvalidArgumentException('non-nullable refund_applied_time cannot be null');
+        if (is_null($refundAppliedTime)) {
+            throw new \InvalidArgumentException('non-nullable refundAppliedTime cannot be null');
         }
-        if ((mb_strlen($refund_applied_time) > 25)) {
-            throw new \InvalidArgumentException('invalid length for $refund_applied_time when calling RefundOrderRequestAdditionalInfo., must be smaller than or equal to 25.');
+        if ((mb_strlen($refundAppliedTime) > 25)) {
+            throw new \InvalidArgumentException('invalid length for $refundAppliedTime when calling RefundOrderRequestAdditionalInfo., must be smaller than or equal to 25.');
         }
 
-        $this->container['refund_applied_time'] = $refund_applied_time;
+        $this->container['refundAppliedTime'] = $refundAppliedTime;
 
         return $this;
     }
 
     /**
-     * Gets actor_type
+     * Gets actorType
      *
      * @return string|null
      */
     public function getActorType()
     {
-        return $this->container['actor_type'];
+        return $this->container['actorType'];
     }
 
     /**
-     * Sets actor_type
+     * Sets actorType
      *
-     * @param string|null $actor_type Additional information of actor type. The enums:<br> * USER - User<br> * MERCHANT - Merchant<br> * MERCHANT_OPERATOR - Merchant operator<br> * BACK_OFFICE - Back office<br> * SYSTEM - System<br>
+     * @param string|null $actorType Additional information of actor type. The enums:<br> * USER - User<br> * MERCHANT - Merchant<br> * MERCHANT_OPERATOR - Merchant operator<br> * BACK_OFFICE - Back office<br> * SYSTEM - System<br>
      *
      * @return self
      */
-    public function setActorType($actor_type)
+    public function setActorType($actorType)
     {
-        if (is_null($actor_type)) {
-            throw new \InvalidArgumentException('non-nullable actor_type cannot be null');
+        if (is_null($actorType)) {
+            throw new \InvalidArgumentException('non-nullable actorType cannot be null');
         }
         $allowedValues = $this->getActorTypeAllowableValues();
-        if (!in_array($actor_type, $allowedValues, true) && (!empty($actor_type) || $actor_type !== '')) {
+        if (!in_array($actorType, $allowedValues, true) && (!empty($actorType) || $actorType !== '')) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'actor_type', must be one of '%s'",
-                    $actor_type,
+                    "Invalid value '%s' for 'actorType', must be one of '%s'",
+                    $actorType,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        if ((mb_strlen($actor_type) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $actor_type when calling RefundOrderRequestAdditionalInfo., must be smaller than or equal to 64.');
+        if ((mb_strlen($actorType) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $actorType when calling RefundOrderRequestAdditionalInfo., must be smaller than or equal to 64.');
         }
 
-        $this->container['actor_type'] = $actor_type;
+        $this->container['actorType'] = $actorType;
 
         return $this;
     }
 
     /**
-     * Gets return_charge_to_payer
+     * Gets returnChargeToPayer
      *
      * @return string|null
      */
     public function getReturnChargeToPayer()
     {
-        return $this->container['return_charge_to_payer'];
+        return $this->container['returnChargeToPayer'];
     }
 
     /**
-     * Sets return_charge_to_payer
+     * Sets returnChargeToPayer
      *
-     * @param string|null $return_charge_to_payer Additional information of return charge to payer
+     * @param string|null $returnChargeToPayer Additional information of return charge to payer
      *
      * @return self
      */
-    public function setReturnChargeToPayer($return_charge_to_payer)
+    public function setReturnChargeToPayer($returnChargeToPayer)
     {
-        if (is_null($return_charge_to_payer)) {
-            throw new \InvalidArgumentException('non-nullable return_charge_to_payer cannot be null');
+        if (is_null($returnChargeToPayer)) {
+            throw new \InvalidArgumentException('non-nullable returnChargeToPayer cannot be null');
         }
-        if ((mb_strlen($return_charge_to_payer) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $return_charge_to_payer when calling RefundOrderRequestAdditionalInfo., must be smaller than or equal to 64.');
+        if ((mb_strlen($returnChargeToPayer) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $returnChargeToPayer when calling RefundOrderRequestAdditionalInfo., must be smaller than or equal to 64.');
         }
 
-        $this->container['return_charge_to_payer'] = $return_charge_to_payer;
+        $this->container['returnChargeToPayer'] = $returnChargeToPayer;
 
         return $this;
     }
@@ -584,171 +584,171 @@ class RefundOrderRequestAdditionalInfo implements ModelInterface, ArrayAccess, \
     }
 
     /**
-     * Gets env_info
+     * Gets envInfo
      *
      * @return \Dana\PaymentGateway\v1\Model\EnvInfo|null
      */
     public function getEnvInfo()
     {
-        return $this->container['env_info'];
+        return $this->container['envInfo'];
     }
 
     /**
-     * Sets env_info
+     * Sets envInfo
      *
-     * @param \Dana\PaymentGateway\v1\Model\EnvInfo|null $env_info Additional information of environment
+     * @param \Dana\PaymentGateway\v1\Model\EnvInfo|null $envInfo Additional information of environment
      *
      * @return self
      */
-    public function setEnvInfo($env_info)
+    public function setEnvInfo($envInfo)
     {
-        if (is_null($env_info)) {
-            throw new \InvalidArgumentException('non-nullable env_info cannot be null');
+        if (is_null($envInfo)) {
+            throw new \InvalidArgumentException('non-nullable envInfo cannot be null');
         }
-        $this->container['env_info'] = $env_info;
+        $this->container['envInfo'] = $envInfo;
 
         return $this;
     }
 
     /**
-     * Gets audit_info
+     * Gets auditInfo
      *
      * @return \Dana\PaymentGateway\v1\Model\AuditInfo|null
      */
     public function getAuditInfo()
     {
-        return $this->container['audit_info'];
+        return $this->container['auditInfo'];
     }
 
     /**
-     * Sets audit_info
+     * Sets auditInfo
      *
-     * @param \Dana\PaymentGateway\v1\Model\AuditInfo|null $audit_info Additional information of audit
+     * @param \Dana\PaymentGateway\v1\Model\AuditInfo|null $auditInfo Additional information of audit
      *
      * @return self
      */
-    public function setAuditInfo($audit_info)
+    public function setAuditInfo($auditInfo)
     {
-        if (is_null($audit_info)) {
-            throw new \InvalidArgumentException('non-nullable audit_info cannot be null');
+        if (is_null($auditInfo)) {
+            throw new \InvalidArgumentException('non-nullable auditInfo cannot be null');
         }
-        $this->container['audit_info'] = $audit_info;
+        $this->container['auditInfo'] = $auditInfo;
 
         return $this;
     }
 
     /**
-     * Gets actor_context
+     * Gets actorContext
      *
      * @return \Dana\PaymentGateway\v1\Model\ActorContext|null
      */
     public function getActorContext()
     {
-        return $this->container['actor_context'];
+        return $this->container['actorContext'];
     }
 
     /**
-     * Sets actor_context
+     * Sets actorContext
      *
-     * @param \Dana\PaymentGateway\v1\Model\ActorContext|null $actor_context Additional information of actor context
+     * @param \Dana\PaymentGateway\v1\Model\ActorContext|null $actorContext Additional information of actor context
      *
      * @return self
      */
-    public function setActorContext($actor_context)
+    public function setActorContext($actorContext)
     {
-        if (is_null($actor_context)) {
-            throw new \InvalidArgumentException('non-nullable actor_context cannot be null');
+        if (is_null($actorContext)) {
+            throw new \InvalidArgumentException('non-nullable actorContext cannot be null');
         }
-        $this->container['actor_context'] = $actor_context;
+        $this->container['actorContext'] = $actorContext;
 
         return $this;
     }
 
     /**
-     * Gets refund_option_bill
+     * Gets refundOptionBill
      *
      * @return \Dana\PaymentGateway\v1\Model\RefundOptionBill[]|null
      */
     public function getRefundOptionBill()
     {
-        return $this->container['refund_option_bill'];
+        return $this->container['refundOptionBill'];
     }
 
     /**
-     * Sets refund_option_bill
+     * Sets refundOptionBill
      *
-     * @param \Dana\PaymentGateway\v1\Model\RefundOptionBill[]|null $refund_option_bill Additional information of refund option bill
+     * @param \Dana\PaymentGateway\v1\Model\RefundOptionBill[]|null $refundOptionBill Additional information of refund option bill
      *
      * @return self
      */
-    public function setRefundOptionBill($refund_option_bill)
+    public function setRefundOptionBill($refundOptionBill)
     {
-        if (is_null($refund_option_bill)) {
-            throw new \InvalidArgumentException('non-nullable refund_option_bill cannot be null');
+        if (is_null($refundOptionBill)) {
+            throw new \InvalidArgumentException('non-nullable refundOptionBill cannot be null');
         }
-        $this->container['refund_option_bill'] = $refund_option_bill;
+        $this->container['refundOptionBill'] = $refundOptionBill;
 
         return $this;
     }
 
     /**
-     * Gets extend_info
+     * Gets extendInfo
      *
      * @return string|null
      */
     public function getExtendInfo()
     {
-        return $this->container['extend_info'];
+        return $this->container['extendInfo'];
     }
 
     /**
-     * Sets extend_info
+     * Sets extendInfo
      *
-     * @param string|null $extend_info Additional information of extend
+     * @param string|null $extendInfo Additional information of extend
      *
      * @return self
      */
-    public function setExtendInfo($extend_info)
+    public function setExtendInfo($extendInfo)
     {
-        if (is_null($extend_info)) {
-            throw new \InvalidArgumentException('non-nullable extend_info cannot be null');
+        if (is_null($extendInfo)) {
+            throw new \InvalidArgumentException('non-nullable extendInfo cannot be null');
         }
-        if ((mb_strlen($extend_info) > 4096)) {
-            throw new \InvalidArgumentException('invalid length for $extend_info when calling RefundOrderRequestAdditionalInfo., must be smaller than or equal to 4096.');
+        if ((mb_strlen($extendInfo) > 4096)) {
+            throw new \InvalidArgumentException('invalid length for $extendInfo when calling RefundOrderRequestAdditionalInfo., must be smaller than or equal to 4096.');
         }
 
-        $this->container['extend_info'] = $extend_info;
+        $this->container['extendInfo'] = $extendInfo;
 
         return $this;
     }
 
     /**
-     * Gets async_refund
+     * Gets asyncRefund
      *
      * @return string|null
      */
     public function getAsyncRefund()
     {
-        return $this->container['async_refund'];
+        return $this->container['asyncRefund'];
     }
 
     /**
-     * Sets async_refund
+     * Sets asyncRefund
      *
-     * @param string|null $async_refund Additional information of async refund to determine the process of refund whether sync or async. The values is true/false
+     * @param string|null $asyncRefund Additional information of async refund to determine the process of refund whether sync or async. The values is true/false
      *
      * @return self
      */
-    public function setAsyncRefund($async_refund)
+    public function setAsyncRefund($asyncRefund)
     {
-        if (is_null($async_refund)) {
-            throw new \InvalidArgumentException('non-nullable async_refund cannot be null');
+        if (is_null($asyncRefund)) {
+            throw new \InvalidArgumentException('non-nullable asyncRefund cannot be null');
         }
-        if ((mb_strlen($async_refund) > 5)) {
-            throw new \InvalidArgumentException('invalid length for $async_refund when calling RefundOrderRequestAdditionalInfo., must be smaller than or equal to 5.');
+        if ((mb_strlen($asyncRefund) > 5)) {
+            throw new \InvalidArgumentException('invalid length for $asyncRefund when calling RefundOrderRequestAdditionalInfo., must be smaller than or equal to 5.');
         }
 
-        $this->container['async_refund'] = $async_refund;
+        $this->container['asyncRefund'] = $asyncRefund;
 
         return $this;
     }

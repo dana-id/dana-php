@@ -58,15 +58,15 @@ class CancelOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'original_partner_reference_no' => 'string',
-        'original_reference_no' => 'string',
-        'original_external_id' => 'string',
-        'merchant_id' => 'string',
-        'sub_merchant_id' => 'string',
+        'originalPartnerReferenceNo' => 'string',
+        'originalReferenceNo' => 'string',
+        'originalExternalId' => 'string',
+        'merchantId' => 'string',
+        'subMerchantId' => 'string',
         'reason' => 'string',
-        'external_store_id' => 'string',
+        'externalStoreId' => 'string',
         'amount' => '\Dana\PaymentGateway\v1\Model\Money',
-        'additional_info' => 'object'
+        'additionalInfo' => 'object'
     ];
 
     /**
@@ -77,15 +77,15 @@ class CancelOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'original_partner_reference_no' => null,
-        'original_reference_no' => null,
-        'original_external_id' => null,
-        'merchant_id' => null,
-        'sub_merchant_id' => null,
+        'originalPartnerReferenceNo' => null,
+        'originalReferenceNo' => null,
+        'originalExternalId' => null,
+        'merchantId' => null,
+        'subMerchantId' => null,
         'reason' => null,
-        'external_store_id' => null,
+        'externalStoreId' => null,
         'amount' => null,
-        'additional_info' => null
+        'additionalInfo' => null
     ];
 
     /**
@@ -94,15 +94,15 @@ class CancelOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'original_partner_reference_no' => false,
-        'original_reference_no' => false,
-        'original_external_id' => false,
-        'merchant_id' => false,
-        'sub_merchant_id' => false,
+        'originalPartnerReferenceNo' => false,
+        'originalReferenceNo' => false,
+        'originalExternalId' => false,
+        'merchantId' => false,
+        'subMerchantId' => false,
         'reason' => false,
-        'external_store_id' => false,
+        'externalStoreId' => false,
         'amount' => false,
-        'additional_info' => false
+        'additionalInfo' => false
     ];
 
     /**
@@ -191,15 +191,15 @@ class CancelOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'original_partner_reference_no' => 'originalPartnerReferenceNo',
-        'original_reference_no' => 'originalReferenceNo',
-        'original_external_id' => 'originalExternalId',
-        'merchant_id' => 'merchantId',
-        'sub_merchant_id' => 'subMerchantId',
+        'originalPartnerReferenceNo' => 'originalPartnerReferenceNo',
+        'originalReferenceNo' => 'originalReferenceNo',
+        'originalExternalId' => 'originalExternalId',
+        'merchantId' => 'merchantId',
+        'subMerchantId' => 'subMerchantId',
         'reason' => 'reason',
-        'external_store_id' => 'externalStoreId',
+        'externalStoreId' => 'externalStoreId',
         'amount' => 'amount',
-        'additional_info' => 'additionalInfo'
+        'additionalInfo' => 'additionalInfo'
     ];
 
     /**
@@ -208,15 +208,15 @@ class CancelOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'original_partner_reference_no' => 'setOriginalPartnerReferenceNo',
-        'original_reference_no' => 'setOriginalReferenceNo',
-        'original_external_id' => 'setOriginalExternalId',
-        'merchant_id' => 'setMerchantId',
-        'sub_merchant_id' => 'setSubMerchantId',
+        'originalPartnerReferenceNo' => 'setOriginalPartnerReferenceNo',
+        'originalReferenceNo' => 'setOriginalReferenceNo',
+        'originalExternalId' => 'setOriginalExternalId',
+        'merchantId' => 'setMerchantId',
+        'subMerchantId' => 'setSubMerchantId',
         'reason' => 'setReason',
-        'external_store_id' => 'setExternalStoreId',
+        'externalStoreId' => 'setExternalStoreId',
         'amount' => 'setAmount',
-        'additional_info' => 'setAdditionalInfo'
+        'additionalInfo' => 'setAdditionalInfo'
     ];
 
     /**
@@ -225,15 +225,15 @@ class CancelOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'original_partner_reference_no' => 'getOriginalPartnerReferenceNo',
-        'original_reference_no' => 'getOriginalReferenceNo',
-        'original_external_id' => 'getOriginalExternalId',
-        'merchant_id' => 'getMerchantId',
-        'sub_merchant_id' => 'getSubMerchantId',
+        'originalPartnerReferenceNo' => 'getOriginalPartnerReferenceNo',
+        'originalReferenceNo' => 'getOriginalReferenceNo',
+        'originalExternalId' => 'getOriginalExternalId',
+        'merchantId' => 'getMerchantId',
+        'subMerchantId' => 'getSubMerchantId',
         'reason' => 'getReason',
-        'external_store_id' => 'getExternalStoreId',
+        'externalStoreId' => 'getExternalStoreId',
         'amount' => 'getAmount',
-        'additional_info' => 'getAdditionalInfo'
+        'additionalInfo' => 'getAdditionalInfo'
     ];
 
     /**
@@ -293,15 +293,15 @@ class CancelOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('original_partner_reference_no', $data ?? [], null);
-        $this->setIfExists('original_reference_no', $data ?? [], null);
-        $this->setIfExists('original_external_id', $data ?? [], null);
-        $this->setIfExists('merchant_id', $data ?? [], null);
-        $this->setIfExists('sub_merchant_id', $data ?? [], null);
+        $this->setIfExists('originalPartnerReferenceNo', $data ?? [], null);
+        $this->setIfExists('originalReferenceNo', $data ?? [], null);
+        $this->setIfExists('originalExternalId', $data ?? [], null);
+        $this->setIfExists('merchantId', $data ?? [], null);
+        $this->setIfExists('subMerchantId', $data ?? [], null);
         $this->setIfExists('reason', $data ?? [], null);
-        $this->setIfExists('external_store_id', $data ?? [], null);
+        $this->setIfExists('externalStoreId', $data ?? [], null);
         $this->setIfExists('amount', $data ?? [], null);
-        $this->setIfExists('additional_info', $data ?? [], null);
+        $this->setIfExists('additionalInfo', $data ?? [], null);
     }
 
     /**
@@ -331,38 +331,38 @@ class CancelOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
-        if ($this->container['original_partner_reference_no'] === null) {
-            $invalidProperties[] = "'original_partner_reference_no' can't be null";
+        if ($this->container['originalPartnerReferenceNo'] === null) {
+            $invalidProperties[] = "'originalPartnerReferenceNo' can't be null";
         }
-        if ((mb_strlen($this->container['original_partner_reference_no']) > 64)) {
-            $invalidProperties[] = "invalid value for 'original_partner_reference_no', the character length must be smaller than or equal to 64.";
-        }
-
-        if (!is_null($this->container['original_reference_no']) && (mb_strlen($this->container['original_reference_no']) > 64)) {
-            $invalidProperties[] = "invalid value for 'original_reference_no', the character length must be smaller than or equal to 64.";
+        if ((mb_strlen($this->container['originalPartnerReferenceNo']) > 64)) {
+            $invalidProperties[] = "invalid value for 'originalPartnerReferenceNo', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['original_external_id']) && (mb_strlen($this->container['original_external_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'original_external_id', the character length must be smaller than or equal to 36.";
+        if (!is_null($this->container['originalReferenceNo']) && (mb_strlen($this->container['originalReferenceNo']) > 64)) {
+            $invalidProperties[] = "invalid value for 'originalReferenceNo', the character length must be smaller than or equal to 64.";
         }
 
-        if ($this->container['merchant_id'] === null) {
-            $invalidProperties[] = "'merchant_id' can't be null";
-        }
-        if ((mb_strlen($this->container['merchant_id']) > 64)) {
-            $invalidProperties[] = "invalid value for 'merchant_id', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['originalExternalId']) && (mb_strlen($this->container['originalExternalId']) > 36)) {
+            $invalidProperties[] = "invalid value for 'originalExternalId', the character length must be smaller than or equal to 36.";
         }
 
-        if (!is_null($this->container['sub_merchant_id']) && (mb_strlen($this->container['sub_merchant_id']) > 32)) {
-            $invalidProperties[] = "invalid value for 'sub_merchant_id', the character length must be smaller than or equal to 32.";
+        if ($this->container['merchantId'] === null) {
+            $invalidProperties[] = "'merchantId' can't be null";
+        }
+        if ((mb_strlen($this->container['merchantId']) > 64)) {
+            $invalidProperties[] = "invalid value for 'merchantId', the character length must be smaller than or equal to 64.";
+        }
+
+        if (!is_null($this->container['subMerchantId']) && (mb_strlen($this->container['subMerchantId']) > 32)) {
+            $invalidProperties[] = "invalid value for 'subMerchantId', the character length must be smaller than or equal to 32.";
         }
 
         if (!is_null($this->container['reason']) && (mb_strlen($this->container['reason']) > 256)) {
             $invalidProperties[] = "invalid value for 'reason', the character length must be smaller than or equal to 256.";
         }
 
-        if (!is_null($this->container['external_store_id']) && (mb_strlen($this->container['external_store_id']) > 64)) {
-            $invalidProperties[] = "invalid value for 'external_store_id', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['externalStoreId']) && (mb_strlen($this->container['externalStoreId']) > 64)) {
+            $invalidProperties[] = "invalid value for 'externalStoreId', the character length must be smaller than or equal to 64.";
         }
 
         return $invalidProperties;
@@ -381,156 +381,156 @@ class CancelOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
-     * Gets original_partner_reference_no
+     * Gets originalPartnerReferenceNo
      *
      * @return string
      */
     public function getOriginalPartnerReferenceNo()
     {
-        return $this->container['original_partner_reference_no'];
+        return $this->container['originalPartnerReferenceNo'];
     }
 
     /**
-     * Sets original_partner_reference_no
+     * Sets originalPartnerReferenceNo
      *
-     * @param string $original_partner_reference_no Original transaction identifier on partner system
+     * @param string $originalPartnerReferenceNo Original transaction identifier on partner system
      *
      * @return self
      */
-    public function setOriginalPartnerReferenceNo($original_partner_reference_no)
+    public function setOriginalPartnerReferenceNo($originalPartnerReferenceNo)
     {
-        if (is_null($original_partner_reference_no)) {
-            throw new \InvalidArgumentException('non-nullable original_partner_reference_no cannot be null');
+        if (is_null($originalPartnerReferenceNo)) {
+            throw new \InvalidArgumentException('non-nullable originalPartnerReferenceNo cannot be null');
         }
-        if ((mb_strlen($original_partner_reference_no) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $original_partner_reference_no when calling CancelOrderRequest., must be smaller than or equal to 64.');
+        if ((mb_strlen($originalPartnerReferenceNo) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $originalPartnerReferenceNo when calling CancelOrderRequest., must be smaller than or equal to 64.');
         }
 
-        $this->container['original_partner_reference_no'] = $original_partner_reference_no;
+        $this->container['originalPartnerReferenceNo'] = $originalPartnerReferenceNo;
 
         return $this;
     }
 
     /**
-     * Gets original_reference_no
+     * Gets originalReferenceNo
      *
      * @return string|null
      */
     public function getOriginalReferenceNo()
     {
-        return $this->container['original_reference_no'];
+        return $this->container['originalReferenceNo'];
     }
 
     /**
-     * Sets original_reference_no
+     * Sets originalReferenceNo
      *
-     * @param string|null $original_reference_no Original transaction identifier on DANA system
+     * @param string|null $originalReferenceNo Original transaction identifier on DANA system
      *
      * @return self
      */
-    public function setOriginalReferenceNo($original_reference_no)
+    public function setOriginalReferenceNo($originalReferenceNo)
     {
-        if (is_null($original_reference_no)) {
-            throw new \InvalidArgumentException('non-nullable original_reference_no cannot be null');
+        if (is_null($originalReferenceNo)) {
+            throw new \InvalidArgumentException('non-nullable originalReferenceNo cannot be null');
         }
-        if ((mb_strlen($original_reference_no) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $original_reference_no when calling CancelOrderRequest., must be smaller than or equal to 64.');
+        if ((mb_strlen($originalReferenceNo) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $originalReferenceNo when calling CancelOrderRequest., must be smaller than or equal to 64.');
         }
 
-        $this->container['original_reference_no'] = $original_reference_no;
+        $this->container['originalReferenceNo'] = $originalReferenceNo;
 
         return $this;
     }
 
     /**
-     * Gets original_external_id
+     * Gets originalExternalId
      *
      * @return string|null
      */
     public function getOriginalExternalId()
     {
-        return $this->container['original_external_id'];
+        return $this->container['originalExternalId'];
     }
 
     /**
-     * Sets original_external_id
+     * Sets originalExternalId
      *
-     * @param string|null $original_external_id Original external identifier on header message
+     * @param string|null $originalExternalId Original external identifier on header message
      *
      * @return self
      */
-    public function setOriginalExternalId($original_external_id)
+    public function setOriginalExternalId($originalExternalId)
     {
-        if (is_null($original_external_id)) {
-            throw new \InvalidArgumentException('non-nullable original_external_id cannot be null');
+        if (is_null($originalExternalId)) {
+            throw new \InvalidArgumentException('non-nullable originalExternalId cannot be null');
         }
-        if ((mb_strlen($original_external_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $original_external_id when calling CancelOrderRequest., must be smaller than or equal to 36.');
+        if ((mb_strlen($originalExternalId) > 36)) {
+            throw new \InvalidArgumentException('invalid length for $originalExternalId when calling CancelOrderRequest., must be smaller than or equal to 36.');
         }
 
-        $this->container['original_external_id'] = $original_external_id;
+        $this->container['originalExternalId'] = $originalExternalId;
 
         return $this;
     }
 
     /**
-     * Gets merchant_id
+     * Gets merchantId
      *
      * @return string
      */
     public function getMerchantId()
     {
-        return $this->container['merchant_id'];
+        return $this->container['merchantId'];
     }
 
     /**
-     * Sets merchant_id
+     * Sets merchantId
      *
-     * @param string $merchant_id Merchant identifier that is unique per each merchant
+     * @param string $merchantId Merchant identifier that is unique per each merchant
      *
      * @return self
      */
-    public function setMerchantId($merchant_id)
+    public function setMerchantId($merchantId)
     {
-        if (is_null($merchant_id)) {
-            throw new \InvalidArgumentException('non-nullable merchant_id cannot be null');
+        if (is_null($merchantId)) {
+            throw new \InvalidArgumentException('non-nullable merchantId cannot be null');
         }
-        if ((mb_strlen($merchant_id) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $merchant_id when calling CancelOrderRequest., must be smaller than or equal to 64.');
+        if ((mb_strlen($merchantId) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $merchantId when calling CancelOrderRequest., must be smaller than or equal to 64.');
         }
 
-        $this->container['merchant_id'] = $merchant_id;
+        $this->container['merchantId'] = $merchantId;
 
         return $this;
     }
 
     /**
-     * Gets sub_merchant_id
+     * Gets subMerchantId
      *
      * @return string|null
      */
     public function getSubMerchantId()
     {
-        return $this->container['sub_merchant_id'];
+        return $this->container['subMerchantId'];
     }
 
     /**
-     * Sets sub_merchant_id
+     * Sets subMerchantId
      *
-     * @param string|null $sub_merchant_id Information of sub merchant identifier
+     * @param string|null $subMerchantId Information of sub merchant identifier
      *
      * @return self
      */
-    public function setSubMerchantId($sub_merchant_id)
+    public function setSubMerchantId($subMerchantId)
     {
-        if (is_null($sub_merchant_id)) {
-            throw new \InvalidArgumentException('non-nullable sub_merchant_id cannot be null');
+        if (is_null($subMerchantId)) {
+            throw new \InvalidArgumentException('non-nullable subMerchantId cannot be null');
         }
-        if ((mb_strlen($sub_merchant_id) > 32)) {
-            throw new \InvalidArgumentException('invalid length for $sub_merchant_id when calling CancelOrderRequest., must be smaller than or equal to 32.');
+        if ((mb_strlen($subMerchantId) > 32)) {
+            throw new \InvalidArgumentException('invalid length for $subMerchantId when calling CancelOrderRequest., must be smaller than or equal to 32.');
         }
 
-        $this->container['sub_merchant_id'] = $sub_merchant_id;
+        $this->container['subMerchantId'] = $subMerchantId;
 
         return $this;
     }
@@ -567,32 +567,32 @@ class CancelOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets external_store_id
+     * Gets externalStoreId
      *
      * @return string|null
      */
     public function getExternalStoreId()
     {
-        return $this->container['external_store_id'];
+        return $this->container['externalStoreId'];
     }
 
     /**
-     * Sets external_store_id
+     * Sets externalStoreId
      *
-     * @param string|null $external_store_id Store identifier to indicate to which store this payment belongs to
+     * @param string|null $externalStoreId Store identifier to indicate to which store this payment belongs to
      *
      * @return self
      */
-    public function setExternalStoreId($external_store_id)
+    public function setExternalStoreId($externalStoreId)
     {
-        if (is_null($external_store_id)) {
-            throw new \InvalidArgumentException('non-nullable external_store_id cannot be null');
+        if (is_null($externalStoreId)) {
+            throw new \InvalidArgumentException('non-nullable externalStoreId cannot be null');
         }
-        if ((mb_strlen($external_store_id) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $external_store_id when calling CancelOrderRequest., must be smaller than or equal to 64.');
+        if ((mb_strlen($externalStoreId) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $externalStoreId when calling CancelOrderRequest., must be smaller than or equal to 64.');
         }
 
-        $this->container['external_store_id'] = $external_store_id;
+        $this->container['externalStoreId'] = $externalStoreId;
 
         return $this;
     }
@@ -625,28 +625,28 @@ class CancelOrderRequest implements ModelInterface, ArrayAccess, \JsonSerializab
     }
 
     /**
-     * Gets additional_info
+     * Gets additionalInfo
      *
      * @return object|null
      */
     public function getAdditionalInfo()
     {
-        return $this->container['additional_info'];
+        return $this->container['additionalInfo'];
     }
 
     /**
-     * Sets additional_info
+     * Sets additionalInfo
      *
-     * @param object|null $additional_info Additional information
+     * @param object|null $additionalInfo Additional information
      *
      * @return self
      */
-    public function setAdditionalInfo($additional_info)
+    public function setAdditionalInfo($additionalInfo)
     {
-        if (is_null($additional_info)) {
-            throw new \InvalidArgumentException('non-nullable additional_info cannot be null');
+        if (is_null($additionalInfo)) {
+            throw new \InvalidArgumentException('non-nullable additionalInfo cannot be null');
         }
-        $this->container['additional_info'] = $additional_info;
+        $this->container['additionalInfo'] = $additionalInfo;
 
         return $this;
     }

@@ -59,11 +59,11 @@ class InternationalOrderInfo implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'origin_order_amount' => '\Dana\Widget\v1\Model\Money',
-        'exchange_rate' => '\Dana\Widget\v1\Model\InternationalOrderInfoExchangeRate',
-        'total_amount' => '\Dana\Widget\v1\Model\Money',
-        'payment_promo_info' => '\Dana\Widget\v1\Model\PaymentPromoInfo',
-        'refund_promo_info' => '\Dana\Widget\v1\Model\RefundPromoInfo'
+        'originOrderAmount' => '\Dana\Widget\v1\Model\Money',
+        'exchangeRate' => '\Dana\Widget\v1\Model\InternationalOrderInfoExchangeRate',
+        'totalAmount' => '\Dana\Widget\v1\Model\Money',
+        'paymentPromoInfo' => '\Dana\Widget\v1\Model\PaymentPromoInfo',
+        'refundPromoInfo' => '\Dana\Widget\v1\Model\RefundPromoInfo'
     ];
 
     /**
@@ -74,11 +74,11 @@ class InternationalOrderInfo implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'origin_order_amount' => null,
-        'exchange_rate' => null,
-        'total_amount' => null,
-        'payment_promo_info' => null,
-        'refund_promo_info' => null
+        'originOrderAmount' => null,
+        'exchangeRate' => null,
+        'totalAmount' => null,
+        'paymentPromoInfo' => null,
+        'refundPromoInfo' => null
     ];
 
     /**
@@ -87,11 +87,11 @@ class InternationalOrderInfo implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'origin_order_amount' => false,
-        'exchange_rate' => false,
-        'total_amount' => false,
-        'payment_promo_info' => false,
-        'refund_promo_info' => false
+        'originOrderAmount' => false,
+        'exchangeRate' => false,
+        'totalAmount' => false,
+        'paymentPromoInfo' => false,
+        'refundPromoInfo' => false
     ];
 
     /**
@@ -180,11 +180,11 @@ class InternationalOrderInfo implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'origin_order_amount' => 'originOrderAmount',
-        'exchange_rate' => 'exchangeRate',
-        'total_amount' => 'totalAmount',
-        'payment_promo_info' => 'paymentPromoInfo',
-        'refund_promo_info' => 'refundPromoInfo'
+        'originOrderAmount' => 'originOrderAmount',
+        'exchangeRate' => 'exchangeRate',
+        'totalAmount' => 'totalAmount',
+        'paymentPromoInfo' => 'paymentPromoInfo',
+        'refundPromoInfo' => 'refundPromoInfo'
     ];
 
     /**
@@ -193,11 +193,11 @@ class InternationalOrderInfo implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'origin_order_amount' => 'setOriginOrderAmount',
-        'exchange_rate' => 'setExchangeRate',
-        'total_amount' => 'setTotalAmount',
-        'payment_promo_info' => 'setPaymentPromoInfo',
-        'refund_promo_info' => 'setRefundPromoInfo'
+        'originOrderAmount' => 'setOriginOrderAmount',
+        'exchangeRate' => 'setExchangeRate',
+        'totalAmount' => 'setTotalAmount',
+        'paymentPromoInfo' => 'setPaymentPromoInfo',
+        'refundPromoInfo' => 'setRefundPromoInfo'
     ];
 
     /**
@@ -206,11 +206,11 @@ class InternationalOrderInfo implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'origin_order_amount' => 'getOriginOrderAmount',
-        'exchange_rate' => 'getExchangeRate',
-        'total_amount' => 'getTotalAmount',
-        'payment_promo_info' => 'getPaymentPromoInfo',
-        'refund_promo_info' => 'getRefundPromoInfo'
+        'originOrderAmount' => 'getOriginOrderAmount',
+        'exchangeRate' => 'getExchangeRate',
+        'totalAmount' => 'getTotalAmount',
+        'paymentPromoInfo' => 'getPaymentPromoInfo',
+        'refundPromoInfo' => 'getRefundPromoInfo'
     ];
 
     /**
@@ -270,11 +270,11 @@ class InternationalOrderInfo implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('origin_order_amount', $data ?? [], null);
-        $this->setIfExists('exchange_rate', $data ?? [], null);
-        $this->setIfExists('total_amount', $data ?? [], null);
-        $this->setIfExists('payment_promo_info', $data ?? [], null);
-        $this->setIfExists('refund_promo_info', $data ?? [], null);
+        $this->setIfExists('originOrderAmount', $data ?? [], null);
+        $this->setIfExists('exchangeRate', $data ?? [], null);
+        $this->setIfExists('totalAmount', $data ?? [], null);
+        $this->setIfExists('paymentPromoInfo', $data ?? [], null);
+        $this->setIfExists('refundPromoInfo', $data ?? [], null);
     }
 
     /**
@@ -320,136 +320,136 @@ class InternationalOrderInfo implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets origin_order_amount
+     * Gets originOrderAmount
      *
      * @return \Dana\Widget\v1\Model\Money|null
      */
     public function getOriginOrderAmount()
     {
-        return $this->container['origin_order_amount'];
+        return $this->container['originOrderAmount'];
     }
 
     /**
-     * Sets origin_order_amount
+     * Sets originOrderAmount
      *
-     * @param \Dana\Widget\v1\Model\Money|null $origin_order_amount Origin order amount in the original currency. Contains value (amount including cents) and currency (code based on ISO)
+     * @param \Dana\Widget\v1\Model\Money|null $originOrderAmount Origin order amount in the original currency. Contains value (amount including cents) and currency (code based on ISO)
      *
      * @return self
      */
-    public function setOriginOrderAmount($origin_order_amount)
+    public function setOriginOrderAmount($originOrderAmount)
     {
-        if (is_null($origin_order_amount)) {
-            throw new \InvalidArgumentException('non-nullable origin_order_amount cannot be null');
+        if (is_null($originOrderAmount)) {
+            throw new \InvalidArgumentException('non-nullable originOrderAmount cannot be null');
         }
-        $this->container['origin_order_amount'] = $origin_order_amount;
+        $this->container['originOrderAmount'] = $originOrderAmount;
 
         return $this;
     }
 
     /**
-     * Gets exchange_rate
+     * Gets exchangeRate
      *
      * @return \Dana\Widget\v1\Model\InternationalOrderInfoExchangeRate|null
      */
     public function getExchangeRate()
     {
-        return $this->container['exchange_rate'];
+        return $this->container['exchangeRate'];
     }
 
     /**
-     * Sets exchange_rate
+     * Sets exchangeRate
      *
-     * @param \Dana\Widget\v1\Model\InternationalOrderInfoExchangeRate|null $exchange_rate exchange_rate
+     * @param \Dana\Widget\v1\Model\InternationalOrderInfoExchangeRate|null $exchangeRate exchangeRate
      *
      * @return self
      */
-    public function setExchangeRate($exchange_rate)
+    public function setExchangeRate($exchangeRate)
     {
-        if (is_null($exchange_rate)) {
-            throw new \InvalidArgumentException('non-nullable exchange_rate cannot be null');
+        if (is_null($exchangeRate)) {
+            throw new \InvalidArgumentException('non-nullable exchangeRate cannot be null');
         }
-        $this->container['exchange_rate'] = $exchange_rate;
+        $this->container['exchangeRate'] = $exchangeRate;
 
         return $this;
     }
 
     /**
-     * Gets total_amount
+     * Gets totalAmount
      *
      * @return \Dana\Widget\v1\Model\Money|null
      */
     public function getTotalAmount()
     {
-        return $this->container['total_amount'];
+        return $this->container['totalAmount'];
     }
 
     /**
-     * Sets total_amount
+     * Sets totalAmount
      *
-     * @param \Dana\Widget\v1\Model\Money|null $total_amount Total amount after conversion. Contains value (amount including cents) and currency (code based on ISO)
+     * @param \Dana\Widget\v1\Model\Money|null $totalAmount Total amount after conversion. Contains value (amount including cents) and currency (code based on ISO)
      *
      * @return self
      */
-    public function setTotalAmount($total_amount)
+    public function setTotalAmount($totalAmount)
     {
-        if (is_null($total_amount)) {
-            throw new \InvalidArgumentException('non-nullable total_amount cannot be null');
+        if (is_null($totalAmount)) {
+            throw new \InvalidArgumentException('non-nullable totalAmount cannot be null');
         }
-        $this->container['total_amount'] = $total_amount;
+        $this->container['totalAmount'] = $totalAmount;
 
         return $this;
     }
 
     /**
-     * Gets payment_promo_info
+     * Gets paymentPromoInfo
      *
      * @return \Dana\Widget\v1\Model\PaymentPromoInfo|null
      */
     public function getPaymentPromoInfo()
     {
-        return $this->container['payment_promo_info'];
+        return $this->container['paymentPromoInfo'];
     }
 
     /**
-     * Sets payment_promo_info
+     * Sets paymentPromoInfo
      *
-     * @param \Dana\Widget\v1\Model\PaymentPromoInfo|null $payment_promo_info Define the detail of payment promo information, contains promotion that handled and set by merchant
+     * @param \Dana\Widget\v1\Model\PaymentPromoInfo|null $paymentPromoInfo Define the detail of payment promo information, contains promotion that handled and set by merchant
      *
      * @return self
      */
-    public function setPaymentPromoInfo($payment_promo_info)
+    public function setPaymentPromoInfo($paymentPromoInfo)
     {
-        if (is_null($payment_promo_info)) {
-            throw new \InvalidArgumentException('non-nullable payment_promo_info cannot be null');
+        if (is_null($paymentPromoInfo)) {
+            throw new \InvalidArgumentException('non-nullable paymentPromoInfo cannot be null');
         }
-        $this->container['payment_promo_info'] = $payment_promo_info;
+        $this->container['paymentPromoInfo'] = $paymentPromoInfo;
 
         return $this;
     }
 
     /**
-     * Gets refund_promo_info
+     * Gets refundPromoInfo
      *
      * @return \Dana\Widget\v1\Model\RefundPromoInfo|null
      */
     public function getRefundPromoInfo()
     {
-        return $this->container['refund_promo_info'];
+        return $this->container['refundPromoInfo'];
     }
 
     /**
-     * Sets refund_promo_info
+     * Sets refundPromoInfo
      *
-     * @param \Dana\Widget\v1\Model\RefundPromoInfo|null $refund_promo_info Define the detail of refund promo information
+     * @param \Dana\Widget\v1\Model\RefundPromoInfo|null $refundPromoInfo Define the detail of refund promo information
      *
      * @return self
      */
-    public function setRefundPromoInfo($refund_promo_info)
+    public function setRefundPromoInfo($refundPromoInfo)
     {
-        if (is_null($refund_promo_info)) {
-            throw new \InvalidArgumentException('non-nullable refund_promo_info cannot be null');
+        if (is_null($refundPromoInfo)) {
+            throw new \InvalidArgumentException('non-nullable refundPromoInfo cannot be null');
         }
-        $this->container['refund_promo_info'] = $refund_promo_info;
+        $this->container['refundPromoInfo'] = $refundPromoInfo;
 
         return $this;
     }

@@ -58,8 +58,8 @@ class VirtualAccountInfo implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var string[]
       */
     protected static $openAPITypes = [
-        'virtual_account_code' => 'string',
-        'virtual_account_expiry_time' => 'string',
+        'virtualAccountCode' => 'string',
+        'virtualAccountExpiryTime' => 'string',
         'signature' => 'string'
     ];
 
@@ -71,8 +71,8 @@ class VirtualAccountInfo implements ModelInterface, ArrayAccess, \JsonSerializab
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'virtual_account_code' => null,
-        'virtual_account_expiry_time' => null,
+        'virtualAccountCode' => null,
+        'virtualAccountExpiryTime' => null,
         'signature' => null
     ];
 
@@ -82,8 +82,8 @@ class VirtualAccountInfo implements ModelInterface, ArrayAccess, \JsonSerializab
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'virtual_account_code' => false,
-        'virtual_account_expiry_time' => false,
+        'virtualAccountCode' => false,
+        'virtualAccountExpiryTime' => false,
         'signature' => false
     ];
 
@@ -173,8 +173,8 @@ class VirtualAccountInfo implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'virtual_account_code' => 'virtualAccountCode',
-        'virtual_account_expiry_time' => 'virtualAccountExpiryTime',
+        'virtualAccountCode' => 'virtualAccountCode',
+        'virtualAccountExpiryTime' => 'virtualAccountExpiryTime',
         'signature' => 'signature'
     ];
 
@@ -184,8 +184,8 @@ class VirtualAccountInfo implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'virtual_account_code' => 'setVirtualAccountCode',
-        'virtual_account_expiry_time' => 'setVirtualAccountExpiryTime',
+        'virtualAccountCode' => 'setVirtualAccountCode',
+        'virtualAccountExpiryTime' => 'setVirtualAccountExpiryTime',
         'signature' => 'setSignature'
     ];
 
@@ -195,8 +195,8 @@ class VirtualAccountInfo implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'virtual_account_code' => 'getVirtualAccountCode',
-        'virtual_account_expiry_time' => 'getVirtualAccountExpiryTime',
+        'virtualAccountCode' => 'getVirtualAccountCode',
+        'virtualAccountExpiryTime' => 'getVirtualAccountExpiryTime',
         'signature' => 'getSignature'
     ];
 
@@ -257,8 +257,8 @@ class VirtualAccountInfo implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('virtual_account_code', $data ?? [], null);
-        $this->setIfExists('virtual_account_expiry_time', $data ?? [], null);
+        $this->setIfExists('virtualAccountCode', $data ?? [], null);
+        $this->setIfExists('virtualAccountExpiryTime', $data ?? [], null);
         $this->setIfExists('signature', $data ?? [], null);
     }
 
@@ -289,16 +289,16 @@ class VirtualAccountInfo implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['virtual_account_code']) && (mb_strlen($this->container['virtual_account_code']) > 64)) {
-            $invalidProperties[] = "invalid value for 'virtual_account_code', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['virtualAccountCode']) && (mb_strlen($this->container['virtualAccountCode']) > 64)) {
+            $invalidProperties[] = "invalid value for 'virtualAccountCode', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['virtual_account_expiry_time']) && (mb_strlen($this->container['virtual_account_expiry_time']) > 25)) {
-            $invalidProperties[] = "invalid value for 'virtual_account_expiry_time', the character length must be smaller than or equal to 25.";
+        if (!is_null($this->container['virtualAccountExpiryTime']) && (mb_strlen($this->container['virtualAccountExpiryTime']) > 25)) {
+            $invalidProperties[] = "invalid value for 'virtualAccountExpiryTime', the character length must be smaller than or equal to 25.";
         }
 
-        if (!is_null($this->container['virtual_account_expiry_time']) && !preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['virtual_account_expiry_time'])) {
-            $invalidProperties[] = "invalid value for 'virtual_account_expiry_time', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
+        if (!is_null($this->container['virtualAccountExpiryTime']) && !preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['virtualAccountExpiryTime'])) {
+            $invalidProperties[] = "invalid value for 'virtualAccountExpiryTime', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
         }
 
         if (!is_null($this->container['signature']) && (mb_strlen($this->container['signature']) > 128)) {
@@ -321,66 +321,66 @@ class VirtualAccountInfo implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
-     * Gets virtual_account_code
+     * Gets virtualAccountCode
      *
      * @return string|null
      */
     public function getVirtualAccountCode()
     {
-        return $this->container['virtual_account_code'];
+        return $this->container['virtualAccountCode'];
     }
 
     /**
-     * Sets virtual_account_code
+     * Sets virtualAccountCode
      *
-     * @param string|null $virtual_account_code Virtual account code. Present if successfully processed and payment method is VIRTUAL_ACCOUNT
+     * @param string|null $virtualAccountCode Virtual account code. Present if successfully processed and payment method is VIRTUAL_ACCOUNT
      *
      * @return self
      */
-    public function setVirtualAccountCode($virtual_account_code)
+    public function setVirtualAccountCode($virtualAccountCode)
     {
-        if (is_null($virtual_account_code)) {
-            throw new \InvalidArgumentException('non-nullable virtual_account_code cannot be null');
+        if (is_null($virtualAccountCode)) {
+            throw new \InvalidArgumentException('non-nullable virtualAccountCode cannot be null');
         }
-        if ((mb_strlen($virtual_account_code) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $virtual_account_code when calling VirtualAccountInfo., must be smaller than or equal to 64.');
+        if ((mb_strlen($virtualAccountCode) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $virtualAccountCode when calling VirtualAccountInfo., must be smaller than or equal to 64.');
         }
 
-        $this->container['virtual_account_code'] = $virtual_account_code;
+        $this->container['virtualAccountCode'] = $virtualAccountCode;
 
         return $this;
     }
 
     /**
-     * Gets virtual_account_expiry_time
+     * Gets virtualAccountExpiryTime
      *
      * @return string|null
      */
     public function getVirtualAccountExpiryTime()
     {
-        return $this->container['virtual_account_expiry_time'];
+        return $this->container['virtualAccountExpiryTime'];
     }
 
     /**
-     * Sets virtual_account_expiry_time
+     * Sets virtualAccountExpiryTime
      *
-     * @param string|null $virtual_account_expiry_time Expiry time of virtual account, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time). Present if successfully processed and payment method is VIRTUAL_ACCOUNT
+     * @param string|null $virtualAccountExpiryTime Expiry time of virtual account, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time). Present if successfully processed and payment method is VIRTUAL_ACCOUNT
      *
      * @return self
      */
-    public function setVirtualAccountExpiryTime($virtual_account_expiry_time)
+    public function setVirtualAccountExpiryTime($virtualAccountExpiryTime)
     {
-        if (is_null($virtual_account_expiry_time)) {
-            throw new \InvalidArgumentException('non-nullable virtual_account_expiry_time cannot be null');
+        if (is_null($virtualAccountExpiryTime)) {
+            throw new \InvalidArgumentException('non-nullable virtualAccountExpiryTime cannot be null');
         }
-        if ((mb_strlen($virtual_account_expiry_time) > 25)) {
-            throw new \InvalidArgumentException('invalid length for $virtual_account_expiry_time when calling VirtualAccountInfo., must be smaller than or equal to 25.');
+        if ((mb_strlen($virtualAccountExpiryTime) > 25)) {
+            throw new \InvalidArgumentException('invalid length for $virtualAccountExpiryTime when calling VirtualAccountInfo., must be smaller than or equal to 25.');
         }
-        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($virtual_account_expiry_time)))) {
-            throw new \InvalidArgumentException("invalid value for \$virtual_account_expiry_time when calling VirtualAccountInfo., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
+        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($virtualAccountExpiryTime)))) {
+            throw new \InvalidArgumentException("invalid value for \$virtualAccountExpiryTime when calling VirtualAccountInfo., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
         }
 
-        $this->container['virtual_account_expiry_time'] = $virtual_account_expiry_time;
+        $this->container['virtualAccountExpiryTime'] = $virtualAccountExpiryTime;
 
         return $this;
     }

@@ -58,9 +58,9 @@ class ConsultPayPaymentInfo implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'pay_method' => 'string',
-        'pay_option' => 'string',
-        'promo_infos' => '\Dana\PaymentGateway\v1\Model\PromoInfo[]'
+        'payMethod' => 'string',
+        'payOption' => 'string',
+        'promoInfos' => '\Dana\PaymentGateway\v1\Model\PromoInfo[]'
     ];
 
     /**
@@ -71,9 +71,9 @@ class ConsultPayPaymentInfo implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'pay_method' => null,
-        'pay_option' => null,
-        'promo_infos' => null
+        'payMethod' => null,
+        'payOption' => null,
+        'promoInfos' => null
     ];
 
     /**
@@ -82,9 +82,9 @@ class ConsultPayPaymentInfo implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'pay_method' => false,
-        'pay_option' => false,
-        'promo_infos' => false
+        'payMethod' => false,
+        'payOption' => false,
+        'promoInfos' => false
     ];
 
     /**
@@ -173,9 +173,9 @@ class ConsultPayPaymentInfo implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'pay_method' => 'payMethod',
-        'pay_option' => 'payOption',
-        'promo_infos' => 'promoInfos'
+        'payMethod' => 'payMethod',
+        'payOption' => 'payOption',
+        'promoInfos' => 'promoInfos'
     ];
 
     /**
@@ -184,9 +184,9 @@ class ConsultPayPaymentInfo implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'pay_method' => 'setPayMethod',
-        'pay_option' => 'setPayOption',
-        'promo_infos' => 'setPromoInfos'
+        'payMethod' => 'setPayMethod',
+        'payOption' => 'setPayOption',
+        'promoInfos' => 'setPromoInfos'
     ];
 
     /**
@@ -195,9 +195,9 @@ class ConsultPayPaymentInfo implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'pay_method' => 'getPayMethod',
-        'pay_option' => 'getPayOption',
-        'promo_infos' => 'getPromoInfos'
+        'payMethod' => 'getPayMethod',
+        'payOption' => 'getPayOption',
+        'promoInfos' => 'getPromoInfos'
     ];
 
     /**
@@ -327,9 +327,9 @@ class ConsultPayPaymentInfo implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('pay_method', $data ?? [], null);
-        $this->setIfExists('pay_option', $data ?? [], null);
-        $this->setIfExists('promo_infos', $data ?? [], null);
+        $this->setIfExists('payMethod', $data ?? [], null);
+        $this->setIfExists('payOption', $data ?? [], null);
+        $this->setIfExists('promoInfos', $data ?? [], null);
     }
 
     /**
@@ -359,33 +359,33 @@ class ConsultPayPaymentInfo implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        if ($this->container['pay_method'] === null) {
-            $invalidProperties[] = "'pay_method' can't be null";
+        if ($this->container['payMethod'] === null) {
+            $invalidProperties[] = "'payMethod' can't be null";
         }
         $allowedValues = $this->getPayMethodAllowableValues();
-        if (!is_null($this->container['pay_method']) && !in_array($this->container['pay_method'], $allowedValues, true)) {
+        if (!is_null($this->container['payMethod']) && !in_array($this->container['payMethod'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'pay_method', must be one of '%s'",
-                $this->container['pay_method'],
+                "invalid value '%s' for 'payMethod', must be one of '%s'",
+                $this->container['payMethod'],
                 implode("', '", $allowedValues)
             );
         }
 
-        if ((mb_strlen($this->container['pay_method']) > 64)) {
-            $invalidProperties[] = "invalid value for 'pay_method', the character length must be smaller than or equal to 64.";
+        if ((mb_strlen($this->container['payMethod']) > 64)) {
+            $invalidProperties[] = "invalid value for 'payMethod', the character length must be smaller than or equal to 64.";
         }
 
         $allowedValues = $this->getPayOptionAllowableValues();
-        if (!is_null($this->container['pay_option']) && !in_array($this->container['pay_option'], $allowedValues, true)) {
+        if (!is_null($this->container['payOption']) && !in_array($this->container['payOption'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'pay_option', must be one of '%s'",
-                $this->container['pay_option'],
+                "invalid value '%s' for 'payOption', must be one of '%s'",
+                $this->container['payOption'],
                 implode("', '", $allowedValues)
             );
         }
 
-        if (!is_null($this->container['pay_option']) && (mb_strlen($this->container['pay_option']) > 128)) {
-            $invalidProperties[] = "invalid value for 'pay_option', the character length must be smaller than or equal to 128.";
+        if (!is_null($this->container['payOption']) && (mb_strlen($this->container['payOption']) > 128)) {
+            $invalidProperties[] = "invalid value for 'payOption', the character length must be smaller than or equal to 128.";
         }
 
         return $invalidProperties;
@@ -404,110 +404,110 @@ class ConsultPayPaymentInfo implements ModelInterface, ArrayAccess, \JsonSeriali
 
 
     /**
-     * Gets pay_method
+     * Gets payMethod
      *
      * @return string
      */
     public function getPayMethod()
     {
-        return $this->container['pay_method'];
+        return $this->container['payMethod'];
     }
 
     /**
-     * Sets pay_method
+     * Sets payMethod
      *
-     * @param string $pay_method Payment method that used to payment. The enums:<br>   * BALANCE - Payment method with balance<br>   * COUPON - Payment method with coupon<br>   * NET_BANKING - Payment method with internet banking<br>   * CREDIT_CARD - Payment method with credit card<br>   * DEBIT_CARD - Payment method with debit card<br>   * VIRTUAL_ACCOUNT - Payment method with virtual account<br>   * OTC - Payment method with OTC<br>   * DIRECT_DEBIT_CREDIT_CARD - Payment method with direct debit of credit card<br>   * DIRECT_DEBIT_DEBIT_CARD - Payment method with direct debit of debit card<br>   * ONLINE_CREDIT - Payment method with online Credit<br>   * LOAN_CREDIT - Payment method with DANA Cicil<br>   * NETWORK_PAY - Payment method with e-wallet<br>
+     * @param string $payMethod Payment method that used to payment. The enums:<br>   * BALANCE - Payment method with balance<br>   * COUPON - Payment method with coupon<br>   * NET_BANKING - Payment method with internet banking<br>   * CREDIT_CARD - Payment method with credit card<br>   * DEBIT_CARD - Payment method with debit card<br>   * VIRTUAL_ACCOUNT - Payment method with virtual account<br>   * OTC - Payment method with OTC<br>   * DIRECT_DEBIT_CREDIT_CARD - Payment method with direct debit of credit card<br>   * DIRECT_DEBIT_DEBIT_CARD - Payment method with direct debit of debit card<br>   * ONLINE_CREDIT - Payment method with online Credit<br>   * LOAN_CREDIT - Payment method with DANA Cicil<br>   * NETWORK_PAY - Payment method with e-wallet<br>
      *
      * @return self
      */
-    public function setPayMethod($pay_method)
+    public function setPayMethod($payMethod)
     {
-        if (is_null($pay_method)) {
-            throw new \InvalidArgumentException('non-nullable pay_method cannot be null');
+        if (is_null($payMethod)) {
+            throw new \InvalidArgumentException('non-nullable payMethod cannot be null');
         }
         $allowedValues = $this->getPayMethodAllowableValues();
-        if (!in_array($pay_method, $allowedValues, true) && (!empty($pay_method) || $pay_method !== '')) {
+        if (!in_array($payMethod, $allowedValues, true) && (!empty($payMethod) || $payMethod !== '')) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'pay_method', must be one of '%s'",
-                    $pay_method,
+                    "Invalid value '%s' for 'payMethod', must be one of '%s'",
+                    $payMethod,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        if ((mb_strlen($pay_method) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $pay_method when calling ConsultPayPaymentInfo., must be smaller than or equal to 64.');
+        if ((mb_strlen($payMethod) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $payMethod when calling ConsultPayPaymentInfo., must be smaller than or equal to 64.');
         }
 
-        $this->container['pay_method'] = $pay_method;
+        $this->container['payMethod'] = $payMethod;
 
         return $this;
     }
 
     /**
-     * Gets pay_option
+     * Gets payOption
      *
      * @return string|null
      */
     public function getPayOption()
     {
-        return $this->container['pay_option'];
+        return $this->container['payOption'];
     }
 
     /**
-     * Sets pay_option
+     * Sets payOption
      *
-     * @param string|null $pay_option Payment option that available to used to payment, depends on the payment method. The enums:<br>   * NETWORK_PAY_PG_SPAY - Payment method with ShopeePay e-wallet<br>   * NETWORK_PAY_PG_OVO - Payment method with OVO e-wallet<br>   * NETWORK_PAY_PG_GOPAY - Payment method with GoPay e-wallet<br>   * NETWORK_PAY_PG_LINKAJA - Payment method with LinkAja e-wallet<br>   * NETWORK_PAY_PG_CARD - Payment method with Card<br>   * VIRTUAL_ACCOUNT_BCA - Payment method with BCA virtual account<br>   * VIRTUAL_ACCOUNT_BNI - Payment method with BNI virtual account<br>   * VIRTUAL_ACCOUNT_MANDIRI - Payment method with Mandiri virtual account<br>   * VIRTUAL_ACCOUNT_BRI - Payment method with BRI virtual account<br>   * VIRTUAL_ACCOUNT_BTPN - Payment method with BTPN virtual account<br>   * VIRTUAL_ACCOUNT_CIMB - Payment method with CIMB virtual account<br>   * VIRTUAL_ACCOUNT_PERMATA - Payment method with Permata virtual account<br>
+     * @param string|null $payOption Payment option that available to used to payment, depends on the payment method. The enums:<br>   * NETWORK_PAY_PG_SPAY - Payment method with ShopeePay e-wallet<br>   * NETWORK_PAY_PG_OVO - Payment method with OVO e-wallet<br>   * NETWORK_PAY_PG_GOPAY - Payment method with GoPay e-wallet<br>   * NETWORK_PAY_PG_LINKAJA - Payment method with LinkAja e-wallet<br>   * NETWORK_PAY_PG_CARD - Payment method with Card<br>   * VIRTUAL_ACCOUNT_BCA - Payment method with BCA virtual account<br>   * VIRTUAL_ACCOUNT_BNI - Payment method with BNI virtual account<br>   * VIRTUAL_ACCOUNT_MANDIRI - Payment method with Mandiri virtual account<br>   * VIRTUAL_ACCOUNT_BRI - Payment method with BRI virtual account<br>   * VIRTUAL_ACCOUNT_BTPN - Payment method with BTPN virtual account<br>   * VIRTUAL_ACCOUNT_CIMB - Payment method with CIMB virtual account<br>   * VIRTUAL_ACCOUNT_PERMATA - Payment method with Permata virtual account<br>
      *
      * @return self
      */
-    public function setPayOption($pay_option)
+    public function setPayOption($payOption)
     {
-        if (is_null($pay_option)) {
-            throw new \InvalidArgumentException('non-nullable pay_option cannot be null');
+        if (is_null($payOption)) {
+            throw new \InvalidArgumentException('non-nullable payOption cannot be null');
         }
         $allowedValues = $this->getPayOptionAllowableValues();
-        if (!in_array($pay_option, $allowedValues, true) && (!empty($pay_option) || $pay_option !== '')) {
+        if (!in_array($payOption, $allowedValues, true) && (!empty($payOption) || $payOption !== '')) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'pay_option', must be one of '%s'",
-                    $pay_option,
+                    "Invalid value '%s' for 'payOption', must be one of '%s'",
+                    $payOption,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        if ((mb_strlen($pay_option) > 128)) {
-            throw new \InvalidArgumentException('invalid length for $pay_option when calling ConsultPayPaymentInfo., must be smaller than or equal to 128.');
+        if ((mb_strlen($payOption) > 128)) {
+            throw new \InvalidArgumentException('invalid length for $payOption when calling ConsultPayPaymentInfo., must be smaller than or equal to 128.');
         }
 
-        $this->container['pay_option'] = $pay_option;
+        $this->container['payOption'] = $payOption;
 
         return $this;
     }
 
     /**
-     * Gets promo_infos
+     * Gets promoInfos
      *
      * @return \Dana\PaymentGateway\v1\Model\PromoInfo[]|null
      */
     public function getPromoInfos()
     {
-        return $this->container['promo_infos'];
+        return $this->container['promoInfos'];
     }
 
     /**
-     * Sets promo_infos
+     * Sets promoInfos
      *
-     * @param \Dana\PaymentGateway\v1\Model\PromoInfo[]|null $promo_infos Additional Information of promotion
+     * @param \Dana\PaymentGateway\v1\Model\PromoInfo[]|null $promoInfos Additional Information of promotion
      *
      * @return self
      */
-    public function setPromoInfos($promo_infos)
+    public function setPromoInfos($promoInfos)
     {
-        if (is_null($promo_infos)) {
-            throw new \InvalidArgumentException('non-nullable promo_infos cannot be null');
+        if (is_null($promoInfos)) {
+            throw new \InvalidArgumentException('non-nullable promoInfos cannot be null');
         }
-        $this->container['promo_infos'] = $promo_infos;
+        $this->container['promoInfos'] = $promoInfos;
 
         return $this;
     }

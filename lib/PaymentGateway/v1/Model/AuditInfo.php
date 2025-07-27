@@ -58,8 +58,8 @@ class AuditInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'action_reason' => 'string',
-        'third_client_id' => 'string'
+        'actionReason' => 'string',
+        'thirdClientId' => 'string'
     ];
 
     /**
@@ -70,8 +70,8 @@ class AuditInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'action_reason' => null,
-        'third_client_id' => null
+        'actionReason' => null,
+        'thirdClientId' => null
     ];
 
     /**
@@ -80,8 +80,8 @@ class AuditInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'action_reason' => false,
-        'third_client_id' => false
+        'actionReason' => false,
+        'thirdClientId' => false
     ];
 
     /**
@@ -170,8 +170,8 @@ class AuditInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'action_reason' => 'actionReason',
-        'third_client_id' => 'thirdClientId'
+        'actionReason' => 'actionReason',
+        'thirdClientId' => 'thirdClientId'
     ];
 
     /**
@@ -180,8 +180,8 @@ class AuditInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'action_reason' => 'setActionReason',
-        'third_client_id' => 'setThirdClientId'
+        'actionReason' => 'setActionReason',
+        'thirdClientId' => 'setThirdClientId'
     ];
 
     /**
@@ -190,8 +190,8 @@ class AuditInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'action_reason' => 'getActionReason',
-        'third_client_id' => 'getThirdClientId'
+        'actionReason' => 'getActionReason',
+        'thirdClientId' => 'getThirdClientId'
     ];
 
     /**
@@ -251,8 +251,8 @@ class AuditInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('action_reason', $data ?? [], null);
-        $this->setIfExists('third_client_id', $data ?? [], null);
+        $this->setIfExists('actionReason', $data ?? [], null);
+        $this->setIfExists('thirdClientId', $data ?? [], null);
     }
 
     /**
@@ -282,12 +282,12 @@ class AuditInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['action_reason']) && (mb_strlen($this->container['action_reason']) > 256)) {
-            $invalidProperties[] = "invalid value for 'action_reason', the character length must be smaller than or equal to 256.";
+        if (!is_null($this->container['actionReason']) && (mb_strlen($this->container['actionReason']) > 256)) {
+            $invalidProperties[] = "invalid value for 'actionReason', the character length must be smaller than or equal to 256.";
         }
 
-        if (!is_null($this->container['third_client_id']) && (mb_strlen($this->container['third_client_id']) > 32)) {
-            $invalidProperties[] = "invalid value for 'third_client_id', the character length must be smaller than or equal to 32.";
+        if (!is_null($this->container['thirdClientId']) && (mb_strlen($this->container['thirdClientId']) > 32)) {
+            $invalidProperties[] = "invalid value for 'thirdClientId', the character length must be smaller than or equal to 32.";
         }
 
         return $invalidProperties;
@@ -306,63 +306,63 @@ class AuditInfo implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets action_reason
+     * Gets actionReason
      *
      * @return string|null
      */
     public function getActionReason()
     {
-        return $this->container['action_reason'];
+        return $this->container['actionReason'];
     }
 
     /**
-     * Sets action_reason
+     * Sets actionReason
      *
-     * @param string|null $action_reason Action trigger reason
+     * @param string|null $actionReason Action trigger reason
      *
      * @return self
      */
-    public function setActionReason($action_reason)
+    public function setActionReason($actionReason)
     {
-        if (is_null($action_reason)) {
-            throw new \InvalidArgumentException('non-nullable action_reason cannot be null');
+        if (is_null($actionReason)) {
+            throw new \InvalidArgumentException('non-nullable actionReason cannot be null');
         }
-        if ((mb_strlen($action_reason) > 256)) {
-            throw new \InvalidArgumentException('invalid length for $action_reason when calling AuditInfo., must be smaller than or equal to 256.');
+        if ((mb_strlen($actionReason) > 256)) {
+            throw new \InvalidArgumentException('invalid length for $actionReason when calling AuditInfo., must be smaller than or equal to 256.');
         }
 
-        $this->container['action_reason'] = $action_reason;
+        $this->container['actionReason'] = $actionReason;
 
         return $this;
     }
 
     /**
-     * Gets third_client_id
+     * Gets thirdClientId
      *
      * @return string|null
      */
     public function getThirdClientId()
     {
-        return $this->container['third_client_id'];
+        return $this->container['thirdClientId'];
     }
 
     /**
-     * Sets third_client_id
+     * Sets thirdClientId
      *
-     * @param string|null $third_client_id Third party client identifier
+     * @param string|null $thirdClientId Third party client identifier
      *
      * @return self
      */
-    public function setThirdClientId($third_client_id)
+    public function setThirdClientId($thirdClientId)
     {
-        if (is_null($third_client_id)) {
-            throw new \InvalidArgumentException('non-nullable third_client_id cannot be null');
+        if (is_null($thirdClientId)) {
+            throw new \InvalidArgumentException('non-nullable thirdClientId cannot be null');
         }
-        if ((mb_strlen($third_client_id) > 32)) {
-            throw new \InvalidArgumentException('invalid length for $third_client_id when calling AuditInfo., must be smaller than or equal to 32.');
+        if ((mb_strlen($thirdClientId) > 32)) {
+            throw new \InvalidArgumentException('invalid length for $thirdClientId when calling AuditInfo., must be smaller than or equal to 32.');
         }
 
-        $this->container['third_client_id'] = $third_client_id;
+        $this->container['thirdClientId'] = $thirdClientId;
 
         return $this;
     }

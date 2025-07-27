@@ -58,13 +58,13 @@ class AmountDetail implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'order_amount' => '\Dana\Widget\v1\Model\Money',
-        'pay_amount' => '\Dana\Widget\v1\Model\Money',
-        'void_amount' => '\Dana\Widget\v1\Model\Money',
-        'confirm_amount' => '\Dana\Widget\v1\Model\Money',
-        'refund_amount' => '\Dana\Widget\v1\Model\Money',
-        'chargeback_amount' => '\Dana\Widget\v1\Model\Money',
-        'charge_amount' => '\Dana\Widget\v1\Model\Money'
+        'orderAmount' => '\Dana\Widget\v1\Model\Money',
+        'payAmount' => '\Dana\Widget\v1\Model\Money',
+        'voidAmount' => '\Dana\Widget\v1\Model\Money',
+        'confirmAmount' => '\Dana\Widget\v1\Model\Money',
+        'refundAmount' => '\Dana\Widget\v1\Model\Money',
+        'chargebackAmount' => '\Dana\Widget\v1\Model\Money',
+        'chargeAmount' => '\Dana\Widget\v1\Model\Money'
     ];
 
     /**
@@ -75,13 +75,13 @@ class AmountDetail implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'order_amount' => null,
-        'pay_amount' => null,
-        'void_amount' => null,
-        'confirm_amount' => null,
-        'refund_amount' => null,
-        'chargeback_amount' => null,
-        'charge_amount' => null
+        'orderAmount' => null,
+        'payAmount' => null,
+        'voidAmount' => null,
+        'confirmAmount' => null,
+        'refundAmount' => null,
+        'chargebackAmount' => null,
+        'chargeAmount' => null
     ];
 
     /**
@@ -90,13 +90,13 @@ class AmountDetail implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'order_amount' => false,
-        'pay_amount' => false,
-        'void_amount' => false,
-        'confirm_amount' => false,
-        'refund_amount' => false,
-        'chargeback_amount' => false,
-        'charge_amount' => false
+        'orderAmount' => false,
+        'payAmount' => false,
+        'voidAmount' => false,
+        'confirmAmount' => false,
+        'refundAmount' => false,
+        'chargebackAmount' => false,
+        'chargeAmount' => false
     ];
 
     /**
@@ -185,13 +185,13 @@ class AmountDetail implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'order_amount' => 'orderAmount',
-        'pay_amount' => 'payAmount',
-        'void_amount' => 'voidAmount',
-        'confirm_amount' => 'confirmAmount',
-        'refund_amount' => 'refundAmount',
-        'chargeback_amount' => 'chargebackAmount',
-        'charge_amount' => 'chargeAmount'
+        'orderAmount' => 'orderAmount',
+        'payAmount' => 'payAmount',
+        'voidAmount' => 'voidAmount',
+        'confirmAmount' => 'confirmAmount',
+        'refundAmount' => 'refundAmount',
+        'chargebackAmount' => 'chargebackAmount',
+        'chargeAmount' => 'chargeAmount'
     ];
 
     /**
@@ -200,13 +200,13 @@ class AmountDetail implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'order_amount' => 'setOrderAmount',
-        'pay_amount' => 'setPayAmount',
-        'void_amount' => 'setVoidAmount',
-        'confirm_amount' => 'setConfirmAmount',
-        'refund_amount' => 'setRefundAmount',
-        'chargeback_amount' => 'setChargebackAmount',
-        'charge_amount' => 'setChargeAmount'
+        'orderAmount' => 'setOrderAmount',
+        'payAmount' => 'setPayAmount',
+        'voidAmount' => 'setVoidAmount',
+        'confirmAmount' => 'setConfirmAmount',
+        'refundAmount' => 'setRefundAmount',
+        'chargebackAmount' => 'setChargebackAmount',
+        'chargeAmount' => 'setChargeAmount'
     ];
 
     /**
@@ -215,13 +215,13 @@ class AmountDetail implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'order_amount' => 'getOrderAmount',
-        'pay_amount' => 'getPayAmount',
-        'void_amount' => 'getVoidAmount',
-        'confirm_amount' => 'getConfirmAmount',
-        'refund_amount' => 'getRefundAmount',
-        'chargeback_amount' => 'getChargebackAmount',
-        'charge_amount' => 'getChargeAmount'
+        'orderAmount' => 'getOrderAmount',
+        'payAmount' => 'getPayAmount',
+        'voidAmount' => 'getVoidAmount',
+        'confirmAmount' => 'getConfirmAmount',
+        'refundAmount' => 'getRefundAmount',
+        'chargebackAmount' => 'getChargebackAmount',
+        'chargeAmount' => 'getChargeAmount'
     ];
 
     /**
@@ -281,13 +281,13 @@ class AmountDetail implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('order_amount', $data ?? [], null);
-        $this->setIfExists('pay_amount', $data ?? [], null);
-        $this->setIfExists('void_amount', $data ?? [], null);
-        $this->setIfExists('confirm_amount', $data ?? [], null);
-        $this->setIfExists('refund_amount', $data ?? [], null);
-        $this->setIfExists('chargeback_amount', $data ?? [], null);
-        $this->setIfExists('charge_amount', $data ?? [], null);
+        $this->setIfExists('orderAmount', $data ?? [], null);
+        $this->setIfExists('payAmount', $data ?? [], null);
+        $this->setIfExists('voidAmount', $data ?? [], null);
+        $this->setIfExists('confirmAmount', $data ?? [], null);
+        $this->setIfExists('refundAmount', $data ?? [], null);
+        $this->setIfExists('chargebackAmount', $data ?? [], null);
+        $this->setIfExists('chargeAmount', $data ?? [], null);
     }
 
     /**
@@ -317,8 +317,8 @@ class AmountDetail implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['order_amount'] === null) {
-            $invalidProperties[] = "'order_amount' can't be null";
+        if ($this->container['orderAmount'] === null) {
+            $invalidProperties[] = "'orderAmount' can't be null";
         }
         return $invalidProperties;
     }
@@ -336,190 +336,190 @@ class AmountDetail implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets order_amount
+     * Gets orderAmount
      *
      * @return \Dana\Widget\v1\Model\Money
      */
     public function getOrderAmount()
     {
-        return $this->container['order_amount'];
+        return $this->container['orderAmount'];
     }
 
     /**
-     * Sets order_amount
+     * Sets orderAmount
      *
-     * @param \Dana\Widget\v1\Model\Money $order_amount Order amount. Contains two sub-fields:<br> 1. Value: Transaction amount, including the cents<br> 2. Currency: Currency code based on ISO<br>
+     * @param \Dana\Widget\v1\Model\Money $orderAmount Order amount. Contains two sub-fields:<br> 1. Value: Transaction amount, including the cents<br> 2. Currency: Currency code based on ISO<br>
      *
      * @return self
      */
-    public function setOrderAmount($order_amount)
+    public function setOrderAmount($orderAmount)
     {
-        if (is_null($order_amount)) {
-            throw new \InvalidArgumentException('non-nullable order_amount cannot be null');
+        if (is_null($orderAmount)) {
+            throw new \InvalidArgumentException('non-nullable orderAmount cannot be null');
         }
-        $this->container['order_amount'] = $order_amount;
+        $this->container['orderAmount'] = $orderAmount;
 
         return $this;
     }
 
     /**
-     * Gets pay_amount
+     * Gets payAmount
      *
      * @return \Dana\Widget\v1\Model\Money|null
      */
     public function getPayAmount()
     {
-        return $this->container['pay_amount'];
+        return $this->container['payAmount'];
     }
 
     /**
-     * Sets pay_amount
+     * Sets payAmount
      *
-     * @param \Dana\Widget\v1\Model\Money|null $pay_amount Pay amount. Contains two sub-fields:<br> 1. Value: Transaction amount, including the cents<br> 2. Currency: Currency code based on ISO<br>
+     * @param \Dana\Widget\v1\Model\Money|null $payAmount Pay amount. Contains two sub-fields:<br> 1. Value: Transaction amount, including the cents<br> 2. Currency: Currency code based on ISO<br>
      *
      * @return self
      */
-    public function setPayAmount($pay_amount)
+    public function setPayAmount($payAmount)
     {
-        if (is_null($pay_amount)) {
-            throw new \InvalidArgumentException('non-nullable pay_amount cannot be null');
+        if (is_null($payAmount)) {
+            throw new \InvalidArgumentException('non-nullable payAmount cannot be null');
         }
-        $this->container['pay_amount'] = $pay_amount;
+        $this->container['payAmount'] = $payAmount;
 
         return $this;
     }
 
     /**
-     * Gets void_amount
+     * Gets voidAmount
      *
      * @return \Dana\Widget\v1\Model\Money|null
      */
     public function getVoidAmount()
     {
-        return $this->container['void_amount'];
+        return $this->container['voidAmount'];
     }
 
     /**
-     * Sets void_amount
+     * Sets voidAmount
      *
-     * @param \Dana\Widget\v1\Model\Money|null $void_amount Void amount. Contains two sub-fields:<br> 1. Value: Transaction amount, including the cents<br> 2. Currency: Currency code based on ISO<br>
+     * @param \Dana\Widget\v1\Model\Money|null $voidAmount Void amount. Contains two sub-fields:<br> 1. Value: Transaction amount, including the cents<br> 2. Currency: Currency code based on ISO<br>
      *
      * @return self
      */
-    public function setVoidAmount($void_amount)
+    public function setVoidAmount($voidAmount)
     {
-        if (is_null($void_amount)) {
-            throw new \InvalidArgumentException('non-nullable void_amount cannot be null');
+        if (is_null($voidAmount)) {
+            throw new \InvalidArgumentException('non-nullable voidAmount cannot be null');
         }
-        $this->container['void_amount'] = $void_amount;
+        $this->container['voidAmount'] = $voidAmount;
 
         return $this;
     }
 
     /**
-     * Gets confirm_amount
+     * Gets confirmAmount
      *
      * @return \Dana\Widget\v1\Model\Money|null
      */
     public function getConfirmAmount()
     {
-        return $this->container['confirm_amount'];
+        return $this->container['confirmAmount'];
     }
 
     /**
-     * Sets confirm_amount
+     * Sets confirmAmount
      *
-     * @param \Dana\Widget\v1\Model\Money|null $confirm_amount Confirm amount. Contains two sub-fields:<br> 1. Value: Transaction amount, including the cents<br> 2. Currency: Currency code based on ISO<br>
+     * @param \Dana\Widget\v1\Model\Money|null $confirmAmount Confirm amount. Contains two sub-fields:<br> 1. Value: Transaction amount, including the cents<br> 2. Currency: Currency code based on ISO<br>
      *
      * @return self
      */
-    public function setConfirmAmount($confirm_amount)
+    public function setConfirmAmount($confirmAmount)
     {
-        if (is_null($confirm_amount)) {
-            throw new \InvalidArgumentException('non-nullable confirm_amount cannot be null');
+        if (is_null($confirmAmount)) {
+            throw new \InvalidArgumentException('non-nullable confirmAmount cannot be null');
         }
-        $this->container['confirm_amount'] = $confirm_amount;
+        $this->container['confirmAmount'] = $confirmAmount;
 
         return $this;
     }
 
     /**
-     * Gets refund_amount
+     * Gets refundAmount
      *
      * @return \Dana\Widget\v1\Model\Money|null
      */
     public function getRefundAmount()
     {
-        return $this->container['refund_amount'];
+        return $this->container['refundAmount'];
     }
 
     /**
-     * Sets refund_amount
+     * Sets refundAmount
      *
-     * @param \Dana\Widget\v1\Model\Money|null $refund_amount Refund amount. Contains two sub-fields:<br> 1. Value: Transaction amount, including the cents<br> 2. Currency: Currency code based on ISO<br>
+     * @param \Dana\Widget\v1\Model\Money|null $refundAmount Refund amount. Contains two sub-fields:<br> 1. Value: Transaction amount, including the cents<br> 2. Currency: Currency code based on ISO<br>
      *
      * @return self
      */
-    public function setRefundAmount($refund_amount)
+    public function setRefundAmount($refundAmount)
     {
-        if (is_null($refund_amount)) {
-            throw new \InvalidArgumentException('non-nullable refund_amount cannot be null');
+        if (is_null($refundAmount)) {
+            throw new \InvalidArgumentException('non-nullable refundAmount cannot be null');
         }
-        $this->container['refund_amount'] = $refund_amount;
+        $this->container['refundAmount'] = $refundAmount;
 
         return $this;
     }
 
     /**
-     * Gets chargeback_amount
+     * Gets chargebackAmount
      *
      * @return \Dana\Widget\v1\Model\Money|null
      */
     public function getChargebackAmount()
     {
-        return $this->container['chargeback_amount'];
+        return $this->container['chargebackAmount'];
     }
 
     /**
-     * Sets chargeback_amount
+     * Sets chargebackAmount
      *
-     * @param \Dana\Widget\v1\Model\Money|null $chargeback_amount Chargeback amount. Contains two sub-fields:<br> 1. Value: Transaction amount, including the cents<br> 2. Currency: Currency code based on ISO<br>
+     * @param \Dana\Widget\v1\Model\Money|null $chargebackAmount Chargeback amount. Contains two sub-fields:<br> 1. Value: Transaction amount, including the cents<br> 2. Currency: Currency code based on ISO<br>
      *
      * @return self
      */
-    public function setChargebackAmount($chargeback_amount)
+    public function setChargebackAmount($chargebackAmount)
     {
-        if (is_null($chargeback_amount)) {
-            throw new \InvalidArgumentException('non-nullable chargeback_amount cannot be null');
+        if (is_null($chargebackAmount)) {
+            throw new \InvalidArgumentException('non-nullable chargebackAmount cannot be null');
         }
-        $this->container['chargeback_amount'] = $chargeback_amount;
+        $this->container['chargebackAmount'] = $chargebackAmount;
 
         return $this;
     }
 
     /**
-     * Gets charge_amount
+     * Gets chargeAmount
      *
      * @return \Dana\Widget\v1\Model\Money|null
      */
     public function getChargeAmount()
     {
-        return $this->container['charge_amount'];
+        return $this->container['chargeAmount'];
     }
 
     /**
-     * Sets charge_amount
+     * Sets chargeAmount
      *
-     * @param \Dana\Widget\v1\Model\Money|null $charge_amount Charge amount. Contains two sub-fields:<br> 1. Value: Transaction amount, including the cents<br> 2. Currency: Currency code based on ISO<br>
+     * @param \Dana\Widget\v1\Model\Money|null $chargeAmount Charge amount. Contains two sub-fields:<br> 1. Value: Transaction amount, including the cents<br> 2. Currency: Currency code based on ISO<br>
      *
      * @return self
      */
-    public function setChargeAmount($charge_amount)
+    public function setChargeAmount($chargeAmount)
     {
-        if (is_null($charge_amount)) {
-            throw new \InvalidArgumentException('non-nullable charge_amount cannot be null');
+        if (is_null($chargeAmount)) {
+            throw new \InvalidArgumentException('non-nullable chargeAmount cannot be null');
         }
-        $this->container['charge_amount'] = $charge_amount;
+        $this->container['chargeAmount'] = $chargeAmount;
 
         return $this;
     }

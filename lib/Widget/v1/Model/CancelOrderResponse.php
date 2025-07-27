@@ -58,14 +58,14 @@ class CancelOrderResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'response_code' => 'string',
-        'response_message' => 'string',
-        'original_reference_no' => 'string',
-        'original_partner_reference_no' => 'string',
-        'original_external_id' => 'string',
-        'cancel_time' => 'string',
-        'transaction_date' => 'string',
-        'additional_info' => 'object'
+        'responseCode' => 'string',
+        'responseMessage' => 'string',
+        'originalReferenceNo' => 'string',
+        'originalPartnerReferenceNo' => 'string',
+        'originalExternalId' => 'string',
+        'cancelTime' => 'string',
+        'transactionDate' => 'string',
+        'additionalInfo' => 'object'
     ];
 
     /**
@@ -76,14 +76,14 @@ class CancelOrderResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'response_code' => null,
-        'response_message' => null,
-        'original_reference_no' => null,
-        'original_partner_reference_no' => null,
-        'original_external_id' => null,
-        'cancel_time' => null,
-        'transaction_date' => null,
-        'additional_info' => null
+        'responseCode' => null,
+        'responseMessage' => null,
+        'originalReferenceNo' => null,
+        'originalPartnerReferenceNo' => null,
+        'originalExternalId' => null,
+        'cancelTime' => null,
+        'transactionDate' => null,
+        'additionalInfo' => null
     ];
 
     /**
@@ -92,14 +92,14 @@ class CancelOrderResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'response_code' => false,
-        'response_message' => false,
-        'original_reference_no' => false,
-        'original_partner_reference_no' => false,
-        'original_external_id' => false,
-        'cancel_time' => false,
-        'transaction_date' => false,
-        'additional_info' => false
+        'responseCode' => false,
+        'responseMessage' => false,
+        'originalReferenceNo' => false,
+        'originalPartnerReferenceNo' => false,
+        'originalExternalId' => false,
+        'cancelTime' => false,
+        'transactionDate' => false,
+        'additionalInfo' => false
     ];
 
     /**
@@ -188,14 +188,14 @@ class CancelOrderResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'response_code' => 'responseCode',
-        'response_message' => 'responseMessage',
-        'original_reference_no' => 'originalReferenceNo',
-        'original_partner_reference_no' => 'originalPartnerReferenceNo',
-        'original_external_id' => 'originalExternalId',
-        'cancel_time' => 'cancelTime',
-        'transaction_date' => 'transactionDate',
-        'additional_info' => 'additionalInfo'
+        'responseCode' => 'responseCode',
+        'responseMessage' => 'responseMessage',
+        'originalReferenceNo' => 'originalReferenceNo',
+        'originalPartnerReferenceNo' => 'originalPartnerReferenceNo',
+        'originalExternalId' => 'originalExternalId',
+        'cancelTime' => 'cancelTime',
+        'transactionDate' => 'transactionDate',
+        'additionalInfo' => 'additionalInfo'
     ];
 
     /**
@@ -204,14 +204,14 @@ class CancelOrderResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'response_code' => 'setResponseCode',
-        'response_message' => 'setResponseMessage',
-        'original_reference_no' => 'setOriginalReferenceNo',
-        'original_partner_reference_no' => 'setOriginalPartnerReferenceNo',
-        'original_external_id' => 'setOriginalExternalId',
-        'cancel_time' => 'setCancelTime',
-        'transaction_date' => 'setTransactionDate',
-        'additional_info' => 'setAdditionalInfo'
+        'responseCode' => 'setResponseCode',
+        'responseMessage' => 'setResponseMessage',
+        'originalReferenceNo' => 'setOriginalReferenceNo',
+        'originalPartnerReferenceNo' => 'setOriginalPartnerReferenceNo',
+        'originalExternalId' => 'setOriginalExternalId',
+        'cancelTime' => 'setCancelTime',
+        'transactionDate' => 'setTransactionDate',
+        'additionalInfo' => 'setAdditionalInfo'
     ];
 
     /**
@@ -220,14 +220,14 @@ class CancelOrderResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'response_code' => 'getResponseCode',
-        'response_message' => 'getResponseMessage',
-        'original_reference_no' => 'getOriginalReferenceNo',
-        'original_partner_reference_no' => 'getOriginalPartnerReferenceNo',
-        'original_external_id' => 'getOriginalExternalId',
-        'cancel_time' => 'getCancelTime',
-        'transaction_date' => 'getTransactionDate',
-        'additional_info' => 'getAdditionalInfo'
+        'responseCode' => 'getResponseCode',
+        'responseMessage' => 'getResponseMessage',
+        'originalReferenceNo' => 'getOriginalReferenceNo',
+        'originalPartnerReferenceNo' => 'getOriginalPartnerReferenceNo',
+        'originalExternalId' => 'getOriginalExternalId',
+        'cancelTime' => 'getCancelTime',
+        'transactionDate' => 'getTransactionDate',
+        'additionalInfo' => 'getAdditionalInfo'
     ];
 
     /**
@@ -287,14 +287,14 @@ class CancelOrderResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('response_code', $data ?? [], null);
-        $this->setIfExists('response_message', $data ?? [], null);
-        $this->setIfExists('original_reference_no', $data ?? [], null);
-        $this->setIfExists('original_partner_reference_no', $data ?? [], null);
-        $this->setIfExists('original_external_id', $data ?? [], null);
-        $this->setIfExists('cancel_time', $data ?? [], null);
-        $this->setIfExists('transaction_date', $data ?? [], null);
-        $this->setIfExists('additional_info', $data ?? [], null);
+        $this->setIfExists('responseCode', $data ?? [], null);
+        $this->setIfExists('responseMessage', $data ?? [], null);
+        $this->setIfExists('originalReferenceNo', $data ?? [], null);
+        $this->setIfExists('originalPartnerReferenceNo', $data ?? [], null);
+        $this->setIfExists('originalExternalId', $data ?? [], null);
+        $this->setIfExists('cancelTime', $data ?? [], null);
+        $this->setIfExists('transactionDate', $data ?? [], null);
+        $this->setIfExists('additionalInfo', $data ?? [], null);
     }
 
     /**
@@ -324,49 +324,49 @@ class CancelOrderResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
-        if ($this->container['response_code'] === null) {
-            $invalidProperties[] = "'response_code' can't be null";
+        if ($this->container['responseCode'] === null) {
+            $invalidProperties[] = "'responseCode' can't be null";
         }
-        if ((mb_strlen($this->container['response_code']) > 7)) {
-            $invalidProperties[] = "invalid value for 'response_code', the character length must be smaller than or equal to 7.";
-        }
-
-        if ($this->container['response_message'] === null) {
-            $invalidProperties[] = "'response_message' can't be null";
-        }
-        if ((mb_strlen($this->container['response_message']) > 150)) {
-            $invalidProperties[] = "invalid value for 'response_message', the character length must be smaller than or equal to 150.";
+        if ((mb_strlen($this->container['responseCode']) > 7)) {
+            $invalidProperties[] = "invalid value for 'responseCode', the character length must be smaller than or equal to 7.";
         }
 
-        if (!is_null($this->container['original_reference_no']) && (mb_strlen($this->container['original_reference_no']) > 64)) {
-            $invalidProperties[] = "invalid value for 'original_reference_no', the character length must be smaller than or equal to 64.";
+        if ($this->container['responseMessage'] === null) {
+            $invalidProperties[] = "'responseMessage' can't be null";
+        }
+        if ((mb_strlen($this->container['responseMessage']) > 150)) {
+            $invalidProperties[] = "invalid value for 'responseMessage', the character length must be smaller than or equal to 150.";
         }
 
-        if ($this->container['original_partner_reference_no'] === null) {
-            $invalidProperties[] = "'original_partner_reference_no' can't be null";
-        }
-        if ((mb_strlen($this->container['original_partner_reference_no']) > 64)) {
-            $invalidProperties[] = "invalid value for 'original_partner_reference_no', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['originalReferenceNo']) && (mb_strlen($this->container['originalReferenceNo']) > 64)) {
+            $invalidProperties[] = "invalid value for 'originalReferenceNo', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['original_external_id']) && (mb_strlen($this->container['original_external_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'original_external_id', the character length must be smaller than or equal to 36.";
+        if ($this->container['originalPartnerReferenceNo'] === null) {
+            $invalidProperties[] = "'originalPartnerReferenceNo' can't be null";
+        }
+        if ((mb_strlen($this->container['originalPartnerReferenceNo']) > 64)) {
+            $invalidProperties[] = "invalid value for 'originalPartnerReferenceNo', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['cancel_time']) && (mb_strlen($this->container['cancel_time']) > 25)) {
-            $invalidProperties[] = "invalid value for 'cancel_time', the character length must be smaller than or equal to 25.";
+        if (!is_null($this->container['originalExternalId']) && (mb_strlen($this->container['originalExternalId']) > 36)) {
+            $invalidProperties[] = "invalid value for 'originalExternalId', the character length must be smaller than or equal to 36.";
         }
 
-        if (!is_null($this->container['cancel_time']) && !preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['cancel_time'])) {
-            $invalidProperties[] = "invalid value for 'cancel_time', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
+        if (!is_null($this->container['cancelTime']) && (mb_strlen($this->container['cancelTime']) > 25)) {
+            $invalidProperties[] = "invalid value for 'cancelTime', the character length must be smaller than or equal to 25.";
         }
 
-        if (!is_null($this->container['transaction_date']) && (mb_strlen($this->container['transaction_date']) > 25)) {
-            $invalidProperties[] = "invalid value for 'transaction_date', the character length must be smaller than or equal to 25.";
+        if (!is_null($this->container['cancelTime']) && !preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['cancelTime'])) {
+            $invalidProperties[] = "invalid value for 'cancelTime', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
         }
 
-        if (!is_null($this->container['transaction_date']) && !preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['transaction_date'])) {
-            $invalidProperties[] = "invalid value for 'transaction_date', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
+        if (!is_null($this->container['transactionDate']) && (mb_strlen($this->container['transactionDate']) > 25)) {
+            $invalidProperties[] = "invalid value for 'transactionDate', the character length must be smaller than or equal to 25.";
+        }
+
+        if (!is_null($this->container['transactionDate']) && !preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['transactionDate'])) {
+            $invalidProperties[] = "invalid value for 'transactionDate', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
         }
 
         return $invalidProperties;
@@ -385,251 +385,251 @@ class CancelOrderResponse implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets response_code
+     * Gets responseCode
      *
      * @return string
      */
     public function getResponseCode()
     {
-        return $this->container['response_code'];
+        return $this->container['responseCode'];
     }
 
     /**
-     * Sets response_code
+     * Sets responseCode
      *
-     * @param string $response_code Refer to response code list
+     * @param string $responseCode Refer to response code list
      *
      * @return self
      */
-    public function setResponseCode($response_code)
+    public function setResponseCode($responseCode)
     {
-        if (is_null($response_code)) {
-            throw new \InvalidArgumentException('non-nullable response_code cannot be null');
+        if (is_null($responseCode)) {
+            throw new \InvalidArgumentException('non-nullable responseCode cannot be null');
         }
-        if ((mb_strlen($response_code) > 7)) {
-            throw new \InvalidArgumentException('invalid length for $response_code when calling CancelOrderResponse., must be smaller than or equal to 7.');
+        if ((mb_strlen($responseCode) > 7)) {
+            throw new \InvalidArgumentException('invalid length for $responseCode when calling CancelOrderResponse., must be smaller than or equal to 7.');
         }
 
-        $this->container['response_code'] = $response_code;
+        $this->container['responseCode'] = $responseCode;
 
         return $this;
     }
 
     /**
-     * Gets response_message
+     * Gets responseMessage
      *
      * @return string
      */
     public function getResponseMessage()
     {
-        return $this->container['response_message'];
+        return $this->container['responseMessage'];
     }
 
     /**
-     * Sets response_message
+     * Sets responseMessage
      *
-     * @param string $response_message Refer to response code list
+     * @param string $responseMessage Refer to response code list
      *
      * @return self
      */
-    public function setResponseMessage($response_message)
+    public function setResponseMessage($responseMessage)
     {
-        if (is_null($response_message)) {
-            throw new \InvalidArgumentException('non-nullable response_message cannot be null');
+        if (is_null($responseMessage)) {
+            throw new \InvalidArgumentException('non-nullable responseMessage cannot be null');
         }
-        if ((mb_strlen($response_message) > 150)) {
-            throw new \InvalidArgumentException('invalid length for $response_message when calling CancelOrderResponse., must be smaller than or equal to 150.');
+        if ((mb_strlen($responseMessage) > 150)) {
+            throw new \InvalidArgumentException('invalid length for $responseMessage when calling CancelOrderResponse., must be smaller than or equal to 150.');
         }
 
-        $this->container['response_message'] = $response_message;
+        $this->container['responseMessage'] = $responseMessage;
 
         return $this;
     }
 
     /**
-     * Gets original_reference_no
+     * Gets originalReferenceNo
      *
      * @return string|null
      */
     public function getOriginalReferenceNo()
     {
-        return $this->container['original_reference_no'];
+        return $this->container['originalReferenceNo'];
     }
 
     /**
-     * Sets original_reference_no
+     * Sets originalReferenceNo
      *
-     * @param string|null $original_reference_no Original transaction identifier on DANA system
+     * @param string|null $originalReferenceNo Original transaction identifier on DANA system
      *
      * @return self
      */
-    public function setOriginalReferenceNo($original_reference_no)
+    public function setOriginalReferenceNo($originalReferenceNo)
     {
-        if (is_null($original_reference_no)) {
-            throw new \InvalidArgumentException('non-nullable original_reference_no cannot be null');
+        if (is_null($originalReferenceNo)) {
+            throw new \InvalidArgumentException('non-nullable originalReferenceNo cannot be null');
         }
-        if ((mb_strlen($original_reference_no) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $original_reference_no when calling CancelOrderResponse., must be smaller than or equal to 64.');
+        if ((mb_strlen($originalReferenceNo) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $originalReferenceNo when calling CancelOrderResponse., must be smaller than or equal to 64.');
         }
 
-        $this->container['original_reference_no'] = $original_reference_no;
+        $this->container['originalReferenceNo'] = $originalReferenceNo;
 
         return $this;
     }
 
     /**
-     * Gets original_partner_reference_no
+     * Gets originalPartnerReferenceNo
      *
      * @return string
      */
     public function getOriginalPartnerReferenceNo()
     {
-        return $this->container['original_partner_reference_no'];
+        return $this->container['originalPartnerReferenceNo'];
     }
 
     /**
-     * Sets original_partner_reference_no
+     * Sets originalPartnerReferenceNo
      *
-     * @param string $original_partner_reference_no Original transaction identifier on partner system
+     * @param string $originalPartnerReferenceNo Original transaction identifier on partner system
      *
      * @return self
      */
-    public function setOriginalPartnerReferenceNo($original_partner_reference_no)
+    public function setOriginalPartnerReferenceNo($originalPartnerReferenceNo)
     {
-        if (is_null($original_partner_reference_no)) {
-            throw new \InvalidArgumentException('non-nullable original_partner_reference_no cannot be null');
+        if (is_null($originalPartnerReferenceNo)) {
+            throw new \InvalidArgumentException('non-nullable originalPartnerReferenceNo cannot be null');
         }
-        if ((mb_strlen($original_partner_reference_no) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $original_partner_reference_no when calling CancelOrderResponse., must be smaller than or equal to 64.');
+        if ((mb_strlen($originalPartnerReferenceNo) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $originalPartnerReferenceNo when calling CancelOrderResponse., must be smaller than or equal to 64.');
         }
 
-        $this->container['original_partner_reference_no'] = $original_partner_reference_no;
+        $this->container['originalPartnerReferenceNo'] = $originalPartnerReferenceNo;
 
         return $this;
     }
 
     /**
-     * Gets original_external_id
+     * Gets originalExternalId
      *
      * @return string|null
      */
     public function getOriginalExternalId()
     {
-        return $this->container['original_external_id'];
+        return $this->container['originalExternalId'];
     }
 
     /**
-     * Sets original_external_id
+     * Sets originalExternalId
      *
-     * @param string|null $original_external_id Original external identifier on header message
+     * @param string|null $originalExternalId Original external identifier on header message
      *
      * @return self
      */
-    public function setOriginalExternalId($original_external_id)
+    public function setOriginalExternalId($originalExternalId)
     {
-        if (is_null($original_external_id)) {
-            throw new \InvalidArgumentException('non-nullable original_external_id cannot be null');
+        if (is_null($originalExternalId)) {
+            throw new \InvalidArgumentException('non-nullable originalExternalId cannot be null');
         }
-        if ((mb_strlen($original_external_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $original_external_id when calling CancelOrderResponse., must be smaller than or equal to 36.');
+        if ((mb_strlen($originalExternalId) > 36)) {
+            throw new \InvalidArgumentException('invalid length for $originalExternalId when calling CancelOrderResponse., must be smaller than or equal to 36.');
         }
 
-        $this->container['original_external_id'] = $original_external_id;
+        $this->container['originalExternalId'] = $originalExternalId;
 
         return $this;
     }
 
     /**
-     * Gets cancel_time
+     * Gets cancelTime
      *
      * @return string|null
      */
     public function getCancelTime()
     {
-        return $this->container['cancel_time'];
+        return $this->container['cancelTime'];
     }
 
     /**
-     * Sets cancel_time
+     * Sets cancelTime
      *
-     * @param string|null $cancel_time Cancellation date time, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time)
+     * @param string|null $cancelTime Cancellation date time, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time)
      *
      * @return self
      */
-    public function setCancelTime($cancel_time)
+    public function setCancelTime($cancelTime)
     {
-        if (is_null($cancel_time)) {
-            throw new \InvalidArgumentException('non-nullable cancel_time cannot be null');
+        if (is_null($cancelTime)) {
+            throw new \InvalidArgumentException('non-nullable cancelTime cannot be null');
         }
-        if ((mb_strlen($cancel_time) > 25)) {
-            throw new \InvalidArgumentException('invalid length for $cancel_time when calling CancelOrderResponse., must be smaller than or equal to 25.');
+        if ((mb_strlen($cancelTime) > 25)) {
+            throw new \InvalidArgumentException('invalid length for $cancelTime when calling CancelOrderResponse., must be smaller than or equal to 25.');
         }
-        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($cancel_time)))) {
-            throw new \InvalidArgumentException("invalid value for \$cancel_time when calling CancelOrderResponse., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
+        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($cancelTime)))) {
+            throw new \InvalidArgumentException("invalid value for \$cancelTime when calling CancelOrderResponse., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
         }
 
-        $this->container['cancel_time'] = $cancel_time;
+        $this->container['cancelTime'] = $cancelTime;
 
         return $this;
     }
 
     /**
-     * Gets transaction_date
+     * Gets transactionDate
      *
      * @return string|null
      */
     public function getTransactionDate()
     {
-        return $this->container['transaction_date'];
+        return $this->container['transactionDate'];
     }
 
     /**
-     * Sets transaction_date
+     * Sets transactionDate
      *
-     * @param string|null $transaction_date Transaction date, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time)
+     * @param string|null $transactionDate Transaction date, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time)
      *
      * @return self
      */
-    public function setTransactionDate($transaction_date)
+    public function setTransactionDate($transactionDate)
     {
-        if (is_null($transaction_date)) {
-            throw new \InvalidArgumentException('non-nullable transaction_date cannot be null');
+        if (is_null($transactionDate)) {
+            throw new \InvalidArgumentException('non-nullable transactionDate cannot be null');
         }
-        if ((mb_strlen($transaction_date) > 25)) {
-            throw new \InvalidArgumentException('invalid length for $transaction_date when calling CancelOrderResponse., must be smaller than or equal to 25.');
+        if ((mb_strlen($transactionDate) > 25)) {
+            throw new \InvalidArgumentException('invalid length for $transactionDate when calling CancelOrderResponse., must be smaller than or equal to 25.');
         }
-        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($transaction_date)))) {
-            throw new \InvalidArgumentException("invalid value for \$transaction_date when calling CancelOrderResponse., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
+        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($transactionDate)))) {
+            throw new \InvalidArgumentException("invalid value for \$transactionDate when calling CancelOrderResponse., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
         }
 
-        $this->container['transaction_date'] = $transaction_date;
+        $this->container['transactionDate'] = $transactionDate;
 
         return $this;
     }
 
     /**
-     * Gets additional_info
+     * Gets additionalInfo
      *
      * @return object|null
      */
     public function getAdditionalInfo()
     {
-        return $this->container['additional_info'];
+        return $this->container['additionalInfo'];
     }
 
     /**
-     * Sets additional_info
+     * Sets additionalInfo
      *
-     * @param object|null $additional_info Additional information
+     * @param object|null $additionalInfo Additional information
      *
      * @return self
      */
-    public function setAdditionalInfo($additional_info)
+    public function setAdditionalInfo($additionalInfo)
     {
-        if (is_null($additional_info)) {
-            throw new \InvalidArgumentException('non-nullable additional_info cannot be null');
+        if (is_null($additionalInfo)) {
+            throw new \InvalidArgumentException('non-nullable additionalInfo cannot be null');
         }
-        $this->container['additional_info'] = $additional_info;
+        $this->container['additionalInfo'] = $additionalInfo;
 
         return $this;
     }

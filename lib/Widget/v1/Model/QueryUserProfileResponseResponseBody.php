@@ -58,8 +58,8 @@ class QueryUserProfileResponseResponseBody implements ModelInterface, ArrayAcces
       * @var string[]
       */
     protected static $openAPITypes = [
-        'result_info' => '\Dana\Widget\v1\Model\ResultInfo',
-        'user_resource_infos' => '\Dana\Widget\v1\Model\UserResourceInfo[]'
+        'resultInfo' => '\Dana\Widget\v1\Model\ResultInfo',
+        'userResourceInfos' => '\Dana\Widget\v1\Model\UserResourceInfo[]'
     ];
 
     /**
@@ -70,8 +70,8 @@ class QueryUserProfileResponseResponseBody implements ModelInterface, ArrayAcces
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'result_info' => null,
-        'user_resource_infos' => null
+        'resultInfo' => null,
+        'userResourceInfos' => null
     ];
 
     /**
@@ -80,8 +80,8 @@ class QueryUserProfileResponseResponseBody implements ModelInterface, ArrayAcces
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'result_info' => false,
-        'user_resource_infos' => false
+        'resultInfo' => false,
+        'userResourceInfos' => false
     ];
 
     /**
@@ -170,8 +170,8 @@ class QueryUserProfileResponseResponseBody implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $attributeMap = [
-        'result_info' => 'resultInfo',
-        'user_resource_infos' => 'userResourceInfos'
+        'resultInfo' => 'resultInfo',
+        'userResourceInfos' => 'userResourceInfos'
     ];
 
     /**
@@ -180,8 +180,8 @@ class QueryUserProfileResponseResponseBody implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $setters = [
-        'result_info' => 'setResultInfo',
-        'user_resource_infos' => 'setUserResourceInfos'
+        'resultInfo' => 'setResultInfo',
+        'userResourceInfos' => 'setUserResourceInfos'
     ];
 
     /**
@@ -190,8 +190,8 @@ class QueryUserProfileResponseResponseBody implements ModelInterface, ArrayAcces
      * @var string[]
      */
     protected static $getters = [
-        'result_info' => 'getResultInfo',
-        'user_resource_infos' => 'getUserResourceInfos'
+        'resultInfo' => 'getResultInfo',
+        'userResourceInfos' => 'getUserResourceInfos'
     ];
 
     /**
@@ -251,8 +251,8 @@ class QueryUserProfileResponseResponseBody implements ModelInterface, ArrayAcces
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('result_info', $data ?? [], null);
-        $this->setIfExists('user_resource_infos', $data ?? [], null);
+        $this->setIfExists('resultInfo', $data ?? [], null);
+        $this->setIfExists('userResourceInfos', $data ?? [], null);
     }
 
     /**
@@ -282,8 +282,8 @@ class QueryUserProfileResponseResponseBody implements ModelInterface, ArrayAcces
     {
         $invalidProperties = [];
 
-        if ($this->container['result_info'] === null) {
-            $invalidProperties[] = "'result_info' can't be null";
+        if ($this->container['resultInfo'] === null) {
+            $invalidProperties[] = "'resultInfo' can't be null";
         }
         return $invalidProperties;
     }
@@ -301,55 +301,55 @@ class QueryUserProfileResponseResponseBody implements ModelInterface, ArrayAcces
 
 
     /**
-     * Gets result_info
+     * Gets resultInfo
      *
      * @return \Dana\Widget\v1\Model\ResultInfo
      */
     public function getResultInfo()
     {
-        return $this->container['result_info'];
+        return $this->container['resultInfo'];
     }
 
     /**
-     * Sets result_info
+     * Sets resultInfo
      *
-     * @param \Dana\Widget\v1\Model\ResultInfo $result_info result_info
+     * @param \Dana\Widget\v1\Model\ResultInfo $resultInfo resultInfo
      *
      * @return self
      */
-    public function setResultInfo($result_info)
+    public function setResultInfo($resultInfo)
     {
-        if (is_null($result_info)) {
-            throw new \InvalidArgumentException('non-nullable result_info cannot be null');
+        if (is_null($resultInfo)) {
+            throw new \InvalidArgumentException('non-nullable resultInfo cannot be null');
         }
-        $this->container['result_info'] = $result_info;
+        $this->container['resultInfo'] = $resultInfo;
 
         return $this;
     }
 
     /**
-     * Gets user_resource_infos
+     * Gets userResourceInfos
      *
      * @return \Dana\Widget\v1\Model\UserResourceInfo[]|null
      */
     public function getUserResourceInfos()
     {
-        return $this->container['user_resource_infos'];
+        return $this->container['userResourceInfos'];
     }
 
     /**
-     * Sets user_resource_infos
+     * Sets userResourceInfos
      *
-     * @param \Dana\Widget\v1\Model\UserResourceInfo[]|null $user_resource_infos The querying resource list value
+     * @param \Dana\Widget\v1\Model\UserResourceInfo[]|null $userResourceInfos The querying resource list value
      *
      * @return self
      */
-    public function setUserResourceInfos($user_resource_infos)
+    public function setUserResourceInfos($userResourceInfos)
     {
-        if (is_null($user_resource_infos)) {
-            throw new \InvalidArgumentException('non-nullable user_resource_infos cannot be null');
+        if (is_null($userResourceInfos)) {
+            throw new \InvalidArgumentException('non-nullable userResourceInfos cannot be null');
         }
-        $this->container['user_resource_infos'] = $user_resource_infos;
+        $this->container['userResourceInfos'] = $userResourceInfos;
 
         return $this;
     }

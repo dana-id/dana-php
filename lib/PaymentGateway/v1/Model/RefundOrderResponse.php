@@ -58,17 +58,17 @@ class RefundOrderResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'response_code' => 'string',
-        'response_message' => 'string',
-        'original_reference_no' => 'string',
-        'original_partner_reference_no' => 'string',
-        'original_external_id' => 'string',
-        'original_capture_no' => 'string',
-        'refund_no' => 'string',
-        'partner_refund_no' => 'string',
-        'refund_amount' => '\Dana\PaymentGateway\v1\Model\Money',
-        'refund_time' => 'string',
-        'additional_info' => 'object'
+        'responseCode' => 'string',
+        'responseMessage' => 'string',
+        'originalReferenceNo' => 'string',
+        'originalPartnerReferenceNo' => 'string',
+        'originalExternalId' => 'string',
+        'originalCaptureNo' => 'string',
+        'refundNo' => 'string',
+        'partnerRefundNo' => 'string',
+        'refundAmount' => '\Dana\PaymentGateway\v1\Model\Money',
+        'refundTime' => 'string',
+        'additionalInfo' => 'object'
     ];
 
     /**
@@ -79,17 +79,17 @@ class RefundOrderResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'response_code' => null,
-        'response_message' => null,
-        'original_reference_no' => null,
-        'original_partner_reference_no' => null,
-        'original_external_id' => null,
-        'original_capture_no' => null,
-        'refund_no' => null,
-        'partner_refund_no' => null,
-        'refund_amount' => null,
-        'refund_time' => null,
-        'additional_info' => null
+        'responseCode' => null,
+        'responseMessage' => null,
+        'originalReferenceNo' => null,
+        'originalPartnerReferenceNo' => null,
+        'originalExternalId' => null,
+        'originalCaptureNo' => null,
+        'refundNo' => null,
+        'partnerRefundNo' => null,
+        'refundAmount' => null,
+        'refundTime' => null,
+        'additionalInfo' => null
     ];
 
     /**
@@ -98,17 +98,17 @@ class RefundOrderResponse implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'response_code' => false,
-        'response_message' => false,
-        'original_reference_no' => false,
-        'original_partner_reference_no' => false,
-        'original_external_id' => false,
-        'original_capture_no' => false,
-        'refund_no' => false,
-        'partner_refund_no' => false,
-        'refund_amount' => false,
-        'refund_time' => false,
-        'additional_info' => false
+        'responseCode' => false,
+        'responseMessage' => false,
+        'originalReferenceNo' => false,
+        'originalPartnerReferenceNo' => false,
+        'originalExternalId' => false,
+        'originalCaptureNo' => false,
+        'refundNo' => false,
+        'partnerRefundNo' => false,
+        'refundAmount' => false,
+        'refundTime' => false,
+        'additionalInfo' => false
     ];
 
     /**
@@ -197,17 +197,17 @@ class RefundOrderResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'response_code' => 'responseCode',
-        'response_message' => 'responseMessage',
-        'original_reference_no' => 'originalReferenceNo',
-        'original_partner_reference_no' => 'originalPartnerReferenceNo',
-        'original_external_id' => 'originalExternalId',
-        'original_capture_no' => 'originalCaptureNo',
-        'refund_no' => 'refundNo',
-        'partner_refund_no' => 'partnerRefundNo',
-        'refund_amount' => 'refundAmount',
-        'refund_time' => 'refundTime',
-        'additional_info' => 'additionalInfo'
+        'responseCode' => 'responseCode',
+        'responseMessage' => 'responseMessage',
+        'originalReferenceNo' => 'originalReferenceNo',
+        'originalPartnerReferenceNo' => 'originalPartnerReferenceNo',
+        'originalExternalId' => 'originalExternalId',
+        'originalCaptureNo' => 'originalCaptureNo',
+        'refundNo' => 'refundNo',
+        'partnerRefundNo' => 'partnerRefundNo',
+        'refundAmount' => 'refundAmount',
+        'refundTime' => 'refundTime',
+        'additionalInfo' => 'additionalInfo'
     ];
 
     /**
@@ -216,17 +216,17 @@ class RefundOrderResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'response_code' => 'setResponseCode',
-        'response_message' => 'setResponseMessage',
-        'original_reference_no' => 'setOriginalReferenceNo',
-        'original_partner_reference_no' => 'setOriginalPartnerReferenceNo',
-        'original_external_id' => 'setOriginalExternalId',
-        'original_capture_no' => 'setOriginalCaptureNo',
-        'refund_no' => 'setRefundNo',
-        'partner_refund_no' => 'setPartnerRefundNo',
-        'refund_amount' => 'setRefundAmount',
-        'refund_time' => 'setRefundTime',
-        'additional_info' => 'setAdditionalInfo'
+        'responseCode' => 'setResponseCode',
+        'responseMessage' => 'setResponseMessage',
+        'originalReferenceNo' => 'setOriginalReferenceNo',
+        'originalPartnerReferenceNo' => 'setOriginalPartnerReferenceNo',
+        'originalExternalId' => 'setOriginalExternalId',
+        'originalCaptureNo' => 'setOriginalCaptureNo',
+        'refundNo' => 'setRefundNo',
+        'partnerRefundNo' => 'setPartnerRefundNo',
+        'refundAmount' => 'setRefundAmount',
+        'refundTime' => 'setRefundTime',
+        'additionalInfo' => 'setAdditionalInfo'
     ];
 
     /**
@@ -235,17 +235,17 @@ class RefundOrderResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'response_code' => 'getResponseCode',
-        'response_message' => 'getResponseMessage',
-        'original_reference_no' => 'getOriginalReferenceNo',
-        'original_partner_reference_no' => 'getOriginalPartnerReferenceNo',
-        'original_external_id' => 'getOriginalExternalId',
-        'original_capture_no' => 'getOriginalCaptureNo',
-        'refund_no' => 'getRefundNo',
-        'partner_refund_no' => 'getPartnerRefundNo',
-        'refund_amount' => 'getRefundAmount',
-        'refund_time' => 'getRefundTime',
-        'additional_info' => 'getAdditionalInfo'
+        'responseCode' => 'getResponseCode',
+        'responseMessage' => 'getResponseMessage',
+        'originalReferenceNo' => 'getOriginalReferenceNo',
+        'originalPartnerReferenceNo' => 'getOriginalPartnerReferenceNo',
+        'originalExternalId' => 'getOriginalExternalId',
+        'originalCaptureNo' => 'getOriginalCaptureNo',
+        'refundNo' => 'getRefundNo',
+        'partnerRefundNo' => 'getPartnerRefundNo',
+        'refundAmount' => 'getRefundAmount',
+        'refundTime' => 'getRefundTime',
+        'additionalInfo' => 'getAdditionalInfo'
     ];
 
     /**
@@ -305,17 +305,17 @@ class RefundOrderResponse implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('response_code', $data ?? [], null);
-        $this->setIfExists('response_message', $data ?? [], null);
-        $this->setIfExists('original_reference_no', $data ?? [], null);
-        $this->setIfExists('original_partner_reference_no', $data ?? [], null);
-        $this->setIfExists('original_external_id', $data ?? [], null);
-        $this->setIfExists('original_capture_no', $data ?? [], null);
-        $this->setIfExists('refund_no', $data ?? [], null);
-        $this->setIfExists('partner_refund_no', $data ?? [], null);
-        $this->setIfExists('refund_amount', $data ?? [], null);
-        $this->setIfExists('refund_time', $data ?? [], null);
-        $this->setIfExists('additional_info', $data ?? [], null);
+        $this->setIfExists('responseCode', $data ?? [], null);
+        $this->setIfExists('responseMessage', $data ?? [], null);
+        $this->setIfExists('originalReferenceNo', $data ?? [], null);
+        $this->setIfExists('originalPartnerReferenceNo', $data ?? [], null);
+        $this->setIfExists('originalExternalId', $data ?? [], null);
+        $this->setIfExists('originalCaptureNo', $data ?? [], null);
+        $this->setIfExists('refundNo', $data ?? [], null);
+        $this->setIfExists('partnerRefundNo', $data ?? [], null);
+        $this->setIfExists('refundAmount', $data ?? [], null);
+        $this->setIfExists('refundTime', $data ?? [], null);
+        $this->setIfExists('additionalInfo', $data ?? [], null);
     }
 
     /**
@@ -345,59 +345,59 @@ class RefundOrderResponse implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
-        if ($this->container['response_code'] === null) {
-            $invalidProperties[] = "'response_code' can't be null";
+        if ($this->container['responseCode'] === null) {
+            $invalidProperties[] = "'responseCode' can't be null";
         }
-        if ((mb_strlen($this->container['response_code']) > 7)) {
-            $invalidProperties[] = "invalid value for 'response_code', the character length must be smaller than or equal to 7.";
-        }
-
-        if ($this->container['response_message'] === null) {
-            $invalidProperties[] = "'response_message' can't be null";
-        }
-        if ((mb_strlen($this->container['response_message']) > 150)) {
-            $invalidProperties[] = "invalid value for 'response_message', the character length must be smaller than or equal to 150.";
+        if ((mb_strlen($this->container['responseCode']) > 7)) {
+            $invalidProperties[] = "invalid value for 'responseCode', the character length must be smaller than or equal to 7.";
         }
 
-        if (!is_null($this->container['original_reference_no']) && (mb_strlen($this->container['original_reference_no']) > 64)) {
-            $invalidProperties[] = "invalid value for 'original_reference_no', the character length must be smaller than or equal to 64.";
+        if ($this->container['responseMessage'] === null) {
+            $invalidProperties[] = "'responseMessage' can't be null";
+        }
+        if ((mb_strlen($this->container['responseMessage']) > 150)) {
+            $invalidProperties[] = "invalid value for 'responseMessage', the character length must be smaller than or equal to 150.";
         }
 
-        if ($this->container['original_partner_reference_no'] === null) {
-            $invalidProperties[] = "'original_partner_reference_no' can't be null";
-        }
-        if ((mb_strlen($this->container['original_partner_reference_no']) > 64)) {
-            $invalidProperties[] = "invalid value for 'original_partner_reference_no', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['originalReferenceNo']) && (mb_strlen($this->container['originalReferenceNo']) > 64)) {
+            $invalidProperties[] = "invalid value for 'originalReferenceNo', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['original_external_id']) && (mb_strlen($this->container['original_external_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'original_external_id', the character length must be smaller than or equal to 36.";
+        if ($this->container['originalPartnerReferenceNo'] === null) {
+            $invalidProperties[] = "'originalPartnerReferenceNo' can't be null";
+        }
+        if ((mb_strlen($this->container['originalPartnerReferenceNo']) > 64)) {
+            $invalidProperties[] = "invalid value for 'originalPartnerReferenceNo', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['original_capture_no']) && (mb_strlen($this->container['original_capture_no']) > 64)) {
-            $invalidProperties[] = "invalid value for 'original_capture_no', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['originalExternalId']) && (mb_strlen($this->container['originalExternalId']) > 36)) {
+            $invalidProperties[] = "invalid value for 'originalExternalId', the character length must be smaller than or equal to 36.";
         }
 
-        if (!is_null($this->container['refund_no']) && (mb_strlen($this->container['refund_no']) > 64)) {
-            $invalidProperties[] = "invalid value for 'refund_no', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['originalCaptureNo']) && (mb_strlen($this->container['originalCaptureNo']) > 64)) {
+            $invalidProperties[] = "invalid value for 'originalCaptureNo', the character length must be smaller than or equal to 64.";
         }
 
-        if ($this->container['partner_refund_no'] === null) {
-            $invalidProperties[] = "'partner_refund_no' can't be null";
-        }
-        if ((mb_strlen($this->container['partner_refund_no']) > 64)) {
-            $invalidProperties[] = "invalid value for 'partner_refund_no', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['refundNo']) && (mb_strlen($this->container['refundNo']) > 64)) {
+            $invalidProperties[] = "invalid value for 'refundNo', the character length must be smaller than or equal to 64.";
         }
 
-        if ($this->container['refund_amount'] === null) {
-            $invalidProperties[] = "'refund_amount' can't be null";
+        if ($this->container['partnerRefundNo'] === null) {
+            $invalidProperties[] = "'partnerRefundNo' can't be null";
         }
-        if (!is_null($this->container['refund_time']) && (mb_strlen($this->container['refund_time']) > 25)) {
-            $invalidProperties[] = "invalid value for 'refund_time', the character length must be smaller than or equal to 25.";
+        if ((mb_strlen($this->container['partnerRefundNo']) > 64)) {
+            $invalidProperties[] = "invalid value for 'partnerRefundNo', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['refund_time']) && !preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['refund_time'])) {
-            $invalidProperties[] = "invalid value for 'refund_time', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
+        if ($this->container['refundAmount'] === null) {
+            $invalidProperties[] = "'refundAmount' can't be null";
+        }
+        if (!is_null($this->container['refundTime']) && (mb_strlen($this->container['refundTime']) > 25)) {
+            $invalidProperties[] = "invalid value for 'refundTime', the character length must be smaller than or equal to 25.";
+        }
+
+        if (!is_null($this->container['refundTime']) && !preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['refundTime'])) {
+            $invalidProperties[] = "invalid value for 'refundTime', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
         }
 
         return $invalidProperties;
@@ -416,337 +416,337 @@ class RefundOrderResponse implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets response_code
+     * Gets responseCode
      *
      * @return string
      */
     public function getResponseCode()
     {
-        return $this->container['response_code'];
+        return $this->container['responseCode'];
     }
 
     /**
-     * Sets response_code
+     * Sets responseCode
      *
-     * @param string $response_code Response code. Refer to https://dashboard.dana.id/api-docs/read/127#HTML-API-RefundOrder-ResponseCodeandMessage
+     * @param string $responseCode Response code. Refer to https://dashboard.dana.id/api-docs/read/127#HTML-API-RefundOrder-ResponseCodeandMessage
      *
      * @return self
      */
-    public function setResponseCode($response_code)
+    public function setResponseCode($responseCode)
     {
-        if (is_null($response_code)) {
-            throw new \InvalidArgumentException('non-nullable response_code cannot be null');
+        if (is_null($responseCode)) {
+            throw new \InvalidArgumentException('non-nullable responseCode cannot be null');
         }
-        if ((mb_strlen($response_code) > 7)) {
-            throw new \InvalidArgumentException('invalid length for $response_code when calling RefundOrderResponse., must be smaller than or equal to 7.');
+        if ((mb_strlen($responseCode) > 7)) {
+            throw new \InvalidArgumentException('invalid length for $responseCode when calling RefundOrderResponse., must be smaller than or equal to 7.');
         }
 
-        $this->container['response_code'] = $response_code;
+        $this->container['responseCode'] = $responseCode;
 
         return $this;
     }
 
     /**
-     * Gets response_message
+     * Gets responseMessage
      *
      * @return string
      */
     public function getResponseMessage()
     {
-        return $this->container['response_message'];
+        return $this->container['responseMessage'];
     }
 
     /**
-     * Sets response_message
+     * Sets responseMessage
      *
-     * @param string $response_message Response message. Refer to https://dashboard.dana.id/api-docs/read/127#HTML-API-RefundOrder-ResponseCodeandMessage
+     * @param string $responseMessage Response message. Refer to https://dashboard.dana.id/api-docs/read/127#HTML-API-RefundOrder-ResponseCodeandMessage
      *
      * @return self
      */
-    public function setResponseMessage($response_message)
+    public function setResponseMessage($responseMessage)
     {
-        if (is_null($response_message)) {
-            throw new \InvalidArgumentException('non-nullable response_message cannot be null');
+        if (is_null($responseMessage)) {
+            throw new \InvalidArgumentException('non-nullable responseMessage cannot be null');
         }
-        if ((mb_strlen($response_message) > 150)) {
-            throw new \InvalidArgumentException('invalid length for $response_message when calling RefundOrderResponse., must be smaller than or equal to 150.');
+        if ((mb_strlen($responseMessage) > 150)) {
+            throw new \InvalidArgumentException('invalid length for $responseMessage when calling RefundOrderResponse., must be smaller than or equal to 150.');
         }
 
-        $this->container['response_message'] = $response_message;
+        $this->container['responseMessage'] = $responseMessage;
 
         return $this;
     }
 
     /**
-     * Gets original_reference_no
+     * Gets originalReferenceNo
      *
      * @return string|null
      */
     public function getOriginalReferenceNo()
     {
-        return $this->container['original_reference_no'];
+        return $this->container['originalReferenceNo'];
     }
 
     /**
-     * Sets original_reference_no
+     * Sets originalReferenceNo
      *
-     * @param string|null $original_reference_no Original transaction identifier on DANA system
+     * @param string|null $originalReferenceNo Original transaction identifier on DANA system
      *
      * @return self
      */
-    public function setOriginalReferenceNo($original_reference_no)
+    public function setOriginalReferenceNo($originalReferenceNo)
     {
-        if (is_null($original_reference_no)) {
-            throw new \InvalidArgumentException('non-nullable original_reference_no cannot be null');
+        if (is_null($originalReferenceNo)) {
+            throw new \InvalidArgumentException('non-nullable originalReferenceNo cannot be null');
         }
-        if ((mb_strlen($original_reference_no) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $original_reference_no when calling RefundOrderResponse., must be smaller than or equal to 64.');
+        if ((mb_strlen($originalReferenceNo) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $originalReferenceNo when calling RefundOrderResponse., must be smaller than or equal to 64.');
         }
 
-        $this->container['original_reference_no'] = $original_reference_no;
+        $this->container['originalReferenceNo'] = $originalReferenceNo;
 
         return $this;
     }
 
     /**
-     * Gets original_partner_reference_no
+     * Gets originalPartnerReferenceNo
      *
      * @return string
      */
     public function getOriginalPartnerReferenceNo()
     {
-        return $this->container['original_partner_reference_no'];
+        return $this->container['originalPartnerReferenceNo'];
     }
 
     /**
-     * Sets original_partner_reference_no
+     * Sets originalPartnerReferenceNo
      *
-     * @param string $original_partner_reference_no Original transaction identifier on partner system
+     * @param string $originalPartnerReferenceNo Original transaction identifier on partner system
      *
      * @return self
      */
-    public function setOriginalPartnerReferenceNo($original_partner_reference_no)
+    public function setOriginalPartnerReferenceNo($originalPartnerReferenceNo)
     {
-        if (is_null($original_partner_reference_no)) {
-            throw new \InvalidArgumentException('non-nullable original_partner_reference_no cannot be null');
+        if (is_null($originalPartnerReferenceNo)) {
+            throw new \InvalidArgumentException('non-nullable originalPartnerReferenceNo cannot be null');
         }
-        if ((mb_strlen($original_partner_reference_no) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $original_partner_reference_no when calling RefundOrderResponse., must be smaller than or equal to 64.');
+        if ((mb_strlen($originalPartnerReferenceNo) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $originalPartnerReferenceNo when calling RefundOrderResponse., must be smaller than or equal to 64.');
         }
 
-        $this->container['original_partner_reference_no'] = $original_partner_reference_no;
+        $this->container['originalPartnerReferenceNo'] = $originalPartnerReferenceNo;
 
         return $this;
     }
 
     /**
-     * Gets original_external_id
+     * Gets originalExternalId
      *
      * @return string|null
      */
     public function getOriginalExternalId()
     {
-        return $this->container['original_external_id'];
+        return $this->container['originalExternalId'];
     }
 
     /**
-     * Sets original_external_id
+     * Sets originalExternalId
      *
-     * @param string|null $original_external_id Original external identifier on header message
+     * @param string|null $originalExternalId Original external identifier on header message
      *
      * @return self
      */
-    public function setOriginalExternalId($original_external_id)
+    public function setOriginalExternalId($originalExternalId)
     {
-        if (is_null($original_external_id)) {
-            throw new \InvalidArgumentException('non-nullable original_external_id cannot be null');
+        if (is_null($originalExternalId)) {
+            throw new \InvalidArgumentException('non-nullable originalExternalId cannot be null');
         }
-        if ((mb_strlen($original_external_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $original_external_id when calling RefundOrderResponse., must be smaller than or equal to 36.');
+        if ((mb_strlen($originalExternalId) > 36)) {
+            throw new \InvalidArgumentException('invalid length for $originalExternalId when calling RefundOrderResponse., must be smaller than or equal to 36.');
         }
 
-        $this->container['original_external_id'] = $original_external_id;
+        $this->container['originalExternalId'] = $originalExternalId;
 
         return $this;
     }
 
     /**
-     * Gets original_capture_no
+     * Gets originalCaptureNo
      *
      * @return string|null
      */
     public function getOriginalCaptureNo()
     {
-        return $this->container['original_capture_no'];
+        return $this->container['originalCaptureNo'];
     }
 
     /**
-     * Sets original_capture_no
+     * Sets originalCaptureNo
      *
-     * @param string|null $original_capture_no DANA's capture identifier. Use to refund the corresponding capture order
+     * @param string|null $originalCaptureNo DANA's capture identifier. Use to refund the corresponding capture order
      *
      * @return self
      */
-    public function setOriginalCaptureNo($original_capture_no)
+    public function setOriginalCaptureNo($originalCaptureNo)
     {
-        if (is_null($original_capture_no)) {
-            throw new \InvalidArgumentException('non-nullable original_capture_no cannot be null');
+        if (is_null($originalCaptureNo)) {
+            throw new \InvalidArgumentException('non-nullable originalCaptureNo cannot be null');
         }
-        if ((mb_strlen($original_capture_no) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $original_capture_no when calling RefundOrderResponse., must be smaller than or equal to 64.');
+        if ((mb_strlen($originalCaptureNo) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $originalCaptureNo when calling RefundOrderResponse., must be smaller than or equal to 64.');
         }
 
-        $this->container['original_capture_no'] = $original_capture_no;
+        $this->container['originalCaptureNo'] = $originalCaptureNo;
 
         return $this;
     }
 
     /**
-     * Gets refund_no
+     * Gets refundNo
      *
      * @return string|null
      */
     public function getRefundNo()
     {
-        return $this->container['refund_no'];
+        return $this->container['refundNo'];
     }
 
     /**
-     * Sets refund_no
+     * Sets refundNo
      *
-     * @param string|null $refund_no Refund number identifier on DANA system
+     * @param string|null $refundNo Refund number identifier on DANA system
      *
      * @return self
      */
-    public function setRefundNo($refund_no)
+    public function setRefundNo($refundNo)
     {
-        if (is_null($refund_no)) {
-            throw new \InvalidArgumentException('non-nullable refund_no cannot be null');
+        if (is_null($refundNo)) {
+            throw new \InvalidArgumentException('non-nullable refundNo cannot be null');
         }
-        if ((mb_strlen($refund_no) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $refund_no when calling RefundOrderResponse., must be smaller than or equal to 64.');
+        if ((mb_strlen($refundNo) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $refundNo when calling RefundOrderResponse., must be smaller than or equal to 64.');
         }
 
-        $this->container['refund_no'] = $refund_no;
+        $this->container['refundNo'] = $refundNo;
 
         return $this;
     }
 
     /**
-     * Gets partner_refund_no
+     * Gets partnerRefundNo
      *
      * @return string
      */
     public function getPartnerRefundNo()
     {
-        return $this->container['partner_refund_no'];
+        return $this->container['partnerRefundNo'];
     }
 
     /**
-     * Sets partner_refund_no
+     * Sets partnerRefundNo
      *
-     * @param string $partner_refund_no Reference number from merchant for the refund
+     * @param string $partnerRefundNo Reference number from merchant for the refund
      *
      * @return self
      */
-    public function setPartnerRefundNo($partner_refund_no)
+    public function setPartnerRefundNo($partnerRefundNo)
     {
-        if (is_null($partner_refund_no)) {
-            throw new \InvalidArgumentException('non-nullable partner_refund_no cannot be null');
+        if (is_null($partnerRefundNo)) {
+            throw new \InvalidArgumentException('non-nullable partnerRefundNo cannot be null');
         }
-        if ((mb_strlen($partner_refund_no) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $partner_refund_no when calling RefundOrderResponse., must be smaller than or equal to 64.');
+        if ((mb_strlen($partnerRefundNo) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $partnerRefundNo when calling RefundOrderResponse., must be smaller than or equal to 64.');
         }
 
-        $this->container['partner_refund_no'] = $partner_refund_no;
+        $this->container['partnerRefundNo'] = $partnerRefundNo;
 
         return $this;
     }
 
     /**
-     * Gets refund_amount
+     * Gets refundAmount
      *
      * @return \Dana\PaymentGateway\v1\Model\Money
      */
     public function getRefundAmount()
     {
-        return $this->container['refund_amount'];
+        return $this->container['refundAmount'];
     }
 
     /**
-     * Sets refund_amount
+     * Sets refundAmount
      *
-     * @param \Dana\PaymentGateway\v1\Model\Money $refund_amount Refund amount. Contains two sub-fields - 1. Value (Amount, including the cents) and 2. Currency (Currency code based on ISO)
+     * @param \Dana\PaymentGateway\v1\Model\Money $refundAmount Refund amount. Contains two sub-fields - 1. Value (Amount, including the cents) and 2. Currency (Currency code based on ISO)
      *
      * @return self
      */
-    public function setRefundAmount($refund_amount)
+    public function setRefundAmount($refundAmount)
     {
-        if (is_null($refund_amount)) {
-            throw new \InvalidArgumentException('non-nullable refund_amount cannot be null');
+        if (is_null($refundAmount)) {
+            throw new \InvalidArgumentException('non-nullable refundAmount cannot be null');
         }
-        $this->container['refund_amount'] = $refund_amount;
+        $this->container['refundAmount'] = $refundAmount;
 
         return $this;
     }
 
     /**
-     * Gets refund_time
+     * Gets refundTime
      *
      * @return string|null
      */
     public function getRefundTime()
     {
-        return $this->container['refund_time'];
+        return $this->container['refundTime'];
     }
 
     /**
-     * Sets refund_time
+     * Sets refundTime
      *
-     * @param string|null $refund_time Refund time, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time)
+     * @param string|null $refundTime Refund time, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time)
      *
      * @return self
      */
-    public function setRefundTime($refund_time)
+    public function setRefundTime($refundTime)
     {
-        if (is_null($refund_time)) {
-            throw new \InvalidArgumentException('non-nullable refund_time cannot be null');
+        if (is_null($refundTime)) {
+            throw new \InvalidArgumentException('non-nullable refundTime cannot be null');
         }
-        if ((mb_strlen($refund_time) > 25)) {
-            throw new \InvalidArgumentException('invalid length for $refund_time when calling RefundOrderResponse., must be smaller than or equal to 25.');
+        if ((mb_strlen($refundTime) > 25)) {
+            throw new \InvalidArgumentException('invalid length for $refundTime when calling RefundOrderResponse., must be smaller than or equal to 25.');
         }
-        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($refund_time)))) {
-            throw new \InvalidArgumentException("invalid value for \$refund_time when calling RefundOrderResponse., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
+        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($refundTime)))) {
+            throw new \InvalidArgumentException("invalid value for \$refundTime when calling RefundOrderResponse., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
         }
 
-        $this->container['refund_time'] = $refund_time;
+        $this->container['refundTime'] = $refundTime;
 
         return $this;
     }
 
     /**
-     * Gets additional_info
+     * Gets additionalInfo
      *
      * @return object|null
      */
     public function getAdditionalInfo()
     {
-        return $this->container['additional_info'];
+        return $this->container['additionalInfo'];
     }
 
     /**
-     * Sets additional_info
+     * Sets additionalInfo
      *
-     * @param object|null $additional_info Additional information
+     * @param object|null $additionalInfo Additional information
      *
      * @return self
      */
-    public function setAdditionalInfo($additional_info)
+    public function setAdditionalInfo($additionalInfo)
     {
-        if (is_null($additional_info)) {
-            throw new \InvalidArgumentException('non-nullable additional_info cannot be null');
+        if (is_null($additionalInfo)) {
+            throw new \InvalidArgumentException('non-nullable additionalInfo cannot be null');
         }
-        $this->container['additional_info'] = $additional_info;
+        $this->container['additionalInfo'] = $additionalInfo;
 
         return $this;
     }

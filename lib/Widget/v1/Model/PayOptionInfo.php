@@ -58,14 +58,14 @@ class PayOptionInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'pay_method' => 'string',
-        'pay_option' => 'string',
-        'pay_amount' => '\Dana\Widget\v1\Model\Money',
-        'trans_amount' => '\Dana\Widget\v1\Model\Money',
-        'charge_amount' => '\Dana\Widget\v1\Model\Money',
-        'pay_option_bill_extend_info' => 'string',
-        'extend_info' => 'string',
-        'payment_code' => 'string'
+        'payMethod' => 'string',
+        'payOption' => 'string',
+        'payAmount' => '\Dana\Widget\v1\Model\Money',
+        'transAmount' => '\Dana\Widget\v1\Model\Money',
+        'chargeAmount' => '\Dana\Widget\v1\Model\Money',
+        'payOptionBillExtendInfo' => 'string',
+        'extendInfo' => 'string',
+        'paymentCode' => 'string'
     ];
 
     /**
@@ -76,14 +76,14 @@ class PayOptionInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'pay_method' => null,
-        'pay_option' => null,
-        'pay_amount' => null,
-        'trans_amount' => null,
-        'charge_amount' => null,
-        'pay_option_bill_extend_info' => null,
-        'extend_info' => null,
-        'payment_code' => null
+        'payMethod' => null,
+        'payOption' => null,
+        'payAmount' => null,
+        'transAmount' => null,
+        'chargeAmount' => null,
+        'payOptionBillExtendInfo' => null,
+        'extendInfo' => null,
+        'paymentCode' => null
     ];
 
     /**
@@ -92,14 +92,14 @@ class PayOptionInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'pay_method' => false,
-        'pay_option' => false,
-        'pay_amount' => false,
-        'trans_amount' => false,
-        'charge_amount' => false,
-        'pay_option_bill_extend_info' => false,
-        'extend_info' => false,
-        'payment_code' => false
+        'payMethod' => false,
+        'payOption' => false,
+        'payAmount' => false,
+        'transAmount' => false,
+        'chargeAmount' => false,
+        'payOptionBillExtendInfo' => false,
+        'extendInfo' => false,
+        'paymentCode' => false
     ];
 
     /**
@@ -188,14 +188,14 @@ class PayOptionInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'pay_method' => 'payMethod',
-        'pay_option' => 'payOption',
-        'pay_amount' => 'payAmount',
-        'trans_amount' => 'transAmount',
-        'charge_amount' => 'chargeAmount',
-        'pay_option_bill_extend_info' => 'payOptionBillExtendInfo',
-        'extend_info' => 'extendInfo',
-        'payment_code' => 'paymentCode'
+        'payMethod' => 'payMethod',
+        'payOption' => 'payOption',
+        'payAmount' => 'payAmount',
+        'transAmount' => 'transAmount',
+        'chargeAmount' => 'chargeAmount',
+        'payOptionBillExtendInfo' => 'payOptionBillExtendInfo',
+        'extendInfo' => 'extendInfo',
+        'paymentCode' => 'paymentCode'
     ];
 
     /**
@@ -204,14 +204,14 @@ class PayOptionInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'pay_method' => 'setPayMethod',
-        'pay_option' => 'setPayOption',
-        'pay_amount' => 'setPayAmount',
-        'trans_amount' => 'setTransAmount',
-        'charge_amount' => 'setChargeAmount',
-        'pay_option_bill_extend_info' => 'setPayOptionBillExtendInfo',
-        'extend_info' => 'setExtendInfo',
-        'payment_code' => 'setPaymentCode'
+        'payMethod' => 'setPayMethod',
+        'payOption' => 'setPayOption',
+        'payAmount' => 'setPayAmount',
+        'transAmount' => 'setTransAmount',
+        'chargeAmount' => 'setChargeAmount',
+        'payOptionBillExtendInfo' => 'setPayOptionBillExtendInfo',
+        'extendInfo' => 'setExtendInfo',
+        'paymentCode' => 'setPaymentCode'
     ];
 
     /**
@@ -220,14 +220,14 @@ class PayOptionInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'pay_method' => 'getPayMethod',
-        'pay_option' => 'getPayOption',
-        'pay_amount' => 'getPayAmount',
-        'trans_amount' => 'getTransAmount',
-        'charge_amount' => 'getChargeAmount',
-        'pay_option_bill_extend_info' => 'getPayOptionBillExtendInfo',
-        'extend_info' => 'getExtendInfo',
-        'payment_code' => 'getPaymentCode'
+        'payMethod' => 'getPayMethod',
+        'payOption' => 'getPayOption',
+        'payAmount' => 'getPayAmount',
+        'transAmount' => 'getTransAmount',
+        'chargeAmount' => 'getChargeAmount',
+        'payOptionBillExtendInfo' => 'getPayOptionBillExtendInfo',
+        'extendInfo' => 'getExtendInfo',
+        'paymentCode' => 'getPaymentCode'
     ];
 
     /**
@@ -357,14 +357,14 @@ class PayOptionInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('pay_method', $data ?? [], null);
-        $this->setIfExists('pay_option', $data ?? [], null);
-        $this->setIfExists('pay_amount', $data ?? [], null);
-        $this->setIfExists('trans_amount', $data ?? [], null);
-        $this->setIfExists('charge_amount', $data ?? [], null);
-        $this->setIfExists('pay_option_bill_extend_info', $data ?? [], null);
-        $this->setIfExists('extend_info', $data ?? [], null);
-        $this->setIfExists('payment_code', $data ?? [], null);
+        $this->setIfExists('payMethod', $data ?? [], null);
+        $this->setIfExists('payOption', $data ?? [], null);
+        $this->setIfExists('payAmount', $data ?? [], null);
+        $this->setIfExists('transAmount', $data ?? [], null);
+        $this->setIfExists('chargeAmount', $data ?? [], null);
+        $this->setIfExists('payOptionBillExtendInfo', $data ?? [], null);
+        $this->setIfExists('extendInfo', $data ?? [], null);
+        $this->setIfExists('paymentCode', $data ?? [], null);
     }
 
     /**
@@ -394,45 +394,45 @@ class PayOptionInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['pay_method'] === null) {
-            $invalidProperties[] = "'pay_method' can't be null";
+        if ($this->container['payMethod'] === null) {
+            $invalidProperties[] = "'payMethod' can't be null";
         }
         $allowedValues = $this->getPayMethodAllowableValues();
-        if (!is_null($this->container['pay_method']) && !in_array($this->container['pay_method'], $allowedValues, true)) {
+        if (!is_null($this->container['payMethod']) && !in_array($this->container['payMethod'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'pay_method', must be one of '%s'",
-                $this->container['pay_method'],
+                "invalid value '%s' for 'payMethod', must be one of '%s'",
+                $this->container['payMethod'],
                 implode("', '", $allowedValues)
             );
         }
 
-        if ((mb_strlen($this->container['pay_method']) > 64)) {
-            $invalidProperties[] = "invalid value for 'pay_method', the character length must be smaller than or equal to 64.";
+        if ((mb_strlen($this->container['payMethod']) > 64)) {
+            $invalidProperties[] = "invalid value for 'payMethod', the character length must be smaller than or equal to 64.";
         }
 
         $allowedValues = $this->getPayOptionAllowableValues();
-        if (!is_null($this->container['pay_option']) && !in_array($this->container['pay_option'], $allowedValues, true)) {
+        if (!is_null($this->container['payOption']) && !in_array($this->container['payOption'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'pay_option', must be one of '%s'",
-                $this->container['pay_option'],
+                "invalid value '%s' for 'payOption', must be one of '%s'",
+                $this->container['payOption'],
                 implode("', '", $allowedValues)
             );
         }
 
-        if (!is_null($this->container['pay_option']) && (mb_strlen($this->container['pay_option']) > 64)) {
-            $invalidProperties[] = "invalid value for 'pay_option', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['payOption']) && (mb_strlen($this->container['payOption']) > 64)) {
+            $invalidProperties[] = "invalid value for 'payOption', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['pay_option_bill_extend_info']) && (mb_strlen($this->container['pay_option_bill_extend_info']) > 4096)) {
-            $invalidProperties[] = "invalid value for 'pay_option_bill_extend_info', the character length must be smaller than or equal to 4096.";
+        if (!is_null($this->container['payOptionBillExtendInfo']) && (mb_strlen($this->container['payOptionBillExtendInfo']) > 4096)) {
+            $invalidProperties[] = "invalid value for 'payOptionBillExtendInfo', the character length must be smaller than or equal to 4096.";
         }
 
-        if (!is_null($this->container['extend_info']) && (mb_strlen($this->container['extend_info']) > 4096)) {
-            $invalidProperties[] = "invalid value for 'extend_info', the character length must be smaller than or equal to 4096.";
+        if (!is_null($this->container['extendInfo']) && (mb_strlen($this->container['extendInfo']) > 4096)) {
+            $invalidProperties[] = "invalid value for 'extendInfo', the character length must be smaller than or equal to 4096.";
         }
 
-        if (!is_null($this->container['payment_code']) && (mb_strlen($this->container['payment_code']) > 64)) {
-            $invalidProperties[] = "invalid value for 'payment_code', the character length must be smaller than or equal to 64.";
+        if (!is_null($this->container['paymentCode']) && (mb_strlen($this->container['paymentCode']) > 64)) {
+            $invalidProperties[] = "invalid value for 'paymentCode', the character length must be smaller than or equal to 64.";
         }
 
         return $invalidProperties;
@@ -451,257 +451,257 @@ class PayOptionInfo implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets pay_method
+     * Gets payMethod
      *
      * @return string
      */
     public function getPayMethod()
     {
-        return $this->container['pay_method'];
+        return $this->container['payMethod'];
     }
 
     /**
-     * Sets pay_method
+     * Sets payMethod
      *
-     * @param string $pay_method Payment method name. The enums:<br>   * BALANCE - Payment method with balance<br>   * COUPON - Payment method with coupon<br>   * NET_BANKING - Payment method with internet banking<br>   * CREDIT_CARD - Payment method with credit card<br>   * DEBIT_CARD - Payment method with debit card<br>   * VIRTUAL_ACCOUNT - Payment method with virtual account<br>   * OTC - Payment method with OTC<br>   * DIRECT_DEBIT_CREDIT_CARD - Payment method with direct debit of credit card<br>   * DIRECT_DEBIT_DEBIT_CARD - Payment method with direct debit of debit card<br>   * ONLINE_CREDIT - Payment method with online Credit<br>   * LOAN_CREDIT - Payment method with DANA Cicil<br>   * NETWORK_PAY - Payment method with e-wallet
+     * @param string $payMethod Payment method name. The enums:<br>   * BALANCE - Payment method with balance<br>   * COUPON - Payment method with coupon<br>   * NET_BANKING - Payment method with internet banking<br>   * CREDIT_CARD - Payment method with credit card<br>   * DEBIT_CARD - Payment method with debit card<br>   * VIRTUAL_ACCOUNT - Payment method with virtual account<br>   * OTC - Payment method with OTC<br>   * DIRECT_DEBIT_CREDIT_CARD - Payment method with direct debit of credit card<br>   * DIRECT_DEBIT_DEBIT_CARD - Payment method with direct debit of debit card<br>   * ONLINE_CREDIT - Payment method with online Credit<br>   * LOAN_CREDIT - Payment method with DANA Cicil<br>   * NETWORK_PAY - Payment method with e-wallet
      *
      * @return self
      */
-    public function setPayMethod($pay_method)
+    public function setPayMethod($payMethod)
     {
-        if (is_null($pay_method)) {
-            throw new \InvalidArgumentException('non-nullable pay_method cannot be null');
+        if (is_null($payMethod)) {
+            throw new \InvalidArgumentException('non-nullable payMethod cannot be null');
         }
         $allowedValues = $this->getPayMethodAllowableValues();
-        if (!in_array($pay_method, $allowedValues, true) && !empty($pay_method)) {
+        if (!in_array($payMethod, $allowedValues, true) && !empty($payMethod)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'pay_method', must be one of '%s'",
-                    $pay_method,
+                    "Invalid value '%s' for 'payMethod', must be one of '%s'",
+                    $payMethod,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        if ((mb_strlen($pay_method) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $pay_method when calling PayOptionInfo., must be smaller than or equal to 64.');
+        if ((mb_strlen($payMethod) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $payMethod when calling PayOptionInfo., must be smaller than or equal to 64.');
         }
 
-        $this->container['pay_method'] = $pay_method;
+        $this->container['payMethod'] = $payMethod;
 
         return $this;
     }
 
     /**
-     * Gets pay_option
+     * Gets payOption
      *
      * @return string|null
      */
     public function getPayOption()
     {
-        return $this->container['pay_option'];
+        return $this->container['payOption'];
     }
 
     /**
-     * Sets pay_option
+     * Sets payOption
      *
-     * @param string|null $pay_option Payment option which shows the provider of this payment. The enums:<br>   * NETWORK_PAY_PG_SPAY - Payment method with ShopeePay e-wallet<br>   * NETWORK_PAY_PG_OVO - Payment method with OVO e-wallet<br>   * NETWORK_PAY_PG_GOPAY - Payment method with GoPay e-wallet<br>   * NETWORK_PAY_PG_LINKAJA - Payment method with LinkAja e-wallet<br>   * NETWORK_PAY_PG_CARD - Payment method with Card<br>   * VIRTUAL_ACCOUNT_BCA - Payment method with BCA virtual account<br>   * VIRTUAL_ACCOUNT_BNI - Payment method with BNI virtual account<br>   * VIRTUAL_ACCOUNT_MANDIRI - Payment method with Mandiri virtual account<br>   * VIRTUAL_ACCOUNT_BRI - Payment method with BRI virtual account<br>   * VIRTUAL_ACCOUNT_BTPN - Payment method with BTPN virtual account<br>   * VIRTUAL_ACCOUNT_CIMB - Payment method with CIMB virtual account<br>   * VIRTUAL_ACCOUNT_PERMATA - Payment method with Permata virtual account<br>
+     * @param string|null $payOption Payment option which shows the provider of this payment. The enums:<br>   * NETWORK_PAY_PG_SPAY - Payment method with ShopeePay e-wallet<br>   * NETWORK_PAY_PG_OVO - Payment method with OVO e-wallet<br>   * NETWORK_PAY_PG_GOPAY - Payment method with GoPay e-wallet<br>   * NETWORK_PAY_PG_LINKAJA - Payment method with LinkAja e-wallet<br>   * NETWORK_PAY_PG_CARD - Payment method with Card<br>   * VIRTUAL_ACCOUNT_BCA - Payment method with BCA virtual account<br>   * VIRTUAL_ACCOUNT_BNI - Payment method with BNI virtual account<br>   * VIRTUAL_ACCOUNT_MANDIRI - Payment method with Mandiri virtual account<br>   * VIRTUAL_ACCOUNT_BRI - Payment method with BRI virtual account<br>   * VIRTUAL_ACCOUNT_BTPN - Payment method with BTPN virtual account<br>   * VIRTUAL_ACCOUNT_CIMB - Payment method with CIMB virtual account<br>   * VIRTUAL_ACCOUNT_PERMATA - Payment method with Permata virtual account<br>
      *
      * @return self
      */
-    public function setPayOption($pay_option)
+    public function setPayOption($payOption)
     {
-        if (is_null($pay_option)) {
-            throw new \InvalidArgumentException('non-nullable pay_option cannot be null');
+        if (is_null($payOption)) {
+            throw new \InvalidArgumentException('non-nullable payOption cannot be null');
         }
         $allowedValues = $this->getPayOptionAllowableValues();
-        if (!in_array($pay_option, $allowedValues, true) && !empty($pay_option)) {
+        if (!in_array($payOption, $allowedValues, true) && !empty($payOption)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'pay_option', must be one of '%s'",
-                    $pay_option,
+                    "Invalid value '%s' for 'payOption', must be one of '%s'",
+                    $payOption,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        if ((mb_strlen($pay_option) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $pay_option when calling PayOptionInfo., must be smaller than or equal to 64.');
+        if ((mb_strlen($payOption) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $payOption when calling PayOptionInfo., must be smaller than or equal to 64.');
         }
 
-        $this->container['pay_option'] = $pay_option;
+        $this->container['payOption'] = $payOption;
 
         return $this;
     }
 
     /**
-     * Gets pay_amount
+     * Gets payAmount
      *
      * @return \Dana\Widget\v1\Model\Money|null
      */
     public function getPayAmount()
     {
-        return $this->container['pay_amount'];
+        return $this->container['payAmount'];
     }
 
     /**
-     * Sets pay_amount
+     * Sets payAmount
      *
-     * @param \Dana\Widget\v1\Model\Money|null $pay_amount Pay amount. Contains two sub-fields:<br> 1. Value: Transaction amount, including the cents<br> 2. Currency: Currency code based on ISO<br>
+     * @param \Dana\Widget\v1\Model\Money|null $payAmount Pay amount. Contains two sub-fields:<br> 1. Value: Transaction amount, including the cents<br> 2. Currency: Currency code based on ISO<br>
      *
      * @return self
      */
-    public function setPayAmount($pay_amount)
+    public function setPayAmount($payAmount)
     {
-        if (is_null($pay_amount)) {
-            throw new \InvalidArgumentException('non-nullable pay_amount cannot be null');
+        if (is_null($payAmount)) {
+            throw new \InvalidArgumentException('non-nullable payAmount cannot be null');
         }
-        $this->container['pay_amount'] = $pay_amount;
+        $this->container['payAmount'] = $payAmount;
 
         return $this;
     }
 
     /**
-     * Gets trans_amount
+     * Gets transAmount
      *
      * @return \Dana\Widget\v1\Model\Money|null
      */
     public function getTransAmount()
     {
-        return $this->container['trans_amount'];
+        return $this->container['transAmount'];
     }
 
     /**
-     * Sets trans_amount
+     * Sets transAmount
      *
-     * @param \Dana\Widget\v1\Model\Money|null $trans_amount Trans amount. Contains two sub-fields:<br> 1. Value: Transaction amount, including the cents<br> 2. Currency: Currency code based on ISO<br>
+     * @param \Dana\Widget\v1\Model\Money|null $transAmount Trans amount. Contains two sub-fields:<br> 1. Value: Transaction amount, including the cents<br> 2. Currency: Currency code based on ISO<br>
      *
      * @return self
      */
-    public function setTransAmount($trans_amount)
+    public function setTransAmount($transAmount)
     {
-        if (is_null($trans_amount)) {
-            throw new \InvalidArgumentException('non-nullable trans_amount cannot be null');
+        if (is_null($transAmount)) {
+            throw new \InvalidArgumentException('non-nullable transAmount cannot be null');
         }
-        $this->container['trans_amount'] = $trans_amount;
+        $this->container['transAmount'] = $transAmount;
 
         return $this;
     }
 
     /**
-     * Gets charge_amount
+     * Gets chargeAmount
      *
      * @return \Dana\Widget\v1\Model\Money|null
      */
     public function getChargeAmount()
     {
-        return $this->container['charge_amount'];
+        return $this->container['chargeAmount'];
     }
 
     /**
-     * Sets charge_amount
+     * Sets chargeAmount
      *
-     * @param \Dana\Widget\v1\Model\Money|null $charge_amount Charge amount. Contains two sub-fields:<br> 1. Value: Transaction amount, including the cents<br> 2. Currency: Currency code based on ISO<br>
+     * @param \Dana\Widget\v1\Model\Money|null $chargeAmount Charge amount. Contains two sub-fields:<br> 1. Value: Transaction amount, including the cents<br> 2. Currency: Currency code based on ISO<br>
      *
      * @return self
      */
-    public function setChargeAmount($charge_amount)
+    public function setChargeAmount($chargeAmount)
     {
-        if (is_null($charge_amount)) {
-            throw new \InvalidArgumentException('non-nullable charge_amount cannot be null');
+        if (is_null($chargeAmount)) {
+            throw new \InvalidArgumentException('non-nullable chargeAmount cannot be null');
         }
-        $this->container['charge_amount'] = $charge_amount;
+        $this->container['chargeAmount'] = $chargeAmount;
 
         return $this;
     }
 
     /**
-     * Gets pay_option_bill_extend_info
+     * Gets payOptionBillExtendInfo
      *
      * @return string|null
      */
     public function getPayOptionBillExtendInfo()
     {
-        return $this->container['pay_option_bill_extend_info'];
+        return $this->container['payOptionBillExtendInfo'];
     }
 
     /**
-     * Sets pay_option_bill_extend_info
+     * Sets payOptionBillExtendInfo
      *
-     * @param string|null $pay_option_bill_extend_info Extend information of pay option bill
+     * @param string|null $payOptionBillExtendInfo Extend information of pay option bill
      *
      * @return self
      */
-    public function setPayOptionBillExtendInfo($pay_option_bill_extend_info)
+    public function setPayOptionBillExtendInfo($payOptionBillExtendInfo)
     {
-        if (is_null($pay_option_bill_extend_info)) {
-            throw new \InvalidArgumentException('non-nullable pay_option_bill_extend_info cannot be null');
+        if (is_null($payOptionBillExtendInfo)) {
+            throw new \InvalidArgumentException('non-nullable payOptionBillExtendInfo cannot be null');
         }
-        if ((mb_strlen($pay_option_bill_extend_info) > 4096)) {
-            throw new \InvalidArgumentException('invalid length for $pay_option_bill_extend_info when calling PayOptionInfo., must be smaller than or equal to 4096.');
+        if ((mb_strlen($payOptionBillExtendInfo) > 4096)) {
+            throw new \InvalidArgumentException('invalid length for $payOptionBillExtendInfo when calling PayOptionInfo., must be smaller than or equal to 4096.');
         }
 
-        $this->container['pay_option_bill_extend_info'] = $pay_option_bill_extend_info;
+        $this->container['payOptionBillExtendInfo'] = $payOptionBillExtendInfo;
 
         return $this;
     }
 
     /**
-     * Gets extend_info
+     * Gets extendInfo
      *
      * @return string|null
      */
     public function getExtendInfo()
     {
-        return $this->container['extend_info'];
+        return $this->container['extendInfo'];
     }
 
     /**
-     * Sets extend_info
+     * Sets extendInfo
      *
-     * @param string|null $extend_info Extend information
+     * @param string|null $extendInfo Extend information
      *
      * @return self
      */
-    public function setExtendInfo($extend_info)
+    public function setExtendInfo($extendInfo)
     {
-        if (is_null($extend_info)) {
-            throw new \InvalidArgumentException('non-nullable extend_info cannot be null');
+        if (is_null($extendInfo)) {
+            throw new \InvalidArgumentException('non-nullable extendInfo cannot be null');
         }
-        if ((mb_strlen($extend_info) > 4096)) {
-            throw new \InvalidArgumentException('invalid length for $extend_info when calling PayOptionInfo., must be smaller than or equal to 4096.');
+        if ((mb_strlen($extendInfo) > 4096)) {
+            throw new \InvalidArgumentException('invalid length for $extendInfo when calling PayOptionInfo., must be smaller than or equal to 4096.');
         }
 
-        $this->container['extend_info'] = $extend_info;
+        $this->container['extendInfo'] = $extendInfo;
 
         return $this;
     }
 
     /**
-     * Gets payment_code
+     * Gets paymentCode
      *
      * @return string|null
      */
     public function getPaymentCode()
     {
-        return $this->container['payment_code'];
+        return $this->container['paymentCode'];
     }
 
     /**
-     * Sets payment_code
+     * Sets paymentCode
      *
-     * @param string|null $payment_code Payment code
+     * @param string|null $paymentCode Payment code
      *
      * @return self
      */
-    public function setPaymentCode($payment_code)
+    public function setPaymentCode($paymentCode)
     {
-        if (is_null($payment_code)) {
-            throw new \InvalidArgumentException('non-nullable payment_code cannot be null');
+        if (is_null($paymentCode)) {
+            throw new \InvalidArgumentException('non-nullable paymentCode cannot be null');
         }
-        if ((mb_strlen($payment_code) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $payment_code when calling PayOptionInfo., must be smaller than or equal to 64.');
+        if ((mb_strlen($paymentCode) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $paymentCode when calling PayOptionInfo., must be smaller than or equal to 64.');
         }
 
-        $this->container['payment_code'] = $payment_code;
+        $this->container['paymentCode'] = $paymentCode;
 
         return $this;
     }

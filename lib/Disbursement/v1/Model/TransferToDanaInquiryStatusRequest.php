@@ -58,11 +58,11 @@ class TransferToDanaInquiryStatusRequest implements ModelInterface, ArrayAccess,
       * @var string[]
       */
     protected static $openAPITypes = [
-        'original_partner_reference_no' => 'string',
-        'original_reference_no' => 'string',
-        'original_external_id' => 'string',
-        'service_code' => 'string',
-        'additional_info' => 'object'
+        'originalPartnerReferenceNo' => 'string',
+        'originalReferenceNo' => 'string',
+        'originalExternalId' => 'string',
+        'serviceCode' => 'string',
+        'additionalInfo' => 'object'
     ];
 
     /**
@@ -73,11 +73,11 @@ class TransferToDanaInquiryStatusRequest implements ModelInterface, ArrayAccess,
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'original_partner_reference_no' => null,
-        'original_reference_no' => null,
-        'original_external_id' => null,
-        'service_code' => null,
-        'additional_info' => null
+        'originalPartnerReferenceNo' => null,
+        'originalReferenceNo' => null,
+        'originalExternalId' => null,
+        'serviceCode' => null,
+        'additionalInfo' => null
     ];
 
     /**
@@ -86,11 +86,11 @@ class TransferToDanaInquiryStatusRequest implements ModelInterface, ArrayAccess,
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'original_partner_reference_no' => false,
-        'original_reference_no' => false,
-        'original_external_id' => false,
-        'service_code' => false,
-        'additional_info' => false
+        'originalPartnerReferenceNo' => false,
+        'originalReferenceNo' => false,
+        'originalExternalId' => false,
+        'serviceCode' => false,
+        'additionalInfo' => false
     ];
 
     /**
@@ -179,11 +179,11 @@ class TransferToDanaInquiryStatusRequest implements ModelInterface, ArrayAccess,
      * @var string[]
      */
     protected static $attributeMap = [
-        'original_partner_reference_no' => 'originalPartnerReferenceNo',
-        'original_reference_no' => 'originalReferenceNo',
-        'original_external_id' => 'originalExternalId',
-        'service_code' => 'serviceCode',
-        'additional_info' => 'additionalInfo'
+        'originalPartnerReferenceNo' => 'originalPartnerReferenceNo',
+        'originalReferenceNo' => 'originalReferenceNo',
+        'originalExternalId' => 'originalExternalId',
+        'serviceCode' => 'serviceCode',
+        'additionalInfo' => 'additionalInfo'
     ];
 
     /**
@@ -192,11 +192,11 @@ class TransferToDanaInquiryStatusRequest implements ModelInterface, ArrayAccess,
      * @var string[]
      */
     protected static $setters = [
-        'original_partner_reference_no' => 'setOriginalPartnerReferenceNo',
-        'original_reference_no' => 'setOriginalReferenceNo',
-        'original_external_id' => 'setOriginalExternalId',
-        'service_code' => 'setServiceCode',
-        'additional_info' => 'setAdditionalInfo'
+        'originalPartnerReferenceNo' => 'setOriginalPartnerReferenceNo',
+        'originalReferenceNo' => 'setOriginalReferenceNo',
+        'originalExternalId' => 'setOriginalExternalId',
+        'serviceCode' => 'setServiceCode',
+        'additionalInfo' => 'setAdditionalInfo'
     ];
 
     /**
@@ -205,11 +205,11 @@ class TransferToDanaInquiryStatusRequest implements ModelInterface, ArrayAccess,
      * @var string[]
      */
     protected static $getters = [
-        'original_partner_reference_no' => 'getOriginalPartnerReferenceNo',
-        'original_reference_no' => 'getOriginalReferenceNo',
-        'original_external_id' => 'getOriginalExternalId',
-        'service_code' => 'getServiceCode',
-        'additional_info' => 'getAdditionalInfo'
+        'originalPartnerReferenceNo' => 'getOriginalPartnerReferenceNo',
+        'originalReferenceNo' => 'getOriginalReferenceNo',
+        'originalExternalId' => 'getOriginalExternalId',
+        'serviceCode' => 'getServiceCode',
+        'additionalInfo' => 'getAdditionalInfo'
     ];
 
     /**
@@ -269,11 +269,11 @@ class TransferToDanaInquiryStatusRequest implements ModelInterface, ArrayAccess,
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('original_partner_reference_no', $data ?? [], null);
-        $this->setIfExists('original_reference_no', $data ?? [], null);
-        $this->setIfExists('original_external_id', $data ?? [], null);
-        $this->setIfExists('service_code', $data ?? [], '38');
-        $this->setIfExists('additional_info', $data ?? [], null);
+        $this->setIfExists('originalPartnerReferenceNo', $data ?? [], null);
+        $this->setIfExists('originalReferenceNo', $data ?? [], null);
+        $this->setIfExists('originalExternalId', $data ?? [], null);
+        $this->setIfExists('serviceCode', $data ?? [], '38');
+        $this->setIfExists('additionalInfo', $data ?? [], null);
     }
 
     /**
@@ -303,26 +303,26 @@ class TransferToDanaInquiryStatusRequest implements ModelInterface, ArrayAccess,
     {
         $invalidProperties = [];
 
-        if ($this->container['original_partner_reference_no'] === null) {
-            $invalidProperties[] = "'original_partner_reference_no' can't be null";
+        if ($this->container['originalPartnerReferenceNo'] === null) {
+            $invalidProperties[] = "'originalPartnerReferenceNo' can't be null";
         }
-        if ((mb_strlen($this->container['original_partner_reference_no']) > 64)) {
-            $invalidProperties[] = "invalid value for 'original_partner_reference_no', the character length must be smaller than or equal to 64.";
-        }
-
-        if (!is_null($this->container['original_reference_no']) && (mb_strlen($this->container['original_reference_no']) > 64)) {
-            $invalidProperties[] = "invalid value for 'original_reference_no', the character length must be smaller than or equal to 64.";
+        if ((mb_strlen($this->container['originalPartnerReferenceNo']) > 64)) {
+            $invalidProperties[] = "invalid value for 'originalPartnerReferenceNo', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['original_external_id']) && (mb_strlen($this->container['original_external_id']) > 36)) {
-            $invalidProperties[] = "invalid value for 'original_external_id', the character length must be smaller than or equal to 36.";
+        if (!is_null($this->container['originalReferenceNo']) && (mb_strlen($this->container['originalReferenceNo']) > 64)) {
+            $invalidProperties[] = "invalid value for 'originalReferenceNo', the character length must be smaller than or equal to 64.";
         }
 
-        if ($this->container['service_code'] === null) {
-            $invalidProperties[] = "'service_code' can't be null";
+        if (!is_null($this->container['originalExternalId']) && (mb_strlen($this->container['originalExternalId']) > 36)) {
+            $invalidProperties[] = "invalid value for 'originalExternalId', the character length must be smaller than or equal to 36.";
         }
-        if ((mb_strlen($this->container['service_code']) > 2)) {
-            $invalidProperties[] = "invalid value for 'service_code', the character length must be smaller than or equal to 2.";
+
+        if ($this->container['serviceCode'] === null) {
+            $invalidProperties[] = "'serviceCode' can't be null";
+        }
+        if ((mb_strlen($this->container['serviceCode']) > 2)) {
+            $invalidProperties[] = "invalid value for 'serviceCode', the character length must be smaller than or equal to 2.";
         }
 
         return $invalidProperties;
@@ -341,152 +341,152 @@ class TransferToDanaInquiryStatusRequest implements ModelInterface, ArrayAccess,
 
 
     /**
-     * Gets original_partner_reference_no
+     * Gets originalPartnerReferenceNo
      *
      * @return string
      */
     public function getOriginalPartnerReferenceNo()
     {
-        return $this->container['original_partner_reference_no'];
+        return $this->container['originalPartnerReferenceNo'];
     }
 
     /**
-     * Sets original_partner_reference_no
+     * Sets originalPartnerReferenceNo
      *
-     * @param string $original_partner_reference_no Original transaction identifier on partner system
+     * @param string $originalPartnerReferenceNo Original transaction identifier on partner system
      *
      * @return self
      */
-    public function setOriginalPartnerReferenceNo($original_partner_reference_no)
+    public function setOriginalPartnerReferenceNo($originalPartnerReferenceNo)
     {
-        if (is_null($original_partner_reference_no)) {
-            throw new \InvalidArgumentException('non-nullable original_partner_reference_no cannot be null');
+        if (is_null($originalPartnerReferenceNo)) {
+            throw new \InvalidArgumentException('non-nullable originalPartnerReferenceNo cannot be null');
         }
-        if ((mb_strlen($original_partner_reference_no) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $original_partner_reference_no when calling TransferToDanaInquiryStatusRequest., must be smaller than or equal to 64.');
+        if ((mb_strlen($originalPartnerReferenceNo) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $originalPartnerReferenceNo when calling TransferToDanaInquiryStatusRequest., must be smaller than or equal to 64.');
         }
 
-        $this->container['original_partner_reference_no'] = $original_partner_reference_no;
+        $this->container['originalPartnerReferenceNo'] = $originalPartnerReferenceNo;
 
         return $this;
     }
 
     /**
-     * Gets original_reference_no
+     * Gets originalReferenceNo
      *
      * @return string|null
      */
     public function getOriginalReferenceNo()
     {
-        return $this->container['original_reference_no'];
+        return $this->container['originalReferenceNo'];
     }
 
     /**
-     * Sets original_reference_no
+     * Sets originalReferenceNo
      *
-     * @param string|null $original_reference_no Original transaction identifier on DANA system
+     * @param string|null $originalReferenceNo Original transaction identifier on DANA system
      *
      * @return self
      */
-    public function setOriginalReferenceNo($original_reference_no)
+    public function setOriginalReferenceNo($originalReferenceNo)
     {
-        if (is_null($original_reference_no)) {
-            throw new \InvalidArgumentException('non-nullable original_reference_no cannot be null');
+        if (is_null($originalReferenceNo)) {
+            throw new \InvalidArgumentException('non-nullable originalReferenceNo cannot be null');
         }
-        if ((mb_strlen($original_reference_no) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $original_reference_no when calling TransferToDanaInquiryStatusRequest., must be smaller than or equal to 64.');
+        if ((mb_strlen($originalReferenceNo) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $originalReferenceNo when calling TransferToDanaInquiryStatusRequest., must be smaller than or equal to 64.');
         }
 
-        $this->container['original_reference_no'] = $original_reference_no;
+        $this->container['originalReferenceNo'] = $originalReferenceNo;
 
         return $this;
     }
 
     /**
-     * Gets original_external_id
+     * Gets originalExternalId
      *
      * @return string|null
      */
     public function getOriginalExternalId()
     {
-        return $this->container['original_external_id'];
+        return $this->container['originalExternalId'];
     }
 
     /**
-     * Sets original_external_id
+     * Sets originalExternalId
      *
-     * @param string|null $original_external_id Original external identifier on header message
+     * @param string|null $originalExternalId Original external identifier on header message
      *
      * @return self
      */
-    public function setOriginalExternalId($original_external_id)
+    public function setOriginalExternalId($originalExternalId)
     {
-        if (is_null($original_external_id)) {
-            throw new \InvalidArgumentException('non-nullable original_external_id cannot be null');
+        if (is_null($originalExternalId)) {
+            throw new \InvalidArgumentException('non-nullable originalExternalId cannot be null');
         }
-        if ((mb_strlen($original_external_id) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $original_external_id when calling TransferToDanaInquiryStatusRequest., must be smaller than or equal to 36.');
+        if ((mb_strlen($originalExternalId) > 36)) {
+            throw new \InvalidArgumentException('invalid length for $originalExternalId when calling TransferToDanaInquiryStatusRequest., must be smaller than or equal to 36.');
         }
 
-        $this->container['original_external_id'] = $original_external_id;
+        $this->container['originalExternalId'] = $originalExternalId;
 
         return $this;
     }
 
     /**
-     * Gets service_code
+     * Gets serviceCode
      *
      * @return string
      */
     public function getServiceCode()
     {
-        return $this->container['service_code'];
+        return $this->container['serviceCode'];
     }
 
     /**
-     * Sets service_code
+     * Sets serviceCode
      *
-     * @param string $service_code Transaction type indicator is based on the service code of the original transaction request, value always 38
+     * @param string $serviceCode Transaction type indicator is based on the service code of the original transaction request, value always 38
      *
      * @return self
      */
-    public function setServiceCode($service_code)
+    public function setServiceCode($serviceCode)
     {
-        if (is_null($service_code)) {
-            throw new \InvalidArgumentException('non-nullable service_code cannot be null');
+        if (is_null($serviceCode)) {
+            throw new \InvalidArgumentException('non-nullable serviceCode cannot be null');
         }
-        if ((mb_strlen($service_code) > 2)) {
-            throw new \InvalidArgumentException('invalid length for $service_code when calling TransferToDanaInquiryStatusRequest., must be smaller than or equal to 2.');
+        if ((mb_strlen($serviceCode) > 2)) {
+            throw new \InvalidArgumentException('invalid length for $serviceCode when calling TransferToDanaInquiryStatusRequest., must be smaller than or equal to 2.');
         }
 
-        $this->container['service_code'] = $service_code;
+        $this->container['serviceCode'] = $serviceCode;
 
         return $this;
     }
 
     /**
-     * Gets additional_info
+     * Gets additionalInfo
      *
      * @return object|null
      */
     public function getAdditionalInfo()
     {
-        return $this->container['additional_info'];
+        return $this->container['additionalInfo'];
     }
 
     /**
-     * Sets additional_info
+     * Sets additionalInfo
      *
-     * @param object|null $additional_info Additional information
+     * @param object|null $additionalInfo Additional information
      *
      * @return self
      */
-    public function setAdditionalInfo($additional_info)
+    public function setAdditionalInfo($additionalInfo)
     {
-        if (is_null($additional_info)) {
-            throw new \InvalidArgumentException('non-nullable additional_info cannot be null');
+        if (is_null($additionalInfo)) {
+            throw new \InvalidArgumentException('non-nullable additionalInfo cannot be null');
         }
-        $this->container['additional_info'] = $additional_info;
+        $this->container['additionalInfo'] = $additionalInfo;
 
         return $this;
     }

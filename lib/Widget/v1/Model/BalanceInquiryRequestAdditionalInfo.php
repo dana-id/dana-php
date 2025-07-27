@@ -59,7 +59,7 @@ class BalanceInquiryRequestAdditionalInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'access_token' => 'string'
+        'accessToken' => 'string'
     ];
 
     /**
@@ -70,7 +70,7 @@ class BalanceInquiryRequestAdditionalInfo implements ModelInterface, ArrayAccess
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'access_token' => null
+        'accessToken' => null
     ];
 
     /**
@@ -79,7 +79,7 @@ class BalanceInquiryRequestAdditionalInfo implements ModelInterface, ArrayAccess
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'access_token' => false
+        'accessToken' => false
     ];
 
     /**
@@ -168,7 +168,7 @@ class BalanceInquiryRequestAdditionalInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'access_token' => 'accessToken'
+        'accessToken' => 'accessToken'
     ];
 
     /**
@@ -177,7 +177,7 @@ class BalanceInquiryRequestAdditionalInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'access_token' => 'setAccessToken'
+        'accessToken' => 'setAccessToken'
     ];
 
     /**
@@ -186,7 +186,7 @@ class BalanceInquiryRequestAdditionalInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'access_token' => 'getAccessToken'
+        'accessToken' => 'getAccessToken'
     ];
 
     /**
@@ -246,7 +246,7 @@ class BalanceInquiryRequestAdditionalInfo implements ModelInterface, ArrayAccess
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('access_token', $data ?? [], null);
+        $this->setIfExists('accessToken', $data ?? [], null);
     }
 
     /**
@@ -276,11 +276,11 @@ class BalanceInquiryRequestAdditionalInfo implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['access_token'] === null) {
-            $invalidProperties[] = "'access_token' can't be null";
+        if ($this->container['accessToken'] === null) {
+            $invalidProperties[] = "'accessToken' can't be null";
         }
-        if ((mb_strlen($this->container['access_token']) > 512)) {
-            $invalidProperties[] = "invalid value for 'access_token', the character length must be smaller than or equal to 512.";
+        if ((mb_strlen($this->container['accessToken']) > 512)) {
+            $invalidProperties[] = "invalid value for 'accessToken', the character length must be smaller than or equal to 512.";
         }
 
         return $invalidProperties;
@@ -299,32 +299,32 @@ class BalanceInquiryRequestAdditionalInfo implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets access_token
+     * Gets accessToken
      *
      * @return string
      */
     public function getAccessToken()
     {
-        return $this->container['access_token'];
+        return $this->container['accessToken'];
     }
 
     /**
-     * Sets access_token
+     * Sets accessToken
      *
-     * @param string $access_token Contains customer token, which has been obtained from binding process, refer to Account Binding & Unbinding documentation
+     * @param string $accessToken Contains customer token, which has been obtained from binding process, refer to Account Binding & Unbinding documentation
      *
      * @return self
      */
-    public function setAccessToken($access_token)
+    public function setAccessToken($accessToken)
     {
-        if (is_null($access_token)) {
-            throw new \InvalidArgumentException('non-nullable access_token cannot be null');
+        if (is_null($accessToken)) {
+            throw new \InvalidArgumentException('non-nullable accessToken cannot be null');
         }
-        if ((mb_strlen($access_token) > 512)) {
-            throw new \InvalidArgumentException('invalid length for $access_token when calling BalanceInquiryRequestAdditionalInfo., must be smaller than or equal to 512.');
+        if ((mb_strlen($accessToken) > 512)) {
+            throw new \InvalidArgumentException('invalid length for $accessToken when calling BalanceInquiryRequestAdditionalInfo., must be smaller than or equal to 512.');
         }
 
-        $this->container['access_token'] = $access_token;
+        $this->container['accessToken'] = $accessToken;
 
         return $this;
     }

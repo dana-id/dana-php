@@ -58,15 +58,15 @@ class TransferToDanaRequest implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'partner_reference_no' => 'string',
-        'customer_number' => 'string',
+        'partnerReferenceNo' => 'string',
+        'customerNumber' => 'string',
         'amount' => '\Dana\Disbursement\v1\Model\Money',
-        'fee_amount' => '\Dana\Disbursement\v1\Model\Money',
-        'transaction_date' => 'string',
-        'session_id' => 'string',
-        'category_id' => 'float',
+        'feeAmount' => '\Dana\Disbursement\v1\Model\Money',
+        'transactionDate' => 'string',
+        'sessionId' => 'string',
+        'categoryId' => 'float',
         'notes' => 'string',
-        'additional_info' => '\Dana\Disbursement\v1\Model\TransferToDanaRequestAdditionalInfo'
+        'additionalInfo' => '\Dana\Disbursement\v1\Model\TransferToDanaRequestAdditionalInfo'
     ];
 
     /**
@@ -77,15 +77,15 @@ class TransferToDanaRequest implements ModelInterface, ArrayAccess, \JsonSeriali
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'partner_reference_no' => null,
-        'customer_number' => null,
+        'partnerReferenceNo' => null,
+        'customerNumber' => null,
         'amount' => null,
-        'fee_amount' => null,
-        'transaction_date' => null,
-        'session_id' => null,
-        'category_id' => null,
+        'feeAmount' => null,
+        'transactionDate' => null,
+        'sessionId' => null,
+        'categoryId' => null,
         'notes' => null,
-        'additional_info' => null
+        'additionalInfo' => null
     ];
 
     /**
@@ -94,15 +94,15 @@ class TransferToDanaRequest implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'partner_reference_no' => false,
-        'customer_number' => false,
+        'partnerReferenceNo' => false,
+        'customerNumber' => false,
         'amount' => false,
-        'fee_amount' => false,
-        'transaction_date' => false,
-        'session_id' => false,
-        'category_id' => false,
+        'feeAmount' => false,
+        'transactionDate' => false,
+        'sessionId' => false,
+        'categoryId' => false,
         'notes' => false,
-        'additional_info' => false
+        'additionalInfo' => false
     ];
 
     /**
@@ -191,15 +191,15 @@ class TransferToDanaRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'partner_reference_no' => 'partnerReferenceNo',
-        'customer_number' => 'customerNumber',
+        'partnerReferenceNo' => 'partnerReferenceNo',
+        'customerNumber' => 'customerNumber',
         'amount' => 'amount',
-        'fee_amount' => 'feeAmount',
-        'transaction_date' => 'transactionDate',
-        'session_id' => 'sessionId',
-        'category_id' => 'categoryId',
+        'feeAmount' => 'feeAmount',
+        'transactionDate' => 'transactionDate',
+        'sessionId' => 'sessionId',
+        'categoryId' => 'categoryId',
         'notes' => 'notes',
-        'additional_info' => 'additionalInfo'
+        'additionalInfo' => 'additionalInfo'
     ];
 
     /**
@@ -208,15 +208,15 @@ class TransferToDanaRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'partner_reference_no' => 'setPartnerReferenceNo',
-        'customer_number' => 'setCustomerNumber',
+        'partnerReferenceNo' => 'setPartnerReferenceNo',
+        'customerNumber' => 'setCustomerNumber',
         'amount' => 'setAmount',
-        'fee_amount' => 'setFeeAmount',
-        'transaction_date' => 'setTransactionDate',
-        'session_id' => 'setSessionId',
-        'category_id' => 'setCategoryId',
+        'feeAmount' => 'setFeeAmount',
+        'transactionDate' => 'setTransactionDate',
+        'sessionId' => 'setSessionId',
+        'categoryId' => 'setCategoryId',
         'notes' => 'setNotes',
-        'additional_info' => 'setAdditionalInfo'
+        'additionalInfo' => 'setAdditionalInfo'
     ];
 
     /**
@@ -225,15 +225,15 @@ class TransferToDanaRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'partner_reference_no' => 'getPartnerReferenceNo',
-        'customer_number' => 'getCustomerNumber',
+        'partnerReferenceNo' => 'getPartnerReferenceNo',
+        'customerNumber' => 'getCustomerNumber',
         'amount' => 'getAmount',
-        'fee_amount' => 'getFeeAmount',
-        'transaction_date' => 'getTransactionDate',
-        'session_id' => 'getSessionId',
-        'category_id' => 'getCategoryId',
+        'feeAmount' => 'getFeeAmount',
+        'transactionDate' => 'getTransactionDate',
+        'sessionId' => 'getSessionId',
+        'categoryId' => 'getCategoryId',
         'notes' => 'getNotes',
-        'additional_info' => 'getAdditionalInfo'
+        'additionalInfo' => 'getAdditionalInfo'
     ];
 
     /**
@@ -293,15 +293,15 @@ class TransferToDanaRequest implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('partner_reference_no', $data ?? [], null);
-        $this->setIfExists('customer_number', $data ?? [], null);
+        $this->setIfExists('partnerReferenceNo', $data ?? [], null);
+        $this->setIfExists('customerNumber', $data ?? [], null);
         $this->setIfExists('amount', $data ?? [], null);
-        $this->setIfExists('fee_amount', $data ?? [], null);
-        $this->setIfExists('transaction_date', $data ?? [], null);
-        $this->setIfExists('session_id', $data ?? [], null);
-        $this->setIfExists('category_id', $data ?? [], null);
+        $this->setIfExists('feeAmount', $data ?? [], null);
+        $this->setIfExists('transactionDate', $data ?? [], null);
+        $this->setIfExists('sessionId', $data ?? [], null);
+        $this->setIfExists('categoryId', $data ?? [], null);
         $this->setIfExists('notes', $data ?? [], null);
-        $this->setIfExists('additional_info', $data ?? [], null);
+        $this->setIfExists('additionalInfo', $data ?? [], null);
     }
 
     /**
@@ -331,45 +331,45 @@ class TransferToDanaRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        if ($this->container['partner_reference_no'] === null) {
-            $invalidProperties[] = "'partner_reference_no' can't be null";
+        if ($this->container['partnerReferenceNo'] === null) {
+            $invalidProperties[] = "'partnerReferenceNo' can't be null";
         }
-        if ((mb_strlen($this->container['partner_reference_no']) > 64)) {
-            $invalidProperties[] = "invalid value for 'partner_reference_no', the character length must be smaller than or equal to 64.";
+        if ((mb_strlen($this->container['partnerReferenceNo']) > 64)) {
+            $invalidProperties[] = "invalid value for 'partnerReferenceNo', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['customer_number']) && (mb_strlen($this->container['customer_number']) > 32)) {
-            $invalidProperties[] = "invalid value for 'customer_number', the character length must be smaller than or equal to 32.";
+        if (!is_null($this->container['customerNumber']) && (mb_strlen($this->container['customerNumber']) > 32)) {
+            $invalidProperties[] = "invalid value for 'customerNumber', the character length must be smaller than or equal to 32.";
         }
 
         if ($this->container['amount'] === null) {
             $invalidProperties[] = "'amount' can't be null";
         }
-        if ($this->container['fee_amount'] === null) {
-            $invalidProperties[] = "'fee_amount' can't be null";
+        if ($this->container['feeAmount'] === null) {
+            $invalidProperties[] = "'feeAmount' can't be null";
         }
-        if (!is_null($this->container['transaction_date']) && (mb_strlen($this->container['transaction_date']) > 25)) {
-            $invalidProperties[] = "invalid value for 'transaction_date', the character length must be smaller than or equal to 25.";
-        }
-
-        if (!is_null($this->container['transaction_date']) && !preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['transaction_date'])) {
-            $invalidProperties[] = "invalid value for 'transaction_date', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
+        if (!is_null($this->container['transactionDate']) && (mb_strlen($this->container['transactionDate']) > 25)) {
+            $invalidProperties[] = "invalid value for 'transactionDate', the character length must be smaller than or equal to 25.";
         }
 
-        if (!is_null($this->container['session_id']) && (mb_strlen($this->container['session_id']) > 25)) {
-            $invalidProperties[] = "invalid value for 'session_id', the character length must be smaller than or equal to 25.";
+        if (!is_null($this->container['transactionDate']) && !preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['transactionDate'])) {
+            $invalidProperties[] = "invalid value for 'transactionDate', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
         }
 
-        if (!is_null($this->container['category_id']) && ($this->container['category_id'] > 9999999999)) {
-            $invalidProperties[] = "invalid value for 'category_id', must be smaller than or equal to 9999999999.";
+        if (!is_null($this->container['sessionId']) && (mb_strlen($this->container['sessionId']) > 25)) {
+            $invalidProperties[] = "invalid value for 'sessionId', the character length must be smaller than or equal to 25.";
+        }
+
+        if (!is_null($this->container['categoryId']) && ($this->container['categoryId'] > 9999999999)) {
+            $invalidProperties[] = "invalid value for 'categoryId', must be smaller than or equal to 9999999999.";
         }
 
         if (!is_null($this->container['notes']) && (mb_strlen($this->container['notes']) > 255)) {
             $invalidProperties[] = "invalid value for 'notes', the character length must be smaller than or equal to 255.";
         }
 
-        if ($this->container['additional_info'] === null) {
-            $invalidProperties[] = "'additional_info' can't be null";
+        if ($this->container['additionalInfo'] === null) {
+            $invalidProperties[] = "'additionalInfo' can't be null";
         }
         return $invalidProperties;
     }
@@ -387,63 +387,63 @@ class TransferToDanaRequest implements ModelInterface, ArrayAccess, \JsonSeriali
 
 
     /**
-     * Gets partner_reference_no
+     * Gets partnerReferenceNo
      *
      * @return string
      */
     public function getPartnerReferenceNo()
     {
-        return $this->container['partner_reference_no'];
+        return $this->container['partnerReferenceNo'];
     }
 
     /**
-     * Sets partner_reference_no
+     * Sets partnerReferenceNo
      *
-     * @param string $partner_reference_no Unique transaction identifier on partner system which assigned to each transaction<br> Notes:<br> If the partner receives a timeout or an unexpected response from DANA and partner expects to perform retry request to DANA, please use the partnerReferenceNo that is the same as the one used in the transaction request process before
+     * @param string $partnerReferenceNo Unique transaction identifier on partner system which assigned to each transaction<br> Notes:<br> If the partner receives a timeout or an unexpected response from DANA and partner expects to perform retry request to DANA, please use the partnerReferenceNo that is the same as the one used in the transaction request process before
      *
      * @return self
      */
-    public function setPartnerReferenceNo($partner_reference_no)
+    public function setPartnerReferenceNo($partnerReferenceNo)
     {
-        if (is_null($partner_reference_no)) {
-            throw new \InvalidArgumentException('non-nullable partner_reference_no cannot be null');
+        if (is_null($partnerReferenceNo)) {
+            throw new \InvalidArgumentException('non-nullable partnerReferenceNo cannot be null');
         }
-        if ((mb_strlen($partner_reference_no) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $partner_reference_no when calling TransferToDanaRequest., must be smaller than or equal to 64.');
+        if ((mb_strlen($partnerReferenceNo) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $partnerReferenceNo when calling TransferToDanaRequest., must be smaller than or equal to 64.');
         }
 
-        $this->container['partner_reference_no'] = $partner_reference_no;
+        $this->container['partnerReferenceNo'] = $partnerReferenceNo;
 
         return $this;
     }
 
     /**
-     * Gets customer_number
+     * Gets customerNumber
      *
      * @return string|null
      */
     public function getCustomerNumber()
     {
-        return $this->container['customer_number'];
+        return $this->container['customerNumber'];
     }
 
     /**
-     * Sets customer_number
+     * Sets customerNumber
      *
-     * @param string|null $customer_number Customer account number, in format 628xxx
+     * @param string|null $customerNumber Customer account number, in format 628xxx
      *
      * @return self
      */
-    public function setCustomerNumber($customer_number)
+    public function setCustomerNumber($customerNumber)
     {
-        if (is_null($customer_number)) {
-            throw new \InvalidArgumentException('non-nullable customer_number cannot be null');
+        if (is_null($customerNumber)) {
+            throw new \InvalidArgumentException('non-nullable customerNumber cannot be null');
         }
-        if ((mb_strlen($customer_number) > 32)) {
-            throw new \InvalidArgumentException('invalid length for $customer_number when calling TransferToDanaRequest., must be smaller than or equal to 32.');
+        if ((mb_strlen($customerNumber) > 32)) {
+            throw new \InvalidArgumentException('invalid length for $customerNumber when calling TransferToDanaRequest., must be smaller than or equal to 32.');
         }
 
-        $this->container['customer_number'] = $customer_number;
+        $this->container['customerNumber'] = $customerNumber;
 
         return $this;
     }
@@ -476,125 +476,125 @@ class TransferToDanaRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
-     * Gets fee_amount
+     * Gets feeAmount
      *
      * @return \Dana\Disbursement\v1\Model\Money
      */
     public function getFeeAmount()
     {
-        return $this->container['fee_amount'];
+        return $this->container['feeAmount'];
     }
 
     /**
-     * Sets fee_amount
+     * Sets feeAmount
      *
-     * @param \Dana\Disbursement\v1\Model\Money $fee_amount Fee amount. Contains two sub-fields:<br> 1. Value: Amount, including the cents<br> 2. Currency: Currency code based on ISO
+     * @param \Dana\Disbursement\v1\Model\Money $feeAmount Fee amount. Contains two sub-fields:<br> 1. Value: Amount, including the cents<br> 2. Currency: Currency code based on ISO
      *
      * @return self
      */
-    public function setFeeAmount($fee_amount)
+    public function setFeeAmount($feeAmount)
     {
-        if (is_null($fee_amount)) {
-            throw new \InvalidArgumentException('non-nullable fee_amount cannot be null');
+        if (is_null($feeAmount)) {
+            throw new \InvalidArgumentException('non-nullable feeAmount cannot be null');
         }
-        $this->container['fee_amount'] = $fee_amount;
+        $this->container['feeAmount'] = $feeAmount;
 
         return $this;
     }
 
     /**
-     * Gets transaction_date
+     * Gets transactionDate
      *
      * @return string|null
      */
     public function getTransactionDate()
     {
-        return $this->container['transaction_date'];
+        return $this->container['transactionDate'];
     }
 
     /**
-     * Sets transaction_date
+     * Sets transactionDate
      *
-     * @param string|null $transaction_date Transaction date, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time)
+     * @param string|null $transactionDate Transaction date, in format YYYY-MM-DDTHH:mm:ss+07:00. Time must be in GMT+7 (Jakarta time)
      *
      * @return self
      */
-    public function setTransactionDate($transaction_date)
+    public function setTransactionDate($transactionDate)
     {
-        if (is_null($transaction_date)) {
-            throw new \InvalidArgumentException('non-nullable transaction_date cannot be null');
+        if (is_null($transactionDate)) {
+            throw new \InvalidArgumentException('non-nullable transactionDate cannot be null');
         }
-        if ((mb_strlen($transaction_date) > 25)) {
-            throw new \InvalidArgumentException('invalid length for $transaction_date when calling TransferToDanaRequest., must be smaller than or equal to 25.');
+        if ((mb_strlen($transactionDate) > 25)) {
+            throw new \InvalidArgumentException('invalid length for $transactionDate when calling TransferToDanaRequest., must be smaller than or equal to 25.');
         }
-        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($transaction_date)))) {
-            throw new \InvalidArgumentException("invalid value for \$transaction_date when calling TransferToDanaRequest., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
+        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($transactionDate)))) {
+            throw new \InvalidArgumentException("invalid value for \$transactionDate when calling TransferToDanaRequest., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
         }
 
-        $this->container['transaction_date'] = $transaction_date;
+        $this->container['transactionDate'] = $transactionDate;
 
         return $this;
     }
 
     /**
-     * Gets session_id
+     * Gets sessionId
      *
      * @return string|null
      */
     public function getSessionId()
     {
-        return $this->container['session_id'];
+        return $this->container['sessionId'];
     }
 
     /**
-     * Sets session_id
+     * Sets sessionId
      *
-     * @param string|null $session_id Session identifier
+     * @param string|null $sessionId Session identifier
      *
      * @return self
      */
-    public function setSessionId($session_id)
+    public function setSessionId($sessionId)
     {
-        if (is_null($session_id)) {
-            throw new \InvalidArgumentException('non-nullable session_id cannot be null');
+        if (is_null($sessionId)) {
+            throw new \InvalidArgumentException('non-nullable sessionId cannot be null');
         }
-        if ((mb_strlen($session_id) > 25)) {
-            throw new \InvalidArgumentException('invalid length for $session_id when calling TransferToDanaRequest., must be smaller than or equal to 25.');
+        if ((mb_strlen($sessionId) > 25)) {
+            throw new \InvalidArgumentException('invalid length for $sessionId when calling TransferToDanaRequest., must be smaller than or equal to 25.');
         }
 
-        $this->container['session_id'] = $session_id;
+        $this->container['sessionId'] = $sessionId;
 
         return $this;
     }
 
     /**
-     * Gets category_id
+     * Gets categoryId
      *
      * @return float|null
      */
     public function getCategoryId()
     {
-        return $this->container['category_id'];
+        return $this->container['categoryId'];
     }
 
     /**
-     * Sets category_id
+     * Sets categoryId
      *
-     * @param float|null $category_id Category identifier
+     * @param float|null $categoryId Category identifier
      *
      * @return self
      */
-    public function setCategoryId($category_id)
+    public function setCategoryId($categoryId)
     {
-        if (is_null($category_id)) {
-            throw new \InvalidArgumentException('non-nullable category_id cannot be null');
+        if (is_null($categoryId)) {
+            throw new \InvalidArgumentException('non-nullable categoryId cannot be null');
         }
 
-        if (($category_id > 9999999999)) {
-            throw new \InvalidArgumentException('invalid value for $category_id when calling TransferToDanaRequest., must be smaller than or equal to 9999999999.');
+        if (($categoryId > 9999999999)) {
+            throw new \InvalidArgumentException('invalid value for $categoryId when calling TransferToDanaRequest., must be smaller than or equal to 9999999999.');
         }
 
-        $this->container['category_id'] = $category_id;
+        $this->container['categoryId'] = $categoryId;
 
         return $this;
     }
@@ -631,28 +631,28 @@ class TransferToDanaRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
-     * Gets additional_info
+     * Gets additionalInfo
      *
      * @return \Dana\Disbursement\v1\Model\TransferToDanaRequestAdditionalInfo
      */
     public function getAdditionalInfo()
     {
-        return $this->container['additional_info'];
+        return $this->container['additionalInfo'];
     }
 
     /**
-     * Sets additional_info
+     * Sets additionalInfo
      *
-     * @param \Dana\Disbursement\v1\Model\TransferToDanaRequestAdditionalInfo $additional_info additional_info
+     * @param \Dana\Disbursement\v1\Model\TransferToDanaRequestAdditionalInfo $additionalInfo additionalInfo
      *
      * @return self
      */
-    public function setAdditionalInfo($additional_info)
+    public function setAdditionalInfo($additionalInfo)
     {
-        if (is_null($additional_info)) {
-            throw new \InvalidArgumentException('non-nullable additional_info cannot be null');
+        if (is_null($additionalInfo)) {
+            throw new \InvalidArgumentException('non-nullable additionalInfo cannot be null');
         }
-        $this->container['additional_info'] = $additional_info;
+        $this->container['additionalInfo'] = $additionalInfo;
 
         return $this;
     }

@@ -59,8 +59,8 @@ class CreateOrderByRedirectAdditionalInfo implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'mcc' => 'string',
-        'extend_info' => 'string',
-        'env_info' => '\Dana\PaymentGateway\v1\Model\EnvInfo',
+        'extendInfo' => 'string',
+        'envInfo' => '\Dana\PaymentGateway\v1\Model\EnvInfo',
         'order' => '\Dana\PaymentGateway\v1\Model\OrderRedirectObject'
     ];
 
@@ -73,8 +73,8 @@ class CreateOrderByRedirectAdditionalInfo implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'mcc' => null,
-        'extend_info' => null,
-        'env_info' => null,
+        'extendInfo' => null,
+        'envInfo' => null,
         'order' => null
     ];
 
@@ -85,8 +85,8 @@ class CreateOrderByRedirectAdditionalInfo implements ModelInterface, ArrayAccess
       */
     protected static array $openAPINullables = [
         'mcc' => false,
-        'extend_info' => false,
-        'env_info' => false,
+        'extendInfo' => false,
+        'envInfo' => false,
         'order' => false
     ];
 
@@ -177,8 +177,8 @@ class CreateOrderByRedirectAdditionalInfo implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'mcc' => 'mcc',
-        'extend_info' => 'extendInfo',
-        'env_info' => 'envInfo',
+        'extendInfo' => 'extendInfo',
+        'envInfo' => 'envInfo',
         'order' => 'order'
     ];
 
@@ -189,8 +189,8 @@ class CreateOrderByRedirectAdditionalInfo implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'mcc' => 'setMcc',
-        'extend_info' => 'setExtendInfo',
-        'env_info' => 'setEnvInfo',
+        'extendInfo' => 'setExtendInfo',
+        'envInfo' => 'setEnvInfo',
         'order' => 'setOrder'
     ];
 
@@ -201,8 +201,8 @@ class CreateOrderByRedirectAdditionalInfo implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'mcc' => 'getMcc',
-        'extend_info' => 'getExtendInfo',
-        'env_info' => 'getEnvInfo',
+        'extendInfo' => 'getExtendInfo',
+        'envInfo' => 'getEnvInfo',
         'order' => 'getOrder'
     ];
 
@@ -264,8 +264,8 @@ class CreateOrderByRedirectAdditionalInfo implements ModelInterface, ArrayAccess
     public function __construct(?array $data = null)
     {
         $this->setIfExists('mcc', $data ?? [], null);
-        $this->setIfExists('extend_info', $data ?? [], null);
-        $this->setIfExists('env_info', $data ?? [], null);
+        $this->setIfExists('extendInfo', $data ?? [], null);
+        $this->setIfExists('envInfo', $data ?? [], null);
         $this->setIfExists('order', $data ?? [], null);
     }
 
@@ -303,12 +303,12 @@ class CreateOrderByRedirectAdditionalInfo implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'mcc', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['extend_info']) && (mb_strlen($this->container['extend_info']) > 4096)) {
-            $invalidProperties[] = "invalid value for 'extend_info', the character length must be smaller than or equal to 4096.";
+        if (!is_null($this->container['extendInfo']) && (mb_strlen($this->container['extendInfo']) > 4096)) {
+            $invalidProperties[] = "invalid value for 'extendInfo', the character length must be smaller than or equal to 4096.";
         }
 
-        if ($this->container['env_info'] === null) {
-            $invalidProperties[] = "'env_info' can't be null";
+        if ($this->container['envInfo'] === null) {
+            $invalidProperties[] = "'envInfo' can't be null";
         }
         return $invalidProperties;
     }
@@ -357,59 +357,59 @@ class CreateOrderByRedirectAdditionalInfo implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets extend_info
+     * Gets extendInfo
      *
      * @return string|null
      */
     public function getExtendInfo()
     {
-        return $this->container['extend_info'];
+        return $this->container['extendInfo'];
     }
 
     /**
-     * Sets extend_info
+     * Sets extendInfo
      *
-     * @param string|null $extend_info Additional information of extend such as partner passthrough and risk information
+     * @param string|null $extendInfo Additional information of extend such as partner passthrough and risk information
      *
      * @return self
      */
-    public function setExtendInfo($extend_info)
+    public function setExtendInfo($extendInfo)
     {
-        if (is_null($extend_info)) {
-            throw new \InvalidArgumentException('non-nullable extend_info cannot be null');
+        if (is_null($extendInfo)) {
+            throw new \InvalidArgumentException('non-nullable extendInfo cannot be null');
         }
-        if ((mb_strlen($extend_info) > 4096)) {
-            throw new \InvalidArgumentException('invalid length for $extend_info when calling CreateOrderByRedirectAdditionalInfo., must be smaller than or equal to 4096.');
+        if ((mb_strlen($extendInfo) > 4096)) {
+            throw new \InvalidArgumentException('invalid length for $extendInfo when calling CreateOrderByRedirectAdditionalInfo., must be smaller than or equal to 4096.');
         }
 
-        $this->container['extend_info'] = $extend_info;
+        $this->container['extendInfo'] = $extendInfo;
 
         return $this;
     }
 
     /**
-     * Gets env_info
+     * Gets envInfo
      *
      * @return \Dana\PaymentGateway\v1\Model\EnvInfo
      */
     public function getEnvInfo()
     {
-        return $this->container['env_info'];
+        return $this->container['envInfo'];
     }
 
     /**
-     * Sets env_info
+     * Sets envInfo
      *
-     * @param \Dana\PaymentGateway\v1\Model\EnvInfo $env_info Additional information of environment info
+     * @param \Dana\PaymentGateway\v1\Model\EnvInfo $envInfo Additional information of environment info
      *
      * @return self
      */
-    public function setEnvInfo($env_info)
+    public function setEnvInfo($envInfo)
     {
-        if (is_null($env_info)) {
-            throw new \InvalidArgumentException('non-nullable env_info cannot be null');
+        if (is_null($envInfo)) {
+            throw new \InvalidArgumentException('non-nullable envInfo cannot be null');
         }
-        $this->container['env_info'] = $env_info;
+        $this->container['envInfo'] = $envInfo;
 
         return $this;
     }

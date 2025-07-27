@@ -59,9 +59,9 @@ class ApplyOTTRequestAdditionalInfo implements ModelInterface, ArrayAccess, \Jso
       * @var string[]
       */
     protected static $openAPITypes = [
-        'access_token' => 'string',
-        'end_user_ip_address' => 'string',
-        'device_id' => 'string',
+        'accessToken' => 'string',
+        'endUserIpAddress' => 'string',
+        'deviceId' => 'string',
         'latitude' => 'string',
         'longitude' => 'string'
     ];
@@ -74,9 +74,9 @@ class ApplyOTTRequestAdditionalInfo implements ModelInterface, ArrayAccess, \Jso
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'access_token' => null,
-        'end_user_ip_address' => null,
-        'device_id' => null,
+        'accessToken' => null,
+        'endUserIpAddress' => null,
+        'deviceId' => null,
         'latitude' => null,
         'longitude' => null
     ];
@@ -87,9 +87,9 @@ class ApplyOTTRequestAdditionalInfo implements ModelInterface, ArrayAccess, \Jso
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'access_token' => false,
-        'end_user_ip_address' => false,
-        'device_id' => false,
+        'accessToken' => false,
+        'endUserIpAddress' => false,
+        'deviceId' => false,
         'latitude' => false,
         'longitude' => false
     ];
@@ -180,9 +180,9 @@ class ApplyOTTRequestAdditionalInfo implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $attributeMap = [
-        'access_token' => 'accessToken',
-        'end_user_ip_address' => 'endUserIpAddress',
-        'device_id' => 'deviceId',
+        'accessToken' => 'accessToken',
+        'endUserIpAddress' => 'endUserIpAddress',
+        'deviceId' => 'deviceId',
         'latitude' => 'latitude',
         'longitude' => 'longitude'
     ];
@@ -193,9 +193,9 @@ class ApplyOTTRequestAdditionalInfo implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $setters = [
-        'access_token' => 'setAccessToken',
-        'end_user_ip_address' => 'setEndUserIpAddress',
-        'device_id' => 'setDeviceId',
+        'accessToken' => 'setAccessToken',
+        'endUserIpAddress' => 'setEndUserIpAddress',
+        'deviceId' => 'setDeviceId',
         'latitude' => 'setLatitude',
         'longitude' => 'setLongitude'
     ];
@@ -206,9 +206,9 @@ class ApplyOTTRequestAdditionalInfo implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $getters = [
-        'access_token' => 'getAccessToken',
-        'end_user_ip_address' => 'getEndUserIpAddress',
-        'device_id' => 'getDeviceId',
+        'accessToken' => 'getAccessToken',
+        'endUserIpAddress' => 'getEndUserIpAddress',
+        'deviceId' => 'getDeviceId',
         'latitude' => 'getLatitude',
         'longitude' => 'getLongitude'
     ];
@@ -270,9 +270,9 @@ class ApplyOTTRequestAdditionalInfo implements ModelInterface, ArrayAccess, \Jso
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('access_token', $data ?? [], null);
-        $this->setIfExists('end_user_ip_address', $data ?? [], null);
-        $this->setIfExists('device_id', $data ?? [], null);
+        $this->setIfExists('accessToken', $data ?? [], null);
+        $this->setIfExists('endUserIpAddress', $data ?? [], null);
+        $this->setIfExists('deviceId', $data ?? [], null);
         $this->setIfExists('latitude', $data ?? [], null);
         $this->setIfExists('longitude', $data ?? [], null);
     }
@@ -304,22 +304,22 @@ class ApplyOTTRequestAdditionalInfo implements ModelInterface, ArrayAccess, \Jso
     {
         $invalidProperties = [];
 
-        if ($this->container['access_token'] === null) {
-            $invalidProperties[] = "'access_token' can't be null";
+        if ($this->container['accessToken'] === null) {
+            $invalidProperties[] = "'accessToken' can't be null";
         }
-        if ((mb_strlen($this->container['access_token']) > 512)) {
-            $invalidProperties[] = "invalid value for 'access_token', the character length must be smaller than or equal to 512.";
-        }
-
-        if (!is_null($this->container['end_user_ip_address']) && (mb_strlen($this->container['end_user_ip_address']) > 15)) {
-            $invalidProperties[] = "invalid value for 'end_user_ip_address', the character length must be smaller than or equal to 15.";
+        if ((mb_strlen($this->container['accessToken']) > 512)) {
+            $invalidProperties[] = "invalid value for 'accessToken', the character length must be smaller than or equal to 512.";
         }
 
-        if ($this->container['device_id'] === null) {
-            $invalidProperties[] = "'device_id' can't be null";
+        if (!is_null($this->container['endUserIpAddress']) && (mb_strlen($this->container['endUserIpAddress']) > 15)) {
+            $invalidProperties[] = "invalid value for 'endUserIpAddress', the character length must be smaller than or equal to 15.";
         }
-        if ((mb_strlen($this->container['device_id']) > 400)) {
-            $invalidProperties[] = "invalid value for 'device_id', the character length must be smaller than or equal to 400.";
+
+        if ($this->container['deviceId'] === null) {
+            $invalidProperties[] = "'deviceId' can't be null";
+        }
+        if ((mb_strlen($this->container['deviceId']) > 400)) {
+            $invalidProperties[] = "invalid value for 'deviceId', the character length must be smaller than or equal to 400.";
         }
 
         if (!is_null($this->container['latitude']) && (mb_strlen($this->container['latitude']) > 10)) {
@@ -354,94 +354,94 @@ class ApplyOTTRequestAdditionalInfo implements ModelInterface, ArrayAccess, \Jso
 
 
     /**
-     * Gets access_token
+     * Gets accessToken
      *
      * @return string
      */
     public function getAccessToken()
     {
-        return $this->container['access_token'];
+        return $this->container['accessToken'];
     }
 
     /**
-     * Sets access_token
+     * Sets accessToken
      *
-     * @param string $access_token Contains customer token, which has been obtained from binding process
+     * @param string $accessToken Contains customer token, which has been obtained from binding process
      *
      * @return self
      */
-    public function setAccessToken($access_token)
+    public function setAccessToken($accessToken)
     {
-        if (is_null($access_token)) {
-            throw new \InvalidArgumentException('non-nullable access_token cannot be null');
+        if (is_null($accessToken)) {
+            throw new \InvalidArgumentException('non-nullable accessToken cannot be null');
         }
-        if ((mb_strlen($access_token) > 512)) {
-            throw new \InvalidArgumentException('invalid length for $access_token when calling ApplyOTTRequestAdditionalInfo., must be smaller than or equal to 512.');
+        if ((mb_strlen($accessToken) > 512)) {
+            throw new \InvalidArgumentException('invalid length for $accessToken when calling ApplyOTTRequestAdditionalInfo., must be smaller than or equal to 512.');
         }
 
-        $this->container['access_token'] = $access_token;
+        $this->container['accessToken'] = $accessToken;
 
         return $this;
     }
 
     /**
-     * Gets end_user_ip_address
+     * Gets endUserIpAddress
      *
      * @return string|null
      */
     public function getEndUserIpAddress()
     {
-        return $this->container['end_user_ip_address'];
+        return $this->container['endUserIpAddress'];
     }
 
     /**
-     * Sets end_user_ip_address
+     * Sets endUserIpAddress
      *
-     * @param string|null $end_user_ip_address IP address of the end user (customer) using IPv4 format
+     * @param string|null $endUserIpAddress IP address of the end user (customer) using IPv4 format
      *
      * @return self
      */
-    public function setEndUserIpAddress($end_user_ip_address)
+    public function setEndUserIpAddress($endUserIpAddress)
     {
-        if (is_null($end_user_ip_address)) {
-            throw new \InvalidArgumentException('non-nullable end_user_ip_address cannot be null');
+        if (is_null($endUserIpAddress)) {
+            throw new \InvalidArgumentException('non-nullable endUserIpAddress cannot be null');
         }
-        if ((mb_strlen($end_user_ip_address) > 15)) {
-            throw new \InvalidArgumentException('invalid length for $end_user_ip_address when calling ApplyOTTRequestAdditionalInfo., must be smaller than or equal to 15.');
+        if ((mb_strlen($endUserIpAddress) > 15)) {
+            throw new \InvalidArgumentException('invalid length for $endUserIpAddress when calling ApplyOTTRequestAdditionalInfo., must be smaller than or equal to 15.');
         }
 
-        $this->container['end_user_ip_address'] = $end_user_ip_address;
+        $this->container['endUserIpAddress'] = $endUserIpAddress;
 
         return $this;
     }
 
     /**
-     * Gets device_id
+     * Gets deviceId
      *
      * @return string
      */
     public function getDeviceId()
     {
-        return $this->container['device_id'];
+        return $this->container['deviceId'];
     }
 
     /**
-     * Sets device_id
+     * Sets deviceId
      *
-     * @param string $device_id Device identification on which the API services is currently being accessed by the end user (customer)
+     * @param string $deviceId Device identification on which the API services is currently being accessed by the end user (customer)
      *
      * @return self
      */
-    public function setDeviceId($device_id)
+    public function setDeviceId($deviceId)
     {
-        if (is_null($device_id)) {
-            throw new \InvalidArgumentException('non-nullable device_id cannot be null');
+        if (is_null($deviceId)) {
+            throw new \InvalidArgumentException('non-nullable deviceId cannot be null');
         }
-        if ((mb_strlen($device_id) > 400)) {
-            throw new \InvalidArgumentException('invalid length for $device_id when calling ApplyOTTRequestAdditionalInfo., must be smaller than or equal to 400.');
+        if ((mb_strlen($deviceId) > 400)) {
+            throw new \InvalidArgumentException('invalid length for $deviceId when calling ApplyOTTRequestAdditionalInfo., must be smaller than or equal to 400.');
         }
 
-        $this->container['device_id'] = $device_id;
+        $this->container['deviceId'] = $deviceId;
 
         return $this;
     }

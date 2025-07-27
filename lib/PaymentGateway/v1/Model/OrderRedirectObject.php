@@ -58,14 +58,14 @@ class OrderRedirectObject implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'order_title' => 'string',
-        'merchant_trans_type' => 'string',
+        'orderTitle' => 'string',
+        'merchantTransType' => 'string',
         'buyer' => '\Dana\PaymentGateway\v1\Model\Buyer',
         'goods' => '\Dana\PaymentGateway\v1\Model\Goods[]',
-        'shipping_info' => '\Dana\PaymentGateway\v1\Model\ShippingInfo[]',
-        'extend_info' => 'string',
-        'created_time' => 'string',
-        'order_memo' => 'string',
+        'shippingInfo' => '\Dana\PaymentGateway\v1\Model\ShippingInfo[]',
+        'extendInfo' => 'string',
+        'createdTime' => 'string',
+        'orderMemo' => 'string',
         'scenario' => 'string'
     ];
 
@@ -77,14 +77,14 @@ class OrderRedirectObject implements ModelInterface, ArrayAccess, \JsonSerializa
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'order_title' => null,
-        'merchant_trans_type' => null,
+        'orderTitle' => null,
+        'merchantTransType' => null,
         'buyer' => null,
         'goods' => null,
-        'shipping_info' => null,
-        'extend_info' => null,
-        'created_time' => null,
-        'order_memo' => null,
+        'shippingInfo' => null,
+        'extendInfo' => null,
+        'createdTime' => null,
+        'orderMemo' => null,
         'scenario' => null
     ];
 
@@ -94,14 +94,14 @@ class OrderRedirectObject implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'order_title' => false,
-        'merchant_trans_type' => false,
+        'orderTitle' => false,
+        'merchantTransType' => false,
         'buyer' => false,
         'goods' => false,
-        'shipping_info' => false,
-        'extend_info' => false,
-        'created_time' => false,
-        'order_memo' => false,
+        'shippingInfo' => false,
+        'extendInfo' => false,
+        'createdTime' => false,
+        'orderMemo' => false,
         'scenario' => false
     ];
 
@@ -191,14 +191,14 @@ class OrderRedirectObject implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'order_title' => 'orderTitle',
-        'merchant_trans_type' => 'merchantTransType',
+        'orderTitle' => 'orderTitle',
+        'merchantTransType' => 'merchantTransType',
         'buyer' => 'buyer',
         'goods' => 'goods',
-        'shipping_info' => 'shippingInfo',
-        'extend_info' => 'extendInfo',
-        'created_time' => 'createdTime',
-        'order_memo' => 'orderMemo',
+        'shippingInfo' => 'shippingInfo',
+        'extendInfo' => 'extendInfo',
+        'createdTime' => 'createdTime',
+        'orderMemo' => 'orderMemo',
         'scenario' => 'scenario'
     ];
 
@@ -208,14 +208,14 @@ class OrderRedirectObject implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'order_title' => 'setOrderTitle',
-        'merchant_trans_type' => 'setMerchantTransType',
+        'orderTitle' => 'setOrderTitle',
+        'merchantTransType' => 'setMerchantTransType',
         'buyer' => 'setBuyer',
         'goods' => 'setGoods',
-        'shipping_info' => 'setShippingInfo',
-        'extend_info' => 'setExtendInfo',
-        'created_time' => 'setCreatedTime',
-        'order_memo' => 'setOrderMemo',
+        'shippingInfo' => 'setShippingInfo',
+        'extendInfo' => 'setExtendInfo',
+        'createdTime' => 'setCreatedTime',
+        'orderMemo' => 'setOrderMemo',
         'scenario' => 'setScenario'
     ];
 
@@ -225,14 +225,14 @@ class OrderRedirectObject implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'order_title' => 'getOrderTitle',
-        'merchant_trans_type' => 'getMerchantTransType',
+        'orderTitle' => 'getOrderTitle',
+        'merchantTransType' => 'getMerchantTransType',
         'buyer' => 'getBuyer',
         'goods' => 'getGoods',
-        'shipping_info' => 'getShippingInfo',
-        'extend_info' => 'getExtendInfo',
-        'created_time' => 'getCreatedTime',
-        'order_memo' => 'getOrderMemo',
+        'shippingInfo' => 'getShippingInfo',
+        'extendInfo' => 'getExtendInfo',
+        'createdTime' => 'getCreatedTime',
+        'orderMemo' => 'getOrderMemo',
         'scenario' => 'getScenario'
     ];
 
@@ -306,14 +306,14 @@ class OrderRedirectObject implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('order_title', $data ?? [], null);
-        $this->setIfExists('merchant_trans_type', $data ?? [], null);
+        $this->setIfExists('orderTitle', $data ?? [], null);
+        $this->setIfExists('merchantTransType', $data ?? [], null);
         $this->setIfExists('buyer', $data ?? [], null);
         $this->setIfExists('goods', $data ?? [], null);
-        $this->setIfExists('shipping_info', $data ?? [], null);
-        $this->setIfExists('extend_info', $data ?? [], null);
-        $this->setIfExists('created_time', $data ?? [], null);
-        $this->setIfExists('order_memo', $data ?? [], null);
+        $this->setIfExists('shippingInfo', $data ?? [], null);
+        $this->setIfExists('extendInfo', $data ?? [], null);
+        $this->setIfExists('createdTime', $data ?? [], null);
+        $this->setIfExists('orderMemo', $data ?? [], null);
         $this->setIfExists('scenario', $data ?? [], null);
     }
 
@@ -344,19 +344,19 @@ class OrderRedirectObject implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
-        if ($this->container['order_title'] === null) {
-            $invalidProperties[] = "'order_title' can't be null";
+        if ($this->container['orderTitle'] === null) {
+            $invalidProperties[] = "'orderTitle' can't be null";
         }
-        if ((mb_strlen($this->container['order_title']) > 64)) {
-            $invalidProperties[] = "invalid value for 'order_title', the character length must be smaller than or equal to 64.";
-        }
-
-        if (!is_null($this->container['merchant_trans_type']) && (mb_strlen($this->container['merchant_trans_type']) > 64)) {
-            $invalidProperties[] = "invalid value for 'merchant_trans_type', the character length must be smaller than or equal to 64.";
+        if ((mb_strlen($this->container['orderTitle']) > 64)) {
+            $invalidProperties[] = "invalid value for 'orderTitle', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['extend_info']) && (mb_strlen($this->container['extend_info']) > 4096)) {
-            $invalidProperties[] = "invalid value for 'extend_info', the character length must be smaller than or equal to 4096.";
+        if (!is_null($this->container['merchantTransType']) && (mb_strlen($this->container['merchantTransType']) > 64)) {
+            $invalidProperties[] = "invalid value for 'merchantTransType', the character length must be smaller than or equal to 64.";
+        }
+
+        if (!is_null($this->container['extendInfo']) && (mb_strlen($this->container['extendInfo']) > 4096)) {
+            $invalidProperties[] = "invalid value for 'extendInfo', the character length must be smaller than or equal to 4096.";
         }
 
         $allowedValues = $this->getScenarioAllowableValues();
@@ -388,63 +388,63 @@ class OrderRedirectObject implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets order_title
+     * Gets orderTitle
      *
      * @return string
      */
     public function getOrderTitle()
     {
-        return $this->container['order_title'];
+        return $this->container['orderTitle'];
     }
 
     /**
-     * Sets order_title
+     * Sets orderTitle
      *
-     * @param string $order_title Additional information of order title
+     * @param string $orderTitle Additional information of order title
      *
      * @return self
      */
-    public function setOrderTitle($order_title)
+    public function setOrderTitle($orderTitle)
     {
-        if (is_null($order_title)) {
-            throw new \InvalidArgumentException('non-nullable order_title cannot be null');
+        if (is_null($orderTitle)) {
+            throw new \InvalidArgumentException('non-nullable orderTitle cannot be null');
         }
-        if ((mb_strlen($order_title) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $order_title when calling OrderRedirectObject., must be smaller than or equal to 64.');
+        if ((mb_strlen($orderTitle) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $orderTitle when calling OrderRedirectObject., must be smaller than or equal to 64.');
         }
 
-        $this->container['order_title'] = $order_title;
+        $this->container['orderTitle'] = $orderTitle;
 
         return $this;
     }
 
     /**
-     * Gets merchant_trans_type
+     * Gets merchantTransType
      *
      * @return string|null
      */
     public function getMerchantTransType()
     {
-        return $this->container['merchant_trans_type'];
+        return $this->container['merchantTransType'];
     }
 
     /**
-     * Sets merchant_trans_type
+     * Sets merchantTransType
      *
-     * @param string|null $merchant_trans_type Additional information of merchant transaction type
+     * @param string|null $merchantTransType Additional information of merchant transaction type
      *
      * @return self
      */
-    public function setMerchantTransType($merchant_trans_type)
+    public function setMerchantTransType($merchantTransType)
     {
-        if (is_null($merchant_trans_type)) {
-            throw new \InvalidArgumentException('non-nullable merchant_trans_type cannot be null');
+        if (is_null($merchantTransType)) {
+            throw new \InvalidArgumentException('non-nullable merchantTransType cannot be null');
         }
-        if ((mb_strlen($merchant_trans_type) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $merchant_trans_type when calling OrderRedirectObject., must be smaller than or equal to 64.');
+        if ((mb_strlen($merchantTransType) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $merchantTransType when calling OrderRedirectObject., must be smaller than or equal to 64.');
         }
 
-        $this->container['merchant_trans_type'] = $merchant_trans_type;
+        $this->container['merchantTransType'] = $merchantTransType;
 
         return $this;
     }
@@ -504,113 +504,113 @@ class OrderRedirectObject implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Gets shipping_info
+     * Gets shippingInfo
      *
      * @return \Dana\PaymentGateway\v1\Model\ShippingInfo[]|null
      */
     public function getShippingInfo()
     {
-        return $this->container['shipping_info'];
+        return $this->container['shippingInfo'];
     }
 
     /**
-     * Sets shipping_info
+     * Sets shippingInfo
      *
-     * @param \Dana\PaymentGateway\v1\Model\ShippingInfo[]|null $shipping_info Additional information of shipping info
+     * @param \Dana\PaymentGateway\v1\Model\ShippingInfo[]|null $shippingInfo Additional information of shipping info
      *
      * @return self
      */
-    public function setShippingInfo($shipping_info)
+    public function setShippingInfo($shippingInfo)
     {
-        if (is_null($shipping_info)) {
-            throw new \InvalidArgumentException('non-nullable shipping_info cannot be null');
+        if (is_null($shippingInfo)) {
+            throw new \InvalidArgumentException('non-nullable shippingInfo cannot be null');
         }
-        $this->container['shipping_info'] = $shipping_info;
+        $this->container['shippingInfo'] = $shippingInfo;
 
         return $this;
     }
 
     /**
-     * Gets extend_info
+     * Gets extendInfo
      *
      * @return string|null
      */
     public function getExtendInfo()
     {
-        return $this->container['extend_info'];
+        return $this->container['extendInfo'];
     }
 
     /**
-     * Sets extend_info
+     * Sets extendInfo
      *
-     * @param string|null $extend_info Additional information of extend
+     * @param string|null $extendInfo Additional information of extend
      *
      * @return self
      */
-    public function setExtendInfo($extend_info)
+    public function setExtendInfo($extendInfo)
     {
-        if (is_null($extend_info)) {
-            throw new \InvalidArgumentException('non-nullable extend_info cannot be null');
+        if (is_null($extendInfo)) {
+            throw new \InvalidArgumentException('non-nullable extendInfo cannot be null');
         }
-        if ((mb_strlen($extend_info) > 4096)) {
-            throw new \InvalidArgumentException('invalid length for $extend_info when calling OrderRedirectObject., must be smaller than or equal to 4096.');
+        if ((mb_strlen($extendInfo) > 4096)) {
+            throw new \InvalidArgumentException('invalid length for $extendInfo when calling OrderRedirectObject., must be smaller than or equal to 4096.');
         }
 
-        $this->container['extend_info'] = $extend_info;
+        $this->container['extendInfo'] = $extendInfo;
 
         return $this;
     }
 
     /**
-     * Gets created_time
+     * Gets createdTime
      *
      * @return string|null
      */
     public function getCreatedTime()
     {
-        return $this->container['created_time'];
+        return $this->container['createdTime'];
     }
 
     /**
-     * Sets created_time
+     * Sets createdTime
      *
-     * @param string|null $created_time Additional information of created time
+     * @param string|null $createdTime Additional information of created time
      *
      * @return self
      */
-    public function setCreatedTime($created_time)
+    public function setCreatedTime($createdTime)
     {
-        if (is_null($created_time)) {
-            throw new \InvalidArgumentException('non-nullable created_time cannot be null');
+        if (is_null($createdTime)) {
+            throw new \InvalidArgumentException('non-nullable createdTime cannot be null');
         }
-        $this->container['created_time'] = $created_time;
+        $this->container['createdTime'] = $createdTime;
 
         return $this;
     }
 
     /**
-     * Gets order_memo
+     * Gets orderMemo
      *
      * @return string|null
      */
     public function getOrderMemo()
     {
-        return $this->container['order_memo'];
+        return $this->container['orderMemo'];
     }
 
     /**
-     * Sets order_memo
+     * Sets orderMemo
      *
-     * @param string|null $order_memo Additional information of order
+     * @param string|null $orderMemo Additional information of order
      *
      * @return self
      */
-    public function setOrderMemo($order_memo)
+    public function setOrderMemo($orderMemo)
     {
-        if (is_null($order_memo)) {
-            throw new \InvalidArgumentException('non-nullable order_memo cannot be null');
+        if (is_null($orderMemo)) {
+            throw new \InvalidArgumentException('non-nullable orderMemo cannot be null');
         }
-        $this->container['order_memo'] = $order_memo;
+        $this->container['orderMemo'] = $orderMemo;
 
         return $this;
     }

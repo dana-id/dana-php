@@ -59,15 +59,15 @@ class Oauth2UrlData implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'external_id' => 'string',
-        'merchant_id' => 'string',
-        'sub_merchant_id' => 'string',
-        'seamless_data' => '\Dana\Widget\v1\Model\Oauth2UrlDataSeamlessData',
+        'externalId' => 'string',
+        'merchantId' => 'string',
+        'subMerchantId' => 'string',
+        'seamlessData' => '\Dana\Widget\v1\Model\Oauth2UrlDataSeamlessData',
         'scopes' => 'string[]',
-        'redirect_url' => 'string',
+        'redirectUrl' => 'string',
         'state' => 'string',
         'lang' => 'string',
-        'allow_registration' => 'string'
+        'allowRegistration' => 'string'
     ];
 
     /**
@@ -78,15 +78,15 @@ class Oauth2UrlData implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'external_id' => null,
-        'merchant_id' => null,
-        'sub_merchant_id' => null,
-        'seamless_data' => null,
+        'externalId' => null,
+        'merchantId' => null,
+        'subMerchantId' => null,
+        'seamlessData' => null,
         'scopes' => null,
-        'redirect_url' => null,
+        'redirectUrl' => null,
         'state' => null,
         'lang' => null,
-        'allow_registration' => null
+        'allowRegistration' => null
     ];
 
     /**
@@ -95,15 +95,15 @@ class Oauth2UrlData implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'external_id' => false,
-        'merchant_id' => false,
-        'sub_merchant_id' => false,
-        'seamless_data' => false,
+        'externalId' => false,
+        'merchantId' => false,
+        'subMerchantId' => false,
+        'seamlessData' => false,
         'scopes' => false,
-        'redirect_url' => false,
+        'redirectUrl' => false,
         'state' => false,
         'lang' => false,
-        'allow_registration' => false
+        'allowRegistration' => false
     ];
 
     /**
@@ -192,15 +192,15 @@ class Oauth2UrlData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'external_id' => 'externalId',
-        'merchant_id' => 'merchantId',
-        'sub_merchant_id' => 'subMerchantId',
-        'seamless_data' => 'seamlessData',
+        'externalId' => 'externalId',
+        'merchantId' => 'merchantId',
+        'subMerchantId' => 'subMerchantId',
+        'seamlessData' => 'seamlessData',
         'scopes' => 'scopes',
-        'redirect_url' => 'redirectUrl',
+        'redirectUrl' => 'redirectUrl',
         'state' => 'state',
         'lang' => 'lang',
-        'allow_registration' => 'allowRegistration'
+        'allowRegistration' => 'allowRegistration'
     ];
 
     /**
@@ -209,15 +209,15 @@ class Oauth2UrlData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'external_id' => 'setExternalId',
-        'merchant_id' => 'setMerchantId',
-        'sub_merchant_id' => 'setSubMerchantId',
-        'seamless_data' => 'setSeamlessData',
+        'externalId' => 'setExternalId',
+        'merchantId' => 'setMerchantId',
+        'subMerchantId' => 'setSubMerchantId',
+        'seamlessData' => 'setSeamlessData',
         'scopes' => 'setScopes',
-        'redirect_url' => 'setRedirectUrl',
+        'redirectUrl' => 'setRedirectUrl',
         'state' => 'setState',
         'lang' => 'setLang',
-        'allow_registration' => 'setAllowRegistration'
+        'allowRegistration' => 'setAllowRegistration'
     ];
 
     /**
@@ -226,15 +226,15 @@ class Oauth2UrlData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'external_id' => 'getExternalId',
-        'merchant_id' => 'getMerchantId',
-        'sub_merchant_id' => 'getSubMerchantId',
-        'seamless_data' => 'getSeamlessData',
+        'externalId' => 'getExternalId',
+        'merchantId' => 'getMerchantId',
+        'subMerchantId' => 'getSubMerchantId',
+        'seamlessData' => 'getSeamlessData',
         'scopes' => 'getScopes',
-        'redirect_url' => 'getRedirectUrl',
+        'redirectUrl' => 'getRedirectUrl',
         'state' => 'getState',
         'lang' => 'getLang',
-        'allow_registration' => 'getAllowRegistration'
+        'allowRegistration' => 'getAllowRegistration'
     ];
 
     /**
@@ -294,15 +294,15 @@ class Oauth2UrlData implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('external_id', $data ?? [], null);
-        $this->setIfExists('merchant_id', $data ?? [], null);
-        $this->setIfExists('sub_merchant_id', $data ?? [], null);
-        $this->setIfExists('seamless_data', $data ?? [], null);
+        $this->setIfExists('externalId', $data ?? [], null);
+        $this->setIfExists('merchantId', $data ?? [], null);
+        $this->setIfExists('subMerchantId', $data ?? [], null);
+        $this->setIfExists('seamlessData', $data ?? [], null);
         $this->setIfExists('scopes', $data ?? [], null);
-        $this->setIfExists('redirect_url', $data ?? [], null);
+        $this->setIfExists('redirectUrl', $data ?? [], null);
         $this->setIfExists('state', $data ?? [], null);
         $this->setIfExists('lang', $data ?? [], 'id');
-        $this->setIfExists('allow_registration', $data ?? [], 'true');
+        $this->setIfExists('allowRegistration', $data ?? [], 'true');
     }
 
     /**
@@ -332,26 +332,26 @@ class Oauth2UrlData implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['external_id'] === null) {
-            $invalidProperties[] = "'external_id' can't be null";
+        if ($this->container['externalId'] === null) {
+            $invalidProperties[] = "'externalId' can't be null";
         }
-        if ((mb_strlen($this->container['external_id']) > 64)) {
-            $invalidProperties[] = "invalid value for 'external_id', the character length must be smaller than or equal to 64.";
-        }
-
-        if ($this->container['merchant_id'] === null) {
-            $invalidProperties[] = "'merchant_id' can't be null";
-        }
-        if ((mb_strlen($this->container['merchant_id']) > 64)) {
-            $invalidProperties[] = "invalid value for 'merchant_id', the character length must be smaller than or equal to 64.";
+        if ((mb_strlen($this->container['externalId']) > 64)) {
+            $invalidProperties[] = "invalid value for 'externalId', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['sub_merchant_id']) && (mb_strlen($this->container['sub_merchant_id']) > 64)) {
-            $invalidProperties[] = "invalid value for 'sub_merchant_id', the character length must be smaller than or equal to 64.";
+        if ($this->container['merchantId'] === null) {
+            $invalidProperties[] = "'merchantId' can't be null";
+        }
+        if ((mb_strlen($this->container['merchantId']) > 64)) {
+            $invalidProperties[] = "invalid value for 'merchantId', the character length must be smaller than or equal to 64.";
         }
 
-        if ($this->container['redirect_url'] === null) {
-            $invalidProperties[] = "'redirect_url' can't be null";
+        if (!is_null($this->container['subMerchantId']) && (mb_strlen($this->container['subMerchantId']) > 64)) {
+            $invalidProperties[] = "invalid value for 'subMerchantId', the character length must be smaller than or equal to 64.";
+        }
+
+        if ($this->container['redirectUrl'] === null) {
+            $invalidProperties[] = "'redirectUrl' can't be null";
         }
         return $invalidProperties;
     }
@@ -369,121 +369,121 @@ class Oauth2UrlData implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets external_id
+     * Gets externalId
      *
      * @return string
      */
     public function getExternalId()
     {
-        return $this->container['external_id'];
+        return $this->container['externalId'];
     }
 
     /**
-     * Sets external_id
+     * Sets externalId
      *
-     * @param string $external_id Identifier from merchant
+     * @param string $externalId Identifier from merchant
      *
      * @return self
      */
-    public function setExternalId($external_id)
+    public function setExternalId($externalId)
     {
-        if (is_null($external_id)) {
-            throw new \InvalidArgumentException('non-nullable external_id cannot be null');
+        if (is_null($externalId)) {
+            throw new \InvalidArgumentException('non-nullable externalId cannot be null');
         }
-        if ((mb_strlen($external_id) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $external_id when calling Oauth2UrlData., must be smaller than or equal to 64.');
+        if ((mb_strlen($externalId) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $externalId when calling Oauth2UrlData., must be smaller than or equal to 64.');
         }
 
-        $this->container['external_id'] = $external_id;
+        $this->container['externalId'] = $externalId;
 
         return $this;
     }
 
     /**
-     * Gets merchant_id
+     * Gets merchantId
      *
      * @return string
      */
     public function getMerchantId()
     {
-        return $this->container['merchant_id'];
+        return $this->container['merchantId'];
     }
 
     /**
-     * Sets merchant_id
+     * Sets merchantId
      *
-     * @param string $merchant_id Merchant identifier that is unique per each merchant
+     * @param string $merchantId Merchant identifier that is unique per each merchant
      *
      * @return self
      */
-    public function setMerchantId($merchant_id)
+    public function setMerchantId($merchantId)
     {
-        if (is_null($merchant_id)) {
-            throw new \InvalidArgumentException('non-nullable merchant_id cannot be null');
+        if (is_null($merchantId)) {
+            throw new \InvalidArgumentException('non-nullable merchantId cannot be null');
         }
-        if ((mb_strlen($merchant_id) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $merchant_id when calling Oauth2UrlData., must be smaller than or equal to 64.');
+        if ((mb_strlen($merchantId) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $merchantId when calling Oauth2UrlData., must be smaller than or equal to 64.');
         }
 
-        $this->container['merchant_id'] = $merchant_id;
+        $this->container['merchantId'] = $merchantId;
 
         return $this;
     }
 
     /**
-     * Gets sub_merchant_id
+     * Gets subMerchantId
      *
      * @return string|null
      */
     public function getSubMerchantId()
     {
-        return $this->container['sub_merchant_id'];
+        return $this->container['subMerchantId'];
     }
 
     /**
-     * Sets sub_merchant_id
+     * Sets subMerchantId
      *
-     * @param string|null $sub_merchant_id Information of sub merchant identifier
+     * @param string|null $subMerchantId Information of sub merchant identifier
      *
      * @return self
      */
-    public function setSubMerchantId($sub_merchant_id)
+    public function setSubMerchantId($subMerchantId)
     {
-        if (is_null($sub_merchant_id)) {
-            throw new \InvalidArgumentException('non-nullable sub_merchant_id cannot be null');
+        if (is_null($subMerchantId)) {
+            throw new \InvalidArgumentException('non-nullable subMerchantId cannot be null');
         }
-        if ((mb_strlen($sub_merchant_id) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $sub_merchant_id when calling Oauth2UrlData., must be smaller than or equal to 64.');
+        if ((mb_strlen($subMerchantId) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $subMerchantId when calling Oauth2UrlData., must be smaller than or equal to 64.');
         }
 
-        $this->container['sub_merchant_id'] = $sub_merchant_id;
+        $this->container['subMerchantId'] = $subMerchantId;
 
         return $this;
     }
 
     /**
-     * Gets seamless_data
+     * Gets seamlessData
      *
      * @return \Dana\Widget\v1\Model\Oauth2UrlDataSeamlessData|null
      */
     public function getSeamlessData()
     {
-        return $this->container['seamless_data'];
+        return $this->container['seamlessData'];
     }
 
     /**
-     * Sets seamless_data
+     * Sets seamlessData
      *
-     * @param \Dana\Widget\v1\Model\Oauth2UrlDataSeamlessData|null $seamless_data seamless_data
+     * @param \Dana\Widget\v1\Model\Oauth2UrlDataSeamlessData|null $seamlessData seamlessData
      *
      * @return self
      */
-    public function setSeamlessData($seamless_data)
+    public function setSeamlessData($seamlessData)
     {
-        if (is_null($seamless_data)) {
-            throw new \InvalidArgumentException('non-nullable seamless_data cannot be null');
+        if (is_null($seamlessData)) {
+            throw new \InvalidArgumentException('non-nullable seamlessData cannot be null');
         }
-        $this->container['seamless_data'] = $seamless_data;
+        $this->container['seamlessData'] = $seamlessData;
 
         return $this;
     }
@@ -516,28 +516,28 @@ class Oauth2UrlData implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets redirect_url
+     * Gets redirectUrl
      *
      * @return string
      */
     public function getRedirectUrl()
     {
-        return $this->container['redirect_url'];
+        return $this->container['redirectUrl'];
     }
 
     /**
-     * Sets redirect_url
+     * Sets redirectUrl
      *
-     * @param string $redirect_url When user authorization is success, the user will be redirected to this URL
+     * @param string $redirectUrl When user authorization is success, the user will be redirected to this URL
      *
      * @return self
      */
-    public function setRedirectUrl($redirect_url)
+    public function setRedirectUrl($redirectUrl)
     {
-        if (is_null($redirect_url)) {
-            throw new \InvalidArgumentException('non-nullable redirect_url cannot be null');
+        if (is_null($redirectUrl)) {
+            throw new \InvalidArgumentException('non-nullable redirectUrl cannot be null');
         }
-        $this->container['redirect_url'] = $redirect_url;
+        $this->container['redirectUrl'] = $redirectUrl;
 
         return $this;
     }
@@ -597,28 +597,28 @@ class Oauth2UrlData implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets allow_registration
+     * Gets allowRegistration
      *
      * @return string|null
      */
     public function getAllowRegistration()
     {
-        return $this->container['allow_registration'];
+        return $this->container['allowRegistration'];
     }
 
     /**
-     * Sets allow_registration
+     * Sets allowRegistration
      *
-     * @param string|null $allow_registration If value equals true, provider may enable registration process during binding. Default true
+     * @param string|null $allowRegistration If value equals true, provider may enable registration process during binding. Default true
      *
      * @return self
      */
-    public function setAllowRegistration($allow_registration)
+    public function setAllowRegistration($allowRegistration)
     {
-        if (is_null($allow_registration)) {
-            throw new \InvalidArgumentException('non-nullable allow_registration cannot be null');
+        if (is_null($allowRegistration)) {
+            throw new \InvalidArgumentException('non-nullable allowRegistration cannot be null');
         }
-        $this->container['allow_registration'] = $allow_registration;
+        $this->container['allowRegistration'] = $allowRegistration;
 
         return $this;
     }
