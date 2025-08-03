@@ -57,7 +57,7 @@ class PaymentGatewayApiTest extends TestCase
      */
     public function testConsultPay()
     {
-        $this->markTestSkipped('ConsultPay test temporarily disabled');
+        // $this->markTestSkipped('ConsultPay test temporarily disabled');
         $consultPayRequest = PaymentGatewayFixtures::getConsultPayRequest();
         
         try {

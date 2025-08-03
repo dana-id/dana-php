@@ -1,6 +1,6 @@
-# Dana\Widget\WidgetApi
+# WidgetApi
 
-All URIs are relative to https://api.saas.dana.id, except if the operation defines another base path.
+All URIs are relative to http://api.sandbox.dana.id for sandbox and https://api.saas.dana.id for production.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -29,37 +29,30 @@ This API is used to reverses the account binding process by revoking the accessT
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+use Dana\Configuration;
+use Dana\Env;
+use Dana\Widget\v1\Api\WidgetApi;
+use ;
+
+// Set up configuration with authentication settings
+$configuration = new Configuration();
+
+// The Configuration constructor automatically loads values from environment variables
+// Choose one of PRIVATE_KEY or PRIVATE_KEY_PATH to set, if you set both, PRIVATE_KEY will be ignored
+$configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
+// $configuration->setApiKey('PRIVATE_KEY_PATH', getenv('PRIVATE_KEY_PATH'));
+$configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
+$configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
+$configuration->setApiKey('DANA_ENV', Env::SANDBOX);
+$configuration->setApiKey('ENV', Env::SANDBOX);
 
 
-// Configure API key authorization: X_PARTNER_ID
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('X-PARTNER-ID', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-PARTNER-ID', 'Bearer');
 
-// Configure API key authorization: PRIVATE_KEY
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('privatekey', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekey', 'Bearer');
-
-// Configure API key authorization: PRIVATE_KEY_PATH
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('privatekeypath', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekeypath', 'Bearer');
-
-// Configure API key authorization: ENV
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('env', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('env', 'Bearer');
-
-
-$apiInstance = new Dana\Widget\Api\WidgetApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+$apiInstance = new WidgetApi(
+    null, // this also can be set to custom http client which implements `GuzzleHttp\ClientInterface`
+    $configuration
 );
-$accountUnbindingRequest = new \Dana\Widget\v1\Model\AccountUnbindingRequest(); // \Dana\Widget\v1\Model\AccountUnbindingRequest
+$accountUnbindingRequest = AccountUnbindingRequest();
 
 try {
     $result = $apiInstance->accountUnbinding($accountUnbindingRequest);
@@ -69,24 +62,13 @@ try {
 }
 ```
 
-### Parameters
+### Payload
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **accountUnbindingRequest** | [**\Dana\Widget\v1\Model\AccountUnbindingRequest**](./Widget/AccountUnbindingRequest.md)|  | |
+[****](./Widget/.md)
 
 ### Return type
 
 [**\Dana\Widget\v1\Model\AccountUnbindingResponse**](./Widget/AccountUnbindingResponse.md)
-
-### Authorization
-
-[X_PARTNER_ID](../../README.md#X_PARTNER_ID), [PRIVATE_KEY](../../README.md#PRIVATE_KEY), [PRIVATE_KEY_PATH](../../README.md#PRIVATE_KEY_PATH), [ENV](../../README.md#ENV)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -106,47 +88,30 @@ This API is used to get one time token that will be used as authorization parame
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+use Dana\Configuration;
+use Dana\Env;
+use Dana\Widget\v1\Api\WidgetApi;
+use ;
+
+// Set up configuration with authentication settings
+$configuration = new Configuration();
+
+// The Configuration constructor automatically loads values from environment variables
+// Choose one of PRIVATE_KEY or PRIVATE_KEY_PATH to set, if you set both, PRIVATE_KEY will be ignored
+$configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
+// $configuration->setApiKey('PRIVATE_KEY_PATH', getenv('PRIVATE_KEY_PATH'));
+$configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
+$configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
+$configuration->setApiKey('DANA_ENV', Env::SANDBOX);
+$configuration->setApiKey('ENV', Env::SANDBOX);
 
 
-// Configure API key authorization: ORIGIN
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('ORIGIN', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('ORIGIN', 'Bearer');
 
-// Configure API key authorization: X_PARTNER_ID
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('X-PARTNER-ID', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-PARTNER-ID', 'Bearer');
-
-// Configure API key authorization: CHANNEL_ID
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('CHANNEL-ID', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('CHANNEL-ID', 'Bearer');
-
-// Configure API key authorization: PRIVATE_KEY
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('privatekey', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekey', 'Bearer');
-
-// Configure API key authorization: PRIVATE_KEY_PATH
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('privatekeypath', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekeypath', 'Bearer');
-
-// Configure API key authorization: ENV
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('env', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('env', 'Bearer');
-
-
-$apiInstance = new Dana\Widget\Api\WidgetApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+$apiInstance = new WidgetApi(
+    null, // this also can be set to custom http client which implements `GuzzleHttp\ClientInterface`
+    $configuration
 );
-$applyOTTRequest = new \Dana\Widget\v1\Model\ApplyOTTRequest(); // \Dana\Widget\v1\Model\ApplyOTTRequest
+$applyOTTRequest = ApplyOTTRequest();
 
 try {
     $result = $apiInstance->applyOTT($applyOTTRequest);
@@ -156,24 +121,13 @@ try {
 }
 ```
 
-### Parameters
+### Payload
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **applyOTTRequest** | [**\Dana\Widget\v1\Model\ApplyOTTRequest**](./Widget/ApplyOTTRequest.md)|  | |
+[****](./Widget/.md)
 
 ### Return type
 
 [**\Dana\Widget\v1\Model\ApplyOTTResponse**](./Widget/ApplyOTTResponse.md)
-
-### Authorization
-
-[ORIGIN](../../README.md#ORIGIN), [X_PARTNER_ID](../../README.md#X_PARTNER_ID), [CHANNEL_ID](../../README.md#CHANNEL_ID), [PRIVATE_KEY](../../README.md#PRIVATE_KEY), [PRIVATE_KEY_PATH](../../README.md#PRIVATE_KEY_PATH), [ENV](../../README.md#ENV)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -193,37 +147,30 @@ This API is used to finalized account binding process by exchanging the authCode
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+use Dana\Configuration;
+use Dana\Env;
+use Dana\Widget\v1\Api\WidgetApi;
+use ;
+
+// Set up configuration with authentication settings
+$configuration = new Configuration();
+
+// The Configuration constructor automatically loads values from environment variables
+// Choose one of PRIVATE_KEY or PRIVATE_KEY_PATH to set, if you set both, PRIVATE_KEY will be ignored
+$configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
+// $configuration->setApiKey('PRIVATE_KEY_PATH', getenv('PRIVATE_KEY_PATH'));
+$configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
+$configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
+$configuration->setApiKey('DANA_ENV', Env::SANDBOX);
+$configuration->setApiKey('ENV', Env::SANDBOX);
 
 
-// Configure API key authorization: X_PARTNER_ID
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('X-PARTNER-ID', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-PARTNER-ID', 'Bearer');
 
-// Configure API key authorization: PRIVATE_KEY
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('privatekey', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekey', 'Bearer');
-
-// Configure API key authorization: PRIVATE_KEY_PATH
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('privatekeypath', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekeypath', 'Bearer');
-
-// Configure API key authorization: ENV
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('env', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('env', 'Bearer');
-
-
-$apiInstance = new Dana\Widget\Api\WidgetApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+$apiInstance = new WidgetApi(
+    null, // this also can be set to custom http client which implements `GuzzleHttp\ClientInterface`
+    $configuration
 );
-$applyTokenRequest = new \Dana\Widget\v1\Model\ApplyTokenRequest(); // \Dana\Widget\v1\Model\ApplyTokenRequest
+$applyTokenRequest = ApplyTokenRequest();
 
 try {
     $result = $apiInstance->applyToken($applyTokenRequest);
@@ -233,24 +180,13 @@ try {
 }
 ```
 
-### Parameters
+### Payload
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **applyTokenRequest** | [**\Dana\Widget\v1\Model\ApplyTokenRequest**](./Widget/ApplyTokenRequest.md)|  | |
+[****](./Widget/.md)
 
 ### Return type
 
 [**\Dana\Widget\v1\Model\ApplyTokenResponse**](./Widget/ApplyTokenResponse.md)
-
-### Authorization
-
-[X_PARTNER_ID](../../README.md#X_PARTNER_ID), [PRIVATE_KEY](../../README.md#PRIVATE_KEY), [PRIVATE_KEY_PATH](../../README.md#PRIVATE_KEY_PATH), [ENV](../../README.md#ENV)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -270,42 +206,30 @@ This API is used to query user's DANA account balance via merchant
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+use Dana\Configuration;
+use Dana\Env;
+use Dana\Widget\v1\Api\WidgetApi;
+use ;
+
+// Set up configuration with authentication settings
+$configuration = new Configuration();
+
+// The Configuration constructor automatically loads values from environment variables
+// Choose one of PRIVATE_KEY or PRIVATE_KEY_PATH to set, if you set both, PRIVATE_KEY will be ignored
+$configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
+// $configuration->setApiKey('PRIVATE_KEY_PATH', getenv('PRIVATE_KEY_PATH'));
+$configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
+$configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
+$configuration->setApiKey('DANA_ENV', Env::SANDBOX);
+$configuration->setApiKey('ENV', Env::SANDBOX);
 
 
-// Configure API key authorization: ORIGIN
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('ORIGIN', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('ORIGIN', 'Bearer');
 
-// Configure API key authorization: X_PARTNER_ID
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('X-PARTNER-ID', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-PARTNER-ID', 'Bearer');
-
-// Configure API key authorization: CHANNEL_ID
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('CHANNEL-ID', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('CHANNEL-ID', 'Bearer');
-
-// Configure API key authorization: PRIVATE_KEY
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('privatekey', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekey', 'Bearer');
-
-// Configure API key authorization: PRIVATE_KEY_PATH
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('privatekeypath', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekeypath', 'Bearer');
-
-
-$apiInstance = new Dana\Widget\Api\WidgetApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+$apiInstance = new WidgetApi(
+    null, // this also can be set to custom http client which implements `GuzzleHttp\ClientInterface`
+    $configuration
 );
-$balanceInquiryRequest = new \Dana\Widget\v1\Model\BalanceInquiryRequest(); // \Dana\Widget\v1\Model\BalanceInquiryRequest
+$balanceInquiryRequest = BalanceInquiryRequest();
 
 try {
     $result = $apiInstance->balanceInquiry($balanceInquiryRequest);
@@ -315,24 +239,13 @@ try {
 }
 ```
 
-### Parameters
+### Payload
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **balanceInquiryRequest** | [**\Dana\Widget\v1\Model\BalanceInquiryRequest**](./Widget/BalanceInquiryRequest.md)|  | |
+[****](./Widget/.md)
 
 ### Return type
 
 [**\Dana\Widget\v1\Model\BalanceInquiryResponse**](./Widget/BalanceInquiryResponse.md)
-
-### Authorization
-
-[ORIGIN](../../README.md#ORIGIN), [X_PARTNER_ID](../../README.md#X_PARTNER_ID), [CHANNEL_ID](../../README.md#CHANNEL_ID), [PRIVATE_KEY](../../README.md#PRIVATE_KEY), [PRIVATE_KEY_PATH](../../README.md#PRIVATE_KEY_PATH)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -352,42 +265,30 @@ This API is used to cancel the order from merchant's platform to DANA
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+use Dana\Configuration;
+use Dana\Env;
+use Dana\Widget\v1\Api\WidgetApi;
+use ;
+
+// Set up configuration with authentication settings
+$configuration = new Configuration();
+
+// The Configuration constructor automatically loads values from environment variables
+// Choose one of PRIVATE_KEY or PRIVATE_KEY_PATH to set, if you set both, PRIVATE_KEY will be ignored
+$configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
+// $configuration->setApiKey('PRIVATE_KEY_PATH', getenv('PRIVATE_KEY_PATH'));
+$configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
+$configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
+$configuration->setApiKey('DANA_ENV', Env::SANDBOX);
+$configuration->setApiKey('ENV', Env::SANDBOX);
 
 
-// Configure API key authorization: ORIGIN
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('ORIGIN', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('ORIGIN', 'Bearer');
 
-// Configure API key authorization: X_PARTNER_ID
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('X-PARTNER-ID', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-PARTNER-ID', 'Bearer');
-
-// Configure API key authorization: CHANNEL_ID
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('CHANNEL-ID', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('CHANNEL-ID', 'Bearer');
-
-// Configure API key authorization: PRIVATE_KEY
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('privatekey', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekey', 'Bearer');
-
-// Configure API key authorization: PRIVATE_KEY_PATH
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('privatekeypath', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekeypath', 'Bearer');
-
-
-$apiInstance = new Dana\Widget\Api\WidgetApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+$apiInstance = new WidgetApi(
+    null, // this also can be set to custom http client which implements `GuzzleHttp\ClientInterface`
+    $configuration
 );
-$cancelOrderRequest = new \Dana\Widget\v1\Model\CancelOrderRequest(); // \Dana\Widget\v1\Model\CancelOrderRequest
+$cancelOrderRequest = CancelOrderRequest();
 
 try {
     $result = $apiInstance->cancelOrder($cancelOrderRequest);
@@ -397,24 +298,13 @@ try {
 }
 ```
 
-### Parameters
+### Payload
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **cancelOrderRequest** | [**\Dana\Widget\v1\Model\CancelOrderRequest**](./Widget/CancelOrderRequest.md)|  | |
+[****](./Widget/.md)
 
 ### Return type
 
 [**\Dana\Widget\v1\Model\CancelOrderResponse**](./Widget/CancelOrderResponse.md)
-
-### Authorization
-
-[ORIGIN](../../README.md#ORIGIN), [X_PARTNER_ID](../../README.md#X_PARTNER_ID), [CHANNEL_ID](../../README.md#CHANNEL_ID), [PRIVATE_KEY](../../README.md#PRIVATE_KEY), [PRIVATE_KEY_PATH](../../README.md#PRIVATE_KEY_PATH)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -434,42 +324,30 @@ This API is used to inquiry payment status and information from merchant's platf
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+use Dana\Configuration;
+use Dana\Env;
+use Dana\Widget\v1\Api\WidgetApi;
+use ;
+
+// Set up configuration with authentication settings
+$configuration = new Configuration();
+
+// The Configuration constructor automatically loads values from environment variables
+// Choose one of PRIVATE_KEY or PRIVATE_KEY_PATH to set, if you set both, PRIVATE_KEY will be ignored
+$configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
+// $configuration->setApiKey('PRIVATE_KEY_PATH', getenv('PRIVATE_KEY_PATH'));
+$configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
+$configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
+$configuration->setApiKey('DANA_ENV', Env::SANDBOX);
+$configuration->setApiKey('ENV', Env::SANDBOX);
 
 
-// Configure API key authorization: ORIGIN
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('ORIGIN', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('ORIGIN', 'Bearer');
 
-// Configure API key authorization: X_PARTNER_ID
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('X-PARTNER-ID', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-PARTNER-ID', 'Bearer');
-
-// Configure API key authorization: CHANNEL_ID
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('CHANNEL-ID', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('CHANNEL-ID', 'Bearer');
-
-// Configure API key authorization: PRIVATE_KEY
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('privatekey', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekey', 'Bearer');
-
-// Configure API key authorization: PRIVATE_KEY_PATH
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('privatekeypath', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekeypath', 'Bearer');
-
-
-$apiInstance = new Dana\Widget\Api\WidgetApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+$apiInstance = new WidgetApi(
+    null, // this also can be set to custom http client which implements `GuzzleHttp\ClientInterface`
+    $configuration
 );
-$queryPaymentRequest = new \Dana\Widget\v1\Model\QueryPaymentRequest(); // \Dana\Widget\v1\Model\QueryPaymentRequest
+$queryPaymentRequest = QueryPaymentRequest();
 
 try {
     $result = $apiInstance->queryPayment($queryPaymentRequest);
@@ -479,24 +357,13 @@ try {
 }
 ```
 
-### Parameters
+### Payload
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **queryPaymentRequest** | [**\Dana\Widget\v1\Model\QueryPaymentRequest**](./Widget/QueryPaymentRequest.md)|  | |
+[****](./Widget/.md)
 
 ### Return type
 
 [**\Dana\Widget\v1\Model\QueryPaymentResponse**](./Widget/QueryPaymentResponse.md)
-
-### Authorization
-
-[ORIGIN](../../README.md#ORIGIN), [X_PARTNER_ID](../../README.md#X_PARTNER_ID), [CHANNEL_ID](../../README.md#CHANNEL_ID), [PRIVATE_KEY](../../README.md#PRIVATE_KEY), [PRIVATE_KEY_PATH](../../README.md#PRIVATE_KEY_PATH)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -516,16 +383,30 @@ The API is used to query user profile such as DANA balance (unit in IDR), masked
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+use Dana\Configuration;
+use Dana\Env;
+use Dana\Widget\v1\Api\WidgetApi;
+use ;
+
+// Set up configuration with authentication settings
+$configuration = new Configuration();
+
+// The Configuration constructor automatically loads values from environment variables
+// Choose one of PRIVATE_KEY or PRIVATE_KEY_PATH to set, if you set both, PRIVATE_KEY will be ignored
+$configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
+// $configuration->setApiKey('PRIVATE_KEY_PATH', getenv('PRIVATE_KEY_PATH'));
+$configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
+$configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
+$configuration->setApiKey('DANA_ENV', Env::SANDBOX);
+$configuration->setApiKey('ENV', Env::SANDBOX);
 
 
 
-$apiInstance = new Dana\Widget\Api\WidgetApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+$apiInstance = new WidgetApi(
+    null, // this also can be set to custom http client which implements `GuzzleHttp\ClientInterface`
+    $configuration
 );
-$queryUserProfileRequest = new \Dana\Widget\v1\Model\QueryUserProfileRequest(); // \Dana\Widget\v1\Model\QueryUserProfileRequest
+$queryUserProfileRequest = QueryUserProfileRequest();
 
 try {
     $result = $apiInstance->queryUserProfile($queryUserProfileRequest);
@@ -535,24 +416,13 @@ try {
 }
 ```
 
-### Parameters
+### Payload
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **queryUserProfileRequest** | [**\Dana\Widget\v1\Model\QueryUserProfileRequest**](./Widget/QueryUserProfileRequest.md)|  | |
+[****](./Widget/.md)
 
 ### Return type
 
 [**\Dana\Widget\v1\Model\QueryUserProfileResponse**](./Widget/QueryUserProfileResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -572,42 +442,30 @@ This API is used to refund the order from merchant's platform to DANA
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+use Dana\Configuration;
+use Dana\Env;
+use Dana\Widget\v1\Api\WidgetApi;
+use ;
+
+// Set up configuration with authentication settings
+$configuration = new Configuration();
+
+// The Configuration constructor automatically loads values from environment variables
+// Choose one of PRIVATE_KEY or PRIVATE_KEY_PATH to set, if you set both, PRIVATE_KEY will be ignored
+$configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
+// $configuration->setApiKey('PRIVATE_KEY_PATH', getenv('PRIVATE_KEY_PATH'));
+$configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
+$configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
+$configuration->setApiKey('DANA_ENV', Env::SANDBOX);
+$configuration->setApiKey('ENV', Env::SANDBOX);
 
 
-// Configure API key authorization: ORIGIN
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('ORIGIN', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('ORIGIN', 'Bearer');
 
-// Configure API key authorization: X_PARTNER_ID
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('X-PARTNER-ID', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-PARTNER-ID', 'Bearer');
-
-// Configure API key authorization: CHANNEL_ID
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('CHANNEL-ID', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('CHANNEL-ID', 'Bearer');
-
-// Configure API key authorization: PRIVATE_KEY
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('privatekey', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekey', 'Bearer');
-
-// Configure API key authorization: PRIVATE_KEY_PATH
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('privatekeypath', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekeypath', 'Bearer');
-
-
-$apiInstance = new Dana\Widget\Api\WidgetApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+$apiInstance = new WidgetApi(
+    null, // this also can be set to custom http client which implements `GuzzleHttp\ClientInterface`
+    $configuration
 );
-$refundOrderRequest = new \Dana\Widget\v1\Model\RefundOrderRequest(); // \Dana\Widget\v1\Model\RefundOrderRequest
+$refundOrderRequest = RefundOrderRequest();
 
 try {
     $result = $apiInstance->refundOrder($refundOrderRequest);
@@ -617,24 +475,13 @@ try {
 }
 ```
 
-### Parameters
+### Payload
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **refundOrderRequest** | [**\Dana\Widget\v1\Model\RefundOrderRequest**](./Widget/RefundOrderRequest.md)|  | |
+[****](./Widget/.md)
 
 ### Return type
 
 [**\Dana\Widget\v1\Model\RefundOrderResponse**](./Widget/RefundOrderResponse.md)
-
-### Authorization
-
-[ORIGIN](../../README.md#ORIGIN), [X_PARTNER_ID](../../README.md#X_PARTNER_ID), [CHANNEL_ID](../../README.md#CHANNEL_ID), [PRIVATE_KEY](../../README.md#PRIVATE_KEY), [PRIVATE_KEY_PATH](../../README.md#PRIVATE_KEY_PATH)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -654,47 +501,30 @@ This API is used to initiate payment from merchant's platform to DANA
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+use Dana\Configuration;
+use Dana\Env;
+use Dana\Widget\v1\Api\WidgetApi;
+use ;
+
+// Set up configuration with authentication settings
+$configuration = new Configuration();
+
+// The Configuration constructor automatically loads values from environment variables
+// Choose one of PRIVATE_KEY or PRIVATE_KEY_PATH to set, if you set both, PRIVATE_KEY will be ignored
+$configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
+// $configuration->setApiKey('PRIVATE_KEY_PATH', getenv('PRIVATE_KEY_PATH'));
+$configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
+$configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
+$configuration->setApiKey('DANA_ENV', Env::SANDBOX);
+$configuration->setApiKey('ENV', Env::SANDBOX);
 
 
-// Configure API key authorization: ORIGIN
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('ORIGIN', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('ORIGIN', 'Bearer');
 
-// Configure API key authorization: X_PARTNER_ID
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('X-PARTNER-ID', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-PARTNER-ID', 'Bearer');
-
-// Configure API key authorization: CHANNEL_ID
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('CHANNEL-ID', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('CHANNEL-ID', 'Bearer');
-
-// Configure API key authorization: PRIVATE_KEY
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('privatekey', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekey', 'Bearer');
-
-// Configure API key authorization: PRIVATE_KEY_PATH
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('privatekeypath', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekeypath', 'Bearer');
-
-// Configure API key authorization: ENV
-$config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKey('env', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Widget\Configuration::getDefaultConfiguration()->setApiKeyPrefix('env', 'Bearer');
-
-
-$apiInstance = new Dana\Widget\Api\WidgetApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+$apiInstance = new WidgetApi(
+    null, // this also can be set to custom http client which implements `GuzzleHttp\ClientInterface`
+    $configuration
 );
-$widgetPaymentRequest = new \Dana\Widget\v1\Model\WidgetPaymentRequest(); // \Dana\Widget\v1\Model\WidgetPaymentRequest
+$widgetPaymentRequest = WidgetPaymentRequest();
 
 try {
     $result = $apiInstance->widgetPayment($widgetPaymentRequest);
@@ -704,24 +534,13 @@ try {
 }
 ```
 
-### Parameters
+### Payload
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **widgetPaymentRequest** | [**\Dana\Widget\v1\Model\WidgetPaymentRequest**](./Widget/WidgetPaymentRequest.md)|  | |
+[****](./Widget/.md)
 
 ### Return type
 
 [**\Dana\Widget\v1\Model\WidgetPaymentResponse**](./Widget/WidgetPaymentResponse.md)
-
-### Authorization
-
-[ORIGIN](../../README.md#ORIGIN), [X_PARTNER_ID](../../README.md#X_PARTNER_ID), [CHANNEL_ID](../../README.md#CHANNEL_ID), [PRIVATE_KEY](../../README.md#PRIVATE_KEY), [PRIVATE_KEY_PATH](../../README.md#PRIVATE_KEY_PATH), [ENV](../../README.md#ENV)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

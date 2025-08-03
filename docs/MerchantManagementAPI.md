@@ -1,6 +1,6 @@
-# Dana\MerchantManagement\MerchantManagementApi
+# MerchantManagementApi
 
-All URIs are relative to https://api.saas.dana.id, except if the operation defines another base path.
+All URIs are relative to http://api.sandbox.dana.id for sandbox and https://api.saas.dana.id for production.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -27,22 +27,30 @@ This API is used to create a new division
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+use Dana\Configuration;
+use Dana\Env;
+use Dana\MerchantManagement\v1\Api\MerchantManagementApi;
+use ;
+
+// Set up configuration with authentication settings
+$configuration = new Configuration();
+
+// The Configuration constructor automatically loads values from environment variables
+// Choose one of PRIVATE_KEY or PRIVATE_KEY_PATH to set, if you set both, PRIVATE_KEY will be ignored
+$configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
+// $configuration->setApiKey('PRIVATE_KEY_PATH', getenv('PRIVATE_KEY_PATH'));
+$configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
+$configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
+$configuration->setApiKey('DANA_ENV', Env::SANDBOX);
+$configuration->setApiKey('ENV', Env::SANDBOX);
 
 
-// Configure API key authorization: CLIENT_SECRET
-$config = Dana\MerchantManagement\Configuration::getDefaultConfiguration()->setApiKey('clientSecret', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\MerchantManagement\Configuration::getDefaultConfiguration()->setApiKeyPrefix('clientSecret', 'Bearer');
 
-
-$apiInstance = new Dana\MerchantManagement\Api\MerchantManagementApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+$apiInstance = new MerchantManagementApi(
+    null, // this also can be set to custom http client which implements `GuzzleHttp\ClientInterface`
+    $configuration
 );
-$createDivisionRequest = new \Dana\MerchantManagement\v1\Model\CreateDivisionRequest(); // \Dana\MerchantManagement\v1\Model\CreateDivisionRequest
+$createDivisionRequest = CreateDivisionRequest();
 
 try {
     $result = $apiInstance->createDivision($createDivisionRequest);
@@ -52,24 +60,13 @@ try {
 }
 ```
 
-### Parameters
+### Payload
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **createDivisionRequest** | [**\Dana\MerchantManagement\v1\Model\CreateDivisionRequest**](./MerchantManagement/CreateDivisionRequest.md)|  | |
+[****](./MerchantManagement/.md)
 
 ### Return type
 
 [**\Dana\MerchantManagement\v1\Model\CreateDivisionResponse**](./MerchantManagement/CreateDivisionResponse.md)
-
-### Authorization
-
-[CLIENT_SECRET](../../README.md#CLIENT_SECRET)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -89,22 +86,30 @@ Create shop under merchant or division
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+use Dana\Configuration;
+use Dana\Env;
+use Dana\MerchantManagement\v1\Api\MerchantManagementApi;
+use ;
+
+// Set up configuration with authentication settings
+$configuration = new Configuration();
+
+// The Configuration constructor automatically loads values from environment variables
+// Choose one of PRIVATE_KEY or PRIVATE_KEY_PATH to set, if you set both, PRIVATE_KEY will be ignored
+$configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
+// $configuration->setApiKey('PRIVATE_KEY_PATH', getenv('PRIVATE_KEY_PATH'));
+$configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
+$configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
+$configuration->setApiKey('DANA_ENV', Env::SANDBOX);
+$configuration->setApiKey('ENV', Env::SANDBOX);
 
 
-// Configure API key authorization: CLIENT_SECRET
-$config = Dana\MerchantManagement\Configuration::getDefaultConfiguration()->setApiKey('clientSecret', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\MerchantManagement\Configuration::getDefaultConfiguration()->setApiKeyPrefix('clientSecret', 'Bearer');
 
-
-$apiInstance = new Dana\MerchantManagement\Api\MerchantManagementApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+$apiInstance = new MerchantManagementApi(
+    null, // this also can be set to custom http client which implements `GuzzleHttp\ClientInterface`
+    $configuration
 );
-$createShopRequest = new \Dana\MerchantManagement\v1\Model\CreateShopRequest(); // \Dana\MerchantManagement\v1\Model\CreateShopRequest
+$createShopRequest = CreateShopRequest();
 
 try {
     $result = $apiInstance->createShop($createShopRequest);
@@ -114,24 +119,13 @@ try {
 }
 ```
 
-### Parameters
+### Payload
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **createShopRequest** | [**\Dana\MerchantManagement\v1\Model\CreateShopRequest**](./MerchantManagement/CreateShopRequest.md)|  | |
+[****](./MerchantManagement/.md)
 
 ### Return type
 
 [**\Dana\MerchantManagement\v1\Model\CreateShopResponse**](./MerchantManagement/CreateShopResponse.md)
-
-### Authorization
-
-[CLIENT_SECRET](../../README.md#CLIENT_SECRET)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -151,22 +145,30 @@ This API is used to obtain information of division
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+use Dana\Configuration;
+use Dana\Env;
+use Dana\MerchantManagement\v1\Api\MerchantManagementApi;
+use ;
+
+// Set up configuration with authentication settings
+$configuration = new Configuration();
+
+// The Configuration constructor automatically loads values from environment variables
+// Choose one of PRIVATE_KEY or PRIVATE_KEY_PATH to set, if you set both, PRIVATE_KEY will be ignored
+$configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
+// $configuration->setApiKey('PRIVATE_KEY_PATH', getenv('PRIVATE_KEY_PATH'));
+$configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
+$configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
+$configuration->setApiKey('DANA_ENV', Env::SANDBOX);
+$configuration->setApiKey('ENV', Env::SANDBOX);
 
 
-// Configure API key authorization: CLIENT_SECRET
-$config = Dana\MerchantManagement\Configuration::getDefaultConfiguration()->setApiKey('clientSecret', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\MerchantManagement\Configuration::getDefaultConfiguration()->setApiKeyPrefix('clientSecret', 'Bearer');
 
-
-$apiInstance = new Dana\MerchantManagement\Api\MerchantManagementApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+$apiInstance = new MerchantManagementApi(
+    null, // this also can be set to custom http client which implements `GuzzleHttp\ClientInterface`
+    $configuration
 );
-$queryDivisionRequest = new \Dana\MerchantManagement\v1\Model\QueryDivisionRequest(); // \Dana\MerchantManagement\v1\Model\QueryDivisionRequest
+$queryDivisionRequest = QueryDivisionRequest();
 
 try {
     $result = $apiInstance->queryDivision($queryDivisionRequest);
@@ -176,24 +178,13 @@ try {
 }
 ```
 
-### Parameters
+### Payload
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **queryDivisionRequest** | [**\Dana\MerchantManagement\v1\Model\QueryDivisionRequest**](./MerchantManagement/QueryDivisionRequest.md)|  | |
+[****](./MerchantManagement/.md)
 
 ### Return type
 
 [**\Dana\MerchantManagement\v1\Model\QueryDivisionResponse**](./MerchantManagement/QueryDivisionResponse.md)
-
-### Authorization
-
-[CLIENT_SECRET](../../README.md#CLIENT_SECRET)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -213,22 +204,30 @@ The interface is check merchant resource info (account balance merchant)
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+use Dana\Configuration;
+use Dana\Env;
+use Dana\MerchantManagement\v1\Api\MerchantManagementApi;
+use ;
+
+// Set up configuration with authentication settings
+$configuration = new Configuration();
+
+// The Configuration constructor automatically loads values from environment variables
+// Choose one of PRIVATE_KEY or PRIVATE_KEY_PATH to set, if you set both, PRIVATE_KEY will be ignored
+$configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
+// $configuration->setApiKey('PRIVATE_KEY_PATH', getenv('PRIVATE_KEY_PATH'));
+$configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
+$configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
+$configuration->setApiKey('DANA_ENV', Env::SANDBOX);
+$configuration->setApiKey('ENV', Env::SANDBOX);
 
 
-// Configure API key authorization: CLIENT_SECRET
-$config = Dana\MerchantManagement\Configuration::getDefaultConfiguration()->setApiKey('clientSecret', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\MerchantManagement\Configuration::getDefaultConfiguration()->setApiKeyPrefix('clientSecret', 'Bearer');
 
-
-$apiInstance = new Dana\MerchantManagement\Api\MerchantManagementApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+$apiInstance = new MerchantManagementApi(
+    null, // this also can be set to custom http client which implements `GuzzleHttp\ClientInterface`
+    $configuration
 );
-$queryMerchantResourceRequest = new \Dana\MerchantManagement\v1\Model\QueryMerchantResourceRequest(); // \Dana\MerchantManagement\v1\Model\QueryMerchantResourceRequest
+$queryMerchantResourceRequest = QueryMerchantResourceRequest();
 
 try {
     $result = $apiInstance->queryMerchantResource($queryMerchantResourceRequest);
@@ -238,24 +237,13 @@ try {
 }
 ```
 
-### Parameters
+### Payload
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **queryMerchantResourceRequest** | [**\Dana\MerchantManagement\v1\Model\QueryMerchantResourceRequest**](./MerchantManagement/QueryMerchantResourceRequest.md)|  | |
+[****](./MerchantManagement/.md)
 
 ### Return type
 
 [**\Dana\MerchantManagement\v1\Model\QueryMerchantResourceResponse**](./MerchantManagement/QueryMerchantResourceResponse.md)
-
-### Authorization
-
-[CLIENT_SECRET](../../README.md#CLIENT_SECRET)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -275,22 +263,30 @@ This API is used to obtain information of shop information
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+use Dana\Configuration;
+use Dana\Env;
+use Dana\MerchantManagement\v1\Api\MerchantManagementApi;
+use ;
+
+// Set up configuration with authentication settings
+$configuration = new Configuration();
+
+// The Configuration constructor automatically loads values from environment variables
+// Choose one of PRIVATE_KEY or PRIVATE_KEY_PATH to set, if you set both, PRIVATE_KEY will be ignored
+$configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
+// $configuration->setApiKey('PRIVATE_KEY_PATH', getenv('PRIVATE_KEY_PATH'));
+$configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
+$configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
+$configuration->setApiKey('DANA_ENV', Env::SANDBOX);
+$configuration->setApiKey('ENV', Env::SANDBOX);
 
 
-// Configure API key authorization: CLIENT_SECRET
-$config = Dana\MerchantManagement\Configuration::getDefaultConfiguration()->setApiKey('clientSecret', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\MerchantManagement\Configuration::getDefaultConfiguration()->setApiKeyPrefix('clientSecret', 'Bearer');
 
-
-$apiInstance = new Dana\MerchantManagement\Api\MerchantManagementApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+$apiInstance = new MerchantManagementApi(
+    null, // this also can be set to custom http client which implements `GuzzleHttp\ClientInterface`
+    $configuration
 );
-$queryShopRequest = new \Dana\MerchantManagement\v1\Model\QueryShopRequest(); // \Dana\MerchantManagement\v1\Model\QueryShopRequest
+$queryShopRequest = QueryShopRequest();
 
 try {
     $result = $apiInstance->queryShop($queryShopRequest);
@@ -300,24 +296,13 @@ try {
 }
 ```
 
-### Parameters
+### Payload
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **queryShopRequest** | [**\Dana\MerchantManagement\v1\Model\QueryShopRequest**](./MerchantManagement/QueryShopRequest.md)|  | |
+[****](./MerchantManagement/.md)
 
 ### Return type
 
 [**\Dana\MerchantManagement\v1\Model\QueryShopResponse**](./MerchantManagement/QueryShopResponse.md)
-
-### Authorization
-
-[CLIENT_SECRET](../../README.md#CLIENT_SECRET)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -337,22 +322,30 @@ This API is used to update the division information
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+use Dana\Configuration;
+use Dana\Env;
+use Dana\MerchantManagement\v1\Api\MerchantManagementApi;
+use ;
+
+// Set up configuration with authentication settings
+$configuration = new Configuration();
+
+// The Configuration constructor automatically loads values from environment variables
+// Choose one of PRIVATE_KEY or PRIVATE_KEY_PATH to set, if you set both, PRIVATE_KEY will be ignored
+$configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
+// $configuration->setApiKey('PRIVATE_KEY_PATH', getenv('PRIVATE_KEY_PATH'));
+$configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
+$configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
+$configuration->setApiKey('DANA_ENV', Env::SANDBOX);
+$configuration->setApiKey('ENV', Env::SANDBOX);
 
 
-// Configure API key authorization: CLIENT_SECRET
-$config = Dana\MerchantManagement\Configuration::getDefaultConfiguration()->setApiKey('clientSecret', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\MerchantManagement\Configuration::getDefaultConfiguration()->setApiKeyPrefix('clientSecret', 'Bearer');
 
-
-$apiInstance = new Dana\MerchantManagement\Api\MerchantManagementApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+$apiInstance = new MerchantManagementApi(
+    null, // this also can be set to custom http client which implements `GuzzleHttp\ClientInterface`
+    $configuration
 );
-$updateDivisionRequest = new \Dana\MerchantManagement\v1\Model\UpdateDivisionRequest(); // \Dana\MerchantManagement\v1\Model\UpdateDivisionRequest
+$updateDivisionRequest = UpdateDivisionRequest();
 
 try {
     $result = $apiInstance->updateDivision($updateDivisionRequest);
@@ -362,24 +355,13 @@ try {
 }
 ```
 
-### Parameters
+### Payload
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **updateDivisionRequest** | [**\Dana\MerchantManagement\v1\Model\UpdateDivisionRequest**](./MerchantManagement/UpdateDivisionRequest.md)|  | |
+[****](./MerchantManagement/.md)
 
 ### Return type
 
 [**\Dana\MerchantManagement\v1\Model\UpdateDivisionResponse**](./MerchantManagement/UpdateDivisionResponse.md)
-
-### Authorization
-
-[CLIENT_SECRET](../../README.md#CLIENT_SECRET)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -399,22 +381,30 @@ This API is used to update the shop information
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+use Dana\Configuration;
+use Dana\Env;
+use Dana\MerchantManagement\v1\Api\MerchantManagementApi;
+use ;
+
+// Set up configuration with authentication settings
+$configuration = new Configuration();
+
+// The Configuration constructor automatically loads values from environment variables
+// Choose one of PRIVATE_KEY or PRIVATE_KEY_PATH to set, if you set both, PRIVATE_KEY will be ignored
+$configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
+// $configuration->setApiKey('PRIVATE_KEY_PATH', getenv('PRIVATE_KEY_PATH'));
+$configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
+$configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
+$configuration->setApiKey('DANA_ENV', Env::SANDBOX);
+$configuration->setApiKey('ENV', Env::SANDBOX);
 
 
-// Configure API key authorization: CLIENT_SECRET
-$config = Dana\MerchantManagement\Configuration::getDefaultConfiguration()->setApiKey('clientSecret', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\MerchantManagement\Configuration::getDefaultConfiguration()->setApiKeyPrefix('clientSecret', 'Bearer');
 
-
-$apiInstance = new Dana\MerchantManagement\Api\MerchantManagementApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+$apiInstance = new MerchantManagementApi(
+    null, // this also can be set to custom http client which implements `GuzzleHttp\ClientInterface`
+    $configuration
 );
-$updateShopRequest = new \Dana\MerchantManagement\v1\Model\UpdateShopRequest(); // \Dana\MerchantManagement\v1\Model\UpdateShopRequest
+$updateShopRequest = UpdateShopRequest();
 
 try {
     $result = $apiInstance->updateShop($updateShopRequest);
@@ -424,24 +414,13 @@ try {
 }
 ```
 
-### Parameters
+### Payload
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **updateShopRequest** | [**\Dana\MerchantManagement\v1\Model\UpdateShopRequest**](./MerchantManagement/UpdateShopRequest.md)|  | |
+[****](./MerchantManagement/.md)
 
 ### Return type
 
 [**\Dana\MerchantManagement\v1\Model\UpdateShopResponse**](./MerchantManagement/UpdateShopResponse.md)
-
-### Authorization
-
-[CLIENT_SECRET](../../README.md#CLIENT_SECRET)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

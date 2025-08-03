@@ -141,7 +141,7 @@ class Configuration
      * - ORIGIN: Origin of the request
      * - X_PARTNER_ID: Partner ID for authentication
      * - PRIVATE_KEY or PRIVATE_KEY_PATH: Private key for signing
-     * - ENV: Environment (sandbox or production)
+     * - DANA_ENV or ENV: Environment (sandbox or production)
      */
     public function __construct()
     {
@@ -152,7 +152,7 @@ class Configuration
         $partnerId = getenv('X_PARTNER_ID');
         $privateKey = getenv('PRIVATE_KEY');
         $privateKeyPath = getenv('PRIVATE_KEY_PATH');
-        $env = getenv('ENV') ?: Env::SANDBOX;
+        $env = getenv('DANA_ENV') ?: getenv('ENV') ?: Env::SANDBOX;
         $clientSecret = getenv('CLIENT_SECRET');
         
         // Set API keys based on environment variables
@@ -177,6 +177,7 @@ class Configuration
         }
         
         // Set environment
+        $this->setApiKey('DANA_ENV', $env);
         $this->setApiKey('ENV', $env);
         
         // Set correct host based on environment
@@ -522,7 +523,7 @@ class Configuration
      */
     public function getHostSettings()
     {
-        $env = $this->getApiKey('ENV') ?: Env::SANDBOX;
+        $env = $this->getApiKey('DANA_ENV') ?: $this->getApiKey('ENV') ?: Env::SANDBOX;
         
         return [
             [

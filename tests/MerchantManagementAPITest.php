@@ -48,7 +48,7 @@ class MerchantManagementAPITest extends TestCase
     protected function setUp(): void
 {
     // Skip all Merchant Management API tests
-    $this->markTestSkipped('Merchant Management API tests are temporarily disabled');
+    // $this->markTestSkipped('Merchant Management API tests are temporarily disabled');
     
     // The rest of the setup won't run due to the skip above
     $this->externalShopId = MerchantManagementFixtures::generateExternalShopId();
@@ -129,6 +129,7 @@ class MerchantManagementAPITest extends TestCase
                     echo "Shop created successfully: ID={$shopInfo['externalShopId']}, Name={$shopInfo['mainName']}\n";
                 }
             }
+            $this->assertTrue(in_array($resultInfo->getResultMsg(), ['SUCCESS', 'ROLE_HAS_EXIST'], 'Result message should be "SUCCESS" or "ROLE_HAS_EXIST"'));
             
         } catch (ApiException $e) {
             $this->fail("API Exception when calling MerchantManagementApi->createShop: " . $e->getMessage());
@@ -212,7 +213,7 @@ class MerchantManagementAPITest extends TestCase
                     );
                 }
             }
-            
+            $this->assertTrue($resultInfo->getResultMsg() === 'SUCCESS', 'Result message should be "SUCCESS"');
         } catch (ApiException $e) {
             $this->fail("API Exception when calling MerchantManagementApi->queryMerchantResource: " . $e->getMessage());
         }
@@ -280,7 +281,6 @@ class MerchantManagementAPITest extends TestCase
             
             // Check if shop info is returned
             if ($resultInfo->getResultStatus() === 'S') {
-                $this->assertTrue(method_exists($body, 'getShopResourceInfo'), 'Body should have getShopResourceInfo method');
                 $shopInfo = $body->getShopResourceInfo();
                 if (!empty($shopInfo)) {
                     
@@ -295,7 +295,7 @@ class MerchantManagementAPITest extends TestCase
                     echo "No shop found with ID: " . $this->externalShopId . "\n";
                 }
             }
-            
+            $this->assertTrue($resultInfo->getResultMsg() === 'SUCCESS', 'Result message should be "SUCCESS"');
         } catch (ApiException $e) {
             $this->fail("API Exception when calling MerchantManagementApi->queryShop: " . $e->getMessage());
         }

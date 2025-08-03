@@ -18,7 +18,7 @@ class Util
     public static function generateOauthUrl(Oauth2UrlData $data, ?string $privateKey = null, ?string $privateKeyPath = null): string
     {
         // Use environment variable or default to sandbox
-        $env = getenv('ENV') ?: 'sandbox';
+        $env = getenv('DANA_ENV') ?: getenv('ENV') ?: 'sandbox';
         
         // Determine base URL based on environment
         if ($env === 'sandbox') {
@@ -55,7 +55,18 @@ class Util
 
         // Generate channel ID and scopes
         $channelId = getenv('X_PARTNER_ID');
-        $scopes = $data->getScopes() ?: 'CASHIER,AGREEMENT_PAY,QUERY_BALANCE,DEFAULT_BASIC_PROFILE,MINI_DANA';
+        
+        // Get scopes based on environment
+        if ($data->getScopes()) {
+            $scopes = $data->getScopes();
+        } else {
+            $env = getenv('DANA_ENV') ?: getenv('ENV') ?: 'sandbox';
+            if (strtolower($env) !== 'production') {
+                $scopes = 'CASHIER,AGREEMENT_PAY,QUERY_BALANCE,DEFAULT_BASIC_PROFILE,MINI_DANA';
+            } else {
+                $scopes = 'CASHIER';
+            }
+        }
 
         // Use provided external ID or generate a UUID
         $externalId = $data->getExternalId();

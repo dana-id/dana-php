@@ -1,6 +1,6 @@
-# Dana\Disbursement\DisbursementApi
+# DisbursementApi
 
-All URIs are relative to https://api.saas.dana.id, except if the operation defines another base path.
+All URIs are relative to http://api.sandbox.dana.id for sandbox and https://api.saas.dana.id for production.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -26,42 +26,30 @@ This API is used for merchant to do inquiry Bank account info via DANA
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+use Dana\Configuration;
+use Dana\Env;
+use Dana\Disbursement\v1\Api\DisbursementApi;
+use ;
+
+// Set up configuration with authentication settings
+$configuration = new Configuration();
+
+// The Configuration constructor automatically loads values from environment variables
+// Choose one of PRIVATE_KEY or PRIVATE_KEY_PATH to set, if you set both, PRIVATE_KEY will be ignored
+$configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
+// $configuration->setApiKey('PRIVATE_KEY_PATH', getenv('PRIVATE_KEY_PATH'));
+$configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
+$configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
+$configuration->setApiKey('DANA_ENV', Env::SANDBOX);
+$configuration->setApiKey('ENV', Env::SANDBOX);
 
 
-// Configure API key authorization: ORIGIN
-$config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKey('ORIGIN', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKeyPrefix('ORIGIN', 'Bearer');
 
-// Configure API key authorization: X_PARTNER_ID
-$config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKey('X-PARTNER-ID', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-PARTNER-ID', 'Bearer');
-
-// Configure API key authorization: CHANNEL_ID
-$config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKey('CHANNEL-ID', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKeyPrefix('CHANNEL-ID', 'Bearer');
-
-// Configure API key authorization: PRIVATE_KEY
-$config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKey('privatekey', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekey', 'Bearer');
-
-// Configure API key authorization: PRIVATE_KEY_PATH
-$config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKey('privatekeypath', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekeypath', 'Bearer');
-
-
-$apiInstance = new Dana\Disbursement\Api\DisbursementApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+$apiInstance = new DisbursementApi(
+    null, // this also can be set to custom http client which implements `GuzzleHttp\ClientInterface`
+    $configuration
 );
-$bankAccountInquiryRequest = new \Dana\Disbursement\v1\Model\BankAccountInquiryRequest(); // \Dana\Disbursement\v1\Model\BankAccountInquiryRequest
+$bankAccountInquiryRequest = BankAccountInquiryRequest();
 
 try {
     $result = $apiInstance->bankAccountInquiry($bankAccountInquiryRequest);
@@ -71,24 +59,13 @@ try {
 }
 ```
 
-### Parameters
+### Payload
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **bankAccountInquiryRequest** | [**\Dana\Disbursement\v1\Model\BankAccountInquiryRequest**](./Disbursement/BankAccountInquiryRequest.md)|  | |
+[****](./Disbursement/.md)
 
 ### Return type
 
 [**\Dana\Disbursement\v1\Model\BankAccountInquiryResponse**](./Disbursement/BankAccountInquiryResponse.md)
-
-### Authorization
-
-[ORIGIN](../../README.md#ORIGIN), [X_PARTNER_ID](../../README.md#X_PARTNER_ID), [CHANNEL_ID](../../README.md#CHANNEL_ID), [PRIVATE_KEY](../../README.md#PRIVATE_KEY), [PRIVATE_KEY_PATH](../../README.md#PRIVATE_KEY_PATH)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -108,42 +85,30 @@ This API is used for merchant to do account inquiry to DANA
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+use Dana\Configuration;
+use Dana\Env;
+use Dana\Disbursement\v1\Api\DisbursementApi;
+use ;
+
+// Set up configuration with authentication settings
+$configuration = new Configuration();
+
+// The Configuration constructor automatically loads values from environment variables
+// Choose one of PRIVATE_KEY or PRIVATE_KEY_PATH to set, if you set both, PRIVATE_KEY will be ignored
+$configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
+// $configuration->setApiKey('PRIVATE_KEY_PATH', getenv('PRIVATE_KEY_PATH'));
+$configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
+$configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
+$configuration->setApiKey('DANA_ENV', Env::SANDBOX);
+$configuration->setApiKey('ENV', Env::SANDBOX);
 
 
-// Configure API key authorization: ORIGIN
-$config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKey('ORIGIN', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKeyPrefix('ORIGIN', 'Bearer');
 
-// Configure API key authorization: X_PARTNER_ID
-$config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKey('X-PARTNER-ID', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-PARTNER-ID', 'Bearer');
-
-// Configure API key authorization: CHANNEL_ID
-$config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKey('CHANNEL-ID', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKeyPrefix('CHANNEL-ID', 'Bearer');
-
-// Configure API key authorization: PRIVATE_KEY
-$config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKey('privatekey', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekey', 'Bearer');
-
-// Configure API key authorization: PRIVATE_KEY_PATH
-$config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKey('privatekeypath', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekeypath', 'Bearer');
-
-
-$apiInstance = new Dana\Disbursement\Api\DisbursementApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+$apiInstance = new DisbursementApi(
+    null, // this also can be set to custom http client which implements `GuzzleHttp\ClientInterface`
+    $configuration
 );
-$danaAccountInquiryRequest = new \Dana\Disbursement\v1\Model\DanaAccountInquiryRequest(); // \Dana\Disbursement\v1\Model\DanaAccountInquiryRequest
+$danaAccountInquiryRequest = DanaAccountInquiryRequest();
 
 try {
     $result = $apiInstance->danaAccountInquiry($danaAccountInquiryRequest);
@@ -153,24 +118,13 @@ try {
 }
 ```
 
-### Parameters
+### Payload
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **danaAccountInquiryRequest** | [**\Dana\Disbursement\v1\Model\DanaAccountInquiryRequest**](./Disbursement/DanaAccountInquiryRequest.md)|  | |
+[****](./Disbursement/.md)
 
 ### Return type
 
 [**\Dana\Disbursement\v1\Model\DanaAccountInquiryResponse**](./Disbursement/DanaAccountInquiryResponse.md)
-
-### Authorization
-
-[ORIGIN](../../README.md#ORIGIN), [X_PARTNER_ID](../../README.md#X_PARTNER_ID), [CHANNEL_ID](../../README.md#CHANNEL_ID), [PRIVATE_KEY](../../README.md#PRIVATE_KEY), [PRIVATE_KEY_PATH](../../README.md#PRIVATE_KEY_PATH)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -190,42 +144,30 @@ This API is used for merchant to do transfer to Bank request via DANA
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+use Dana\Configuration;
+use Dana\Env;
+use Dana\Disbursement\v1\Api\DisbursementApi;
+use ;
+
+// Set up configuration with authentication settings
+$configuration = new Configuration();
+
+// The Configuration constructor automatically loads values from environment variables
+// Choose one of PRIVATE_KEY or PRIVATE_KEY_PATH to set, if you set both, PRIVATE_KEY will be ignored
+$configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
+// $configuration->setApiKey('PRIVATE_KEY_PATH', getenv('PRIVATE_KEY_PATH'));
+$configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
+$configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
+$configuration->setApiKey('DANA_ENV', Env::SANDBOX);
+$configuration->setApiKey('ENV', Env::SANDBOX);
 
 
-// Configure API key authorization: ORIGIN
-$config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKey('ORIGIN', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKeyPrefix('ORIGIN', 'Bearer');
 
-// Configure API key authorization: X_PARTNER_ID
-$config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKey('X-PARTNER-ID', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-PARTNER-ID', 'Bearer');
-
-// Configure API key authorization: CHANNEL_ID
-$config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKey('CHANNEL-ID', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKeyPrefix('CHANNEL-ID', 'Bearer');
-
-// Configure API key authorization: PRIVATE_KEY
-$config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKey('privatekey', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekey', 'Bearer');
-
-// Configure API key authorization: PRIVATE_KEY_PATH
-$config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKey('privatekeypath', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekeypath', 'Bearer');
-
-
-$apiInstance = new Dana\Disbursement\Api\DisbursementApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+$apiInstance = new DisbursementApi(
+    null, // this also can be set to custom http client which implements `GuzzleHttp\ClientInterface`
+    $configuration
 );
-$transferToBankRequest = new \Dana\Disbursement\v1\Model\TransferToBankRequest(); // \Dana\Disbursement\v1\Model\TransferToBankRequest
+$transferToBankRequest = TransferToBankRequest();
 
 try {
     $result = $apiInstance->transferToBank($transferToBankRequest);
@@ -235,24 +177,13 @@ try {
 }
 ```
 
-### Parameters
+### Payload
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **transferToBankRequest** | [**\Dana\Disbursement\v1\Model\TransferToBankRequest**](./Disbursement/TransferToBankRequest.md)|  | |
+[****](./Disbursement/.md)
 
 ### Return type
 
 [**\Dana\Disbursement\v1\Model\TransferToBankResponse**](./Disbursement/TransferToBankResponse.md)
-
-### Authorization
-
-[ORIGIN](../../README.md#ORIGIN), [X_PARTNER_ID](../../README.md#X_PARTNER_ID), [CHANNEL_ID](../../README.md#CHANNEL_ID), [PRIVATE_KEY](../../README.md#PRIVATE_KEY), [PRIVATE_KEY_PATH](../../README.md#PRIVATE_KEY_PATH)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -272,42 +203,30 @@ This API is used for merchant to do inquiry status transfer to Bank transaction 
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+use Dana\Configuration;
+use Dana\Env;
+use Dana\Disbursement\v1\Api\DisbursementApi;
+use ;
+
+// Set up configuration with authentication settings
+$configuration = new Configuration();
+
+// The Configuration constructor automatically loads values from environment variables
+// Choose one of PRIVATE_KEY or PRIVATE_KEY_PATH to set, if you set both, PRIVATE_KEY will be ignored
+$configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
+// $configuration->setApiKey('PRIVATE_KEY_PATH', getenv('PRIVATE_KEY_PATH'));
+$configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
+$configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
+$configuration->setApiKey('DANA_ENV', Env::SANDBOX);
+$configuration->setApiKey('ENV', Env::SANDBOX);
 
 
-// Configure API key authorization: ORIGIN
-$config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKey('ORIGIN', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKeyPrefix('ORIGIN', 'Bearer');
 
-// Configure API key authorization: X_PARTNER_ID
-$config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKey('X-PARTNER-ID', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-PARTNER-ID', 'Bearer');
-
-// Configure API key authorization: CHANNEL_ID
-$config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKey('CHANNEL-ID', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKeyPrefix('CHANNEL-ID', 'Bearer');
-
-// Configure API key authorization: PRIVATE_KEY
-$config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKey('privatekey', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekey', 'Bearer');
-
-// Configure API key authorization: PRIVATE_KEY_PATH
-$config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKey('privatekeypath', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekeypath', 'Bearer');
-
-
-$apiInstance = new Dana\Disbursement\Api\DisbursementApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+$apiInstance = new DisbursementApi(
+    null, // this also can be set to custom http client which implements `GuzzleHttp\ClientInterface`
+    $configuration
 );
-$transferToBankInquiryStatusRequest = new \Dana\Disbursement\v1\Model\TransferToBankInquiryStatusRequest(); // \Dana\Disbursement\v1\Model\TransferToBankInquiryStatusRequest
+$transferToBankInquiryStatusRequest = TransferToBankInquiryStatusRequest();
 
 try {
     $result = $apiInstance->transferToBankInquiryStatus($transferToBankInquiryStatusRequest);
@@ -317,24 +236,13 @@ try {
 }
 ```
 
-### Parameters
+### Payload
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **transferToBankInquiryStatusRequest** | [**\Dana\Disbursement\v1\Model\TransferToBankInquiryStatusRequest**](./Disbursement/TransferToBankInquiryStatusRequest.md)|  | |
+[****](./Disbursement/.md)
 
 ### Return type
 
 [**\Dana\Disbursement\v1\Model\TransferToBankInquiryStatusResponse**](./Disbursement/TransferToBankInquiryStatusResponse.md)
-
-### Authorization
-
-[ORIGIN](../../README.md#ORIGIN), [X_PARTNER_ID](../../README.md#X_PARTNER_ID), [CHANNEL_ID](../../README.md#CHANNEL_ID), [PRIVATE_KEY](../../README.md#PRIVATE_KEY), [PRIVATE_KEY_PATH](../../README.md#PRIVATE_KEY_PATH)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -354,42 +262,30 @@ This API is used for merchant to do top up request to DANA
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+use Dana\Configuration;
+use Dana\Env;
+use Dana\Disbursement\v1\Api\DisbursementApi;
+use ;
+
+// Set up configuration with authentication settings
+$configuration = new Configuration();
+
+// The Configuration constructor automatically loads values from environment variables
+// Choose one of PRIVATE_KEY or PRIVATE_KEY_PATH to set, if you set both, PRIVATE_KEY will be ignored
+$configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
+// $configuration->setApiKey('PRIVATE_KEY_PATH', getenv('PRIVATE_KEY_PATH'));
+$configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
+$configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
+$configuration->setApiKey('DANA_ENV', Env::SANDBOX);
+$configuration->setApiKey('ENV', Env::SANDBOX);
 
 
-// Configure API key authorization: ORIGIN
-$config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKey('ORIGIN', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKeyPrefix('ORIGIN', 'Bearer');
 
-// Configure API key authorization: X_PARTNER_ID
-$config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKey('X-PARTNER-ID', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-PARTNER-ID', 'Bearer');
-
-// Configure API key authorization: CHANNEL_ID
-$config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKey('CHANNEL-ID', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKeyPrefix('CHANNEL-ID', 'Bearer');
-
-// Configure API key authorization: PRIVATE_KEY
-$config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKey('privatekey', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekey', 'Bearer');
-
-// Configure API key authorization: PRIVATE_KEY_PATH
-$config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKey('privatekeypath', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekeypath', 'Bearer');
-
-
-$apiInstance = new Dana\Disbursement\Api\DisbursementApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+$apiInstance = new DisbursementApi(
+    null, // this also can be set to custom http client which implements `GuzzleHttp\ClientInterface`
+    $configuration
 );
-$transferToDanaRequest = new \Dana\Disbursement\v1\Model\TransferToDanaRequest(); // \Dana\Disbursement\v1\Model\TransferToDanaRequest
+$transferToDanaRequest = TransferToDanaRequest();
 
 try {
     $result = $apiInstance->transferToDana($transferToDanaRequest);
@@ -399,24 +295,13 @@ try {
 }
 ```
 
-### Parameters
+### Payload
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **transferToDanaRequest** | [**\Dana\Disbursement\v1\Model\TransferToDanaRequest**](./Disbursement/TransferToDanaRequest.md)|  | |
+[****](./Disbursement/.md)
 
 ### Return type
 
 [**\Dana\Disbursement\v1\Model\TransferToDanaResponse**](./Disbursement/TransferToDanaResponse.md)
-
-### Authorization
-
-[ORIGIN](../../README.md#ORIGIN), [X_PARTNER_ID](../../README.md#X_PARTNER_ID), [CHANNEL_ID](../../README.md#CHANNEL_ID), [PRIVATE_KEY](../../README.md#PRIVATE_KEY), [PRIVATE_KEY_PATH](../../README.md#PRIVATE_KEY_PATH)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -436,42 +321,30 @@ This API is used for merchant to do inquiry status top up transaction to DANA
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+use Dana\Configuration;
+use Dana\Env;
+use Dana\Disbursement\v1\Api\DisbursementApi;
+use ;
+
+// Set up configuration with authentication settings
+$configuration = new Configuration();
+
+// The Configuration constructor automatically loads values from environment variables
+// Choose one of PRIVATE_KEY or PRIVATE_KEY_PATH to set, if you set both, PRIVATE_KEY will be ignored
+$configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
+// $configuration->setApiKey('PRIVATE_KEY_PATH', getenv('PRIVATE_KEY_PATH'));
+$configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
+$configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
+$configuration->setApiKey('DANA_ENV', Env::SANDBOX);
+$configuration->setApiKey('ENV', Env::SANDBOX);
 
 
-// Configure API key authorization: ORIGIN
-$config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKey('ORIGIN', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKeyPrefix('ORIGIN', 'Bearer');
 
-// Configure API key authorization: X_PARTNER_ID
-$config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKey('X-PARTNER-ID', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-PARTNER-ID', 'Bearer');
-
-// Configure API key authorization: CHANNEL_ID
-$config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKey('CHANNEL-ID', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKeyPrefix('CHANNEL-ID', 'Bearer');
-
-// Configure API key authorization: PRIVATE_KEY
-$config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKey('privatekey', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekey', 'Bearer');
-
-// Configure API key authorization: PRIVATE_KEY_PATH
-$config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKey('privatekeypath', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\Disbursement\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekeypath', 'Bearer');
-
-
-$apiInstance = new Dana\Disbursement\Api\DisbursementApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+$apiInstance = new DisbursementApi(
+    null, // this also can be set to custom http client which implements `GuzzleHttp\ClientInterface`
+    $configuration
 );
-$transferToDanaInquiryStatusRequest = new \Dana\Disbursement\v1\Model\TransferToDanaInquiryStatusRequest(); // \Dana\Disbursement\v1\Model\TransferToDanaInquiryStatusRequest
+$transferToDanaInquiryStatusRequest = TransferToDanaInquiryStatusRequest();
 
 try {
     $result = $apiInstance->transferToDanaInquiryStatus($transferToDanaInquiryStatusRequest);
@@ -481,24 +354,13 @@ try {
 }
 ```
 
-### Parameters
+### Payload
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **transferToDanaInquiryStatusRequest** | [**\Dana\Disbursement\v1\Model\TransferToDanaInquiryStatusRequest**](./Disbursement/TransferToDanaInquiryStatusRequest.md)|  | |
+[****](./Disbursement/.md)
 
 ### Return type
 
 [**\Dana\Disbursement\v1\Model\TransferToDanaInquiryStatusResponse**](./Disbursement/TransferToDanaInquiryStatusResponse.md)
-
-### Authorization
-
-[ORIGIN](../../README.md#ORIGIN), [X_PARTNER_ID](../../README.md#X_PARTNER_ID), [CHANNEL_ID](../../README.md#CHANNEL_ID), [PRIVATE_KEY](../../README.md#PRIVATE_KEY), [PRIVATE_KEY_PATH](../../README.md#PRIVATE_KEY_PATH)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

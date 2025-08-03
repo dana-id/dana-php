@@ -14,6 +14,7 @@ namespace Dana\Tests;
 
 use PHPUnit\Framework\TestCase;
 use Dana\Tests\Fixtures\ApiClientFixtures;
+use Dana\Tests\Fixtures\WidgetFixtures;
 use Dana\Widget\v1\Api\WidgetApi;
 use Dana\Widget\v1\Model\ApplyTokenRequest;
 use Dana\Widget\v1\Model\ApplyTokenResponse;
@@ -56,15 +57,15 @@ class WidgetApiTest extends TestCase
     {
         $this->apiInstance = ApiClientFixtures::getWidgetApiInstance();
     }
-    
+
     /**
-     * Test Binding Flow - OAuth, ApplyToken, ApplyOTT
+     * Test Binding Flow - OAuth, ApplyToken, ApplyOTT, Payment, Query, Refund, Unbind
      * 
      * This test runs the complete binding flow from OAuth to ApplyToken to ApplyOTT
      *
      * @return void
      */
-    public function testCompleteBindingProcess(): void
+    public function testCompleteProcess(): void
     {
         $merchantId = getenv('MERCHANT_ID');
         $privateKey = getenv('PRIVATE_KEY');
@@ -196,6 +197,112 @@ class WidgetApiTest extends TestCase
             echo 'Binding flow completed successfully!' . PHP_EOL;
         } catch (\Exception $e) {
             $this->fail('API call failed: ' . $e->getMessage());
+        }
+
+        try {
+            $widgetPaymentRequest = WidgetFixtures::getWidgetPaymentRequest();
+            $widgetPaymentResponse = $this->apiInstance->widgetPayment($widgetPaymentRequest);
+            $this->assertNotNull($widgetPaymentResponse);
+            
+            $this->assertEquals('2005400', $widgetPaymentResponse->getResponseCode());
+            $this->assertEquals('Successful', $widgetPaymentResponse->getResponseMessage());
+            $this->assertEquals($widgetPaymentRequest->getPartnerReferenceNo(), $widgetPaymentResponse->getPartnerReferenceNo());
+            $this->assertNotEmpty($widgetPaymentResponse->getWebRedirectUrl());
+        } catch (\Exception $e) {
+            $this->fail('Error during WidgetPayment execution: ' . $e->getMessage());
+        }
+
+        // Construct full payment URL with OTT from binding process
+        $paymentUrl = $widgetPaymentResponse->getWebRedirectUrl() . '&ott=' . $this->ott;
+        echo "Payment URL: {$paymentUrl}" . PHP_EOL;
+
+        try {
+            // Run the payment automation script
+            echo "Running payment automation script..." . PHP_EOL;
+            $success = WebAutomation::automatePaymentWidget($paymentUrl);
+            $this->assertTrue($success, "Payment automation failed");
+        } catch (\Exception $e) {
+            $this->fail('Error during payment automation: ' . $e->getMessage());
+        }
+
+        try {
+            // Step 2: Query Payment
+            echo "Step 2: Querying payment status..." . PHP_EOL;
+            $queryPaymentRequest = WidgetFixtures::getWidgetQueryPaymentRequest(
+                $widgetPaymentRequest,
+                $widgetPaymentResponse
+            );
+            
+            $queryPaymentResponse = $this->apiInstance->queryPayment($queryPaymentRequest);
+            
+            $this->assertNotNull($queryPaymentResponse);
+            $this->assertEquals('2005500', $queryPaymentResponse->getResponseCode());
+            $this->assertEquals('Successful', $queryPaymentResponse->getResponseMessage());
+            $this->assertEquals($widgetPaymentRequest->getPartnerReferenceNo(), $queryPaymentResponse->getOriginalPartnerReferenceNo());
+            $this->assertEquals('SUCCESS', $queryPaymentResponse->getTransactionStatusDesc());
+        } catch (\Exception $e) {
+            $this->fail('Error during QueryPayment execution: ' . $e->getMessage());
+        }
+
+        try {
+            // Step 3: Refund Order
+            echo "Step 3: Refunding the order..." . PHP_EOL;
+            $refundOrderRequest = WidgetFixtures::getRefundOrderRequest($widgetPaymentRequest);
+            
+            $refundOrderResponse = $this->apiInstance->refundOrder($refundOrderRequest);
+            
+            $this->assertNotNull($refundOrderResponse);
+            $this->assertEquals('2005800', $refundOrderResponse->getResponseCode());
+            $this->assertEquals('Successful', $refundOrderResponse->getResponseMessage());
+            $this->assertEquals($widgetPaymentRequest->getPartnerReferenceNo(), $refundOrderResponse->getOriginalPartnerReferenceNo());
+        } catch (\Exception $e) {
+            $this->fail('Error during RefundOrder execution: ' . $e->getMessage());
+        }
+
+        try {
+            // Step 4: Account Unbinding
+            echo "Step 4: Unbinding the account..." . PHP_EOL;
+            $accountUnbindingRequest = WidgetFixtures::getAccountUnbindingRequest($this->bindingAccessToken);
+            
+            $accountUnbindingResponse = $this->apiInstance->accountUnbinding($accountUnbindingRequest);
+            
+            $this->assertNotNull($accountUnbindingResponse);
+            $this->assertEquals('2000900', $accountUnbindingResponse->getResponseCode());
+            $this->assertEquals('Successful', $accountUnbindingResponse->getResponseMessage());
+            
+            echo "Complete widget payment flow executed successfully!" . PHP_EOL;
+        } catch (\Exception $e) {
+            $this->fail('Error during AccountUnbinding execution: ' . $e->getMessage());
+        }
+    }    
+    
+    /**
+     * Test Widget Cancel Order API
+     *
+     * @return void
+     */
+    public function testWidgetCancelOrder(): void
+    {
+        // Skip test if no API client credentials are available
+        if (empty(getenv('X_PARTNER_ID')) || empty(getenv('PRIVATE_KEY'))) {
+            $this->markTestSkipped('Skipping test: No API client credentials');
+        }
+        
+        // Create a payment first
+        $widgetPaymentRequest = WidgetFixtures::getWidgetPaymentRequest();
+        
+        try {
+            $widgetPaymentResponse = $this->apiInstance->widgetPayment($widgetPaymentRequest);
+            $this->assertNotNull($widgetPaymentResponse);
+            
+            // Test CancelOrder
+            $cancelOrderRequest = WidgetFixtures::getWidgetCancelOrderRequest($widgetPaymentRequest);
+            $cancelOrderResponse = $this->apiInstance->cancelOrder($cancelOrderRequest);
+            
+            $this->assertNotNull($cancelOrderResponse);
+            $this->assertEquals($widgetPaymentRequest->getPartnerReferenceNo(), $cancelOrderResponse->getOriginalPartnerReferenceNo());
+        } catch (\Exception $e) {
+            $this->fail('Error during CancelOrder execution: ' . $e->getMessage());
         }
     }    
 }

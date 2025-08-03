@@ -50,6 +50,7 @@ class ApiClientFixtures
         $config->setApiKey('PRIVATE_KEY', $privateKey);
         $config->setApiKey('PRIVATE_KEY_PATH', $privateKeyPath);
 
+        $config->setApiKey('DANA_ENV', $env);
         $config->setApiKey('ENV', $env);
         
         return new PaymentGatewayApi(null, $config);
@@ -79,6 +80,7 @@ class ApiClientFixtures
         $config->setApiKey('PRIVATE_KEY', $privateKey);
         $config->setApiKey('PRIVATE_KEY_PATH', $privateKeyPath);
 
+        $config->setApiKey('DANA_ENV', $env);
         $config->setApiKey('ENV', $env);
         
         return new WidgetApi(null, $config);
@@ -108,6 +110,7 @@ class ApiClientFixtures
         $config->setApiKey('PRIVATE_KEY', $privateKey);
         $config->setApiKey('PRIVATE_KEY_PATH', $privateKeyPath);
 
+        $config->setApiKey('DANA_ENV', $env);
         $config->setApiKey('ENV', $env);
         
         return new DisbursementApi(null, $config);
@@ -121,7 +124,6 @@ class ApiClientFixtures
         $privateKey = getenv('PRIVATE_KEY') ?: 'test-private-key';
         $privateKeyPath = getenv('PRIVATE_KEY_PATH') ?: null;
         $env = Env::SANDBOX;
-        $clientId = getenv('CLIENT_ID') ?: 'test-client-id';
         $clientSecret = getenv('CLIENT_SECRET') ?: 'test-client-secret';
 
         // Create configuration
@@ -131,9 +133,9 @@ class ApiClientFixtures
         $config->setApiKey('X_PARTNER_ID', $partnerId);
         $config->setApiKey('PRIVATE_KEY', $privateKey);
         $config->setApiKey('PRIVATE_KEY_PATH', $privateKeyPath);
-        $config->setApiKey('CLIENT_ID', $clientId);
         $config->setApiKey('CLIENT_SECRET', $clientSecret);
 
+        $config->setApiKey('DANA_ENV', $env);
         $config->setApiKey('ENV', $env);
         
         return new MerchantManagementApi(null, $config);

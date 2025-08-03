@@ -32,6 +32,7 @@ use Dana\PaymentGateway\v1\Model\UrlParam;
 use Dana\PaymentGateway\v1\Enum\PayMethod;
 use Dana\PaymentGateway\v1\Enum\SourcePlatform;
 use Dana\PaymentGateway\v1\Enum\TerminalType;
+use Dana\PaymentGateway\v1\Enum\OrderTerminalType;
 
 /**
  * PaymentGatewayFixtures Class
@@ -76,7 +77,32 @@ class PaymentGatewayFixtures
                 'value' => '12345678.00',
                 'currency' => 'IDR'
             ]),
+            'additionalInfo' => new ConsultPayRequestAdditionalInfo([
+                'buyer' => new Buyer([
+                    'externalUserId' => '8392183912832913821',
+                    'externalUserType' => '',
+                    'nickname' => '',
+                    'userId' => ''
+                ]),
+                'envInfo' => new EnvInfo([
+                    'sessionId' => '8EU6mLl5mUpUBgyRFT4v7DjfQ3fcauthcenter',
+                    'tokenId' => 'a8d359d6-ca3d-4048-9295-bbea5f6715a6',
+                    'websiteLanguage' => 'en_US',
+                    'clientIp' => '10.15.8.189',
+                    'osType' => 'Windows.PC',
+                    'appVersion' => '1.0',
+                    'sdkVersion' => '1.0',
+                    'sourcePlatform' => SourcePlatform::IPG,
+                    'orderOsType' => 'IOS',
+                    'merchantAppVersion' => '1.0',
+                    'terminalType' => TerminalType::SYSTEM,
+                    'orderTerminalType' => OrderTerminalType::WEB,
+                    'extendInfo' => '{"deviceId":"CV19A56370e8a00d54293aab8001e4794"}'
+                ]),
+                'merchantTransType' => 'SPECIAL_MOVIE'
+            ])
         ]);
+
     }
 
     /**

@@ -1,6 +1,6 @@
-# Dana\PaymentGateway\PaymentGatewayApi
+# PaymentGatewayApi
 
-All URIs are relative to https://api.saas.dana.id, except if the operation defines another base path.
+All URIs are relative to http://api.sandbox.dana.id for sandbox and https://api.saas.dana.id for production.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
@@ -25,42 +25,30 @@ This API is used to cancel the order from merchant's platform to DANA
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+use Dana\Configuration;
+use Dana\Env;
+use Dana\PaymentGateway\v1\Api\PaymentGatewayApi;
+use ;
+
+// Set up configuration with authentication settings
+$configuration = new Configuration();
+
+// The Configuration constructor automatically loads values from environment variables
+// Choose one of PRIVATE_KEY or PRIVATE_KEY_PATH to set, if you set both, PRIVATE_KEY will be ignored
+$configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
+// $configuration->setApiKey('PRIVATE_KEY_PATH', getenv('PRIVATE_KEY_PATH'));
+$configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
+$configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
+$configuration->setApiKey('DANA_ENV', Env::SANDBOX);
+$configuration->setApiKey('ENV', Env::SANDBOX);
 
 
-// Configure API key authorization: ORIGIN
-$config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKey('ORIGIN', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKeyPrefix('ORIGIN', 'Bearer');
 
-// Configure API key authorization: X_PARTNER_ID
-$config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKey('X-PARTNER-ID', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-PARTNER-ID', 'Bearer');
-
-// Configure API key authorization: CHANNEL_ID
-$config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKey('CHANNEL-ID', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKeyPrefix('CHANNEL-ID', 'Bearer');
-
-// Configure API key authorization: PRIVATE_KEY
-$config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKey('privatekey', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekey', 'Bearer');
-
-// Configure API key authorization: PRIVATE_KEY_PATH
-$config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKey('privatekeypath', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekeypath', 'Bearer');
-
-
-$apiInstance = new Dana\PaymentGateway\Api\PaymentGatewayApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+$apiInstance = new PaymentGatewayApi(
+    null, // this also can be set to custom http client which implements `GuzzleHttp\ClientInterface`
+    $configuration
 );
-$cancelOrderRequest = new \Dana\PaymentGateway\v1\Model\CancelOrderRequest(); // \Dana\PaymentGateway\v1\Model\CancelOrderRequest
+$cancelOrderRequest = CancelOrderRequest();
 
 try {
     $result = $apiInstance->cancelOrder($cancelOrderRequest);
@@ -70,24 +58,13 @@ try {
 }
 ```
 
-### Parameters
+### Payload
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **cancelOrderRequest** | [**\Dana\PaymentGateway\v1\Model\CancelOrderRequest**](./PaymentGateway/CancelOrderRequest.md)|  | |
+[****](./PaymentGateway/.md)
 
 ### Return type
 
 [**\Dana\PaymentGateway\v1\Model\CancelOrderResponse**](./PaymentGateway/CancelOrderResponse.md)
-
-### Authorization
-
-[ORIGIN](../../README.md#ORIGIN), [X_PARTNER_ID](../../README.md#X_PARTNER_ID), [CHANNEL_ID](../../README.md#CHANNEL_ID), [PRIVATE_KEY](../../README.md#PRIVATE_KEY), [PRIVATE_KEY_PATH](../../README.md#PRIVATE_KEY_PATH)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -107,47 +84,30 @@ This API is used to consult the list of payment methods or payment channels that
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+use Dana\Configuration;
+use Dana\Env;
+use Dana\PaymentGateway\v1\Api\PaymentGatewayApi;
+use ;
+
+// Set up configuration with authentication settings
+$configuration = new Configuration();
+
+// The Configuration constructor automatically loads values from environment variables
+// Choose one of PRIVATE_KEY or PRIVATE_KEY_PATH to set, if you set both, PRIVATE_KEY will be ignored
+$configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
+// $configuration->setApiKey('PRIVATE_KEY_PATH', getenv('PRIVATE_KEY_PATH'));
+$configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
+$configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
+$configuration->setApiKey('DANA_ENV', Env::SANDBOX);
+$configuration->setApiKey('ENV', Env::SANDBOX);
 
 
-// Configure API key authorization: ORIGIN
-$config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKey('ORIGIN', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKeyPrefix('ORIGIN', 'Bearer');
 
-// Configure API key authorization: X_PARTNER_ID
-$config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKey('X-PARTNER-ID', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-PARTNER-ID', 'Bearer');
-
-// Configure API key authorization: CHANNEL_ID
-$config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKey('CHANNEL-ID', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKeyPrefix('CHANNEL-ID', 'Bearer');
-
-// Configure API key authorization: PRIVATE_KEY
-$config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKey('privatekey', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekey', 'Bearer');
-
-// Configure API key authorization: PRIVATE_KEY_PATH
-$config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKey('privatekeypath', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekeypath', 'Bearer');
-
-// Configure API key authorization: ENV
-$config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKey('env', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKeyPrefix('env', 'Bearer');
-
-
-$apiInstance = new Dana\PaymentGateway\Api\PaymentGatewayApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+$apiInstance = new PaymentGatewayApi(
+    null, // this also can be set to custom http client which implements `GuzzleHttp\ClientInterface`
+    $configuration
 );
-$consultPayRequest = new \Dana\PaymentGateway\v1\Model\ConsultPayRequest(); // \Dana\PaymentGateway\v1\Model\ConsultPayRequest
+$consultPayRequest = ConsultPayRequest();
 
 try {
     $result = $apiInstance->consultPay($consultPayRequest);
@@ -157,24 +117,13 @@ try {
 }
 ```
 
-### Parameters
+### Payload
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **consultPayRequest** | [**\Dana\PaymentGateway\v1\Model\ConsultPayRequest**](./PaymentGateway/ConsultPayRequest.md)|  | |
+[****](./PaymentGateway/.md)
 
 ### Return type
 
 [**\Dana\PaymentGateway\v1\Model\ConsultPayResponse**](./PaymentGateway/ConsultPayResponse.md)
-
-### Authorization
-
-[ORIGIN](../../README.md#ORIGIN), [X_PARTNER_ID](../../README.md#X_PARTNER_ID), [CHANNEL_ID](../../README.md#CHANNEL_ID), [PRIVATE_KEY](../../README.md#PRIVATE_KEY), [PRIVATE_KEY_PATH](../../README.md#PRIVATE_KEY_PATH), [ENV](../../README.md#ENV)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -194,47 +143,30 @@ This API is used for merchant to create order in DANA side
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+use Dana\Configuration;
+use Dana\Env;
+use Dana\PaymentGateway\v1\Api\PaymentGatewayApi;
+use ;
+
+// Set up configuration with authentication settings
+$configuration = new Configuration();
+
+// The Configuration constructor automatically loads values from environment variables
+// Choose one of PRIVATE_KEY or PRIVATE_KEY_PATH to set, if you set both, PRIVATE_KEY will be ignored
+$configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
+// $configuration->setApiKey('PRIVATE_KEY_PATH', getenv('PRIVATE_KEY_PATH'));
+$configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
+$configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
+$configuration->setApiKey('DANA_ENV', Env::SANDBOX);
+$configuration->setApiKey('ENV', Env::SANDBOX);
 
 
-// Configure API key authorization: ORIGIN
-$config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKey('ORIGIN', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKeyPrefix('ORIGIN', 'Bearer');
 
-// Configure API key authorization: X_PARTNER_ID
-$config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKey('X-PARTNER-ID', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-PARTNER-ID', 'Bearer');
-
-// Configure API key authorization: CHANNEL_ID
-$config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKey('CHANNEL-ID', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKeyPrefix('CHANNEL-ID', 'Bearer');
-
-// Configure API key authorization: PRIVATE_KEY
-$config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKey('privatekey', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekey', 'Bearer');
-
-// Configure API key authorization: PRIVATE_KEY_PATH
-$config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKey('privatekeypath', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekeypath', 'Bearer');
-
-// Configure API key authorization: ENV
-$config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKey('env', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKeyPrefix('env', 'Bearer');
-
-
-$apiInstance = new Dana\PaymentGateway\Api\PaymentGatewayApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+$apiInstance = new PaymentGatewayApi(
+    null, // this also can be set to custom http client which implements `GuzzleHttp\ClientInterface`
+    $configuration
 );
-$createOrderRequest = new \Dana\PaymentGateway\v1\Model\CreateOrderRequest(); // \Dana\PaymentGateway\v1\Model\CreateOrderRequest
+$createOrderRequest = CreateOrderRequest();
 
 try {
     $result = $apiInstance->createOrder($createOrderRequest);
@@ -244,24 +176,13 @@ try {
 }
 ```
 
-### Parameters
+### Payload
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **createOrderRequest** | [**\Dana\PaymentGateway\v1\Model\CreateOrderRequest**](./PaymentGateway/CreateOrderRequest.md)|  | |
+[****](./PaymentGateway/.md)
 
 ### Return type
 
 [**\Dana\PaymentGateway\v1\Model\CreateOrderResponse**](./PaymentGateway/CreateOrderResponse.md)
-
-### Authorization
-
-[ORIGIN](../../README.md#ORIGIN), [X_PARTNER_ID](../../README.md#X_PARTNER_ID), [CHANNEL_ID](../../README.md#CHANNEL_ID), [PRIVATE_KEY](../../README.md#PRIVATE_KEY), [PRIVATE_KEY_PATH](../../README.md#PRIVATE_KEY_PATH), [ENV](../../README.md#ENV)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -281,42 +202,30 @@ This API is used to inquiry payment status and information from merchant's platf
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+use Dana\Configuration;
+use Dana\Env;
+use Dana\PaymentGateway\v1\Api\PaymentGatewayApi;
+use ;
+
+// Set up configuration with authentication settings
+$configuration = new Configuration();
+
+// The Configuration constructor automatically loads values from environment variables
+// Choose one of PRIVATE_KEY or PRIVATE_KEY_PATH to set, if you set both, PRIVATE_KEY will be ignored
+$configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
+// $configuration->setApiKey('PRIVATE_KEY_PATH', getenv('PRIVATE_KEY_PATH'));
+$configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
+$configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
+$configuration->setApiKey('DANA_ENV', Env::SANDBOX);
+$configuration->setApiKey('ENV', Env::SANDBOX);
 
 
-// Configure API key authorization: ORIGIN
-$config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKey('ORIGIN', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKeyPrefix('ORIGIN', 'Bearer');
 
-// Configure API key authorization: X_PARTNER_ID
-$config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKey('X-PARTNER-ID', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-PARTNER-ID', 'Bearer');
-
-// Configure API key authorization: CHANNEL_ID
-$config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKey('CHANNEL-ID', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKeyPrefix('CHANNEL-ID', 'Bearer');
-
-// Configure API key authorization: PRIVATE_KEY
-$config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKey('privatekey', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekey', 'Bearer');
-
-// Configure API key authorization: PRIVATE_KEY_PATH
-$config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKey('privatekeypath', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekeypath', 'Bearer');
-
-
-$apiInstance = new Dana\PaymentGateway\Api\PaymentGatewayApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+$apiInstance = new PaymentGatewayApi(
+    null, // this also can be set to custom http client which implements `GuzzleHttp\ClientInterface`
+    $configuration
 );
-$queryPaymentRequest = new \Dana\PaymentGateway\v1\Model\QueryPaymentRequest(); // \Dana\PaymentGateway\v1\Model\QueryPaymentRequest
+$queryPaymentRequest = QueryPaymentRequest();
 
 try {
     $result = $apiInstance->queryPayment($queryPaymentRequest);
@@ -326,24 +235,13 @@ try {
 }
 ```
 
-### Parameters
+### Payload
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **queryPaymentRequest** | [**\Dana\PaymentGateway\v1\Model\QueryPaymentRequest**](./PaymentGateway/QueryPaymentRequest.md)|  | |
+[****](./PaymentGateway/.md)
 
 ### Return type
 
 [**\Dana\PaymentGateway\v1\Model\QueryPaymentResponse**](./PaymentGateway/QueryPaymentResponse.md)
-
-### Authorization
-
-[ORIGIN](../../README.md#ORIGIN), [X_PARTNER_ID](../../README.md#X_PARTNER_ID), [CHANNEL_ID](../../README.md#CHANNEL_ID), [PRIVATE_KEY](../../README.md#PRIVATE_KEY), [PRIVATE_KEY_PATH](../../README.md#PRIVATE_KEY_PATH)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -363,42 +261,30 @@ This API is used to refund the order from merchant's platform to DANA
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
+use Dana\Configuration;
+use Dana\Env;
+use Dana\PaymentGateway\v1\Api\PaymentGatewayApi;
+use ;
+
+// Set up configuration with authentication settings
+$configuration = new Configuration();
+
+// The Configuration constructor automatically loads values from environment variables
+// Choose one of PRIVATE_KEY or PRIVATE_KEY_PATH to set, if you set both, PRIVATE_KEY will be ignored
+$configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
+// $configuration->setApiKey('PRIVATE_KEY_PATH', getenv('PRIVATE_KEY_PATH'));
+$configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
+$configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
+$configuration->setApiKey('DANA_ENV', Env::SANDBOX);
+$configuration->setApiKey('ENV', Env::SANDBOX);
 
 
-// Configure API key authorization: ORIGIN
-$config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKey('ORIGIN', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKeyPrefix('ORIGIN', 'Bearer');
 
-// Configure API key authorization: X_PARTNER_ID
-$config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKey('X-PARTNER-ID', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-PARTNER-ID', 'Bearer');
-
-// Configure API key authorization: CHANNEL_ID
-$config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKey('CHANNEL-ID', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKeyPrefix('CHANNEL-ID', 'Bearer');
-
-// Configure API key authorization: PRIVATE_KEY
-$config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKey('privatekey', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekey', 'Bearer');
-
-// Configure API key authorization: PRIVATE_KEY_PATH
-$config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKey('privatekeypath', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Dana\PaymentGateway\Configuration::getDefaultConfiguration()->setApiKeyPrefix('privatekeypath', 'Bearer');
-
-
-$apiInstance = new Dana\PaymentGateway\Api\PaymentGatewayApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
+$apiInstance = new PaymentGatewayApi(
+    null, // this also can be set to custom http client which implements `GuzzleHttp\ClientInterface`
+    $configuration
 );
-$refundOrderRequest = new \Dana\PaymentGateway\v1\Model\RefundOrderRequest(); // \Dana\PaymentGateway\v1\Model\RefundOrderRequest
+$refundOrderRequest = RefundOrderRequest();
 
 try {
     $result = $apiInstance->refundOrder($refundOrderRequest);
@@ -408,24 +294,13 @@ try {
 }
 ```
 
-### Parameters
+### Payload
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **refundOrderRequest** | [**\Dana\PaymentGateway\v1\Model\RefundOrderRequest**](./PaymentGateway/RefundOrderRequest.md)|  | |
+[****](./PaymentGateway/.md)
 
 ### Return type
 
 [**\Dana\PaymentGateway\v1\Model\RefundOrderResponse**](./PaymentGateway/RefundOrderResponse.md)
-
-### Authorization
-
-[ORIGIN](../../README.md#ORIGIN), [X_PARTNER_ID](../../README.md#X_PARTNER_ID), [CHANNEL_ID](../../README.md#CHANNEL_ID), [PRIVATE_KEY](../../README.md#PRIVATE_KEY), [PRIVATE_KEY_PATH](../../README.md#PRIVATE_KEY_PATH)
-
-### HTTP request headers
-
-- **Content-Type**: `application/json`
-- **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)

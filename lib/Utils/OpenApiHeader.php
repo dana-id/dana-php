@@ -97,6 +97,8 @@ class OpenApiHeader
         foreach ($headerParams as $key => $value) {
             if (self::hasOpenApiPrefix($key, 'PRIVATE') || 
                 self::hasOpenApiPrefix($key, 'private') ||
+                self::hasOpenApiPrefix($key, 'DANA_ENV') || 
+                self::hasOpenApiPrefix($key, 'dana_env') ||
                 self::hasOpenApiPrefix($key, 'ENV') || 
                 self::hasOpenApiPrefix($key, 'env')) {
                 unset($headerParams[$key]);
@@ -160,7 +162,7 @@ class OpenApiHeader
         string $body,
         string $functionName
     ): array {
-        $env = $config->getApiKey('ENV');
+        $env = $config->getApiKey('DANA_ENV') ?: $config->getApiKey('ENV');
         if (empty($env)) {
             throw new ApiException('Environment is required for OpenAPI authentication');
         }
@@ -255,6 +257,8 @@ class OpenApiHeader
         $filteredAuth = array_filter($authFromUsers, function ($key) {
             return !self::hasOpenApiPrefix($key, 'PRIVATE') &&
                    !self::hasOpenApiPrefix($key, 'private') &&
+                   !self::hasOpenApiPrefix($key, 'DANA_ENV') &&
+                   !self::hasOpenApiPrefix($key, 'dana_env') &&
                    !self::hasOpenApiPrefix($key, 'ENV') &&
                    !self::hasOpenApiPrefix($key, 'env');
         }, ARRAY_FILTER_USE_KEY);
