@@ -30,7 +30,7 @@ This API is used to create a new division
 use Dana\Configuration;
 use Dana\Env;
 use Dana\MerchantManagement\v1\Api\MerchantManagementApi;
-use ;
+use Dana\MerchantManagement\v1\Model\CreateDivisionRequest;
 
 // Set up configuration with authentication settings
 $configuration = new Configuration();
@@ -42,7 +42,8 @@ $configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
 $configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
 $configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
 $configuration->setApiKey('DANA_ENV', Env::SANDBOX);
-$configuration->setApiKey('ENV', Env::SANDBOX);
+// Choose one of ENV or DANA_ENV to set, if you set both, ENV will be ignored
+// $configuration->setApiKey('ENV', Env::SANDBOX);
 
 
 
@@ -62,11 +63,11 @@ try {
 
 ### Payload
 
-[****](./MerchantManagement/.md)
+[**CreateDivisionRequest**](./MerchantManagement/CreateDivisionRequest.md)
 
 ### Return type
 
-[**\Dana\MerchantManagement\v1\Model\CreateDivisionResponse**](./MerchantManagement/CreateDivisionResponse.md)
+[**CreateDivisionResponse**](./MerchantManagement/CreateDivisionResponse.md)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -89,7 +90,7 @@ Create shop under merchant or division
 use Dana\Configuration;
 use Dana\Env;
 use Dana\MerchantManagement\v1\Api\MerchantManagementApi;
-use ;
+use Dana\MerchantManagement\v1\Model\CreateShopRequest;
 
 // Set up configuration with authentication settings
 $configuration = new Configuration();
@@ -101,7 +102,8 @@ $configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
 $configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
 $configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
 $configuration->setApiKey('DANA_ENV', Env::SANDBOX);
-$configuration->setApiKey('ENV', Env::SANDBOX);
+// Choose one of ENV or DANA_ENV to set, if you set both, ENV will be ignored
+// $configuration->setApiKey('ENV', Env::SANDBOX);
 
 
 
@@ -121,11 +123,11 @@ try {
 
 ### Payload
 
-[****](./MerchantManagement/.md)
+[**CreateShopRequest**](./MerchantManagement/CreateShopRequest.md)
 
 ### Return type
 
-[**\Dana\MerchantManagement\v1\Model\CreateShopResponse**](./MerchantManagement/CreateShopResponse.md)
+[**CreateShopResponse**](./MerchantManagement/CreateShopResponse.md)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -148,7 +150,7 @@ This API is used to obtain information of division
 use Dana\Configuration;
 use Dana\Env;
 use Dana\MerchantManagement\v1\Api\MerchantManagementApi;
-use ;
+use Dana\MerchantManagement\v1\Model\QueryDivisionRequest;
 
 // Set up configuration with authentication settings
 $configuration = new Configuration();
@@ -160,7 +162,8 @@ $configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
 $configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
 $configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
 $configuration->setApiKey('DANA_ENV', Env::SANDBOX);
-$configuration->setApiKey('ENV', Env::SANDBOX);
+// Choose one of ENV or DANA_ENV to set, if you set both, ENV will be ignored
+// $configuration->setApiKey('ENV', Env::SANDBOX);
 
 
 
@@ -180,11 +183,11 @@ try {
 
 ### Payload
 
-[****](./MerchantManagement/.md)
+[**QueryDivisionRequest**](./MerchantManagement/QueryDivisionRequest.md)
 
 ### Return type
 
-[**\Dana\MerchantManagement\v1\Model\QueryDivisionResponse**](./MerchantManagement/QueryDivisionResponse.md)
+[**QueryDivisionResponse**](./MerchantManagement/QueryDivisionResponse.md)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -207,7 +210,7 @@ The interface is check merchant resource info (account balance merchant)
 use Dana\Configuration;
 use Dana\Env;
 use Dana\MerchantManagement\v1\Api\MerchantManagementApi;
-use ;
+use Dana\MerchantManagement\v1\Model\QueryMerchantResourceRequest;
 
 // Set up configuration with authentication settings
 $configuration = new Configuration();
@@ -219,7 +222,8 @@ $configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
 $configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
 $configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
 $configuration->setApiKey('DANA_ENV', Env::SANDBOX);
-$configuration->setApiKey('ENV', Env::SANDBOX);
+// Choose one of ENV or DANA_ENV to set, if you set both, ENV will be ignored
+// $configuration->setApiKey('ENV', Env::SANDBOX);
 
 
 
@@ -239,11 +243,11 @@ try {
 
 ### Payload
 
-[****](./MerchantManagement/.md)
+[**QueryMerchantResourceRequest**](./MerchantManagement/QueryMerchantResourceRequest.md)
 
 ### Return type
 
-[**\Dana\MerchantManagement\v1\Model\QueryMerchantResourceResponse**](./MerchantManagement/QueryMerchantResourceResponse.md)
+[**QueryMerchantResourceResponse**](./MerchantManagement/QueryMerchantResourceResponse.md)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -266,7 +270,7 @@ This API is used to obtain information of shop information
 use Dana\Configuration;
 use Dana\Env;
 use Dana\MerchantManagement\v1\Api\MerchantManagementApi;
-use ;
+use Dana\MerchantManagement\v1\Model\QueryShopRequest;
 
 // Set up configuration with authentication settings
 $configuration = new Configuration();
@@ -278,7 +282,8 @@ $configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
 $configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
 $configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
 $configuration->setApiKey('DANA_ENV', Env::SANDBOX);
-$configuration->setApiKey('ENV', Env::SANDBOX);
+// Choose one of ENV or DANA_ENV to set, if you set both, ENV will be ignored
+// $configuration->setApiKey('ENV', Env::SANDBOX);
 
 
 
@@ -298,11 +303,11 @@ try {
 
 ### Payload
 
-[****](./MerchantManagement/.md)
+[**QueryShopRequest**](./MerchantManagement/QueryShopRequest.md)
 
 ### Return type
 
-[**\Dana\MerchantManagement\v1\Model\QueryShopResponse**](./MerchantManagement/QueryShopResponse.md)
+[**QueryShopResponse**](./MerchantManagement/QueryShopResponse.md)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -325,7 +330,7 @@ This API is used to update the division information
 use Dana\Configuration;
 use Dana\Env;
 use Dana\MerchantManagement\v1\Api\MerchantManagementApi;
-use ;
+use Dana\MerchantManagement\v1\Model\UpdateDivisionRequest;
 
 // Set up configuration with authentication settings
 $configuration = new Configuration();
@@ -337,7 +342,8 @@ $configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
 $configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
 $configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
 $configuration->setApiKey('DANA_ENV', Env::SANDBOX);
-$configuration->setApiKey('ENV', Env::SANDBOX);
+// Choose one of ENV or DANA_ENV to set, if you set both, ENV will be ignored
+// $configuration->setApiKey('ENV', Env::SANDBOX);
 
 
 
@@ -357,11 +363,11 @@ try {
 
 ### Payload
 
-[****](./MerchantManagement/.md)
+[**UpdateDivisionRequest**](./MerchantManagement/UpdateDivisionRequest.md)
 
 ### Return type
 
-[**\Dana\MerchantManagement\v1\Model\UpdateDivisionResponse**](./MerchantManagement/UpdateDivisionResponse.md)
+[**UpdateDivisionResponse**](./MerchantManagement/UpdateDivisionResponse.md)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -384,7 +390,7 @@ This API is used to update the shop information
 use Dana\Configuration;
 use Dana\Env;
 use Dana\MerchantManagement\v1\Api\MerchantManagementApi;
-use ;
+use Dana\MerchantManagement\v1\Model\UpdateShopRequest;
 
 // Set up configuration with authentication settings
 $configuration = new Configuration();
@@ -396,7 +402,8 @@ $configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
 $configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
 $configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
 $configuration->setApiKey('DANA_ENV', Env::SANDBOX);
-$configuration->setApiKey('ENV', Env::SANDBOX);
+// Choose one of ENV or DANA_ENV to set, if you set both, ENV will be ignored
+// $configuration->setApiKey('ENV', Env::SANDBOX);
 
 
 
@@ -416,12 +423,152 @@ try {
 
 ### Payload
 
-[****](./MerchantManagement/.md)
+[**UpdateShopRequest**](./MerchantManagement/UpdateShopRequest.md)
 
 ### Return type
 
-[**\Dana\MerchantManagement\v1\Model\UpdateShopResponse**](./MerchantManagement/UpdateShopResponse.md)
+[**UpdateShopResponse**](./MerchantManagement/UpdateShopResponse.md)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
+
+
+## Enum Types
+
+### Example Usage
+
+```php
+// Importing an enum class
+use Dana\MerchantManagement\v1\Enum\TerminalType;
+
+// Using enum constants
+$model->setTerminalType(TerminalType::APP);
+
+// Using enum values directly as strings
+$model->setTerminalType('APP');
+```
+
+### ActorType
+
+| Constant | Value |
+|----------|-------|
+| `USER` | `USER` |
+| `MERCHANT` | `MERCHANT` |
+| `MERCHANT_OPERATOR` | `MERCHANT_OPERATOR` |
+| `BACK_OFFICE` | `BACK_OFFICE` |
+| `SYSTEM` | `SYSTEM` |
+| `APP` | `APP` |
+| `WEB` | `WEB` |
+| `WAP` | `WAP` |
+| `SYSTEM` | `SYSTEM` |
+| `BALANCE` | `BALANCE` |
+| `COUPON` | `COUPON` |
+| `NET_BANKING` | `NET_BANKING` |
+| `CREDIT_CARD` | `CREDIT_CARD` |
+| `DEBIT_CARD` | `DEBIT_CARD` |
+| `VIRTUAL_ACCOUNT` | `VIRTUAL_ACCOUNT` |
+| `OTC` | `OTC` |
+| `DIRECT_DEBIT_CREDIT_CARD` | `DIRECT_DEBIT_CREDIT_CARD` |
+| `DIRECT_DEBIT_DEBIT_CARD` | `DIRECT_DEBIT_DEBIT_CARD` |
+
+### OrderTerminalType
+
+| Constant | Value |
+|----------|-------|
+| `APP` | `APP` |
+| `WEB` | `WEB` |
+| `WAP` | `WAP` |
+| `SYSTEM` | `SYSTEM` |
+| `BALANCE` | `BALANCE` |
+| `COUPON` | `COUPON` |
+| `NET_BANKING` | `NET_BANKING` |
+| `CREDIT_CARD` | `CREDIT_CARD` |
+| `DEBIT_CARD` | `DEBIT_CARD` |
+| `VIRTUAL_ACCOUNT` | `VIRTUAL_ACCOUNT` |
+| `OTC` | `OTC` |
+| `DIRECT_DEBIT_CREDIT_CARD` | `DIRECT_DEBIT_CREDIT_CARD` |
+| `DIRECT_DEBIT_DEBIT_CARD` | `DIRECT_DEBIT_DEBIT_CARD` |
+| `ONLINE_CREDIT` | `ONLINE_CREDIT` |
+| `LOAN_CREDIT` | `LOAN_CREDIT` |
+| `NETWORK_PAY` | `NETWORK_PAY` |
+| `NETWORK_PAY_PG_SPAY` | `NETWORK_PAY_PG_SPAY` |
+| `NETWORK_PAY_PG_OVO` | `NETWORK_PAY_PG_OVO` |
+
+### PayMethod
+
+| Constant | Value |
+|----------|-------|
+| `BALANCE` | `BALANCE` |
+| `COUPON` | `COUPON` |
+| `NET_BANKING` | `NET_BANKING` |
+| `CREDIT_CARD` | `CREDIT_CARD` |
+| `DEBIT_CARD` | `DEBIT_CARD` |
+| `VIRTUAL_ACCOUNT` | `VIRTUAL_ACCOUNT` |
+| `OTC` | `OTC` |
+| `DIRECT_DEBIT_CREDIT_CARD` | `DIRECT_DEBIT_CREDIT_CARD` |
+| `DIRECT_DEBIT_DEBIT_CARD` | `DIRECT_DEBIT_DEBIT_CARD` |
+| `ONLINE_CREDIT` | `ONLINE_CREDIT` |
+| `LOAN_CREDIT` | `LOAN_CREDIT` |
+| `NETWORK_PAY` | `NETWORK_PAY` |
+| `NETWORK_PAY_PG_SPAY` | `NETWORK_PAY_PG_SPAY` |
+| `NETWORK_PAY_PG_OVO` | `NETWORK_PAY_PG_OVO` |
+| `NETWORK_PAY_PG_GOPAY` | `NETWORK_PAY_PG_GOPAY` |
+| `NETWORK_PAY_PG_LINKAJA` | `NETWORK_PAY_PG_LINKAJA` |
+| `NETWORK_PAY_PG_CARD` | `NETWORK_PAY_PG_CARD` |
+| `VIRTUAL_ACCOUNT_BCA` | `VIRTUAL_ACCOUNT_BCA` |
+| `VIRTUAL_ACCOUNT_BNI` | `VIRTUAL_ACCOUNT_BNI` |
+
+### PayOption
+
+| Constant | Value |
+|----------|-------|
+| `NETWORK_PAY_PG_SPAY` | `NETWORK_PAY_PG_SPAY` |
+| `NETWORK_PAY_PG_OVO` | `NETWORK_PAY_PG_OVO` |
+| `NETWORK_PAY_PG_GOPAY` | `NETWORK_PAY_PG_GOPAY` |
+| `NETWORK_PAY_PG_LINKAJA` | `NETWORK_PAY_PG_LINKAJA` |
+| `NETWORK_PAY_PG_CARD` | `NETWORK_PAY_PG_CARD` |
+| `VIRTUAL_ACCOUNT_BCA` | `VIRTUAL_ACCOUNT_BCA` |
+| `VIRTUAL_ACCOUNT_BNI` | `VIRTUAL_ACCOUNT_BNI` |
+| `VIRTUAL_ACCOUNT_MANDIRI` | `VIRTUAL_ACCOUNT_MANDIRI` |
+| `VIRTUAL_ACCOUNT_BRI` | `VIRTUAL_ACCOUNT_BRI` |
+| `VIRTUAL_ACCOUNT_BTPN` | `VIRTUAL_ACCOUNT_BTPN` |
+| `VIRTUAL_ACCOUNT_CIMB` | `VIRTUAL_ACCOUNT_CIMB` |
+| `VIRTUAL_ACCOUNT_PERMATA` | `VIRTUAL_ACCOUNT_PERMATA` |
+| `IPG` | `IPG` |
+| `APP` | `APP` |
+| `WEB` | `WEB` |
+| `WAP` | `WAP` |
+| `SYSTEM` | `SYSTEM` |
+| `PAY_RETURN` | `PAY_RETURN` |
+
+### SourcePlatform
+
+| Constant | Value |
+|----------|-------|
+| `IPG` | `IPG` |
+| `APP` | `APP` |
+| `WEB` | `WEB` |
+| `WAP` | `WAP` |
+| `SYSTEM` | `SYSTEM` |
+| `PAY_RETURN` | `PAY_RETURN` |
+| `NOTIFICATION` | `NOTIFICATION` |
+
+### TerminalType
+
+| Constant | Value |
+|----------|-------|
+| `APP` | `APP` |
+| `WEB` | `WEB` |
+| `WAP` | `WAP` |
+| `SYSTEM` | `SYSTEM` |
+| `PAY_RETURN` | `PAY_RETURN` |
+| `NOTIFICATION` | `NOTIFICATION` |
+
+### Type
+
+| Constant | Value |
+|----------|-------|
+| `PAY_RETURN` | `PAY_RETURN` |
+| `NOTIFICATION` | `NOTIFICATION` |
+

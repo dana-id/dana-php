@@ -29,7 +29,7 @@ This API is used for merchant to do inquiry Bank account info via DANA
 use Dana\Configuration;
 use Dana\Env;
 use Dana\Disbursement\v1\Api\DisbursementApi;
-use ;
+use Dana\Disbursement\v1\Model\BankAccountInquiryRequest;
 
 // Set up configuration with authentication settings
 $configuration = new Configuration();
@@ -41,7 +41,8 @@ $configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
 $configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
 $configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
 $configuration->setApiKey('DANA_ENV', Env::SANDBOX);
-$configuration->setApiKey('ENV', Env::SANDBOX);
+// Choose one of ENV or DANA_ENV to set, if you set both, ENV will be ignored
+// $configuration->setApiKey('ENV', Env::SANDBOX);
 
 
 
@@ -61,11 +62,11 @@ try {
 
 ### Payload
 
-[****](./Disbursement/.md)
+[**BankAccountInquiryRequest**](./Disbursement/BankAccountInquiryRequest.md)
 
 ### Return type
 
-[**\Dana\Disbursement\v1\Model\BankAccountInquiryResponse**](./Disbursement/BankAccountInquiryResponse.md)
+[**BankAccountInquiryResponse**](./Disbursement/BankAccountInquiryResponse.md)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -88,7 +89,7 @@ This API is used for merchant to do account inquiry to DANA
 use Dana\Configuration;
 use Dana\Env;
 use Dana\Disbursement\v1\Api\DisbursementApi;
-use ;
+use Dana\Disbursement\v1\Model\DanaAccountInquiryRequest;
 
 // Set up configuration with authentication settings
 $configuration = new Configuration();
@@ -100,7 +101,8 @@ $configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
 $configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
 $configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
 $configuration->setApiKey('DANA_ENV', Env::SANDBOX);
-$configuration->setApiKey('ENV', Env::SANDBOX);
+// Choose one of ENV or DANA_ENV to set, if you set both, ENV will be ignored
+// $configuration->setApiKey('ENV', Env::SANDBOX);
 
 
 
@@ -120,11 +122,11 @@ try {
 
 ### Payload
 
-[****](./Disbursement/.md)
+[**DanaAccountInquiryRequest**](./Disbursement/DanaAccountInquiryRequest.md)
 
 ### Return type
 
-[**\Dana\Disbursement\v1\Model\DanaAccountInquiryResponse**](./Disbursement/DanaAccountInquiryResponse.md)
+[**DanaAccountInquiryResponse**](./Disbursement/DanaAccountInquiryResponse.md)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -147,7 +149,7 @@ This API is used for merchant to do transfer to Bank request via DANA
 use Dana\Configuration;
 use Dana\Env;
 use Dana\Disbursement\v1\Api\DisbursementApi;
-use ;
+use Dana\Disbursement\v1\Model\TransferToBankRequest;
 
 // Set up configuration with authentication settings
 $configuration = new Configuration();
@@ -159,7 +161,8 @@ $configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
 $configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
 $configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
 $configuration->setApiKey('DANA_ENV', Env::SANDBOX);
-$configuration->setApiKey('ENV', Env::SANDBOX);
+// Choose one of ENV or DANA_ENV to set, if you set both, ENV will be ignored
+// $configuration->setApiKey('ENV', Env::SANDBOX);
 
 
 
@@ -179,11 +182,11 @@ try {
 
 ### Payload
 
-[****](./Disbursement/.md)
+[**TransferToBankRequest**](./Disbursement/TransferToBankRequest.md)
 
 ### Return type
 
-[**\Dana\Disbursement\v1\Model\TransferToBankResponse**](./Disbursement/TransferToBankResponse.md)
+[**TransferToBankResponse**](./Disbursement/TransferToBankResponse.md)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -206,7 +209,7 @@ This API is used for merchant to do inquiry status transfer to Bank transaction 
 use Dana\Configuration;
 use Dana\Env;
 use Dana\Disbursement\v1\Api\DisbursementApi;
-use ;
+use Dana\Disbursement\v1\Model\TransferToBankInquiryStatusRequest;
 
 // Set up configuration with authentication settings
 $configuration = new Configuration();
@@ -218,7 +221,8 @@ $configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
 $configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
 $configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
 $configuration->setApiKey('DANA_ENV', Env::SANDBOX);
-$configuration->setApiKey('ENV', Env::SANDBOX);
+// Choose one of ENV or DANA_ENV to set, if you set both, ENV will be ignored
+// $configuration->setApiKey('ENV', Env::SANDBOX);
 
 
 
@@ -238,11 +242,11 @@ try {
 
 ### Payload
 
-[****](./Disbursement/.md)
+[**TransferToBankInquiryStatusRequest**](./Disbursement/TransferToBankInquiryStatusRequest.md)
 
 ### Return type
 
-[**\Dana\Disbursement\v1\Model\TransferToBankInquiryStatusResponse**](./Disbursement/TransferToBankInquiryStatusResponse.md)
+[**TransferToBankInquiryStatusResponse**](./Disbursement/TransferToBankInquiryStatusResponse.md)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -265,7 +269,7 @@ This API is used for merchant to do top up request to DANA
 use Dana\Configuration;
 use Dana\Env;
 use Dana\Disbursement\v1\Api\DisbursementApi;
-use ;
+use Dana\Disbursement\v1\Model\TransferToDanaRequest;
 
 // Set up configuration with authentication settings
 $configuration = new Configuration();
@@ -277,7 +281,8 @@ $configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
 $configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
 $configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
 $configuration->setApiKey('DANA_ENV', Env::SANDBOX);
-$configuration->setApiKey('ENV', Env::SANDBOX);
+// Choose one of ENV or DANA_ENV to set, if you set both, ENV will be ignored
+// $configuration->setApiKey('ENV', Env::SANDBOX);
 
 
 
@@ -297,11 +302,11 @@ try {
 
 ### Payload
 
-[****](./Disbursement/.md)
+[**TransferToDanaRequest**](./Disbursement/TransferToDanaRequest.md)
 
 ### Return type
 
-[**\Dana\Disbursement\v1\Model\TransferToDanaResponse**](./Disbursement/TransferToDanaResponse.md)
+[**TransferToDanaResponse**](./Disbursement/TransferToDanaResponse.md)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -324,7 +329,7 @@ This API is used for merchant to do inquiry status top up transaction to DANA
 use Dana\Configuration;
 use Dana\Env;
 use Dana\Disbursement\v1\Api\DisbursementApi;
-use ;
+use Dana\Disbursement\v1\Model\TransferToDanaInquiryStatusRequest;
 
 // Set up configuration with authentication settings
 $configuration = new Configuration();
@@ -336,7 +341,8 @@ $configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
 $configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
 $configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
 $configuration->setApiKey('DANA_ENV', Env::SANDBOX);
-$configuration->setApiKey('ENV', Env::SANDBOX);
+// Choose one of ENV or DANA_ENV to set, if you set both, ENV will be ignored
+// $configuration->setApiKey('ENV', Env::SANDBOX);
 
 
 
@@ -356,12 +362,152 @@ try {
 
 ### Payload
 
-[****](./Disbursement/.md)
+[**TransferToDanaInquiryStatusRequest**](./Disbursement/TransferToDanaInquiryStatusRequest.md)
 
 ### Return type
 
-[**\Dana\Disbursement\v1\Model\TransferToDanaInquiryStatusResponse**](./Disbursement/TransferToDanaInquiryStatusResponse.md)
+[**TransferToDanaInquiryStatusResponse**](./Disbursement/TransferToDanaInquiryStatusResponse.md)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
+
+
+## Enum Types
+
+### Example Usage
+
+```php
+// Importing an enum class
+use Dana\Disbursement\v1\Enum\TerminalType;
+
+// Using enum constants
+$model->setTerminalType(TerminalType::APP);
+
+// Using enum values directly as strings
+$model->setTerminalType('APP');
+```
+
+### ActorType
+
+| Constant | Value |
+|----------|-------|
+| `USER` | `USER` |
+| `MERCHANT` | `MERCHANT` |
+| `MERCHANT_OPERATOR` | `MERCHANT_OPERATOR` |
+| `BACK_OFFICE` | `BACK_OFFICE` |
+| `SYSTEM` | `SYSTEM` |
+| `APP` | `APP` |
+| `WEB` | `WEB` |
+| `WAP` | `WAP` |
+| `SYSTEM` | `SYSTEM` |
+| `BALANCE` | `BALANCE` |
+| `COUPON` | `COUPON` |
+| `NET_BANKING` | `NET_BANKING` |
+| `CREDIT_CARD` | `CREDIT_CARD` |
+| `DEBIT_CARD` | `DEBIT_CARD` |
+| `VIRTUAL_ACCOUNT` | `VIRTUAL_ACCOUNT` |
+| `OTC` | `OTC` |
+| `DIRECT_DEBIT_CREDIT_CARD` | `DIRECT_DEBIT_CREDIT_CARD` |
+| `DIRECT_DEBIT_DEBIT_CARD` | `DIRECT_DEBIT_DEBIT_CARD` |
+
+### OrderTerminalType
+
+| Constant | Value |
+|----------|-------|
+| `APP` | `APP` |
+| `WEB` | `WEB` |
+| `WAP` | `WAP` |
+| `SYSTEM` | `SYSTEM` |
+| `BALANCE` | `BALANCE` |
+| `COUPON` | `COUPON` |
+| `NET_BANKING` | `NET_BANKING` |
+| `CREDIT_CARD` | `CREDIT_CARD` |
+| `DEBIT_CARD` | `DEBIT_CARD` |
+| `VIRTUAL_ACCOUNT` | `VIRTUAL_ACCOUNT` |
+| `OTC` | `OTC` |
+| `DIRECT_DEBIT_CREDIT_CARD` | `DIRECT_DEBIT_CREDIT_CARD` |
+| `DIRECT_DEBIT_DEBIT_CARD` | `DIRECT_DEBIT_DEBIT_CARD` |
+| `ONLINE_CREDIT` | `ONLINE_CREDIT` |
+| `LOAN_CREDIT` | `LOAN_CREDIT` |
+| `NETWORK_PAY` | `NETWORK_PAY` |
+| `NETWORK_PAY_PG_SPAY` | `NETWORK_PAY_PG_SPAY` |
+| `NETWORK_PAY_PG_OVO` | `NETWORK_PAY_PG_OVO` |
+
+### PayMethod
+
+| Constant | Value |
+|----------|-------|
+| `BALANCE` | `BALANCE` |
+| `COUPON` | `COUPON` |
+| `NET_BANKING` | `NET_BANKING` |
+| `CREDIT_CARD` | `CREDIT_CARD` |
+| `DEBIT_CARD` | `DEBIT_CARD` |
+| `VIRTUAL_ACCOUNT` | `VIRTUAL_ACCOUNT` |
+| `OTC` | `OTC` |
+| `DIRECT_DEBIT_CREDIT_CARD` | `DIRECT_DEBIT_CREDIT_CARD` |
+| `DIRECT_DEBIT_DEBIT_CARD` | `DIRECT_DEBIT_DEBIT_CARD` |
+| `ONLINE_CREDIT` | `ONLINE_CREDIT` |
+| `LOAN_CREDIT` | `LOAN_CREDIT` |
+| `NETWORK_PAY` | `NETWORK_PAY` |
+| `NETWORK_PAY_PG_SPAY` | `NETWORK_PAY_PG_SPAY` |
+| `NETWORK_PAY_PG_OVO` | `NETWORK_PAY_PG_OVO` |
+| `NETWORK_PAY_PG_GOPAY` | `NETWORK_PAY_PG_GOPAY` |
+| `NETWORK_PAY_PG_LINKAJA` | `NETWORK_PAY_PG_LINKAJA` |
+| `NETWORK_PAY_PG_CARD` | `NETWORK_PAY_PG_CARD` |
+| `VIRTUAL_ACCOUNT_BCA` | `VIRTUAL_ACCOUNT_BCA` |
+| `VIRTUAL_ACCOUNT_BNI` | `VIRTUAL_ACCOUNT_BNI` |
+
+### PayOption
+
+| Constant | Value |
+|----------|-------|
+| `NETWORK_PAY_PG_SPAY` | `NETWORK_PAY_PG_SPAY` |
+| `NETWORK_PAY_PG_OVO` | `NETWORK_PAY_PG_OVO` |
+| `NETWORK_PAY_PG_GOPAY` | `NETWORK_PAY_PG_GOPAY` |
+| `NETWORK_PAY_PG_LINKAJA` | `NETWORK_PAY_PG_LINKAJA` |
+| `NETWORK_PAY_PG_CARD` | `NETWORK_PAY_PG_CARD` |
+| `VIRTUAL_ACCOUNT_BCA` | `VIRTUAL_ACCOUNT_BCA` |
+| `VIRTUAL_ACCOUNT_BNI` | `VIRTUAL_ACCOUNT_BNI` |
+| `VIRTUAL_ACCOUNT_MANDIRI` | `VIRTUAL_ACCOUNT_MANDIRI` |
+| `VIRTUAL_ACCOUNT_BRI` | `VIRTUAL_ACCOUNT_BRI` |
+| `VIRTUAL_ACCOUNT_BTPN` | `VIRTUAL_ACCOUNT_BTPN` |
+| `VIRTUAL_ACCOUNT_CIMB` | `VIRTUAL_ACCOUNT_CIMB` |
+| `VIRTUAL_ACCOUNT_PERMATA` | `VIRTUAL_ACCOUNT_PERMATA` |
+| `IPG` | `IPG` |
+| `APP` | `APP` |
+| `WEB` | `WEB` |
+| `WAP` | `WAP` |
+| `SYSTEM` | `SYSTEM` |
+| `PAY_RETURN` | `PAY_RETURN` |
+
+### SourcePlatform
+
+| Constant | Value |
+|----------|-------|
+| `IPG` | `IPG` |
+| `APP` | `APP` |
+| `WEB` | `WEB` |
+| `WAP` | `WAP` |
+| `SYSTEM` | `SYSTEM` |
+| `PAY_RETURN` | `PAY_RETURN` |
+| `NOTIFICATION` | `NOTIFICATION` |
+
+### TerminalType
+
+| Constant | Value |
+|----------|-------|
+| `APP` | `APP` |
+| `WEB` | `WEB` |
+| `WAP` | `WAP` |
+| `SYSTEM` | `SYSTEM` |
+| `PAY_RETURN` | `PAY_RETURN` |
+| `NOTIFICATION` | `NOTIFICATION` |
+
+### Type
+
+| Constant | Value |
+|----------|-------|
+| `PAY_RETURN` | `PAY_RETURN` |
+| `NOTIFICATION` | `NOTIFICATION` |
+

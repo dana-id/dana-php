@@ -15,6 +15,12 @@ All URIs are relative to http://api.sandbox.dana.id for sandbox and https://api.
 | [**widgetPayment()**](WidgetApi.md#widgetPayment) | **POST** /rest/redirection/v1.0/debit/payment-host-to-host | Widget Payment - Widget |
 
 
+## Additional Documentation
+* [Enum Types](#enum-types) - List of available enum constants
+* [WebhookParser](#webhookparser) - Webhook handling and notification parsing
+* [OAuth URL Generation](#oauth-url-generation) - Generate OAuth URLs for authorization
+
+
 ## `accountUnbinding()`
 
 ```php
@@ -32,7 +38,7 @@ This API is used to reverses the account binding process by revoking the accessT
 use Dana\Configuration;
 use Dana\Env;
 use Dana\Widget\v1\Api\WidgetApi;
-use ;
+use Dana\Widget\v1\Model\AccountUnbindingRequest;
 
 // Set up configuration with authentication settings
 $configuration = new Configuration();
@@ -44,7 +50,8 @@ $configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
 $configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
 $configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
 $configuration->setApiKey('DANA_ENV', Env::SANDBOX);
-$configuration->setApiKey('ENV', Env::SANDBOX);
+// Choose one of ENV or DANA_ENV to set, if you set both, ENV will be ignored
+// $configuration->setApiKey('ENV', Env::SANDBOX);
 
 
 
@@ -64,11 +71,11 @@ try {
 
 ### Payload
 
-[****](./Widget/.md)
+[**AccountUnbindingRequest**](./Widget/AccountUnbindingRequest.md)
 
 ### Return type
 
-[**\Dana\Widget\v1\Model\AccountUnbindingResponse**](./Widget/AccountUnbindingResponse.md)
+[**AccountUnbindingResponse**](./Widget/AccountUnbindingResponse.md)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -91,7 +98,7 @@ This API is used to get one time token that will be used as authorization parame
 use Dana\Configuration;
 use Dana\Env;
 use Dana\Widget\v1\Api\WidgetApi;
-use ;
+use Dana\Widget\v1\Model\ApplyOTTRequest;
 
 // Set up configuration with authentication settings
 $configuration = new Configuration();
@@ -103,7 +110,8 @@ $configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
 $configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
 $configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
 $configuration->setApiKey('DANA_ENV', Env::SANDBOX);
-$configuration->setApiKey('ENV', Env::SANDBOX);
+// Choose one of ENV or DANA_ENV to set, if you set both, ENV will be ignored
+// $configuration->setApiKey('ENV', Env::SANDBOX);
 
 
 
@@ -123,11 +131,11 @@ try {
 
 ### Payload
 
-[****](./Widget/.md)
+[**ApplyOTTRequest**](./Widget/ApplyOTTRequest.md)
 
 ### Return type
 
-[**\Dana\Widget\v1\Model\ApplyOTTResponse**](./Widget/ApplyOTTResponse.md)
+[**ApplyOTTResponse**](./Widget/ApplyOTTResponse.md)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -150,7 +158,7 @@ This API is used to finalized account binding process by exchanging the authCode
 use Dana\Configuration;
 use Dana\Env;
 use Dana\Widget\v1\Api\WidgetApi;
-use ;
+use Dana\Widget\v1\Model\ApplyTokenRequest;
 
 // Set up configuration with authentication settings
 $configuration = new Configuration();
@@ -162,7 +170,8 @@ $configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
 $configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
 $configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
 $configuration->setApiKey('DANA_ENV', Env::SANDBOX);
-$configuration->setApiKey('ENV', Env::SANDBOX);
+// Choose one of ENV or DANA_ENV to set, if you set both, ENV will be ignored
+// $configuration->setApiKey('ENV', Env::SANDBOX);
 
 
 
@@ -182,11 +191,11 @@ try {
 
 ### Payload
 
-[****](./Widget/.md)
+[**ApplyTokenRequest**](./Widget/ApplyTokenRequest.md)
 
 ### Return type
 
-[**\Dana\Widget\v1\Model\ApplyTokenResponse**](./Widget/ApplyTokenResponse.md)
+[**ApplyTokenResponse**](./Widget/ApplyTokenResponse.md)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -209,7 +218,7 @@ This API is used to query user's DANA account balance via merchant
 use Dana\Configuration;
 use Dana\Env;
 use Dana\Widget\v1\Api\WidgetApi;
-use ;
+use Dana\Widget\v1\Model\BalanceInquiryRequest;
 
 // Set up configuration with authentication settings
 $configuration = new Configuration();
@@ -221,7 +230,8 @@ $configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
 $configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
 $configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
 $configuration->setApiKey('DANA_ENV', Env::SANDBOX);
-$configuration->setApiKey('ENV', Env::SANDBOX);
+// Choose one of ENV or DANA_ENV to set, if you set both, ENV will be ignored
+// $configuration->setApiKey('ENV', Env::SANDBOX);
 
 
 
@@ -241,11 +251,11 @@ try {
 
 ### Payload
 
-[****](./Widget/.md)
+[**BalanceInquiryRequest**](./Widget/BalanceInquiryRequest.md)
 
 ### Return type
 
-[**\Dana\Widget\v1\Model\BalanceInquiryResponse**](./Widget/BalanceInquiryResponse.md)
+[**BalanceInquiryResponse**](./Widget/BalanceInquiryResponse.md)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -268,7 +278,7 @@ This API is used to cancel the order from merchant's platform to DANA
 use Dana\Configuration;
 use Dana\Env;
 use Dana\Widget\v1\Api\WidgetApi;
-use ;
+use Dana\Widget\v1\Model\CancelOrderRequest;
 
 // Set up configuration with authentication settings
 $configuration = new Configuration();
@@ -280,7 +290,8 @@ $configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
 $configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
 $configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
 $configuration->setApiKey('DANA_ENV', Env::SANDBOX);
-$configuration->setApiKey('ENV', Env::SANDBOX);
+// Choose one of ENV or DANA_ENV to set, if you set both, ENV will be ignored
+// $configuration->setApiKey('ENV', Env::SANDBOX);
 
 
 
@@ -300,11 +311,11 @@ try {
 
 ### Payload
 
-[****](./Widget/.md)
+[**CancelOrderRequest**](./Widget/CancelOrderRequest.md)
 
 ### Return type
 
-[**\Dana\Widget\v1\Model\CancelOrderResponse**](./Widget/CancelOrderResponse.md)
+[**CancelOrderResponse**](./Widget/CancelOrderResponse.md)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -327,7 +338,7 @@ This API is used to inquiry payment status and information from merchant's platf
 use Dana\Configuration;
 use Dana\Env;
 use Dana\Widget\v1\Api\WidgetApi;
-use ;
+use Dana\Widget\v1\Model\QueryPaymentRequest;
 
 // Set up configuration with authentication settings
 $configuration = new Configuration();
@@ -339,7 +350,8 @@ $configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
 $configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
 $configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
 $configuration->setApiKey('DANA_ENV', Env::SANDBOX);
-$configuration->setApiKey('ENV', Env::SANDBOX);
+// Choose one of ENV or DANA_ENV to set, if you set both, ENV will be ignored
+// $configuration->setApiKey('ENV', Env::SANDBOX);
 
 
 
@@ -359,11 +371,11 @@ try {
 
 ### Payload
 
-[****](./Widget/.md)
+[**QueryPaymentRequest**](./Widget/QueryPaymentRequest.md)
 
 ### Return type
 
-[**\Dana\Widget\v1\Model\QueryPaymentResponse**](./Widget/QueryPaymentResponse.md)
+[**QueryPaymentResponse**](./Widget/QueryPaymentResponse.md)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -386,7 +398,7 @@ The API is used to query user profile such as DANA balance (unit in IDR), masked
 use Dana\Configuration;
 use Dana\Env;
 use Dana\Widget\v1\Api\WidgetApi;
-use ;
+use Dana\Widget\v1\Model\QueryUserProfileRequest;
 
 // Set up configuration with authentication settings
 $configuration = new Configuration();
@@ -398,7 +410,8 @@ $configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
 $configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
 $configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
 $configuration->setApiKey('DANA_ENV', Env::SANDBOX);
-$configuration->setApiKey('ENV', Env::SANDBOX);
+// Choose one of ENV or DANA_ENV to set, if you set both, ENV will be ignored
+// $configuration->setApiKey('ENV', Env::SANDBOX);
 
 
 
@@ -418,11 +431,11 @@ try {
 
 ### Payload
 
-[****](./Widget/.md)
+[**QueryUserProfileRequest**](./Widget/QueryUserProfileRequest.md)
 
 ### Return type
 
-[**\Dana\Widget\v1\Model\QueryUserProfileResponse**](./Widget/QueryUserProfileResponse.md)
+[**QueryUserProfileResponse**](./Widget/QueryUserProfileResponse.md)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -445,7 +458,7 @@ This API is used to refund the order from merchant's platform to DANA
 use Dana\Configuration;
 use Dana\Env;
 use Dana\Widget\v1\Api\WidgetApi;
-use ;
+use Dana\Widget\v1\Model\RefundOrderRequest;
 
 // Set up configuration with authentication settings
 $configuration = new Configuration();
@@ -457,7 +470,8 @@ $configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
 $configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
 $configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
 $configuration->setApiKey('DANA_ENV', Env::SANDBOX);
-$configuration->setApiKey('ENV', Env::SANDBOX);
+// Choose one of ENV or DANA_ENV to set, if you set both, ENV will be ignored
+// $configuration->setApiKey('ENV', Env::SANDBOX);
 
 
 
@@ -477,11 +491,11 @@ try {
 
 ### Payload
 
-[****](./Widget/.md)
+[**RefundOrderRequest**](./Widget/RefundOrderRequest.md)
 
 ### Return type
 
-[**\Dana\Widget\v1\Model\RefundOrderResponse**](./Widget/RefundOrderResponse.md)
+[**RefundOrderResponse**](./Widget/RefundOrderResponse.md)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -504,7 +518,7 @@ This API is used to initiate payment from merchant's platform to DANA
 use Dana\Configuration;
 use Dana\Env;
 use Dana\Widget\v1\Api\WidgetApi;
-use ;
+use Dana\Widget\v1\Model\WidgetPaymentRequest;
 
 // Set up configuration with authentication settings
 $configuration = new Configuration();
@@ -516,7 +530,8 @@ $configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
 $configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
 $configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
 $configuration->setApiKey('DANA_ENV', Env::SANDBOX);
-$configuration->setApiKey('ENV', Env::SANDBOX);
+// Choose one of ENV or DANA_ENV to set, if you set both, ENV will be ignored
+// $configuration->setApiKey('ENV', Env::SANDBOX);
 
 
 
@@ -536,12 +551,179 @@ try {
 
 ### Payload
 
-[****](./Widget/.md)
+[**WidgetPaymentRequest**](./Widget/WidgetPaymentRequest.md)
 
 ### Return type
 
-[**\Dana\Widget\v1\Model\WidgetPaymentResponse**](./Widget/WidgetPaymentResponse.md)
+[**WidgetPaymentResponse**](./Widget/WidgetPaymentResponse.md)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
+
+
+## Enum Types
+
+### Example Usage
+
+```php
+// Importing an enum class
+use Dana\Widget\v1\Enum\TerminalType;
+
+// Using enum constants
+$model->setTerminalType(TerminalType::APP);
+
+// Using enum values directly as strings
+$model->setTerminalType('APP');
+```
+
+### ActorType
+
+| Constant | Value |
+|----------|-------|
+| `USER` | `USER` |
+| `MERCHANT` | `MERCHANT` |
+| `MERCHANT_OPERATOR` | `MERCHANT_OPERATOR` |
+| `BACK_OFFICE` | `BACK_OFFICE` |
+| `SYSTEM` | `SYSTEM` |
+| `APP` | `APP` |
+| `WEB` | `WEB` |
+| `WAP` | `WAP` |
+| `SYSTEM` | `SYSTEM` |
+| `BALANCE` | `BALANCE` |
+| `COUPON` | `COUPON` |
+| `NET_BANKING` | `NET_BANKING` |
+| `CREDIT_CARD` | `CREDIT_CARD` |
+| `DEBIT_CARD` | `DEBIT_CARD` |
+| `VIRTUAL_ACCOUNT` | `VIRTUAL_ACCOUNT` |
+| `OTC` | `OTC` |
+| `DIRECT_DEBIT_CREDIT_CARD` | `DIRECT_DEBIT_CREDIT_CARD` |
+| `DIRECT_DEBIT_DEBIT_CARD` | `DIRECT_DEBIT_DEBIT_CARD` |
+
+### OrderTerminalType
+
+| Constant | Value |
+|----------|-------|
+| `APP` | `APP` |
+| `WEB` | `WEB` |
+| `WAP` | `WAP` |
+| `SYSTEM` | `SYSTEM` |
+| `BALANCE` | `BALANCE` |
+| `COUPON` | `COUPON` |
+| `NET_BANKING` | `NET_BANKING` |
+| `CREDIT_CARD` | `CREDIT_CARD` |
+| `DEBIT_CARD` | `DEBIT_CARD` |
+| `VIRTUAL_ACCOUNT` | `VIRTUAL_ACCOUNT` |
+| `OTC` | `OTC` |
+| `DIRECT_DEBIT_CREDIT_CARD` | `DIRECT_DEBIT_CREDIT_CARD` |
+| `DIRECT_DEBIT_DEBIT_CARD` | `DIRECT_DEBIT_DEBIT_CARD` |
+| `ONLINE_CREDIT` | `ONLINE_CREDIT` |
+| `LOAN_CREDIT` | `LOAN_CREDIT` |
+| `NETWORK_PAY` | `NETWORK_PAY` |
+| `NETWORK_PAY_PG_SPAY` | `NETWORK_PAY_PG_SPAY` |
+| `NETWORK_PAY_PG_OVO` | `NETWORK_PAY_PG_OVO` |
+
+### PayMethod
+
+| Constant | Value |
+|----------|-------|
+| `BALANCE` | `BALANCE` |
+| `COUPON` | `COUPON` |
+| `NET_BANKING` | `NET_BANKING` |
+| `CREDIT_CARD` | `CREDIT_CARD` |
+| `DEBIT_CARD` | `DEBIT_CARD` |
+| `VIRTUAL_ACCOUNT` | `VIRTUAL_ACCOUNT` |
+| `OTC` | `OTC` |
+| `DIRECT_DEBIT_CREDIT_CARD` | `DIRECT_DEBIT_CREDIT_CARD` |
+| `DIRECT_DEBIT_DEBIT_CARD` | `DIRECT_DEBIT_DEBIT_CARD` |
+| `ONLINE_CREDIT` | `ONLINE_CREDIT` |
+| `LOAN_CREDIT` | `LOAN_CREDIT` |
+| `NETWORK_PAY` | `NETWORK_PAY` |
+| `NETWORK_PAY_PG_SPAY` | `NETWORK_PAY_PG_SPAY` |
+| `NETWORK_PAY_PG_OVO` | `NETWORK_PAY_PG_OVO` |
+| `NETWORK_PAY_PG_GOPAY` | `NETWORK_PAY_PG_GOPAY` |
+| `NETWORK_PAY_PG_LINKAJA` | `NETWORK_PAY_PG_LINKAJA` |
+| `NETWORK_PAY_PG_CARD` | `NETWORK_PAY_PG_CARD` |
+| `VIRTUAL_ACCOUNT_BCA` | `VIRTUAL_ACCOUNT_BCA` |
+| `VIRTUAL_ACCOUNT_BNI` | `VIRTUAL_ACCOUNT_BNI` |
+
+### PayOption
+
+| Constant | Value |
+|----------|-------|
+| `NETWORK_PAY_PG_SPAY` | `NETWORK_PAY_PG_SPAY` |
+| `NETWORK_PAY_PG_OVO` | `NETWORK_PAY_PG_OVO` |
+| `NETWORK_PAY_PG_GOPAY` | `NETWORK_PAY_PG_GOPAY` |
+| `NETWORK_PAY_PG_LINKAJA` | `NETWORK_PAY_PG_LINKAJA` |
+| `NETWORK_PAY_PG_CARD` | `NETWORK_PAY_PG_CARD` |
+| `VIRTUAL_ACCOUNT_BCA` | `VIRTUAL_ACCOUNT_BCA` |
+| `VIRTUAL_ACCOUNT_BNI` | `VIRTUAL_ACCOUNT_BNI` |
+| `VIRTUAL_ACCOUNT_MANDIRI` | `VIRTUAL_ACCOUNT_MANDIRI` |
+| `VIRTUAL_ACCOUNT_BRI` | `VIRTUAL_ACCOUNT_BRI` |
+| `VIRTUAL_ACCOUNT_BTPN` | `VIRTUAL_ACCOUNT_BTPN` |
+| `VIRTUAL_ACCOUNT_CIMB` | `VIRTUAL_ACCOUNT_CIMB` |
+| `VIRTUAL_ACCOUNT_PERMATA` | `VIRTUAL_ACCOUNT_PERMATA` |
+| `IPG` | `IPG` |
+| `APP` | `APP` |
+| `WEB` | `WEB` |
+| `WAP` | `WAP` |
+| `SYSTEM` | `SYSTEM` |
+| `PAY_RETURN` | `PAY_RETURN` |
+
+### SourcePlatform
+
+| Constant | Value |
+|----------|-------|
+| `IPG` | `IPG` |
+| `APP` | `APP` |
+| `WEB` | `WEB` |
+| `WAP` | `WAP` |
+| `SYSTEM` | `SYSTEM` |
+| `PAY_RETURN` | `PAY_RETURN` |
+| `NOTIFICATION` | `NOTIFICATION` |
+
+### TerminalType
+
+| Constant | Value |
+|----------|-------|
+| `APP` | `APP` |
+| `WEB` | `WEB` |
+| `WAP` | `WAP` |
+| `SYSTEM` | `SYSTEM` |
+| `PAY_RETURN` | `PAY_RETURN` |
+| `NOTIFICATION` | `NOTIFICATION` |
+
+### Type
+
+| Constant | Value |
+|----------|-------|
+| `PAY_RETURN` | `PAY_RETURN` |
+| `NOTIFICATION` | `NOTIFICATION` |
+
+
+# OAuth URL Generation
+
+This section demonstrates how to generate OAuth URLs for widget authorization using the PHP SDK.
+
+## Example
+
+```php
+<?php
+use Dana\Widget\v1\Model\Oauth2UrlData;
+use Dana\Widget\v1\Util\Util;
+
+// Set up OAuth2 URL data
+$oauth2UrlData = new Oauth2UrlData();
+$oauth2UrlData->setRedirectUrl('https://google.com');
+$oauth2UrlData->setMerchantId($merchantId);
+$oauth2UrlData->setSeamlessData([
+    'mobileNumber' => '0811742234'
+]);
+
+// Generate the OAuth URL
+$oauthUrl = Util::generateOauthUrl($oauth2UrlData, $privateKey, $privateKeyPath);
+echo 'Generated OAuth URL: ' . $oauthUrl;
+```
+
+The generated URL can be used to redirect users to DANA's authorization page.
+
