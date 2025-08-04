@@ -58,6 +58,7 @@ class Goods implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
+        'name' => 'string',
         'merchantGoodsId' => 'string',
         'description' => 'string',
         'category' => 'string',
@@ -77,6 +78,7 @@ class Goods implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'name' => null,
         'merchantGoodsId' => null,
         'description' => null,
         'category' => null,
@@ -94,6 +96,7 @@ class Goods implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
+        'name' => false,
         'merchantGoodsId' => false,
         'description' => false,
         'category' => false,
@@ -191,6 +194,7 @@ class Goods implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'name' => 'name',
         'merchantGoodsId' => 'merchantGoodsId',
         'description' => 'description',
         'category' => 'category',
@@ -208,6 +212,7 @@ class Goods implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'name' => 'setName',
         'merchantGoodsId' => 'setMerchantGoodsId',
         'description' => 'setDescription',
         'category' => 'setCategory',
@@ -225,6 +230,7 @@ class Goods implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'name' => 'getName',
         'merchantGoodsId' => 'getMerchantGoodsId',
         'description' => 'getDescription',
         'category' => 'getCategory',
@@ -293,6 +299,7 @@ class Goods implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('merchantGoodsId', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('category', $data ?? [], null);
@@ -330,6 +337,13 @@ class Goods implements ModelInterface, ArrayAccess, \JsonSerializable
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ((mb_strlen($this->container['name']) > 64)) {
+            $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 64.";
+        }
 
         if ($this->container['merchantGoodsId'] === null) {
             $invalidProperties[] = "'merchantGoodsId' can't be null";
@@ -392,6 +406,37 @@ class Goods implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name Goods name
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        }
+        if ((mb_strlen($name) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $name when calling Goods., must be smaller than or equal to 64.');
+        }
+
+        $this->container['name'] = $name;
+
+        return $this;
+    }
 
     /**
      * Gets merchantGoodsId

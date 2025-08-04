@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**name** | **string** | Goods name |
 **merchantGoodsId** | **string** | Goods identifier provided by merchant |
 **description** | **string** | Goods description |
 **category** | **string** | Goods category |

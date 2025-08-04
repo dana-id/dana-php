@@ -36,7 +36,6 @@ use \Dana\Model\ModelInterface;
  * BalanceInquiryRequestAdditionalInfo Class Doc Comment
  *
  * @category Class
- * @description Additional information
  * @package  Dana\Widget
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -51,7 +50,7 @@ class BalanceInquiryRequestAdditionalInfo implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'BalanceInquiryRequest_additionalInfo';
+    protected static $openAPIModelName = 'BalanceInquiryRequestAdditionalInfo';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +58,11 @@ class BalanceInquiryRequestAdditionalInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'accessToken' => 'string'
+        'accessToken' => 'string',
+        'endUserIpAddress' => 'string',
+        'deviceId' => 'string',
+        'latitude' => 'string',
+        'longitude' => 'string'
     ];
 
     /**
@@ -70,7 +73,11 @@ class BalanceInquiryRequestAdditionalInfo implements ModelInterface, ArrayAccess
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'accessToken' => null
+        'accessToken' => null,
+        'endUserIpAddress' => null,
+        'deviceId' => null,
+        'latitude' => null,
+        'longitude' => null
     ];
 
     /**
@@ -79,7 +86,11 @@ class BalanceInquiryRequestAdditionalInfo implements ModelInterface, ArrayAccess
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'accessToken' => false
+        'accessToken' => false,
+        'endUserIpAddress' => false,
+        'deviceId' => false,
+        'latitude' => false,
+        'longitude' => false
     ];
 
     /**
@@ -168,7 +179,11 @@ class BalanceInquiryRequestAdditionalInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'accessToken' => 'accessToken'
+        'accessToken' => 'accessToken',
+        'endUserIpAddress' => 'endUserIpAddress',
+        'deviceId' => 'deviceId',
+        'latitude' => 'latitude',
+        'longitude' => 'longitude'
     ];
 
     /**
@@ -177,7 +192,11 @@ class BalanceInquiryRequestAdditionalInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'accessToken' => 'setAccessToken'
+        'accessToken' => 'setAccessToken',
+        'endUserIpAddress' => 'setEndUserIpAddress',
+        'deviceId' => 'setDeviceId',
+        'latitude' => 'setLatitude',
+        'longitude' => 'setLongitude'
     ];
 
     /**
@@ -186,7 +205,11 @@ class BalanceInquiryRequestAdditionalInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'accessToken' => 'getAccessToken'
+        'accessToken' => 'getAccessToken',
+        'endUserIpAddress' => 'getEndUserIpAddress',
+        'deviceId' => 'getDeviceId',
+        'latitude' => 'getLatitude',
+        'longitude' => 'getLongitude'
     ];
 
     /**
@@ -247,6 +270,10 @@ class BalanceInquiryRequestAdditionalInfo implements ModelInterface, ArrayAccess
     public function __construct(?array $data = null)
     {
         $this->setIfExists('accessToken', $data ?? [], null);
+        $this->setIfExists('endUserIpAddress', $data ?? [], null);
+        $this->setIfExists('deviceId', $data ?? [], null);
+        $this->setIfExists('latitude', $data ?? [], null);
+        $this->setIfExists('longitude', $data ?? [], null);
     }
 
     /**
@@ -283,6 +310,33 @@ class BalanceInquiryRequestAdditionalInfo implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'accessToken', the character length must be smaller than or equal to 512.";
         }
 
+        if (!is_null($this->container['endUserIpAddress']) && (mb_strlen($this->container['endUserIpAddress']) > 15)) {
+            $invalidProperties[] = "invalid value for 'endUserIpAddress', the character length must be smaller than or equal to 15.";
+        }
+
+        if ($this->container['deviceId'] === null) {
+            $invalidProperties[] = "'deviceId' can't be null";
+        }
+        if ((mb_strlen($this->container['deviceId']) > 400)) {
+            $invalidProperties[] = "invalid value for 'deviceId', the character length must be smaller than or equal to 400.";
+        }
+
+        if (!is_null($this->container['latitude']) && (mb_strlen($this->container['latitude']) > 10)) {
+            $invalidProperties[] = "invalid value for 'latitude', the character length must be smaller than or equal to 10.";
+        }
+
+        if (!is_null($this->container['latitude']) && !preg_match("/^[-+]?[0-9]{1,2}([.][0-9]{1,4})?$/", $this->container['latitude'])) {
+            $invalidProperties[] = "invalid value for 'latitude', must be conform to the pattern /^[-+]?[0-9]{1,2}([.][0-9]{1,4})?$/.";
+        }
+
+        if (!is_null($this->container['longitude']) && (mb_strlen($this->container['longitude']) > 10)) {
+            $invalidProperties[] = "invalid value for 'longitude', the character length must be smaller than or equal to 10.";
+        }
+
+        if (!is_null($this->container['longitude']) && !preg_match("/^[-+]?[0-9]{1,2}([.][0-9]{1,4})?$/", $this->container['longitude'])) {
+            $invalidProperties[] = "invalid value for 'longitude', must be conform to the pattern /^[-+]?[0-9]{1,2}([.][0-9]{1,4})?$/.";
+        }
+
         return $invalidProperties;
     }
 
@@ -311,7 +365,7 @@ class BalanceInquiryRequestAdditionalInfo implements ModelInterface, ArrayAccess
     /**
      * Sets accessToken
      *
-     * @param string $accessToken Contains customer token, which has been obtained from binding process, refer to Account Binding & Unbinding documentation
+     * @param string $accessToken Contains customer token, which has been obtained from binding process
      *
      * @return self
      */
@@ -325,6 +379,136 @@ class BalanceInquiryRequestAdditionalInfo implements ModelInterface, ArrayAccess
         }
 
         $this->container['accessToken'] = $accessToken;
+
+        return $this;
+    }
+
+    /**
+     * Gets endUserIpAddress
+     *
+     * @return string|null
+     */
+    public function getEndUserIpAddress()
+    {
+        return $this->container['endUserIpAddress'];
+    }
+
+    /**
+     * Sets endUserIpAddress
+     *
+     * @param string|null $endUserIpAddress IP address of the end user (customer) using IPv4 format
+     *
+     * @return self
+     */
+    public function setEndUserIpAddress($endUserIpAddress)
+    {
+        if (is_null($endUserIpAddress)) {
+            throw new \InvalidArgumentException('non-nullable endUserIpAddress cannot be null');
+        }
+        if ((mb_strlen($endUserIpAddress) > 15)) {
+            throw new \InvalidArgumentException('invalid length for $endUserIpAddress when calling BalanceInquiryRequestAdditionalInfo., must be smaller than or equal to 15.');
+        }
+
+        $this->container['endUserIpAddress'] = $endUserIpAddress;
+
+        return $this;
+    }
+
+    /**
+     * Gets deviceId
+     *
+     * @return string
+     */
+    public function getDeviceId()
+    {
+        return $this->container['deviceId'];
+    }
+
+    /**
+     * Sets deviceId
+     *
+     * @param string $deviceId Device identification on which the API services is currently being accessed by the end user (customer)
+     *
+     * @return self
+     */
+    public function setDeviceId($deviceId)
+    {
+        if (is_null($deviceId)) {
+            throw new \InvalidArgumentException('non-nullable deviceId cannot be null');
+        }
+        if ((mb_strlen($deviceId) > 400)) {
+            throw new \InvalidArgumentException('invalid length for $deviceId when calling BalanceInquiryRequestAdditionalInfo., must be smaller than or equal to 400.');
+        }
+
+        $this->container['deviceId'] = $deviceId;
+
+        return $this;
+    }
+
+    /**
+     * Gets latitude
+     *
+     * @return string|null
+     */
+    public function getLatitude()
+    {
+        return $this->container['latitude'];
+    }
+
+    /**
+     * Sets latitude
+     *
+     * @param string|null $latitude Location on which the API services is currently being accessed by the end user (customer), refer to ISO 6709 standard representation of geographic point location by coordinates
+     *
+     * @return self
+     */
+    public function setLatitude($latitude)
+    {
+        if (is_null($latitude)) {
+            throw new \InvalidArgumentException('non-nullable latitude cannot be null');
+        }
+        if ((mb_strlen($latitude) > 10)) {
+            throw new \InvalidArgumentException('invalid length for $latitude when calling BalanceInquiryRequestAdditionalInfo., must be smaller than or equal to 10.');
+        }
+        if ((!preg_match("/^[-+]?[0-9]{1,2}([.][0-9]{1,4})?$/", ObjectSerializer::toString($latitude)))) {
+            throw new \InvalidArgumentException("invalid value for \$latitude when calling BalanceInquiryRequestAdditionalInfo., must conform to the pattern /^[-+]?[0-9]{1,2}([.][0-9]{1,4})?$/.");
+        }
+
+        $this->container['latitude'] = $latitude;
+
+        return $this;
+    }
+
+    /**
+     * Gets longitude
+     *
+     * @return string|null
+     */
+    public function getLongitude()
+    {
+        return $this->container['longitude'];
+    }
+
+    /**
+     * Sets longitude
+     *
+     * @param string|null $longitude Location on which the API services is currently being accessed by the end user (customer), refer to ISO 6709 Standard representation of geographic point location by coordinates
+     *
+     * @return self
+     */
+    public function setLongitude($longitude)
+    {
+        if (is_null($longitude)) {
+            throw new \InvalidArgumentException('non-nullable longitude cannot be null');
+        }
+        if ((mb_strlen($longitude) > 10)) {
+            throw new \InvalidArgumentException('invalid length for $longitude when calling BalanceInquiryRequestAdditionalInfo., must be smaller than or equal to 10.');
+        }
+        if ((!preg_match("/^[-+]?[0-9]{1,2}([.][0-9]{1,4})?$/", ObjectSerializer::toString($longitude)))) {
+            throw new \InvalidArgumentException("invalid value for \$longitude when calling BalanceInquiryRequestAdditionalInfo., must conform to the pattern /^[-+]?[0-9]{1,2}([.][0-9]{1,4})?$/.");
+        }
+
+        $this->container['longitude'] = $longitude;
 
         return $this;
     }

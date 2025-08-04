@@ -293,6 +293,9 @@ class BalanceInquiryRequest implements ModelInterface, ArrayAccess, \JsonSeriali
             $invalidProperties[] = "invalid value for 'partnerReferenceNo', the character length must be smaller than or equal to 64.";
         }
 
+        if ($this->container['additionalInfo'] === null) {
+            $invalidProperties[] = "'additionalInfo' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -369,7 +372,7 @@ class BalanceInquiryRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets additionalInfo
      *
-     * @return \Dana\Widget\v1\Model\BalanceInquiryRequestAdditionalInfo|null
+     * @return \Dana\Widget\v1\Model\BalanceInquiryRequestAdditionalInfo
      */
     public function getAdditionalInfo()
     {
@@ -379,7 +382,7 @@ class BalanceInquiryRequest implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets additionalInfo
      *
-     * @param \Dana\Widget\v1\Model\BalanceInquiryRequestAdditionalInfo|null $additionalInfo additionalInfo
+     * @param \Dana\Widget\v1\Model\BalanceInquiryRequestAdditionalInfo $additionalInfo Additional information
      *
      * @return self
      */
