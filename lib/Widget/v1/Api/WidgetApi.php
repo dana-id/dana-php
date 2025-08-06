@@ -478,7 +478,7 @@ class WidgetApi
                 // Default B2B signature scenario
                 $scenario = '';
             }
-            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $clientKey, $privateKey, $privateKeyPath, $scenario);
+            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $scenario, $this->config);
             
             // Add security headers to the request
             foreach ($snapHeaders as $key => $value) {
@@ -827,7 +827,7 @@ class WidgetApi
                 // Default B2B signature scenario
                 $scenario = '';
             }
-            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $clientKey, $privateKey, $privateKeyPath, $scenario);
+            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $scenario, $this->config);
             
             // Add security headers to the request
             foreach ($snapHeaders as $key => $value) {
@@ -1176,7 +1176,7 @@ class WidgetApi
                 // Default B2B signature scenario
                 $scenario = '';
             }
-            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $clientKey, $privateKey, $privateKeyPath, $scenario);
+            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $scenario, $this->config);
             
             // Add security headers to the request
             foreach ($snapHeaders as $key => $value) {
@@ -1525,7 +1525,7 @@ class WidgetApi
                 // Default B2B signature scenario
                 $scenario = '';
             }
-            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $clientKey, $privateKey, $privateKeyPath, $scenario);
+            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $scenario, $this->config);
             
             // Add security headers to the request
             foreach ($snapHeaders as $key => $value) {
@@ -1874,7 +1874,7 @@ class WidgetApi
                 // Default B2B signature scenario
                 $scenario = '';
             }
-            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $clientKey, $privateKey, $privateKeyPath, $scenario);
+            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $scenario, $this->config);
             
             // Add security headers to the request
             foreach ($snapHeaders as $key => $value) {
@@ -2223,7 +2223,7 @@ class WidgetApi
                 // Default B2B signature scenario
                 $scenario = '';
             }
-            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $clientKey, $privateKey, $privateKeyPath, $scenario);
+            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $scenario, $this->config);
             
             // Add security headers to the request
             foreach ($snapHeaders as $key => $value) {
@@ -2572,7 +2572,7 @@ class WidgetApi
                 // Default B2B signature scenario
                 $scenario = '';
             }
-            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $clientKey, $privateKey, $privateKeyPath, $scenario);
+            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $scenario, $this->config);
             
             // Add security headers to the request
             foreach ($snapHeaders as $key => $value) {
@@ -2921,7 +2921,7 @@ class WidgetApi
                 // Default B2B signature scenario
                 $scenario = '';
             }
-            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $clientKey, $privateKey, $privateKeyPath, $scenario);
+            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $scenario, $this->config);
             
             // Add security headers to the request
             foreach ($snapHeaders as $key => $value) {
@@ -3270,7 +3270,7 @@ class WidgetApi
                 // Default B2B signature scenario
                 $scenario = '';
             }
-            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $clientKey, $privateKey, $privateKeyPath, $scenario);
+            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $scenario, $this->config);
             
             // Add security headers to the request
             foreach ($snapHeaders as $key => $value) {

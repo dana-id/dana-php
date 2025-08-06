@@ -12,7 +12,8 @@
 
 namespace Dana\Utils;
 
-use OpenSSLAsymmetricKey;
+use Dana\Configuration;
+
 
 /**
  * SnapHeader Class
@@ -29,23 +30,6 @@ class SnapHeader
     const SCENARIO_APPLY_TOKEN = 'apply_token';
     const SCENARIO_APPLY_OTT = 'apply_ott';
     const SCENARIO_UNBINDING_ACCOUNT = 'unbinding_account';
-    
-    /**
-     * Get current time in Jakarta timezone (WIB)
-     */
-    private static function getJakartaTimestamp(): string
-    {
-        try {
-            $jakarta = new \DateTimeZone('Asia/Jakarta');
-            $now = new \DateTime('now', $jakarta);
-        } catch (\Exception $e) {
-            // Fallback to UTC+7 if Jakarta timezone is not available
-            $now = new \DateTime('now', new \DateTimeZone('UTC'));
-            $now->modify('+7 hours');
-        }
-        
-        return $now->format('Y-m-d\TH:i:s+07:00');
-    }
     
     /**
      * Generate a UUID v4
@@ -271,9 +255,13 @@ class SnapHeader
      * @return array Array of headers
      */
     public static function generateHeaders(string $httpMethod, string $path, string $body, 
-                                           string $clientId, string $privateKey, ?string $privateKeyPath = null,
-                                           string $scenario): array
+                                           string $scenario, Configuration $config): array
     {
+        $privateKey = $config->getApiKeyWithPrefix('PRIVATE_KEY');
+        $privateKeyPath = $config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
+        $clientId = $config->getApiKeyWithPrefix('X_PARTNER_ID');
+        $origin = $config->getApiKeyWithPrefix('ORIGIN');
+        
         // Format timestamp as YYYY-MM-DDTHH:mm:ss+07:00 in GMT+7 (Jakarta time)
         $jakartaTimezone = new \DateTimeZone('Asia/Jakarta');
         $timestamp = (new \DateTime('now', $jakartaTimezone))->format('Y-m-d\TH:i:sP');
@@ -289,7 +277,7 @@ class SnapHeader
             'X-PARTNER-ID' => $clientId,
             'X-SIGNATURE' => $signature,
             'Content-Type' => 'application/json',
-            'ORIGIN' => getenv('ORIGIN') ?: '',
+            'ORIGIN' => $origin,
             'CHANNEL-ID' => '95221',
         ];
         

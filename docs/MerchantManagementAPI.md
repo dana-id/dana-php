@@ -458,19 +458,6 @@ $model->setTerminalType('APP');
 | `MERCHANT_OPERATOR` | `MERCHANT_OPERATOR` |
 | `BACK_OFFICE` | `BACK_OFFICE` |
 | `SYSTEM` | `SYSTEM` |
-| `APP` | `APP` |
-| `WEB` | `WEB` |
-| `WAP` | `WAP` |
-| `SYSTEM` | `SYSTEM` |
-| `BALANCE` | `BALANCE` |
-| `COUPON` | `COUPON` |
-| `NET_BANKING` | `NET_BANKING` |
-| `CREDIT_CARD` | `CREDIT_CARD` |
-| `DEBIT_CARD` | `DEBIT_CARD` |
-| `VIRTUAL_ACCOUNT` | `VIRTUAL_ACCOUNT` |
-| `OTC` | `OTC` |
-| `DIRECT_DEBIT_CREDIT_CARD` | `DIRECT_DEBIT_CREDIT_CARD` |
-| `DIRECT_DEBIT_DEBIT_CARD` | `DIRECT_DEBIT_DEBIT_CARD` |
 
 ### OrderTerminalType
 
@@ -480,20 +467,6 @@ $model->setTerminalType('APP');
 | `WEB` | `WEB` |
 | `WAP` | `WAP` |
 | `SYSTEM` | `SYSTEM` |
-| `BALANCE` | `BALANCE` |
-| `COUPON` | `COUPON` |
-| `NET_BANKING` | `NET_BANKING` |
-| `CREDIT_CARD` | `CREDIT_CARD` |
-| `DEBIT_CARD` | `DEBIT_CARD` |
-| `VIRTUAL_ACCOUNT` | `VIRTUAL_ACCOUNT` |
-| `OTC` | `OTC` |
-| `DIRECT_DEBIT_CREDIT_CARD` | `DIRECT_DEBIT_CREDIT_CARD` |
-| `DIRECT_DEBIT_DEBIT_CARD` | `DIRECT_DEBIT_DEBIT_CARD` |
-| `ONLINE_CREDIT` | `ONLINE_CREDIT` |
-| `LOAN_CREDIT` | `LOAN_CREDIT` |
-| `NETWORK_PAY` | `NETWORK_PAY` |
-| `NETWORK_PAY_PG_SPAY` | `NETWORK_PAY_PG_SPAY` |
-| `NETWORK_PAY_PG_OVO` | `NETWORK_PAY_PG_OVO` |
 
 ### PayMethod
 
@@ -511,13 +484,6 @@ $model->setTerminalType('APP');
 | `ONLINE_CREDIT` | `ONLINE_CREDIT` |
 | `LOAN_CREDIT` | `LOAN_CREDIT` |
 | `NETWORK_PAY` | `NETWORK_PAY` |
-| `NETWORK_PAY_PG_SPAY` | `NETWORK_PAY_PG_SPAY` |
-| `NETWORK_PAY_PG_OVO` | `NETWORK_PAY_PG_OVO` |
-| `NETWORK_PAY_PG_GOPAY` | `NETWORK_PAY_PG_GOPAY` |
-| `NETWORK_PAY_PG_LINKAJA` | `NETWORK_PAY_PG_LINKAJA` |
-| `NETWORK_PAY_PG_CARD` | `NETWORK_PAY_PG_CARD` |
-| `VIRTUAL_ACCOUNT_BCA` | `VIRTUAL_ACCOUNT_BCA` |
-| `VIRTUAL_ACCOUNT_BNI` | `VIRTUAL_ACCOUNT_BNI` |
 
 ### PayOption
 
@@ -535,24 +501,12 @@ $model->setTerminalType('APP');
 | `VIRTUAL_ACCOUNT_BTPN` | `VIRTUAL_ACCOUNT_BTPN` |
 | `VIRTUAL_ACCOUNT_CIMB` | `VIRTUAL_ACCOUNT_CIMB` |
 | `VIRTUAL_ACCOUNT_PERMATA` | `VIRTUAL_ACCOUNT_PERMATA` |
-| `IPG` | `IPG` |
-| `APP` | `APP` |
-| `WEB` | `WEB` |
-| `WAP` | `WAP` |
-| `SYSTEM` | `SYSTEM` |
-| `PAY_RETURN` | `PAY_RETURN` |
 
 ### SourcePlatform
 
 | Constant | Value |
 |----------|-------|
 | `IPG` | `IPG` |
-| `APP` | `APP` |
-| `WEB` | `WEB` |
-| `WAP` | `WAP` |
-| `SYSTEM` | `SYSTEM` |
-| `PAY_RETURN` | `PAY_RETURN` |
-| `NOTIFICATION` | `NOTIFICATION` |
 
 ### TerminalType
 
@@ -562,8 +516,6 @@ $model->setTerminalType('APP');
 | `WEB` | `WEB` |
 | `WAP` | `WAP` |
 | `SYSTEM` | `SYSTEM` |
-| `PAY_RETURN` | `PAY_RETURN` |
-| `NOTIFICATION` | `NOTIFICATION` |
 
 ### Type
 
@@ -571,4 +523,134 @@ $model->setTerminalType('APP');
 |----------|-------|
 | `PAY_RETURN` | `PAY_RETURN` |
 | `NOTIFICATION` | `NOTIFICATION` |
+
+
+# WebhookParser
+
+This section demonstrates how to securely verify and parse DANA webhook notifications using the PHP SDK.
+
+## Example
+
+```php
+<?php
+use Dana\Configuration;
+use Dana\Webhook\WebhookParser;
+
+// Initialize the WebhookParser
+// You can provide the public key directly as a string or via a file path.
+// The parser will prioritize publicKeyPath if both are provided.
+
+// Option 1: Provide public key as a string
+$danaPublicKey = getenv('DANA_PUBLIC_KEY');
+$parser = new WebhookParser($danaPublicKey);
+
+// Option 2: Provide path to public key file
+// $danaPublicKeyPath = getenv('DANA_PUBLIC_KEY_PATH'); // e.g., "/path/to/your/dana_public_key.pem"
+// $parser = new WebhookParser(null, $danaPublicKeyPath);
+
+// Get the request data
+$httpMethod = $_SERVER['REQUEST_METHOD'];
+$relativePathUrl = '/v1.0/debit/notify'; // This should match the path DANA sends the webhook to
+
+// Get headers - getallheaders() is the standard way in PHP
+$headers = getallheaders();
+// For frameworks that don't support getallheaders(), you can use:
+// $headers = [];
+// foreach ($_SERVER as $name => $value) {
+//     if (substr($name, 0, 5) === 'HTTP_') {
+//         $headers[str_replace(' ', '-', ucwords(strtolower(str_replace('_', ' ', substr($name, 5)))))] = $value;
+//     }
+// }
+
+// Get the raw request body as a JSON string
+$webhookBodyStr = file_get_contents('php://input');
+
+// If you need to access the decoded data before passing to the parser
+// (Not required for parseWebhook which expects the raw string)
+// $jsonData = json_decode($webhookBodyStr, true);
+// if (json_last_error() !== JSON_ERROR_NONE) {
+//     throw new \RuntimeException('Invalid JSON in webhook payload: ' . json_last_error_msg());
+// }
+// echo "Request data: " . print_r($jsonData, true);
+
+try {
+    // Parse and verify the webhook
+    $parsedData = $parser->parseWebhook(
+        $httpMethod,
+        $relativePathUrl,
+        $headers,
+        $webhookBodyStr
+    );
+    
+    // If we reach here, the webhook was parsed and verified successfully
+    echo "Webhook verified successfully!\n";
+    echo "Original Partner Reference No: " . $parsedData->getOriginalPartnerReferenceNo() . "\n";
+    echo "Amount: " . $parsedData->getAmount()->getValue() . " " . $parsedData->getAmount()->getCurrency() . "\n";
+    echo "Status: " . $parsedData->getLatestTransactionStatus() . "\n";
+    
+    // Access additional information if available
+    if ($parsedData->getAdditionalInfo() && $parsedData->getAdditionalInfo()->getPaymentInfo()) {
+        $paymentInfo = $parsedData->getAdditionalInfo()->getPaymentInfo();
+        $payOptions = $paymentInfo->getPayOptionInfos();
+        
+        foreach ($payOptions as $payOption) {
+            echo "Payment Method: " . $payOption->getPayMethod() . "\n";
+            if ($payOption->getPayOption()) {
+                echo "Payment Option: " . $payOption->getPayOption() . "\n";
+            }
+        }
+    }
+    
+} catch (\Exception $e) {
+    // If verification fails, do not trust the payload
+    error_log("Webhook verification failed: " . $e->getMessage());
+    
+    // Respond with an error
+    header('Content-Type: application/json');
+    http_response_code(400);
+    echo json_encode([
+        'response_code' => '96',
+        'response_message' => 'System Error'
+    ]);
+}
+```
+
+## API Reference
+
+### `WebhookParser`
+
+The `WebhookParser` is part of the `Dana\Webhook` namespace.
+
+**Constructor:**
+
+```php
+public function __construct(?string $publicKey = null, ?string $publicKeyPath = null)
+```
+- `publicKey` (?string): Optional. The DANA gateway's public key as a PEM formatted string.
+- `publicKeyPath` (?string): Optional. The file path to the DANA gateway's public key PEM file. If provided, this will be prioritized over the `publicKey` string.
+- **Throws:** `\InvalidArgumentException` if neither publicKey nor publicKeyPath is provided or if the public key cannot be loaded.
+
+**Method:**
+
+```php
+public function parseWebhook(string $httpMethod, string $relativePathURL, array $headers, string $body): \Dana\Webhook\v1\Model\FinishNotifyRequest
+```
+- `httpMethod` (string): The HTTP method of the incoming webhook request (e.g., `POST`).
+- `relativePathURL` (string): The relative URL path of the webhook endpoint that received the notification (e.g., `/v1.0/debit/notify`).
+- `headers` (array): An array containing the HTTP request headers. This must include `X-SIGNATURE` and `X-TIMESTAMP` headers provided by DANA for signature verification.
+- `body` (string): The raw JSON string payload from the webhook request body.
+- **Returns:** An instance of `\Dana\Webhook\v1\Model\FinishNotifyRequest` containing the parsed and verified webhook data.
+- **Throws:** `\InvalidArgumentException` if required parameters are missing or `\RuntimeException` if signature verification fails.
+
+## Security Notes
+- Always use the official public key provided by DANA for webhook verification. Store and load it securely.
+- The `parseWebhook` method handles both JSON parsing and cryptographic signature verification. If it throws an exception, the payload should not be trusted.
+
+## Webhook Notification Models
+
+The following webhook notification models may be received:
+
+Model | Description
+------------- | -------------
+[**FinishNotifyRequest**](./Webhook/FinishNotifyRequest.md) | Represents the standard notification payload for payment events.
 

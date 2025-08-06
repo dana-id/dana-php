@@ -451,7 +451,7 @@ class DisbursementApi
 
             // Generate security headers using SnapHeader utility
             $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($bankAccountInquiryRequest));
-            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $clientKey, $privateKey, $privateKeyPath);
+            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, "", $this->config);
             
             // Add security headers to the request
             foreach ($snapHeaders as $key => $value) {
@@ -782,7 +782,7 @@ class DisbursementApi
 
             // Generate security headers using SnapHeader utility
             $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($danaAccountInquiryRequest));
-            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $clientKey, $privateKey, $privateKeyPath);
+            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, "", $this->config);
             
             // Add security headers to the request
             foreach ($snapHeaders as $key => $value) {
@@ -1148,7 +1148,7 @@ class DisbursementApi
 
             // Generate security headers using SnapHeader utility
             $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($transferToBankRequest));
-            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $clientKey, $privateKey, $privateKeyPath);
+            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, "", $this->config);
             
             // Add security headers to the request
             foreach ($snapHeaders as $key => $value) {
@@ -1479,7 +1479,7 @@ class DisbursementApi
 
             // Generate security headers using SnapHeader utility
             $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($transferToBankInquiryStatusRequest));
-            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $clientKey, $privateKey, $privateKeyPath);
+            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, "", $this->config);
             
             // Add security headers to the request
             foreach ($snapHeaders as $key => $value) {
@@ -1810,7 +1810,7 @@ class DisbursementApi
 
             // Generate security headers using SnapHeader utility
             $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($transferToDanaRequest));
-            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $clientKey, $privateKey, $privateKeyPath);
+            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, "", $this->config);
             
             // Add security headers to the request
             foreach ($snapHeaders as $key => $value) {
@@ -2141,7 +2141,7 @@ class DisbursementApi
 
             // Generate security headers using SnapHeader utility
             $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($transferToDanaInquiryStatusRequest));
-            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $clientKey, $privateKey, $privateKeyPath);
+            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, "", $this->config);
             
             // Add security headers to the request
             foreach ($snapHeaders as $key => $value) {

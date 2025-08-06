@@ -468,9 +468,6 @@ class PaymentGatewayApi
         );
 
         // Generate signature and add security headers for DANA API if private key is configured
-        $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
-        $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
-        $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
         if (isset($cancelOrderRequest)) {
             $resourcePathForSignature = '/payment-gateway/v1.0/debit/cancel.htm';
             if ($cancelOrderRequest !== null) {
@@ -483,7 +480,7 @@ class PaymentGatewayApi
 
             // Generate security headers using SnapHeader utility
             $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($cancelOrderRequest));
-            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $clientKey, $privateKey, $privateKeyPath, "");
+            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, "", $this->config);
             
             // Add security headers to the request
             foreach ($snapHeaders as $key => $value) {
@@ -799,9 +796,6 @@ class PaymentGatewayApi
         );
 
         // Generate signature and add security headers for DANA API if private key is configured
-        $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
-        $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
-        $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
         if (isset($consultPayRequest)) {
             $resourcePathForSignature = '/v1.0/payment-gateway/consult-pay.htm';
             if ($consultPayRequest !== null) {
@@ -814,7 +808,7 @@ class PaymentGatewayApi
 
             // Generate security headers using SnapHeader utility
             $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($consultPayRequest));
-            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $clientKey, $privateKey, $privateKeyPath, "");
+            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, "", $this->config);
             
             // Add security headers to the request
             foreach ($snapHeaders as $key => $value) {
@@ -1130,9 +1124,6 @@ class PaymentGatewayApi
         );
 
         // Generate signature and add security headers for DANA API if private key is configured
-        $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
-        $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
-        $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
         if (isset($createOrderRequest)) {
             $resourcePathForSignature = '/payment-gateway/v1.0/debit/payment-host-to-host.htm';
             if ($createOrderRequest !== null) {
@@ -1145,7 +1136,7 @@ class PaymentGatewayApi
 
             // Generate security headers using SnapHeader utility
             $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($createOrderRequest));
-            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $clientKey, $privateKey, $privateKeyPath, "");
+            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, "", $this->config);
             
             // Add security headers to the request
             foreach ($snapHeaders as $key => $value) {
@@ -1461,9 +1452,6 @@ class PaymentGatewayApi
         );
 
         // Generate signature and add security headers for DANA API if private key is configured
-        $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
-        $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
-        $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
         if (isset($queryPaymentRequest)) {
             $resourcePathForSignature = '/payment-gateway/v1.0/debit/status.htm';
             if ($queryPaymentRequest !== null) {
@@ -1476,7 +1464,7 @@ class PaymentGatewayApi
 
             // Generate security headers using SnapHeader utility
             $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($queryPaymentRequest));
-            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $clientKey, $privateKey, $privateKeyPath, "");
+            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, "", $this->config);
             
             // Add security headers to the request
             foreach ($snapHeaders as $key => $value) {
@@ -1827,9 +1815,6 @@ class PaymentGatewayApi
         );
 
         // Generate signature and add security headers for DANA API if private key is configured
-        $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
-        $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
-        $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
         if (isset($refundOrderRequest)) {
             $resourcePathForSignature = '/payment-gateway/v1.0/debit/refund.htm';
             if ($refundOrderRequest !== null) {
@@ -1842,7 +1827,7 @@ class PaymentGatewayApi
 
             // Generate security headers using SnapHeader utility
             $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($refundOrderRequest));
-            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $clientKey, $privateKey, $privateKeyPath, "");
+            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, "", $this->config);
             
             // Add security headers to the request
             foreach ($snapHeaders as $key => $value) {

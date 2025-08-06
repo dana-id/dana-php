@@ -3,6 +3,8 @@
 namespace Dana\Widget\v1\Util;
 
 use Dana\Widget\v1\Model\Oauth2UrlData;
+use Dana\Widget\v1\Model\WidgetPaymentResponse;
+use Dana\Widget\v1\Model\ApplyOTTResponse;
 use Dana\Utils\SnapHeader;
 
 class Util
@@ -172,5 +174,41 @@ class Util
         $signature = '';
         openssl_sign($dataToSign, $signature, $privateKey, OPENSSL_ALGO_SHA256);
         return base64_encode($signature);
+    }
+    
+    /**
+     * Combines the webRedirectUrl from WidgetPaymentResponse with the OTT token from ApplyOTTResponse
+     * 
+     * @param WidgetPaymentResponse|null $widgetPaymentResponse The widget payment response
+     * @param ApplyOTTResponse|null $applyOTTResponse The apply OTT response
+     * @return string The generated payment URL or empty string if inputs are invalid
+     */
+    public static function generateCompletePaymentUrl(?WidgetPaymentResponse $widgetPaymentResponse = null, ?ApplyOTTResponse $applyOTTResponse = null): string
+    {
+        // Check if both parameters are provided
+        if ($widgetPaymentResponse === null || $applyOTTResponse === null) {
+            return '';
+        }
+        
+        // Check if webRedirectUrl exists
+        $webRedirectUrl = $widgetPaymentResponse->getWebRedirectUrl();
+        if (empty($webRedirectUrl)) {
+            return '';
+        }
+        
+        // Check if userResources exists and has elements
+        $userResources = $applyOTTResponse->getUserResources();
+        if (empty($userResources) || !isset($userResources[0])) {
+            return $webRedirectUrl;
+        }
+        
+        // Check if the first userResource has a value property
+        $ottValue = $userResources[0]->getValue();
+        if (empty($ottValue)) {
+            return $webRedirectUrl;
+        }
+        
+        // Combine the URL with the OTT token
+        return $webRedirectUrl . '&ott=' . $ottValue;
     }
 }

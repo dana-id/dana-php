@@ -29,8 +29,8 @@ use Exception;
 class WebAutomation
 {
     // Default test credentials
-    const DEFAULT_PHONE_NUMBER = '811742234';
-    const DEFAULT_PIN = '123321';
+    const DEFAULT_PHONE_NUMBER = '87875849373';
+    const DEFAULT_PIN = '131000';
     
     // Default Selenium settings
     const DEFAULT_SELENIUM_URL = 'http://localhost:4444/wd/hub';
@@ -71,7 +71,7 @@ class WebAutomation
      * Uses WebDriver to automate the OAuth flow for DANA widget authentication
      * 
      * @param string $oauthUrl The OAuth URL to navigate to
-     * @param string $phoneNumber Optional phone number for authentication (default: value from URL or 811742234)
+     * @param string $phoneNumber Optional phone number for authentication (default: value from URL or 87875849373)
      * @param string $pinCode Optional PIN code for authentication (default: 123321)
      * @param string $outputFile Optional file path to save the auth code
      * @return string|null The auth code extracted from the redirect URL or null if not found
@@ -464,7 +464,7 @@ class WebAutomation
             // Wait for potential redirects
             echo "Waiting for redirects to capture auth code..." . PHP_EOL;
             $startTime = time();
-            $timeout = 5; // seconds
+            $timeout = 7; // seconds
             
             // Keep checking current URL for auth_code parameter
             while (time() - $startTime < $timeout) {
@@ -544,7 +544,7 @@ class WebAutomation
             // Setup Chrome options
             $chromeOptions = new ChromeOptions();
             $chromeOptions->addArguments([
-                '--headless',
+                // '--headless',
                 '--disable-gpu',
                 '--window-size=390,844', // Mobile viewport
                 '--no-sandbox',
