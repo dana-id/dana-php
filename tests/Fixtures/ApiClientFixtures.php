@@ -97,9 +97,9 @@ class ApiClientFixtures
     {
         // Get configuration from environment or use defaults
         $origin = getenv('ORIGIN') ?: 'test-origin';
-        $partnerId = getenv('X_PARTNER_ID') ?: 'test-partner-id';
-        $privateKey = getenv('PRIVATE_KEY') ?: 'test-private-key';
-        $privateKeyPath = getenv('PRIVATE_KEY_PATH') ?: null;
+        $partnerId = getenv('DISBURSEMENT_X_PARTNER_ID') ?: 'test-partner-id';
+        $privateKey = getenv('DISBURSEMENT_PRIVATE_KEY') ?: 'test-private-key';
+        $privateKeyPath = getenv('DISBURSEMENT_PRIVATE_KEY_PATH') ?: null;
         $env = Env::SANDBOX;
 
         // Create configuration

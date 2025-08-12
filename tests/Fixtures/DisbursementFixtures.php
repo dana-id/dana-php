@@ -39,7 +39,7 @@ class DisbursementFixtures
      */
     public static function generatePartnerReferenceNo(string $prefix = 'PHP-TEST-'): string
     {
-        return $prefix . str_replace('-', '', uniqid('', true));
+        return $prefix . date('YmdHisu');
     }
 
     /**
@@ -49,7 +49,7 @@ class DisbursementFixtures
      */
     public static function getCurrentTransactionDate(): string
     {
-        return date('Y-m-d\TH:i:sP');
+        return date('Y-m-d\TH:i:s') . '+07:00';
     }
 
     /**
@@ -80,7 +80,7 @@ class DisbursementFixtures
 
         return new DanaAccountInquiryRequest([
             'partnerReferenceNo' => self::generatePartnerReferenceNo('ACCINQ-'),
-            'customerNumber' => '62811742234',
+            'customerNumber' => '6287875849373',
             'amount' => self::createMoney('1.00'),
             'transactionDate' => self::getCurrentTransactionDate(),
             'additionalInfo' => $additionalInfo
@@ -102,9 +102,9 @@ class DisbursementFixtures
 
         return new BankAccountInquiryRequest([
             'partnerReferenceNo' => self::generatePartnerReferenceNo('BANKINQ-'),
-            'customerNumber' => '62811742234',
+            'customerNumber' => '6287875849373',
             'beneficiaryAccountNumber' => '2460888509',
-            'amount' => self::createMoney('50000.00'),
+            'amount' => self::createMoney('1.00'),
             'additionalInfo' => $additionalInfo
         ]);
     }
@@ -123,10 +123,10 @@ class DisbursementFixtures
 
         return new TransferToBankRequest([
             'partnerReferenceNo' => self::generatePartnerReferenceNo('TRANSFER-'),
-            'customerNumber' => '62811742234',
+            'customerNumber' => '6287875849373',
             'beneficiaryAccountNumber' => '2460888509',
             'beneficiaryBankCode' => '014',
-            'amount' => self::createMoney('50000.00'),
+            'amount' => self::createMoney('1.00'),
             'additionalInfo' => $additionalInfo
         ]);
     }
@@ -193,8 +193,8 @@ class DisbursementFixtures
         ]);
 
         return new DanaAccountInquiryRequest([
-            'partnerReferenceNo' => self::generatePartnerReferenceNo('ACCINQ-' . time() . '-'),
-            'customerNumber' => '62811742234',
+            'partnerReferenceNo' => self::generatePartnerReferenceNo('ACCINQ-'),
+            'customerNumber' => '6287875849373',
             'amount' => self::createMoney('1.00'),
             'transactionDate' => self::getCurrentTransactionDate(),
             'additionalInfo' => $additionalInfo
@@ -214,7 +214,7 @@ class DisbursementFixtures
         ]);
 
         return new TransferToDanaRequest([
-            'partnerReferenceNo' => self::generatePartnerReferenceNo('TOPUP-' . time() . '-'),
+            'partnerReferenceNo' => self::generatePartnerReferenceNo('TOPUP-'),
             'customerNumber' => '62811742234',
             'amount' => self::createMoney('1.00'),
             'feeAmount' => self::createMoney('1.00'),
@@ -237,11 +237,11 @@ class DisbursementFixtures
         ]);
 
         return new BankAccountInquiryRequest([
-            'partnerReferenceNo' => self::generatePartnerReferenceNo('BANKINQ-' . time() . '-'),
-            'customer_number' => '62811742234',
-            'beneficiary_account_number' => '2460888509',
-            'amount' => self::createMoney('1.00'),
-            'additional_info' => $additionalInfo
+            'partnerReferenceNo' => self::generatePartnerReferenceNo('BANKINQNAME-'),
+            'customerNumber' => '62811742234',
+            'beneficiaryAccountNumber' => '2460888509',
+            'amount' => self::createMoney('50000.00'),
+            'additionalInfo' => $additionalInfo
         ]);
     }
 
@@ -257,11 +257,11 @@ class DisbursementFixtures
         ]);
 
         return new TransferToBankRequest([
-            'partnerReferenceNo' => self::generatePartnerReferenceNo('TRANSFER-' . time() . '-'),
-            'customerNumber' => '62811742234',
+            'partnerReferenceNo' => self::generatePartnerReferenceNo('TRANSFER-'),
+            'customerNumber' => '6287875849373',
             'beneficiaryAccountNumber' => '2460888509',
             'beneficiaryBankCode' => '014',
-            'amount' => self::createMoney('1.00'),
+            'amount' => self::createMoney('50000.00'),
             'additionalInfo' => $additionalInfo
         ]);
     }

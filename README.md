@@ -18,7 +18,7 @@ To install the bindings via [Composer](https://getcomposer.org/), add the follow
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/danaid/dana-php.git"
+      "url": "https://github.com/dana-id/dana-php.git"
     }
   ],
   "require": {
