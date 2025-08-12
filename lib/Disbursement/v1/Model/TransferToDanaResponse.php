@@ -64,6 +64,7 @@ class TransferToDanaResponse implements ModelInterface, ArrayAccess, \JsonSerial
         'partnerReferenceNo' => 'string',
         'sessionId' => 'string',
         'customerNumber' => 'string',
+        'customerName' => 'string',
         'amount' => '\Dana\Disbursement\v1\Model\Money',
         'additionalInfo' => 'object'
     ];
@@ -82,6 +83,7 @@ class TransferToDanaResponse implements ModelInterface, ArrayAccess, \JsonSerial
         'partnerReferenceNo' => null,
         'sessionId' => null,
         'customerNumber' => null,
+        'customerName' => null,
         'amount' => null,
         'additionalInfo' => null
     ];
@@ -98,6 +100,7 @@ class TransferToDanaResponse implements ModelInterface, ArrayAccess, \JsonSerial
         'partnerReferenceNo' => false,
         'sessionId' => false,
         'customerNumber' => false,
+        'customerName' => false,
         'amount' => false,
         'additionalInfo' => false
     ];
@@ -194,6 +197,7 @@ class TransferToDanaResponse implements ModelInterface, ArrayAccess, \JsonSerial
         'partnerReferenceNo' => 'partnerReferenceNo',
         'sessionId' => 'sessionId',
         'customerNumber' => 'customerNumber',
+        'customerName' => 'customerName',
         'amount' => 'amount',
         'additionalInfo' => 'additionalInfo'
     ];
@@ -210,6 +214,7 @@ class TransferToDanaResponse implements ModelInterface, ArrayAccess, \JsonSerial
         'partnerReferenceNo' => 'setPartnerReferenceNo',
         'sessionId' => 'setSessionId',
         'customerNumber' => 'setCustomerNumber',
+        'customerName' => 'setCustomerName',
         'amount' => 'setAmount',
         'additionalInfo' => 'setAdditionalInfo'
     ];
@@ -226,6 +231,7 @@ class TransferToDanaResponse implements ModelInterface, ArrayAccess, \JsonSerial
         'partnerReferenceNo' => 'getPartnerReferenceNo',
         'sessionId' => 'getSessionId',
         'customerNumber' => 'getCustomerNumber',
+        'customerName' => 'getCustomerName',
         'amount' => 'getAmount',
         'additionalInfo' => 'getAdditionalInfo'
     ];
@@ -293,6 +299,7 @@ class TransferToDanaResponse implements ModelInterface, ArrayAccess, \JsonSerial
         $this->setIfExists('partnerReferenceNo', $data ?? [], null);
         $this->setIfExists('sessionId', $data ?? [], null);
         $this->setIfExists('customerNumber', $data ?? [], null);
+        $this->setIfExists('customerName', $data ?? [], null);
         $this->setIfExists('amount', $data ?? [], null);
         $this->setIfExists('additionalInfo', $data ?? [], null);
     }
@@ -355,6 +362,10 @@ class TransferToDanaResponse implements ModelInterface, ArrayAccess, \JsonSerial
 
         if (!is_null($this->container['customerNumber']) && (mb_strlen($this->container['customerNumber']) > 32)) {
             $invalidProperties[] = "invalid value for 'customerNumber', the character length must be smaller than or equal to 32.";
+        }
+
+        if (!is_null($this->container['customerName']) && (mb_strlen($this->container['customerName']) > 255)) {
+            $invalidProperties[] = "invalid value for 'customerName', the character length must be smaller than or equal to 255.";
         }
 
         if ($this->container['amount'] === null) {
@@ -557,6 +568,37 @@ class TransferToDanaResponse implements ModelInterface, ArrayAccess, \JsonSerial
         }
 
         $this->container['customerNumber'] = $customerNumber;
+
+        return $this;
+    }
+
+    /**
+     * Gets customerName
+     *
+     * @return string|null
+     */
+    public function getCustomerName()
+    {
+        return $this->container['customerName'];
+    }
+
+    /**
+     * Sets customerName
+     *
+     * @param string|null $customerName Customer account name
+     *
+     * @return self
+     */
+    public function setCustomerName($customerName)
+    {
+        if (is_null($customerName)) {
+            throw new \InvalidArgumentException('non-nullable customerName cannot be null');
+        }
+        if ((mb_strlen($customerName) > 255)) {
+            throw new \InvalidArgumentException('invalid length for $customerName when calling TransferToDanaResponse., must be smaller than or equal to 255.');
+        }
+
+        $this->container['customerName'] = $customerName;
 
         return $this;
     }
