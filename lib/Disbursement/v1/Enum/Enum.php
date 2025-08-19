@@ -18,6 +18,49 @@
 
 namespace Dana\Disbursement\v1\Enum;
 
+class LatestTransactionStatus
+{
+    /**
+     * 00
+     */
+    const 00 = "00";
+
+    /**
+     * 01
+     */
+    const 01 = "01";
+
+    /**
+     * 02
+     */
+    const 02 = "02";
+
+    /**
+     * 03
+     */
+    const 03 = "03";
+
+    /**
+     * 04
+     */
+    const 04 = "04";
+
+    /**
+     * 05
+     */
+    const 05 = "05";
+
+    /**
+     * 06
+     */
+    const 06 = "06";
+
+    /**
+     * 07
+     */
+    const 07 = "07";
+}
+
 class ActorType
 {
     /**

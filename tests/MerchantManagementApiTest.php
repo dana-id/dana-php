@@ -29,10 +29,10 @@ use Dana\MerchantManagement\v1\Model\ResultInfo;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Test cases for Merchant Management API
+ * Test cases for Merchant Management Api
  *
  */
-class MerchantManagementAPITest extends TestCase
+class MerchantManagementApiTest extends TestCase
 {
     /** @var MerchantManagementApi */
     private $apiInstance;
@@ -131,7 +131,7 @@ class MerchantManagementAPITest extends TestCase
             }
             $this->assertTrue(in_array($resultInfo->getResultMsg(), ['SUCCESS', 'ROLE_HAS_EXIST'], 'Result message should be "SUCCESS" or "ROLE_HAS_EXIST"'));
             
-        } catch (ApiException $e) {
+        } catch (\Exception $e) {
             $this->fail("API Exception when calling MerchantManagementApi->createShop: " . $e->getMessage());
         }
     }
@@ -214,7 +214,7 @@ class MerchantManagementAPITest extends TestCase
                 }
             }
             $this->assertTrue($resultInfo->getResultMsg() === 'SUCCESS', 'Result message should be "SUCCESS"');
-        } catch (ApiException $e) {
+        } catch (\Exception $e) {
             $this->fail("API Exception when calling MerchantManagementApi->queryMerchantResource: " . $e->getMessage());
         }
     }
@@ -296,7 +296,7 @@ class MerchantManagementAPITest extends TestCase
                 }
             }
             $this->assertTrue($resultInfo->getResultMsg() === 'SUCCESS', 'Result message should be "SUCCESS"');
-        } catch (ApiException $e) {
+        } catch (\Exception $e) {
             $this->fail("API Exception when calling MerchantManagementApi->queryShop: " . $e->getMessage());
         }
     }

@@ -196,7 +196,18 @@ class WidgetApiWithAutomationTest extends TestCase
             
             echo 'Binding flow completed successfully!' . PHP_EOL;
         } catch (\Exception $e) {
-            $this->fail('API call failed: ' . $e->getMessage());
+            $this->fail('API call for apply OTT failed: ' . $e->getMessage());
+        }
+
+        // Doing balance inquiry
+        try {
+            $balanceInquiryRequest = WidgetFixtures::getBalanceInquiryRequest($this->bindingAccessToken, $this->ott);
+            $balanceInquiryResponse = $this->apiInstance->balanceInquiry($balanceInquiryRequest);
+            $this->assertNotNull($balanceInquiryResponse);
+            
+            $this->assertEquals('2001100', $balanceInquiryResponse->getResponseCode());
+        } catch (\Exception $e) {
+            $this->fail('API call for balance inquiry failed: ' . $e->getMessage());
         }
 
         try {

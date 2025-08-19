@@ -19,6 +19,8 @@ use Dana\Widget\v1\Model\CancelOrderRequest;
 use Dana\Widget\v1\Model\RefundOrderRequest;
 use Dana\Widget\v1\Model\AccountUnbindingRequest;
 use Dana\Widget\v1\Model\AccountUnbindingRequestAdditionalInfo;
+use Dana\Widget\v1\Model\BalanceInquiryRequest;
+use Dana\Widget\v1\Model\BalanceInquiryRequestAdditionalInfo;
 use Dana\Widget\v1\Model\Money;
 use Dana\Widget\v1\Model\Order;
 use Dana\Widget\v1\Model\EnvInfo;
@@ -202,6 +204,33 @@ class WidgetFixtures
         return new AccountUnbindingRequest([
             'merchantId' => self::getMerchantId(),
             'additionalInfo' => $additionalInfo
+        ]);
+    }
+
+    /**
+     * Get a BalanceInquiryRequest fixture
+     * 
+     * @return BalanceInquiryRequest
+     */
+    public static function getBalanceInquiryRequest(?string $accessToken = null, ?string $ott = null): BalanceInquiryRequest
+    {
+        // Generate a UUID v4-like string without dependencies
+        $partnerReferenceNo = sprintf(
+            '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
+            mt_rand(0, 0xffff), mt_rand(0, 0xffff),
+            mt_rand(0, 0xffff),
+            mt_rand(0, 0x0fff) | 0x4000,
+            mt_rand(0, 0x3fff) | 0x8000,
+            mt_rand(0, 0xffff), mt_rand(0, 0xffff), mt_rand(0, 0xffff)
+        );
+        
+        return new BalanceInquiryRequest([
+            'partnerReferenceNo' => $partnerReferenceNo,
+            'balanceTypes' => ['BALANCE'],
+            'additionalInfo' => new BalanceInquiryRequestAdditionalInfo([
+                'accessToken' => $accessToken,
+                'deviceId' => 'DUMMY_DEVICE_ID'
+            ])
         ]);
     }
 }

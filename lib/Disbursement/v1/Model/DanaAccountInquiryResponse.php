@@ -65,7 +65,7 @@ class DanaAccountInquiryResponse implements ModelInterface, ArrayAccess, \JsonSe
         'sessionId' => 'string',
         'customerNumber' => 'string',
         'customerName' => 'string',
-        'customerMonthlyLimit' => 'float',
+        'customerMonthlyInLimit' => 'string',
         'minAmount' => '\Dana\Disbursement\v1\Model\Money',
         'maxAmount' => '\Dana\Disbursement\v1\Model\Money',
         'amount' => '\Dana\Disbursement\v1\Model\Money',
@@ -89,7 +89,7 @@ class DanaAccountInquiryResponse implements ModelInterface, ArrayAccess, \JsonSe
         'sessionId' => null,
         'customerNumber' => null,
         'customerName' => null,
-        'customerMonthlyLimit' => null,
+        'customerMonthlyInLimit' => null,
         'minAmount' => null,
         'maxAmount' => null,
         'amount' => null,
@@ -111,7 +111,7 @@ class DanaAccountInquiryResponse implements ModelInterface, ArrayAccess, \JsonSe
         'sessionId' => false,
         'customerNumber' => false,
         'customerName' => false,
-        'customerMonthlyLimit' => false,
+        'customerMonthlyInLimit' => false,
         'minAmount' => false,
         'maxAmount' => false,
         'amount' => false,
@@ -213,7 +213,7 @@ class DanaAccountInquiryResponse implements ModelInterface, ArrayAccess, \JsonSe
         'sessionId' => 'sessionId',
         'customerNumber' => 'customerNumber',
         'customerName' => 'customerName',
-        'customerMonthlyLimit' => 'customerMonthlyLimit',
+        'customerMonthlyInLimit' => 'customerMonthlyInLimit',
         'minAmount' => 'minAmount',
         'maxAmount' => 'maxAmount',
         'amount' => 'amount',
@@ -235,7 +235,7 @@ class DanaAccountInquiryResponse implements ModelInterface, ArrayAccess, \JsonSe
         'sessionId' => 'setSessionId',
         'customerNumber' => 'setCustomerNumber',
         'customerName' => 'setCustomerName',
-        'customerMonthlyLimit' => 'setCustomerMonthlyLimit',
+        'customerMonthlyInLimit' => 'setCustomerMonthlyInLimit',
         'minAmount' => 'setMinAmount',
         'maxAmount' => 'setMaxAmount',
         'amount' => 'setAmount',
@@ -257,7 +257,7 @@ class DanaAccountInquiryResponse implements ModelInterface, ArrayAccess, \JsonSe
         'sessionId' => 'getSessionId',
         'customerNumber' => 'getCustomerNumber',
         'customerName' => 'getCustomerName',
-        'customerMonthlyLimit' => 'getCustomerMonthlyLimit',
+        'customerMonthlyInLimit' => 'getCustomerMonthlyInLimit',
         'minAmount' => 'getMinAmount',
         'maxAmount' => 'getMaxAmount',
         'amount' => 'getAmount',
@@ -330,7 +330,7 @@ class DanaAccountInquiryResponse implements ModelInterface, ArrayAccess, \JsonSe
         $this->setIfExists('sessionId', $data ?? [], null);
         $this->setIfExists('customerNumber', $data ?? [], null);
         $this->setIfExists('customerName', $data ?? [], null);
-        $this->setIfExists('customerMonthlyLimit', $data ?? [], null);
+        $this->setIfExists('customerMonthlyInLimit', $data ?? [], null);
         $this->setIfExists('minAmount', $data ?? [], null);
         $this->setIfExists('maxAmount', $data ?? [], null);
         $this->setIfExists('amount', $data ?? [], null);
@@ -403,8 +403,8 @@ class DanaAccountInquiryResponse implements ModelInterface, ArrayAccess, \JsonSe
             $invalidProperties[] = "invalid value for 'customerName', the character length must be smaller than or equal to 255.";
         }
 
-        if (!is_null($this->container['customerMonthlyLimit']) && ($this->container['customerMonthlyLimit'] > 100000000000000000)) {
-            $invalidProperties[] = "invalid value for 'customerMonthlyLimit', must be smaller than or equal to 100000000000000000.";
+        if (!is_null($this->container['customerMonthlyInLimit']) && (mb_strlen($this->container['customerMonthlyInLimit']) > 17)) {
+            $invalidProperties[] = "invalid value for 'customerMonthlyInLimit', the character length must be smaller than or equal to 17.";
         }
 
         if ($this->container['minAmount'] === null) {
@@ -656,33 +656,32 @@ class DanaAccountInquiryResponse implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-     * Gets customerMonthlyLimit
+     * Gets customerMonthlyInLimit
      *
-     * @return float|null
+     * @return string|null
      */
-    public function getCustomerMonthlyLimit()
+    public function getCustomerMonthlyInLimit()
     {
-        return $this->container['customerMonthlyLimit'];
+        return $this->container['customerMonthlyInLimit'];
     }
 
     /**
-     * Sets customerMonthlyLimit
+     * Sets customerMonthlyInLimit
      *
-     * @param float|null $customerMonthlyLimit Limitation of transfer to DANA balance for customer per month
+     * @param string|null $customerMonthlyInLimit Limitation of transfer to DANA balance for customer per month
      *
      * @return self
      */
-    public function setCustomerMonthlyLimit($customerMonthlyLimit)
+    public function setCustomerMonthlyInLimit($customerMonthlyInLimit)
     {
-        if (is_null($customerMonthlyLimit)) {
-            throw new \InvalidArgumentException('non-nullable customerMonthlyLimit cannot be null');
+        if (is_null($customerMonthlyInLimit)) {
+            throw new \InvalidArgumentException('non-nullable customerMonthlyInLimit cannot be null');
+        }
+        if ((mb_strlen($customerMonthlyInLimit) > 17)) {
+            throw new \InvalidArgumentException('invalid length for $customerMonthlyInLimit when calling DanaAccountInquiryResponse., must be smaller than or equal to 17.');
         }
 
-        if (($customerMonthlyLimit > 100000000000000000)) {
-            throw new \InvalidArgumentException('invalid value for $customerMonthlyLimit when calling DanaAccountInquiryResponse., must be smaller than or equal to 100000000000000000.');
-        }
-
-        $this->container['customerMonthlyLimit'] = $customerMonthlyLimit;
+        $this->container['customerMonthlyInLimit'] = $customerMonthlyInLimit;
 
         return $this;
     }

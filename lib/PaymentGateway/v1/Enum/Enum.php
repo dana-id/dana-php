@@ -18,6 +18,39 @@
 
 namespace Dana\PaymentGateway\v1\Enum;
 
+class AcquirementStatus
+{
+    /**
+     * INIT
+     */
+    const INIT = "INIT";
+
+    /**
+     * SUCCESS
+     */
+    const SUCCESS = "SUCCESS";
+
+    /**
+     * CLOSED
+     */
+    const CLOSED = "CLOSED";
+
+    /**
+     * PAYING
+     */
+    const PAYING = "PAYING";
+
+    /**
+     * MERCHANT_ACCEPT
+     */
+    const MERCHANT_ACCEPT = "MERCHANT_ACCEPT";
+
+    /**
+     * CANCELLED
+     */
+    const CANCELLED = "CANCELLED";
+}
+
 class ActorType
 {
     /**
@@ -39,29 +72,6 @@ class ActorType
      * BACK_OFFICE
      */
     const BACK_OFFICE = "BACK_OFFICE";
-
-    /**
-     * SYSTEM
-     */
-    const SYSTEM = "SYSTEM";
-}
-
-class OrderTerminalType
-{
-    /**
-     * APP
-     */
-    const APP = "APP";
-
-    /**
-     * WEB
-     */
-    const WEB = "WEB";
-
-    /**
-     * WAP
-     */
-    const WAP = "WAP";
 
     /**
      * SYSTEM
@@ -193,6 +203,29 @@ class PayOption
      * VIRTUAL_ACCOUNT_PERMATA
      */
     const VIRTUAL_ACCOUNT_PERMATA = "VIRTUAL_ACCOUNT_PERMATA";
+}
+
+class OrderTerminalType
+{
+    /**
+     * APP
+     */
+    const APP = "APP";
+
+    /**
+     * WEB
+     */
+    const WEB = "WEB";
+
+    /**
+     * WAP
+     */
+    const WAP = "WAP";
+
+    /**
+     * SYSTEM
+     */
+    const SYSTEM = "SYSTEM";
 }
 
 class SourcePlatform

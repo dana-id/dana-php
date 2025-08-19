@@ -44,6 +44,7 @@ $configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
 $configuration->setApiKey('DANA_ENV', Env::SANDBOX);
 // Choose one of ENV or DANA_ENV to set, if you set both, ENV will be ignored
 // $configuration->setApiKey('ENV', Env::SANDBOX);
+$configuration->setApiKey('CLIENT_SECRET', getenv('CLIENT_SECRET'));
 
 
 
@@ -104,6 +105,7 @@ $configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
 $configuration->setApiKey('DANA_ENV', Env::SANDBOX);
 // Choose one of ENV or DANA_ENV to set, if you set both, ENV will be ignored
 // $configuration->setApiKey('ENV', Env::SANDBOX);
+$configuration->setApiKey('CLIENT_SECRET', getenv('CLIENT_SECRET'));
 
 
 
@@ -164,6 +166,7 @@ $configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
 $configuration->setApiKey('DANA_ENV', Env::SANDBOX);
 // Choose one of ENV or DANA_ENV to set, if you set both, ENV will be ignored
 // $configuration->setApiKey('ENV', Env::SANDBOX);
+$configuration->setApiKey('CLIENT_SECRET', getenv('CLIENT_SECRET'));
 
 
 
@@ -224,6 +227,7 @@ $configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
 $configuration->setApiKey('DANA_ENV', Env::SANDBOX);
 // Choose one of ENV or DANA_ENV to set, if you set both, ENV will be ignored
 // $configuration->setApiKey('ENV', Env::SANDBOX);
+$configuration->setApiKey('CLIENT_SECRET', getenv('CLIENT_SECRET'));
 
 
 
@@ -284,6 +288,7 @@ $configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
 $configuration->setApiKey('DANA_ENV', Env::SANDBOX);
 // Choose one of ENV or DANA_ENV to set, if you set both, ENV will be ignored
 // $configuration->setApiKey('ENV', Env::SANDBOX);
+$configuration->setApiKey('CLIENT_SECRET', getenv('CLIENT_SECRET'));
 
 
 
@@ -344,6 +349,7 @@ $configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
 $configuration->setApiKey('DANA_ENV', Env::SANDBOX);
 // Choose one of ENV or DANA_ENV to set, if you set both, ENV will be ignored
 // $configuration->setApiKey('ENV', Env::SANDBOX);
+$configuration->setApiKey('CLIENT_SECRET', getenv('CLIENT_SECRET'));
 
 
 
@@ -404,6 +410,7 @@ $configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
 $configuration->setApiKey('DANA_ENV', Env::SANDBOX);
 // Choose one of ENV or DANA_ENV to set, if you set both, ENV will be ignored
 // $configuration->setApiKey('ENV', Env::SANDBOX);
+$configuration->setApiKey('CLIENT_SECRET', getenv('CLIENT_SECRET'));
 
 
 
@@ -448,6 +455,142 @@ $model->setTerminalType(TerminalType::APP);
 // Using enum values directly as strings
 $model->setTerminalType('APP');
 ```
+
+### BusinessEntity
+
+| Constant | Value |
+|----------|-------|
+| `PT` | `pt` |
+| `CV` | `cv` |
+| `INDIVIDU` | `individu` |
+| `USAHA_DAGANG` | `usaha_dagang` |
+| `YAYASAN` | `yayasan` |
+| `KOPERASI` | `koperasi` |
+
+### DivisionIdType
+
+| Constant | Value |
+|----------|-------|
+| `INNER_ID` | `INNER_ID` |
+| `EXTERNAL_ID` | `EXTERNAL_ID` |
+
+### DivisionType
+
+| Constant | Value |
+|----------|-------|
+| `REGION` | `REGION` |
+| `AREA` | `AREA` |
+| `BRANCH` | `BRANCH` |
+| `OUTLET` | `OUTLET` |
+| `STORE` | `STORE` |
+| `KIOSK` | `KIOSK` |
+| `STALL` | `STALL` |
+| `COUNTER` | `COUNTER` |
+| `BOOTH` | `BOOTH` |
+| `POINT_OF_SALE` | `POINT_OF_SALE` |
+| `VENDING_MACHINE` | `VENDING_MACHINE` |
+
+### DocType
+
+| Constant | Value |
+|----------|-------|
+| `KTP` | `KTP` |
+| `SIM` | `SIM` |
+| `SIUP` | `SIUP` |
+| `NIB` | `NIB` |
+
+### Loyalty
+
+| Constant | Value |
+|----------|-------|
+| `TRUE` | `true` |
+| `FALSE` | `false` |
+
+### OwnerIdType
+
+| Constant | Value |
+|----------|-------|
+| `KTP` | `KTP` |
+| `SIM` | `SIM` |
+| `PASSPORT` | `PASSPORT` |
+| `SIUP` | `SIUP` |
+| `NIB` | `NIB` |
+
+### ParentRoleType
+
+| Constant | Value |
+|----------|-------|
+| `MERCHANT` | `MERCHANT` |
+| `DIVISION` | `DIVISION` |
+| `EXTERNAL_DIVISION` | `EXTERNAL_DIVISION` |
+
+### PgDivisionFlag
+
+| Constant | Value |
+|----------|-------|
+| `TRUE` | `true` |
+| `FALSE` | `false` |
+
+### ResourceType
+
+| Constant | Value |
+|----------|-------|
+| `MERCHANT_DEPOSIT_BALANCE` | `MERCHANT_DEPOSIT_BALANCE` |
+| `MERCHANT_AVAILABLE_BALANCE` | `MERCHANT_AVAILABLE_BALANCE` |
+| `MERCHANT_TOTAL_BALANCE` | `MERCHANT_TOTAL_BALANCE` |
+
+### ResultStatus
+
+| Constant | Value |
+|----------|-------|
+| `S` | `S` |
+| `F` | `F` |
+| `U` | `U` |
+
+### ShopBizType
+
+| Constant | Value |
+|----------|-------|
+| `ONLINE` | `ONLINE` |
+| `OFFLINE` | `OFFLINE` |
+
+### ShopIdType
+
+| Constant | Value |
+|----------|-------|
+| `INNER_ID` | `INNER_ID` |
+| `EXTERNAL_ID` | `EXTERNAL_ID` |
+
+### ShopOwning
+
+| Constant | Value |
+|----------|-------|
+| `DIRECT_OWNED` | `DIRECT_OWNED` |
+| `FRANCHISED` | `FRANCHISED` |
+
+### ShopParentType
+
+| Constant | Value |
+|----------|-------|
+| `MERCHANT` | `MERCHANT` |
+| `DIVISION` | `DIVISION` |
+| `EXTERNAL_DIVISION` | `EXTERNAL_DIVISION` |
+
+### SizeType
+
+| Constant | Value |
+|----------|-------|
+| `UMI` | `UMI` |
+| `UKE` | `UKE` |
+| `UME` | `UME` |
+| `UBE` | `UBE` |
+
+### Verified
+
+| Constant | Value |
+|----------|-------|
+| `TRUE` | `true` |
+| `FALSE` | `false` |
 
 ### ActorType
 

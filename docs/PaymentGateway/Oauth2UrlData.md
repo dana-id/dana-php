@@ -13,5 +13,6 @@ Name | Type | Description | Notes
 **state** | **string** | Random string for CSRF protection purposes | [optional]
 **lang** | **string** | Service language code. ISO 639-1 | [optional] [default to 'id']
 **allowRegistration** | **string** | If value equals true, provider may enable registration process during binding. Default true | [optional] [default to 'true']
+**mode** | **string** | Mode of the authorization. The possible values are API or DEEPLINK | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

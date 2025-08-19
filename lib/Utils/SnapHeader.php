@@ -30,6 +30,7 @@ class SnapHeader
     const SCENARIO_APPLY_TOKEN = 'apply_token';
     const SCENARIO_APPLY_OTT = 'apply_ott';
     const SCENARIO_UNBINDING_ACCOUNT = 'unbinding_account';
+    const SCENARIO_BALANCE_INQUIRY = 'balance_inquiry';
     
     /**
      * Generate a UUID v4
@@ -290,6 +291,7 @@ class SnapHeader
                 
             case self::SCENARIO_APPLY_OTT:
             case self::SCENARIO_UNBINDING_ACCOUNT:
+            case self::SCENARIO_BALANCE_INQUIRY:
                 // For ApplyOTT and UnbindingAccount, generate an external ID
                 $baseHeaders['X-EXTERNAL-ID'] = self::generateUuidV4();
                 

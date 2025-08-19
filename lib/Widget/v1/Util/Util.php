@@ -5,6 +5,8 @@ namespace Dana\Widget\v1\Util;
 use Dana\Widget\v1\Model\Oauth2UrlData;
 use Dana\Widget\v1\Model\WidgetPaymentResponse;
 use Dana\Widget\v1\Model\ApplyOTTResponse;
+use Dana\Widget\v1\Enum\Mode;
+use Dana\Widget\v1\Enum\TerminalType;
 use Dana\Utils\SnapHeader;
 
 class Util
@@ -22,12 +24,27 @@ class Util
         // Use environment variable or default to sandbox
         $env = getenv('DANA_ENV') ?: getenv('ENV') ?: 'sandbox';
         
-        // Determine base URL based on environment
-        if ($env === 'sandbox') {
-            $baseUrl = 'https://m.sandbox.dana.id/n/ipg/oauth';
-        } else {
-            $baseUrl = 'https://m.dana.id/n/ipg/oauth';
+        $mode = $data->getMode();
+        if (!$mode) {
+            $mode = Mode::API;
         }
+
+        if ($mode === Mode::DEEPLINK) {
+            if ($env === 'sandbox') {
+                $baseUrl = 'https://m.sandbox.dana.id/n/link/binding';
+            } else {
+                $baseUrl = 'https://link.dana.id/bindSnap';
+            }
+        } else if ($mode === Mode::API) {
+            if ($env === 'sandbox') {
+                $baseUrl = 'https://m.sandbox.dana.id/n/ipg/oauth';
+            } else {
+                $baseUrl = 'https://m.dana.id/n/ipg/oauth';
+            }
+        }   
+        
+        
+ 
         
         // Get partner ID from environment
         $partnerId = getenv('X_PARTNER_ID');
@@ -97,34 +114,54 @@ class Util
         }
 
         // Build URL with required parameters
-        $urlParams = [
-            'partnerId' => $partnerId,
-            'scopes' => $scopes,
-            'externalId' => $externalId,
-            'channelId' => $channelId,
-            'redirectUrl' => $data->getRedirectUrl(),
-            'timestamp' => $timestamp,
-            'state' => $state,
-            'isSnapBI' => 'true'
-        ];
+        if ($mode === Mode::DEEPLINK) {
+            $requestId = sprintf('%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
+                mt_rand(0, 0xffff), mt_rand(0, 0xffff),
+                mt_rand(0, 0xffff),
+                mt_rand(0, 0x0fff) | 0x4000,
+                mt_rand(0, 0x3fff) | 0x8000,
+                mt_rand(0, 0xffff), mt_rand(0, 0xffff), mt_rand(0, 0xffff)
+            );
+            
+            $urlParams = [
+                'partnerId' => $partnerId,
+                'scopes' => $scopes,
+                'terminalType' => TerminalType::WEB,
+                'externalId' => $externalId,
+                'requestId' => $requestId,
+                'redirectUrl' => $data->getRedirectUrl(),
+                'state' => $state,
+            ];
+        } else if ($mode === Mode::API) {
+            $urlParams = [
+                'partnerId' => $partnerId,
+                'scopes' => $scopes,
+                'externalId' => $externalId,
+                'channelId' => $channelId,
+                'redirectUrl' => $data->getRedirectUrl(),
+                'timestamp' => $timestamp,
+                'state' => $state,
+                'isSnapBI' => 'true'
+            ];
+        }
 
         // Add merchant ID if provided
-        if ($merchantId) {
+        if ($merchantId && $mode === Mode::API) {
             $urlParams['merchantId'] = $merchantId;
         }
 
         // Add subMerchantId if provided
-        if (method_exists($data, 'getSubMerchantId') && $data->getSubMerchantId()) {
+        if (method_exists($data, 'getSubMerchantId') && $data->getSubMerchantId() && $mode === Mode::API) {
             $urlParams['subMerchantId'] = $data->getSubMerchantId();
         }
 
         // Add lang if provided
-        if (method_exists($data, 'getLang') && $data->getLang()) {
+        if (method_exists($data, 'getLang') && $data->getLang() && $mode === Mode::API) {
             $urlParams['lang'] = $data->getLang();
         }
 
         // Add allowRegistration if provided
-        if (method_exists($data, 'getAllowRegistration') && $data->getAllowRegistration() !== null) {
+        if (method_exists($data, 'getAllowRegistration') && $data->getAllowRegistration() !== null && $mode === Mode::API) {
             $urlParams['allowRegistration'] = $data->getAllowRegistration() ? 'true' : 'false';
         }
 
@@ -142,6 +179,13 @@ class Util
                     $seamlessData['mobile'] = $seamlessData['mobileNumber'];
                     unset($seamlessData['mobileNumber']);
                 }
+                if ($mode === Mode::DEEPLINK) {
+                    $seamlessData['externalUid'] = $data->getExternalId();
+                    $seamlessData['reqTime'] = $timestamp;
+                    $seamlessData['verifiedTime'] = "0";
+                    $seamlessData['reqMsgId'] = $requestId;
+                }
+
                 $seamlessDataJson = json_encode($seamlessData);
                 $urlParams['seamlessData'] = $seamlessDataJson;
                 

@@ -347,10 +347,7 @@ class TransferToBankResponse implements ModelInterface, ArrayAccess, \JsonSerial
             $invalidProperties[] = "invalid value for 'transactionDate', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
         }
 
-        if ($this->container['referenceNumber'] === null) {
-            $invalidProperties[] = "'referenceNumber' can't be null";
-        }
-        if ((mb_strlen($this->container['referenceNumber']) > 64)) {
+        if (!is_null($this->container['referenceNumber']) && (mb_strlen($this->container['referenceNumber']) > 64)) {
             $invalidProperties[] = "invalid value for 'referenceNumber', the character length must be smaller than or equal to 64.";
         }
 
@@ -530,7 +527,7 @@ class TransferToBankResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets referenceNumber
      *
-     * @return string
+     * @return string|null
      */
     public function getReferenceNumber()
     {
@@ -540,7 +537,7 @@ class TransferToBankResponse implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets referenceNumber
      *
-     * @param string $referenceNumber Reference number
+     * @param string|null $referenceNumber Reference number
      *
      * @return self
      */

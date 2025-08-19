@@ -578,6 +578,67 @@ $model->setTerminalType(TerminalType::APP);
 $model->setTerminalType('APP');
 ```
 
+### AcquirementStatus
+
+| Constant | Value |
+|----------|-------|
+| `INIT` | `INIT` |
+| `SUCCESS` | `SUCCESS` |
+| `CLOSED` | `CLOSED` |
+| `PAYING` | `PAYING` |
+| `MERCHANT_ACCEPT` | `MERCHANT_ACCEPT` |
+| `CANCELLED` | `CANCELLED` |
+
+### Mode
+
+| Constant | Value |
+|----------|-------|
+| `API` | `API` |
+| `DEEPLINK` | `DEEPLINK` |
+
+### PromoType
+
+| Constant | Value |
+|----------|-------|
+| `CASH_BACK` | `CASH_BACK` |
+| `DISCOUNT` | `DISCOUNT` |
+| `VOUCHER` | `VOUCHER` |
+| `POINT` | `POINT` |
+
+### ResourceType
+
+| Constant | Value |
+|----------|-------|
+| `BALANCE` | `BALANCE` |
+| `TRANSACTION_URL` | `TRANSACTION_URL` |
+| `MASK_DANA_ID` | `MASK_DANA_ID` |
+| `TOPUP_URL` | `TOPUP_URL` |
+| `OTT` | `OTT` |
+| `USER_KYC` | `USER_KYC` |
+
+### ResultStatus
+
+| Constant | Value |
+|----------|-------|
+| `S` | `S` |
+| `F` | `F` |
+| `U` | `U` |
+
+### ServiceScenario
+
+| Constant | Value |
+|----------|-------|
+| `SCAN_AND_PAY` | `SCAN_AND_PAY` |
+| `EXIT_AND_PAY` | `EXIT_AND_PAY` |
+| `EMAS_PURCHASE` | `EMAS_PURCHASE` |
+
+### ServiceType
+
+| Constant | Value |
+|----------|-------|
+| `PARKING` | `PARKING` |
+| `INVESTMENT` | `INVESTMENT` |
+
 ### ActorType
 
 | Constant | Value |
@@ -794,11 +855,14 @@ This section demonstrates how to generate OAuth URLs for widget authorization us
 <?php
 use Dana\Widget\v1\Model\Oauth2UrlData;
 use Dana\Widget\v1\Util\Util;
+use Dana\Widget\v1\Enum\Mode;
 
 // Set up OAuth2 URL data
 $oauth2UrlData = new Oauth2UrlData();
+$oauth2UrlData->setMode(Mode::DEEPLINK); // the default mode is API if not set
 $oauth2UrlData->setRedirectUrl('https://google.com');
-$oauth2UrlData->setMerchantId($merchantId);
+$oauth2UrlData->setMerchantId('merchant_id'); // from env variable
+$oauth2UrlData->setExternalId('external_id');
 $oauth2UrlData->setSeamlessData([
     'mobileNumber' => '087875849373'
 ]);

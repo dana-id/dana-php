@@ -474,6 +474,9 @@ class WidgetApi
             } else if (strpos($operationId, 'accountUnbinding') !== false) {
                 // SNAP signature scenario: ACCOUNT UNBINDING
                 $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
+            } else if (strpos($operationId, 'balanceInquiry') !== false) {
+                // SNAP signature scenario: BALANCE INQUIRY
+                $scenario = SnapHeader::SCENARIO_BALANCE_INQUIRY;
             } else {
                 // Default B2B signature scenario
                 $scenario = '';
@@ -823,6 +826,9 @@ class WidgetApi
             } else if (strpos($operationId, 'accountUnbinding') !== false) {
                 // SNAP signature scenario: ACCOUNT UNBINDING
                 $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
+            } else if (strpos($operationId, 'balanceInquiry') !== false) {
+                // SNAP signature scenario: BALANCE INQUIRY
+                $scenario = SnapHeader::SCENARIO_BALANCE_INQUIRY;
             } else {
                 // Default B2B signature scenario
                 $scenario = '';
@@ -1172,6 +1178,9 @@ class WidgetApi
             } else if (strpos($operationId, 'accountUnbinding') !== false) {
                 // SNAP signature scenario: ACCOUNT UNBINDING
                 $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
+            } else if (strpos($operationId, 'balanceInquiry') !== false) {
+                // SNAP signature scenario: BALANCE INQUIRY
+                $scenario = SnapHeader::SCENARIO_BALANCE_INQUIRY;
             } else {
                 // Default B2B signature scenario
                 $scenario = '';
@@ -1521,6 +1530,9 @@ class WidgetApi
             } else if (strpos($operationId, 'accountUnbinding') !== false) {
                 // SNAP signature scenario: ACCOUNT UNBINDING
                 $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
+            } else if (strpos($operationId, 'balanceInquiry') !== false) {
+                // SNAP signature scenario: BALANCE INQUIRY
+                $scenario = SnapHeader::SCENARIO_BALANCE_INQUIRY;
             } else {
                 // Default B2B signature scenario
                 $scenario = '';
@@ -1870,6 +1882,9 @@ class WidgetApi
             } else if (strpos($operationId, 'accountUnbinding') !== false) {
                 // SNAP signature scenario: ACCOUNT UNBINDING
                 $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
+            } else if (strpos($operationId, 'balanceInquiry') !== false) {
+                // SNAP signature scenario: BALANCE INQUIRY
+                $scenario = SnapHeader::SCENARIO_BALANCE_INQUIRY;
             } else {
                 // Default B2B signature scenario
                 $scenario = '';
@@ -2219,6 +2234,9 @@ class WidgetApi
             } else if (strpos($operationId, 'accountUnbinding') !== false) {
                 // SNAP signature scenario: ACCOUNT UNBINDING
                 $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
+            } else if (strpos($operationId, 'balanceInquiry') !== false) {
+                // SNAP signature scenario: BALANCE INQUIRY
+                $scenario = SnapHeader::SCENARIO_BALANCE_INQUIRY;
             } else {
                 // Default B2B signature scenario
                 $scenario = '';
@@ -2568,6 +2586,9 @@ class WidgetApi
             } else if (strpos($operationId, 'accountUnbinding') !== false) {
                 // SNAP signature scenario: ACCOUNT UNBINDING
                 $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
+            } else if (strpos($operationId, 'balanceInquiry') !== false) {
+                // SNAP signature scenario: BALANCE INQUIRY
+                $scenario = SnapHeader::SCENARIO_BALANCE_INQUIRY;
             } else {
                 // Default B2B signature scenario
                 $scenario = '';
@@ -2917,6 +2938,9 @@ class WidgetApi
             } else if (strpos($operationId, 'accountUnbinding') !== false) {
                 // SNAP signature scenario: ACCOUNT UNBINDING
                 $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
+            } else if (strpos($operationId, 'balanceInquiry') !== false) {
+                // SNAP signature scenario: BALANCE INQUIRY
+                $scenario = SnapHeader::SCENARIO_BALANCE_INQUIRY;
             } else {
                 // Default B2B signature scenario
                 $scenario = '';
@@ -3266,6 +3290,9 @@ class WidgetApi
             } else if (strpos($operationId, 'accountUnbinding') !== false) {
                 // SNAP signature scenario: ACCOUNT UNBINDING
                 $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
+            } else if (strpos($operationId, 'balanceInquiry') !== false) {
+                // SNAP signature scenario: BALANCE INQUIRY
+                $scenario = SnapHeader::SCENARIO_BALANCE_INQUIRY;
             } else {
                 // Default B2B signature scenario
                 $scenario = '';

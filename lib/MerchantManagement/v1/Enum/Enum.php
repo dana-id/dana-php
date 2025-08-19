@@ -18,6 +18,334 @@
 
 namespace Dana\MerchantManagement\v1\Enum;
 
+class BusinessEntity
+{
+    /**
+     * pt
+     */
+    const PT = "pt";
+
+    /**
+     * cv
+     */
+    const CV = "cv";
+
+    /**
+     * individu
+     */
+    const INDIVIDU = "individu";
+
+    /**
+     * usaha_dagang
+     */
+    const USAHA_DAGANG = "usaha_dagang";
+
+    /**
+     * yayasan
+     */
+    const YAYASAN = "yayasan";
+
+    /**
+     * koperasi
+     */
+    const KOPERASI = "koperasi";
+}
+
+class DivisionIdType
+{
+    /**
+     * INNER_ID
+     */
+    const INNER_ID = "INNER_ID";
+
+    /**
+     * EXTERNAL_ID
+     */
+    const EXTERNAL_ID = "EXTERNAL_ID";
+}
+
+class DivisionType
+{
+    /**
+     * REGION
+     */
+    const REGION = "REGION";
+
+    /**
+     * AREA
+     */
+    const AREA = "AREA";
+
+    /**
+     * BRANCH
+     */
+    const BRANCH = "BRANCH";
+
+    /**
+     * OUTLET
+     */
+    const OUTLET = "OUTLET";
+
+    /**
+     * STORE
+     */
+    const STORE = "STORE";
+
+    /**
+     * KIOSK
+     */
+    const KIOSK = "KIOSK";
+
+    /**
+     * STALL
+     */
+    const STALL = "STALL";
+
+    /**
+     * COUNTER
+     */
+    const COUNTER = "COUNTER";
+
+    /**
+     * BOOTH
+     */
+    const BOOTH = "BOOTH";
+
+    /**
+     * POINT_OF_SALE
+     */
+    const POINT_OF_SALE = "POINT_OF_SALE";
+
+    /**
+     * VENDING_MACHINE
+     */
+    const VENDING_MACHINE = "VENDING_MACHINE";
+}
+
+class DocType
+{
+    /**
+     * KTP
+     */
+    const KTP = "KTP";
+
+    /**
+     * SIM
+     */
+    const SIM = "SIM";
+
+    /**
+     * SIUP
+     */
+    const SIUP = "SIUP";
+
+    /**
+     * NIB
+     */
+    const NIB = "NIB";
+}
+
+class Loyalty
+{
+    /**
+     * true
+     */
+    const TRUE = "true";
+
+    /**
+     * false
+     */
+    const FALSE = "false";
+}
+
+class OwnerIdType
+{
+    /**
+     * KTP
+     */
+    const KTP = "KTP";
+
+    /**
+     * SIM
+     */
+    const SIM = "SIM";
+
+    /**
+     * PASSPORT
+     */
+    const PASSPORT = "PASSPORT";
+
+    /**
+     * SIUP
+     */
+    const SIUP = "SIUP";
+
+    /**
+     * NIB
+     */
+    const NIB = "NIB";
+}
+
+class ParentRoleType
+{
+    /**
+     * MERCHANT
+     */
+    const MERCHANT = "MERCHANT";
+
+    /**
+     * DIVISION
+     */
+    const DIVISION = "DIVISION";
+
+    /**
+     * EXTERNAL_DIVISION
+     */
+    const EXTERNAL_DIVISION = "EXTERNAL_DIVISION";
+}
+
+class PgDivisionFlag
+{
+    /**
+     * true
+     */
+    const TRUE = "true";
+
+    /**
+     * false
+     */
+    const FALSE = "false";
+}
+
+class ResourceType
+{
+    /**
+     * MERCHANT_DEPOSIT_BALANCE
+     */
+    const MERCHANT_DEPOSIT_BALANCE = "MERCHANT_DEPOSIT_BALANCE";
+
+    /**
+     * MERCHANT_AVAILABLE_BALANCE
+     */
+    const MERCHANT_AVAILABLE_BALANCE = "MERCHANT_AVAILABLE_BALANCE";
+
+    /**
+     * MERCHANT_TOTAL_BALANCE
+     */
+    const MERCHANT_TOTAL_BALANCE = "MERCHANT_TOTAL_BALANCE";
+}
+
+class ResultStatus
+{
+    /**
+     * S
+     */
+    const S = "S";
+
+    /**
+     * F
+     */
+    const F = "F";
+
+    /**
+     * U
+     */
+    const U = "U";
+}
+
+class ShopBizType
+{
+    /**
+     * ONLINE
+     */
+    const ONLINE = "ONLINE";
+
+    /**
+     * OFFLINE
+     */
+    const OFFLINE = "OFFLINE";
+}
+
+class ShopIdType
+{
+    /**
+     * INNER_ID
+     */
+    const INNER_ID = "INNER_ID";
+
+    /**
+     * EXTERNAL_ID
+     */
+    const EXTERNAL_ID = "EXTERNAL_ID";
+}
+
+class ShopOwning
+{
+    /**
+     * DIRECT_OWNED
+     */
+    const DIRECT_OWNED = "DIRECT_OWNED";
+
+    /**
+     * FRANCHISED
+     */
+    const FRANCHISED = "FRANCHISED";
+}
+
+class ShopParentType
+{
+    /**
+     * MERCHANT
+     */
+    const MERCHANT = "MERCHANT";
+
+    /**
+     * DIVISION
+     */
+    const DIVISION = "DIVISION";
+
+    /**
+     * EXTERNAL_DIVISION
+     */
+    const EXTERNAL_DIVISION = "EXTERNAL_DIVISION";
+}
+
+class SizeType
+{
+    /**
+     * UMI
+     */
+    const UMI = "UMI";
+
+    /**
+     * UKE
+     */
+    const UKE = "UKE";
+
+    /**
+     * UME
+     */
+    const UME = "UME";
+
+    /**
+     * UBE
+     */
+    const UBE = "UBE";
+}
+
+class Verified
+{
+    /**
+     * true
+     */
+    const TRUE = "true";
+
+    /**
+     * false
+     */
+    const FALSE = "false";
+}
+
 class ActorType
 {
     /**

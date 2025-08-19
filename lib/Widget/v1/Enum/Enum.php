@@ -18,6 +18,157 @@
 
 namespace Dana\Widget\v1\Enum;
 
+class AcquirementStatus
+{
+    /**
+     * INIT
+     */
+    const INIT = "INIT";
+
+    /**
+     * SUCCESS
+     */
+    const SUCCESS = "SUCCESS";
+
+    /**
+     * CLOSED
+     */
+    const CLOSED = "CLOSED";
+
+    /**
+     * PAYING
+     */
+    const PAYING = "PAYING";
+
+    /**
+     * MERCHANT_ACCEPT
+     */
+    const MERCHANT_ACCEPT = "MERCHANT_ACCEPT";
+
+    /**
+     * CANCELLED
+     */
+    const CANCELLED = "CANCELLED";
+}
+
+class Mode
+{
+    /**
+     * API
+     */
+    const API = "API";
+
+    /**
+     * DEEPLINK
+     */
+    const DEEPLINK = "DEEPLINK";
+}
+
+class PromoType
+{
+    /**
+     * CASH_BACK
+     */
+    const CASH_BACK = "CASH_BACK";
+
+    /**
+     * DISCOUNT
+     */
+    const DISCOUNT = "DISCOUNT";
+
+    /**
+     * VOUCHER
+     */
+    const VOUCHER = "VOUCHER";
+
+    /**
+     * POINT
+     */
+    const POINT = "POINT";
+}
+
+class ResourceType
+{
+    /**
+     * BALANCE
+     */
+    const BALANCE = "BALANCE";
+
+    /**
+     * TRANSACTION_URL
+     */
+    const TRANSACTION_URL = "TRANSACTION_URL";
+
+    /**
+     * MASK_DANA_ID
+     */
+    const MASK_DANA_ID = "MASK_DANA_ID";
+
+    /**
+     * TOPUP_URL
+     */
+    const TOPUP_URL = "TOPUP_URL";
+
+    /**
+     * OTT
+     */
+    const OTT = "OTT";
+
+    /**
+     * USER_KYC
+     */
+    const USER_KYC = "USER_KYC";
+}
+
+class ResultStatus
+{
+    /**
+     * S
+     */
+    const S = "S";
+
+    /**
+     * F
+     */
+    const F = "F";
+
+    /**
+     * U
+     */
+    const U = "U";
+}
+
+class ServiceScenario
+{
+    /**
+     * SCAN_AND_PAY
+     */
+    const SCAN_AND_PAY = "SCAN_AND_PAY";
+
+    /**
+     * EXIT_AND_PAY
+     */
+    const EXIT_AND_PAY = "EXIT_AND_PAY";
+
+    /**
+     * EMAS_PURCHASE
+     */
+    const EMAS_PURCHASE = "EMAS_PURCHASE";
+}
+
+class ServiceType
+{
+    /**
+     * PARKING
+     */
+    const PARKING = "PARKING";
+
+    /**
+     * INVESTMENT
+     */
+    const INVESTMENT = "INVESTMENT";
+}
+
 class ActorType
 {
     /**

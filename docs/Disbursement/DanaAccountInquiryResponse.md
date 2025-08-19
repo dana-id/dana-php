@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **sessionId** | **string** | Session identifier | [optional]
 **customerNumber** | **string** | Customer account number, in format 628xxx | [optional]
 **customerName** | **string** | Customer account name |
-**customerMonthlyLimit** | **float** | Limitation of transfer to DANA balance for customer per month | [optional]
+**customerMonthlyInLimit** | **string** | Limitation of transfer to DANA balance for customer per month | [optional]
 **minAmount** | [**\Dana\Disbursement\v1\Model\Money**](Money.md) | Minimal amount. Contains two sub-fields:&lt;br&gt; 1. Value: Amount, including the cents&lt;br&gt; 2. Currency: Currency code based on ISO |
 **maxAmount** | [**\Dana\Disbursement\v1\Model\Money**](Money.md) | Maximal amount. Contains two sub-fields:&lt;br&gt; 1. Value: Amount, including the cents&lt;br&gt; 2. Currency: Currency code based on ISO |
 **amount** | [**\Dana\Disbursement\v1\Model\Money**](Money.md) | Amount. Contains two sub-fields:&lt;br&gt; 1. Value: Transaction amount, including the cents&lt;br&gt; 2. Currency: Currency code based on ISO |

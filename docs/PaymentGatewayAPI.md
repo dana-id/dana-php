@@ -332,6 +332,17 @@ $model->setTerminalType(TerminalType::APP);
 $model->setTerminalType('APP');
 ```
 
+### AcquirementStatus
+
+| Constant | Value |
+|----------|-------|
+| `INIT` | `INIT` |
+| `SUCCESS` | `SUCCESS` |
+| `CLOSED` | `CLOSED` |
+| `PAYING` | `PAYING` |
+| `MERCHANT_ACCEPT` | `MERCHANT_ACCEPT` |
+| `CANCELLED` | `CANCELLED` |
+
 ### ActorType
 
 | Constant | Value |
@@ -340,15 +351,6 @@ $model->setTerminalType('APP');
 | `MERCHANT` | `MERCHANT` |
 | `MERCHANT_OPERATOR` | `MERCHANT_OPERATOR` |
 | `BACK_OFFICE` | `BACK_OFFICE` |
-| `SYSTEM` | `SYSTEM` |
-
-### OrderTerminalType
-
-| Constant | Value |
-|----------|-------|
-| `APP` | `APP` |
-| `WEB` | `WEB` |
-| `WAP` | `WAP` |
 | `SYSTEM` | `SYSTEM` |
 
 ### PayMethod
@@ -384,6 +386,15 @@ $model->setTerminalType('APP');
 | `VIRTUAL_ACCOUNT_BTPN` | `VIRTUAL_ACCOUNT_BTPN` |
 | `VIRTUAL_ACCOUNT_CIMB` | `VIRTUAL_ACCOUNT_CIMB` |
 | `VIRTUAL_ACCOUNT_PERMATA` | `VIRTUAL_ACCOUNT_PERMATA` |
+
+### OrderTerminalType
+
+| Constant | Value |
+|----------|-------|
+| `APP` | `APP` |
+| `WEB` | `WEB` |
+| `WAP` | `WAP` |
+| `SYSTEM` | `SYSTEM` |
 
 ### SourcePlatform
 

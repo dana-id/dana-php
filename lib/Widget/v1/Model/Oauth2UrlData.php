@@ -67,7 +67,8 @@ class Oauth2UrlData implements ModelInterface, ArrayAccess, \JsonSerializable
         'redirectUrl' => 'string',
         'state' => 'string',
         'lang' => 'string',
-        'allowRegistration' => 'string'
+        'allowRegistration' => 'string',
+        'mode' => 'string'
     ];
 
     /**
@@ -86,7 +87,8 @@ class Oauth2UrlData implements ModelInterface, ArrayAccess, \JsonSerializable
         'redirectUrl' => null,
         'state' => null,
         'lang' => null,
-        'allowRegistration' => null
+        'allowRegistration' => null,
+        'mode' => null
     ];
 
     /**
@@ -103,7 +105,8 @@ class Oauth2UrlData implements ModelInterface, ArrayAccess, \JsonSerializable
         'redirectUrl' => false,
         'state' => false,
         'lang' => false,
-        'allowRegistration' => false
+        'allowRegistration' => false,
+        'mode' => false
     ];
 
     /**
@@ -200,7 +203,8 @@ class Oauth2UrlData implements ModelInterface, ArrayAccess, \JsonSerializable
         'redirectUrl' => 'redirectUrl',
         'state' => 'state',
         'lang' => 'lang',
-        'allowRegistration' => 'allowRegistration'
+        'allowRegistration' => 'allowRegistration',
+        'mode' => 'mode'
     ];
 
     /**
@@ -217,7 +221,8 @@ class Oauth2UrlData implements ModelInterface, ArrayAccess, \JsonSerializable
         'redirectUrl' => 'setRedirectUrl',
         'state' => 'setState',
         'lang' => 'setLang',
-        'allowRegistration' => 'setAllowRegistration'
+        'allowRegistration' => 'setAllowRegistration',
+        'mode' => 'setMode'
     ];
 
     /**
@@ -234,7 +239,8 @@ class Oauth2UrlData implements ModelInterface, ArrayAccess, \JsonSerializable
         'redirectUrl' => 'getRedirectUrl',
         'state' => 'getState',
         'lang' => 'getLang',
-        'allowRegistration' => 'getAllowRegistration'
+        'allowRegistration' => 'getAllowRegistration',
+        'mode' => 'getMode'
     ];
 
     /**
@@ -278,6 +284,21 @@ class Oauth2UrlData implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
+    public const MODE_API = 'API';
+    public const MODE_DEEPLINK = 'DEEPLINK';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getModeAllowableValues()
+    {
+        return [
+            self::MODE_API,
+            self::MODE_DEEPLINK,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -303,6 +324,7 @@ class Oauth2UrlData implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('state', $data ?? [], null);
         $this->setIfExists('lang', $data ?? [], 'id');
         $this->setIfExists('allowRegistration', $data ?? [], 'true');
+        $this->setIfExists('mode', $data ?? [], null);
     }
 
     /**
@@ -353,6 +375,15 @@ class Oauth2UrlData implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['redirectUrl'] === null) {
             $invalidProperties[] = "'redirectUrl' can't be null";
         }
+        $allowedValues = $this->getModeAllowableValues();
+        if (!is_null($this->container['mode']) && !in_array($this->container['mode'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'mode', must be one of '%s'",
+                $this->container['mode'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -619,6 +650,43 @@ class Oauth2UrlData implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable allowRegistration cannot be null');
         }
         $this->container['allowRegistration'] = $allowRegistration;
+
+        return $this;
+    }
+
+    /**
+     * Gets mode
+     *
+     * @return string|null
+     */
+    public function getMode()
+    {
+        return $this->container['mode'];
+    }
+
+    /**
+     * Sets mode
+     *
+     * @param string|null $mode Mode of the authorization. The possible values are API or DEEPLINK
+     *
+     * @return self
+     */
+    public function setMode($mode)
+    {
+        if (is_null($mode)) {
+            throw new \InvalidArgumentException('non-nullable mode cannot be null');
+        }
+        $allowedValues = $this->getModeAllowableValues();
+        if (!in_array($mode, $allowedValues, true) && !empty($mode)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'mode', must be one of '%s'",
+                    $mode,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['mode'] = $mode;
 
         return $this;
     }
