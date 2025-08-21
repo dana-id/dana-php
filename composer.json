@@ -10,6 +10,17 @@
         "rest",
         "api"
     ],
+    "archive": {
+        "exclude": [
+            ".gitlab",
+            "tests",
+            "docs",
+            ".openapi-generator",
+            "build",
+            "README.md",
+            "vendor"
+        ]
+    },
     "homepage": "https://github.com/dana-id/dana-php",
     "license": "unlicense",
     "authors": [
