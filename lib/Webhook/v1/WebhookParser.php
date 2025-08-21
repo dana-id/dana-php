@@ -264,6 +264,8 @@ class WebhookParser
         if (isset($data['additionalInfo']) && is_array($data['additionalInfo'])) {
             $additionalInfo = new FinishNotifyRequestAdditionalInfo($data['additionalInfo']);
             $request->setAdditionalInfo($additionalInfo);
+        } else {
+            $request->setAdditionalInfo(new FinishNotifyRequestAdditionalInfo([]));
         }
         
         return $request;

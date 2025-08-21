@@ -1,6 +1,6 @@
 {
     "name": "danaid/dana-php",
-    "description": "API for doing operations in DANA Payment Gateway (Gapura)",
+    "description": "API for doing operations in DANA Payment Gateway (Gapura), Widget, Merchant Management, and Disbursement",
     "keywords": [
         "openapitools",
         "openapi-generator",

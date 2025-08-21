@@ -1,0 +1,8 @@
+.gitlab/** export-ignore
+ci/** export-ignore
+.openapi-generator/** export-ignore
+docs/** export-ignore
+tests/** export-ignore
+build/** export-ignore
+README.md export-ignore
+vendor/** export-ignore

@@ -63,5 +63,11 @@ class WebhookTest extends TestCase
         $this->assertEquals($webhookBody['amount']['currency'], $amount->getCurrency());
         
         $this->assertEquals($webhookBody['latestTransactionStatus'], $parsedData->getLatestTransactionStatus());
+
+        // Echo the raw JSON representation of the object
+        echo "\nParsed Data JSON output:\n";
+        echo json_encode($parsedData, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+        echo "\n\nAdditionalInfo type: " . gettype($parsedData->getAdditionalInfo()) . "\n";
+        echo "AdditionalInfo JSON: " . json_encode($parsedData->getAdditionalInfo(), JSON_PRETTY_PRINT) . "\n";
     }
 }
