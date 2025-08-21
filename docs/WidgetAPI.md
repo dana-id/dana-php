@@ -639,16 +639,6 @@ $model->setTerminalType('APP');
 | `PARKING` | `PARKING` |
 | `INVESTMENT` | `INVESTMENT` |
 
-### ActorType
-
-| Constant | Value |
-|----------|-------|
-| `USER` | `USER` |
-| `MERCHANT` | `MERCHANT` |
-| `MERCHANT_OPERATOR` | `MERCHANT_OPERATOR` |
-| `BACK_OFFICE` | `BACK_OFFICE` |
-| `SYSTEM` | `SYSTEM` |
-
 ### OrderTerminalType
 
 | Constant | Value |

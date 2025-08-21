@@ -169,34 +169,6 @@ class ServiceType
     const INVESTMENT = "INVESTMENT";
 }
 
-class ActorType
-{
-    /**
-     * USER
-     */
-    const USER = "USER";
-
-    /**
-     * MERCHANT
-     */
-    const MERCHANT = "MERCHANT";
-
-    /**
-     * MERCHANT_OPERATOR
-     */
-    const MERCHANT_OPERATOR = "MERCHANT_OPERATOR";
-
-    /**
-     * BACK_OFFICE
-     */
-    const BACK_OFFICE = "BACK_OFFICE";
-
-    /**
-     * SYSTEM
-     */
-    const SYSTEM = "SYSTEM";
-}
-
 class OrderTerminalType
 {
     /**

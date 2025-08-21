@@ -379,7 +379,7 @@ class ActorContext implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets actorType
      *
-     * @param string|null $actorType Actor type. The enums:<br> * USER - User<br> * MERCHANT - Merchant<br * MERCHANT_OPERATOR - Merchant operator<br> * BACK_OFFICE - Back office<br> * SYSTEM - System<br>
+     * @param string|null $actorType Actor type. The enums:<br> * USER - User<br> * MERCHANT - Merchant<br> * MERCHANT_OPERATOR - Merchant operator<br> * BACK_OFFICE - Back office<br> * SYSTEM - System<br>
      *
      * @return self
      */
