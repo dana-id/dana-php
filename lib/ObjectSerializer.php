@@ -99,7 +99,8 @@ class ObjectSerializer
                         }
                     }
                     if (($data::isNullable($property) && $data->isNullableSetToNull($property)) || $value !== null) {
-                        $values[$data::attributeMap()[$property]] = self::sanitizeForSerialization($value, $openAPIType, $formats[$property]);
+                        $formatForProperty = $formats[$property] ?? null;
+                        $values[$property] = self::sanitizeForSerialization($value, $openAPIType, $formatForProperty);
                     }
                 }
             } else {
@@ -544,7 +545,7 @@ class ObjectSerializer
                     continue;
                 }
 
-                if (!isset($data->{$instance::attributeMap()[$property]})) {
+                if (!isset($data->{$property})) {
                     if ($instance::isNullable($property)) {
                         $instance->$propertySetter(null);
                     }
@@ -552,8 +553,8 @@ class ObjectSerializer
                     continue;
                 }
 
-                if (isset($data->{$instance::attributeMap()[$property]})) {
-                    $propertyValue = $data->{$instance::attributeMap()[$property]};
+                if (isset($data->{$property})) {
+                    $propertyValue = $data->{$property};
                     $instance->$propertySetter(self::deserialize($propertyValue, $type, null));
                 }
             }
