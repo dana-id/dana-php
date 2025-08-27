@@ -4,13 +4,13 @@ All URIs are relative to http://api.sandbox.dana.id for sandbox and https://api.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createDivision()**](MerchantManagementApi.md#createDivision) | **POST** /dana/merchant/division/createDivision.htm | Create Division |
-| [**createShop()**](MerchantManagementApi.md#createShop) | **POST** /dana/merchant/shop/createShop.htm | Member – Create Shop |
-| [**queryDivision()**](MerchantManagementApi.md#queryDivision) | **POST** /dana/merchant/division/queryDivision.htm | Query Division |
-| [**queryMerchantResource()**](MerchantManagementApi.md#queryMerchantResource) | **POST** /dana/merchant/queryMerchantResource.htm | Member – Merchant Open API Check Disbursement Account |
-| [**queryShop()**](MerchantManagementApi.md#queryShop) | **POST** /dana/merchant/shop/queryShop.htm | Member – Query Shop |
-| [**updateDivision()**](MerchantManagementApi.md#updateDivision) | **POST** /dana/merchant/division/updateDivision.htm | Update Division |
-| [**updateShop()**](MerchantManagementApi.md#updateShop) | **POST** /dana/merchant/shop/updateShop.htm | Update Shop |
+| [**createDivision()**](MerchantManagementApi.md#createdivision) | **POST** /dana/merchant/division/createDivision.htm | Create Division |
+| [**createShop()**](MerchantManagementApi.md#createshop) | **POST** /dana/merchant/shop/createShop.htm | Member – Create Shop |
+| [**queryDivision()**](MerchantManagementApi.md#querydivision) | **POST** /dana/merchant/division/queryDivision.htm | Query Division |
+| [**queryMerchantResource()**](MerchantManagementApi.md#querymerchantresource) | **POST** /dana/merchant/queryMerchantResource.htm | Member – Merchant Open API Check Disbursement Account |
+| [**queryShop()**](MerchantManagementApi.md#queryshop) | **POST** /dana/merchant/shop/queryShop.htm | Member – Query Shop |
+| [**updateDivision()**](MerchantManagementApi.md#updatedivision) | **POST** /dana/merchant/division/updateDivision.htm | Update Division |
+| [**updateShop()**](MerchantManagementApi.md#updateshop) | **POST** /dana/merchant/shop/updateShop.htm | Update Shop |
 
 
 ## `createDivision()`

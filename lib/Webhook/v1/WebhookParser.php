@@ -83,17 +83,9 @@ class WebhookParser
             return;
         }
     
-        // For PHP 8.0+ with OpenSSLAsymmetricKey
-        if (PHP_MAJOR_VERSION >= 8 && $this->publicKey instanceof \OpenSSLAsymmetricKey) {
-            if (function_exists('openssl_pkey_free')) {
-                openssl_pkey_free($this->publicKey);
-            }
-        } 
-        // For PHP 7.x with resource
-        elseif (is_resource($this->publicKey)) {
-            if (function_exists('openssl_free_key')) {
-                openssl_free_key($this->publicKey);
-            }
+        // For PHP 7.x with resource, do manual clean up
+        if (PHP_MAJOR_VERSION < 8 && is_resource($this->publicKey) && function_exists('openssl_free_key')) {
+            openssl_free_key($this->publicKey);
         }
     }
 

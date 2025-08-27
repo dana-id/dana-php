@@ -4,11 +4,11 @@ All URIs are relative to http://api.sandbox.dana.id for sandbox and https://api.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**cancelOrder()**](PaymentGatewayApi.md#cancelOrder) | **POST** /payment-gateway/v1.0/debit/cancel.htm | Cancel Order - Payment Gateway |
-| [**consultPay()**](PaymentGatewayApi.md#consultPay) | **POST** /v1.0/payment-gateway/consult-pay.htm | Consult Pay - Payment Gateway |
-| [**createOrder()**](PaymentGatewayApi.md#createOrder) | **POST** /payment-gateway/v1.0/debit/payment-host-to-host.htm | Create Order - Payment Gateway |
-| [**queryPayment()**](PaymentGatewayApi.md#queryPayment) | **POST** /payment-gateway/v1.0/debit/status.htm | Query Payment - Payment Gateway |
-| [**refundOrder()**](PaymentGatewayApi.md#refundOrder) | **POST** /payment-gateway/v1.0/debit/refund.htm | Refund Order - Payment Gateway |
+| [**cancelOrder()**](PaymentGatewayApi.md#cancelorder) | **POST** /payment-gateway/v1.0/debit/cancel.htm | Cancel Order - Payment Gateway |
+| [**consultPay()**](PaymentGatewayApi.md#consultpay) | **POST** /v1.0/payment-gateway/consult-pay.htm | Consult Pay - Payment Gateway |
+| [**createOrder()**](PaymentGatewayApi.md#createorder) | **POST** /payment-gateway/v1.0/debit/payment-host-to-host.htm | Create Order - Payment Gateway |
+| [**queryPayment()**](PaymentGatewayApi.md#querypayment) | **POST** /payment-gateway/v1.0/debit/status.htm | Query Payment - Payment Gateway |
+| [**refundOrder()**](PaymentGatewayApi.md#refundorder) | **POST** /payment-gateway/v1.0/debit/refund.htm | Refund Order - Payment Gateway |
 
 
 ## Additional Documentation

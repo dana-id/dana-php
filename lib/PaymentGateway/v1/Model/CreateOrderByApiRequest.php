@@ -268,6 +268,34 @@ class CreateOrderByApiRequest extends BaseModel
             throw new \InvalidArgumentException("invalid value for \$validUpTo when calling CreateOrderByApiRequest., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
         }
 
+        // Validate that validUpTo date is not more than one week in the future
+        if ($validUpTo !== null) {
+            try {
+                // Create Jakarta timezone object (GMT+7)
+                $jakartaTz = new \DateTimeZone('Asia/Jakarta');
+                
+                // Current date in Jakarta timezone
+                $currentDate = new \DateTime('now', $jakartaTz);
+                
+                // Maximum allowed date (current date + 7 days)
+                $maxDate = clone $currentDate;
+                $maxDate->add(new \DateInterval('P7D'));
+                
+                // Parse the input date (assuming it's in ISO 8601 format with +07:00 timezone)
+                $inputDate = new \DateTime($validUpTo, $jakartaTz);
+                
+                // Check if the input date exceeds the maximum allowed date
+                if ($inputDate > $maxDate) {
+                    throw new \InvalidArgumentException(
+                        'validUpTo date cannot be more than one week in the future'
+                    );
+                }
+            } catch (\Exception $e) {
+                throw new \InvalidArgumentException(
+                    'Invalid date format for validUpTo. Expected format: YYYY-MM-DDTHH:mm:ss+07:00'
+                );
+            }
+        }
         $this->container['validUpTo'] = $validUpTo;
 
         return $this;

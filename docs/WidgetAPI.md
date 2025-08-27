@@ -4,15 +4,15 @@ All URIs are relative to http://api.sandbox.dana.id for sandbox and https://api.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**accountUnbinding()**](WidgetApi.md#accountUnbinding) | **POST** /v1.0/registration-account-unbinding.htm | Account unbinding - Binding |
-| [**applyOTT()**](WidgetApi.md#applyOTT) | **POST** /rest/v1.1/qr/apply-ott | Apply OTT - Widget |
-| [**applyToken()**](WidgetApi.md#applyToken) | **POST** /v1.0/access-token/b2b2c.htm | Apply Token, required by Apply OTT - Binding |
-| [**balanceInquiry()**](WidgetApi.md#balanceInquiry) | **POST** /v1.0/balance-inquiry.htm | Balance Inquiry |
-| [**cancelOrder()**](WidgetApi.md#cancelOrder) | **POST** /v1.0/debit/cancel.htm | Cancel Order - Widget |
-| [**queryPayment()**](WidgetApi.md#queryPayment) | **POST** /rest/v1.1/debit/status | Query Payment - Widget |
-| [**queryUserProfile()**](WidgetApi.md#queryUserProfile) | **POST** /dana/member/query/queryUserProfile.htm | Query User Profile |
-| [**refundOrder()**](WidgetApi.md#refundOrder) | **POST** /v1.0/debit/refund.htm | Refund Order - Widget |
-| [**widgetPayment()**](WidgetApi.md#widgetPayment) | **POST** /rest/redirection/v1.0/debit/payment-host-to-host | Widget Payment - Widget |
+| [**accountUnbinding()**](WidgetApi.md#accountunbinding) | **POST** /v1.0/registration-account-unbinding.htm | Account unbinding - Binding |
+| [**applyOTT()**](WidgetApi.md#applyott) | **POST** /rest/v1.1/qr/apply-ott | Apply OTT - Widget |
+| [**applyToken()**](WidgetApi.md#applytoken) | **POST** /v1.0/access-token/b2b2c.htm | Apply Token, required by Apply OTT - Binding |
+| [**balanceInquiry()**](WidgetApi.md#balanceinquiry) | **POST** /v1.0/balance-inquiry.htm | Balance Inquiry |
+| [**cancelOrder()**](WidgetApi.md#cancelorder) | **POST** /v1.0/debit/cancel.htm | Cancel Order - Widget |
+| [**queryPayment()**](WidgetApi.md#querypayment) | **POST** /rest/v1.1/debit/status | Query Payment - Widget |
+| [**queryUserProfile()**](WidgetApi.md#queryuserprofile) | **POST** /dana/member/query/queryUserProfile.htm | Query User Profile |
+| [**refundOrder()**](WidgetApi.md#refundorder) | **POST** /v1.0/debit/refund.htm | Refund Order - Widget |
+| [**widgetPayment()**](WidgetApi.md#widgetpayment) | **POST** /rest/redirection/v1.0/debit/payment-host-to-host | Widget Payment - Widget |
 
 
 ## Additional Documentation
@@ -664,6 +664,7 @@ $model->setTerminalType('APP');
 | `ONLINE_CREDIT` | `ONLINE_CREDIT` |
 | `LOAN_CREDIT` | `LOAN_CREDIT` |
 | `NETWORK_PAY` | `NETWORK_PAY` |
+| `CARD` | `CARD` |
 
 ### PayOption
 
