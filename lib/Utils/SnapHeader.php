@@ -192,7 +192,10 @@ class SnapHeader
         // Test if openssl can use this key
         $resource = @openssl_pkey_get_private($formattedKey);
         if ($resource !== false) {
-            openssl_free_key($resource);
+            // Only call openssl_free_key() for PHP versions below 8.0
+            if (version_compare(PHP_VERSION, '8.0.0', '<')) {
+                openssl_free_key($resource);
+            }
             return $formattedKey;
         }
         
