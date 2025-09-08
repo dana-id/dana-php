@@ -12,6 +12,11 @@ All URIs are relative to http://api.sandbox.dana.id for sandbox and https://api.
 | [**transferToDanaInquiryStatus()**](DisbursementApi.md#transfertodanainquirystatus) | **POST** /v1.0/emoney/topup-status.htm | Transfer to DANA Inquiry Status |
 
 
+## Additional Documentation
+* [Enum Types](#enum-types) - List of available enum constants 
+* [WebhookParser](#webhookparser) - Webhook handling and notification parsing
+
+
 ## `bankAccountInquiry()`
 
 ```php
@@ -372,21 +377,27 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-
 ## Enum Types
 
 ### Example Usage
 
 ```php
 // Importing an enum class
-use Dana\Disbursement\v1\Enum\TerminalType;
+use Dana\Disbursement\v1\Enum\ChargeTarget;
 
 // Using enum constants
-$model->setTerminalType(TerminalType::APP);
+$model->setProperty(ChargeTarget::DIVISION);
 
 // Using enum values directly as strings
-$model->setTerminalType('APP');
+$model->setProperty('DIVISION');
 ```
+
+### ChargeTarget
+
+| Constant | Value |
+|----------|-------|
+| `DIVISION` | `DIVISION` |
+| `MERCHANT` | `MERCHANT` |
 
 ### LatestTransactionStatus
 

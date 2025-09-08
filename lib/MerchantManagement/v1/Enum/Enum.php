@@ -18,6 +18,32 @@
 
 namespace Dana\MerchantManagement\v1\Enum;
 
+class GoodsSoldType
+{
+    /**
+     * DIGITAL
+     */
+    const DIGITAL = "DIGITAL";
+
+    /**
+     * PHYSICAL
+     */
+    const PHYSICAL = "PHYSICAL";
+}
+
+class UserProfiling
+{
+    /**
+     * B2B
+     */
+    const B2B = "B2B";
+
+    /**
+     * B2C
+     */
+    const B2C = "B2C";
+}
+
 class BusinessEntity
 {
     /**

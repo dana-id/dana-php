@@ -18,6 +18,19 @@
 
 namespace Dana\Disbursement\v1\Enum;
 
+class ChargeTarget
+{
+    /**
+     * DIVISION
+     */
+    const DIVISION = "DIVISION";
+
+    /**
+     * MERCHANT
+     */
+    const MERCHANT = "MERCHANT";
+}
+
 class LatestTransactionStatus
 {
     /**

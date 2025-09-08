@@ -60,6 +60,8 @@ class RefundOptionBill extends BaseModel
     public const PAY_METHOD_DIRECT_DEBIT_DEBIT_CARD = 'DIRECT_DEBIT_DEBIT_CARD';
     public const PAY_METHOD_ONLINE_CREDIT = 'ONLINE_CREDIT';
     public const PAY_METHOD_LOAN_CREDIT = 'LOAN_CREDIT';
+    public const PAY_METHOD_NETWORK_PAY = 'NETWORK_PAY';
+    public const PAY_METHOD_CARD = 'CARD';
 
     public function getPayMethodAllowableValues()
     {
@@ -75,6 +77,8 @@ class RefundOptionBill extends BaseModel
             self::PAY_METHOD_DIRECT_DEBIT_DEBIT_CARD,
             self::PAY_METHOD_ONLINE_CREDIT,
             self::PAY_METHOD_LOAN_CREDIT,
+            self::PAY_METHOD_NETWORK_PAY,
+            self::PAY_METHOD_CARD,
         ];
     }
 

@@ -63,6 +63,41 @@ class ApiClientFixtures
      * 
      * @return PaymentGatewayApi
      */
+    public static function getPaymentGatewayApiInstanceWithPrivateKeyPath(): PaymentGatewayApi
+    {
+        $origin = getenv('ORIGIN') ?: 'test-origin';
+        $partnerId = getenv('X_PARTNER_ID') ?: 'test-partner-id';
+        $env = Env::SANDBOX;
+        
+        $privateKey = getenv('PRIVATE_KEY');
+        if (empty($privateKey)) {
+            trigger_error('PRIVATE_KEY environment variable not set for private key path test', E_USER_WARNING);
+            $privateKeyPath = getenv('PRIVATE_KEY_PATH') ?: __DIR__ . '/test_private_key.pem';
+        } else {
+            $privateKeyPath = __DIR__ . '/test_private_key.pem';
+            file_put_contents($privateKeyPath, $privateKey);
+            chmod($privateKeyPath, 0600);
+        }
+
+        $config = new Configuration();
+        
+        $config->setApiKey('ORIGIN', $origin);
+        $config->setApiKey('X_PARTNER_ID', $partnerId);
+        $config->setApiKey('PRIVATE_KEY_PATH', $privateKeyPath);
+
+        $config->setApiKey('DANA_ENV', $env);
+        $config->setApiKey('ENV', $env);
+        
+        return new PaymentGatewayApi(null, $config);
+    }
+
+    /**
+     * Get a PaymentGatewayApi instance for testing
+     * 
+     * Uses environment variables for configuration
+     * 
+     * @return PaymentGatewayApi
+     */
     public static function getWidgetApiInstance(): WidgetApi
     {
         // Get configuration from environment or use defaults

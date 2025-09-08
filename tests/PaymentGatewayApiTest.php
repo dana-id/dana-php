@@ -41,6 +41,11 @@ class PaymentGatewayApiTest extends TestCase
     private $apiInstance;
     
     /**
+     * @var PaymentGatewayApi
+     */
+    private $apiInstanceWithPrivateKeyPath;
+    
+    /**
      * Set up test environment
      *
      * @return void
@@ -48,6 +53,7 @@ class PaymentGatewayApiTest extends TestCase
     protected function setUp(): void
     {
         $this->apiInstance = ApiClientFixtures::getPaymentGatewayApiInstance();
+        $this->apiInstanceWithPrivateKeyPath = ApiClientFixtures::getPaymentGatewayApiInstanceWithPrivateKeyPath();
     }
     
     /**
@@ -93,6 +99,40 @@ class PaymentGatewayApiTest extends TestCase
         
         try {
             $response = $this->apiInstance->createOrder($createOrderRequest);
+            
+            // Assert response properties
+            $this->assertInstanceOf(CreateOrderResponse::class, $response);
+            $this->assertNotEmpty($response->getResponseCode());
+            $this->assertNotEmpty($response->getResponseMessage());
+            
+            // When successful, the response code should be 2005400
+            if ($response->getResponseCode() === '2005400') {
+                $this->assertEquals('Successful', $response->getResponseMessage());
+                $this->assertNotNull($response->getReferenceNo());
+            }
+            
+            // Output response for debugging
+            echo "CreateOrder Response: " . print_r($response->__toString(), true) . PHP_EOL;
+            
+            return $partnerReferenceNo;
+        } catch (\Exception $e) {
+            $this->fail("CreateOrder request failed: " . $e->getMessage());
+            return $partnerReferenceNo;
+        }
+    }
+
+    /**
+     * Test CreateOrder operation
+     *
+     * @return string The partner reference number for subsequent tests
+     */
+    public function testCreateOrderWithPrivateKeyPath(): string
+    {
+        $createOrderRequest = PaymentGatewayFixtures::getCreateOrderByApiRequest();
+        $partnerReferenceNo = $createOrderRequest->getPartnerReferenceNo();
+        
+        try {
+            $response = $this->apiInstanceWithPrivateKeyPath->createOrder($createOrderRequest);
             
             // Assert response properties
             $this->assertInstanceOf(CreateOrderResponse::class, $response);

@@ -62,6 +62,7 @@ class ConsultPayPaymentInfo extends BaseModel
     public const PAY_METHOD_ONLINE_CREDIT = 'ONLINE_CREDIT';
     public const PAY_METHOD_LOAN_CREDIT = 'LOAN_CREDIT';
     public const PAY_METHOD_NETWORK_PAY = 'NETWORK_PAY';
+    public const PAY_METHOD_CARD = 'CARD';
     public const PAY_OPTION_NETWORK_PAY_PG_SPAY = 'NETWORK_PAY_PG_SPAY';
     public const PAY_OPTION_NETWORK_PAY_PG_OVO = 'NETWORK_PAY_PG_OVO';
     public const PAY_OPTION_NETWORK_PAY_PG_GOPAY = 'NETWORK_PAY_PG_GOPAY';
@@ -90,6 +91,7 @@ class ConsultPayPaymentInfo extends BaseModel
             self::PAY_METHOD_ONLINE_CREDIT,
             self::PAY_METHOD_LOAN_CREDIT,
             self::PAY_METHOD_NETWORK_PAY,
+            self::PAY_METHOD_CARD,
         ];
     }
 

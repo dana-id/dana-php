@@ -562,20 +562,19 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-
 ## Enum Types
 
 ### Example Usage
 
 ```php
 // Importing an enum class
-use Dana\Widget\v1\Enum\TerminalType;
+use Dana\Widget\v1\Enum\AcquirementStatus;
 
 // Using enum constants
-$model->setTerminalType(TerminalType::APP);
+$model->setProperty(AcquirementStatus::INIT);
 
 // Using enum values directly as strings
-$model->setTerminalType('APP');
+$model->setProperty('INIT');
 ```
 
 ### AcquirementStatus

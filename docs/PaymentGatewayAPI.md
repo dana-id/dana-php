@@ -316,20 +316,19 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-
 ## Enum Types
 
 ### Example Usage
 
 ```php
 // Importing an enum class
-use Dana\PaymentGateway\v1\Enum\TerminalType;
+use Dana\PaymentGateway\v1\Enum\AcquirementStatus;
 
 // Using enum constants
-$model->setTerminalType(TerminalType::APP);
+$model->setProperty(AcquirementStatus::INIT);
 
 // Using enum values directly as strings
-$model->setTerminalType('APP');
+$model->setProperty('INIT');
 ```
 
 ### AcquirementStatus
@@ -369,6 +368,7 @@ $model->setTerminalType('APP');
 | `ONLINE_CREDIT` | `ONLINE_CREDIT` |
 | `LOAN_CREDIT` | `LOAN_CREDIT` |
 | `NETWORK_PAY` | `NETWORK_PAY` |
+| `CARD` | `CARD` |
 
 ### PayOption
 

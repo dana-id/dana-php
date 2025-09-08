@@ -13,6 +13,11 @@ All URIs are relative to http://api.sandbox.dana.id for sandbox and https://api.
 | [**updateShop()**](MerchantManagementApi.md#updateshop) | **POST** /dana/merchant/shop/updateShop.htm | Update Shop |
 
 
+## Additional Documentation
+* [Enum Types](#enum-types) - List of available enum constants 
+* [WebhookParser](#webhookparser) - Webhook handling and notification parsing
+
+
 ## `createDivision()`
 
 ```php
@@ -440,21 +445,34 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-
 ## Enum Types
 
 ### Example Usage
 
 ```php
 // Importing an enum class
-use Dana\MerchantManagement\v1\Enum\TerminalType;
+use Dana\MerchantManagement\v1\Enum\GoodsSoldType;
 
 // Using enum constants
-$model->setTerminalType(TerminalType::APP);
+$model->setProperty(GoodsSoldType::DIGITAL);
 
 // Using enum values directly as strings
-$model->setTerminalType('APP');
+$model->setProperty('DIGITAL');
 ```
+
+### GoodsSoldType
+
+| Constant | Value |
+|----------|-------|
+| `DIGITAL` | `DIGITAL` |
+| `PHYSICAL` | `PHYSICAL` |
+
+### UserProfiling
+
+| Constant | Value |
+|----------|-------|
+| `B2B` | `B2B` |
+| `B2C` | `B2C` |
 
 ### BusinessEntity
 

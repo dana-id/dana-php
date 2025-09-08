@@ -140,6 +140,11 @@ class PayMethod
      * NETWORK_PAY
      */
     const NETWORK_PAY = "NETWORK_PAY";
+
+    /**
+     * CARD
+     */
+    const CARD = "CARD";
 }
 
 class PayOption
