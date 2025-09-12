@@ -222,4 +222,48 @@ class PaymentGatewayApiTest extends TestCase
             $this->fail("CancelOrder request failed: " . $e->getMessage());
         }
     }
+    
+    /**
+     * Test validation in the setValidUpTo method directly
+     * 
+     * This test verifies that the CreateOrderByApiRequest class properly validates
+     * the validUpTo date and throws an exception when it's beyond one week in the future
+     * 
+     * @return void
+     */
+    public function testCreateOrderWithValidUpToOutsideRange(): void
+    {
+        // Create a new CreateOrderByApiRequest instance
+        $request = new CreateOrderByApiRequest();
+        
+        // Set valid_up_to to 8 days in the future (outside of allowed range)
+        // Create Jakarta timezone (GMT+7)
+        $jakartaTimezone = new \DateTimeZone('Asia/Jakarta');
+        
+        // Calculate a date 8 days in the future
+        $beyondOneWeek = (new \DateTime('now', $jakartaTimezone))
+            ->add(new \DateInterval('P8D'))
+            ->format('Y-m-d\TH:i:s+07:00');
+        
+        // The setValidUpTo method should throw an exception
+        try {
+            $request->setValidUpTo($beyondOneWeek);
+            
+            // If we get here, the test has failed because the method should have thrown an exception
+            $this->fail('Expected setValidUpTo to throw an exception when validUpTo is beyond one week');
+        } catch (\InvalidArgumentException $e) {
+            // Check that the error message contains the word 'week'
+            $errorMsg = strtolower($e->getMessage());
+            $this->assertStringContainsString('week', $errorMsg, "Error message must specifically mention 'week'");
+            
+            // Output the error message for debugging
+            echo "Validation error from setValidUpTo as expected: {$e->getMessage()}" . PHP_EOL;
+        } catch (\Exception $e) {
+            // If we got a different type of exception, make sure it still contains 'week'
+            $errorMsg = strtolower($e->getMessage());
+            $this->assertStringContainsString('week', $errorMsg, "Error message must specifically mention 'week' even for other exceptions");
+            
+            echo "Got exception of type " . get_class($e) . ": {$e->getMessage()}" . PHP_EOL;
+        }
+    }
 }

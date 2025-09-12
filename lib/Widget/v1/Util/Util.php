@@ -23,6 +23,7 @@ class Util
     {
         // Use environment variable or default to sandbox
         $env = getenv('DANA_ENV') ?: getenv('ENV') ?: 'sandbox';
+        $env = strtolower($env);
         
         $mode = $data->getMode();
         if (!$mode) {
@@ -30,16 +31,16 @@ class Util
         }
 
         if ($mode === Mode::DEEPLINK) {
-            if ($env === 'sandbox') {
-                $baseUrl = 'https://m.sandbox.dana.id/n/link/binding';
-            } else {
+            if ($env === 'production') {
                 $baseUrl = 'https://link.dana.id/bindSnap';
+            } else {
+                $baseUrl = 'https://m.sandbox.dana.id/n/link/binding';
             }
         } else if ($mode === Mode::API) {
-            if ($env === 'sandbox') {
-                $baseUrl = 'https://m.sandbox.dana.id/n/ipg/oauth';
-            } else {
+            if ($env === 'production') {
                 $baseUrl = 'https://m.dana.id/n/ipg/oauth';
+            } else {
+                $baseUrl = 'https://m.sandbox.dana.id/n/ipg/oauth';
             }
         }   
         

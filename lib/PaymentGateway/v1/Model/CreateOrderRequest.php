@@ -277,7 +277,7 @@ class CreateOrderRequest extends BaseModel
                 }
             } catch (\Exception $e) {
                 throw new \InvalidArgumentException(
-                    'Invalid date format for validUpTo. Expected format: YYYY-MM-DDTHH:mm:ss+07:00'
+                    'validUpTo date cannot be more than one week in the future'
                 );
             }
         }

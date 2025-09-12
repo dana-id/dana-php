@@ -175,6 +175,11 @@ class PayOption
     const NETWORK_PAY_PG_CARD = "NETWORK_PAY_PG_CARD";
 
     /**
+     * NETWORK_PAY_PC_INDOMARET
+     */
+    const NETWORK_PAY_PC_INDOMARET = "NETWORK_PAY_PC_INDOMARET";
+
+    /**
      * VIRTUAL_ACCOUNT_BCA
      */
     const VIRTUAL_ACCOUNT_BCA = "VIRTUAL_ACCOUNT_BCA";
