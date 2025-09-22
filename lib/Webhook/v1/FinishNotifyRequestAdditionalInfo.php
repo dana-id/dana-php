@@ -61,7 +61,8 @@ class FinishNotifyRequestAdditionalInfo implements ModelInterface, ArrayAccess, 
         'paymentInfo' => '\Dana\Webhook\v1\FinishNotifyPaymentInfo',
         'shopInfo' => '\Dana\Webhook\v1\ShopInfo',
         'extendInfo' => 'string',
-        'extendInfoClosedReason' => 'string'
+        'extendInfoClosedReason' => 'string',
+        'paidTime' => 'string'
     ];
 
     /**
@@ -75,7 +76,8 @@ class FinishNotifyRequestAdditionalInfo implements ModelInterface, ArrayAccess, 
         'paymentInfo' => null,
         'shopInfo' => null,
         'extendInfo' => null,
-        'extendInfoClosedReason' => null
+        'extendInfoClosedReason' => null,
+        'paidTime' => null
     ];
 
     /**
@@ -84,10 +86,11 @@ class FinishNotifyRequestAdditionalInfo implements ModelInterface, ArrayAccess, 
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'paymentInfo' => false,
-        'shopInfo' => false,
-        'extendInfo' => false,
-        'extendInfoClosedReason' => false
+        'paymentInfo' => true,
+        'shopInfo' => true,
+        'extendInfo' => true,
+        'extendInfoClosedReason' => true,
+        'paidTime' => true
     ];
 
     /**
@@ -179,7 +182,8 @@ class FinishNotifyRequestAdditionalInfo implements ModelInterface, ArrayAccess, 
         'paymentInfo' => 'paymentInfo',
         'shopInfo' => 'shopInfo',
         'extendInfo' => 'extendInfo',
-        'extendInfoClosedReason' => 'extendInfoClosedReason'
+        'extendInfoClosedReason' => 'extendInfoClosedReason',
+        'paidTime' => 'paidTime'
     ];
 
     /**
@@ -191,7 +195,8 @@ class FinishNotifyRequestAdditionalInfo implements ModelInterface, ArrayAccess, 
         'paymentInfo' => 'setPaymentInfo',
         'shopInfo' => 'setShopInfo',
         'extendInfo' => 'setExtendInfo',
-        'extendInfoClosedReason' => 'setExtendInfoClosedReason'
+        'extendInfoClosedReason' => 'setExtendInfoClosedReason',
+        'paidTime' => 'setPaidTime'
     ];
 
     /**
@@ -203,7 +208,8 @@ class FinishNotifyRequestAdditionalInfo implements ModelInterface, ArrayAccess, 
         'paymentInfo' => 'getPaymentInfo',
         'shopInfo' => 'getShopInfo',
         'extendInfo' => 'getExtendInfo',
-        'extendInfoClosedReason' => 'getExtendInfoClosedReason'
+        'extendInfoClosedReason' => 'getExtendInfoClosedReason',
+        'paidTime' => 'getPaidTime'
     ];
 
     /**
@@ -267,6 +273,7 @@ class FinishNotifyRequestAdditionalInfo implements ModelInterface, ArrayAccess, 
         $this->setIfExists('shopInfo', $data ?? [], null);
         $this->setIfExists('extendInfo', $data ?? [], null);
         $this->setIfExists('extendInfoClosedReason', $data ?? [], null);
+        $this->setIfExists('paidTime', $data ?? [], null);
     }
 
     /**
@@ -434,6 +441,35 @@ class FinishNotifyRequestAdditionalInfo implements ModelInterface, ArrayAccess, 
 
         return $this;
     }
+
+    /**
+     * Gets paidTime
+     *
+     * @return string|null
+     */
+    public function getPaidTime()
+    {
+        return $this->container['paidTime'];
+    }
+
+    /**
+     * Sets paidTime
+     *
+     * @param string|null $paidTime Additional information of paid time
+     *
+     * @return self
+     */
+    public function setPaidTime($paidTime)
+    {
+        if ((mb_strlen($paidTime) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $paidTime when calling FinishNotifyRequestAdditionalInfo., must be smaller than or equal to 64.');
+        }
+
+        $this->container['paidTime'] = $paidTime;
+
+        return $this;
+    }
+    
     /**
      * Returns true if offset exists. False otherwise.
      *

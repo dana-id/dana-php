@@ -31,7 +31,7 @@ class WebhookTest extends TestCase
             $minifiedWebhookBodyStr,
             false // Set to true if you want to generate a new timestamp each time
         );
-
+        
         $this->assertArrayHasKey('X-SIGNATURE', $generatedHeaders);
         $this->assertNotEmpty($generatedHeaders['X-SIGNATURE']);
         $this->assertArrayHasKey('X-TIMESTAMP', $generatedHeaders);
@@ -40,19 +40,19 @@ class WebhookTest extends TestCase
         $publicKey = getenv('WEBHOOK_PUBLIC_KEY');
         $parser = WebhookParser::create($publicKey);
         $this->assertInstanceOf(WebhookParser::class, $parser);
-
+        
         $headers = [
             'X-SIGNATURE' => $generatedHeaders['X-SIGNATURE'],
             'X-TIMESTAMP' => $generatedHeaders['X-TIMESTAMP'],
         ];
-
+        
         $parsedData = $parser->parseWebhook(
             $webhookHttpMethod,
             $webhookRelativeURL,
             $headers,
             $webhookBodyStr
         );
-
+        
         $this->assertInstanceOf(FinishNotifyRequest::class, $parsedData);
         $this->assertEquals($webhookBody['originalPartnerReferenceNo'], $parsedData->getOriginalPartnerReferenceNo());
         $this->assertEquals($webhookBody['originalReferenceNo'], $parsedData->getOriginalReferenceNo());
@@ -73,56 +73,47 @@ class WebhookTest extends TestCase
 
     public function testDirectJsonProcessing(): void
     {
-        $jsonData = '{"amount":{"currency":"IDR","value":"4003.00"},"originalReferenceNo":"20250825111230999500166147200605144","merchantId":"216620000000376951592","latestTransactionStatus":"05","additionalInfo":{},"originalPartnerReferenceNo":"fd1cd10a97f717e91f82555509d1cacfc95b5d9236f01bf0fb9620387b8f068a","createdTime":"2025-08-25T10:43:02+07:00","transactionStatusDesc":"CLOSED"}';
-        
-        // Create WebhookParser instance
+        // Load keys from environment variables
         $publicKey = getenv('WEBHOOK_PUBLIC_KEY');
-        $parser = WebhookParser::create($publicKey);
         
-        // Generate mock webhook headers for testing
         $webhookHttpMethod = 'POST';
-        $webhookRelativeURL = '/webhook/payment-notifications';
-        $generatedHeaders = WebhookFixtures::generateWebhookHeaders(
-            $webhookHttpMethod,
-            $webhookRelativeURL,
-            $jsonData,
-            false // Use fixed timestamp
-        );
+        $webhookRelativeUrl = '/api/v2/test-notif/dana';
+        
+        $webhookBodyStr = '{"amount":{"currency":"IDR","value":"100000.00"},"originalReferenceNo":"20250916111230999500166191900293793","merchantId":"216620080007039826152","latestTransactionStatus":"00","additionalInfo":{"paidTime":"1757998714761","paymentInfo":{"payOptionInfos":[{"transAmount":{"currency":"IDR","value":"100000.00"},"payAmount":{"currency":"IDR","value":"100000.00"},"payMethod":"NETWORK_PAY","payOption":"NETWORK_PAY_PG_LINKAJA"}],"extendInfo":"{\"externalPromoInfos\":[]}"}},"originalPartnerReferenceNo":"LINKIT25091757998646","createdTime":"1757998647000","finishedTime":"1757998714761","transactionStatusDesc":"SUCCESS"}';
+        
+        $xTimestamp = '2025-09-16T12:11:30+07:00';
+        $signature = 'd/7mle7A+FCl4zvBZ2dMr3s7TVbbaK+toMtZwoev4OmLhn6Ctz/ynMaL3m3vHjAmV3UL3Fq5xp9thZFsO8BY74Vehqr1N9LQblV6i3TfMwT6lMvvhzWr0Fjbasyj23c5nFu1MOxpBiZFMMDNh8GQNLBAehHbjOmNldXSL6OQYRrK/TN9tdDyYFK6ltnKf4BN6bZa2ViAlI/np/U3QBW2LnDL82+8ZK7tYVF5bZyLLUSLXeWXBGQFTSDWqN+JdUHSnxGdQr3hZ7Y9Vqm/7G6rj6NrCxLPiEJYq1DQO3DjokMsORA2lOxzuo53bwqmhmD1mFhJKWF1JmyJuFdo2HB9JA==';
         
         $headers = [
-            'X-SIGNATURE' => $generatedHeaders['X-SIGNATURE'],
-            'X-TIMESTAMP' => $generatedHeaders['X-TIMESTAMP'],
+            'Channel-Id' => 'DANA',
+            'Charset' => 'UTF-8',
+            'Content-Type' => 'application/json',
+            'User-Agent' => 'Jakarta Commons-HttpClient/3.1',
+            'X-External-Id' => 'cFQ0PK5yS9wkMTMOVem4fIoUuyuA28jg',
+            'X-Partner-Id' => '2025090110410957288340',
+            'X-Signature' => $signature,
+            'X-Timestamp' => $xTimestamp
         ];
         
-        // Parse webhook data
-        $parsedData = $parser->parseWebhook(
+        // Create the parser with the public key
+        $parser = WebhookParser::create($publicKey);
+        
+        // Verify and parse
+        $result = $parser->parseWebhook(
             $webhookHttpMethod,
-            $webhookRelativeURL,
+            $webhookRelativeUrl,
             $headers,
-            $jsonData
+            $webhookBodyStr
         );
         
-        // Assertions
-        $this->assertInstanceOf(FinishNotifyRequest::class, $parsedData);
-        $this->assertEquals('fd1cd10a97f717e91f82555509d1cacfc95b5d9236f01bf0fb9620387b8f068a', $parsedData->getOriginalPartnerReferenceNo());
-        $this->assertEquals('20250825111230999500166147200605144', $parsedData->getOriginalReferenceNo());
-        $this->assertEquals('05', $parsedData->getLatestTransactionStatus());
-        $this->assertEquals('CLOSED', $parsedData->getTransactionStatusDesc());
-        $this->assertEquals('216620000000376951592', $parsedData->getMerchantId());
-        $this->assertEquals('2025-08-25T10:43:02+07:00', $parsedData->getCreatedTime());
-        
-        // Check amount object
-        $amount = $parsedData->getAmount();
-        $this->assertInstanceOf(Money::class, $amount);
-        $this->assertEquals('4003.00', $amount->getValue());
-        $this->assertEquals('IDR', $amount->getCurrency());
-        
-        $this->assertIsObject($parsedData->getAdditionalInfo());
-        $this->assertEquals('{}', json_encode($parsedData->getAdditionalInfo()));
-        
-        // Output JSON representation
-        echo "\nDirect JSON Test - Parsed Data Output:\n";
-        echo json_encode($parsedData, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+        // Verify specific fields like in the Go test
+        $this->assertNotNull($result);
+        $this->assertEquals('LINKIT25091757998646', $result->getOriginalPartnerReferenceNo());
+        $this->assertEquals('20250916111230999500166191900293793', $result->getOriginalReferenceNo());
+        $this->assertEquals('216620080007039826152', $result->getMerchantId());
+        $this->assertEquals('100000.00', $result->getAmount()->getValue());
+        $this->assertEquals('IDR', $result->getAmount()->getCurrency());
+        $this->assertEquals('00', $result->getLatestTransactionStatus());
     }
 
     public function testWebhookWithAdditionalInfo(): void

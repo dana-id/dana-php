@@ -92,6 +92,35 @@ class WebhookParser
 
 
     /**
+     * Ensure JSON is minified, checking if it's already minified before processing
+     */
+    private static function ensureMinifiedJson(string $json): string
+    {
+        // Quick check: if JSON is already minified, return as-is
+        if (self::isJsonMinified($json)) {
+            return $json;
+        }
+        
+        return self::minifyJson($json);
+    }
+
+    /**
+     * Check if JSON is already minified using heuristic indicators
+     */
+    private static function isJsonMinified(string $json): bool
+    {
+        $indicators = [': ', ', ', '{ ', '[ ', "\n", "\t", "\r"];
+        
+        foreach ($indicators as $indicator) {
+            if (strpos($json, $indicator) !== false) {
+                return false;
+            }
+        }
+        
+        return true;
+    }
+
+    /**
      * Minify a JSON string by removing unnecessary whitespace
      */
     private static function minifyJson(string $json): string
@@ -117,7 +146,7 @@ class WebhookParser
         string $body,
         string $timestamp
     ): string {
-        $minifiedBody = self::minifyJson($body);
+        $minifiedBody = self::ensureMinifiedJson($body);
         $bodyHash = self::sha256LowerHex($minifiedBody);
         
         // Ensure path starts with a slash

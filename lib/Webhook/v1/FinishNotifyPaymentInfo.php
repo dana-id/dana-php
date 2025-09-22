@@ -86,11 +86,10 @@ class FinishNotifyPaymentInfo implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'cashierRequestId' => false,
-        'paidTime' => false,
-        'payOptionInfos' => false,
-        'payRequestExtendInfo' => false,
-        'extendInfo' => false
+        'cashierRequestId' => true,
+        'paidTime' => true,
+        'payRequestExtendInfo' => true,
+        'extendInfo' => true
     ];
 
     /**
@@ -303,16 +302,10 @@ class FinishNotifyPaymentInfo implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $invalidProperties = [];
 
-        if ($this->container['cashierRequestId'] === null) {
-            $invalidProperties[] = "'cashierRequestId' can't be null";
-        }
         if ((mb_strlen($this->container['cashierRequestId']) > 64)) {
             $invalidProperties[] = "invalid value for 'cashierRequestId', the character length must be smaller than or equal to 64.";
         }
 
-        if ($this->container['paidTime'] === null) {
-            $invalidProperties[] = "'paidTime' can't be null";
-        }
         if ((mb_strlen($this->container['paidTime']) > 25)) {
             $invalidProperties[] = "invalid value for 'paidTime', the character length must be smaller than or equal to 25.";
         }
@@ -366,9 +359,6 @@ class FinishNotifyPaymentInfo implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setCashierRequestId($cashierRequestId)
     {
-        if (is_null($cashierRequestId)) {
-            throw new \InvalidArgumentException('non-nullable cashierRequestId cannot be null');
-        }
         if ((mb_strlen($cashierRequestId) > 64)) {
             throw new \InvalidArgumentException('invalid length for $cashierRequestId when calling FinishNotifyPaymentInfo., must be smaller than or equal to 64.');
         }
@@ -397,9 +387,6 @@ class FinishNotifyPaymentInfo implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function setPaidTime($paidTime)
     {
-        if (is_null($paidTime)) {
-            throw new \InvalidArgumentException('non-nullable paidTime cannot be null');
-        }
         if ((mb_strlen($paidTime) > 25)) {
             throw new \InvalidArgumentException('invalid length for $paidTime when calling FinishNotifyPaymentInfo., must be smaller than or equal to 25.');
         }

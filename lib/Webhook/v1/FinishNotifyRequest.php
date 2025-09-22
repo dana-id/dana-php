@@ -402,19 +402,11 @@ class FinishNotifyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
             $invalidProperties[] = "invalid value for 'createdTime', the character length must be smaller than or equal to 25.";
         }
 
-        if (!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['createdTime'])) {
-            $invalidProperties[] = "invalid value for 'createdTime', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
-        }
-
         if ($this->container['finishedTime'] === null) {
             $invalidProperties[] = "'finishedTime' can't be null";
         }
         if ((mb_strlen($this->container['finishedTime']) > 25)) {
             $invalidProperties[] = "invalid value for 'finishedTime', the character length must be smaller than or equal to 25.";
-        }
-
-        if (!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['finishedTime'])) {
-            $invalidProperties[] = "invalid value for 'finishedTime', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
         }
 
         if (!is_null($this->container['externalStoreId']) && (mb_strlen($this->container['externalStoreId']) > 64)) {
@@ -705,9 +697,6 @@ class FinishNotifyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         if ((mb_strlen($createdTime) > 25)) {
             throw new \InvalidArgumentException('invalid length for $createdTime when calling FinishNotifyRequest., must be smaller than or equal to 25.');
         }
-        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($createdTime)))) {
-            throw new \InvalidArgumentException("invalid value for \$createdTime when calling FinishNotifyRequest., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
-        }
 
         $this->container['createdTime'] = $createdTime;
 
@@ -738,9 +727,6 @@ class FinishNotifyRequest implements ModelInterface, ArrayAccess, \JsonSerializa
         }
         if ((mb_strlen($finishedTime) > 25)) {
             throw new \InvalidArgumentException('invalid length for $finishedTime when calling FinishNotifyRequest., must be smaller than or equal to 25.');
-        }
-        if ((!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", ObjectSerializer::toString($finishedTime)))) {
-            throw new \InvalidArgumentException("invalid value for \$finishedTime when calling FinishNotifyRequest., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
         }
 
         $this->container['finishedTime'] = $finishedTime;

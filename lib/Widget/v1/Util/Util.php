@@ -79,6 +79,9 @@ class Util
         // Get scopes based on environment
         if ($data->getScopes()) {
             $scopes = $data->getScopes();
+            if (is_array($scopes)) {
+                $scopes = implode(',', $scopes);
+            }
         } else {
             $env = getenv('DANA_ENV') ?: getenv('ENV') ?: 'sandbox';
             if (strtolower($env) !== 'production') {
