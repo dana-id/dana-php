@@ -73,10 +73,6 @@ class CreateOrderResponseAdditionalInfo extends BaseModel
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if (!is_null($this->container['paymentCode']) && (mb_strlen($this->container['paymentCode']) > 64)) {
-            $invalidProperties[] = "invalid value for 'paymentCode', the character length must be smaller than or equal to 64.";
-        }
-
         return $invalidProperties;
     }
 
@@ -92,10 +88,6 @@ class CreateOrderResponseAdditionalInfo extends BaseModel
         if (is_null($paymentCode)) {
             throw new \InvalidArgumentException('non-nullable paymentCode cannot be null');
         }
-        if ((mb_strlen($paymentCode) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $paymentCode when calling CreateOrderResponseAdditionalInfo., must be smaller than or equal to 64.');
-        }
-
         $this->container['paymentCode'] = $paymentCode;
 
         return $this;

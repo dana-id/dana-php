@@ -293,6 +293,11 @@ class PayOption
     const NETWORK_PAY_PC_INDOMARET = "NETWORK_PAY_PC_INDOMARET";
 
     /**
+     * NETWORK_PAY_PG_QRIS
+     */
+    const NETWORK_PAY_PG_QRIS = "NETWORK_PAY_PG_QRIS";
+
+    /**
      * VIRTUAL_ACCOUNT_BCA
      */
     const VIRTUAL_ACCOUNT_BCA = "VIRTUAL_ACCOUNT_BCA";
@@ -326,6 +331,11 @@ class PayOption
      * VIRTUAL_ACCOUNT_PERMATA
      */
     const VIRTUAL_ACCOUNT_PERMATA = "VIRTUAL_ACCOUNT_PERMATA";
+
+    /**
+     * VIRTUAL_ACCOUNT_PANIN
+     */
+    const VIRTUAL_ACCOUNT_PANIN = "VIRTUAL_ACCOUNT_PANIN";
 }
 
 class SourcePlatform

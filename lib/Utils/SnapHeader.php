@@ -296,7 +296,7 @@ class SnapHeader
             case self::SCENARIO_UNBINDING_ACCOUNT:
             case self::SCENARIO_BALANCE_INQUIRY:
                 // For ApplyOTT and UnbindingAccount, generate an external ID
-                $baseHeaders['X-EXTERNAL-ID'] = self::generateUuidV4();
+                $baseHeaders['X-EXTERNAL-ID'] = 'sdk' . substr(self::generateUuidV4(), 3);
                 
                 // Extract additional headers from body if needed
                 self::extractAdditionalHeaders($baseHeaders, $body);
@@ -304,7 +304,7 @@ class SnapHeader
                 
             default:
                 // Default B2B signature scenario
-                $baseHeaders['X-EXTERNAL-ID'] = self::generateUuidV4();
+                $baseHeaders['X-EXTERNAL-ID'] = 'sdk' . substr(self::generateUuidV4(), 3);
                 break;
         }
         

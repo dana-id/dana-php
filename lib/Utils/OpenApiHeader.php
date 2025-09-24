@@ -176,7 +176,7 @@ class OpenApiHeader
         $timestamp = $now->format('Y-m-d\TH:i:sP');
 
         // Generate unique request message ID
-        $reqMsgId = Uuid::uuid4()->toString();
+        $reqMsgId = 'sdk' . substr(Uuid::uuid4()->toString(), 3);
 
         // Get client secret
         $clientSecret = self::getClientSecret($config);

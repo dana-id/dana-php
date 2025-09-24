@@ -74,6 +74,7 @@ class PayOptionInfo extends BaseModel
     public const PAY_OPTION_NETWORK_PAY_PG_LINKAJA = 'NETWORK_PAY_PG_LINKAJA';
     public const PAY_OPTION_NETWORK_PAY_PG_CARD = 'NETWORK_PAY_PG_CARD';
     public const PAY_OPTION_NETWORK_PAY_PC_INDOMARET = 'NETWORK_PAY_PC_INDOMARET';
+    public const PAY_OPTION_NETWORK_PAY_PG_QRIS = 'NETWORK_PAY_PG_QRIS';
     public const PAY_OPTION_VIRTUAL_ACCOUNT_BCA = 'VIRTUAL_ACCOUNT_BCA';
     public const PAY_OPTION_VIRTUAL_ACCOUNT_BNI = 'VIRTUAL_ACCOUNT_BNI';
     public const PAY_OPTION_VIRTUAL_ACCOUNT_MANDIRI = 'VIRTUAL_ACCOUNT_MANDIRI';
@@ -81,6 +82,7 @@ class PayOptionInfo extends BaseModel
     public const PAY_OPTION_VIRTUAL_ACCOUNT_BTPN = 'VIRTUAL_ACCOUNT_BTPN';
     public const PAY_OPTION_VIRTUAL_ACCOUNT_CIMB = 'VIRTUAL_ACCOUNT_CIMB';
     public const PAY_OPTION_VIRTUAL_ACCOUNT_PERMATA = 'VIRTUAL_ACCOUNT_PERMATA';
+    public const PAY_OPTION_VIRTUAL_ACCOUNT_PANIN = 'VIRTUAL_ACCOUNT_PANIN';
 
     public function getPayMethodAllowableValues()
     {
@@ -110,6 +112,7 @@ class PayOptionInfo extends BaseModel
             self::PAY_OPTION_NETWORK_PAY_PG_LINKAJA,
             self::PAY_OPTION_NETWORK_PAY_PG_CARD,
             self::PAY_OPTION_NETWORK_PAY_PC_INDOMARET,
+            self::PAY_OPTION_NETWORK_PAY_PG_QRIS,
             self::PAY_OPTION_VIRTUAL_ACCOUNT_BCA,
             self::PAY_OPTION_VIRTUAL_ACCOUNT_BNI,
             self::PAY_OPTION_VIRTUAL_ACCOUNT_MANDIRI,
@@ -117,6 +120,7 @@ class PayOptionInfo extends BaseModel
             self::PAY_OPTION_VIRTUAL_ACCOUNT_BTPN,
             self::PAY_OPTION_VIRTUAL_ACCOUNT_CIMB,
             self::PAY_OPTION_VIRTUAL_ACCOUNT_PERMATA,
+            self::PAY_OPTION_VIRTUAL_ACCOUNT_PANIN,
         ];
     }
 
@@ -179,10 +183,6 @@ class PayOptionInfo extends BaseModel
 
         if (!is_null($this->container['extendInfo']) && (mb_strlen($this->container['extendInfo']) > 4096)) {
             $invalidProperties[] = "invalid value for 'extendInfo', the character length must be smaller than or equal to 4096.";
-        }
-
-        if (!is_null($this->container['paymentCode']) && (mb_strlen($this->container['paymentCode']) > 64)) {
-            $invalidProperties[] = "invalid value for 'paymentCode', the character length must be smaller than or equal to 64.";
         }
 
         return $invalidProperties;
@@ -341,10 +341,6 @@ class PayOptionInfo extends BaseModel
         if (is_null($paymentCode)) {
             throw new \InvalidArgumentException('non-nullable paymentCode cannot be null');
         }
-        if ((mb_strlen($paymentCode) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $paymentCode when calling PayOptionInfo., must be smaller than or equal to 64.');
-        }
-
         $this->container['paymentCode'] = $paymentCode;
 
         return $this;
