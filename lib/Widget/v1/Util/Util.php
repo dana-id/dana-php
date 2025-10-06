@@ -38,9 +38,9 @@ class Util
             }
         } else if ($mode === Mode::API) {
             if ($env === 'production') {
-                $baseUrl = 'https://m.dana.id/n/ipg/oauth';
+                $baseUrl = 'https://m.dana.id/v1.0/get-auth-code';
             } else {
-                $baseUrl = 'https://m.sandbox.dana.id/n/ipg/oauth';
+                $baseUrl = 'https://m.sandbox.dana.id/v1.0/get-auth-code';
             }
         }   
         
