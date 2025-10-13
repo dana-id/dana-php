@@ -92,16 +92,40 @@ class WebhookParser
 
 
     /**
+     * Process nested JSON fields to handle double-escaped quotes
+     */
+    private static function processNestedJSONFields(string $jsonStr): string
+    {
+        $normalizedStr = str_replace('\\"', '\"', $jsonStr);
+        
+        return preg_replace_callback(
+            '/"(\w+)":"(\{.*?\})"/U',
+            function ($matches) {
+                $fieldName = $matches[1];
+                $jsonValue = $matches[2];
+                
+                $escapedValue = str_replace('"', '\"', $jsonValue);
+                
+                return "\"{$fieldName}\":\"{$escapedValue}\"";
+            },
+            $normalizedStr
+        );
+    }
+
+    /**
      * Ensure JSON is minified, checking if it's already minified before processing
      */
     private static function ensureMinifiedJson(string $json): string
     {
-        // Quick check: if JSON is already minified, return as-is
-        if (self::isJsonMinified($json)) {
-            return $json;
+        $normalizedStr = str_replace('\\"', '\"', $json);
+        
+        if (self::isJsonMinified($normalizedStr)) {
+            return $normalizedStr;
         }
         
-        return self::minifyJson($json);
+        $processedStr = self::processNestedJSONFields($normalizedStr);
+        
+        return self::minifyJson($processedStr);
     }
 
     /**
@@ -181,10 +205,12 @@ class WebhookParser
         $xSignature = $headers['X-SIGNATURE'];
         $xTimestamp = $headers['X-TIMESTAMP'];
 
+        $processedBody = self::ensureMinifiedJson($body);
+
         $stringToVerify = $this->constructStringToVerify(
             strtoupper($httpMethod),
             $relativePathURL,
-            $body,
+            $processedBody,
             $xTimestamp
         );
 
@@ -193,7 +219,6 @@ class WebhookParser
             throw new Exception('Failed to base64 decode X-SIGNATURE');
         }
 
-        // Verify the signature - using the same algorithm as in SnapHeader::generateSignature
         $result = openssl_verify(
             $stringToVerify,
             $signature,
@@ -206,13 +231,10 @@ class WebhookParser
         }
 
         if ($result !== 1) {
-            throw new Exception(sprintf(
-                'Signature verification failed. StringToVerify: %s',
-                $stringToVerify
-            ));
+            throw new Exception('Signature verification failed');
         }
 
-        $data = json_decode($body, false, 512, JSON_THROW_ON_ERROR);
+        $data = json_decode($processedBody, false, 512, JSON_THROW_ON_ERROR);
         
         $request = new FinishNotifyRequest();
         

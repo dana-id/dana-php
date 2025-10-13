@@ -238,4 +238,50 @@ JSON;
         echo "\nAdditionalInfo JSON Test - Parsed Data Output:\n";
         echo json_encode($parsedData, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
     }
+
+    public function testWebhookWithDoubleEscapedQuotes(): void
+    {
+        // Load keys from environment variables
+        $publicKey = getenv('WEBHOOK_PUBLIC_KEY');
+        
+        $webhookHttpMethod = 'POST';
+        $webhookRelativeUrl = '/d34021fa-7599-413b-8743-ddab605fea49';
+        
+        // This webhook body contains double-escaped quotes in extendInfo field
+        $webhookBodyStr = '{"amount":{"currency":"IDR","value":"50000.00"},"originalReferenceNo":"20251010111230999500166931000229476","merchantId":"216620090016041032029","latestTransactionStatus":"00","additionalInfo":{"paidTime":"2025-10-10T16:16:33+07:00","paymentInfo":{"payOptionInfos":[{"transAmount":{"currency":"IDR","value":"50000.00"},"payAmount":{"currency":"IDR","value":"50000.00"},"payMethod":"VIRTUAL_ACCOUNT","payOption":"VIRTUAL_ACCOUNT_BRI"}],"extendInfo":"{\\"externalPromoInfos\\":[]}"}},"originalPartnerReferenceNo":"ORDER-1760087736146","createdTime":"2025-10-10T16:15:37+07:00","finishedTime":"2025-10-10T16:16:33+07:00","transactionStatusDesc":"SUCCESS"}';
+        
+        $xTimestamp = '2025-10-13T13:43:30+07:00';
+        $signature = 'fqrQPxlzEN4ZGW9vYt3PokmIrbG2HQtlbdj6krjf9HFW1qS3ilZjSR+9Z4XZNYxQIxyHHqXmjEiBU4ui/JrknSXlCpPQe7DztB/Ye+yLxIHYBnwdeCXn2zGGAV51nQki+eD2aL8Z6d6MyWz9hoytwE+jtWKUC0KtU7wQfoB0XjdEXzU3/4Ao/rWQbt97UONaaf7i5l3+M/ICP187PYw9iRHLUFh7WRPs8JKpZyO0kcJqEJbeOUjHMmIsLQImOlYVbQTM/1v89Ou1WcVAo0cXNE5yrvosB4pQROeI8KY2X1FNTuB1pdFtQTIyUcd/t1wuIxqHqqFKjrFdcQxlZOIyRg==';
+        
+        $headers = [
+            'Channel-Id' => 'DANA',
+            'Charset' => 'UTF-8',
+            'Content-Type' => 'application/json',
+            'User-Agent' => 'Jakarta Commons-HttpClient/3.1',
+            'X-External-Id' => 'nXPTWcwt7lgCOy01wWGKDerEMlKwV5wc',
+            'X-Partner-Id' => '2025091611385324660336',
+            'X-Signature' => $signature,
+            'X-Timestamp' => $xTimestamp
+        ];
+        
+        // Create the parser with the public key
+        $parser = WebhookParser::create($publicKey);
+        
+        // Verify and parse - this should work with the JSON normalization
+        $result = $parser->parseWebhook(
+            $webhookHttpMethod,
+            $webhookRelativeUrl,
+            $headers,
+            $webhookBodyStr
+        );
+        
+        // Verify specific fields like in the Go test
+        $this->assertNotNull($result);
+        $this->assertEquals('ORDER-1760087736146', $result->getOriginalPartnerReferenceNo());
+        $this->assertEquals('20251010111230999500166931000229476', $result->getOriginalReferenceNo());
+        $this->assertEquals('216620090016041032029', $result->getMerchantId());
+        $this->assertEquals('50000.00', $result->getAmount()->getValue());
+        $this->assertEquals('IDR', $result->getAmount()->getCurrency());
+        $this->assertEquals('00', $result->getLatestTransactionStatus());
+    }
 }
