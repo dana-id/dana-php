@@ -154,6 +154,7 @@ class Configuration
         $privateKeyPath = getenv('PRIVATE_KEY_PATH');
         $env = getenv('DANA_ENV') ?: getenv('ENV') ?: Env::SANDBOX;
         $clientSecret = getenv('CLIENT_SECRET');
+        $debug = getenv('X_DEBUG') ?: getenv('X_DEBUG') ?: false;
         
         // Set API keys based on environment variables
         if ($origin) {
@@ -182,6 +183,8 @@ class Configuration
         
         // Set correct host based on environment
         $this->setHost($this->getEnvironmentBaseUrl($env));
+
+        $this->setApiKey('X_DEBUG', $debug);
     }
 
     /**

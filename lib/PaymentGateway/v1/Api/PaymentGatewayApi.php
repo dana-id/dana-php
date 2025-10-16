@@ -480,7 +480,7 @@ class PaymentGatewayApi
 
             // Generate security headers using SnapHeader utility
             $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($cancelOrderRequest));
-            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, "", $this->config);
+            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, "", $this->config, true);
             
             // Add security headers to the request
             foreach ($snapHeaders as $key => $value) {
@@ -808,7 +808,7 @@ class PaymentGatewayApi
 
             // Generate security headers using SnapHeader utility
             $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($consultPayRequest));
-            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, "", $this->config);
+            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, "", $this->config, true);
             
             // Add security headers to the request
             foreach ($snapHeaders as $key => $value) {
@@ -1136,7 +1136,7 @@ class PaymentGatewayApi
 
             // Generate security headers using SnapHeader utility
             $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($createOrderRequest));
-            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, "", $this->config);
+            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, "", $this->config, true);
             
             // Add security headers to the request
             foreach ($snapHeaders as $key => $value) {
@@ -1464,7 +1464,7 @@ class PaymentGatewayApi
 
             // Generate security headers using SnapHeader utility
             $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($queryPaymentRequest));
-            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, "", $this->config);
+            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, "", $this->config, true);
             
             // Add security headers to the request
             foreach ($snapHeaders as $key => $value) {
@@ -1827,7 +1827,7 @@ class PaymentGatewayApi
 
             // Generate security headers using SnapHeader utility
             $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($refundOrderRequest));
-            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, "", $this->config);
+            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, "", $this->config, true);
             
             // Add security headers to the request
             foreach ($snapHeaders as $key => $value) {

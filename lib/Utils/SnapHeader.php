@@ -259,12 +259,13 @@ class SnapHeader
      * @return array Array of headers
      */
     public static function generateHeaders(string $httpMethod, string $path, string $body, 
-                                           string $scenario, Configuration $config): array
+                                           string $scenario, Configuration $config, bool $supportDebugMode = false): array
     {
         $privateKey = $config->getApiKeyWithPrefix('PRIVATE_KEY');
         $privateKeyPath = $config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
         $clientId = $config->getApiKeyWithPrefix('X_PARTNER_ID');
         $origin = $config->getApiKeyWithPrefix('ORIGIN');
+        $debug = $config->getApiKeyWithPrefix('X_DEBUG');
         
         // Format timestamp as YYYY-MM-DDTHH:mm:ss+07:00 in GMT+7 (Jakarta time)
         $jakartaTimezone = new \DateTimeZone('Asia/Jakarta');
@@ -284,6 +285,12 @@ class SnapHeader
             'ORIGIN' => $origin,
             'CHANNEL-ID' => '95221',
         ];
+
+        $env = strtolower($config->getApiKeyWithPrefix('ENV')) || strtolower($config->getApiKeyWithPrefix('DANA_ENV'));
+
+        if ($supportDebugMode && $debug === 'true' && $env !== 'production') {
+            $baseHeaders['X-Debug-Mode'] = 1;
+        }
         
         // Apply different header configurations based on the scenario
         switch ($scenario) {

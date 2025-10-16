@@ -121,7 +121,7 @@ class PaymentGatewayFixtures
             ->format('Y-m-d\TH:i:s+07:00');
             
         return new CreateOrderByApiRequest([
-            'partnerReferenceNo' => date('Y-m-d\TH:i:s\Z'),
+            'partnerReferenceNo' => $partnerReferenceNo,
             'merchantId' => $merchantId,
             'amount' => new Money([
                 'value' => '222000.00',

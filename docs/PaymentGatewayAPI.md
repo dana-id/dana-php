@@ -47,6 +47,9 @@ $configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
 $configuration->setApiKey('DANA_ENV', Env::SANDBOX);
 // Choose one of ENV or DANA_ENV to set, if you set both, ENV will be ignored
 // $configuration->setApiKey('ENV', Env::SANDBOX);
+// Set to 'true' to enable debug mode
+// Debug mode will show reason of failed request in additionalInfo.debugMessage in response
+// $configuration->setApiKey('X_DEBUG', getenv('X_DEBUG'));
 
 
 
@@ -107,6 +110,9 @@ $configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
 $configuration->setApiKey('DANA_ENV', Env::SANDBOX);
 // Choose one of ENV or DANA_ENV to set, if you set both, ENV will be ignored
 // $configuration->setApiKey('ENV', Env::SANDBOX);
+// Set to 'true' to enable debug mode
+// Debug mode will show reason of failed request in additionalInfo.debugMessage in response
+// $configuration->setApiKey('X_DEBUG', getenv('X_DEBUG'));
 
 
 
@@ -167,6 +173,9 @@ $configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
 $configuration->setApiKey('DANA_ENV', Env::SANDBOX);
 // Choose one of ENV or DANA_ENV to set, if you set both, ENV will be ignored
 // $configuration->setApiKey('ENV', Env::SANDBOX);
+// Set to 'true' to enable debug mode
+// Debug mode will show reason of failed request in additionalInfo.debugMessage in response
+// $configuration->setApiKey('X_DEBUG', getenv('X_DEBUG'));
 
 
 
@@ -227,6 +236,9 @@ $configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
 $configuration->setApiKey('DANA_ENV', Env::SANDBOX);
 // Choose one of ENV or DANA_ENV to set, if you set both, ENV will be ignored
 // $configuration->setApiKey('ENV', Env::SANDBOX);
+// Set to 'true' to enable debug mode
+// Debug mode will show reason of failed request in additionalInfo.debugMessage in response
+// $configuration->setApiKey('X_DEBUG', getenv('X_DEBUG'));
 
 
 
@@ -287,6 +299,9 @@ $configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
 $configuration->setApiKey('DANA_ENV', Env::SANDBOX);
 // Choose one of ENV or DANA_ENV to set, if you set both, ENV will be ignored
 // $configuration->setApiKey('ENV', Env::SANDBOX);
+// Set to 'true' to enable debug mode
+// Debug mode will show reason of failed request in additionalInfo.debugMessage in response
+// $configuration->setApiKey('X_DEBUG', getenv('X_DEBUG'));
 
 
 

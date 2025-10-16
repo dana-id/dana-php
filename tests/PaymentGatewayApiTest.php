@@ -266,4 +266,27 @@ class PaymentGatewayApiTest extends TestCase
             echo "Got exception of type " . get_class($e) . ": {$e->getMessage()}" . PHP_EOL;
         }
     }
+
+    /**
+     * Test debug mode
+     * 
+     * This test verifies that the debug mode is properly working
+     * 
+     * @return void
+     */
+    public function testDebugMode(): void
+    {        
+        $createOrderRequest = PaymentGatewayFixtures::getCreateOrderByApiRequest();
+        $createOrderRequest->setExternalStoreId('test_debug_mode');
+        
+        try {
+            $response = $this->apiInstance->createOrder($createOrderRequest);
+
+            $this->fail("Supposed to fail");
+            
+        } catch (\Exception $e) {
+            $this->assertStringContainsString('debugMessage', $e->getMessage());
+        }
+       
+    }
 }
