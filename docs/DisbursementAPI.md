@@ -5,11 +5,11 @@ All URIs are relative to http://api.sandbox.dana.id for sandbox and https://api.
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**bankAccountInquiry()**](DisbursementApi.md#bankaccountinquiry) | **POST** /v1.0/emoney/bank-account-inquiry.htm | Transfer to Bank Account Inquiry |
-| [**danaAccountInquiry()**](DisbursementApi.md#danaaccountinquiry) | **POST** /v1.0/emoney/account-inquiry.htm | DANA Account Inquiry |
+| [**danaAccountInquiry()**](DisbursementApi.md#danaaccountinquiry) | **POST** /rest/v1.0/emoney/account-inquiry | DANA Account Inquiry |
 | [**transferToBank()**](DisbursementApi.md#transfertobank) | **POST** /v1.0/emoney/transfer-bank.htm | Transfer to Bank |
 | [**transferToBankInquiryStatus()**](DisbursementApi.md#transfertobankinquirystatus) | **POST** /v1.0/emoney/transfer-bank-status.htm | Transfer to Bank Inquiry Status |
-| [**transferToDana()**](DisbursementApi.md#transfertodana) | **POST** /v1.0/emoney/topup.htm | Transfer to DANA |
-| [**transferToDanaInquiryStatus()**](DisbursementApi.md#transfertodanainquirystatus) | **POST** /v1.0/emoney/topup-status.htm | Transfer to DANA Inquiry Status |
+| [**transferToDana()**](DisbursementApi.md#transfertodana) | **POST** /rest/v1.0/emoney/topup | Transfer to DANA |
+| [**transferToDanaInquiryStatus()**](DisbursementApi.md#transfertodanainquirystatus) | **POST** /rest/v1.0/emoney/topup-status | Transfer to DANA Inquiry Status |
 
 
 ## Additional Documentation
@@ -403,14 +403,14 @@ $model->setProperty('DIVISION');
 
 | Constant | Value |
 |----------|-------|
-| `00` | `00` |
-| `01` | `01` |
-| `02` | `02` |
-| `03` | `03` |
-| `04` | `04` |
-| `05` | `05` |
-| `06` | `06` |
-| `07` | `07` |
+| `VALUE_00` | `00` |
+| `VALUE_01` | `01` |
+| `VALUE_02` | `02` |
+| `VALUE_03` | `03` |
+| `VALUE_04` | `04` |
+| `VALUE_05` | `05` |
+| `VALUE_06` | `06` |
+| `VALUE_07` | `07` |
 
 
 # WebhookParser

@@ -15,7 +15,8 @@ class ConsultPayRequest extends BaseModel
     protected static $openAPITypes = [
         'merchantId' => 'string',
         'amount' => '\Dana\PaymentGateway\v1\Model\Money',
-        'additionalInfo' => '\Dana\PaymentGateway\v1\Model\ConsultPayRequestAdditionalInfo'
+        'additionalInfo' => '\Dana\PaymentGateway\v1\Model\ConsultPayRequestAdditionalInfo',
+        'externalStoreId' => 'string'
     ];
 
     protected static $openAPIFormats = [
@@ -88,6 +89,10 @@ class ConsultPayRequest extends BaseModel
         if ($this->container['additionalInfo'] === null) {
             $invalidProperties[] = "'additionalInfo' can't be null";
         }
+        if (!is_null($this->container['externalStoreId']) && (mb_strlen($this->container['externalStoreId']) > 64)) {
+            $invalidProperties[] = "invalid value for 'externalStoreId', the character length must be smaller than or equal to 64.";
+        }
+
         return $invalidProperties;
     }
 
@@ -138,6 +143,25 @@ class ConsultPayRequest extends BaseModel
             throw new \InvalidArgumentException('non-nullable additionalInfo cannot be null');
         }
         $this->container['additionalInfo'] = $additionalInfo;
+
+        return $this;
+    }
+
+    public function getExternalStoreId()
+    {
+        return $this->container['externalStoreId'];
+    }
+
+    public function setExternalStoreId($externalStoreId)
+    {
+        if (is_null($externalStoreId)) {
+            throw new \InvalidArgumentException('non-nullable externalStoreId cannot be null');
+        }
+        if ((mb_strlen($externalStoreId) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $externalStoreId when calling ConsultPayRequest., must be smaller than or equal to 64.');
+        }
+
+        $this->container['externalStoreId'] = $externalStoreId;
 
         return $this;
     }

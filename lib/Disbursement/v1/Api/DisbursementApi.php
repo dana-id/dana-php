@@ -705,7 +705,7 @@ class DisbursementApi
         }
 
 
-        $resourcePath = '/v1.0/emoney/account-inquiry.htm';
+        $resourcePath = '/rest/v1.0/emoney/account-inquiry';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -771,7 +771,7 @@ class DisbursementApi
         $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
         $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
         if (isset($danaAccountInquiryRequest)) {
-            $resourcePathForSignature = '/v1.0/emoney/account-inquiry.htm';
+            $resourcePathForSignature = '/rest/v1.0/emoney/account-inquiry';
             if ($danaAccountInquiryRequest !== null) {
                 $resourcePathForSignature = str_replace(
                     '{' . 'DanaAccountInquiryRequest' . '}',
@@ -1733,7 +1733,7 @@ class DisbursementApi
         }
 
 
-        $resourcePath = '/v1.0/emoney/topup.htm';
+        $resourcePath = '/rest/v1.0/emoney/topup';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1799,7 +1799,7 @@ class DisbursementApi
         $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
         $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
         if (isset($transferToDanaRequest)) {
-            $resourcePathForSignature = '/v1.0/emoney/topup.htm';
+            $resourcePathForSignature = '/rest/v1.0/emoney/topup';
             if ($transferToDanaRequest !== null) {
                 $resourcePathForSignature = str_replace(
                     '{' . 'TransferToDanaRequest' . '}',
@@ -2064,7 +2064,7 @@ class DisbursementApi
         }
 
 
-        $resourcePath = '/v1.0/emoney/topup-status.htm';
+        $resourcePath = '/rest/v1.0/emoney/topup-status';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2130,7 +2130,7 @@ class DisbursementApi
         $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
         $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
         if (isset($transferToDanaInquiryStatusRequest)) {
-            $resourcePathForSignature = '/v1.0/emoney/topup-status.htm';
+            $resourcePathForSignature = '/rest/v1.0/emoney/topup-status';
             if ($transferToDanaInquiryStatusRequest !== null) {
                 $resourcePathForSignature = str_replace(
                     '{' . 'TransferToDanaInquiryStatusRequest' . '}',

@@ -298,6 +298,11 @@ class PayOption
     const NETWORK_PAY_PG_QRIS = "NETWORK_PAY_PG_QRIS";
 
     /**
+     * NETWORK_PAY_PL_INDODANA
+     */
+    const NETWORK_PAY_PL_INDODANA = "NETWORK_PAY_PL_INDODANA";
+
+    /**
      * VIRTUAL_ACCOUNT_BCA
      */
     const VIRTUAL_ACCOUNT_BCA = "VIRTUAL_ACCOUNT_BCA";

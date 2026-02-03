@@ -75,9 +75,6 @@ class ConsultPayRequestAdditionalInfo extends BaseModel
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['buyer'] === null) {
-            $invalidProperties[] = "'buyer' can't be null";
-        }
         if ($this->container['envInfo'] === null) {
             $invalidProperties[] = "'envInfo' can't be null";
         }

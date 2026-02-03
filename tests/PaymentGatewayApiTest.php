@@ -88,6 +88,61 @@ class PaymentGatewayApiTest extends TestCase
     }
     
     /**
+     * Test ConsultPay operation without buyer
+     *
+     * @return void
+     */
+    public function testConsultPayWithoutBuyer()
+    {
+        $consultPayRequest = PaymentGatewayFixtures::getConsultPayRequestWithoutBuyer();
+        
+        try {
+            $response = $this->apiInstance->consultPay($consultPayRequest);
+            
+            // Assert response properties
+            $this->assertInstanceOf(ConsultPayResponse::class, $response);
+            $this->assertNotEmpty($response->getResponseCode());
+            $this->assertNotEmpty($response->getResponseMessage());
+            
+            // When successful, the response code should be 2005700
+            if ($response->getResponseCode() === '2005700') {
+                $this->assertEquals('Successful', $response->getResponseMessage());
+                $this->assertNotNull($response->getPaymentInfos());
+                // Verify all payment infos have payMethod
+                foreach ($response->getPaymentInfos() as $paymentInfo) {
+                    $this->assertNotNull($paymentInfo->getPayMethod());
+                }
+            }
+            
+            // Output response for debugging
+            echo "ConsultPay Without Buyer Response: " . print_r($response->__toString(), true) . PHP_EOL;
+        } catch (\Exception $e) {
+            $this->fail("ConsultPay without buyer request failed: " . $e->getMessage());
+        }
+    }
+
+    public function testConsultPayWithExternalStoreId()
+    {
+        
+        try {
+            $consultPayRequest = PaymentGatewayFixtures::getConsultPayRequestWithExternalStoreId();
+            $response = $this->apiInstance->consultPay($consultPayRequest);
+            $this->assertNotNull($response);
+            $this->assertNotNull($response->getResponseCode());
+            $this->assertEquals('2005700', $response->getResponseCode());
+            $this->assertNotNull($response->getResponseMessage());
+
+            foreach ($response->getPaymentInfos() as $paymentInfo) {
+                $this->assertNotNull($paymentInfo->getPayMethod());
+            }
+
+            echo "ConsultPay With External Store Id Response: " . print_r($response->__toString(), true) . PHP_EOL;
+        } catch (\Exception $e) {
+            $this->fail("ConsultPay with external store id request failed: " . $e->getMessage());
+        }
+    }
+
+    /**
      * Test CreateOrder operation
      *
      * @return string The partner reference number for subsequent tests

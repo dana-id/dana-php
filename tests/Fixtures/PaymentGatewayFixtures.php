@@ -106,6 +106,63 @@ class PaymentGatewayFixtures
     }
 
     /**
+     * Get a ConsultPayRequest fixture without buyer
+     * 
+     * @return ConsultPayRequest
+     */
+    public static function getConsultPayRequestWithoutBuyer(): ConsultPayRequest
+    {
+        $request = new ConsultPayRequest([
+            'merchantId' => self::getMerchantId(),
+            'amount' => new Money([
+                'value' => '12345678.00',
+                'currency' => 'IDR'
+            ]),
+            'additionalInfo' => new ConsultPayRequestAdditionalInfo([
+                'envInfo' => new EnvInfo([
+                    'sessionId' => '8EU6mLl5mUpUBgyRFT4v7DjfQ3fcauthcenter',
+                    'tokenId' => 'a8d359d6-ca3d-4048-9295-bbea5f6715a6',
+                    'websiteLanguage' => 'en_US',
+                    'clientIp' => '10.15.8.189',
+                    'osType' => 'Windows.PC',
+                    'appVersion' => '1.0',
+                    'sdkVersion' => '1.0',
+                    'sourcePlatform' => SourcePlatform::IPG,
+                    'orderOsType' => 'IOS',
+                    'merchantAppVersion' => '1.0',
+                    'terminalType' => TerminalType::SYSTEM,
+                    'orderTerminalType' => OrderTerminalType::WEB,
+                    'extendInfo' => '{"deviceId":"CV19A56370e8a00d54293aab8001e4794"}'
+                ]),
+                'merchantTransType' => 'SPECIAL_MOVIE'
+            ])
+        ]);
+
+        return $request;
+    }
+
+    public static function getConsultPayRequestWithExternalStoreId(): ConsultPayRequest
+    {
+        $request = new ConsultPayRequest([
+            'merchantId' => self::getMerchantId(),
+            'amount' => new Money([
+                'value' => '12345678.00',
+                'currency' => 'IDR'
+            ]),
+            'additionalInfo' => new ConsultPayRequestAdditionalInfo([
+                'envInfo' => new EnvInfo([
+                    'sourcePlatform' => SourcePlatform::IPG,
+                    'terminalType' => TerminalType::SYSTEM,
+                ]),
+                'merchantTransType' => 'SPECIAL_MOVIE'
+            ]),
+            'externalStoreId' => 'test_shop'
+        ]);
+        
+        return $request;
+    }
+
+    /**
      * Get a CreateOrderByApiRequest fixture
      * 
      * @return CreateOrderByApiRequest

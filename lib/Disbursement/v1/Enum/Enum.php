@@ -36,41 +36,41 @@ class LatestTransactionStatus
     /**
      * 00
      */
-    const 00 = "00";
+    const VALUE_00 = "00";
 
     /**
      * 01
      */
-    const 01 = "01";
+    const VALUE_01 = "01";
 
     /**
      * 02
      */
-    const 02 = "02";
+    const VALUE_02 = "02";
 
     /**
      * 03
      */
-    const 03 = "03";
+    const VALUE_03 = "03";
 
     /**
      * 04
      */
-    const 04 = "04";
+    const VALUE_04 = "04";
 
     /**
      * 05
      */
-    const 05 = "05";
+    const VALUE_05 = "05";
 
     /**
      * 06
      */
-    const 06 = "06";
+    const VALUE_06 = "06";
 
     /**
      * 07
      */
-    const 07 = "07";
+    const VALUE_07 = "07";
 }
 
