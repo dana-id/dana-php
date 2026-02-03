@@ -38,6 +38,7 @@ use Dana\ApiException;
 use Dana\Configuration;
 use Dana\HeaderSelector;
 use Dana\ObjectSerializer;
+use Dana\Env;
 use Dana\Utils\SnapHeader;
 
 /**
@@ -705,7 +706,15 @@ class DisbursementApi
         }
 
 
-        $resourcePath = '/rest/v1.0/emoney/account-inquiry';
+        // Determine resource path based on environment
+
+
+
+        $env = strtolower($this->config->getApiKeyWithPrefix('DANA_ENV') ?: $this->config->getApiKeyWithPrefix('ENV') ?: Env::SANDBOX);
+
+
+
+        $resourcePath = ($env === Env::PRODUCTION) ? '/v1.0/emoney/account-inquiry.htm' : '/rest/v1.0/emoney/account-inquiry';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -771,7 +780,11 @@ class DisbursementApi
         $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
         $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
         if (isset($danaAccountInquiryRequest)) {
-            $resourcePathForSignature = '/rest/v1.0/emoney/account-inquiry';
+            // Determine resource path for signature based on environment
+
+            $envForSignature = strtolower($this->config->getApiKeyWithPrefix('DANA_ENV') ?: $this->config->getApiKeyWithPrefix('ENV') ?: Env::SANDBOX);
+
+            $resourcePathForSignature = ($envForSignature === Env::PRODUCTION) ? '/v1.0/emoney/account-inquiry.htm' : '/rest/v1.0/emoney/account-inquiry';
             if ($danaAccountInquiryRequest !== null) {
                 $resourcePathForSignature = str_replace(
                     '{' . 'DanaAccountInquiryRequest' . '}',
