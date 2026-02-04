@@ -49,6 +49,7 @@
             "Dana\\": "lib/"
         },
         "classmap": [
+            "lib/",
             "lib/PaymentGateway/v1/Enum/Enum.php",
             "lib/Widget/v1/Enum/Enum.php",
             "lib/MerchantManagement/v1/Enum/Enum.php",
