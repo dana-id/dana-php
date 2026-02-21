@@ -156,6 +156,10 @@ class SnapHeader
         
         // Replace escaped newlines with actual newlines
         $key = str_replace('\\n', "\n", $key);
+
+        // Normalize Windows CRLF/CR to LF so PEM copied from Windows works consistently
+        $key = str_replace("\r\n", "\n", $key);
+        $key = str_replace("\r", "\n", $key);
         
         // Check if key already has headers/footers
         foreach ($possibleHeaders as $index => $header) {
@@ -286,9 +290,12 @@ class SnapHeader
             'CHANNEL-ID' => '95221',
         ];
 
-        $env = strtolower($config->getApiKeyWithPrefix('ENV')) || strtolower($config->getApiKeyWithPrefix('DANA_ENV'));
+        $env = strtolower(($config->getApiKeyWithPrefix('ENV') ?: $config->getApiKeyWithPrefix('DANA_ENV')) ?: 'sandbox');
 
-        if ($supportDebugMode && $debug === 'true' && $env !== 'production') {
+        // In sandbox, enable X-Debug-Mode by default unless X_DEBUG is explicitly "false"
+        $xDebug = getenv('X_DEBUG');
+        $debugEnabled = ($xDebug === false || $xDebug === '') || strtolower($xDebug) !== 'false';
+        if ($supportDebugMode && $env !== 'production' && $debugEnabled) {
             $baseHeaders['X-Debug-Mode'] = 1;
         }
         

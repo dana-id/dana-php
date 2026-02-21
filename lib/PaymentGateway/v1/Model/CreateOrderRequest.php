@@ -5,6 +5,7 @@ namespace Dana\PaymentGateway\v1\Model;
 use Dana\ObjectSerializer;
 use Dana\Model\BaseModel;
 use Dana\PaymentGateway\v1\Enum;
+use Dana\Utils\DateValidation;
 
 class CreateOrderRequest extends BaseModel
 {
@@ -107,11 +108,14 @@ class CreateOrderRequest extends BaseModel
             $invalidProperties[] = "invalid value for 'externalStoreId', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['validUpTo']) && (mb_strlen($this->container['validUpTo']) > 25)) {
+        if ($this->container['validUpTo'] === null) {
+            $invalidProperties[] = "'validUpTo' can't be null";
+        }
+        if ((mb_strlen($this->container['validUpTo']) > 25)) {
             $invalidProperties[] = "invalid value for 'validUpTo', the character length must be smaller than or equal to 25.";
         }
 
-        if (!is_null($this->container['validUpTo']) && !preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['validUpTo'])) {
+        if (!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['validUpTo'])) {
             $invalidProperties[] = "invalid value for 'validUpTo', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
         }
 
@@ -253,31 +257,13 @@ class CreateOrderRequest extends BaseModel
             throw new \InvalidArgumentException("invalid value for \$validUpTo when calling CreateOrderRequest., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
         }
 
-        // Validate that validUpTo date is not more than one week in the future
+        // Validate that validUpTo date is not more than 30 minutes in the future (sandbox only)
         if ($validUpTo !== null) {
             try {
-                // Create Jakarta timezone object (GMT+7)
-                $jakartaTz = new \DateTimeZone('Asia/Jakarta');
-                
-                // Current date in Jakarta timezone
-                $currentDate = new \DateTime('now', $jakartaTz);
-                
-                // Maximum allowed date (current date + 7 days)
-                $maxDate = clone $currentDate;
-                $maxDate->add(new \DateInterval('P7D'));
-                
-                // Parse the input date (assuming it's in ISO 8601 format with +07:00 timezone)
-                $inputDate = new \DateTime($validUpTo, $jakartaTz);
-                
-                // Check if the input date exceeds the maximum allowed date
-                if ($inputDate > $maxDate) {
-                    throw new \InvalidArgumentException(
-                        'validUpTo date cannot be more than one week in the future'
-                    );
-                }
+                DateValidation::validateValidUpToDate($validUpTo);
             } catch (\Exception $e) {
                 throw new \InvalidArgumentException(
-                    'validUpTo date cannot be more than one week in the future'
+                    'validUpTo validation failed: ' . $e->getMessage()
                 );
             }
         }

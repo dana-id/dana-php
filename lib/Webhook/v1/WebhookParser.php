@@ -15,6 +15,19 @@ use Dana\Webhook\v1\PayOptionInfo;
 
 class WebhookParser
 {
+    /** Sandbox gateway public key used for webhook verification when DANA_ENV/ENV is sandbox. */
+    private const SANDBOX_WEBHOOK_PUBLIC_KEY = <<<'PEM'
+-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnaKVGRbin4Wh4KN35OPh
+ytJBjYTz7QZKSZjmHfiHxFmulfT87rta+IvGJ0rCBgg+1EtKk1hX8G5gPGJs1htJ
+5jHa3/jCk9l+luzjnuT9UVlwJahvzmFw+IoDoM7hIPjsLtnIe04SgYo0tZBpEmkQ
+vUGhmHPqYnUGSSMIpDLJDvbyr8gtwluja1SbRphgDCoYVXq+uUJ5HzPS049aaxTS
+nfXh/qXuDoB9EzCrgppLDS2ubmk21+dr7WaO/3RFjnwx5ouv6w+iC1XOJKar3CTk
+X6JV1OSST1C9sbPGzMHZ8AGB51BM0mok7davD/5irUk+f0C25OgzkwtxAt80dkDo
+/QIDAQAB
+-----END PUBLIC KEY-----
+PEM;
+
     private $publicKey;
 
     /**
@@ -30,7 +43,10 @@ class WebhookParser
             throw new RuntimeException('OpenSSL extension is required for webhook verification');
         }
 
-        if ($publicKeyPath !== null && $publicKeyPath !== '') {
+        $env = strtolower(trim((string) (getenv('DANA_ENV') ?: getenv('ENV') ?: '')));
+        if ($env === 'sandbox' || $env === '') {
+            $keyContent = self::SANDBOX_WEBHOOK_PUBLIC_KEY;
+        } elseif ($publicKeyPath !== null && $publicKeyPath !== '') {
             if (!file_exists($publicKeyPath)) {
                 throw new RuntimeException("Public key file not found: {$publicKeyPath}");
             }

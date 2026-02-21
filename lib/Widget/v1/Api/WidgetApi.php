@@ -383,6 +383,16 @@ class WidgetApi
         }
 
 
+        // Run custom validations (e.g., validUpTo date validation)
+        // This validation runs even when structs are created directly (bypassing setters)
+        try {
+            \Dana\Widget\v1\CustomValidation::validate($accountUnbindingRequest);
+        } catch (\Dana\ApiException $e) {
+            throw $e;
+        } catch (\Exception $e) {
+            throw new \InvalidArgumentException('Custom validation failed: ' . $e->getMessage());
+        }
+
         $resourcePath = '/v1.0/registration-account-unbinding.htm';
         $formParams = [];
         $queryParams = [];
@@ -734,6 +744,16 @@ class WidgetApi
             );
         }
 
+
+        // Run custom validations (e.g., validUpTo date validation)
+        // This validation runs even when structs are created directly (bypassing setters)
+        try {
+            \Dana\Widget\v1\CustomValidation::validate($applyOTTRequest);
+        } catch (\Dana\ApiException $e) {
+            throw $e;
+        } catch (\Exception $e) {
+            throw new \InvalidArgumentException('Custom validation failed: ' . $e->getMessage());
+        }
 
         $resourcePath = '/rest/v1.1/qr/apply-ott';
         $formParams = [];
@@ -1087,6 +1107,16 @@ class WidgetApi
         }
 
 
+        // Run custom validations (e.g., validUpTo date validation)
+        // This validation runs even when structs are created directly (bypassing setters)
+        try {
+            \Dana\Widget\v1\CustomValidation::validate($applyTokenRequest);
+        } catch (\Dana\ApiException $e) {
+            throw $e;
+        } catch (\Exception $e) {
+            throw new \InvalidArgumentException('Custom validation failed: ' . $e->getMessage());
+        }
+
         $resourcePath = '/v1.0/access-token/b2b2c.htm';
         $formParams = [];
         $queryParams = [];
@@ -1438,6 +1468,16 @@ class WidgetApi
             );
         }
 
+
+        // Run custom validations (e.g., validUpTo date validation)
+        // This validation runs even when structs are created directly (bypassing setters)
+        try {
+            \Dana\Widget\v1\CustomValidation::validate($balanceInquiryRequest);
+        } catch (\Dana\ApiException $e) {
+            throw $e;
+        } catch (\Exception $e) {
+            throw new \InvalidArgumentException('Custom validation failed: ' . $e->getMessage());
+        }
 
         $resourcePath = '/v1.0/balance-inquiry.htm';
         $formParams = [];
@@ -1791,6 +1831,16 @@ class WidgetApi
         }
 
 
+        // Run custom validations (e.g., validUpTo date validation)
+        // This validation runs even when structs are created directly (bypassing setters)
+        try {
+            \Dana\Widget\v1\CustomValidation::validate($cancelOrderRequest);
+        } catch (\Dana\ApiException $e) {
+            throw $e;
+        } catch (\Exception $e) {
+            throw new \InvalidArgumentException('Custom validation failed: ' . $e->getMessage());
+        }
+
         $resourcePath = '/v1.0/debit/cancel.htm';
         $formParams = [];
         $queryParams = [];
@@ -2142,6 +2192,16 @@ class WidgetApi
             );
         }
 
+
+        // Run custom validations (e.g., validUpTo date validation)
+        // This validation runs even when structs are created directly (bypassing setters)
+        try {
+            \Dana\Widget\v1\CustomValidation::validate($queryPaymentRequest);
+        } catch (\Dana\ApiException $e) {
+            throw $e;
+        } catch (\Exception $e) {
+            throw new \InvalidArgumentException('Custom validation failed: ' . $e->getMessage());
+        }
 
         $resourcePath = '/rest/v1.1/debit/status';
         $formParams = [];
@@ -2495,6 +2555,16 @@ class WidgetApi
         }
 
 
+        // Run custom validations (e.g., validUpTo date validation)
+        // This validation runs even when structs are created directly (bypassing setters)
+        try {
+            \Dana\Widget\v1\CustomValidation::validate($queryUserProfileRequest);
+        } catch (\Dana\ApiException $e) {
+            throw $e;
+        } catch (\Exception $e) {
+            throw new \InvalidArgumentException('Custom validation failed: ' . $e->getMessage());
+        }
+
         $resourcePath = '/dana/member/query/queryUserProfile.htm';
         $formParams = [];
         $queryParams = [];
@@ -2847,6 +2917,16 @@ class WidgetApi
         }
 
 
+        // Run custom validations (e.g., validUpTo date validation)
+        // This validation runs even when structs are created directly (bypassing setters)
+        try {
+            \Dana\Widget\v1\CustomValidation::validate($refundOrderRequest);
+        } catch (\Dana\ApiException $e) {
+            throw $e;
+        } catch (\Exception $e) {
+            throw new \InvalidArgumentException('Custom validation failed: ' . $e->getMessage());
+        }
+
         $resourcePath = '/v1.0/debit/refund.htm';
         $formParams = [];
         $queryParams = [];
@@ -3198,6 +3278,16 @@ class WidgetApi
             );
         }
 
+
+        // Run custom validations (e.g., validUpTo date validation)
+        // This validation runs even when structs are created directly (bypassing setters)
+        try {
+            \Dana\Widget\v1\CustomValidation::validate($widgetPaymentRequest);
+        } catch (\Dana\ApiException $e) {
+            throw $e;
+        } catch (\Exception $e) {
+            throw new \InvalidArgumentException('Custom validation failed: ' . $e->getMessage());
+        }
 
         $resourcePath = '/rest/redirection/v1.0/debit/payment-host-to-host';
         $formParams = [];

@@ -221,7 +221,119 @@ class PaymentGatewayFixtures
             ])
         ]);
     }
+
+    /**
+     * Get a CreateOrderByApiRequest fixture without additionalInfo (for validation tests).
+     * Same as getCreateOrderByApiRequest() but omits additionalInfo so we never use the setter.
+     *
+     * @return CreateOrderByApiRequest
+     */
+    public static function getCreateOrderByApiRequestWithoutAdditionalInfo(): CreateOrderByApiRequest
+    {
+        $merchantId = self::getMerchantId();
+        $partnerReferenceNo = self::generatePartnerReferenceNo();
+
+        $validUpTo = (new \DateTime('now', new \DateTimeZone('Asia/Jakarta')))
+            ->add(new \DateInterval('PT10M'))
+            ->format('Y-m-d\TH:i:s+07:00');
+
+        return new CreateOrderByApiRequest([
+            'partnerReferenceNo' => $partnerReferenceNo,
+            'merchantId' => $merchantId,
+            'amount' => new Money([
+                'value' => '222000.00',
+                'currency' => 'IDR'
+            ]),
+            'urlParams' => [
+                new UrlParam([
+                    'url' => 'https://tinknet.my.id/v1/test',
+                    'type' => UrlParam::TYPE_PAY_RETURN,
+                    'isDeeplink' => 'Y'
+                ]),
+                new UrlParam([
+                    'url' => 'https://tinknet.my.id/v1/test',
+                    'type' => UrlParam::TYPE_NOTIFICATION,
+                    'isDeeplink' => 'Y'
+                ])
+            ],
+            'validUpTo' => $validUpTo,
+            'payOptionDetails' => [
+                new PayOptionDetail([
+                    'payMethod' => PayMethod::BALANCE,
+                    'payOption' => '',
+                    'transAmount' => new Money([
+                        'value' => '222000.00',
+                        'currency' => 'IDR'
+                    ])
+                ])
+            ],
+            // additionalInfo intentionally omitted
+        ]);
+    }
     
+    /**
+     * Get a CreateOrderByApiRequest fixture with ValidUpTo set to 31 minutes in the future
+     * (beyond the 30-minute limit). This fixture directly sets the field (bypassing setters)
+     * to test Execute() validation.
+     * 
+     * @return CreateOrderByApiRequest
+     */
+    public static function getCreateOrderByApiWithBeyond30MinutesRequest(): CreateOrderByApiRequest
+    {
+        $merchantId = self::getMerchantId();
+        $partnerReferenceNo = self::generatePartnerReferenceNo();
+
+        // Create a timestamp 31 minutes in the future (beyond the 30-minute limit)
+        // This directly sets the field, bypassing setValidUpTo() validation
+        $beyond30Minutes = (new \DateTime('now', new \DateTimeZone('Asia/Jakarta')))
+            ->add(new \DateInterval('PT31M'))
+            ->format('Y-m-d\TH:i:s+07:00');
+            
+        return new CreateOrderByApiRequest([
+            'partnerReferenceNo' => $partnerReferenceNo,
+            'merchantId' => $merchantId,
+            'amount' => new Money([
+                'value' => '222000.00',
+                'currency' => 'IDR'
+            ]),
+            'urlParams' => [
+                new UrlParam([
+                    'url' => 'https://tinknet.my.id/v1/test',
+                    'type' => UrlParam::TYPE_PAY_RETURN,
+                    'isDeeplink' => 'Y'
+                ]),
+                new UrlParam([
+                    'url' => 'https://tinknet.my.id/v1/test',
+                    'type' => UrlParam::TYPE_NOTIFICATION,
+                    'isDeeplink' => 'Y'
+                ])
+            ],
+            'validUpTo' => $beyond30Minutes, // Directly set, bypassing setValidUpTo() validation
+            'payOptionDetails' => [
+                new PayOptionDetail([
+                    'payMethod' => PayMethod::BALANCE,
+                    'payOption' => '',
+                    'transAmount' => new Money([
+                        'value' => '222000.00',
+                        'currency' => 'IDR'
+                    ])
+                ])
+            ],
+            'additionalInfo' => new CreateOrderByApiAdditionalInfo([
+                'order' => new OrderApiObject([
+                    'orderTitle' => 'Paket Tinknet 10Mb',
+                    'scenario' => 'API',
+                    'merchantTransType' => 'SPECIAL_MOVIE'
+                ]),
+                'mcc' => '5732',
+                'envInfo' => new EnvInfo([
+                    'sourcePlatform' => SourcePlatform::IPG,
+                    'terminalType' => TerminalType::SYSTEM
+                ])
+            ])
+        ]);
+    }
+
     /**
      * Get a CreateOrderByApiRequest fixture with paid configuration
      * Matches the Node.js implementation of getCreateOrderByApiPaidRequest

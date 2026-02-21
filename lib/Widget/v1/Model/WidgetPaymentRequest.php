@@ -5,6 +5,7 @@ namespace Dana\Widget\v1\Model;
 use Dana\ObjectSerializer;
 use Dana\Model\BaseModel;
 use Dana\Widget\v1\Enum;
+use Dana\Utils\DateValidation;
 
 class WidgetPaymentRequest extends BaseModel
 {
@@ -106,7 +107,10 @@ class WidgetPaymentRequest extends BaseModel
             $invalidProperties[] = "invalid value for 'externalStoreId', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['validUpTo']) && !preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['validUpTo'])) {
+        if ($this->container['validUpTo'] === null) {
+            $invalidProperties[] = "'validUpTo' can't be null";
+        }
+        if (!preg_match("/^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/", $this->container['validUpTo'])) {
             $invalidProperties[] = "invalid value for 'validUpTo', must be conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.";
         }
 
@@ -232,6 +236,16 @@ class WidgetPaymentRequest extends BaseModel
             throw new \InvalidArgumentException("invalid value for \$validUpTo when calling WidgetPaymentRequest., must conform to the pattern /^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\+07:00$/.");
         }
 
+        // Validate that validUpTo date is not more than 30 minutes in the future (sandbox only)
+        if ($validUpTo !== null) {
+            try {
+                DateValidation::validateValidUpToDate($validUpTo);
+            } catch (\Exception $e) {
+                throw new \InvalidArgumentException(
+                    'validUpTo validation failed: ' . $e->getMessage()
+                );
+            }
+        }
         $this->container['validUpTo'] = $validUpTo;
 
         return $this;

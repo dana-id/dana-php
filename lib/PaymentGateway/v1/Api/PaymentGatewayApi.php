@@ -39,6 +39,7 @@ use Dana\Configuration;
 use Dana\HeaderSelector;
 use Dana\ObjectSerializer;
 use Dana\Utils\SnapHeader;
+use Dana\PaymentGateway\v1\CustomValidation;
 
 /**
  * PaymentGatewayApi Class Doc Comment
@@ -406,6 +407,16 @@ class PaymentGatewayApi
         }
 
 
+        // Run custom validations (e.g., validUpTo date validation)
+        // This validation runs even when structs are created directly (bypassing setters)
+        try {
+            \Dana\PaymentGateway\v1\CustomValidation::validate($cancelOrderRequest);
+        } catch (\Dana\ApiException $e) {
+            throw $e;
+        } catch (\Exception $e) {
+            throw new \InvalidArgumentException('Custom validation failed: ' . $e->getMessage());
+        }
+
         $resourcePath = '/payment-gateway/v1.0/debit/cancel.htm';
         $formParams = [];
         $queryParams = [];
@@ -733,6 +744,16 @@ class PaymentGatewayApi
             );
         }
 
+
+        // Run custom validations (e.g., validUpTo date validation)
+        // This validation runs even when structs are created directly (bypassing setters)
+        try {
+            \Dana\PaymentGateway\v1\CustomValidation::validate($consultPayRequest);
+        } catch (\Dana\ApiException $e) {
+            throw $e;
+        } catch (\Exception $e) {
+            throw new \InvalidArgumentException('Custom validation failed: ' . $e->getMessage());
+        }
 
         $resourcePath = '/v1.0/payment-gateway/consult-pay.htm';
         $formParams = [];
@@ -1062,6 +1083,16 @@ class PaymentGatewayApi
         }
 
 
+        // Run custom validations (e.g., validUpTo date validation)
+        // This validation runs even when structs are created directly (bypassing setters)
+        try {
+            \Dana\PaymentGateway\v1\CustomValidation::validate($createOrderRequest);
+        } catch (\Dana\ApiException $e) {
+            throw $e;
+        } catch (\Exception $e) {
+            throw new \InvalidArgumentException('Custom validation failed: ' . $e->getMessage());
+        }
+
         $resourcePath = '/payment-gateway/v1.0/debit/payment-host-to-host.htm';
         $formParams = [];
         $queryParams = [];
@@ -1389,6 +1420,16 @@ class PaymentGatewayApi
             );
         }
 
+
+        // Run custom validations (e.g., validUpTo date validation)
+        // This validation runs even when structs are created directly (bypassing setters)
+        try {
+            \Dana\PaymentGateway\v1\CustomValidation::validate($queryPaymentRequest);
+        } catch (\Dana\ApiException $e) {
+            throw $e;
+        } catch (\Exception $e) {
+            throw new \InvalidArgumentException('Custom validation failed: ' . $e->getMessage());
+        }
 
         $resourcePath = '/payment-gateway/v1.0/debit/status.htm';
         $formParams = [];
@@ -1752,6 +1793,16 @@ class PaymentGatewayApi
             );
         }
 
+
+        // Run custom validations (e.g., validUpTo date validation)
+        // This validation runs even when structs are created directly (bypassing setters)
+        try {
+            \Dana\PaymentGateway\v1\CustomValidation::validate($refundOrderRequest);
+        } catch (\Dana\ApiException $e) {
+            throw $e;
+        } catch (\Exception $e) {
+            throw new \InvalidArgumentException('Custom validation failed: ' . $e->getMessage());
+        }
 
         $resourcePath = '/payment-gateway/v1.0/debit/refund.htm';
         $formParams = [];
