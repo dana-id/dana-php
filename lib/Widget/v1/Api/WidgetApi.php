@@ -454,48 +454,117 @@ class WidgetApi
             $headers
         );
 
-        // Generate signature and add security headers for DANA API if private key is configured
-        $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
-        $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
-        $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
-        if (isset($accountUnbindingRequest)) {
-            $resourcePathForSignature = '/v1.0/registration-account-unbinding.htm';
-            if ($accountUnbindingRequest !== null) {
-                $resourcePathForSignature = str_replace(
-                    '{' . 'AccountUnbindingRequest' . '}',
-                    ObjectSerializer::toPathValue($accountUnbindingRequest),
-                    $resourcePathForSignature
-                );
+        // Check if this is an OPEN_API endpoint using operation ID
+        $operationId = 'accountUnbinding';
+        $isOpenApiEndpoint = ($operationId === 'queryUserProfile');
+        
+        if ($isOpenApiEndpoint) {
+            // Prepare the request body with head and body structure for DANA OpenAPI
+            if (isset($accountUnbindingRequest)) {
+                $functionName = 'dana.member.query.queryUserProfile'; // Hard-coded for queryUserProfile
+                $headParams = [];
+                
+            // Extract accessToken from request body if available (widget-specific)
+            $requestBodyData = ObjectSerializer::sanitizeForSerialization($accountUnbindingRequest);
+            $accessToken = '';
+            
+            // Handle both array and object formats from ObjectSerializer
+            if (is_array($requestBodyData)) {
+                if (isset($requestBodyData['accessToken']) && !empty($requestBodyData['accessToken'])) {
+                    $accessToken = $requestBodyData['accessToken'];
+                }
+            } elseif (is_object($requestBodyData)) {
+                if (property_exists($requestBodyData, 'accessToken') && !empty($requestBodyData->accessToken)) {
+                    $accessToken = $requestBodyData->accessToken;
+                }
             }
+                
+                // Generate head parameters using OpenAPI header utility
+                if (method_exists($this->config, 'getApiKey')) {
+                    $headParams = \Dana\Utils\OpenApiHeader::getOpenApiGeneratedHeaders(
+                        $this->config,
+                        json_encode($requestBodyData),
+                        $functionName
+                    );
+                    
+                    // Add accessToken to headers if found in request body
+                    if (!empty($accessToken)) {
+                        $headParams['accessToken'] = $accessToken;
+                    }
+                }
+                
+                // Create the full request structure with head and body
+                $requestBody = [
+                    'request' => [
+                        'head' => $headParams,
+                        'body' => $requestBodyData
+                    ]
+                ];
+                
+                // Generate signature if private key is available
+                $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
+                $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
+                $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
+                
+                if (!empty($privateKey) || !empty($privateKeyPath)) {
+                    try {
+                        $signature = \Dana\Utils\OpenApiHeader::generateOpenApiSignature(
+                            json_encode($requestBody['request']),
+                            $this->config
+                        );
+                        $requestBody['signature'] = $signature;
+                    } catch (\Exception $e) {
+                        throw new \InvalidArgumentException('Failed to generate signature: ' . $e->getMessage());
+                    }
+                }
+                
+                $httpBody = json_encode($requestBody);
+                $headers['Content-Type'] = 'application/json';
+            }
+        } else {
+            // Generate signature and add security headers for DANA API if private key is configured
+            $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
+            $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
+            $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
+            if (isset($accountUnbindingRequest)) {
+                $resourcePathForSignature = '/v1.0/registration-account-unbinding.htm';
+                if ($accountUnbindingRequest !== null) {
+                    $resourcePathForSignature = str_replace(
+                        '{' . 'AccountUnbindingRequest' . '}',
+                        ObjectSerializer::toPathValue($accountUnbindingRequest),
+                        $resourcePathForSignature
+                    );
+                }
 
-            // Generate security headers using SnapHeader utility
-            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($accountUnbindingRequest));
-            
-            // Determine the signature scenario based on operation ID
-            $operationId = 'accountUnbinding';
-            
-            // Set scenario based on operation ID using PHP comparison
-            if (strpos($operationId, 'applyToken') !== false) {
-                // SNAP signature scenario: APPLY TOKEN
-                $scenario = SnapHeader::SCENARIO_APPLY_TOKEN;
-            } else if (strpos($operationId, 'applyOTT') !== false) {
-                // SNAP signature scenario: APPLY OTT
-                $scenario = SnapHeader::SCENARIO_APPLY_OTT;
-            } else if (strpos($operationId, 'accountUnbinding') !== false) {
-                // SNAP signature scenario: ACCOUNT UNBINDING
-                $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
-            } else if (strpos($operationId, 'balanceInquiry') !== false) {
-                // SNAP signature scenario: BALANCE INQUIRY
-                $scenario = SnapHeader::SCENARIO_BALANCE_INQUIRY;
-            } else {
-                // Default B2B signature scenario
-                $scenario = '';
-            }
-            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $scenario, $this->config);
-            
-            // Add security headers to the request
-            foreach ($snapHeaders as $key => $value) {
-                $headers[$key] = $value;
+                // Generate security headers using SnapHeader utility
+                $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($accountUnbindingRequest));
+                
+                // Determine the signature scenario based on operation ID
+                $operationId = 'accountUnbinding';
+                
+                // Set scenario based on operation ID using PHP comparison
+                if (strpos($operationId, 'applyToken') !== false) {
+                    // SNAP signature scenario: APPLY TOKEN
+                    $scenario = SnapHeader::SCENARIO_APPLY_TOKEN;
+                } else if (strpos($operationId, 'applyOTT') !== false) {
+                    // SNAP signature scenario: APPLY OTT
+                    $scenario = SnapHeader::SCENARIO_APPLY_OTT;
+                } else if (strpos($operationId, 'accountUnbinding') !== false) {
+                    // SNAP signature scenario: ACCOUNT UNBINDING
+                    $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
+                } else if (strpos($operationId, 'balanceInquiry') !== false) {
+                    // SNAP signature scenario: BALANCE INQUIRY
+                    $scenario = SnapHeader::SCENARIO_BALANCE_INQUIRY;
+                } else {
+                    // Default B2B signature scenario
+                    $scenario = '';
+                }
+                $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $scenario, $this->config);
+                
+                // Add security headers to the request
+                foreach ($snapHeaders as $key => $value) {
+                    $headers[$key] = $value;
+                }
             }
         }
 
@@ -816,48 +885,117 @@ class WidgetApi
             $headers
         );
 
-        // Generate signature and add security headers for DANA API if private key is configured
-        $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
-        $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
-        $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
-        if (isset($applyOTTRequest)) {
-            $resourcePathForSignature = '/rest/v1.1/qr/apply-ott';
-            if ($applyOTTRequest !== null) {
-                $resourcePathForSignature = str_replace(
-                    '{' . 'ApplyOTTRequest' . '}',
-                    ObjectSerializer::toPathValue($applyOTTRequest),
-                    $resourcePathForSignature
-                );
+        // Check if this is an OPEN_API endpoint using operation ID
+        $operationId = 'applyOTT';
+        $isOpenApiEndpoint = ($operationId === 'queryUserProfile');
+        
+        if ($isOpenApiEndpoint) {
+            // Prepare the request body with head and body structure for DANA OpenAPI
+            if (isset($applyOTTRequest)) {
+                $functionName = 'dana.member.query.queryUserProfile'; // Hard-coded for queryUserProfile
+                $headParams = [];
+                
+            // Extract accessToken from request body if available (widget-specific)
+            $requestBodyData = ObjectSerializer::sanitizeForSerialization($applyOTTRequest);
+            $accessToken = '';
+            
+            // Handle both array and object formats from ObjectSerializer
+            if (is_array($requestBodyData)) {
+                if (isset($requestBodyData['accessToken']) && !empty($requestBodyData['accessToken'])) {
+                    $accessToken = $requestBodyData['accessToken'];
+                }
+            } elseif (is_object($requestBodyData)) {
+                if (property_exists($requestBodyData, 'accessToken') && !empty($requestBodyData->accessToken)) {
+                    $accessToken = $requestBodyData->accessToken;
+                }
             }
+                
+                // Generate head parameters using OpenAPI header utility
+                if (method_exists($this->config, 'getApiKey')) {
+                    $headParams = \Dana\Utils\OpenApiHeader::getOpenApiGeneratedHeaders(
+                        $this->config,
+                        json_encode($requestBodyData),
+                        $functionName
+                    );
+                    
+                    // Add accessToken to headers if found in request body
+                    if (!empty($accessToken)) {
+                        $headParams['accessToken'] = $accessToken;
+                    }
+                }
+                
+                // Create the full request structure with head and body
+                $requestBody = [
+                    'request' => [
+                        'head' => $headParams,
+                        'body' => $requestBodyData
+                    ]
+                ];
+                
+                // Generate signature if private key is available
+                $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
+                $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
+                $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
+                
+                if (!empty($privateKey) || !empty($privateKeyPath)) {
+                    try {
+                        $signature = \Dana\Utils\OpenApiHeader::generateOpenApiSignature(
+                            json_encode($requestBody['request']),
+                            $this->config
+                        );
+                        $requestBody['signature'] = $signature;
+                    } catch (\Exception $e) {
+                        throw new \InvalidArgumentException('Failed to generate signature: ' . $e->getMessage());
+                    }
+                }
+                
+                $httpBody = json_encode($requestBody);
+                $headers['Content-Type'] = 'application/json';
+            }
+        } else {
+            // Generate signature and add security headers for DANA API if private key is configured
+            $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
+            $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
+            $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
+            if (isset($applyOTTRequest)) {
+                $resourcePathForSignature = '/rest/v1.1/qr/apply-ott';
+                if ($applyOTTRequest !== null) {
+                    $resourcePathForSignature = str_replace(
+                        '{' . 'ApplyOTTRequest' . '}',
+                        ObjectSerializer::toPathValue($applyOTTRequest),
+                        $resourcePathForSignature
+                    );
+                }
 
-            // Generate security headers using SnapHeader utility
-            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($applyOTTRequest));
-            
-            // Determine the signature scenario based on operation ID
-            $operationId = 'applyOTT';
-            
-            // Set scenario based on operation ID using PHP comparison
-            if (strpos($operationId, 'applyToken') !== false) {
-                // SNAP signature scenario: APPLY TOKEN
-                $scenario = SnapHeader::SCENARIO_APPLY_TOKEN;
-            } else if (strpos($operationId, 'applyOTT') !== false) {
-                // SNAP signature scenario: APPLY OTT
-                $scenario = SnapHeader::SCENARIO_APPLY_OTT;
-            } else if (strpos($operationId, 'accountUnbinding') !== false) {
-                // SNAP signature scenario: ACCOUNT UNBINDING
-                $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
-            } else if (strpos($operationId, 'balanceInquiry') !== false) {
-                // SNAP signature scenario: BALANCE INQUIRY
-                $scenario = SnapHeader::SCENARIO_BALANCE_INQUIRY;
-            } else {
-                // Default B2B signature scenario
-                $scenario = '';
-            }
-            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $scenario, $this->config);
-            
-            // Add security headers to the request
-            foreach ($snapHeaders as $key => $value) {
-                $headers[$key] = $value;
+                // Generate security headers using SnapHeader utility
+                $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($applyOTTRequest));
+                
+                // Determine the signature scenario based on operation ID
+                $operationId = 'applyOTT';
+                
+                // Set scenario based on operation ID using PHP comparison
+                if (strpos($operationId, 'applyToken') !== false) {
+                    // SNAP signature scenario: APPLY TOKEN
+                    $scenario = SnapHeader::SCENARIO_APPLY_TOKEN;
+                } else if (strpos($operationId, 'applyOTT') !== false) {
+                    // SNAP signature scenario: APPLY OTT
+                    $scenario = SnapHeader::SCENARIO_APPLY_OTT;
+                } else if (strpos($operationId, 'accountUnbinding') !== false) {
+                    // SNAP signature scenario: ACCOUNT UNBINDING
+                    $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
+                } else if (strpos($operationId, 'balanceInquiry') !== false) {
+                    // SNAP signature scenario: BALANCE INQUIRY
+                    $scenario = SnapHeader::SCENARIO_BALANCE_INQUIRY;
+                } else {
+                    // Default B2B signature scenario
+                    $scenario = '';
+                }
+                $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $scenario, $this->config);
+                
+                // Add security headers to the request
+                foreach ($snapHeaders as $key => $value) {
+                    $headers[$key] = $value;
+                }
             }
         }
 
@@ -1178,48 +1316,117 @@ class WidgetApi
             $headers
         );
 
-        // Generate signature and add security headers for DANA API if private key is configured
-        $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
-        $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
-        $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
-        if (isset($applyTokenRequest)) {
-            $resourcePathForSignature = '/v1.0/access-token/b2b2c.htm';
-            if ($applyTokenRequest !== null) {
-                $resourcePathForSignature = str_replace(
-                    '{' . 'ApplyTokenRequest' . '}',
-                    ObjectSerializer::toPathValue($applyTokenRequest),
-                    $resourcePathForSignature
-                );
+        // Check if this is an OPEN_API endpoint using operation ID
+        $operationId = 'applyToken';
+        $isOpenApiEndpoint = ($operationId === 'queryUserProfile');
+        
+        if ($isOpenApiEndpoint) {
+            // Prepare the request body with head and body structure for DANA OpenAPI
+            if (isset($applyTokenRequest)) {
+                $functionName = 'dana.member.query.queryUserProfile'; // Hard-coded for queryUserProfile
+                $headParams = [];
+                
+            // Extract accessToken from request body if available (widget-specific)
+            $requestBodyData = ObjectSerializer::sanitizeForSerialization($applyTokenRequest);
+            $accessToken = '';
+            
+            // Handle both array and object formats from ObjectSerializer
+            if (is_array($requestBodyData)) {
+                if (isset($requestBodyData['accessToken']) && !empty($requestBodyData['accessToken'])) {
+                    $accessToken = $requestBodyData['accessToken'];
+                }
+            } elseif (is_object($requestBodyData)) {
+                if (property_exists($requestBodyData, 'accessToken') && !empty($requestBodyData->accessToken)) {
+                    $accessToken = $requestBodyData->accessToken;
+                }
             }
+                
+                // Generate head parameters using OpenAPI header utility
+                if (method_exists($this->config, 'getApiKey')) {
+                    $headParams = \Dana\Utils\OpenApiHeader::getOpenApiGeneratedHeaders(
+                        $this->config,
+                        json_encode($requestBodyData),
+                        $functionName
+                    );
+                    
+                    // Add accessToken to headers if found in request body
+                    if (!empty($accessToken)) {
+                        $headParams['accessToken'] = $accessToken;
+                    }
+                }
+                
+                // Create the full request structure with head and body
+                $requestBody = [
+                    'request' => [
+                        'head' => $headParams,
+                        'body' => $requestBodyData
+                    ]
+                ];
+                
+                // Generate signature if private key is available
+                $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
+                $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
+                $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
+                
+                if (!empty($privateKey) || !empty($privateKeyPath)) {
+                    try {
+                        $signature = \Dana\Utils\OpenApiHeader::generateOpenApiSignature(
+                            json_encode($requestBody['request']),
+                            $this->config
+                        );
+                        $requestBody['signature'] = $signature;
+                    } catch (\Exception $e) {
+                        throw new \InvalidArgumentException('Failed to generate signature: ' . $e->getMessage());
+                    }
+                }
+                
+                $httpBody = json_encode($requestBody);
+                $headers['Content-Type'] = 'application/json';
+            }
+        } else {
+            // Generate signature and add security headers for DANA API if private key is configured
+            $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
+            $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
+            $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
+            if (isset($applyTokenRequest)) {
+                $resourcePathForSignature = '/v1.0/access-token/b2b2c.htm';
+                if ($applyTokenRequest !== null) {
+                    $resourcePathForSignature = str_replace(
+                        '{' . 'ApplyTokenRequest' . '}',
+                        ObjectSerializer::toPathValue($applyTokenRequest),
+                        $resourcePathForSignature
+                    );
+                }
 
-            // Generate security headers using SnapHeader utility
-            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($applyTokenRequest));
-            
-            // Determine the signature scenario based on operation ID
-            $operationId = 'applyToken';
-            
-            // Set scenario based on operation ID using PHP comparison
-            if (strpos($operationId, 'applyToken') !== false) {
-                // SNAP signature scenario: APPLY TOKEN
-                $scenario = SnapHeader::SCENARIO_APPLY_TOKEN;
-            } else if (strpos($operationId, 'applyOTT') !== false) {
-                // SNAP signature scenario: APPLY OTT
-                $scenario = SnapHeader::SCENARIO_APPLY_OTT;
-            } else if (strpos($operationId, 'accountUnbinding') !== false) {
-                // SNAP signature scenario: ACCOUNT UNBINDING
-                $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
-            } else if (strpos($operationId, 'balanceInquiry') !== false) {
-                // SNAP signature scenario: BALANCE INQUIRY
-                $scenario = SnapHeader::SCENARIO_BALANCE_INQUIRY;
-            } else {
-                // Default B2B signature scenario
-                $scenario = '';
-            }
-            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $scenario, $this->config);
-            
-            // Add security headers to the request
-            foreach ($snapHeaders as $key => $value) {
-                $headers[$key] = $value;
+                // Generate security headers using SnapHeader utility
+                $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($applyTokenRequest));
+                
+                // Determine the signature scenario based on operation ID
+                $operationId = 'applyToken';
+                
+                // Set scenario based on operation ID using PHP comparison
+                if (strpos($operationId, 'applyToken') !== false) {
+                    // SNAP signature scenario: APPLY TOKEN
+                    $scenario = SnapHeader::SCENARIO_APPLY_TOKEN;
+                } else if (strpos($operationId, 'applyOTT') !== false) {
+                    // SNAP signature scenario: APPLY OTT
+                    $scenario = SnapHeader::SCENARIO_APPLY_OTT;
+                } else if (strpos($operationId, 'accountUnbinding') !== false) {
+                    // SNAP signature scenario: ACCOUNT UNBINDING
+                    $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
+                } else if (strpos($operationId, 'balanceInquiry') !== false) {
+                    // SNAP signature scenario: BALANCE INQUIRY
+                    $scenario = SnapHeader::SCENARIO_BALANCE_INQUIRY;
+                } else {
+                    // Default B2B signature scenario
+                    $scenario = '';
+                }
+                $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $scenario, $this->config);
+                
+                // Add security headers to the request
+                foreach ($snapHeaders as $key => $value) {
+                    $headers[$key] = $value;
+                }
             }
         }
 
@@ -1540,48 +1747,117 @@ class WidgetApi
             $headers
         );
 
-        // Generate signature and add security headers for DANA API if private key is configured
-        $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
-        $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
-        $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
-        if (isset($balanceInquiryRequest)) {
-            $resourcePathForSignature = '/v1.0/balance-inquiry.htm';
-            if ($balanceInquiryRequest !== null) {
-                $resourcePathForSignature = str_replace(
-                    '{' . 'BalanceInquiryRequest' . '}',
-                    ObjectSerializer::toPathValue($balanceInquiryRequest),
-                    $resourcePathForSignature
-                );
+        // Check if this is an OPEN_API endpoint using operation ID
+        $operationId = 'balanceInquiry';
+        $isOpenApiEndpoint = ($operationId === 'queryUserProfile');
+        
+        if ($isOpenApiEndpoint) {
+            // Prepare the request body with head and body structure for DANA OpenAPI
+            if (isset($balanceInquiryRequest)) {
+                $functionName = 'dana.member.query.queryUserProfile'; // Hard-coded for queryUserProfile
+                $headParams = [];
+                
+            // Extract accessToken from request body if available (widget-specific)
+            $requestBodyData = ObjectSerializer::sanitizeForSerialization($balanceInquiryRequest);
+            $accessToken = '';
+            
+            // Handle both array and object formats from ObjectSerializer
+            if (is_array($requestBodyData)) {
+                if (isset($requestBodyData['accessToken']) && !empty($requestBodyData['accessToken'])) {
+                    $accessToken = $requestBodyData['accessToken'];
+                }
+            } elseif (is_object($requestBodyData)) {
+                if (property_exists($requestBodyData, 'accessToken') && !empty($requestBodyData->accessToken)) {
+                    $accessToken = $requestBodyData->accessToken;
+                }
             }
+                
+                // Generate head parameters using OpenAPI header utility
+                if (method_exists($this->config, 'getApiKey')) {
+                    $headParams = \Dana\Utils\OpenApiHeader::getOpenApiGeneratedHeaders(
+                        $this->config,
+                        json_encode($requestBodyData),
+                        $functionName
+                    );
+                    
+                    // Add accessToken to headers if found in request body
+                    if (!empty($accessToken)) {
+                        $headParams['accessToken'] = $accessToken;
+                    }
+                }
+                
+                // Create the full request structure with head and body
+                $requestBody = [
+                    'request' => [
+                        'head' => $headParams,
+                        'body' => $requestBodyData
+                    ]
+                ];
+                
+                // Generate signature if private key is available
+                $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
+                $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
+                $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
+                
+                if (!empty($privateKey) || !empty($privateKeyPath)) {
+                    try {
+                        $signature = \Dana\Utils\OpenApiHeader::generateOpenApiSignature(
+                            json_encode($requestBody['request']),
+                            $this->config
+                        );
+                        $requestBody['signature'] = $signature;
+                    } catch (\Exception $e) {
+                        throw new \InvalidArgumentException('Failed to generate signature: ' . $e->getMessage());
+                    }
+                }
+                
+                $httpBody = json_encode($requestBody);
+                $headers['Content-Type'] = 'application/json';
+            }
+        } else {
+            // Generate signature and add security headers for DANA API if private key is configured
+            $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
+            $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
+            $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
+            if (isset($balanceInquiryRequest)) {
+                $resourcePathForSignature = '/v1.0/balance-inquiry.htm';
+                if ($balanceInquiryRequest !== null) {
+                    $resourcePathForSignature = str_replace(
+                        '{' . 'BalanceInquiryRequest' . '}',
+                        ObjectSerializer::toPathValue($balanceInquiryRequest),
+                        $resourcePathForSignature
+                    );
+                }
 
-            // Generate security headers using SnapHeader utility
-            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($balanceInquiryRequest));
-            
-            // Determine the signature scenario based on operation ID
-            $operationId = 'balanceInquiry';
-            
-            // Set scenario based on operation ID using PHP comparison
-            if (strpos($operationId, 'applyToken') !== false) {
-                // SNAP signature scenario: APPLY TOKEN
-                $scenario = SnapHeader::SCENARIO_APPLY_TOKEN;
-            } else if (strpos($operationId, 'applyOTT') !== false) {
-                // SNAP signature scenario: APPLY OTT
-                $scenario = SnapHeader::SCENARIO_APPLY_OTT;
-            } else if (strpos($operationId, 'accountUnbinding') !== false) {
-                // SNAP signature scenario: ACCOUNT UNBINDING
-                $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
-            } else if (strpos($operationId, 'balanceInquiry') !== false) {
-                // SNAP signature scenario: BALANCE INQUIRY
-                $scenario = SnapHeader::SCENARIO_BALANCE_INQUIRY;
-            } else {
-                // Default B2B signature scenario
-                $scenario = '';
-            }
-            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $scenario, $this->config);
-            
-            // Add security headers to the request
-            foreach ($snapHeaders as $key => $value) {
-                $headers[$key] = $value;
+                // Generate security headers using SnapHeader utility
+                $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($balanceInquiryRequest));
+                
+                // Determine the signature scenario based on operation ID
+                $operationId = 'balanceInquiry';
+                
+                // Set scenario based on operation ID using PHP comparison
+                if (strpos($operationId, 'applyToken') !== false) {
+                    // SNAP signature scenario: APPLY TOKEN
+                    $scenario = SnapHeader::SCENARIO_APPLY_TOKEN;
+                } else if (strpos($operationId, 'applyOTT') !== false) {
+                    // SNAP signature scenario: APPLY OTT
+                    $scenario = SnapHeader::SCENARIO_APPLY_OTT;
+                } else if (strpos($operationId, 'accountUnbinding') !== false) {
+                    // SNAP signature scenario: ACCOUNT UNBINDING
+                    $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
+                } else if (strpos($operationId, 'balanceInquiry') !== false) {
+                    // SNAP signature scenario: BALANCE INQUIRY
+                    $scenario = SnapHeader::SCENARIO_BALANCE_INQUIRY;
+                } else {
+                    // Default B2B signature scenario
+                    $scenario = '';
+                }
+                $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $scenario, $this->config);
+                
+                // Add security headers to the request
+                foreach ($snapHeaders as $key => $value) {
+                    $headers[$key] = $value;
+                }
             }
         }
 
@@ -1902,48 +2178,117 @@ class WidgetApi
             $headers
         );
 
-        // Generate signature and add security headers for DANA API if private key is configured
-        $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
-        $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
-        $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
-        if (isset($cancelOrderRequest)) {
-            $resourcePathForSignature = '/v1.0/debit/cancel.htm';
-            if ($cancelOrderRequest !== null) {
-                $resourcePathForSignature = str_replace(
-                    '{' . 'CancelOrderRequest' . '}',
-                    ObjectSerializer::toPathValue($cancelOrderRequest),
-                    $resourcePathForSignature
-                );
+        // Check if this is an OPEN_API endpoint using operation ID
+        $operationId = 'cancelOrder';
+        $isOpenApiEndpoint = ($operationId === 'queryUserProfile');
+        
+        if ($isOpenApiEndpoint) {
+            // Prepare the request body with head and body structure for DANA OpenAPI
+            if (isset($cancelOrderRequest)) {
+                $functionName = 'dana.member.query.queryUserProfile'; // Hard-coded for queryUserProfile
+                $headParams = [];
+                
+            // Extract accessToken from request body if available (widget-specific)
+            $requestBodyData = ObjectSerializer::sanitizeForSerialization($cancelOrderRequest);
+            $accessToken = '';
+            
+            // Handle both array and object formats from ObjectSerializer
+            if (is_array($requestBodyData)) {
+                if (isset($requestBodyData['accessToken']) && !empty($requestBodyData['accessToken'])) {
+                    $accessToken = $requestBodyData['accessToken'];
+                }
+            } elseif (is_object($requestBodyData)) {
+                if (property_exists($requestBodyData, 'accessToken') && !empty($requestBodyData->accessToken)) {
+                    $accessToken = $requestBodyData->accessToken;
+                }
             }
+                
+                // Generate head parameters using OpenAPI header utility
+                if (method_exists($this->config, 'getApiKey')) {
+                    $headParams = \Dana\Utils\OpenApiHeader::getOpenApiGeneratedHeaders(
+                        $this->config,
+                        json_encode($requestBodyData),
+                        $functionName
+                    );
+                    
+                    // Add accessToken to headers if found in request body
+                    if (!empty($accessToken)) {
+                        $headParams['accessToken'] = $accessToken;
+                    }
+                }
+                
+                // Create the full request structure with head and body
+                $requestBody = [
+                    'request' => [
+                        'head' => $headParams,
+                        'body' => $requestBodyData
+                    ]
+                ];
+                
+                // Generate signature if private key is available
+                $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
+                $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
+                $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
+                
+                if (!empty($privateKey) || !empty($privateKeyPath)) {
+                    try {
+                        $signature = \Dana\Utils\OpenApiHeader::generateOpenApiSignature(
+                            json_encode($requestBody['request']),
+                            $this->config
+                        );
+                        $requestBody['signature'] = $signature;
+                    } catch (\Exception $e) {
+                        throw new \InvalidArgumentException('Failed to generate signature: ' . $e->getMessage());
+                    }
+                }
+                
+                $httpBody = json_encode($requestBody);
+                $headers['Content-Type'] = 'application/json';
+            }
+        } else {
+            // Generate signature and add security headers for DANA API if private key is configured
+            $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
+            $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
+            $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
+            if (isset($cancelOrderRequest)) {
+                $resourcePathForSignature = '/v1.0/debit/cancel.htm';
+                if ($cancelOrderRequest !== null) {
+                    $resourcePathForSignature = str_replace(
+                        '{' . 'CancelOrderRequest' . '}',
+                        ObjectSerializer::toPathValue($cancelOrderRequest),
+                        $resourcePathForSignature
+                    );
+                }
 
-            // Generate security headers using SnapHeader utility
-            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($cancelOrderRequest));
-            
-            // Determine the signature scenario based on operation ID
-            $operationId = 'cancelOrder';
-            
-            // Set scenario based on operation ID using PHP comparison
-            if (strpos($operationId, 'applyToken') !== false) {
-                // SNAP signature scenario: APPLY TOKEN
-                $scenario = SnapHeader::SCENARIO_APPLY_TOKEN;
-            } else if (strpos($operationId, 'applyOTT') !== false) {
-                // SNAP signature scenario: APPLY OTT
-                $scenario = SnapHeader::SCENARIO_APPLY_OTT;
-            } else if (strpos($operationId, 'accountUnbinding') !== false) {
-                // SNAP signature scenario: ACCOUNT UNBINDING
-                $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
-            } else if (strpos($operationId, 'balanceInquiry') !== false) {
-                // SNAP signature scenario: BALANCE INQUIRY
-                $scenario = SnapHeader::SCENARIO_BALANCE_INQUIRY;
-            } else {
-                // Default B2B signature scenario
-                $scenario = '';
-            }
-            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $scenario, $this->config);
-            
-            // Add security headers to the request
-            foreach ($snapHeaders as $key => $value) {
-                $headers[$key] = $value;
+                // Generate security headers using SnapHeader utility
+                $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($cancelOrderRequest));
+                
+                // Determine the signature scenario based on operation ID
+                $operationId = 'cancelOrder';
+                
+                // Set scenario based on operation ID using PHP comparison
+                if (strpos($operationId, 'applyToken') !== false) {
+                    // SNAP signature scenario: APPLY TOKEN
+                    $scenario = SnapHeader::SCENARIO_APPLY_TOKEN;
+                } else if (strpos($operationId, 'applyOTT') !== false) {
+                    // SNAP signature scenario: APPLY OTT
+                    $scenario = SnapHeader::SCENARIO_APPLY_OTT;
+                } else if (strpos($operationId, 'accountUnbinding') !== false) {
+                    // SNAP signature scenario: ACCOUNT UNBINDING
+                    $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
+                } else if (strpos($operationId, 'balanceInquiry') !== false) {
+                    // SNAP signature scenario: BALANCE INQUIRY
+                    $scenario = SnapHeader::SCENARIO_BALANCE_INQUIRY;
+                } else {
+                    // Default B2B signature scenario
+                    $scenario = '';
+                }
+                $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $scenario, $this->config);
+                
+                // Add security headers to the request
+                foreach ($snapHeaders as $key => $value) {
+                    $headers[$key] = $value;
+                }
             }
         }
 
@@ -2264,48 +2609,117 @@ class WidgetApi
             $headers
         );
 
-        // Generate signature and add security headers for DANA API if private key is configured
-        $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
-        $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
-        $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
-        if (isset($queryPaymentRequest)) {
-            $resourcePathForSignature = '/rest/v1.1/debit/status';
-            if ($queryPaymentRequest !== null) {
-                $resourcePathForSignature = str_replace(
-                    '{' . 'QueryPaymentRequest' . '}',
-                    ObjectSerializer::toPathValue($queryPaymentRequest),
-                    $resourcePathForSignature
-                );
+        // Check if this is an OPEN_API endpoint using operation ID
+        $operationId = 'queryPayment';
+        $isOpenApiEndpoint = ($operationId === 'queryUserProfile');
+        
+        if ($isOpenApiEndpoint) {
+            // Prepare the request body with head and body structure for DANA OpenAPI
+            if (isset($queryPaymentRequest)) {
+                $functionName = 'dana.member.query.queryUserProfile'; // Hard-coded for queryUserProfile
+                $headParams = [];
+                
+            // Extract accessToken from request body if available (widget-specific)
+            $requestBodyData = ObjectSerializer::sanitizeForSerialization($queryPaymentRequest);
+            $accessToken = '';
+            
+            // Handle both array and object formats from ObjectSerializer
+            if (is_array($requestBodyData)) {
+                if (isset($requestBodyData['accessToken']) && !empty($requestBodyData['accessToken'])) {
+                    $accessToken = $requestBodyData['accessToken'];
+                }
+            } elseif (is_object($requestBodyData)) {
+                if (property_exists($requestBodyData, 'accessToken') && !empty($requestBodyData->accessToken)) {
+                    $accessToken = $requestBodyData->accessToken;
+                }
             }
+                
+                // Generate head parameters using OpenAPI header utility
+                if (method_exists($this->config, 'getApiKey')) {
+                    $headParams = \Dana\Utils\OpenApiHeader::getOpenApiGeneratedHeaders(
+                        $this->config,
+                        json_encode($requestBodyData),
+                        $functionName
+                    );
+                    
+                    // Add accessToken to headers if found in request body
+                    if (!empty($accessToken)) {
+                        $headParams['accessToken'] = $accessToken;
+                    }
+                }
+                
+                // Create the full request structure with head and body
+                $requestBody = [
+                    'request' => [
+                        'head' => $headParams,
+                        'body' => $requestBodyData
+                    ]
+                ];
+                
+                // Generate signature if private key is available
+                $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
+                $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
+                $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
+                
+                if (!empty($privateKey) || !empty($privateKeyPath)) {
+                    try {
+                        $signature = \Dana\Utils\OpenApiHeader::generateOpenApiSignature(
+                            json_encode($requestBody['request']),
+                            $this->config
+                        );
+                        $requestBody['signature'] = $signature;
+                    } catch (\Exception $e) {
+                        throw new \InvalidArgumentException('Failed to generate signature: ' . $e->getMessage());
+                    }
+                }
+                
+                $httpBody = json_encode($requestBody);
+                $headers['Content-Type'] = 'application/json';
+            }
+        } else {
+            // Generate signature and add security headers for DANA API if private key is configured
+            $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
+            $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
+            $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
+            if (isset($queryPaymentRequest)) {
+                $resourcePathForSignature = '/rest/v1.1/debit/status';
+                if ($queryPaymentRequest !== null) {
+                    $resourcePathForSignature = str_replace(
+                        '{' . 'QueryPaymentRequest' . '}',
+                        ObjectSerializer::toPathValue($queryPaymentRequest),
+                        $resourcePathForSignature
+                    );
+                }
 
-            // Generate security headers using SnapHeader utility
-            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($queryPaymentRequest));
-            
-            // Determine the signature scenario based on operation ID
-            $operationId = 'queryPayment';
-            
-            // Set scenario based on operation ID using PHP comparison
-            if (strpos($operationId, 'applyToken') !== false) {
-                // SNAP signature scenario: APPLY TOKEN
-                $scenario = SnapHeader::SCENARIO_APPLY_TOKEN;
-            } else if (strpos($operationId, 'applyOTT') !== false) {
-                // SNAP signature scenario: APPLY OTT
-                $scenario = SnapHeader::SCENARIO_APPLY_OTT;
-            } else if (strpos($operationId, 'accountUnbinding') !== false) {
-                // SNAP signature scenario: ACCOUNT UNBINDING
-                $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
-            } else if (strpos($operationId, 'balanceInquiry') !== false) {
-                // SNAP signature scenario: BALANCE INQUIRY
-                $scenario = SnapHeader::SCENARIO_BALANCE_INQUIRY;
-            } else {
-                // Default B2B signature scenario
-                $scenario = '';
-            }
-            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $scenario, $this->config);
-            
-            // Add security headers to the request
-            foreach ($snapHeaders as $key => $value) {
-                $headers[$key] = $value;
+                // Generate security headers using SnapHeader utility
+                $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($queryPaymentRequest));
+                
+                // Determine the signature scenario based on operation ID
+                $operationId = 'queryPayment';
+                
+                // Set scenario based on operation ID using PHP comparison
+                if (strpos($operationId, 'applyToken') !== false) {
+                    // SNAP signature scenario: APPLY TOKEN
+                    $scenario = SnapHeader::SCENARIO_APPLY_TOKEN;
+                } else if (strpos($operationId, 'applyOTT') !== false) {
+                    // SNAP signature scenario: APPLY OTT
+                    $scenario = SnapHeader::SCENARIO_APPLY_OTT;
+                } else if (strpos($operationId, 'accountUnbinding') !== false) {
+                    // SNAP signature scenario: ACCOUNT UNBINDING
+                    $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
+                } else if (strpos($operationId, 'balanceInquiry') !== false) {
+                    // SNAP signature scenario: BALANCE INQUIRY
+                    $scenario = SnapHeader::SCENARIO_BALANCE_INQUIRY;
+                } else {
+                    // Default B2B signature scenario
+                    $scenario = '';
+                }
+                $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $scenario, $this->config);
+                
+                // Add security headers to the request
+                foreach ($snapHeaders as $key => $value) {
+                    $headers[$key] = $value;
+                }
             }
         }
 
@@ -2626,48 +3040,117 @@ class WidgetApi
             $headers
         );
 
-        // Generate signature and add security headers for DANA API if private key is configured
-        $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
-        $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
-        $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
-        if (isset($queryUserProfileRequest)) {
-            $resourcePathForSignature = '/dana/member/query/queryUserProfile.htm';
-            if ($queryUserProfileRequest !== null) {
-                $resourcePathForSignature = str_replace(
-                    '{' . 'QueryUserProfileRequest' . '}',
-                    ObjectSerializer::toPathValue($queryUserProfileRequest),
-                    $resourcePathForSignature
-                );
+        // Check if this is an OPEN_API endpoint using operation ID
+        $operationId = 'queryUserProfile';
+        $isOpenApiEndpoint = ($operationId === 'queryUserProfile');
+        
+        if ($isOpenApiEndpoint) {
+            // Prepare the request body with head and body structure for DANA OpenAPI
+            if (isset($queryUserProfileRequest)) {
+                $functionName = 'dana.member.query.queryUserProfile'; // Hard-coded for queryUserProfile
+                $headParams = [];
+                
+            // Extract accessToken from request body if available (widget-specific)
+            $requestBodyData = ObjectSerializer::sanitizeForSerialization($queryUserProfileRequest);
+            $accessToken = '';
+            
+            // Handle both array and object formats from ObjectSerializer
+            if (is_array($requestBodyData)) {
+                if (isset($requestBodyData['accessToken']) && !empty($requestBodyData['accessToken'])) {
+                    $accessToken = $requestBodyData['accessToken'];
+                }
+            } elseif (is_object($requestBodyData)) {
+                if (property_exists($requestBodyData, 'accessToken') && !empty($requestBodyData->accessToken)) {
+                    $accessToken = $requestBodyData->accessToken;
+                }
             }
+                
+                // Generate head parameters using OpenAPI header utility
+                if (method_exists($this->config, 'getApiKey')) {
+                    $headParams = \Dana\Utils\OpenApiHeader::getOpenApiGeneratedHeaders(
+                        $this->config,
+                        json_encode($requestBodyData),
+                        $functionName
+                    );
+                    
+                    // Add accessToken to headers if found in request body
+                    if (!empty($accessToken)) {
+                        $headParams['accessToken'] = $accessToken;
+                    }
+                }
+                
+                // Create the full request structure with head and body
+                $requestBody = [
+                    'request' => [
+                        'head' => $headParams,
+                        'body' => $requestBodyData
+                    ]
+                ];
+                
+                // Generate signature if private key is available
+                $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
+                $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
+                $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
+                
+                if (!empty($privateKey) || !empty($privateKeyPath)) {
+                    try {
+                        $signature = \Dana\Utils\OpenApiHeader::generateOpenApiSignature(
+                            json_encode($requestBody['request']),
+                            $this->config
+                        );
+                        $requestBody['signature'] = $signature;
+                    } catch (\Exception $e) {
+                        throw new \InvalidArgumentException('Failed to generate signature: ' . $e->getMessage());
+                    }
+                }
+                
+                $httpBody = json_encode($requestBody);
+                $headers['Content-Type'] = 'application/json';
+            }
+        } else {
+            // Generate signature and add security headers for DANA API if private key is configured
+            $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
+            $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
+            $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
+            if (isset($queryUserProfileRequest)) {
+                $resourcePathForSignature = '/dana/member/query/queryUserProfile.htm';
+                if ($queryUserProfileRequest !== null) {
+                    $resourcePathForSignature = str_replace(
+                        '{' . 'QueryUserProfileRequest' . '}',
+                        ObjectSerializer::toPathValue($queryUserProfileRequest),
+                        $resourcePathForSignature
+                    );
+                }
 
-            // Generate security headers using SnapHeader utility
-            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($queryUserProfileRequest));
-            
-            // Determine the signature scenario based on operation ID
-            $operationId = 'queryUserProfile';
-            
-            // Set scenario based on operation ID using PHP comparison
-            if (strpos($operationId, 'applyToken') !== false) {
-                // SNAP signature scenario: APPLY TOKEN
-                $scenario = SnapHeader::SCENARIO_APPLY_TOKEN;
-            } else if (strpos($operationId, 'applyOTT') !== false) {
-                // SNAP signature scenario: APPLY OTT
-                $scenario = SnapHeader::SCENARIO_APPLY_OTT;
-            } else if (strpos($operationId, 'accountUnbinding') !== false) {
-                // SNAP signature scenario: ACCOUNT UNBINDING
-                $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
-            } else if (strpos($operationId, 'balanceInquiry') !== false) {
-                // SNAP signature scenario: BALANCE INQUIRY
-                $scenario = SnapHeader::SCENARIO_BALANCE_INQUIRY;
-            } else {
-                // Default B2B signature scenario
-                $scenario = '';
-            }
-            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $scenario, $this->config);
-            
-            // Add security headers to the request
-            foreach ($snapHeaders as $key => $value) {
-                $headers[$key] = $value;
+                // Generate security headers using SnapHeader utility
+                $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($queryUserProfileRequest));
+                
+                // Determine the signature scenario based on operation ID
+                $operationId = 'queryUserProfile';
+                
+                // Set scenario based on operation ID using PHP comparison
+                if (strpos($operationId, 'applyToken') !== false) {
+                    // SNAP signature scenario: APPLY TOKEN
+                    $scenario = SnapHeader::SCENARIO_APPLY_TOKEN;
+                } else if (strpos($operationId, 'applyOTT') !== false) {
+                    // SNAP signature scenario: APPLY OTT
+                    $scenario = SnapHeader::SCENARIO_APPLY_OTT;
+                } else if (strpos($operationId, 'accountUnbinding') !== false) {
+                    // SNAP signature scenario: ACCOUNT UNBINDING
+                    $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
+                } else if (strpos($operationId, 'balanceInquiry') !== false) {
+                    // SNAP signature scenario: BALANCE INQUIRY
+                    $scenario = SnapHeader::SCENARIO_BALANCE_INQUIRY;
+                } else {
+                    // Default B2B signature scenario
+                    $scenario = '';
+                }
+                $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $scenario, $this->config);
+                
+                // Add security headers to the request
+                foreach ($snapHeaders as $key => $value) {
+                    $headers[$key] = $value;
+                }
             }
         }
 
@@ -2988,48 +3471,117 @@ class WidgetApi
             $headers
         );
 
-        // Generate signature and add security headers for DANA API if private key is configured
-        $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
-        $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
-        $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
-        if (isset($refundOrderRequest)) {
-            $resourcePathForSignature = '/v1.0/debit/refund.htm';
-            if ($refundOrderRequest !== null) {
-                $resourcePathForSignature = str_replace(
-                    '{' . 'RefundOrderRequest' . '}',
-                    ObjectSerializer::toPathValue($refundOrderRequest),
-                    $resourcePathForSignature
-                );
+        // Check if this is an OPEN_API endpoint using operation ID
+        $operationId = 'refundOrder';
+        $isOpenApiEndpoint = ($operationId === 'queryUserProfile');
+        
+        if ($isOpenApiEndpoint) {
+            // Prepare the request body with head and body structure for DANA OpenAPI
+            if (isset($refundOrderRequest)) {
+                $functionName = 'dana.member.query.queryUserProfile'; // Hard-coded for queryUserProfile
+                $headParams = [];
+                
+            // Extract accessToken from request body if available (widget-specific)
+            $requestBodyData = ObjectSerializer::sanitizeForSerialization($refundOrderRequest);
+            $accessToken = '';
+            
+            // Handle both array and object formats from ObjectSerializer
+            if (is_array($requestBodyData)) {
+                if (isset($requestBodyData['accessToken']) && !empty($requestBodyData['accessToken'])) {
+                    $accessToken = $requestBodyData['accessToken'];
+                }
+            } elseif (is_object($requestBodyData)) {
+                if (property_exists($requestBodyData, 'accessToken') && !empty($requestBodyData->accessToken)) {
+                    $accessToken = $requestBodyData->accessToken;
+                }
             }
+                
+                // Generate head parameters using OpenAPI header utility
+                if (method_exists($this->config, 'getApiKey')) {
+                    $headParams = \Dana\Utils\OpenApiHeader::getOpenApiGeneratedHeaders(
+                        $this->config,
+                        json_encode($requestBodyData),
+                        $functionName
+                    );
+                    
+                    // Add accessToken to headers if found in request body
+                    if (!empty($accessToken)) {
+                        $headParams['accessToken'] = $accessToken;
+                    }
+                }
+                
+                // Create the full request structure with head and body
+                $requestBody = [
+                    'request' => [
+                        'head' => $headParams,
+                        'body' => $requestBodyData
+                    ]
+                ];
+                
+                // Generate signature if private key is available
+                $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
+                $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
+                $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
+                
+                if (!empty($privateKey) || !empty($privateKeyPath)) {
+                    try {
+                        $signature = \Dana\Utils\OpenApiHeader::generateOpenApiSignature(
+                            json_encode($requestBody['request']),
+                            $this->config
+                        );
+                        $requestBody['signature'] = $signature;
+                    } catch (\Exception $e) {
+                        throw new \InvalidArgumentException('Failed to generate signature: ' . $e->getMessage());
+                    }
+                }
+                
+                $httpBody = json_encode($requestBody);
+                $headers['Content-Type'] = 'application/json';
+            }
+        } else {
+            // Generate signature and add security headers for DANA API if private key is configured
+            $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
+            $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
+            $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
+            if (isset($refundOrderRequest)) {
+                $resourcePathForSignature = '/v1.0/debit/refund.htm';
+                if ($refundOrderRequest !== null) {
+                    $resourcePathForSignature = str_replace(
+                        '{' . 'RefundOrderRequest' . '}',
+                        ObjectSerializer::toPathValue($refundOrderRequest),
+                        $resourcePathForSignature
+                    );
+                }
 
-            // Generate security headers using SnapHeader utility
-            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($refundOrderRequest));
-            
-            // Determine the signature scenario based on operation ID
-            $operationId = 'refundOrder';
-            
-            // Set scenario based on operation ID using PHP comparison
-            if (strpos($operationId, 'applyToken') !== false) {
-                // SNAP signature scenario: APPLY TOKEN
-                $scenario = SnapHeader::SCENARIO_APPLY_TOKEN;
-            } else if (strpos($operationId, 'applyOTT') !== false) {
-                // SNAP signature scenario: APPLY OTT
-                $scenario = SnapHeader::SCENARIO_APPLY_OTT;
-            } else if (strpos($operationId, 'accountUnbinding') !== false) {
-                // SNAP signature scenario: ACCOUNT UNBINDING
-                $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
-            } else if (strpos($operationId, 'balanceInquiry') !== false) {
-                // SNAP signature scenario: BALANCE INQUIRY
-                $scenario = SnapHeader::SCENARIO_BALANCE_INQUIRY;
-            } else {
-                // Default B2B signature scenario
-                $scenario = '';
-            }
-            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $scenario, $this->config);
-            
-            // Add security headers to the request
-            foreach ($snapHeaders as $key => $value) {
-                $headers[$key] = $value;
+                // Generate security headers using SnapHeader utility
+                $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($refundOrderRequest));
+                
+                // Determine the signature scenario based on operation ID
+                $operationId = 'refundOrder';
+                
+                // Set scenario based on operation ID using PHP comparison
+                if (strpos($operationId, 'applyToken') !== false) {
+                    // SNAP signature scenario: APPLY TOKEN
+                    $scenario = SnapHeader::SCENARIO_APPLY_TOKEN;
+                } else if (strpos($operationId, 'applyOTT') !== false) {
+                    // SNAP signature scenario: APPLY OTT
+                    $scenario = SnapHeader::SCENARIO_APPLY_OTT;
+                } else if (strpos($operationId, 'accountUnbinding') !== false) {
+                    // SNAP signature scenario: ACCOUNT UNBINDING
+                    $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
+                } else if (strpos($operationId, 'balanceInquiry') !== false) {
+                    // SNAP signature scenario: BALANCE INQUIRY
+                    $scenario = SnapHeader::SCENARIO_BALANCE_INQUIRY;
+                } else {
+                    // Default B2B signature scenario
+                    $scenario = '';
+                }
+                $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $scenario, $this->config);
+                
+                // Add security headers to the request
+                foreach ($snapHeaders as $key => $value) {
+                    $headers[$key] = $value;
+                }
             }
         }
 
@@ -3350,48 +3902,117 @@ class WidgetApi
             $headers
         );
 
-        // Generate signature and add security headers for DANA API if private key is configured
-        $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
-        $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
-        $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
-        if (isset($widgetPaymentRequest)) {
-            $resourcePathForSignature = '/rest/redirection/v1.0/debit/payment-host-to-host';
-            if ($widgetPaymentRequest !== null) {
-                $resourcePathForSignature = str_replace(
-                    '{' . 'WidgetPaymentRequest' . '}',
-                    ObjectSerializer::toPathValue($widgetPaymentRequest),
-                    $resourcePathForSignature
-                );
+        // Check if this is an OPEN_API endpoint using operation ID
+        $operationId = 'widgetPayment';
+        $isOpenApiEndpoint = ($operationId === 'queryUserProfile');
+        
+        if ($isOpenApiEndpoint) {
+            // Prepare the request body with head and body structure for DANA OpenAPI
+            if (isset($widgetPaymentRequest)) {
+                $functionName = 'dana.member.query.queryUserProfile'; // Hard-coded for queryUserProfile
+                $headParams = [];
+                
+            // Extract accessToken from request body if available (widget-specific)
+            $requestBodyData = ObjectSerializer::sanitizeForSerialization($widgetPaymentRequest);
+            $accessToken = '';
+            
+            // Handle both array and object formats from ObjectSerializer
+            if (is_array($requestBodyData)) {
+                if (isset($requestBodyData['accessToken']) && !empty($requestBodyData['accessToken'])) {
+                    $accessToken = $requestBodyData['accessToken'];
+                }
+            } elseif (is_object($requestBodyData)) {
+                if (property_exists($requestBodyData, 'accessToken') && !empty($requestBodyData->accessToken)) {
+                    $accessToken = $requestBodyData->accessToken;
+                }
             }
+                
+                // Generate head parameters using OpenAPI header utility
+                if (method_exists($this->config, 'getApiKey')) {
+                    $headParams = \Dana\Utils\OpenApiHeader::getOpenApiGeneratedHeaders(
+                        $this->config,
+                        json_encode($requestBodyData),
+                        $functionName
+                    );
+                    
+                    // Add accessToken to headers if found in request body
+                    if (!empty($accessToken)) {
+                        $headParams['accessToken'] = $accessToken;
+                    }
+                }
+                
+                // Create the full request structure with head and body
+                $requestBody = [
+                    'request' => [
+                        'head' => $headParams,
+                        'body' => $requestBodyData
+                    ]
+                ];
+                
+                // Generate signature if private key is available
+                $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
+                $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
+                $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
+                
+                if (!empty($privateKey) || !empty($privateKeyPath)) {
+                    try {
+                        $signature = \Dana\Utils\OpenApiHeader::generateOpenApiSignature(
+                            json_encode($requestBody['request']),
+                            $this->config
+                        );
+                        $requestBody['signature'] = $signature;
+                    } catch (\Exception $e) {
+                        throw new \InvalidArgumentException('Failed to generate signature: ' . $e->getMessage());
+                    }
+                }
+                
+                $httpBody = json_encode($requestBody);
+                $headers['Content-Type'] = 'application/json';
+            }
+        } else {
+            // Generate signature and add security headers for DANA API if private key is configured
+            $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
+            $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
+            $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
+            if (isset($widgetPaymentRequest)) {
+                $resourcePathForSignature = '/rest/redirection/v1.0/debit/payment-host-to-host';
+                if ($widgetPaymentRequest !== null) {
+                    $resourcePathForSignature = str_replace(
+                        '{' . 'WidgetPaymentRequest' . '}',
+                        ObjectSerializer::toPathValue($widgetPaymentRequest),
+                        $resourcePathForSignature
+                    );
+                }
 
-            // Generate security headers using SnapHeader utility
-            $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($widgetPaymentRequest));
-            
-            // Determine the signature scenario based on operation ID
-            $operationId = 'widgetPayment';
-            
-            // Set scenario based on operation ID using PHP comparison
-            if (strpos($operationId, 'applyToken') !== false) {
-                // SNAP signature scenario: APPLY TOKEN
-                $scenario = SnapHeader::SCENARIO_APPLY_TOKEN;
-            } else if (strpos($operationId, 'applyOTT') !== false) {
-                // SNAP signature scenario: APPLY OTT
-                $scenario = SnapHeader::SCENARIO_APPLY_OTT;
-            } else if (strpos($operationId, 'accountUnbinding') !== false) {
-                // SNAP signature scenario: ACCOUNT UNBINDING
-                $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
-            } else if (strpos($operationId, 'balanceInquiry') !== false) {
-                // SNAP signature scenario: BALANCE INQUIRY
-                $scenario = SnapHeader::SCENARIO_BALANCE_INQUIRY;
-            } else {
-                // Default B2B signature scenario
-                $scenario = '';
-            }
-            $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $scenario, $this->config);
-            
-            // Add security headers to the request
-            foreach ($snapHeaders as $key => $value) {
-                $headers[$key] = $value;
+                // Generate security headers using SnapHeader utility
+                $bodyJson = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($widgetPaymentRequest));
+                
+                // Determine the signature scenario based on operation ID
+                $operationId = 'widgetPayment';
+                
+                // Set scenario based on operation ID using PHP comparison
+                if (strpos($operationId, 'applyToken') !== false) {
+                    // SNAP signature scenario: APPLY TOKEN
+                    $scenario = SnapHeader::SCENARIO_APPLY_TOKEN;
+                } else if (strpos($operationId, 'applyOTT') !== false) {
+                    // SNAP signature scenario: APPLY OTT
+                    $scenario = SnapHeader::SCENARIO_APPLY_OTT;
+                } else if (strpos($operationId, 'accountUnbinding') !== false) {
+                    // SNAP signature scenario: ACCOUNT UNBINDING
+                    $scenario = SnapHeader::SCENARIO_UNBINDING_ACCOUNT;
+                } else if (strpos($operationId, 'balanceInquiry') !== false) {
+                    // SNAP signature scenario: BALANCE INQUIRY
+                    $scenario = SnapHeader::SCENARIO_BALANCE_INQUIRY;
+                } else {
+                    // Default B2B signature scenario
+                    $scenario = '';
+                }
+                $snapHeaders = SnapHeader::generateHeaders('POST', $resourcePathForSignature, $bodyJson, $scenario, $this->config);
+                
+                // Add security headers to the request
+                foreach ($snapHeaders as $key => $value) {
+                    $headers[$key] = $value;
+                }
             }
         }
 

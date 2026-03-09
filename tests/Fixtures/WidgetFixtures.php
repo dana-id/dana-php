@@ -21,6 +21,7 @@ use Dana\Widget\v1\Model\AccountUnbindingRequest;
 use Dana\Widget\v1\Model\AccountUnbindingRequestAdditionalInfo;
 use Dana\Widget\v1\Model\BalanceInquiryRequest;
 use Dana\Widget\v1\Model\BalanceInquiryRequestAdditionalInfo;
+use Dana\Widget\v1\Model\QueryUserProfileRequest;
 use Dana\Widget\v1\Model\Money;
 use Dana\Widget\v1\Model\Order;
 use Dana\Widget\v1\Model\EnvInfo;
@@ -231,6 +232,21 @@ class WidgetFixtures
                 'accessToken' => $accessToken,
                 'deviceId' => 'DUMMY_DEVICE_ID'
             ])
+        ]);
+    }
+
+    /**
+     * Get a QueryUserProfileRequest fixture
+     * 
+     * @param string|null $accessToken The access token to use
+     * @return QueryUserProfileRequest
+     */
+    public static function getQueryUserProfileRequest(
+        ?string $accessToken = null
+    ): QueryUserProfileRequest {
+        return new QueryUserProfileRequest([
+            'userResources' => ['BALANCE'],
+            'accessToken' => $accessToken ?: 'DUMMY_ACCESS_TOKEN'
         ]);
     }
 }

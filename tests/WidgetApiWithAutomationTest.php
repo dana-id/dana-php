@@ -271,8 +271,43 @@ class WidgetApiWithAutomationTest extends TestCase
         }
 
         try {
-            // Step 4: Account Unbinding
-            echo "Step 4: Unbinding the account..." . PHP_EOL;
+            // Step 4: Query User Profile
+            echo "Step 4: Querying user profile..." . PHP_EOL;
+            $queryUserProfileRequest = WidgetFixtures::getQueryUserProfileRequest($this->bindingAccessToken);
+            
+            $queryUserProfileResponse = $this->apiInstance->queryUserProfile($queryUserProfileRequest);
+            
+            $this->assertNotNull($queryUserProfileResponse);
+            $this->assertNotNull($queryUserProfileResponse->getResponse());
+            $this->assertNotNull($queryUserProfileResponse->getResponse()->getHead());
+            $this->assertNotNull($queryUserProfileResponse->getResponse()->getBody());
+            
+            // Verify result status is success
+            $resultInfo = $queryUserProfileResponse->getResponse()->getBody()->getResultInfo();
+            $this->assertNotNull($resultInfo);
+            $this->assertEquals('S', $resultInfo->getResultStatus(), 'Result status should be Success (S)');
+            
+            // Verify that we requested BALANCE resource
+            $this->assertContains('BALANCE', $queryUserProfileRequest->getUserResources());
+            $this->assertEquals($this->bindingAccessToken, $queryUserProfileRequest->getAccessToken());
+            
+            echo "Successfully retrieved user profile with BALANCE resource" . PHP_EOL;
+            echo "Result Status: " . $resultInfo->getResultStatus() . PHP_EOL;
+            echo "Result Code: " . $resultInfo->getResultCode() . PHP_EOL;
+            echo "Access Token used: " . $this->bindingAccessToken . PHP_EOL;
+            
+            // Check if user resources were returned
+            $userResourceInfos = $queryUserProfileResponse->getResponse()->getBody()->getUserResourceInfos();
+            if ($userResourceInfos && count($userResourceInfos) > 0) {
+                echo "Returned " . count($userResourceInfos) . " user resource(s)" . PHP_EOL;
+            }
+        } catch (\Exception $e) {
+            $this->fail('Error during QueryUserProfile execution: ' . $e->getMessage());
+        }
+
+        try {
+            // Step 5: Account Unbinding
+            echo "Step 5: Unbinding the account..." . PHP_EOL;
             $accountUnbindingRequest = WidgetFixtures::getAccountUnbindingRequest($this->bindingAccessToken);
             
             $accountUnbindingResponse = $this->apiInstance->accountUnbinding($accountUnbindingRequest);

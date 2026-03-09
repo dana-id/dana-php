@@ -47,21 +47,39 @@ class UserResourceInfo extends BaseModel
     }
 
     public const RESOURCE_TYPE_BALANCE = 'BALANCE';
-    public const RESOURCE_TYPE_TRANSACTION_URL = 'TRANSACTION_URL';
-    public const RESOURCE_TYPE_MASK_DANA_ID = 'MASK_DANA_ID';
     public const RESOURCE_TYPE_TOPUP_URL = 'TOPUP_URL';
+    public const RESOURCE_TYPE_TRANSACTION_URL = 'TRANSACTION_URL';
     public const RESOURCE_TYPE_OTT = 'OTT';
+    public const RESOURCE_TYPE_MASK_DANA_ID = 'MASK_DANA_ID';
     public const RESOURCE_TYPE_USER_KYC = 'USER_KYC';
+    public const RESOURCE_TYPE_LOGIN_ID = 'LOGIN_ID';
+    public const RESOURCE_TYPE_CLEAR_TEXT_DANA_ID = 'CLEAR_TEXT_DANA_ID';
+    public const RESOURCE_TYPE_NICKNAME = 'NICKNAME';
+    public const RESOURCE_TYPE_FULLNAME = 'FULLNAME';
+    public const RESOURCE_TYPE_KTP_NUMBER = 'KTP_NUMBER';
+    public const RESOURCE_TYPE_KTP_PHOTO_DATA = 'KTP_PHOTO_DATA';
+    public const RESOURCE_TYPE_SELFIE_PHOTO_DATA = 'SELFIE_PHOTO_DATA';
+    public const RESOURCE_TYPE_AVATAR_URL = 'AVATAR_URL';
+    public const RESOURCE_TYPE_MASKED_FULLNAME = 'MASKED_FULLNAME';
 
     public function getResourceTypeAllowableValues()
     {
         return [
             self::RESOURCE_TYPE_BALANCE,
-            self::RESOURCE_TYPE_TRANSACTION_URL,
-            self::RESOURCE_TYPE_MASK_DANA_ID,
             self::RESOURCE_TYPE_TOPUP_URL,
+            self::RESOURCE_TYPE_TRANSACTION_URL,
             self::RESOURCE_TYPE_OTT,
+            self::RESOURCE_TYPE_MASK_DANA_ID,
             self::RESOURCE_TYPE_USER_KYC,
+            self::RESOURCE_TYPE_LOGIN_ID,
+            self::RESOURCE_TYPE_CLEAR_TEXT_DANA_ID,
+            self::RESOURCE_TYPE_NICKNAME,
+            self::RESOURCE_TYPE_FULLNAME,
+            self::RESOURCE_TYPE_KTP_NUMBER,
+            self::RESOURCE_TYPE_KTP_PHOTO_DATA,
+            self::RESOURCE_TYPE_SELFIE_PHOTO_DATA,
+            self::RESOURCE_TYPE_AVATAR_URL,
+            self::RESOURCE_TYPE_MASKED_FULLNAME,
         ];
     }
 

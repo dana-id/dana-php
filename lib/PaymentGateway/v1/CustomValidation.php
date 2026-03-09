@@ -49,11 +49,13 @@ class CustomValidation
             'validateMoneyValuePattern',
             'validateValidUpToCreateOrderRequest',
             'validateExternalStoreIdForQris',
+            'validateSandboxPayMethodAndPayOption',
         ],
         'Dana\PaymentGateway\v1\Model\CreateOrderByRedirectRequest' => [
             'validateAdditionalInfoRequired',
             'validateMoneyValuePattern',
             'validateValidUpToCreateOrderRequest',
+            'validateSandboxPayMethodAndPayOption',
         ],
         // Add more request types and their validations here as needed
     ];
@@ -238,4 +240,87 @@ class CustomValidation
         }
     }
 
+    /** In sandbox, only these payMethods are available (Payment Gateway). */
+    private const SANDBOX_ALLOWED_PAY_METHODS = ['BALANCE', 'CREDIT_CARD', 'DEBIT_CARD', 'VIRTUAL_ACCOUNT', 'NETWORK_PAY'];
+
+    /** In sandbox, only these payOptions are available (exact or suffix e.g. VIRTUAL_ACCOUNT_BRI). */
+    private const SANDBOX_ALLOWED_PAY_OPTIONS = ['CARD', 'QRIS', 'BRI', 'PANIN', 'CIMB', 'MANDIRI', 'BTPN'];
+
+    private static function isSandbox(): bool
+    {
+        $env = getenv('DANA_ENV') ?: getenv('ENV') ?: 'sandbox';
+        return strtolower($env) === 'sandbox';
+    }
+
+    private static function payOptionAllowedInSandbox(string $value): bool
+    {
+        $value = trim($value);
+        if ($value === '') {
+            return false;
+        }
+        if (in_array($value, self::SANDBOX_ALLOWED_PAY_OPTIONS, true)) {
+            return true;
+        }
+        foreach (self::SANDBOX_ALLOWED_PAY_OPTIONS as $opt) {
+            if (strlen($value) > strlen($opt) && substr($value, -strlen($opt) - 1) === '_' . $opt) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * In sandbox, only certain payMethod and payOption values are available.
+     * Skipped when not in sandbox.
+     *
+     * @param mixed $request The request to validate
+     * @return void
+     * @throws ApiException if validation fails
+     */
+    private static function validateSandboxPayMethodAndPayOption($request)
+    {
+        if ($request === null || !self::isSandbox()) {
+            return;
+        }
+        if (!method_exists($request, 'getPayOptionDetails')) {
+            return;
+        }
+        $payOptionDetails = $request->getPayOptionDetails();
+        if (!is_array($payOptionDetails) || empty($payOptionDetails)) {
+            return;
+        }
+        $allowedMethodsStr = implode(', ', self::SANDBOX_ALLOWED_PAY_METHODS);
+        $allowedOptionsStr = implode(', ', self::SANDBOX_ALLOWED_PAY_OPTIONS);
+        foreach ($payOptionDetails as $idx => $payOptionDetail) {
+            if ($payOptionDetail === null) {
+                continue;
+            }
+            if (method_exists($payOptionDetail, 'getPayMethod')) {
+                $payMethod = $payOptionDetail->getPayMethod();
+                $payMethodStr = $payMethod !== null ? (method_exists($payMethod, 'getValue') ? $payMethod->getValue() : (string) $payMethod) : '';
+                $payMethodStr = trim($payMethodStr);
+                if ($payMethodStr !== '' && !in_array($payMethodStr, self::SANDBOX_ALLOWED_PAY_METHODS, true)) {
+                    throw new ApiException(
+                        "In sandbox, payMethod must be one of [{$allowedMethodsStr}]; got {$payMethodStr} in payOptionDetails[{$idx}]",
+                        0,
+                        null,
+                        null
+                    );
+                }
+            }
+            if (method_exists($payOptionDetail, 'getPayOption')) {
+                $payOption = $payOptionDetail->getPayOption();
+                $payOptionStr = $payOption !== null ? (method_exists($payOption, 'getValue') ? $payOption->getValue() : (string) $payOption) : '';
+                $payOptionStr = trim($payOptionStr);
+                if ($payOptionStr !== '' && !self::payOptionAllowedInSandbox($payOptionStr)) {
+                    throw new ApiException(
+                        "In sandbox, payOption must be one of [{$allowedOptionsStr}] (or suffix like VIRTUAL_ACCOUNT_BRI); got {$payOptionStr} in payOptionDetails[{$idx}]",
+                        0,
+                        null,
+                        null
+                    );
+                }
+            }
+        }
+    }
 }

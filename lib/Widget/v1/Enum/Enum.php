@@ -95,19 +95,14 @@ class ResourceType
     const BALANCE = "BALANCE";
 
     /**
-     * TRANSACTION_URL
-     */
-    const TRANSACTION_URL = "TRANSACTION_URL";
-
-    /**
-     * MASK_DANA_ID
-     */
-    const MASK_DANA_ID = "MASK_DANA_ID";
-
-    /**
      * TOPUP_URL
      */
     const TOPUP_URL = "TOPUP_URL";
+
+    /**
+     * TRANSACTION_URL
+     */
+    const TRANSACTION_URL = "TRANSACTION_URL";
 
     /**
      * OTT
@@ -115,9 +110,59 @@ class ResourceType
     const OTT = "OTT";
 
     /**
+     * MASK_DANA_ID
+     */
+    const MASK_DANA_ID = "MASK_DANA_ID";
+
+    /**
      * USER_KYC
      */
     const USER_KYC = "USER_KYC";
+
+    /**
+     * LOGIN_ID
+     */
+    const LOGIN_ID = "LOGIN_ID";
+
+    /**
+     * CLEAR_TEXT_DANA_ID
+     */
+    const CLEAR_TEXT_DANA_ID = "CLEAR_TEXT_DANA_ID";
+
+    /**
+     * NICKNAME
+     */
+    const NICKNAME = "NICKNAME";
+
+    /**
+     * FULLNAME
+     */
+    const FULLNAME = "FULLNAME";
+
+    /**
+     * KTP_NUMBER
+     */
+    const KTP_NUMBER = "KTP_NUMBER";
+
+    /**
+     * KTP_PHOTO_DATA
+     */
+    const KTP_PHOTO_DATA = "KTP_PHOTO_DATA";
+
+    /**
+     * SELFIE_PHOTO_DATA
+     */
+    const SELFIE_PHOTO_DATA = "SELFIE_PHOTO_DATA";
+
+    /**
+     * AVATAR_URL
+     */
+    const AVATAR_URL = "AVATAR_URL";
+
+    /**
+     * MASKED_FULLNAME
+     */
+    const MASKED_FULLNAME = "MASKED_FULLNAME";
 }
 
 class ResultStatus

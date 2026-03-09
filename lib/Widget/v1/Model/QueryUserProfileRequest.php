@@ -13,7 +13,8 @@ class QueryUserProfileRequest extends BaseModel
     protected static $openAPIModelName = 'QueryUserProfileRequest';
 
     protected static $openAPITypes = [
-        'userResources' => 'string[]'
+        'userResources' => 'string[]',
+        'accessToken' => 'string'
     ];
 
     protected static $openAPIFormats = [
@@ -46,21 +47,39 @@ class QueryUserProfileRequest extends BaseModel
     }
 
     public const USER_RESOURCES_BALANCE = 'BALANCE';
-    public const USER_RESOURCES_TRANSACTION_URL = 'TRANSACTION_URL';
-    public const USER_RESOURCES_MASK_DANA_ID = 'MASK_DANA_ID';
     public const USER_RESOURCES_TOPUP_URL = 'TOPUP_URL';
+    public const USER_RESOURCES_TRANSACTION_URL = 'TRANSACTION_URL';
     public const USER_RESOURCES_OTT = 'OTT';
+    public const USER_RESOURCES_MASK_DANA_ID = 'MASK_DANA_ID';
     public const USER_RESOURCES_USER_KYC = 'USER_KYC';
+    public const USER_RESOURCES_LOGIN_ID = 'LOGIN_ID';
+    public const USER_RESOURCES_CLEAR_TEXT_DANA_ID = 'CLEAR_TEXT_DANA_ID';
+    public const USER_RESOURCES_NICKNAME = 'NICKNAME';
+    public const USER_RESOURCES_FULLNAME = 'FULLNAME';
+    public const USER_RESOURCES_KTP_NUMBER = 'KTP_NUMBER';
+    public const USER_RESOURCES_KTP_PHOTO_DATA = 'KTP_PHOTO_DATA';
+    public const USER_RESOURCES_SELFIE_PHOTO_DATA = 'SELFIE_PHOTO_DATA';
+    public const USER_RESOURCES_AVATAR_URL = 'AVATAR_URL';
+    public const USER_RESOURCES_MASKED_FULLNAME = 'MASKED_FULLNAME';
 
     public function getUserResourcesAllowableValues()
     {
         return [
             self::USER_RESOURCES_BALANCE,
-            self::USER_RESOURCES_TRANSACTION_URL,
-            self::USER_RESOURCES_MASK_DANA_ID,
             self::USER_RESOURCES_TOPUP_URL,
+            self::USER_RESOURCES_TRANSACTION_URL,
             self::USER_RESOURCES_OTT,
+            self::USER_RESOURCES_MASK_DANA_ID,
             self::USER_RESOURCES_USER_KYC,
+            self::USER_RESOURCES_LOGIN_ID,
+            self::USER_RESOURCES_CLEAR_TEXT_DANA_ID,
+            self::USER_RESOURCES_NICKNAME,
+            self::USER_RESOURCES_FULLNAME,
+            self::USER_RESOURCES_KTP_NUMBER,
+            self::USER_RESOURCES_KTP_PHOTO_DATA,
+            self::USER_RESOURCES_SELFIE_PHOTO_DATA,
+            self::USER_RESOURCES_AVATAR_URL,
+            self::USER_RESOURCES_MASKED_FULLNAME,
         ];
     }
 
@@ -96,6 +115,9 @@ class QueryUserProfileRequest extends BaseModel
             $invalidProperties[] = "invalid value for 'userResources', number of items must be greater than or equal to 1.";
         }
 
+        if ($this->container['accessToken'] === null) {
+            $invalidProperties[] = "'accessToken' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -126,6 +148,21 @@ class QueryUserProfileRequest extends BaseModel
             throw new \InvalidArgumentException('invalid length for $userResources when calling QueryUserProfileRequest., number of items must be greater than or equal to 1.');
         }
         $this->container['userResources'] = $userResources;
+
+        return $this;
+    }
+
+    public function getAccessToken()
+    {
+        return $this->container['accessToken'];
+    }
+
+    public function setAccessToken($accessToken)
+    {
+        if (is_null($accessToken)) {
+            throw new \InvalidArgumentException('non-nullable accessToken cannot be null');
+        }
+        $this->container['accessToken'] = $accessToken;
 
         return $this;
     }

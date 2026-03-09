@@ -572,4 +572,60 @@ class PaymentGatewayApiTest extends TestCase
         $this->expectException(\Throwable::class);
         $this->apiInstance->createOrder($createOrderByApiRequest);
     }
+
+    /**
+     * Sandbox payMethod/payOption validation: invalid payMethod (COUPON) should be rejected in sandbox.
+     * Only run when DANA_ENV or ENV is sandbox.
+     *
+     * @return void
+     */
+    public function testSandboxRejectsInvalidPayMethod()
+    {
+        $env = getenv('DANA_ENV') ?: getenv('ENV') ?: 'sandbox';
+        if (strtolower($env) !== 'sandbox') {
+            $this->markTestSkipped('Sandbox payMethod/payOption validation only runs in sandbox');
+        }
+
+        $createOrderByApiRequest = PaymentGatewayFixtures::getCreateOrderByApiRequest();
+        $payOptionDetail = new \Dana\PaymentGateway\v1\Model\PayOptionDetail([
+            'payMethod' => 'COUPON',
+            'payOption' => 'CARD',
+            'transAmount' => new \Dana\PaymentGateway\v1\Model\Money([
+                'value' => '222000.00',
+                'currency' => 'IDR'
+            ])
+        ]);
+        $createOrderByApiRequest->setPayOptionDetails([$payOptionDetail]);
+
+        $this->expectException(\Dana\ApiException::class);
+        $this->apiInstance->createOrder($createOrderByApiRequest);
+    }
+
+    /**
+     * Sandbox payMethod/payOption validation: invalid payOption (NETWORK_PAY_PG_OVO) should be rejected in sandbox.
+     * Only run when DANA_ENV or ENV is sandbox.
+     *
+     * @return void
+     */
+    public function testSandboxRejectsInvalidPayOption()
+    {
+        $env = getenv('DANA_ENV') ?: getenv('ENV') ?: 'sandbox';
+        if (strtolower($env) !== 'sandbox') {
+            $this->markTestSkipped('Sandbox payMethod/payOption validation only runs in sandbox');
+        }
+
+        $createOrderByApiRequest = PaymentGatewayFixtures::getCreateOrderByApiRequest();
+        $payOptionDetail = new \Dana\PaymentGateway\v1\Model\PayOptionDetail([
+            'payMethod' => 'NETWORK_PAY',
+            'payOption' => 'NETWORK_PAY_PG_OVO',
+            'transAmount' => new \Dana\PaymentGateway\v1\Model\Money([
+                'value' => '222000.00',
+                'currency' => 'IDR'
+            ])
+        ]);
+        $createOrderByApiRequest->setPayOptionDetails([$payOptionDetail]);
+
+        $this->expectException(\Dana\ApiException::class);
+        $this->apiInstance->createOrder($createOrderByApiRequest);
+    }
 }
