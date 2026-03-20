@@ -125,5 +125,25 @@ class WidgetApiTest extends TestCase
         } catch (\Exception $e) {
             $this->fail('Error during CancelOrder execution: ' . $e->getMessage());
         }
-    }    
+
+    }
+
+    public function testApplyTokenAuthCodeMustNotContainQueryDelimiters(): void
+    {
+        // CustomValidation::validate() runs before the API request is built/sent,
+        // so this should fail deterministically with validation errors only.
+        $request = new ApplyTokenRequest([
+            'grantType' => ApplyTokenRequest::GRANT_TYPE_AUTHORIZATION_CODE,
+            'authCode' => 'abc123&state=xyz',
+            'refreshToken' => '',
+        ]);
+
+        try {
+            $this->apiInstance->applyToken($request);
+            $this->fail('Expected authCode validation error but request succeeded');
+        } catch (\Dana\ApiException $e) {
+            $this->assertStringContainsString("authcode must not contain", strtolower($e->getMessage()));
+        }
+    }
+
 }

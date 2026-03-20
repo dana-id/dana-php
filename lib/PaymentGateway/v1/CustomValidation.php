@@ -49,7 +49,9 @@ class CustomValidation
             'validateMoneyValuePattern',
             'validateValidUpToCreateOrderRequest',
             'validateExternalStoreIdForQris',
+            'validateConditionalPayOptionAdditionalInfoCreateOrderRequest',
             'validateSandboxPayMethodAndPayOption',
+            'validateOptionalFieldsWithRequiredNestedCreateOrderRequest',
         ],
         'Dana\PaymentGateway\v1\Model\CreateOrderByRedirectRequest' => [
             'validateAdditionalInfoRequired',
@@ -87,10 +89,23 @@ class CustomValidation
 
         // Check if this request type has validations registered
         if (isset(self::$validationRegistry[$className])) {
+            $validationErrors = [];
             foreach (self::$validationRegistry[$className] as $validatorName) {
                 if (method_exists(self::class, $validatorName)) {
-                    self::$validatorName($request);
+                    try {
+                        self::$validatorName($request);
+                    } catch (ApiException $e) {
+                        $validationErrors[] = $e->getMessage();
+                    }
                 }
+            }
+            if (!empty($validationErrors)) {
+                throw new ApiException(
+                    'validation failed: ' . implode('; ', $validationErrors),
+                    0,
+                    null,
+                    null
+                );
             }
         }
     }
@@ -319,6 +334,160 @@ class CustomValidation
                         null,
                         null
                     );
+                }
+            }
+        }
+    }
+
+    private static function normalizeValue($value): string
+    {
+        if ($value === null) {
+            return '';
+        }
+        if (is_object($value) && method_exists($value, 'getValue')) {
+            $value = $value->getValue();
+        }
+        return trim((string) $value);
+    }
+
+    private static function isCardPayment(string $payMethod, string $payOption): bool
+    {
+        $payMethod = trim($payMethod);
+        $payOption = trim($payOption);
+        return in_array($payMethod, ['CARD', 'CREDIT_CARD'], true) || $payOption === 'NETWORK_PAY_PG_CARD';
+    }
+
+    private static function isEwalletPayment(string $payOption): bool
+    {
+        return in_array(trim($payOption), [
+            'NETWORK_PAY_PG_SPAY',
+            'NETWORK_PAY_PG_OVO',
+            'NETWORK_PAY_PG_GOPAY',
+            'NETWORK_PAY_PG_LINKAJA',
+        ], true);
+    }
+
+    private static function isVirtualAccountPayMethod(string $payMethod): bool
+    {
+        return trim($payMethod) === 'VIRTUAL_ACCOUNT';
+    }
+
+    /**
+     * Enforce conditional fields in createOrderByApiRequest.payOptionDetails[].additionalInfo.
+     */
+    private static function validateConditionalPayOptionAdditionalInfoCreateOrderRequest($request)
+    {
+        if (!($request instanceof CreateOrderByApiRequest)) {
+            return;
+        }
+        if (!method_exists($request, 'getPayOptionDetails')) {
+            return;
+        }
+        $payOptionDetails = $request->getPayOptionDetails();
+        if (!is_array($payOptionDetails) || empty($payOptionDetails)) {
+            return;
+        }
+
+        foreach ($payOptionDetails as $idx => $payOptionDetail) {
+            if ($payOptionDetail === null) {
+                continue;
+            }
+            $payMethod = method_exists($payOptionDetail, 'getPayMethod')
+                ? self::normalizeValue($payOptionDetail->getPayMethod())
+                : '';
+            $payOption = method_exists($payOptionDetail, 'getPayOption')
+                ? self::normalizeValue($payOptionDetail->getPayOption())
+                : '';
+
+            $additionalInfo = method_exists($payOptionDetail, 'getAdditionalInfo')
+                ? $payOptionDetail->getAdditionalInfo()
+                : null;
+            $phoneNumber = ($additionalInfo !== null && method_exists($additionalInfo, 'getPhoneNumber'))
+                ? trim((string) $additionalInfo->getPhoneNumber())
+                : '';
+            $paymentCode = ($additionalInfo !== null && method_exists($additionalInfo, 'getPaymentCode'))
+                ? trim((string) $additionalInfo->getPaymentCode())
+                : '';
+
+            if (self::isCardPayment($payMethod, $payOption) || self::isEwalletPayment($payOption)) {
+                if ($phoneNumber === '') {
+                    throw new ApiException("phoneNumber is required for card/e-wallet payment (payOptionDetails[{$idx}])", 0, null, null);
+                }
+                $phoneLen = mb_strlen($phoneNumber);
+                if ($phoneLen < 1 || $phoneLen > 15) {
+                    throw new ApiException("phoneNumber must be between 1 and 15 characters (payOptionDetails[{$idx}])", 0, null, null);
+                }
+            }
+
+            if (self::isVirtualAccountPayMethod($payMethod)) {
+                if ($paymentCode === '') {
+                    throw new ApiException("paymentCode is required for virtual account payment (payOptionDetails[{$idx}])", 0, null, null);
+                }
+                $paymentCodeLen = mb_strlen($paymentCode);
+                if ($paymentCodeLen < 1 || $paymentCodeLen > 64) {
+                    throw new ApiException("paymentCode must be between 1 and 64 characters (payOptionDetails[{$idx}])", 0, null, null);
+                }
+            }
+        }
+    }
+
+    /**
+     * Validate required nested fields when optional nested objects are present.
+     */
+    private static function validateOptionalFieldsWithRequiredNestedCreateOrderRequest($request)
+    {
+        if (!($request instanceof CreateOrderByApiRequest)) {
+            return;
+        }
+        if (!method_exists($request, 'getAdditionalInfo')) {
+            return;
+        }
+        $additionalInfo = $request->getAdditionalInfo();
+        if ($additionalInfo === null || !method_exists($additionalInfo, 'getOrder')) {
+            return;
+        }
+        $order = $additionalInfo->getOrder();
+        if ($order === null) {
+            return;
+        }
+
+        if (method_exists($order, 'getBuyer')) {
+            $buyer = $order->getBuyer();
+            if ($buyer !== null) {
+                $externalUserId = method_exists($buyer, 'getExternalUserId') ? trim((string) $buyer->getExternalUserId()) : '';
+                $externalUserType = method_exists($buyer, 'getExternalUserType') ? trim((string) $buyer->getExternalUserType()) : '';
+                if ($externalUserId !== '' && $externalUserType === '') {
+                    throw new ApiException('buyer.externalUserType is required when buyer.externalUserId is provided', 0, null, null);
+                }
+            }
+        }
+
+        if (method_exists($order, 'getGoods')) {
+            $goodsList = $order->getGoods();
+            if (is_array($goodsList)) {
+                foreach ($goodsList as $idx => $goods) {
+                    if ($goods === null) {
+                        continue;
+                    }
+                    $name = method_exists($goods, 'getName') ? trim((string) $goods->getName()) : '';
+                    if ($name === '') {
+                        throw new ApiException("goods[{$idx}].name is required when goods is provided", 0, null, null);
+                    }
+                }
+            }
+        }
+
+        if (method_exists($order, 'getShippingInfo')) {
+            $shippingInfos = $order->getShippingInfo();
+            if (is_array($shippingInfos)) {
+                foreach ($shippingInfos as $idx => $shippingInfo) {
+                    if ($shippingInfo === null) {
+                        continue;
+                    }
+                    $firstName = method_exists($shippingInfo, 'getFirstName') ? trim((string) $shippingInfo->getFirstName()) : '';
+                    if ($firstName === '') {
+                        throw new ApiException("shippingInfo[{$idx}].firstName is required when shippingInfo is provided", 0, null, null);
+                    }
                 }
             }
         }

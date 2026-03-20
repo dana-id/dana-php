@@ -573,6 +573,156 @@ class PaymentGatewayApiTest extends TestCase
         $this->apiInstance->createOrder($createOrderByApiRequest);
     }
 
+    public function testCreateOrderCustomValidationAggregatesErrors(): void
+    {
+        $request = PaymentGatewayFixtures::getCreateOrderByApiRequest();
+        // invalid amount.value: missing ".00"
+        $request->setAmount(new \Dana\PaymentGateway\v1\Model\Money(['value' => '10000', 'currency' => 'IDR']));
+
+        $payOptionDetail = new \Dana\PaymentGateway\v1\Model\PayOptionDetail([
+            'payMethod' => 'VIRTUAL_ACCOUNT',
+            'payOption' => 'VIRTUAL_ACCOUNT_BRI',
+            'transAmount' => new \Dana\PaymentGateway\v1\Model\Money(['value' => '222000.00', 'currency' => 'IDR']),
+            'additionalInfo' => new \Dana\PaymentGateway\v1\Model\PayOptionAdditionalInfo([]),
+        ]);
+        $request->setPayOptionDetails([$payOptionDetail]);
+
+        try {
+            $this->apiInstance->createOrder($request);
+            $this->fail('Expected validation error but request succeeded');
+        } catch (\Dana\ApiException $e) {
+            $msg = strtolower($e->getMessage());
+            $this->assertStringContainsString('validation failed', $msg);
+            $this->assertStringContainsString('amount.value', $msg);
+            $this->assertStringContainsString('paymentcode', $msg);
+        }
+    }
+
+    public function testCreateOrderPhoneNumberRequiredForCreditCardOrCardPayOption(): void
+    {
+        $request = PaymentGatewayFixtures::getCreateOrderByApiRequest();
+        $detail = new \Dana\PaymentGateway\v1\Model\PayOptionDetail([
+            'payMethod' => 'CREDIT_CARD',
+            'payOption' => 'NETWORK_PAY_PG_CARD',
+            'transAmount' => new \Dana\PaymentGateway\v1\Model\Money(['value' => '222000.00', 'currency' => 'IDR']),
+            'additionalInfo' => new \Dana\PaymentGateway\v1\Model\PayOptionAdditionalInfo([]),
+        ]);
+        $request->setPayOptionDetails([$detail]);
+
+        try {
+            $this->apiInstance->createOrder($request);
+            $this->fail('Expected phoneNumber validation error but request succeeded');
+        } catch (\Dana\ApiException $e) {
+            $this->assertStringContainsString('phonenumber is required', strtolower($e->getMessage()));
+        }
+    }
+
+    public function testCreateOrderPhoneNumberRequiredForEwalletPayOptions(): void
+    {
+        foreach (['NETWORK_PAY_PG_SPAY', 'NETWORK_PAY_PG_OVO', 'NETWORK_PAY_PG_GOPAY', 'NETWORK_PAY_PG_LINKAJA'] as $payOption) {
+            $request = PaymentGatewayFixtures::getCreateOrderByApiRequest();
+            $detail = new \Dana\PaymentGateway\v1\Model\PayOptionDetail([
+                'payMethod' => 'NETWORK_PAY',
+                'payOption' => $payOption,
+                'transAmount' => new \Dana\PaymentGateway\v1\Model\Money(['value' => '222000.00', 'currency' => 'IDR']),
+                'additionalInfo' => new \Dana\PaymentGateway\v1\Model\PayOptionAdditionalInfo([]),
+            ]);
+            $request->setPayOptionDetails([$detail]);
+
+            try {
+                $this->apiInstance->createOrder($request);
+                $this->fail("Expected phoneNumber validation error for {$payOption} but request succeeded");
+            } catch (\Dana\ApiException $e) {
+                $this->assertStringContainsString('phonenumber is required', strtolower($e->getMessage()));
+            }
+        }
+    }
+
+    public function testCreateOrderPaymentCodeRequiredForVirtualAccount(): void
+    {
+        $request = PaymentGatewayFixtures::getCreateOrderByApiRequest();
+        $detail = new \Dana\PaymentGateway\v1\Model\PayOptionDetail([
+            'payMethod' => 'VIRTUAL_ACCOUNT',
+            'payOption' => 'VIRTUAL_ACCOUNT_BRI',
+            'transAmount' => new \Dana\PaymentGateway\v1\Model\Money(['value' => '222000.00', 'currency' => 'IDR']),
+            'additionalInfo' => new \Dana\PaymentGateway\v1\Model\PayOptionAdditionalInfo([]),
+        ]);
+        $request->setPayOptionDetails([$detail]);
+
+        try {
+            $this->apiInstance->createOrder($request);
+            $this->fail('Expected paymentCode validation error but request succeeded');
+        } catch (\Dana\ApiException $e) {
+            $this->assertStringContainsString('paymentcode', strtolower($e->getMessage()));
+            $this->assertStringContainsString('required', strtolower($e->getMessage()));
+        }
+    }
+
+    public function testCreateOrderOptionalNestedBuyerRequiresExternalUserType(): void
+    {
+        $request = PaymentGatewayFixtures::getCreateOrderByApiRequest();
+        $order = $request->getAdditionalInfo()->getOrder();
+        $order->setBuyer(new \Dana\PaymentGateway\v1\Model\Buyer([
+            'externalUserId' => 'ext-123',
+            'externalUserType' => '',
+        ]));
+
+        try {
+            $this->apiInstance->createOrder($request);
+            $this->fail('Expected buyer.externalUserType validation error but request succeeded');
+        } catch (\Dana\ApiException $e) {
+            $this->assertStringContainsString('externalusertype', strtolower($e->getMessage()));
+        }
+    }
+
+    public function testCreateOrderOptionalNestedGoodsRequiresName(): void
+    {
+        $request = PaymentGatewayFixtures::getCreateOrderByApiRequest();
+        $order = $request->getAdditionalInfo()->getOrder();
+        $order->setGoods([
+            new \Dana\PaymentGateway\v1\Model\Goods([
+                'name' => '',
+                'merchantGoodsId' => 'sku-1',
+                'description' => 'desc',
+                'category' => 'cat',
+                'price' => new \Dana\PaymentGateway\v1\Model\Money(['value' => '10000.00', 'currency' => 'IDR']),
+                'quantity' => '1',
+            ]),
+        ]);
+
+        try {
+            $this->apiInstance->createOrder($request);
+            $this->fail('Expected goods[].name validation error but request succeeded');
+        } catch (\Dana\ApiException $e) {
+            $this->assertStringContainsString('goods[0].name is required', strtolower($e->getMessage()));
+        }
+    }
+
+    public function testCreateOrderOptionalNestedShippingInfoRequiresFirstName(): void
+    {
+        $request = PaymentGatewayFixtures::getCreateOrderByApiRequest();
+        $order = $request->getAdditionalInfo()->getOrder();
+        $order->setShippingInfo([
+            new \Dana\PaymentGateway\v1\Model\ShippingInfo([
+                'merchantShippingId' => 'ship-1',
+                'countryName' => 'ID',
+                'stateName' => 'Jakarta',
+                'cityName' => 'Jakarta',
+                'address1' => 'Jl Test',
+                'firstName' => '',
+                'lastName' => 'User',
+                'zipCode' => '12345',
+            ]),
+        ]);
+
+        try {
+            $this->apiInstance->createOrder($request);
+            $this->fail('Expected shippingInfo[].firstName validation error but request succeeded');
+        } catch (\Dana\ApiException $e) {
+            $this->assertStringContainsString('shippinginfo[0].firstname is required', strtolower($e->getMessage()));
+        }
+    }
+
     /**
      * Sandbox payMethod/payOption validation: invalid payMethod (COUPON) should be rejected in sandbox.
      * Only run when DANA_ENV or ENV is sandbox.
@@ -628,4 +778,5 @@ class PaymentGatewayApiTest extends TestCase
         $this->expectException(\Dana\ApiException::class);
         $this->apiInstance->createOrder($createOrderByApiRequest);
     }
+
 }

@@ -23,6 +23,7 @@ namespace Dana\Widget\v1;
 
 use Dana\ApiException;
 use Dana\Utils\DateValidation;
+use Dana\Widget\v1\Model\ApplyTokenRequest;
 use Dana\Widget\v1\Model\WidgetPaymentRequest;
 
 /**
@@ -41,6 +42,9 @@ class CustomValidation
     private static $validationRegistry = [
         'Dana\Widget\v1\Model\WidgetPaymentRequest' => [
             'validateValidUpToWidgetPaymentRequest',
+        ],
+        'Dana\Widget\v1\Model\ApplyTokenRequest' => [
+            'validateApplyTokenAuthCodeNotFromQueryString',
         ],
         // Add more request types and their validations here as needed
     ];
@@ -66,10 +70,23 @@ class CustomValidation
 
         // Check if this request type has validations registered
         if (isset(self::$validationRegistry[$className])) {
+            $validationErrors = [];
             foreach (self::$validationRegistry[$className] as $validatorName) {
                 if (method_exists(self::class, $validatorName)) {
-                    self::$validatorName($request);
+                    try {
+                        self::$validatorName($request);
+                    } catch (ApiException $e) {
+                        $validationErrors[] = $e->getMessage();
+                    }
                 }
+            }
+            if (!empty($validationErrors)) {
+                throw new ApiException(
+                    'validation failed: ' . implode('; ', $validationErrors),
+                    0,
+                    null,
+                    null
+                );
             }
         }
     }
@@ -98,6 +115,31 @@ class CustomValidation
                     null
                 );
             }
+        }
+    }
+
+    /**
+     * Reject authCode values that look like pasted URL queries.
+     */
+    private static function validateApplyTokenAuthCodeNotFromQueryString($request)
+    {
+        if (!($request instanceof ApplyTokenRequest)) {
+            return;
+        }
+        if (!method_exists($request, 'getAuthCode')) {
+            return;
+        }
+        $authCode = trim((string) $request->getAuthCode());
+        if ($authCode === '') {
+            return;
+        }
+        if (strpos($authCode, '&') !== false || strpos($authCode, '=') !== false) {
+            throw new ApiException(
+                "authCode must not contain '&' or '='; paste only the authorization code value, not the full URL query string",
+                0,
+                null,
+                null
+            );
         }
     }
 }

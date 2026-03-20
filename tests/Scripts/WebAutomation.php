@@ -19,6 +19,7 @@ use Facebook\WebDriver\Remote\RemoteWebDriver;
 use Facebook\WebDriver\WebDriverBy;
 use Facebook\WebDriver\WebDriverExpectedCondition;
 use Facebook\WebDriver\WebDriverDimension;
+use Facebook\WebDriver\Interactions\WebDriverActions;
 use Exception;
 
 /**
@@ -34,6 +35,30 @@ class WebAutomation
     
     // Default Selenium settings
     const DEFAULT_SELENIUM_URL = 'http://localhost:4444/wd/hub';
+
+    /**
+     * Normalize phone number for DANA input field.
+     * The web UI commonly expects numbers like 878xxxx (without leading 0 / +62).
+     */
+    private static function normalizeMobileNumber($mobile)
+    {
+        $m = preg_replace('/\D+/', '', (string) $mobile);
+        if ($m === '') {
+            return self::DEFAULT_PHONE_NUMBER;
+        }
+
+        // Convert 0xxxxxxxxxx -> xxxxxxxxxx (but keep leading 8..)
+        if (strpos($m, '0') === 0) {
+            $m = substr($m, 1);
+        }
+
+        // Convert 62xxxxxxxxxx -> xxxxxxxxxx
+        if (strpos($m, '62') === 0) {
+            $m = substr($m, 2);
+        }
+
+        return $m ?: self::DEFAULT_PHONE_NUMBER;
+    }
     
     /**
      * Extract mobile number from OAuth URL's seamlessData parameter
@@ -58,7 +83,6 @@ class WebAutomation
                 }
             }
         } catch (\Exception $e) {
-            echo "Error extracting mobile number from URL: {$e->getMessage()}" . PHP_EOL;
         }
         
         // Fallback to default number if extraction fails
@@ -88,19 +112,14 @@ class WebAutomation
     public static function automatePaymentWidget($paymentUrl, $headless = true, $outputFile = null)
     {
         if (empty($paymentUrl)) {
-            echo "Error: Payment URL is empty" . PHP_EOL;
             return false;
         }
-        
-        echo "Starting payment automation" . PHP_EOL;
-        echo "Payment URL: {$paymentUrl}" . PHP_EOL;
         
         // Override selenium server URL if provided in environment
         $seleniumUrl = getenv('SELENIUM_SERVER_URL') ?: self::DEFAULT_SELENIUM_URL;
         
         // Check if Selenium server is available
         if (!self::isSeleniumAvailable()) {
-            echo "Selenium server not available at {$seleniumUrl}" . PHP_EOL;
             return false;
         }
         
@@ -109,7 +128,6 @@ class WebAutomation
         
         try {
             // Set up Chrome options
-            echo "Launching browser..." . PHP_EOL;
             $chromeOptions = new ChromeOptions();
             
             // Common Chrome options for stability and mobile emulation
@@ -136,16 +154,13 @@ class WebAutomation
             $capabilities->setCapability(ChromeOptions::CAPABILITY, $chromeOptions);
             
             // Create WebDriver
-            echo "Connecting to WebDriver..." . PHP_EOL;
             $driver = RemoteWebDriver::create($seleniumUrl, $capabilities);
             $driver->manage()->window()->setSize(new WebDriverDimension(390, 844));
             
             // Navigate to the payment URL
-            echo "Navigating to payment URL..." . PHP_EOL;
             $driver->get($paymentUrl);
             
             // Wait for page to load and payment button to be visible
-            echo "Waiting for payment button..." . PHP_EOL;
             try {
                 $driver->wait(60, 1000)->until(
                     WebDriverExpectedCondition::visibilityOfElementLocated(
@@ -153,8 +168,6 @@ class WebAutomation
                     )
                 );
             } catch (\Exception $e) {
-                echo "Payment button not found after waiting: {$e->getMessage()}" . PHP_EOL;
-                
                 // Try other common selectors as fallback
                 $payButtonSelectors = [
                     '.btn-pay',
@@ -169,7 +182,6 @@ class WebAutomation
                     try {
                         $elements = $driver->findElements(WebDriverBy::cssSelector($selector));
                         if (count($elements) > 0) {
-                            echo "Found alternative payment button with selector: {$selector}" . PHP_EOL;
                             $buttonFound = true;
                             break;
                         }
@@ -184,13 +196,10 @@ class WebAutomation
             }
             
             // Click the payment button
-            echo "Clicking payment button..." . PHP_EOL;
             try {
                 $payButton = $driver->findElement(WebDriverBy::cssSelector('.btn.btn-primary.btn-pay'));
                 $payButton->click();
             } catch (\Exception $e) {
-                echo "Error clicking primary payment button: {$e->getMessage()}, trying JavaScript click..." . PHP_EOL;
-                
                 // Try JavaScript click as fallback
                 $driver->executeScript(
                     'const buttons = document.querySelectorAll("button");' .
@@ -207,7 +216,6 @@ class WebAutomation
             }
             
             // Wait for payment success message
-            echo "Waiting for payment success message..." . PHP_EOL;
             try {
                 $driver->wait(120, 1000)->until(function ($driver) {
                     $pageSource = $driver->getPageSource();
@@ -215,11 +223,8 @@ class WebAutomation
                            (strpos($pageSource, 'Pembayaran Berhasil') !== false);
                 });
                 
-                echo "Payment completed successfully!" . PHP_EOL;
                 $success = true;
             } catch (\Exception $e) {
-                echo "Timeout waiting for payment success: {$e->getMessage()}" . PHP_EOL;
-                echo "Final page source snippet: " . substr($driver->getPageSource(), 0, 500) . "..." . PHP_EOL;
             }
             
             // Output file handling is optional
@@ -230,22 +235,15 @@ class WebAutomation
                 }
                 
                 file_put_contents($outputFile, 'SUCCESS', LOCK_EX);
-                echo "Wrote success indicator to {$outputFile}" . PHP_EOL;
             }
             
         } catch (\Exception $e) {
-            echo "Error during payment automation: {$e->getMessage()}" . PHP_EOL;
-            if ($driver !== null) {
-                echo "Current URL: " . $driver->getCurrentURL() . PHP_EOL;
-            }
         } finally {
             // Always close the browser
             if ($driver !== null) {
                 try {
                     $driver->quit();
-                    echo "Browser closed successfully" . PHP_EOL;
                 } catch (\Exception $e) {
-                    echo "Error closing browser: {$e->getMessage()}" . PHP_EOL;
                 }
             }
         }
@@ -256,29 +254,21 @@ class WebAutomation
     public static function automateOauth($oauthUrl, $phoneNumber = null, $pinCode = null, $outputFile = null)
     {
         if (empty($oauthUrl)) {
-            echo "Error: OAuth URL is empty" . PHP_EOL;
             return null;
         }
-        
-        echo "Starting OAuth automation for URL: {$oauthUrl}" . PHP_EOL;
         
         // Override selenium server URL if provided in environment
         $seleniumUrl = getenv('SELENIUM_SERVER_URL') ?: self::DEFAULT_SELENIUM_URL;
         
         // Check if Selenium server is available
         if (!self::isSeleniumAvailable($seleniumUrl)) {
-            echo "Selenium server not available at {$seleniumUrl}" . PHP_EOL;
             return null;
         }
         
-        echo "Selenium server available at {$seleniumUrl}" . PHP_EOL;
-        
-        // Use provided phoneNumber or extract from URL
+        // Use provided phoneNumber or extract from URL, then normalize for UI input
         $mobileNumber = $phoneNumber ?: self::extractMobileFromUrl($oauthUrl);
+        $mobileNumber = self::normalizeMobileNumber($mobileNumber);
         $pinToUse = $pinCode ?: self::DEFAULT_PIN;
-        
-        echo "Using mobile number: {$mobileNumber}" . PHP_EOL;
-        echo "Using PIN: {$pinToUse}" . PHP_EOL;
         
         $foundAuthCode = null;
         $driver = null;
@@ -312,128 +302,207 @@ class WebAutomation
             $capabilities->setCapability(ChromeOptions::CAPABILITY, $chromeOptions);
             
             // Create WebDriver
-            echo "Connecting to WebDriver..." . PHP_EOL;
             $driver = RemoteWebDriver::create($seleniumUrl, $capabilities);
             $driver->manage()->window()->setSize(new WebDriverDimension(375, 812));
             
             // Navigate to the OAuth URL
-            echo "Navigating to OAuth URL..." . PHP_EOL;
             $driver->get($oauthUrl);
             
             // Wait for page to load
             self::wait(2);
             
             // Fill phone input field using JavaScript
-            echo "Looking for phone input field..." . PHP_EOL;
             $phoneInputFilled = $driver->executeScript(
-                'const inputs = document.querySelectorAll("input");' .
-                'for (const input of Array.from(inputs)) {' .
-                '  if (input.type === "tel" || ' .
-                '      input.placeholder === "12312345678" || ' .
-                '      input.maxLength === 13 || ' .
-                '      input.className.includes("phone-number")) {' .
-                '    input.value = arguments[0];' .
-                '    input.dispatchEvent(new Event("input", { bubbles: true }));' .
-                '    return { filled: true, message: "Found and filled mobile number input" };' .
-                '  }' .
+                'function isVisible(el){' .
+                '  if(!el) return false;' .
+                '  const r = el.getClientRects(); if(!r || r.length===0) return false;' .
+                '  const s = window.getComputedStyle(el); if(!s) return false;' .
+                '  return s.display!=="none" && s.visibility!=="hidden" && s.opacity!=="0";' .
                 '}' .
-                'return { filled: false, message: "No suitable mobile number input found" };',
+                'function setNativeValue(el,val){' .
+                '  const setter=(Object.getOwnPropertyDescriptor(el.__proto__,"value")||{}).set || (Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,"value")||{}).set;' .
+                '  if(setter) setter.call(el,val); else el.value=val;' .
+                '}' .
+                'function dispatchInput(el){' .
+                '  try{ el.dispatchEvent(new InputEvent("input",{bubbles:true,cancelable:true,inputType:"insertText"})); }catch(e){ el.dispatchEvent(new Event("input",{bubbles:true,cancelable:true})); }' .
+                '  el.dispatchEvent(new Event("change",{bubbles:true,cancelable:true}));' .
+                '}' .
+                'function fill(el,val){' .
+                '  try{ el.scrollIntoView({block:"center",inline:"center"}); }catch(e){}' .
+                '  try{ el.focus(); }catch(e){}' .
+                '  try{ el.click(); }catch(e){}' .
+                '  setNativeValue(el,""); dispatchInput(el);' .
+                '  setNativeValue(el,val); if(el._valueTracker){ el._valueTracker.setValue(""); } dispatchInput(el);' .
+                '  return el.value;' .
+                '}' .
+                // Prefer the known class for the phone input on /inputphone
+                'const candidates = Array.from(document.querySelectorAll("input.txt-input-phone-number-field"));' .
+                'let chosen = null;' .
+                'for(const el of candidates){' .
+                '  if(!isVisible(el)) continue;' .
+                '  const label = el.closest("label");' .
+                '  if(label && label.classList && label.classList.contains("mobile-input")) { chosen = el; break; }' .
+                '  if(!chosen) chosen = el;' .
+                '}' .
+                // Fallback: heuristic search
+                'if(!chosen){' .
+                '  const inputs = Array.from(document.querySelectorAll("input"));' .
+                '  chosen = inputs.find(i => isVisible(i) && (i.placeholder==="12312345678" || i.maxLength===13 || i.maxLength===15)) || null;' .
+                '}' .
+                'if(!chosen){ return { filled:false, message:"No visible mobile number input found" }; }' .
+                'const v = fill(chosen, arguments[0]);' .
+                'return { filled:true, message:"Filled visible phone input", value:v, className:chosen.className, maxLength:chosen.maxLength || null };',
                 [$mobileNumber]
             );
             
-            if (isset($phoneInputFilled['filled']) && $phoneInputFilled['filled']) {
-                echo "Phone input filled: {$phoneInputFilled['message']}" . PHP_EOL;
-            } else {
-                echo "Warning: {$phoneInputFilled['message']}" . PHP_EOL;
-            }
-            
             // Find and click the next/submit button
-            echo "Looking for submit button..." . PHP_EOL;
             $submitButtonClicked = $driver->executeScript(
-                'const buttons = document.querySelectorAll("button");' .
-                'for (const button of Array.from(buttons)) {' .
-                '  if (button.type === "submit" || ' .
-                '      button.innerText.includes("Next") || ' .
-                '      button.innerText.includes("Continue") || ' .
-                '      button.innerText.includes("Submit") || ' .
-                '      button.innerText.includes("Lanjutkan")) {' .
-                '    button.click();' .
-                '    return { clicked: true, message: "Found and clicked button via JS evaluation" };' .
-                '  }' .
+                'function isVisible(el){' .
+                '  if(!el) return false;' .
+                '  const r = el.getClientRects(); if(!r || r.length===0) return false;' .
+                '  const s = window.getComputedStyle(el); if(!s) return false;' .
+                '  return s.display!=="none" && s.visibility!=="hidden" && s.opacity!=="0";' .
                 '}' .
-                'return { clicked: false, message: "No suitable submit button found" };'
+                'function clickIfOk(btn){' .
+                '  if(!btn || !isVisible(btn)) return null;' .
+                '  const disabled = btn.disabled || btn.getAttribute("aria-disabled")==="true";' .
+                '  if(disabled) return { clicked:false, message:"Button is disabled", text:(btn.innerText||"").trim() };' .
+                '  btn.click();' .
+                '  return { clicked:true, message:"Clicked continue button", text:(btn.innerText||"").trim() };' .
+                '}' .
+                // Prefer explicit continue buttons in known containers
+                'let btn = document.querySelector(".agreement__button .btn-continue");' .
+                'let res = clickIfOk(btn); if(res && res.clicked) return res;' .
+                'btn = document.querySelector(".sticky-button .btn-continue");' .
+                'res = clickIfOk(btn); if(res && res.clicked) return res;' .
+                // Fallback: visible button containing "lanjut"
+                'const buttons = Array.from(document.querySelectorAll("button")).filter(isVisible);' .
+                'const kandidat = buttons.find(b => (b.innerText||"").toLowerCase().includes("lanjut")) || null;' .
+                'res = clickIfOk(kandidat); if(res) return res;' .
+                'return { clicked:false, message:"No suitable continue button found" };'
             );
-            
-            if (isset($submitButtonClicked['clicked']) && $submitButtonClicked['clicked']) {
-                echo "Submit button clicked: {$submitButtonClicked['message']}" . PHP_EOL;
-            } else {
-                echo "Warning: {$submitButtonClicked['message']}" . PHP_EOL;
+
+            // Fallback: click using WebDriver on the visible continue button (more "real" interaction)
+            try {
+                $continueButtons = $driver->findElements(WebDriverBy::cssSelector('.agreement__button .btn-continue, .sticky-button .btn-continue, button.btn-continue'));
+                foreach ($continueButtons as $btn) {
+                    try {
+                        if (method_exists($btn, 'isDisplayed') && !$btn->isDisplayed()) {
+                            continue;
+                        }
+                        // Scroll into view then click via actions
+                        $driver->executeScript('arguments[0].scrollIntoView({block:"center"});', [$btn]);
+                        (new WebDriverActions($driver))->moveToElement($btn)->click()->perform();
+                        break;
+                    } catch (\Exception $clickE) {
+                        // Try next candidate
+                    }
+                }
+            } catch (\Exception $e) {
+                // Ignore if cannot locate; JS click already attempted
             }
             
             // Wait for the next screen
             self::wait(2);
-            
-            // Check if there's a continue button to proceed to PIN input
-            $needToContinue = $driver->executeScript(
-                'const continueBtn = document.querySelector("button.btn-continue.fs-unmask.btn.btn-primary");' .
-                'if (continueBtn) {' .
-                '  continueBtn.click();' .
-                '  return { clicked: true, message: "Found another continue button - this might be needed to proceed to PIN input" };' .
-                '}' .
-                'return { clicked: false, message: "No additional continue button found" };'
-            );
-            
-            if (isset($needToContinue['clicked']) && $needToContinue['clicked']) {
-                echo "Continue button clicked: {$needToContinue['message']}" . PHP_EOL;
-                self::wait(1.5);
+
+            // Wait for transition to PIN step or redirect after continuing.
+            $transitionStart = time();
+            $transitionTimeout = 12; // seconds
+            while (time() - $transitionStart < $transitionTimeout) {
+                $currentUrl = $driver->getCurrentURL();
+
+                $hasPinField = $driver->executeScript(
+                    'try {' .
+                    '  const has = !!(document.querySelector(".txt-input-pin-field") || ' .
+                    '    document.querySelector("input[autofocus=\\"true\\"][maxlength=\\"6\\"]") || ' .
+                    '    document.querySelector("input[maxlength=\\"6\\"][inputmode=\\"numeric\\"]"));' .
+                    '  return has;' .
+                    '} catch (e) { return false; }'
+                );
+
+                if ($hasPinField) {
+                    break;
+                }
+
+                // If URL changes away from inputphone, proceed (PIN may be on next page)
+                if (strpos($currentUrl, '/inputphone') === false) {
+                    break;
+                }
+
+                self::wait(0.5);
             }
             
-            // Enter PIN using JavaScript
-            echo "Looking for PIN input fields..." . PHP_EOL;
+            // Enter PIN using JavaScript (framework-friendly + iframe-aware)
             $pinInputResult = $driver->executeScript(
-                'const specificPinInput = document.querySelector(".txt-input-pin-field");' .
-                'if (specificPinInput) {' .
-                '  specificPinInput.value = arguments[0];' .
-                '  specificPinInput.dispatchEvent(new Event("input", { bubbles: true }));' .
-                '  specificPinInput.dispatchEvent(new Event("change", { bubbles: true }));' .
-                '  return { success: true, method: "specific", message: "Found specific PIN input field: .txt-input-pin-field" };' .
+                'function isVisible(el){' .
+                '  if(!el) return false;' .
+                '  const r = el.getClientRects(); if(!r || r.length===0) return false;' .
+                '  const s = window.getComputedStyle(el); if(!s) return false;' .
+                '  return s.display!=="none" && s.visibility!=="hidden" && s.opacity!=="0";' .
                 '}' .
-                'const inputs = document.querySelectorAll("input");' .
-                'const singlePinInput = Array.from(inputs).find(input => ' .
-                '  input.maxLength === 6 && ' .
-                '  (input.type === "text" || input.type === "tel" || input.type === "number" || input.inputMode === "numeric")' .
-                ');' .
-                'if (singlePinInput) {' .
-                '  singlePinInput.value = arguments[0];' .
-                '  singlePinInput.dispatchEvent(new Event("input", { bubbles: true }));' .
-                '  singlePinInput.dispatchEvent(new Event("change", { bubbles: true }));' .
-                '  return { success: true, method: "single", message: "Found single PIN input field with maxLength=6" };' .
+                'function setNativeValue(el,val){' .
+                '  const setter=(Object.getOwnPropertyDescriptor(el.__proto__,"value")||{}).set || (Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,"value")||{}).set;' .
+                '  if(setter) setter.call(el,val); else el.value=val;' .
                 '}' .
-                'const pinInputs = Array.from(inputs).filter(input => ' .
-                '  input.maxLength === 1 || ' .
-                '  input.type === "password" || ' .
-                '  input.className.includes("pin")' .
-                ');' .
-                'if (pinInputs.length >= arguments[0].length) {' .
-                '  for (let i = 0; i < arguments[0].length; i++) {' .
-                '    pinInputs[i].value = arguments[0].charAt(i);' .
-                '    pinInputs[i].dispatchEvent(new Event("input", { bubbles: true }));' .
-                '    pinInputs[i].dispatchEvent(new Event("change", { bubbles: true }));' .
+                'function dispatchInput(el){' .
+                '  try{ el.dispatchEvent(new InputEvent("input",{bubbles:true,cancelable:true,inputType:"insertText"})); }catch(e){ el.dispatchEvent(new Event("input",{bubbles:true,cancelable:true})); }' .
+                '  el.dispatchEvent(new Event("change",{bubbles:true,cancelable:true}));' .
+                '}' .
+                'function setPin(el,pin){' .
+                '  try{ el.scrollIntoView({block:"center",inline:"center"}); }catch(e){}' .
+                '  try{ el.focus(); }catch(e){}' .
+                '  try{ el.click(); }catch(e){}' .
+                '  setNativeValue(el,""); dispatchInput(el);' .
+                '  setNativeValue(el,pin); if(el._valueTracker){ el._valueTracker.setValue(""); } dispatchInput(el);' .
+                '  el.dispatchEvent(new Event("blur",{bubbles:true,cancelable:true}));' .
+                '  return el.value===pin;' .
+                '}' .
+                'function findInDoc(doc){' .
+                // The DANA PIN input can be visually masked (opacity/size 0) while still being the real input.
+                // Prefer it even if our visibility heuristics say "not visible".
+                '  const direct = doc.querySelector("input.txt-input-pin-field") || doc.querySelector("input[class*=\\\\\"txt-input-pin-field\\\\\"]");' .
+                '  if (direct) return direct;' .
+                '  const selectors=[' .
+                '    "input[autofocus=\\\\\"true\\\\\"][maxlength=\\\\\"6\\\\\"]",' .
+                '    "input[maxlength=\\\\\"6\\\\\"][inputmode=\\\\\"numeric\\\\\"]",' .
+                '    "input[type=\\\\\"text\\\\\"][inputmode=\\\\\"numeric\\\\\"]",' .
+                '    "input[maxlength=\\\\\"6\\\\\"][pattern*=\\"0-9\\"]",' .
+                '    "input[type=\\\\\"text\\\\\"][pattern*=\\"0-9\\"]",' .
+                '    "input[type=\\\\\"password\\\\\"]",' .
+                '    "input[name=\\\\\"pin\\\\\"]",' .
+                '    "input[id*=\\\\\"pin\\\\\"]",' .
+                '    "input[inputmode=\\\\\"numeric\\\\\"]"' .
+                '  ];' .
+                '  for(const sel of selectors){' .
+                '    const el = doc.querySelector(sel);' .
+                '    if(el && isVisible(el)) return el;' .
                 '  }' .
-                '  return { success: true, method: "multi", message: `Found ${pinInputs.length} PIN inputs via JS` };' .
+                '  return null;' .
                 '}' .
-                'return { success: false, method: "none", message: "Could not find any suitable PIN input field" };',
+                'function tryFillInDoc(doc,pin){' .
+                '  const el=findInDoc(doc);' .
+                '  if(!el) return null;' .
+                '  const ok=setPin(el,pin);' .
+                '  return { success: ok, method: "doc", message: "Filled PIN in document", selector: el.className || el.name || el.id || "" };' .
+                '}' .
+                // Try main document first
+                'let res = tryFillInDoc(document, arguments[0]);' .
+                'if(res && res.success) return res;' .
+                // Try same-origin iframes
+                'const iframes = Array.from(document.querySelectorAll("iframe"));' .
+                'for(const f of iframes){' .
+                '  try{' .
+                '    const d = f.contentDocument || (f.contentWindow && f.contentWindow.document);' .
+                '    if(!d) continue;' .
+                '    const r = tryFillInDoc(d, arguments[0]);' .
+                '    if(r && r.success) { r.method="iframe"; r.message="Filled PIN in iframe"; return r; }' .
+                '  }catch(e){}' .
+                '}' .
+                'return { success: false, method: "none", message: "Could not find any suitable PIN input field (including iframes)" };',
                 [$pinToUse]
             );
             
-            if (isset($pinInputResult['success']) && $pinInputResult['success']) {
-                echo "PIN input successful: {$pinInputResult['message']} (method: {$pinInputResult['method']})" . PHP_EOL;
-            } else {
-                echo "Warning: {$pinInputResult['message']}" . PHP_EOL;
-            }
-            
             // Try to find and click a confirm button after PIN entry
-            echo "Looking for confirm button after PIN entry..." . PHP_EOL;
             $buttonClicked = $driver->executeScript(
                 'const allButtons = document.querySelectorAll("button");' .
                 'let continueButton, backButton;' .
@@ -457,12 +526,7 @@ class WebAutomation
                 'return { clicked: false, message: "No confirm/continue button found" };'
             );
             
-            if (isset($buttonClicked['clicked']) && $buttonClicked['clicked']) {
-                echo "Confirm button clicked: {$buttonClicked['message']}" . PHP_EOL;
-            }
-            
             // Wait for potential redirects
-            echo "Waiting for redirects to capture auth code..." . PHP_EOL;
             $startTime = time();
             $timeout = 7; // seconds
             
@@ -478,7 +542,6 @@ class WebAutomation
                         
                         if (isset($queryParams['authCode'])) {
                             $foundAuthCode = $queryParams['authCode'];
-                            echo "Auth code found: {$foundAuthCode}" . PHP_EOL;
                             break;
                         }
                     }
@@ -488,26 +551,14 @@ class WebAutomation
                 self::wait(0.5);
             }
             
-            // If auth code was not found, log the issue
-            if (empty($foundAuthCode)) {
-                echo "Auth code not found within timeout period" . PHP_EOL;
-                echo "Final URL: " . $driver->getCurrentURL() . PHP_EOL;
-            }
         } catch (\Exception $e) {
-            echo "Error during OAuth automation: {$e->getMessage()}" . PHP_EOL;
-            // Additional debug info may be helpful
-            if ($driver !== null) {
-                echo "Current URL: " . $driver->getCurrentURL() . PHP_EOL;
-                echo "Page source length: " . strlen($driver->getPageSource()) . " bytes" . PHP_EOL;
-            }
+            // Swallow exceptions and return null (callers can decide how to handle)
         } finally {
             // Always close the browser
             if ($driver !== null) {
                 try {
                     $driver->quit();
-                    echo "Browser closed successfully" . PHP_EOL;
                 } catch (\Exception $e) {
-                    echo "Error closing browser: {$e->getMessage()}" . PHP_EOL;
                 }
             }
         }
@@ -515,7 +566,6 @@ class WebAutomation
         // Write auth code to output file if specified
         if ($outputFile && $foundAuthCode) {
             file_put_contents($outputFile, $foundAuthCode);
-            echo "Auth code written to: {$outputFile}" . PHP_EOL;
         }
         
         return $foundAuthCode;
@@ -535,16 +585,13 @@ class WebAutomation
             return false;
         }
 
-        // Log operation for debugging
-        echo "Starting payment automation with URL: {$webRedirectUrl}" . PHP_EOL;
-        
         $driver = null;
         
         try {
             // Setup Chrome options
             $chromeOptions = new ChromeOptions();
             $chromeOptions->addArguments([
-                // '--headless',
+                '--headless',
                 '--disable-gpu',
                 '--window-size=390,844', // Mobile viewport
                 '--no-sandbox',
@@ -567,7 +614,6 @@ class WebAutomation
             
             // Get Selenium URL from environment or use default
             $seleniumUrl = getenv('SELENIUM_SERVER_URL') ?: self::DEFAULT_SELENIUM_URL;
-            echo "Using Selenium server at: {$seleniumUrl}" . PHP_EOL;
             
             // Connect to Selenium
             $driver = RemoteWebDriver::create($seleniumUrl, $capabilities);
@@ -577,8 +623,6 @@ class WebAutomation
             $driver->wait(10, 500)->until(
                 WebDriverExpectedCondition::urlContains('checkout')
             );
-            
-            echo "Looking for DANA payment option..." . PHP_EOL;
             
             // Attempt to find and click DANA payment option using multiple selector strategies
             $danaPaymentButton = null;
@@ -598,11 +642,9 @@ class WebAutomation
                     
                     if ($driver->findElements($locator)) {
                         $danaPaymentButton = $driver->findElement($locator);
-                        echo "DANA payment option found with selector: {$selector}" . PHP_EOL;
                         break;
                     }
                 } catch (\Exception $e) {
-                    echo "Error finding DANA payment option with selector {$selector}: {$e->getMessage()}" . PHP_EOL;
                 }
             }
             
@@ -620,28 +662,22 @@ class WebAutomation
                 // Look for success indicators (just wait for network activity to settle)
                 try {
                     self::wait(5); // Wait for a few seconds to let the page settle
-                    echo "Network activity settled" . PHP_EOL;
-                    
                     // In a real implementation, would check for success elements here
                     return true;
                 } catch (\Exception $e) {
-                    echo "Network activity timeout - continuing anyway: {$e->getMessage()}" . PHP_EOL;
                 }
                 
                 return true; // Assume success if we got this far
             } else {
-                echo "DANA payment option not found. Exiting..." . PHP_EOL;
                 return false;
             }
         } catch (\Exception $e) {
-            echo "Error during automation: {$e->getMessage()}" . PHP_EOL;
             return false;
         } finally {
             if ($driver) {
                 try {
                     $driver->quit();
                 } catch (\Exception $e) {
-                    echo "Error closing browser: {$e->getMessage()}" . PHP_EOL;
                 }
             }
         }
@@ -655,14 +691,11 @@ class WebAutomation
      */
     public static function handleOAuthFlow($driver)
     {
-        echo "Handling OAuth flow..." . PHP_EOL;
-        
         // Check if a new window/tab has been opened
         $windowHandles = $driver->getWindowHandles();
         if (count($windowHandles) > 1) {
             // Switch to the latest window/tab (similar to Node.js context.pages()[last])
             $newWindowHandle = end($windowHandles);
-            echo "Switching to new window/tab for OAuth flow" . PHP_EOL;
             $driver->switchTo()->window($newWindowHandle);
         }
         
@@ -676,16 +709,11 @@ class WebAutomation
             $phoneElements = $driver->findElements(WebDriverBy::cssSelector($phoneSelector));
             
             if (count($phoneElements) > 0 && !$phoneEntered) {
-                echo "Label with class \"new-clearable-input form-ipg-phonenumber\" found: yes" . PHP_EOL;
                 $phoneElements[0]->click();
                 $driver->getKeyboard()->sendKeys(self::DEFAULT_PHONE_NUMBER);
-                echo "Phone number entered via label.new-clearable-input.form-ipg-phonenumber click" . PHP_EOL;
                 $phoneEntered = true;
-            } else {
-                echo "Phone number label not found" . PHP_EOL;
             }
         } catch (\Exception $e) {
-            echo "Error during phone input handling: {$e->getMessage()}" . PHP_EOL;
             return;
         }
         
@@ -725,17 +753,13 @@ class WebAutomation
                 // Use appropriate WebDriverBy method based on selector type (XPath or CSS)
                 if (strpos($selector, '//') === 0) {
                     $elements = $driver->findElements(WebDriverBy::xpath($selector));
-                    echo "Looking for button using XPath: {$selector}" . PHP_EOL;
                 } else {
                     $elements = $driver->findElements(WebDriverBy::cssSelector($selector));
-                    echo "Looking for button using CSS: {$selector}" . PHP_EOL;
                 }
                 
                 if (count($elements) > 0) {
                     $isVisible = $elements[0]->isDisplayed();
                     if ($isVisible) {
-                        echo "Found visible next button with selector: {$selector}" . PHP_EOL;
-                        
                         // Scroll to button if needed (equivalent to scrollIntoViewIfNeeded in Playwright)
                         $driver->executeScript('arguments[0].scrollIntoView(true);', [$elements[0]]);
                         self::wait(0.5); // Matching the 500ms wait in TypeScript
@@ -743,18 +767,14 @@ class WebAutomation
                         $elements[0]->click();
                         $nextButtonClicked = true;
                         break;
-                    } else {
-                        echo "Button {$selector} found but not visible, trying next selector..." . PHP_EOL;
                     }
                 }
             } catch (\Exception $e) {
-                echo "Error clicking continue button with selector: {$selector}, {$e->getMessage()}" . PHP_EOL;
                 return; // Match TypeScript behavior of returning on error
             }
         }
         
         if (!$nextButtonClicked) {
-            echo "Failed to find or click next button!" . PHP_EOL;
             return;
         }
         
@@ -779,21 +799,16 @@ class WebAutomation
      */
     public static function enterPin($driver)
     {
-        echo "Looking for PIN input fields..." . PHP_EOL;
-        
         $pinEntered = false;
         
         // METHOD 1: Try JavaScript direct input method - bypass the click interception
         try {
-            echo "Trying JavaScript method for PIN entry" . PHP_EOL;
             // Look for PIN input container first
             $pinContainers = $driver->findElements(WebDriverBy::cssSelector(
                 '.password-wrapper, .pin-input-wrapper, .pin-container, .password-item, [class*="pin-input"]'
             ));
             
             if (count($pinContainers) > 0) {
-                echo "Found PIN container, using JavaScript to input PIN" . PHP_EOL;
-                
                 // Find all input fields within containers
                 $inputs = $driver->findElements(WebDriverBy::cssSelector(
                     'input[type="password"], input[type="tel"], input[pattern="[0-9]*"], input.password-focus'
@@ -802,7 +817,6 @@ class WebAutomation
                 if (count($inputs) >= 1) {
                     // If it's a single input for all digits
                     if (count($inputs) === 1) {
-                        echo "Found single PIN input, entering PIN directly" . PHP_EOL;
                         // Use JavaScript to set value directly (bypassing possible interceptions)
                         $driver->executeScript(
                             'arguments[0].value = arguments[1]; arguments[0].dispatchEvent(new Event("input")); arguments[0].dispatchEvent(new Event("change"));', 
@@ -812,8 +826,6 @@ class WebAutomation
                     } 
                     // If we have individual inputs for each digit (typical pattern)
                     else if (count($inputs) >= 6) {
-                        echo "Found " . count($inputs) . " PIN input fields, entering digits individually" . PHP_EOL;
-                        
                         // Use JavaScript to populate each input without clicking
                         for ($i = 0; $i < 6 && $i < count($inputs); $i++) {
                             $digit = substr(self::DEFAULT_PIN, $i, 1);
@@ -825,14 +837,9 @@ class WebAutomation
                         }
                         $pinEntered = true;
                     }
-                    
-                    if ($pinEntered) {
-                        echo "PIN entered successfully via JavaScript" . PHP_EOL;
-                    }
                 }
             }
         } catch (\Exception $e) {
-            echo "Error using JavaScript method for PIN: {$e->getMessage()}" . PHP_EOL;
         }
         
         self::wait(2);
@@ -867,8 +874,6 @@ class WebAutomation
         
         // Try to click pay button using various selectors
         foreach ($payButtonSelectors as $selector) {
-            echo "Looking for pay button with selector: {$selector}" . PHP_EOL;
-            
             try {
                 // Determine if using XPath or CSS selector
                 if (strpos($selector, '//') === 0) {
@@ -878,7 +883,6 @@ class WebAutomation
                 }
                 
                 if (count($elements) > 0) {
-                    echo "Found pay button with selector: {$selector}, attempting to click..." . PHP_EOL;
                     // Try JavaScript click first to avoid potential interception
                     try {
                         $driver->executeScript('arguments[0].click();', [$elements[0]]);
@@ -888,13 +892,9 @@ class WebAutomation
                     }
                     $payButtonClicked = true;
                     self::wait(1);
-                    echo "Pay button clicked successfully" . PHP_EOL;
                     break;
-                } else {
-                    echo "No pay button found with selector: {$selector}" . PHP_EOL;
                 }
             } catch (\Exception $e) {
-                echo "Error clicking pay button {$selector}: {$e->getMessage()}" . PHP_EOL;
             }
         }
         
