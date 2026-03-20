@@ -594,7 +594,6 @@ class PaymentGatewayApiTest extends TestCase
             $msg = strtolower($e->getMessage());
             $this->assertStringContainsString('validation failed', $msg);
             $this->assertStringContainsString('amount.value', $msg);
-            $this->assertStringContainsString('paymentcode', $msg);
         }
     }
 
@@ -635,26 +634,6 @@ class PaymentGatewayApiTest extends TestCase
             } catch (\Dana\ApiException $e) {
                 $this->assertStringContainsString('phonenumber is required', strtolower($e->getMessage()));
             }
-        }
-    }
-
-    public function testCreateOrderPaymentCodeRequiredForVirtualAccount(): void
-    {
-        $request = PaymentGatewayFixtures::getCreateOrderByApiRequest();
-        $detail = new \Dana\PaymentGateway\v1\Model\PayOptionDetail([
-            'payMethod' => 'VIRTUAL_ACCOUNT',
-            'payOption' => 'VIRTUAL_ACCOUNT_BRI',
-            'transAmount' => new \Dana\PaymentGateway\v1\Model\Money(['value' => '222000.00', 'currency' => 'IDR']),
-            'additionalInfo' => new \Dana\PaymentGateway\v1\Model\PayOptionAdditionalInfo([]),
-        ]);
-        $request->setPayOptionDetails([$detail]);
-
-        try {
-            $this->apiInstance->createOrder($request);
-            $this->fail('Expected paymentCode validation error but request succeeded');
-        } catch (\Dana\ApiException $e) {
-            $this->assertStringContainsString('paymentcode', strtolower($e->getMessage()));
-            $this->assertStringContainsString('required', strtolower($e->getMessage()));
         }
     }
 

@@ -405,9 +405,6 @@ class CustomValidation
             $phoneNumber = ($additionalInfo !== null && method_exists($additionalInfo, 'getPhoneNumber'))
                 ? trim((string) $additionalInfo->getPhoneNumber())
                 : '';
-            $paymentCode = ($additionalInfo !== null && method_exists($additionalInfo, 'getPaymentCode'))
-                ? trim((string) $additionalInfo->getPaymentCode())
-                : '';
 
             if (self::isCardPayment($payMethod, $payOption) || self::isEwalletPayment($payOption)) {
                 if ($phoneNumber === '') {
@@ -419,15 +416,6 @@ class CustomValidation
                 }
             }
 
-            if (self::isVirtualAccountPayMethod($payMethod)) {
-                if ($paymentCode === '') {
-                    throw new ApiException("paymentCode is required for virtual account payment (payOptionDetails[{$idx}])", 0, null, null);
-                }
-                $paymentCodeLen = mb_strlen($paymentCode);
-                if ($paymentCodeLen < 1 || $paymentCodeLen > 64) {
-                    throw new ApiException("paymentCode must be between 1 and 64 characters (payOptionDetails[{$idx}])", 0, null, null);
-                }
-            }
         }
     }
 
