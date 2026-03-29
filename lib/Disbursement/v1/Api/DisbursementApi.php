@@ -1746,7 +1746,15 @@ class DisbursementApi
         }
 
 
-        $resourcePath = '/rest/v1.0/emoney/topup';
+        // Determine resource path based on environment (transfer to DANA / topup)
+
+
+
+        $envTopup = strtolower($this->config->getApiKeyWithPrefix('DANA_ENV') ?: $this->config->getApiKeyWithPrefix('ENV') ?: Env::SANDBOX);
+
+
+
+        $resourcePath = ($envTopup === Env::PRODUCTION) ? '/v1.0/emoney/topup.htm' : '/rest/v1.0/emoney/topup';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1812,7 +1820,11 @@ class DisbursementApi
         $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
         $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
         if (isset($transferToDanaRequest)) {
-            $resourcePathForSignature = '/rest/v1.0/emoney/topup';
+            // Determine resource path for signature (transfer to DANA / topup)
+
+            $envTopupSig = strtolower($this->config->getApiKeyWithPrefix('DANA_ENV') ?: $this->config->getApiKeyWithPrefix('ENV') ?: Env::SANDBOX);
+
+            $resourcePathForSignature = ($envTopupSig === Env::PRODUCTION) ? '/v1.0/emoney/topup.htm' : '/rest/v1.0/emoney/topup';
             if ($transferToDanaRequest !== null) {
                 $resourcePathForSignature = str_replace(
                     '{' . 'TransferToDanaRequest' . '}',
@@ -2077,7 +2089,15 @@ class DisbursementApi
         }
 
 
-        $resourcePath = '/rest/v1.0/emoney/topup-status';
+        // Determine resource path based on environment (topup-status)
+
+
+
+        $envTopupSt = strtolower($this->config->getApiKeyWithPrefix('DANA_ENV') ?: $this->config->getApiKeyWithPrefix('ENV') ?: Env::SANDBOX);
+
+
+
+        $resourcePath = ($envTopupSt === Env::PRODUCTION) ? '/v1.0/emoney/topup-status.htm' : '/rest/v1.0/emoney/topup-status';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2143,7 +2163,11 @@ class DisbursementApi
         $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
         $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
         if (isset($transferToDanaInquiryStatusRequest)) {
-            $resourcePathForSignature = '/rest/v1.0/emoney/topup-status';
+            // Determine resource path for signature (topup-status)
+
+            $envTopupStSig = strtolower($this->config->getApiKeyWithPrefix('DANA_ENV') ?: $this->config->getApiKeyWithPrefix('ENV') ?: Env::SANDBOX);
+
+            $resourcePathForSignature = ($envTopupStSig === Env::PRODUCTION) ? '/v1.0/emoney/topup-status.htm' : '/rest/v1.0/emoney/topup-status';
             if ($transferToDanaInquiryStatusRequest !== null) {
                 $resourcePathForSignature = str_replace(
                     '{' . 'TransferToDanaInquiryStatusRequest' . '}',
