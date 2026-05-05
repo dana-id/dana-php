@@ -259,7 +259,7 @@ class CustomValidation
     private const SANDBOX_ALLOWED_PAY_METHODS = ['BALANCE', 'CREDIT_CARD', 'DEBIT_CARD', 'VIRTUAL_ACCOUNT', 'NETWORK_PAY'];
 
     /** In sandbox, only these payOptions are available (exact or suffix e.g. VIRTUAL_ACCOUNT_BRI). */
-    private const SANDBOX_ALLOWED_PAY_OPTIONS = ['CARD', 'QRIS', 'BRI', 'PANIN', 'CIMB', 'MANDIRI', 'BTPN'];
+    private const SANDBOX_ALLOWED_PAY_OPTIONS = ['CARD', 'QRIS', 'BRI', 'PANIN', 'CIMB', 'MANDIRI', 'BTPN', 'BSI'];
 
     private static function isSandbox(): bool
     {

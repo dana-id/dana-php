@@ -386,6 +386,11 @@ class PayOption
      * VIRTUAL_ACCOUNT_PANI
      */
     const VIRTUAL_ACCOUNT_PANI = "VIRTUAL_ACCOUNT_PANI";
+
+    /**
+     * VIRTUAL_ACCOUNT_BSI_PAYMENT
+     */
+    const VIRTUAL_ACCOUNT_BSI_PAYMENT = "VIRTUAL_ACCOUNT_BSI_PAYMENT";
 }
 
 class SourcePlatform

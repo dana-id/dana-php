@@ -75,7 +75,7 @@ class WidgetApiWithAutomationTest extends TestCase
         $oauth2UrlData->setRedirectUrl('https://google.com');
         $oauth2UrlData->setMerchantId($merchantId);
         $oauth2UrlData->setSeamlessData([
-            'mobileNumber' => '087875849373'
+            'mobileNumber' => '083811223355'
         ]);
         
         $oauthUrl = Util::generateOauthUrl($oauth2UrlData, $privateKey, $privateKeyPath);
@@ -96,7 +96,7 @@ class WidgetApiWithAutomationTest extends TestCase
         // Seamless data validation
         $this->assertArrayHasKey('seamlessData', $urlParams, 'Should have seamlessData');
         $parsedSeamlessData = json_decode(urldecode($urlParams['seamlessData']), true);
-        $this->assertEquals('087875849373', $parsedSeamlessData['mobile'], 'Mobile number should match');
+        $this->assertEquals('083811223355', $parsedSeamlessData['mobile'], 'Mobile number should match');
         
         $this->assertArrayHasKey('seamlessSign', $urlParams, 'Should have seamlessSign');
         $this->assertGreaterThan(20, strlen($urlParams['seamlessSign']), 'Signature should be substantial in length');
@@ -113,7 +113,7 @@ class WidgetApiWithAutomationTest extends TestCase
             
             $generatedAuthCode = WebAutomation::automateOauth(
                 $oauthUrl,
-                '087875849373',  // Optional: override the phone number if needed
+                '083811223355',  // Optional: override the phone number if needed
                 null,          // Use default PIN code
                 $tempOutputFile
             );

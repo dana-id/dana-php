@@ -30,8 +30,8 @@ use Exception;
 class WebAutomation
 {
     // Default test credentials
-    const DEFAULT_PHONE_NUMBER = '87875849373';
-    const DEFAULT_PIN = '131000';
+    const DEFAULT_PHONE_NUMBER = '083811223355';
+    const DEFAULT_PIN = '181818';
     
     // Default Selenium settings
     const DEFAULT_SELENIUM_URL = 'http://localhost:4444/wd/hub';
@@ -47,14 +47,9 @@ class WebAutomation
             return self::DEFAULT_PHONE_NUMBER;
         }
 
-        // Convert 0xxxxxxxxxx -> xxxxxxxxxx (but keep leading 8..)
-        if (strpos($m, '0') === 0) {
-            $m = substr($m, 1);
-        }
-
-        // Convert 62xxxxxxxxxx -> xxxxxxxxxx
+        // Convert 62xxxxxxxxxx -> 0xxxxxxxxxx (restore local format with leading 0)
         if (strpos($m, '62') === 0) {
-            $m = substr($m, 2);
+            $m = '0' . substr($m, 2);
         }
 
         return $m ?: self::DEFAULT_PHONE_NUMBER;
@@ -95,8 +90,8 @@ class WebAutomation
      * Uses WebDriver to automate the OAuth flow for DANA widget authentication
      * 
      * @param string $oauthUrl The OAuth URL to navigate to
-     * @param string $phoneNumber Optional phone number for authentication (default: value from URL or 87875849373)
-     * @param string $pinCode Optional PIN code for authentication (default: 123321)
+     * @param string $phoneNumber Optional phone number for authentication (default: value from URL or 83811223355)
+     * @param string $pinCode Optional PIN code for authentication (default: 181818)
      * @param string $outputFile Optional file path to save the auth code
      * @return string|null The auth code extracted from the redirect URL or null if not found
      */
@@ -311,7 +306,8 @@ class WebAutomation
             // Wait for page to load
             self::wait(2);
             
-            // Fill phone input field using JavaScript
+            // DANA pre-fills the phone field from seamlessData. Only fill if empty to avoid
+            // disrupting React state (which causes seamlessSign validation to fail).
             $phoneInputFilled = $driver->executeScript(
                 'function isVisible(el){' .
                 '  if(!el) return false;' .
@@ -350,66 +346,66 @@ class WebAutomation
                 '  chosen = inputs.find(i => isVisible(i) && (i.placeholder==="12312345678" || i.maxLength===13 || i.maxLength===15)) || null;' .
                 '}' .
                 'if(!chosen){ return { filled:false, message:"No visible mobile number input found" }; }' .
+                // Skip fill if DANA already pre-filled the field
+                'if(chosen.value && chosen.value.trim() !== "") {' .
+                '  return { filled:true, skipped:true, message:"Phone field already pre-filled by DANA: " + chosen.value };' .
+                '}' .
                 'const v = fill(chosen, arguments[0]);' .
                 'return { filled:true, message:"Filled visible phone input", value:v, className:chosen.className, maxLength:chosen.maxLength || null };',
                 [$mobileNumber]
             );
-            
-            // Find and click the next/submit button
-            $submitButtonClicked = $driver->executeScript(
-                'function isVisible(el){' .
-                '  if(!el) return false;' .
-                '  const r = el.getClientRects(); if(!r || r.length===0) return false;' .
-                '  const s = window.getComputedStyle(el); if(!s) return false;' .
-                '  return s.display!=="none" && s.visibility!=="hidden" && s.opacity!=="0";' .
-                '}' .
-                'function clickIfOk(btn){' .
-                '  if(!btn || !isVisible(btn)) return null;' .
-                '  const disabled = btn.disabled || btn.getAttribute("aria-disabled")==="true";' .
-                '  if(disabled) return { clicked:false, message:"Button is disabled", text:(btn.innerText||"").trim() };' .
-                '  btn.click();' .
-                '  return { clicked:true, message:"Clicked continue button", text:(btn.innerText||"").trim() };' .
-                '}' .
-                // Prefer explicit continue buttons in known containers
-                'let btn = document.querySelector(".agreement__button .btn-continue");' .
-                'let res = clickIfOk(btn); if(res && res.clicked) return res;' .
-                'btn = document.querySelector(".sticky-button .btn-continue");' .
-                'res = clickIfOk(btn); if(res && res.clicked) return res;' .
-                // Fallback: visible button containing "lanjut"
-                'const buttons = Array.from(document.querySelectorAll("button")).filter(isVisible);' .
-                'const kandidat = buttons.find(b => (b.innerText||"").toLowerCase().includes("lanjut")) || null;' .
-                'res = clickIfOk(kandidat); if(res) return res;' .
-                'return { clicked:false, message:"No suitable continue button found" };'
-            );
 
-            // Fallback: click using WebDriver on the visible continue button (more "real" interaction)
-            try {
-                $continueButtons = $driver->findElements(WebDriverBy::cssSelector('.agreement__button .btn-continue, .sticky-button .btn-continue, button.btn-continue'));
-                foreach ($continueButtons as $btn) {
-                    try {
-                        if (method_exists($btn, 'isDisplayed') && !$btn->isDisplayed()) {
-                            continue;
+            // Find and click the LANJUTKAN button — try exact text match first, then CSS
+            $submitClicked = false;
+            foreach (['LANJUTKAN', 'Lanjutkan', 'Next', 'Continue'] as $btnText) {
+                try {
+                    $xpathExpr = '//button[normalize-space(text())="' . $btnText . '"]';
+                    $matchedBtns = $driver->findElements(WebDriverBy::xpath($xpathExpr));
+                    foreach ($matchedBtns as $btn) {
+                        if (method_exists($btn, 'isDisplayed') && $btn->isDisplayed()) {
+                            $btn->click();
+                            $submitClicked = true;
+                            break 2;
                         }
-                        // Scroll into view then click via actions
-                        $driver->executeScript('arguments[0].scrollIntoView({block:"center"});', [$btn]);
-                        (new WebDriverActions($driver))->moveToElement($btn)->click()->perform();
-                        break;
-                    } catch (\Exception $clickE) {
-                        // Try next candidate
                     }
+                } catch (\Exception $e) {
+                    // Try next text
                 }
-            } catch (\Exception $e) {
-                // Ignore if cannot locate; JS click already attempted
+            }
+
+            if (!$submitClicked) {
+                // Fallback: JS click on visible button containing "lanjut"
+                $driver->executeScript(
+                    'function isVisible(el){' .
+                    '  if(!el) return false;' .
+                    '  const r = el.getClientRects(); if(!r || r.length===0) return false;' .
+                    '  const s = window.getComputedStyle(el); if(!s) return false;' .
+                    '  return s.display!=="none" && s.visibility!=="hidden" && s.opacity!=="0";' .
+                    '}' .
+                    'const buttons = Array.from(document.querySelectorAll("button")).filter(isVisible);' .
+                    'const btn = buttons.find(b => (b.innerText||"").toLowerCase().includes("lanjut")) || null;' .
+                    'if(btn) btn.click();' .
+                    'return !!btn;'
+                );
             }
             
             // Wait for the next screen
             self::wait(2);
 
             // Wait for transition to PIN step or redirect after continuing.
+            // Covers GoBack() recovery time + DANA's ipgLogin fallback delay (~15 s).
             $transitionStart = time();
-            $transitionTimeout = 12; // seconds
+            $transitionTimeout = 25; // seconds
             while (time() - $transitionStart < $transitionTimeout) {
                 $currentUrl = $driver->getCurrentURL();
+
+                // If DANA tried to open a deep link and the browser landed on chrome-error,
+                // navigate back to restore the DANA page so its fallback timer can complete.
+                if (strpos($currentUrl, 'chrome-error://') === 0) {
+                    $driver->navigate()->back();
+                    self::wait(0.5);
+                    continue;
+                }
 
                 $hasPinField = $driver->executeScript(
                     'try {' .
@@ -432,7 +428,32 @@ class WebAutomation
                 self::wait(0.5);
             }
             
-            // Enter PIN using JavaScript (framework-friendly + iframe-aware)
+            // Enter PIN — primary: click the input then sendKeys (native keyboard interaction).
+            // This is more reliable than JS value injection for React-controlled inputs.
+            $pinNativeEntered = false;
+            $pinSelectors = [
+                '.txt-input-pin-field',
+                'input[maxlength="6"][inputmode="numeric"]',
+                'input[autofocus="true"][maxlength="6"]',
+                'input[type="password"]',
+            ];
+            foreach ($pinSelectors as $pinSel) {
+                try {
+                    $pinEl = $driver->findElement(WebDriverBy::cssSelector($pinSel));
+                    if ($pinEl && $pinEl->isDisplayed()) {
+                        $driver->executeScript('arguments[0].scrollIntoView({block:"center"});', [$pinEl]);
+                        $pinEl->click();
+                        $pinEl->sendKeys($pinToUse);
+                        $pinNativeEntered = true;
+                        break;
+                    }
+                } catch (\Exception $e) {
+                    // Try next selector
+                }
+            }
+
+            if (!$pinNativeEntered) {
+                // Fallback: JavaScript PIN entry (framework-friendly + iframe-aware)
             $pinInputResult = $driver->executeScript(
                 'function isVisible(el){' .
                 '  if(!el) return false;' .
@@ -501,7 +522,8 @@ class WebAutomation
                 'return { success: false, method: "none", message: "Could not find any suitable PIN input field (including iframes)" };',
                 [$pinToUse]
             );
-            
+            } // end if (!$pinNativeEntered)
+
             // Try to find and click a confirm button after PIN entry
             $buttonClicked = $driver->executeScript(
                 'const allButtons = document.querySelectorAll("button");' .
@@ -528,7 +550,7 @@ class WebAutomation
             
             // Wait for potential redirects
             $startTime = time();
-            $timeout = 7; // seconds
+            $timeout = 30; // seconds
             
             // Keep checking current URL for auth_code parameter
             while (time() - $startTime < $timeout) {

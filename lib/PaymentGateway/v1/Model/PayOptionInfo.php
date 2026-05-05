@@ -84,6 +84,7 @@ class PayOptionInfo extends BaseModel
     public const PAY_OPTION_VIRTUAL_ACCOUNT_CIMB = 'VIRTUAL_ACCOUNT_CIMB';
     public const PAY_OPTION_VIRTUAL_ACCOUNT_PERMATA = 'VIRTUAL_ACCOUNT_PERMATA';
     public const PAY_OPTION_VIRTUAL_ACCOUNT_PANI = 'VIRTUAL_ACCOUNT_PANI';
+    public const PAY_OPTION_VIRTUAL_ACCOUNT_BSI_PAYMENT = 'VIRTUAL_ACCOUNT_BSI_PAYMENT';
 
     public function getPayMethodAllowableValues()
     {
@@ -123,6 +124,7 @@ class PayOptionInfo extends BaseModel
             self::PAY_OPTION_VIRTUAL_ACCOUNT_CIMB,
             self::PAY_OPTION_VIRTUAL_ACCOUNT_PERMATA,
             self::PAY_OPTION_VIRTUAL_ACCOUNT_PANI,
+            self::PAY_OPTION_VIRTUAL_ACCOUNT_BSI_PAYMENT,
         ];
     }
 
