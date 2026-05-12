@@ -38,7 +38,6 @@ use Dana\ApiException;
 use Dana\Configuration;
 use Dana\HeaderSelector;
 use Dana\ObjectSerializer;
-use Dana\Env;
 use Dana\Utils\SnapHeader;
 
 /**
@@ -706,15 +705,7 @@ class DisbursementApi
         }
 
 
-        // Determine resource path based on environment
-
-
-
-        $env = strtolower($this->config->getApiKeyWithPrefix('DANA_ENV') ?: $this->config->getApiKeyWithPrefix('ENV') ?: Env::SANDBOX);
-
-
-
-        $resourcePath = ($env === Env::PRODUCTION) ? '/v1.0/emoney/account-inquiry.htm' : '/rest/v1.0/emoney/account-inquiry';
+        $resourcePath = '/rest/v1.0/emoney/account-inquiry';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -780,11 +771,7 @@ class DisbursementApi
         $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
         $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
         if (isset($danaAccountInquiryRequest)) {
-            // Determine resource path for signature based on environment
-
-            $envForSignature = strtolower($this->config->getApiKeyWithPrefix('DANA_ENV') ?: $this->config->getApiKeyWithPrefix('ENV') ?: Env::SANDBOX);
-
-            $resourcePathForSignature = ($envForSignature === Env::PRODUCTION) ? '/v1.0/emoney/account-inquiry.htm' : '/rest/v1.0/emoney/account-inquiry';
+            $resourcePathForSignature = '/rest/v1.0/emoney/account-inquiry';
             if ($danaAccountInquiryRequest !== null) {
                 $resourcePathForSignature = str_replace(
                     '{' . 'DanaAccountInquiryRequest' . '}',
@@ -1746,15 +1733,7 @@ class DisbursementApi
         }
 
 
-        // Determine resource path based on environment (transfer to DANA / topup)
-
-
-
-        $envTopup = strtolower($this->config->getApiKeyWithPrefix('DANA_ENV') ?: $this->config->getApiKeyWithPrefix('ENV') ?: Env::SANDBOX);
-
-
-
-        $resourcePath = ($envTopup === Env::PRODUCTION) ? '/v1.0/emoney/topup.htm' : '/rest/v1.0/emoney/topup';
+        $resourcePath = '/rest/v1.0/emoney/topup';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1820,11 +1799,7 @@ class DisbursementApi
         $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
         $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
         if (isset($transferToDanaRequest)) {
-            // Determine resource path for signature (transfer to DANA / topup)
-
-            $envTopupSig = strtolower($this->config->getApiKeyWithPrefix('DANA_ENV') ?: $this->config->getApiKeyWithPrefix('ENV') ?: Env::SANDBOX);
-
-            $resourcePathForSignature = ($envTopupSig === Env::PRODUCTION) ? '/v1.0/emoney/topup.htm' : '/rest/v1.0/emoney/topup';
+            $resourcePathForSignature = '/rest/v1.0/emoney/topup';
             if ($transferToDanaRequest !== null) {
                 $resourcePathForSignature = str_replace(
                     '{' . 'TransferToDanaRequest' . '}',
@@ -2089,15 +2064,7 @@ class DisbursementApi
         }
 
 
-        // Determine resource path based on environment (topup-status)
-
-
-
-        $envTopupSt = strtolower($this->config->getApiKeyWithPrefix('DANA_ENV') ?: $this->config->getApiKeyWithPrefix('ENV') ?: Env::SANDBOX);
-
-
-
-        $resourcePath = ($envTopupSt === Env::PRODUCTION) ? '/v1.0/emoney/topup-status.htm' : '/rest/v1.0/emoney/topup-status';
+        $resourcePath = '/rest/v1.0/emoney/topup-status';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2163,11 +2130,7 @@ class DisbursementApi
         $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
         $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
         if (isset($transferToDanaInquiryStatusRequest)) {
-            // Determine resource path for signature (topup-status)
-
-            $envTopupStSig = strtolower($this->config->getApiKeyWithPrefix('DANA_ENV') ?: $this->config->getApiKeyWithPrefix('ENV') ?: Env::SANDBOX);
-
-            $resourcePathForSignature = ($envTopupStSig === Env::PRODUCTION) ? '/v1.0/emoney/topup-status.htm' : '/rest/v1.0/emoney/topup-status';
+            $resourcePathForSignature = '/rest/v1.0/emoney/topup-status';
             if ($transferToDanaInquiryStatusRequest !== null) {
                 $resourcePathForSignature = str_replace(
                     '{' . 'TransferToDanaInquiryStatusRequest' . '}',

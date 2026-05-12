@@ -6,14 +6,15 @@ use Dana\ObjectSerializer;
 use Dana\Model\BaseModel;
 use Dana\MerchantManagement\v1\Enum;
 
-class UpdateDivisionResponseResponseBody extends BaseModel
+class QueryAssetCardListResponse extends BaseModel
 {
     public const DISCRIMINATOR = null;
 
-    protected static $openAPIModelName = 'UpdateDivisionResponseResponseBody';
+    protected static $openAPIModelName = 'QueryAssetCardListResponse';
 
     protected static $openAPITypes = [
-        'resultInfo' => '\Dana\MerchantManagement\v1\Model\ResultInfo'
+        'response' => '\Dana\MerchantManagement\v1\Model\QueryAssetCardListResponseResponse',
+        'signature' => 'string'
     ];
 
     protected static $openAPIFormats = [
@@ -83,25 +84,40 @@ class UpdateDivisionResponseResponseBody extends BaseModel
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['resultInfo'] === null) {
-            $invalidProperties[] = "'resultInfo' can't be null";
+        if ($this->container['response'] === null) {
+            $invalidProperties[] = "'response' can't be null";
         }
         return $invalidProperties;
     }
 
 
 
-    public function getResultInfo()
+    public function getResponse()
     {
-        return $this->container['resultInfo'];
+        return $this->container['response'];
     }
 
-    public function setResultInfo($resultInfo)
+    public function setResponse($response)
     {
-        if (is_null($resultInfo)) {
-            throw new \InvalidArgumentException('non-nullable resultInfo cannot be null');
+        if (is_null($response)) {
+            throw new \InvalidArgumentException('non-nullable response cannot be null');
         }
-        $this->container['resultInfo'] = $resultInfo;
+        $this->container['response'] = $response;
+
+        return $this;
+    }
+
+    public function getSignature()
+    {
+        return $this->container['signature'];
+    }
+
+    public function setSignature($signature)
+    {
+        if (is_null($signature)) {
+            throw new \InvalidArgumentException('non-nullable signature cannot be null');
+        }
+        $this->container['signature'] = $signature;
 
         return $this;
     }

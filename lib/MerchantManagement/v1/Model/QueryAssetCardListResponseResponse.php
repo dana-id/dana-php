@@ -6,14 +6,15 @@ use Dana\ObjectSerializer;
 use Dana\Model\BaseModel;
 use Dana\MerchantManagement\v1\Enum;
 
-class UpdateDivisionResponseResponseBody extends BaseModel
+class QueryAssetCardListResponseResponse extends BaseModel
 {
     public const DISCRIMINATOR = null;
 
-    protected static $openAPIModelName = 'UpdateDivisionResponseResponseBody';
+    protected static $openAPIModelName = 'QueryAssetCardListResponseResponse';
 
     protected static $openAPITypes = [
-        'resultInfo' => '\Dana\MerchantManagement\v1\Model\ResultInfo'
+        'head' => '\Dana\MerchantManagement\v1\Model\QueryAssetCardListResponseResponseHead',
+        'body' => '\Dana\MerchantManagement\v1\Model\QueryAssetCardListResponseResponseBody'
     ];
 
     protected static $openAPIFormats = [
@@ -83,25 +84,43 @@ class UpdateDivisionResponseResponseBody extends BaseModel
     {
         $invalidProperties = parent::listInvalidProperties();
 
-        if ($this->container['resultInfo'] === null) {
-            $invalidProperties[] = "'resultInfo' can't be null";
+        if ($this->container['head'] === null) {
+            $invalidProperties[] = "'head' can't be null";
+        }
+        if ($this->container['body'] === null) {
+            $invalidProperties[] = "'body' can't be null";
         }
         return $invalidProperties;
     }
 
 
 
-    public function getResultInfo()
+    public function getHead()
     {
-        return $this->container['resultInfo'];
+        return $this->container['head'];
     }
 
-    public function setResultInfo($resultInfo)
+    public function setHead($head)
     {
-        if (is_null($resultInfo)) {
-            throw new \InvalidArgumentException('non-nullable resultInfo cannot be null');
+        if (is_null($head)) {
+            throw new \InvalidArgumentException('non-nullable head cannot be null');
         }
-        $this->container['resultInfo'] = $resultInfo;
+        $this->container['head'] = $head;
+
+        return $this;
+    }
+
+    public function getBody()
+    {
+        return $this->container['body'];
+    }
+
+    public function setBody($body)
+    {
+        if (is_null($body)) {
+            throw new \InvalidArgumentException('non-nullable body cannot be null');
+        }
+        $this->container['body'] = $body;
 
         return $this;
     }

@@ -42,6 +42,18 @@ class MobileNoInfo extends BaseModel
         return self::$openAPINullables;
     }
 
+    protected array $openAPINullablesSetToNull = [];
+
+    private function getOpenAPINullablesSetToNull(): array
+    {
+        return $this->openAPINullablesSetToNull;
+    }
+
+    private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
+    {
+        $this->openAPINullablesSetToNull = $openAPINullablesSetToNull;
+    }
+
     public function getModelName()
     {
         return self::$openAPIModelName;

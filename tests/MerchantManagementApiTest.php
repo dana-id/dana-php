@@ -22,6 +22,10 @@ use Dana\MerchantManagement\v1\Model\CreateShopResponseResponseBody;
 use Dana\MerchantManagement\v1\Model\QueryMerchantResourceResponse;
 use Dana\MerchantManagement\v1\Model\QueryMerchantResourceResponseResponse;
 use Dana\MerchantManagement\v1\Model\QueryMerchantResourceResponseResponseBody;
+use Dana\MerchantManagement\v1\Model\QueryAssetCardListResponse;
+use Dana\MerchantManagement\v1\Model\QueryAssetCardListResponseResponse;
+use Dana\MerchantManagement\v1\Model\QueryAssetCardListResponseResponseBody;
+use Dana\MerchantManagement\v1\Model\MemberAssetResultInfo;
 use Dana\MerchantManagement\v1\Model\QueryShopResponse;
 use Dana\MerchantManagement\v1\Model\QueryShopResponseResponse;
 use Dana\MerchantManagement\v1\Model\QueryShopResponseResponseBody;
@@ -298,6 +302,37 @@ class MerchantManagementApiTest extends TestCase
             $this->assertTrue($resultInfo->getResultMsg() === 'SUCCESS', 'Result message should be "SUCCESS"');
         } catch (\Exception $e) {
             $this->fail("API Exception when calling MerchantManagementApi->queryShop: " . $e->getMessage());
+        }
+    }
+
+    public function testQueryAssetCardList()
+    {
+        $queryAssetCardListRequest = MerchantManagementFixtures::getQueryAssetCardListRequest(getenv('MERCHANT_ID'));
+
+        try {
+            $response = $this->apiInstance->queryAssetCardList($queryAssetCardListRequest);
+
+            $this->assertNotNull($response, 'API response should not be null');
+            $this->assertInstanceOf(QueryAssetCardListResponse::class, $response);
+
+            $responseObj = $response->getResponse();
+            $this->assertInstanceOf(QueryAssetCardListResponseResponse::class, $responseObj);
+
+            $body = $responseObj->getBody();
+            $this->assertInstanceOf(QueryAssetCardListResponseResponseBody::class, $body);
+
+            $resultInfo = $body->getResultInfo();
+            $this->assertInstanceOf(MemberAssetResultInfo::class, $resultInfo);
+            $this->assertContains($resultInfo->getResultStatus(), ['S', 'F', 'U']);
+
+            if ($resultInfo->getResultStatus() === 'S' && $resultInfo->getResultCodeId() === '00000000') {
+                $assetCards = $body->getAssetCardList() ?? [];
+                foreach ($assetCards as $assetCard) {
+                    $this->assertEquals('VA_ACCOUNT', $assetCard->getAssetType());
+                }
+            }
+        } catch (\Exception $e) {
+            $this->fail("API Exception when calling MerchantManagementApi->queryAssetCardList: " . $e->getMessage());
         }
     }
 }

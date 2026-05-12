@@ -32,7 +32,7 @@ class Util
 
         if ($mode === Mode::DEEPLINK) {
             if ($env === 'production') {
-                $baseUrl = 'https://link.dana.id/bindSnap';
+                $baseUrl = 'https://m.dana.id/n/link/bind';
             } else {
                 $baseUrl = 'https://m.sandbox.dana.id/n/link/binding';
             }
@@ -87,7 +87,7 @@ class Util
             if (strtolower($env) !== 'production') {
                 $scopes = 'CASHIER,AGREEMENT_PAY,QUERY_BALANCE,DEFAULT_BASIC_PROFILE,MINI_DANA';
             } else {
-                $scopes = 'CASHIER';
+                $scopes = 'MINI_DANA,CASHIER,QUERY_BALANCE,DEFAULT_BASIC_PROFILE';
             }
         }
 
@@ -256,7 +256,26 @@ class Util
             return $webRedirectUrl;
         }
         
-        // Combine the URL with the OTT token
-        return $webRedirectUrl . '&ott=' . $ottValue;
+        $parts = parse_url($webRedirectUrl);
+        if ($parts === false) {
+            return $webRedirectUrl;
+        }
+        $queryParams = [];
+        if (!empty($parts['query'])) {
+            parse_str($parts['query'], $queryParams);
+        }
+        $queryParams['ott'] = $ottValue;
+        $queryString = http_build_query($queryParams, '', '&', PHP_QUERY_RFC3986);
+
+        $scheme = isset($parts['scheme']) ? $parts['scheme'] . '://' : '';
+        $host = $parts['host'] ?? '';
+        $port = isset($parts['port']) ? ':' . $parts['port'] : '';
+        $user = $parts['user'] ?? '';
+        $pass = isset($parts['pass']) ? ':' . $parts['pass'] : '';
+        $auth = ($user !== '' || $pass !== '') ? $user . $pass . '@' : '';
+        $path = $parts['path'] ?? '';
+        $fragment = isset($parts['fragment']) ? '#' . $parts['fragment'] : '';
+
+        return $scheme . $auth . $host . $port . $path . '?' . $queryString . $fragment;
     }
 }

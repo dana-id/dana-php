@@ -6,14 +6,15 @@ use Dana\ObjectSerializer;
 use Dana\Model\BaseModel;
 use Dana\MerchantManagement\v1\Enum;
 
-class UpdateDivisionResponseResponseBody extends BaseModel
+class QueryAssetCardListResponseResponseBody extends BaseModel
 {
     public const DISCRIMINATOR = null;
 
-    protected static $openAPIModelName = 'UpdateDivisionResponseResponseBody';
+    protected static $openAPIModelName = 'QueryAssetCardListResponseResponseBody';
 
     protected static $openAPITypes = [
-        'resultInfo' => '\Dana\MerchantManagement\v1\Model\ResultInfo'
+        'resultInfo' => '\Dana\MerchantManagement\v1\Model\MemberAssetResultInfo',
+        'assetCardList' => '\Dana\MerchantManagement\v1\Model\AssetCardListItem[]'
     ];
 
     protected static $openAPIFormats = [
@@ -102,6 +103,21 @@ class UpdateDivisionResponseResponseBody extends BaseModel
             throw new \InvalidArgumentException('non-nullable resultInfo cannot be null');
         }
         $this->container['resultInfo'] = $resultInfo;
+
+        return $this;
+    }
+
+    public function getAssetCardList()
+    {
+        return $this->container['assetCardList'];
+    }
+
+    public function setAssetCardList($assetCardList)
+    {
+        if (is_null($assetCardList)) {
+            throw new \InvalidArgumentException('non-nullable assetCardList cannot be null');
+        }
+        $this->container['assetCardList'] = $assetCardList;
 
         return $this;
     }

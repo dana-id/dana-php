@@ -44,6 +44,79 @@ class UserProfiling
     const B2C = "B2C";
 }
 
+class AssetType
+{
+    /**
+     * CHECKING_ACCOUNT
+     */
+    const CHECKING_ACCOUNT = "CHECKING_ACCOUNT";
+
+    /**
+     * SAVINGS_ACCOUNT
+     */
+    const SAVINGS_ACCOUNT = "SAVINGS_ACCOUNT";
+
+    /**
+     * LOAN_ACCOUNT
+     */
+    const LOAN_ACCOUNT = "LOAN_ACCOUNT";
+
+    /**
+     * IMPS_ACCOUNT
+     */
+    const IMPS_ACCOUNT = "IMPS_ACCOUNT";
+
+    /**
+     * DEBIT_CARD
+     */
+    const DEBIT_CARD = "DEBIT_CARD";
+
+    /**
+     * CREDIT_CARD
+     */
+    const CREDIT_CARD = "CREDIT_CARD";
+
+    /**
+     * SECURED_CREDIT_CARD
+     */
+    const SECURED_CREDIT_CARD = "SECURED_CREDIT_CARD";
+
+    /**
+     * VA_ACCOUNT
+     */
+    const VA_ACCOUNT = "VA_ACCOUNT";
+
+    /**
+     * OTC_ACCOUNT
+     */
+    const OTC_ACCOUNT = "OTC_ACCOUNT";
+
+    /**
+     * REFUND_ACCOUNT
+     */
+    const REFUND_ACCOUNT = "REFUND_ACCOUNT";
+
+    /**
+     * CREDIT_ACCOUNT
+     */
+    const CREDIT_ACCOUNT = "CREDIT_ACCOUNT";
+
+    /**
+     * LOAN
+     */
+    const LOAN = "LOAN";
+
+    /**
+     * MUTUAL_FUNDS_ACCOUNT
+     */
+    const MUTUAL_FUNDS_ACCOUNT = "MUTUAL_FUNDS_ACCOUNT";
+
+    /**
+     * INVESTMENT
+     */
+    const INVESTMENT = "INVESTMENT";
+}
+
 class BusinessEntity
 {
     /**
@@ -75,6 +148,75 @@ class BusinessEntity
      * koperasi
      */
     const KOPERASI = "koperasi";
+}
+
+class ContactBizType
+{
+    /**
+     * TRANSFER_HIS
+     */
+    const TRANSFER_HIS = "TRANSFER_HIS";
+
+    /**
+     * DIRECT_TRANSFER
+     */
+    const DIRECT_TRANSFER = "DIRECT_TRANSFER";
+
+    /**
+     * GENERAL_CARD
+     */
+    const GENERAL_CARD = "GENERAL_CARD";
+
+    /**
+     * DIRECTPAY_CARD
+     */
+    const DIRECTPAY_CARD = "DIRECTPAY_CARD";
+
+    /**
+     * PAYMENT_CARD
+     */
+    const PAYMENT_CARD = "PAYMENT_CARD";
+
+    /**
+     * CASHOUT_CARD
+     */
+    const CASHOUT_CARD = "CASHOUT_CARD";
+
+    /**
+     * IMPS_ACCOUNT
+     */
+    const IMPS_ACCOUNT = "IMPS_ACCOUNT";
+
+    /**
+     * INVESTMENT_ACCOUNT
+     */
+    const INVESTMENT_ACCOUNT = "INVESTMENT_ACCOUNT";
+}
+
+class DefaultAsset
+{
+    /**
+     * true
+     */
+    const TRUE = "true";
+
+    /**
+     * false
+     */
+    const FALSE = "false";
+}
+
+class DirectDebit
+{
+    /**
+     * true
+     */
+    const TRUE = "true";
+
+    /**
+     * false
+     */
+    const FALSE = "false";
 }
 
 class DivisionIdType
@@ -169,6 +311,32 @@ class DocType
      * NIB
      */
     const NIB = "NIB";
+}
+
+class EnableOnly
+{
+    /**
+     * true
+     */
+    const TRUE = "true";
+
+    /**
+     * false
+     */
+    const FALSE = "false";
+}
+
+class EnableStatus
+{
+    /**
+     * true
+     */
+    const TRUE = "true";
+
+    /**
+     * false
+     */
+    const FALSE = "false";
 }
 
 class Loyalty

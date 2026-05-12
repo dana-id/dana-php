@@ -77,6 +77,9 @@ class MerchantManagementApi
         'createShop' => [
             'application/json',
         ],
+        'queryAssetCardList' => [
+            'application/json',
+        ],
         'queryDivision' => [
             'application/json',
         ],
@@ -806,6 +809,356 @@ class MerchantManagementApi
                 'request' => [
                     'head' => $headParams,
                     'body' => $createShopRequest
+                ]
+            ];
+            
+            // Generate signature if private key is available
+            $privateKey = $this->config->getApiKeyWithPrefix('PRIVATE_KEY');
+            $privateKeyPath = $this->config->getApiKeyWithPrefix('PRIVATE_KEY_PATH');
+            $clientKey = $this->config->getApiKeyWithPrefix('X_PARTNER_ID');
+            
+            if (!empty($privateKey) || !empty($privateKeyPath)) {
+                try {
+                    $signature = \Dana\Utils\OpenApiHeader::generateOpenApiSignature(
+                        json_encode($requestBody['request']),
+                        $this->config
+                    );
+                    $requestBody['signature'] = $signature;
+                } catch (\Exception $e) {
+                    throw new \InvalidArgumentException('Failed to generate signature: ' . $e->getMessage());
+                }
+            }
+            
+            $httpBody = json_encode($requestBody);
+            $headers['Content-Type'] = 'application/json';
+        }
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation queryAssetCardList
+     *
+     * Member – Query asset card list
+     *
+     * @param  \Dana\MerchantManagement\v1\Model\QueryAssetCardListRequest $queryAssetCardListRequest queryAssetCardListRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryAssetCardList'] to see the possible values for this operation
+     *
+     * @throws \Dana\MerchantManagement\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Dana\MerchantManagement\v1\Model\QueryAssetCardListResponse
+     */
+    public function queryAssetCardList($queryAssetCardListRequest, string $contentType = self::contentTypes['queryAssetCardList'][0])
+    {
+        list($response) = $this->queryAssetCardListWithHttpInfo($queryAssetCardListRequest, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation queryAssetCardListWithHttpInfo
+     *
+     * Member – Query asset card list
+     *
+     * @param  \Dana\MerchantManagement\v1\Model\QueryAssetCardListRequest $queryAssetCardListRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryAssetCardList'] to see the possible values for this operation
+     *
+     * @throws \Dana\MerchantManagement\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Dana\MerchantManagement\v1\Model\QueryAssetCardListResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function queryAssetCardListWithHttpInfo($queryAssetCardListRequest, string $contentType = self::contentTypes['queryAssetCardList'][0])
+    {
+        $request = $this->queryAssetCardListRequest($queryAssetCardListRequest, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Dana\MerchantManagement\v1\Model\QueryAssetCardListResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Dana\MerchantManagement\v1\Model\QueryAssetCardListResponse' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Dana\MerchantManagement\v1\Model\QueryAssetCardListResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            $returnType = '\Dana\MerchantManagement\v1\Model\QueryAssetCardListResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Dana\MerchantManagement\v1\Model\QueryAssetCardListResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation queryAssetCardListAsync
+     *
+     * Member – Query asset card list
+     *
+     * @param  \Dana\MerchantManagement\v1\Model\QueryAssetCardListRequest $queryAssetCardListRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryAssetCardList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function queryAssetCardListAsync($queryAssetCardListRequest, string $contentType = self::contentTypes['queryAssetCardList'][0])
+    {
+        return $this->queryAssetCardListAsyncWithHttpInfo($queryAssetCardListRequest, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation queryAssetCardListAsyncWithHttpInfo
+     *
+     * Member – Query asset card list
+     *
+     * @param  \Dana\MerchantManagement\v1\Model\QueryAssetCardListRequest $queryAssetCardListRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryAssetCardList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function queryAssetCardListAsyncWithHttpInfo($queryAssetCardListRequest, string $contentType = self::contentTypes['queryAssetCardList'][0])
+    {
+        $returnType = '\Dana\MerchantManagement\v1\Model\QueryAssetCardListResponse';
+        $request = $this->queryAssetCardListRequest($queryAssetCardListRequest, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'queryAssetCardList'
+     *
+     * @param  \Dana\MerchantManagement\v1\Model\QueryAssetCardListRequest $queryAssetCardListRequest (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['queryAssetCardList'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function queryAssetCardListRequest($queryAssetCardListRequest, string $contentType = self::contentTypes['queryAssetCardList'][0])
+    {
+
+        // verify the required parameter 'queryAssetCardListRequest' is set
+        if ($queryAssetCardListRequest === null || (is_array($queryAssetCardListRequest) && count($queryAssetCardListRequest) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $queryAssetCardListRequest when calling queryAssetCardList'
+            );
+        }
+
+
+        $resourcePath = '/dana/member/asset/queryAssetCardList.htm';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($queryAssetCardListRequest)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($queryAssetCardListRequest));
+            } else {
+                $httpBody = $queryAssetCardListRequest;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        // Prepare the request body with head and body structure for DANA OpenAPI
+        if (isset($queryAssetCardListRequest)) {
+            $functionName = 'dana.member.asset.queryAssetCardList';
+            $headParams = [];
+            
+            // Generate head parameters using OpenAPI header utility
+            if (method_exists($this->config, 'getApiKey')) {
+                $headParams = \Dana\Utils\OpenApiHeader::getOpenApiGeneratedHeaders(
+                    $this->config,
+                    json_encode($queryAssetCardListRequest),
+                    $functionName
+                );
+            }
+            
+            // Create the full request structure with head and body
+            $requestBody = [
+                'request' => [
+                    'head' => $headParams,
+                    'body' => $queryAssetCardListRequest
                 ]
             ];
             

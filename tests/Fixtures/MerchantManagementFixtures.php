@@ -20,6 +20,7 @@ use Dana\MerchantManagement\v1\Model\MobileNoInfo;
 use Dana\MerchantManagement\v1\Model\PicInfo;
 use Dana\MerchantManagement\v1\Model\QueryMerchantResourceRequest;
 use Dana\MerchantManagement\v1\Model\QueryShopRequest;
+use Dana\MerchantManagement\v1\Model\QueryAssetCardListRequest;
 use Dana\MerchantManagement\v1\Model\UserName;
 
 class MerchantManagementFixtures
@@ -193,6 +194,16 @@ class MerchantManagementFixtures
             'merchantId' => $merchantId,
             'shopId' => $shopId,
             'shopIdType' => 'EXTERNAL_ID'
+        ]);
+    }
+
+    public static function getQueryAssetCardListRequest(string $memberId = ''): QueryAssetCardListRequest
+    {
+        $memberId = $memberId ?: (self::getMerchantId() ?? '216620060017038045162');
+        return new QueryAssetCardListRequest([
+            'memberId' => $memberId,
+            'enableOnly' => 'true',
+            'assetTypeList' => ['VA_ACCOUNT'],
         ]);
     }
 }

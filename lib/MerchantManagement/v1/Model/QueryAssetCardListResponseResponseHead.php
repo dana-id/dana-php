@@ -6,20 +6,20 @@ use Dana\ObjectSerializer;
 use Dana\Model\BaseModel;
 use Dana\MerchantManagement\v1\Enum;
 
-class QueryDivisionResponseResponseHead extends BaseModel
+class QueryAssetCardListResponseResponseHead extends BaseModel
 {
     public const DISCRIMINATOR = null;
 
-    protected static $openAPIModelName = 'QueryDivisionResponseResponseHead';
+    protected static $openAPIModelName = 'QueryAssetCardListResponseResponseHead';
 
     protected static $openAPITypes = [
         'version' => 'string',
         'function' => 'string',
         'clientId' => 'string',
-        'clientSecret' => 'string',
         'respTime' => 'string',
         'reqMsgId' => 'string',
-        'reserve' => 'string'
+        'clientSecret' => 'string',
+        'reserve' => 'mixed'
     ];
 
     protected static $openAPIFormats = [
@@ -27,7 +27,7 @@ class QueryDivisionResponseResponseHead extends BaseModel
     ];
 
     protected static array $openAPINullables = [
-        
+        'reserve' => true
     ];
 
 
@@ -63,12 +63,12 @@ class QueryDivisionResponseResponseHead extends BaseModel
         return self::$openAPIModelName;
     }
 
-    public const MODEL_FUNCTION_DANA_MERCHANT_DIVISION_QUERY_DIVISION = 'dana.merchant.division.queryDivision';
+    public const MODEL_FUNCTION_DANA_MEMBER_ASSET_QUERY_ASSET_CARD_LIST = 'dana.member.asset.queryAssetCardList';
 
     public function getFunctionAllowableValues()
     {
         return [
-            self::MODEL_FUNCTION_DANA_MERCHANT_DIVISION_QUERY_DIVISION,
+            self::MODEL_FUNCTION_DANA_MEMBER_ASSET_QUERY_ASSET_CARD_LIST,
         ];
     }
 
@@ -116,24 +116,16 @@ class QueryDivisionResponseResponseHead extends BaseModel
             $invalidProperties[] = "invalid value for 'function', the character length must be smaller than or equal to 128.";
         }
 
-        if (!is_null($this->container['clientId']) && (mb_strlen($this->container['clientId']) > 36)) {
-            $invalidProperties[] = "invalid value for 'clientId', the character length must be smaller than or equal to 36.";
-        }
-
-        if (!is_null($this->container['clientSecret']) && (mb_strlen($this->container['clientSecret']) > 64)) {
-            $invalidProperties[] = "invalid value for 'clientSecret', the character length must be smaller than or equal to 64.";
-        }
-
-        if (!is_null($this->container['respTime']) && (mb_strlen($this->container['respTime']) > 25)) {
-            $invalidProperties[] = "invalid value for 'respTime', the character length must be smaller than or equal to 25.";
+        if (!is_null($this->container['clientId']) && (mb_strlen($this->container['clientId']) > 64)) {
+            $invalidProperties[] = "invalid value for 'clientId', the character length must be smaller than or equal to 64.";
         }
 
         if (!is_null($this->container['reqMsgId']) && (mb_strlen($this->container['reqMsgId']) > 64)) {
             $invalidProperties[] = "invalid value for 'reqMsgId', the character length must be smaller than or equal to 64.";
         }
 
-        if (!is_null($this->container['reserve']) && (mb_strlen($this->container['reserve']) > 256)) {
-            $invalidProperties[] = "invalid value for 'reserve', the character length must be smaller than or equal to 256.";
+        if (!is_null($this->container['clientSecret']) && (mb_strlen($this->container['clientSecret']) > 128)) {
+            $invalidProperties[] = "invalid value for 'clientSecret', the character length must be smaller than or equal to 128.";
         }
 
         return $invalidProperties;
@@ -152,7 +144,7 @@ class QueryDivisionResponseResponseHead extends BaseModel
             throw new \InvalidArgumentException('non-nullable version cannot be null');
         }
         if ((mb_strlen($version) > 8)) {
-            throw new \InvalidArgumentException('invalid length for $version when calling QueryDivisionResponseResponseHead., must be smaller than or equal to 8.');
+            throw new \InvalidArgumentException('invalid length for $version when calling QueryAssetCardListResponseResponseHead., must be smaller than or equal to 8.');
         }
 
         $this->container['version'] = $version;
@@ -181,7 +173,7 @@ class QueryDivisionResponseResponseHead extends BaseModel
             );
         }
         if ((mb_strlen($function) > 128)) {
-            throw new \InvalidArgumentException('invalid length for $function when calling QueryDivisionResponseResponseHead., must be smaller than or equal to 128.');
+            throw new \InvalidArgumentException('invalid length for $function when calling QueryAssetCardListResponseResponseHead., must be smaller than or equal to 128.');
         }
 
         $this->container['function'] = $function;
@@ -199,30 +191,11 @@ class QueryDivisionResponseResponseHead extends BaseModel
         if (is_null($clientId)) {
             throw new \InvalidArgumentException('non-nullable clientId cannot be null');
         }
-        if ((mb_strlen($clientId) > 36)) {
-            throw new \InvalidArgumentException('invalid length for $clientId when calling QueryDivisionResponseResponseHead., must be smaller than or equal to 36.');
+        if ((mb_strlen($clientId) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $clientId when calling QueryAssetCardListResponseResponseHead., must be smaller than or equal to 64.');
         }
 
         $this->container['clientId'] = $clientId;
-
-        return $this;
-    }
-
-    public function getClientSecret()
-    {
-        return $this->container['clientSecret'];
-    }
-
-    public function setClientSecret($clientSecret)
-    {
-        if (is_null($clientSecret)) {
-            throw new \InvalidArgumentException('non-nullable clientSecret cannot be null');
-        }
-        if ((mb_strlen($clientSecret) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $clientSecret when calling QueryDivisionResponseResponseHead., must be smaller than or equal to 64.');
-        }
-
-        $this->container['clientSecret'] = $clientSecret;
 
         return $this;
     }
@@ -237,10 +210,6 @@ class QueryDivisionResponseResponseHead extends BaseModel
         if (is_null($respTime)) {
             throw new \InvalidArgumentException('non-nullable respTime cannot be null');
         }
-        if ((mb_strlen($respTime) > 25)) {
-            throw new \InvalidArgumentException('invalid length for $respTime when calling QueryDivisionResponseResponseHead., must be smaller than or equal to 25.');
-        }
-
         $this->container['respTime'] = $respTime;
 
         return $this;
@@ -257,10 +226,29 @@ class QueryDivisionResponseResponseHead extends BaseModel
             throw new \InvalidArgumentException('non-nullable reqMsgId cannot be null');
         }
         if ((mb_strlen($reqMsgId) > 64)) {
-            throw new \InvalidArgumentException('invalid length for $reqMsgId when calling QueryDivisionResponseResponseHead., must be smaller than or equal to 64.');
+            throw new \InvalidArgumentException('invalid length for $reqMsgId when calling QueryAssetCardListResponseResponseHead., must be smaller than or equal to 64.');
         }
 
         $this->container['reqMsgId'] = $reqMsgId;
+
+        return $this;
+    }
+
+    public function getClientSecret()
+    {
+        return $this->container['clientSecret'];
+    }
+
+    public function setClientSecret($clientSecret)
+    {
+        if (is_null($clientSecret)) {
+            throw new \InvalidArgumentException('non-nullable clientSecret cannot be null');
+        }
+        if ((mb_strlen($clientSecret) > 128)) {
+            throw new \InvalidArgumentException('invalid length for $clientSecret when calling QueryAssetCardListResponseResponseHead., must be smaller than or equal to 128.');
+        }
+
+        $this->container['clientSecret'] = $clientSecret;
 
         return $this;
     }
@@ -273,12 +261,15 @@ class QueryDivisionResponseResponseHead extends BaseModel
     public function setReserve($reserve)
     {
         if (is_null($reserve)) {
-            throw new \InvalidArgumentException('non-nullable reserve cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'reserve');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('reserve', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        if ((mb_strlen($reserve) > 256)) {
-            throw new \InvalidArgumentException('invalid length for $reserve when calling QueryDivisionResponseResponseHead., must be smaller than or equal to 256.');
-        }
-
         $this->container['reserve'] = $reserve;
 
         return $this;

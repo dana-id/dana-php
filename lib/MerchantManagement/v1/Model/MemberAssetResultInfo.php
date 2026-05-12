@@ -6,11 +6,11 @@ use Dana\ObjectSerializer;
 use Dana\Model\BaseModel;
 use Dana\MerchantManagement\v1\Enum;
 
-class ResultInfo extends BaseModel
+class MemberAssetResultInfo extends BaseModel
 {
     public const DISCRIMINATOR = null;
 
-    protected static $openAPIModelName = 'ResultInfo';
+    protected static $openAPIModelName = 'MemberAssetResultInfo';
 
     protected static $openAPITypes = [
         'resultStatus' => 'string',
@@ -110,15 +110,28 @@ class ResultInfo extends BaseModel
             );
         }
 
+        if ((mb_strlen($this->container['resultStatus']) > 1)) {
+            $invalidProperties[] = "invalid value for 'resultStatus', the character length must be smaller than or equal to 1.";
+        }
+
         if ($this->container['resultCodeId'] === null) {
             $invalidProperties[] = "'resultCodeId' can't be null";
         }
+        if ((mb_strlen($this->container['resultCodeId']) > 16)) {
+            $invalidProperties[] = "invalid value for 'resultCodeId', the character length must be smaller than or equal to 16.";
+        }
+
         if ($this->container['resultCode'] === null) {
             $invalidProperties[] = "'resultCode' can't be null";
         }
-        if ($this->container['resultMsg'] === null) {
-            $invalidProperties[] = "'resultMsg' can't be null";
+        if ((mb_strlen($this->container['resultCode']) > 64)) {
+            $invalidProperties[] = "invalid value for 'resultCode', the character length must be smaller than or equal to 64.";
         }
+
+        if (!is_null($this->container['resultMsg']) && (mb_strlen($this->container['resultMsg']) > 256)) {
+            $invalidProperties[] = "invalid value for 'resultMsg', the character length must be smaller than or equal to 256.";
+        }
+
         return $invalidProperties;
     }
 
@@ -144,6 +157,10 @@ class ResultInfo extends BaseModel
                 )
             );
         }
+        if ((mb_strlen($resultStatus) > 1)) {
+            throw new \InvalidArgumentException('invalid length for $resultStatus when calling MemberAssetResultInfo., must be smaller than or equal to 1.');
+        }
+
         $this->container['resultStatus'] = $resultStatus;
 
         return $this;
@@ -159,6 +176,10 @@ class ResultInfo extends BaseModel
         if (is_null($resultCodeId)) {
             throw new \InvalidArgumentException('non-nullable resultCodeId cannot be null');
         }
+        if ((mb_strlen($resultCodeId) > 16)) {
+            throw new \InvalidArgumentException('invalid length for $resultCodeId when calling MemberAssetResultInfo., must be smaller than or equal to 16.');
+        }
+
         $this->container['resultCodeId'] = $resultCodeId;
 
         return $this;
@@ -174,6 +195,10 @@ class ResultInfo extends BaseModel
         if (is_null($resultCode)) {
             throw new \InvalidArgumentException('non-nullable resultCode cannot be null');
         }
+        if ((mb_strlen($resultCode) > 64)) {
+            throw new \InvalidArgumentException('invalid length for $resultCode when calling MemberAssetResultInfo., must be smaller than or equal to 64.');
+        }
+
         $this->container['resultCode'] = $resultCode;
 
         return $this;
@@ -189,6 +214,10 @@ class ResultInfo extends BaseModel
         if (is_null($resultMsg)) {
             throw new \InvalidArgumentException('non-nullable resultMsg cannot be null');
         }
+        if ((mb_strlen($resultMsg) > 256)) {
+            throw new \InvalidArgumentException('invalid length for $resultMsg when calling MemberAssetResultInfo., must be smaller than or equal to 256.');
+        }
+
         $this->container['resultMsg'] = $resultMsg;
 
         return $this;
