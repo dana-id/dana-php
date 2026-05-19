@@ -25,6 +25,9 @@ use Dana\MerchantManagement\v1\Model\QueryMerchantResourceResponseResponseBody;
 use Dana\MerchantManagement\v1\Model\QueryAssetCardListResponse;
 use Dana\MerchantManagement\v1\Model\QueryAssetCardListResponseResponse;
 use Dana\MerchantManagement\v1\Model\QueryAssetCardListResponseResponseBody;
+use Dana\MerchantManagement\v1\Model\QueryMerchantInfoResponse;
+use Dana\MerchantManagement\v1\Model\QueryMerchantInfoResponseResponse;
+use Dana\MerchantManagement\v1\Model\QueryMerchantInfoResponseResponseBody;
 use Dana\MerchantManagement\v1\Model\MemberAssetResultInfo;
 use Dana\MerchantManagement\v1\Model\QueryShopResponse;
 use Dana\MerchantManagement\v1\Model\QueryShopResponseResponse;
@@ -228,12 +231,6 @@ class MerchantManagementApiTest extends TestCase
      */
     public function testQueryShop()
     {
-        // Skip test if no API client is available
-        if ($this->apiInstance === null) {
-            $this->markTestSkipped('Skipping test: No API client credentials');
-            return;
-        }
-
         // Get request fixture - using empty shop ID to query all shops
         $queryRequest = MerchantManagementFixtures::getQueryShopRequest($this->externalShopId);
         try {
@@ -302,6 +299,45 @@ class MerchantManagementApiTest extends TestCase
             $this->assertTrue($resultInfo->getResultMsg() === 'SUCCESS', 'Result message should be "SUCCESS"');
         } catch (\Exception $e) {
             $this->fail("API Exception when calling MerchantManagementApi->queryShop: " . $e->getMessage());
+        }
+    }
+
+    public function testQueryMerchantInfo()
+    {
+        $queryMerchantInfoRequest = MerchantManagementFixtures::getQueryMerchantInfoRequest();
+
+        try {
+            $response = $this->apiInstance->queryMerchantInfo($queryMerchantInfoRequest);
+
+            $this->assertNotNull($response, 'API response should not be null');
+            $this->assertInstanceOf(QueryMerchantInfoResponse::class, $response);
+
+            $responseObj = $response->getResponse();
+            $this->assertInstanceOf(QueryMerchantInfoResponseResponse::class, $responseObj);
+
+            $body = $responseObj->getBody();
+            $this->assertInstanceOf(QueryMerchantInfoResponseResponseBody::class, $body);
+
+            $resultInfo = $body->getResultInfo();
+            $this->assertInstanceOf(MemberAssetResultInfo::class, $resultInfo);
+            $this->assertEquals('S', $resultInfo->getResultStatus());
+            $this->assertEquals('00000000', $resultInfo->getResultCodeId());
+
+            $merchantInformation = $body->getMerchantInformation();
+            if ($merchantInformation !== null) {
+                $this->assertNotEmpty($merchantInformation->getMerchantId());
+                $this->assertNotEmpty($merchantInformation->getMerchantType());
+                $this->assertNotEmpty($merchantInformation->getMerchantStatus());
+
+                if ($queryMerchantInfoRequest->getIsQueryAccount() && $merchantInformation->getAccounts() !== null) {
+                    foreach ($merchantInformation->getAccounts() as $account) {
+                        $this->assertNotEmpty($account->getAccountNo());
+                        $this->assertNotEmpty($account->getAccountType());
+                    }
+                }
+            }
+        } catch (\Exception $e) {
+            $this->fail("API Exception when calling MerchantManagementApi->queryMerchantInfo: " . $e->getMessage());
         }
     }
 

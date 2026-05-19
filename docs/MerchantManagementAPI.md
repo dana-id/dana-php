@@ -8,6 +8,7 @@ All URIs are relative to http://api.sandbox.dana.id for sandbox and https://api.
 | [**createShop()**](MerchantManagementApi.md#createshop) | **POST** /dana/merchant/shop/createShop.htm | Member – Create Shop |
 | [**queryAssetCardList()**](MerchantManagementApi.md#queryassetcardlist) | **POST** /dana/member/asset/queryAssetCardList.htm | Member – Query asset card list |
 | [**queryDivision()**](MerchantManagementApi.md#querydivision) | **POST** /dana/merchant/division/queryDivision.htm | Query Division |
+| [**queryMerchantInfo()**](MerchantManagementApi.md#querymerchantinfo) | **POST** /dana/member/merchant/queryMerchantInfo.htm | Member – Query Merchant Info |
 | [**queryMerchantResource()**](MerchantManagementApi.md#querymerchantresource) | **POST** /dana/merchant/queryMerchantResource.htm | Member – Merchant Open API Check Disbursement Account |
 | [**queryShop()**](MerchantManagementApi.md#queryshop) | **POST** /dana/merchant/shop/queryShop.htm | Member – Query Shop |
 | [**updateDivision()**](MerchantManagementApi.md#updatedivision) | **POST** /dana/merchant/division/updateDivision.htm | Update Division |
@@ -258,6 +259,67 @@ try {
 ### Return type
 
 [**QueryDivisionResponse**](./MerchantManagement/QueryDivisionResponse.md)
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `queryMerchantInfo()`
+
+```php
+queryMerchantInfo($queryMerchantInfoRequest): \Dana\MerchantManagement\v1\Model\QueryMerchantInfoResponse
+```
+
+Member – Query Merchant Info
+
+Query merchant profile information by login identifier (for example mobile number). JSON envelope uses `request.head`, `request.body`, and root `signature` (same Open API pattern as other `.htm` endpoints).
+
+### Example
+
+```php
+<?php
+use Dana\Configuration;
+use Dana\Env;
+use Dana\MerchantManagement\v1\Api\MerchantManagementApi;
+use Dana\MerchantManagement\v1\Model\QueryMerchantInfoRequest;
+
+// Set up configuration with authentication settings
+$configuration = new Configuration();
+
+// The Configuration constructor automatically loads values from environment variables
+// Choose one of PRIVATE_KEY or PRIVATE_KEY_PATH to set, if you set both, PRIVATE_KEY will be ignored
+$configuration->setApiKey('PRIVATE_KEY', getenv('PRIVATE_KEY'));
+// $configuration->setApiKey('PRIVATE_KEY_PATH', getenv('PRIVATE_KEY_PATH'));
+$configuration->setApiKey('ORIGIN', getenv('ORIGIN'));
+$configuration->setApiKey('X_PARTNER_ID', getenv('X_PARTNER_ID'));
+$configuration->setApiKey('DANA_ENV', Env::SANDBOX);
+// Choose one of ENV or DANA_ENV to set, if you set both, ENV will be ignored
+// $configuration->setApiKey('ENV', Env::SANDBOX);
+$configuration->setApiKey('CLIENT_SECRET', getenv('CLIENT_SECRET'));
+
+
+
+$apiInstance = new MerchantManagementApi(
+    null, // this also can be set to custom http client which implements `GuzzleHttp\ClientInterface`
+    $configuration
+);
+$queryMerchantInfoRequest = QueryMerchantInfoRequest();
+
+try {
+    $result = $apiInstance->queryMerchantInfo($queryMerchantInfoRequest);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MerchantManagementApi->queryMerchantInfo: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Payload
+
+[**QueryMerchantInfoRequest**](./MerchantManagement/QueryMerchantInfoRequest.md)
+
+### Return type
+
+[**QueryMerchantInfoResponse**](./MerchantManagement/QueryMerchantInfoResponse.md)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -536,6 +598,14 @@ $model->setProperty('DIGITAL');
 | `B2B` | `B2B` |
 | `B2C` | `B2C` |
 
+### AccountType
+
+| Constant | Value |
+|----------|-------|
+| `MERCHANT_SETTLEMENT_ACCOUNT` | `MERCHANT_SETTLEMENT_ACCOUNT` |
+| `MERCHANT_PAYABLE_ACCOUNT` | `MERCHANT_PAYABLE_ACCOUNT` |
+| `MERCHANT_DEPOSIT_ACCOUNT` | `MERCHANT_DEPOSIT_ACCOUNT` |
+
 ### AssetType
 
 | Constant | Value |
@@ -566,6 +636,14 @@ $model->setProperty('DIGITAL');
 | `YAYASAN` | `yayasan` |
 | `KOPERASI` | `koperasi` |
 
+### ContactAddressType
+
+| Constant | Value |
+|----------|-------|
+| `OFFICE_ADD` | `OFFICE_ADD` |
+| `REG_ADD` | `REG_ADD` |
+| `HOME_ADD` | `HOME_ADD` |
+
 ### ContactBizType
 
 | Constant | Value |
@@ -578,6 +656,22 @@ $model->setProperty('DIGITAL');
 | `CASHOUT_CARD` | `CASHOUT_CARD` |
 | `IMPS_ACCOUNT` | `IMPS_ACCOUNT` |
 | `INVESTMENT_ACCOUNT` | `INVESTMENT_ACCOUNT` |
+
+### CreditFreezeStatus
+
+| Constant | Value |
+|----------|-------|
+| `ENABLE` | `ENABLE` |
+| `FROZEN` | `FROZEN` |
+| `CLOSE` | `CLOSE` |
+
+### DebitFreezeStatus
+
+| Constant | Value |
+|----------|-------|
+| `ENABLE` | `ENABLE` |
+| `FROZEN` | `FROZEN` |
+| `CLOSE` | `CLOSE` |
 
 ### DefaultAsset
 
@@ -639,12 +733,43 @@ $model->setProperty('DIGITAL');
 | `TRUE` | `true` |
 | `FALSE` | `false` |
 
+### LoginType
+
+| Constant | Value |
+|----------|-------|
+| `ROLE` | `ROLE` |
+| `MOBILE_NO` | `MOBILE_NO` |
+
 ### Loyalty
 
 | Constant | Value |
 |----------|-------|
 | `TRUE` | `true` |
 | `FALSE` | `false` |
+
+### MerchantStatus
+
+| Constant | Value |
+|----------|-------|
+| `PENDING` | `PENDING` |
+| `ACTIVE` | `ACTIVE` |
+| `FROZEN` | `FROZEN` |
+
+### MerchantSubType
+
+| Constant | Value |
+|----------|-------|
+| `COMPANY_TYPE_22` | `COMPANY_TYPE_22` |
+| `COMPANY_TYPE_31` | `COMPANY_TYPE_31` |
+| `COMPANY_TYPE_41` | `COMPANY_TYPE_41` |
+
+### MerchantType
+
+| Constant | Value |
+|----------|-------|
+| `INDIVIDUAL` | `INDIVIDUAL` |
+| `CORPORATION` | `CORPORATION` |
+| `FINANCIAL_INST` | `FINANCIAL_INST` |
 
 ### OwnerIdType
 
@@ -724,6 +849,14 @@ $model->setProperty('DIGITAL');
 | `UKE` | `UKE` |
 | `UME` | `UME` |
 | `UBE` | `UBE` |
+
+### Status
+
+| Constant | Value |
+|----------|-------|
+| `ENABLE` | `ENABLE` |
+| `FROZEN` | `FROZEN` |
+| `CLOSE` | `CLOSE` |
 
 ### Verified
 

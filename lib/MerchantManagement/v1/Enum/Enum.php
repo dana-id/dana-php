@@ -44,6 +44,24 @@ class UserProfiling
     const B2C = "B2C";
 }
 
+class AccountType
+{
+    /**
+     * MERCHANT_SETTLEMENT_ACCOUNT
+     */
+    const MERCHANT_SETTLEMENT_ACCOUNT = "MERCHANT_SETTLEMENT_ACCOUNT";
+
+    /**
+     * MERCHANT_PAYABLE_ACCOUNT
+     */
+    const MERCHANT_PAYABLE_ACCOUNT = "MERCHANT_PAYABLE_ACCOUNT";
+
+    /**
+     * MERCHANT_DEPOSIT_ACCOUNT
+     */
+    const MERCHANT_DEPOSIT_ACCOUNT = "MERCHANT_DEPOSIT_ACCOUNT";
+}
+
 class AssetType
 {
     /**
@@ -150,6 +168,24 @@ class BusinessEntity
     const KOPERASI = "koperasi";
 }
 
+class ContactAddressType
+{
+    /**
+     * OFFICE_ADD
+     */
+    const OFFICE_ADD = "OFFICE_ADD";
+
+    /**
+     * REG_ADD
+     */
+    const REG_ADD = "REG_ADD";
+
+    /**
+     * HOME_ADD
+     */
+    const HOME_ADD = "HOME_ADD";
+}
+
 class ContactBizType
 {
     /**
@@ -191,6 +227,42 @@ class ContactBizType
      * INVESTMENT_ACCOUNT
      */
     const INVESTMENT_ACCOUNT = "INVESTMENT_ACCOUNT";
+}
+
+class CreditFreezeStatus
+{
+    /**
+     * ENABLE
+     */
+    const ENABLE = "ENABLE";
+
+    /**
+     * FROZEN
+     */
+    const FROZEN = "FROZEN";
+
+    /**
+     * CLOSE
+     */
+    const CLOSE = "CLOSE";
+}
+
+class DebitFreezeStatus
+{
+    /**
+     * ENABLE
+     */
+    const ENABLE = "ENABLE";
+
+    /**
+     * FROZEN
+     */
+    const FROZEN = "FROZEN";
+
+    /**
+     * CLOSE
+     */
+    const CLOSE = "CLOSE";
 }
 
 class DefaultAsset
@@ -339,6 +411,19 @@ class EnableStatus
     const FALSE = "false";
 }
 
+class LoginType
+{
+    /**
+     * ROLE
+     */
+    const ROLE = "ROLE";
+
+    /**
+     * MOBILE_NO
+     */
+    const MOBILE_NO = "MOBILE_NO";
+}
+
 class Loyalty
 {
     /**
@@ -350,6 +435,60 @@ class Loyalty
      * false
      */
     const FALSE = "false";
+}
+
+class MerchantStatus
+{
+    /**
+     * PENDING
+     */
+    const PENDING = "PENDING";
+
+    /**
+     * ACTIVE
+     */
+    const ACTIVE = "ACTIVE";
+
+    /**
+     * FROZEN
+     */
+    const FROZEN = "FROZEN";
+}
+
+class MerchantSubType
+{
+    /**
+     * COMPANY_TYPE_22
+     */
+    const COMPANY_TYPE_22 = "COMPANY_TYPE_22";
+
+    /**
+     * COMPANY_TYPE_31
+     */
+    const COMPANY_TYPE_31 = "COMPANY_TYPE_31";
+
+    /**
+     * COMPANY_TYPE_41
+     */
+    const COMPANY_TYPE_41 = "COMPANY_TYPE_41";
+}
+
+class MerchantType
+{
+    /**
+     * INDIVIDUAL
+     */
+    const INDIVIDUAL = "INDIVIDUAL";
+
+    /**
+     * CORPORATION
+     */
+    const CORPORATION = "CORPORATION";
+
+    /**
+     * FINANCIAL_INST
+     */
+    const FINANCIAL_INST = "FINANCIAL_INST";
 }
 
 class OwnerIdType
@@ -525,6 +664,24 @@ class SizeType
      * UBE
      */
     const UBE = "UBE";
+}
+
+class Status
+{
+    /**
+     * ENABLE
+     */
+    const ENABLE = "ENABLE";
+
+    /**
+     * FROZEN
+     */
+    const FROZEN = "FROZEN";
+
+    /**
+     * CLOSE
+     */
+    const CLOSE = "CLOSE";
 }
 
 class Verified

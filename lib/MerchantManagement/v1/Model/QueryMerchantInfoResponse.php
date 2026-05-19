@@ -1,0 +1,125 @@
+<?php
+
+namespace Dana\MerchantManagement\v1\Model;
+
+use Dana\ObjectSerializer;
+use Dana\Model\BaseModel;
+use Dana\MerchantManagement\v1\Enum;
+
+class QueryMerchantInfoResponse extends BaseModel
+{
+    public const DISCRIMINATOR = null;
+
+    protected static $openAPIModelName = 'QueryMerchantInfoResponse';
+
+    protected static $openAPITypes = [
+        'response' => '\Dana\MerchantManagement\v1\Model\QueryMerchantInfoResponseResponse',
+        'signature' => 'string'
+    ];
+
+    protected static $openAPIFormats = [
+        
+    ];
+
+    protected static array $openAPINullables = [
+        
+    ];
+
+
+    public static function openAPITypes()
+    {
+        return self::$openAPITypes;
+    }
+
+    public static function openAPIFormats()
+    {
+        return self::$openAPIFormats;
+    }
+
+    protected static function openAPINullables(): array
+    {
+        return self::$openAPINullables;
+    }
+
+    protected array $openAPINullablesSetToNull = [];
+
+    private function getOpenAPINullablesSetToNull(): array
+    {
+        return $this->openAPINullablesSetToNull;
+    }
+
+    private function setOpenAPINullablesSetToNull(array $openAPINullablesSetToNull): void
+    {
+        $this->openAPINullablesSetToNull = $openAPINullablesSetToNull;
+    }
+
+    public function getModelName()
+    {
+        return self::$openAPIModelName;
+    }
+
+
+
+
+
+    public function __construct(?array $data = null)
+    {
+        $localData = [];
+        $defaultValues = [
+            
+        ];
+        
+        // Initialize all properties with defaults or values from input data
+        foreach (array_keys(static::$openAPITypes) as $property) {
+            $localData[$property] = isset($data) && array_key_exists($property, $data)
+                ? $data[$property]
+                : ($defaultValues[$property] ?? null);
+        }
+        
+        parent::__construct($localData);
+    }
+
+
+    public function listInvalidProperties()
+    {
+        $invalidProperties = parent::listInvalidProperties();
+
+        return $invalidProperties;
+    }
+
+
+
+    public function getResponse()
+    {
+        return $this->container['response'];
+    }
+
+    public function setResponse($response)
+    {
+        if (is_null($response)) {
+            throw new \InvalidArgumentException('non-nullable response cannot be null');
+        }
+        $this->container['response'] = $response;
+
+        return $this;
+    }
+
+    public function getSignature()
+    {
+        return $this->container['signature'];
+    }
+
+    public function setSignature($signature)
+    {
+        if (is_null($signature)) {
+            throw new \InvalidArgumentException('non-nullable signature cannot be null');
+        }
+        $this->container['signature'] = $signature;
+
+        return $this;
+    }
+
+
+}
+
+

@@ -21,6 +21,7 @@ use Dana\MerchantManagement\v1\Model\PicInfo;
 use Dana\MerchantManagement\v1\Model\QueryMerchantResourceRequest;
 use Dana\MerchantManagement\v1\Model\QueryShopRequest;
 use Dana\MerchantManagement\v1\Model\QueryAssetCardListRequest;
+use Dana\MerchantManagement\v1\Model\QueryMerchantInfoRequest;
 use Dana\MerchantManagement\v1\Model\UserName;
 
 class MerchantManagementFixtures
@@ -204,6 +205,18 @@ class MerchantManagementFixtures
             'memberId' => $memberId,
             'enableOnly' => 'true',
             'assetTypeList' => ['VA_ACCOUNT'],
+        ]);
+    }
+
+    public static function getQueryMerchantInfoRequest(): QueryMerchantInfoRequest
+    {
+        $roleId = self::getMerchantId() ?? '216620060017038045162';
+        $loginType = 'ROLE';
+
+        return new QueryMerchantInfoRequest([
+            'roleId' => $roleId,
+            'loginType' => $loginType,
+            'isQueryAccount' => true,
         ]);
     }
 }
