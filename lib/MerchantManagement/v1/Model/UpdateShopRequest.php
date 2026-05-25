@@ -94,6 +94,7 @@ class UpdateShopRequest extends BaseModel
     public const SIZE_TYPE_UKE = 'UKE';
     public const SIZE_TYPE_UME = 'UME';
     public const SIZE_TYPE_UBE = 'UBE';
+    public const SIZE_TYPE_URE = 'URE';
     public const LOYALTY_TRUE = 'true';
     public const LOYALTY_FALSE = 'false';
     public const OWNER_ID_TYPE_KTP = 'KTP';
@@ -127,6 +128,7 @@ class UpdateShopRequest extends BaseModel
             self::SIZE_TYPE_UKE,
             self::SIZE_TYPE_UME,
             self::SIZE_TYPE_UBE,
+            self::SIZE_TYPE_URE,
         ];
     }
 

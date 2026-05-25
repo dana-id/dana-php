@@ -664,6 +664,11 @@ class SizeType
      * UBE
      */
     const UBE = "UBE";
+
+    /**
+     * URE
+     */
+    const URE = "URE";
 }
 
 class Status

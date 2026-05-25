@@ -68,6 +68,22 @@ class ShopResourceInfo extends BaseModel
         return self::$openAPIModelName;
     }
 
+    public const SIZE_TYPE_UMI = 'UMI';
+    public const SIZE_TYPE_UKE = 'UKE';
+    public const SIZE_TYPE_UME = 'UME';
+    public const SIZE_TYPE_UBE = 'UBE';
+    public const SIZE_TYPE_URE = 'URE';
+
+    public function getSizeTypeAllowableValues()
+    {
+        return [
+            self::SIZE_TYPE_UMI,
+            self::SIZE_TYPE_UKE,
+            self::SIZE_TYPE_UME,
+            self::SIZE_TYPE_UBE,
+            self::SIZE_TYPE_URE,
+        ];
+    }
 
 
 
@@ -93,6 +109,15 @@ class ShopResourceInfo extends BaseModel
     public function listInvalidProperties()
     {
         $invalidProperties = parent::listInvalidProperties();
+
+        $allowedValues = $this->getSizeTypeAllowableValues();
+        if (!is_null($this->container['sizeType']) && !in_array($this->container['sizeType'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'sizeType', must be one of '%s'",
+                $this->container['sizeType'],
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -168,6 +193,16 @@ class ShopResourceInfo extends BaseModel
     {
         if (is_null($sizeType)) {
             throw new \InvalidArgumentException('non-nullable sizeType cannot be null');
+        }
+        $allowedValues = $this->getSizeTypeAllowableValues();
+        if (!in_array($sizeType, $allowedValues, true) && !empty($sizeType)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'sizeType', must be one of '%s'",
+                    $sizeType,
+                    implode("', '", $allowedValues)
+                )
+            );
         }
         $this->container['sizeType'] = $sizeType;
 

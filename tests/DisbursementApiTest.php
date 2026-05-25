@@ -27,6 +27,7 @@ use Dana\Disbursement\v1\Model\TransferToDanaResponse;
 use Dana\Disbursement\v1\Model\TransferToDanaInquiryStatusRequest;
 use Dana\Disbursement\v1\Model\TransferToDanaInquiryStatusResponse;
 use Dana\Tests\Fixtures\ApiClientFixtures;
+use Dana\Tests\Fixtures\DisbursementCustomerRetry;
 use Dana\Tests\Fixtures\DisbursementFixtures;
 
 /**
@@ -55,11 +56,20 @@ class DisbursementApiTest extends TestCase
      */
     public function testDanaAccountInquirySuccess(): void
     {
-        // Arrange
         $request = DisbursementFixtures::getDynamicDanaAccountInquiryRequest();
+        $partnerReferenceNo = $request->getPartnerReferenceNo();
 
-        // Act
-        $response = $this->apiInstance->danaAccountInquiry($request);
+        [$response] = DisbursementCustomerRetry::withCustomerNumberRetry(
+            function (string $customerNumber) use ($partnerReferenceNo) {
+                $attempt = DisbursementFixtures::getDynamicDanaAccountInquiryRequest();
+                $attempt->setPartnerReferenceNo($partnerReferenceNo);
+                $attempt->setCustomerNumber($customerNumber);
+                return $this->apiInstance->danaAccountInquiry($attempt);
+            },
+            function (DanaAccountInquiryResponse $result): ?string {
+                return $result->getResponseCode();
+            }
+        );
 
         // Assert - Check response structure and required fields
         $this->assertInstanceOf(DanaAccountInquiryResponse::class, $response);
@@ -93,10 +103,7 @@ class DisbursementApiTest extends TestCase
      */
     public function testBankAccountInquirySuccess(): void
     {
-        // Arrange
         $request = DisbursementFixtures::getDynamicBankAccountInquiryRequest();
-
-        // Act
         $response = $this->apiInstance->bankAccountInquiry($request);
 
         // Assert - Check response structure and required fields
@@ -198,11 +205,20 @@ class DisbursementApiTest extends TestCase
      */
     public function testTransferToDanaSuccess(): void
     {
-        // Arrange
         $request = DisbursementFixtures::getTransferToDanaRequest();
+        $partnerReferenceNo = $request->getPartnerReferenceNo();
 
-        // Act
-        $response = $this->apiInstance->transferToDana($request);
+        [$response] = DisbursementCustomerRetry::withCustomerNumberRetry(
+            function (string $customerNumber) use ($partnerReferenceNo) {
+                $attempt = DisbursementFixtures::getTransferToDanaRequest();
+                $attempt->setPartnerReferenceNo($partnerReferenceNo);
+                $attempt->setCustomerNumber($customerNumber);
+                return $this->apiInstance->transferToDana($attempt);
+            },
+            function (TransferToDanaResponse $result): ?string {
+                return $result->getResponseCode();
+            }
+        );
 
         // Assert
         $this->assertInstanceOf(TransferToDanaResponse::class, $response);
@@ -212,7 +228,7 @@ class DisbursementApiTest extends TestCase
         $this->assertNotNull($response->getAmount(), 'Amount should not be null');
         
         // Assert - Check partner reference number matches request
-        $this->assertEquals($request->getPartnerReferenceNo(), $response->getPartnerReferenceNo(), 'Partner reference number should match request');
+        $this->assertEquals($partnerReferenceNo, $response->getPartnerReferenceNo(), 'Partner reference number should match request');
     }
 
 
@@ -223,13 +239,24 @@ class DisbursementApiTest extends TestCase
      */
     public function testTransferToDanaInquiryStatusSuccess(): void
     {
-        // Arrange - First perform a transfer to DANA to get a valid reference
         $transferRequest = DisbursementFixtures::getTransferToDanaRequest();
-        $transferResponse = $this->apiInstance->transferToDana($transferRequest);
-        
+        $partnerReferenceNo = $transferRequest->getPartnerReferenceNo();
+
+        [$transferResponse] = DisbursementCustomerRetry::withCustomerNumberRetry(
+            function (string $customerNumber) use ($partnerReferenceNo) {
+                $attempt = DisbursementFixtures::getTransferToDanaRequest();
+                $attempt->setPartnerReferenceNo($partnerReferenceNo);
+                $attempt->setCustomerNumber($customerNumber);
+                return $this->apiInstance->transferToDana($attempt);
+            },
+            function (TransferToDanaResponse $result): ?string {
+                return $result->getResponseCode();
+            }
+        );
+
         // Create inquiry status request using the transfer response
         $inquiryRequest = DisbursementFixtures::getTransferToDanaInquiryStatusRequest(
-            $transferResponse->getPartnerReferenceNo()
+            $transferResponse->getPartnerReferenceNo() ?: $partnerReferenceNo
         );
 
         // Wait a bit before checking status

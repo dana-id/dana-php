@@ -101,6 +101,7 @@ class MerchantInformation extends BaseModel
     public const SIZE_TYPE_UKE = 'UKE';
     public const SIZE_TYPE_UME = 'UME';
     public const SIZE_TYPE_UBE = 'UBE';
+    public const SIZE_TYPE_URE = 'URE';
 
     public function getMerchantTypeAllowableValues()
     {
@@ -136,6 +137,7 @@ class MerchantInformation extends BaseModel
             self::SIZE_TYPE_UKE,
             self::SIZE_TYPE_UME,
             self::SIZE_TYPE_UBE,
+            self::SIZE_TYPE_URE,
         ];
     }
 

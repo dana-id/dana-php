@@ -849,6 +849,7 @@ $model->setProperty('DIGITAL');
 | `UKE` | `UKE` |
 | `UME` | `UME` |
 | `UBE` | `UBE` |
+| `URE` | `URE` |
 
 ### Status
 
