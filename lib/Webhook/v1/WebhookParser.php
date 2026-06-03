@@ -112,20 +112,27 @@ PEM;
      */
     private static function processNestedJSONFields(string $jsonStr): string
     {
-        $normalizedStr = str_replace('\\"', '\"', $jsonStr);
-        
         return preg_replace_callback(
             '/"(\w+)":"(\{.*?\})"/U',
             function ($matches) {
                 $fieldName = $matches[1];
                 $jsonValue = $matches[2];
-                
                 $escapedValue = str_replace('"', '\"', $jsonValue);
-                
                 return "\"{$fieldName}\":\"{$escapedValue}\"";
             },
-            $normalizedStr
-        );
+            $jsonStr
+        ) ?? $jsonStr;
+    }
+
+    private static function hasTripleEscapedJsonStringField(string $json): bool
+    {
+        return strpos($json, '":"{\\\\\\"') !== false;
+    }
+
+    private static function processOverEscapedMinifiedJson(string $json): string
+    {
+        $normalized = str_replace('\\\\"', '"', $json);
+        return self::processNestedJSONFields($normalized);
     }
 
     /**
@@ -133,15 +140,116 @@ PEM;
      */
     private static function ensureMinifiedJson(string $json): string
     {
-        $normalizedStr = str_replace('\\"', '\"', $json);
-        
-        if (self::isJsonMinified($normalizedStr)) {
-            return $normalizedStr;
+        if (self::isJsonMinified($json) && !self::hasTripleEscapedJsonStringField($json)) {
+            return $json;
         }
-        
+
+        if (self::isJsonMinified($json)) {
+            return self::processOverEscapedMinifiedJson($json);
+        }
+
+        $normalizedStr = str_replace('\\\\"', '\"', $json);
         $processedStr = self::processNestedJSONFields($normalizedStr);
-        
+
         return self::minifyJson($processedStr);
+    }
+
+    private static function isValidJson(string $json): bool
+    {
+        json_decode($json);
+        return json_last_error() === JSON_ERROR_NONE;
+    }
+
+    private static function collapseTripleBackslashQuotes(string $s): string
+    {
+        if (strpos($s, '\\\\\\"') === false) {
+            return $s;
+        }
+        return str_replace('\\\\\\"', '\\"', $s);
+    }
+
+    private static function collapseDoubleBackslashQuotes(string $s): string
+    {
+        if (strpos($s, '\\\\"') === false) {
+            return $s;
+        }
+        return str_replace('\\\\"', '"', $s);
+    }
+
+    private static function removeColonSpaceBeforeQuotedValue(string $s): string
+    {
+        if (strpos($s, ': \\"') === false) {
+            return $s;
+        }
+        return str_replace(': \\"', ':\\"', $s);
+    }
+
+    private static function normalizeOverEscapedQuotes(string $s): string
+    {
+        if (strpos($s, '\\\\"') !== false) {
+            return str_replace('\\\\"', '\\"', $s);
+        }
+        return $s;
+    }
+
+    /**
+     * Ordered body strings to hash for SNAP webhook signature verification.
+     *
+     * @return list<string>
+     */
+    private static function bodyFormsForSignature(string $requestBody): array
+    {
+        $seen = [];
+        $forms = [];
+        $add = static function (string $form) use (&$seen, &$forms): void {
+            if ($form === '' || isset($seen[$form])) {
+                return;
+            }
+            $seen[$form] = true;
+            $forms[] = $form;
+        };
+
+        $collapsed = self::collapseTripleBackslashQuotes($requestBody);
+        if ($collapsed !== $requestBody && self::isValidJson($collapsed)) {
+            $add($collapsed);
+        }
+
+        $collapsedSpaced = self::removeColonSpaceBeforeQuotedValue($collapsed);
+        if ($collapsedSpaced !== $requestBody && self::isValidJson($collapsedSpaced)) {
+            $add($collapsedSpaced);
+        }
+
+        $collapsed = self::collapseDoubleBackslashQuotes($requestBody);
+        if ($collapsed !== $requestBody && self::isValidJson($collapsed)) {
+            $add($collapsed);
+        }
+
+        $spaced = self::removeColonSpaceBeforeQuotedValue($requestBody);
+        if ($spaced !== $requestBody && self::isValidJson($spaced)) {
+            $add($spaced);
+        }
+
+        $collapsedSpaced = self::collapseTripleBackslashQuotes($spaced);
+        if ($collapsedSpaced !== $requestBody && self::isValidJson($collapsedSpaced)) {
+            $add($collapsedSpaced);
+        }
+
+        if (self::isValidJson($requestBody)) {
+            $add($requestBody);
+        }
+
+        $normalized = self::normalizeOverEscapedQuotes($requestBody);
+        if ($normalized !== $requestBody && self::isJsonMinified($normalized) && self::isValidJson($normalized)) {
+            $add($normalized);
+        }
+
+        $add(self::ensureMinifiedJson($requestBody));
+
+        if ($forms === []) {
+            throw new RuntimeException('failed to prepare any signature body form');
+        }
+
+        return $forms;
     }
 
     /**
@@ -150,7 +258,7 @@ PEM;
     private static function isJsonMinified(string $json): bool
     {
         $indicators = [': ', ', ', '{ ', '[ ', "\n", "\t", "\r"];
-        
+
         foreach ($indicators as $indicator) {
             if (strpos($json, $indicator) !== false) {
                 return false;
@@ -177,22 +285,51 @@ PEM;
         return hash('sha256', $data);
     }
 
-    /**
-     * Construct the string to be verified
-     */
     private function constructStringToVerify(
         string $httpMethod,
         string $relativePathURL,
         string $body,
         string $timestamp
     ): string {
-        $minifiedBody = self::ensureMinifiedJson($body);
-        $bodyHash = self::sha256LowerHex($minifiedBody);
-        
-        // Ensure path starts with a slash
+        $bodyHash = self::sha256LowerHex($body);
         $path = '/' . ltrim($relativePathURL, '/');
-        
         return "{$httpMethod}:{$path}:{$bodyHash}:{$timestamp}";
+    }
+
+    private function verifySignature(
+        string $httpMethod,
+        string $relativePathURL,
+        string $body,
+        string $timestamp,
+        string $xSignature
+    ): void {
+        $bodyForms = self::bodyFormsForSignature($body);
+        $method = strtoupper($httpMethod);
+
+        $signature = base64_decode($xSignature, true);
+        if ($signature === false) {
+            throw new Exception('Failed to base64 decode X-SIGNATURE');
+        }
+
+        foreach ($bodyForms as $bodyForm) {
+            $stringToVerify = $this->constructStringToVerify($method, $relativePathURL, $bodyForm, $timestamp);
+            $result = openssl_verify(
+                $stringToVerify,
+                $signature,
+                $this->publicKey,
+                OPENSSL_ALGO_SHA256
+            );
+
+            if ($result === -1) {
+                throw new Exception('Error during signature verification: ' . openssl_error_string());
+            }
+
+            if ($result === 1) {
+                return;
+            }
+        }
+
+        throw new Exception('Signature verification failed');
     }
 
     /**
@@ -221,36 +358,16 @@ PEM;
         $xSignature = $headers['X-SIGNATURE'];
         $xTimestamp = $headers['X-TIMESTAMP'];
 
-        $processedBody = self::ensureMinifiedJson($body);
+        $this->verifySignature($httpMethod, $relativePathURL, $body, $xTimestamp, $xSignature);
 
-        $stringToVerify = $this->constructStringToVerify(
-            strtoupper($httpMethod),
-            $relativePathURL,
-            $processedBody,
-            $xTimestamp
-        );
-
-        $signature = base64_decode($xSignature, true);
-        if ($signature === false) {
-            throw new Exception('Failed to base64 decode X-SIGNATURE');
+        // Try the collapsed body first (handles over-escaped \\\" → \"), then the
+        // ensureMinifiedJson fallback for pretty-printed bodies.
+        $collapsed = self::collapseTripleBackslashQuotes($body);
+        $data = json_decode($collapsed, false, 512);
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            $processedBody = self::ensureMinifiedJson($body);
+            $data = json_decode($processedBody, false, 512, JSON_THROW_ON_ERROR);
         }
-
-        $result = openssl_verify(
-            $stringToVerify,
-            $signature,
-            $this->publicKey,
-            OPENSSL_ALGO_SHA256
-        );
-
-        if ($result === -1) {
-            throw new Exception('Error during signature verification: ' . openssl_error_string());
-        }
-
-        if ($result !== 1) {
-            throw new Exception('Signature verification failed');
-        }
-
-        $data = json_decode($processedBody, false, 512, JSON_THROW_ON_ERROR);
         
         $request = new FinishNotifyRequest();
         
