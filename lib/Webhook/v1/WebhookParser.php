@@ -192,6 +192,17 @@ PEM;
         return $s;
     }
 
+    private static function removeSpacesInJsonKeyNames(string $body): string
+    {
+        return preg_replace_callback(
+            '/(\\\\*)"(\w+(?:\s+\w+)+)(\\\\*)"(\s*:)/',
+            function ($matches) {
+                return $matches[1] . '"' . str_replace(' ', '', $matches[2]) . $matches[3] . '"' . $matches[4];
+            },
+            $body
+        ) ?? $body;
+    }
+
     /**
      * Ordered body strings to hash for SNAP webhook signature verification.
      *
@@ -241,6 +252,16 @@ PEM;
         $normalized = self::normalizeOverEscapedQuotes($requestBody);
         if ($normalized !== $requestBody && self::isJsonMinified($normalized) && self::isValidJson($normalized)) {
             $add($normalized);
+        }
+
+        $spacedKeyFixed = self::removeSpacesInJsonKeyNames($requestBody);
+        if ($spacedKeyFixed !== $requestBody) {
+            $add($spacedKeyFixed);
+        }
+
+        $spacedKeyFixedCollapsed = self::removeSpacesInJsonKeyNames(self::collapseTripleBackslashQuotes($requestBody));
+        if ($spacedKeyFixedCollapsed !== $requestBody) {
+            $add($spacedKeyFixedCollapsed);
         }
 
         $add(self::ensureMinifiedJson($requestBody));

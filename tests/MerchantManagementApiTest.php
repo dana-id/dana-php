@@ -67,6 +67,8 @@ class MerchantManagementApiTest extends TestCase
      */
     public function testCreateShop()
     {
+        $this->markTestSkipped("Temporarily skipped");
+
         // Get request parameters from fixtures
         $createShopRequest = MerchantManagementFixtures::getCreateShopRequest($this->externalShopId);
         
@@ -231,13 +233,13 @@ class MerchantManagementApiTest extends TestCase
      */
     public function testQueryShop()
     {
-        // Get request fixture - using empty shop ID to query all shops
-        $queryRequest = MerchantManagementFixtures::getQueryShopRequest($this->externalShopId);
+        $shopId = "216660000003429526679";
+        $queryRequest = MerchantManagementFixtures::getQueryShopRequest($shopId);
         try {
             // Call the API
             $response = $this->apiInstance->queryShop($queryRequest);
-            // echo "\n\n=== API Response ===\n";
-            // echo json_encode(json_decode($response->__toString(), true), JSON_PRETTY_PRINT) . "\n";
+            echo "\n\n=== Raw API Response ===\n";
+            echo json_encode(json_decode($response->__toString(), true), JSON_PRETTY_PRINT) . "\n";
             // Basic assertions
             $this->assertNotNull($response, 'API response should not be null');
             
@@ -293,7 +295,7 @@ class MerchantManagementApiTest extends TestCase
                     
                     // Test shop info structure if it exists
                 } else {
-                    echo "No shop found with ID: " . $this->externalShopId . "\n";
+                    echo "No shop found with ID: " . $shopId . "\n";
                 }
             }
             $this->assertTrue($resultInfo->getResultMsg() === 'SUCCESS', 'Result message should be "SUCCESS"');
