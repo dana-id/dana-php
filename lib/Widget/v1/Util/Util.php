@@ -32,7 +32,7 @@ class Util
 
         if ($mode === Mode::DEEPLINK) {
             if ($env === 'production') {
-                $baseUrl = 'https://m.dana.id/n/link/bind';
+                $baseUrl = 'https://m.dana.id/n/link/binding';
             } else {
                 $baseUrl = 'https://m.sandbox.dana.id/n/link/binding';
             }
